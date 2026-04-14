@@ -13,6 +13,12 @@ El sistema se reduce a 4 agentes:
 
 La reduccion elimina redundancias sin perder control: el Product Guardian opera siempre y decide si necesita validaciones adicionales.
 
+## Orquestacion del sistema
+
+El flujo obligatorio entre agentes esta definido en `agents/orchestrator.md`.
+
+Ningun cambio puede ejecutarse fuera de ese flujo: todo input debe pasar por clasificacion, validaciones aplicables y generacion de prompt antes de producir output.
+
 ## Principios protegidos
 
 Ningun agente debe permitir que el sistema derive hacia:

@@ -37,6 +37,12 @@ El sistema detecta errores y guía la práctica automáticamente.
 
 ---
 
+## Implementacion
+
+La implementacion del producto esta mediada por un sistema de agentes que garantiza consistencia, trazabilidad y control de alcance.
+
+---
+
 ## Propuesta de valor
 
 El valor del producto no está en explicar.

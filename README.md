@@ -17,6 +17,15 @@ Su objetivo es definir el sistema completo antes de la implementación.
 
 ---
 
+## Sistema de agentes
+
+El producto utiliza un sistema de agentes para validar decisiones antes de avanzar.
+El flujo esta gobernado por `agents/orchestrator.md`.
+Todas las decisiones pasan por clasificacion, validaciones aplicables y generacion de prompt.
+Esto mantiene consistencia, trazabilidad y control de alcance.
+
+---
+
 ## 📂 Estructura del repositorio
 
 ### /docs
