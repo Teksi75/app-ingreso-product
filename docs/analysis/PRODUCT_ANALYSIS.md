@@ -1,10 +1,43 @@
 # Análisis de Sistema de Producto - App Ingreso
 
+> **Última actualización:** Abril 2026  
+> **Estado general:** En progreso - Mejora respecto a análisis inicial
+
+---
+
+## 0. Resumen de avances (Abril 2026)
+
+### Problemas resueltos ✅
+
+| Problema original | Estado actual |
+|------------------|---------------|
+| skills_map_v1 y v2 contradictorios | ✅ Unificado en `docs/03_skill_system/skills_map.md` |
+| Documento 00_vision vacío | ✅ `product_vision.md` completo con target, propuesta de valor, diferencial |
+| Target de usuarios ambiguo | ✅ Definido: estudiante 11-12 años como usuario, adulto como cliente |
+| Criterios de dominio ausentes | ✅ Definidos en skills_map (60%/85%, niveles Inicial/En progreso/Dominado) |
+| ADR-001, ADR-003 bien definidos | ✅ Consistentes con la dirección del producto |
+
+### Problemas pendientes ⚠️
+
+| Problema | Prioridad | Estado |
+|----------|-----------|--------|
+| 01_research y 02_pedagogical_model vacíos | Alta | Sin cambios |
+| Contradicción autonomía vs rol del padre | Alta | Sin cambios |
+| Modelo comercial sin precio/tiers | Alta | Sin cambios |
+| Adaptatividad primitiva | Media | Sin cambios |
+| Validación contra examen objetivo | Alta | Sin cambios |
+| Proceso de creación de contenido | Alta | Sin cambios |
+| Legal real (no solo posicionamiento) | Media | Sin cambios |
+
+**Progreso estimado:** ~40% de los problemas críticos resueltos.
+
+---
+
 ## 1. Coherencia general del sistema
 
-### Estado
+### Estado actual
 
-El sistema tiene una base sólida pero está incompleto y tiene contradicciones internas que deben resolverse antes de avanzar a implementación.
+El sistema ha mejorado significativamente. La base conceptual está más sólida, pero persisten vacíos críticos y contradicciones internas que deben resolverse antes de avanzar a implementación.
 
 ### Alineación
 
@@ -13,16 +46,18 @@ El sistema tiene una base sólida pero está incompleto y tiene contradicciones 
 - El principio de "entrenamiento vs enseñanza" permea correctamente los documentos operativos
 - La estructura general (skills → exercises → simulator → metrics) tiene lógica descendente
 - El posicionamiento legal y comercial está alineado y es prudente
+- Skills map unificado con 7 habilidades claras y subhabilidades definidas
+- Product vision define usuario objetivo (estudiante 11-12) y cliente (adulto)
 
 **Lo que NO funciona:**
-- skills_map_v1 y skills_map_v2 son versiones contradictorias, no complementarias
-- 4 de 11 documentos están vacíos (00_vision, 01_research, 02_pedagogical_model)
 - exercise_engine y user_journey tienen redundancias (feedback, adaptatividad)
-- El target de usuarios es ambiguo: ¿adolescentes de 11-12 años o "usuarios adultos"? (ver ADR-004 vs user_journey sección 8)
+- 2 de 11 documentos siguen vacíos (01_research, 02_pedagogical_model)
+- Contradicción: ADR-003 dice "autonomía total" pero user_journey y business_rules asignan rol activo al padre
 - No hay definición de producto mínimo viable ni features priorizadas
+- Modelo comercial sin precio, tiers ni condiciones
 
 ### Conclusión parcial
-Las piezas conceptuales existen pero no forman un sistema integrado. Hay duplicación, vacíos y contradicciones que impedirán una implementación limpia.
+Las piezas conceptuales existen y están más integradas. La unificación de skills_map fue el cambio más importante. Sin embargo, persisten contradicciones (autonomía vs padre) y vacíos (research, modelo pedagógico, comercial) que impedirán una implementación limpia.
 
 ---
 
@@ -167,7 +202,7 @@ Las piezas conceptuales existen pero no forman un sistema integrado. Hay duplica
 
 ## 3. Problemas estructurales
 
-### Duplicaciones
+### Duplicaciones (persistentes)
 
 | Contenido | Ubicaciones |
 |-----------|-------------|
@@ -175,31 +210,164 @@ Las piezas conceptuales existen pero no forman un sistema integrado. Hay duplica
 | Adaptatividad | exercise_engine, user_journey, metrics |
 | Rol del padre | user_journey, business_rules, legal_positioning |
 | Qué es y qué no es el producto | ADR-001, ADR-003, business_rules, legal_positioning |
-| Criterios de dominio | skills_map_v1, skills_map_v2 |
 
 ### Conceptos mal definidos
 
-1. **Autonomía real**: Se dice que el usuario elige pero el sistema "propone". ¿Quién manda?
+1. **Autonomía real**: ADR-003 dice "usuario elige" pero user_journey dice "sistema propone". ¿Quién manda?
 2. **Qué significa "dominado"**: Los thresholds (60/85%) son arbitrarios. ¿Hay data que los respalde?
 3. **Dificultad de ejercicios**: Se menciona nivel 1-3 pero no qué hace que algo sea difícil.
 4. **Contenido original**: Se dice que es "original" pero no hay metodología de creación definida.
-5. **Target real**: ¿11-12 años? ¿usuarios adultos? ¿padres que compran para hijos?
+5. **Target real**: Resuelto parcialmente - ahora hay claridad (usuario=estudiante, cliente=adulto) pero falta validar con research.
 
-### Vacíos importantes
+### Vacíos importantes (persistentes)
 
-1. No hay análisis competitivo real (solo se asume que no hay otro igual)
-2. No hay validación de que las habilidades elegidas corresponden al examen objetivo
-3. No hay definición de cómo se crea contenido nuevo (banco de ejercicios, creación, curación)
-4. No hay noción de gamificación, streaks, badges,激励机制
-5. No hay consideración de offline, sync, multi-device
-6. No hay定義 de qué pasa si el usuario quiere dejar de usar la app
+1. ~~No hay análisis competitivo real~~ → Pendiente (sin cambios)
+2. ~~No hay validación de habilidades~~ → Pendiente (sin cambios)
+3. ~~No hay proceso de creación de contenido~~ → Pendiente (sin cambios)
+4. No hay noción de gamificación, streaks, badges (aceptable para MVP)
+5. No hay consideración de offline, sync, multi-device (aceptable para MVP)
+6. No hay definición de qué pasa si el usuario quiere dejar de usar la app
 7. No hay strategy de onboarding para distintos tipos de usuario
 
 ### Partes que no escalan
 
-1. **skills_map_v2**: Si se agregan más habilidades como "Narrador y punto de vista", el sistema se fragmenta
-2. **exercise_engine**: Con 5 tipos de ejercicios no se puede entrenar todo; limitante para escala
-3. **Modelo de contenido**: Si todo es "original", la creación de contenido no escala sin proceso industrial
+1. **skills_map**: Con 7 habilidades + subhabilidades, si se agregan más el sistema se fragmenta. Validar que estas 7 son suficientes.
+2. **exercise_engine**: Con 5 tipos de ejercicios no se puede entrenar "Expresión Escrita". Aceptable si se limita el scope a comprensión lectora.
+3. **Modelo de contenido**: Si todo es "original", la creación de contenido no escala sin proceso industrial definido.
+
+---
+
+## 3.1. Propuestas de solución para problemas críticos
+
+### A. Contradicción autonomía vs rol del padre
+
+**Problema:** ADR-003 dice autonomía total, pero user_journey sección 8 y business_rules asignan rol activo al padre ("supervisar uso", "asegurar constancia").
+
+**Análisis:** Ambos son legítimos pero para usuarios diferentes:
+- El estudiante (11-12) debería tener autonomía en la práctica
+- El padre debería tener visibilidad del progreso y herramientas de control
+
+**Solución propuesta:**
+1. Separar claramente "UX del estudiante" vs "UX del padre"
+2. El padre NO debe intervenir en el flujo de práctica del estudiante
+3. El padre tiene su propia vista: dashboard de progreso, configuración de límites de tiempo
+4. Crear ADR-005 "Modelo de roles" que defina esta separación
+
+**Acción requerida:**
+- Crear nuevo ADR-005
+- Modificar user_journey sección 8: cambiar "intervención" por "visibilidad"
+- Modificar business_rules sección "Rol del padre": separar supervisión de intervención
+
+---
+
+### B. Documentos vacíos: research y modelo pedagógico
+
+**Problema:** 01_research y 02_pedagogical_model siguen como "borrador inicial" (3 líneas).
+
+**Solución propuesta:**
+
+**Para 01_research:**
+- Agregar análisis competitivo: ¿qué existe hoy para estos exámenes?
+- Agregar user persona del estudiante (11-12): cómo practica, qué le frustra
+- Agregar user persona del padre: qué busca, qué teme, cuánto está dispuesto a pagar
+- Validar si el examen objetivo está públicamente disponible o si se necesita acceso
+
+**Para 02_pedagogical_model:**
+- Fundamentar por qué la práctica repetitiva funciona (ciencia del aprendizaje)
+- Citar fuentes: spaced repetition, cognitive load theory, deliberate practice
+- Definir cómo se traducen estos principios al diseño del producto
+- Especificar limitaciones: qué NO puede lograr este enfoque
+
+**Acción requerida:**
+- Prioridad media: no bloquea implementación pero sí validación del enfoque
+
+---
+
+### C. Modelo comercial ausente
+
+**Problema:** business_rules dice "acceso por tiempo" pero sin precio, tiers, ni condiciones.
+
+**Solución propuesta:**
+
+Definir 3 tiers:
+
+| Tier | Nombre | Precio sugerido | Contenido |
+|------|--------|----------------|-----------|
+| Free | Diagnóstico | $0 | 1 diagnóstico, 5 ejercicios/habilidad, sin simulador |
+| Basic | Mensual | $9.99/mes | Ejercicios ilimitados, 1 simulación/semana, métricas básicas |
+| Pro | Mensual | $19.99/mes | Todo + simulaciones ilimitadas, métricas avanzadas, dashboard padre |
+
+**Acción requerida:**
+- Definir precios reales basados en costos y mercado
+- Diseñar flujo de upgrade desde Free a Basic/Pro
+- Definir política de cancelacón y refund (mínimo 7 días)
+
+---
+
+### D. Validación contra examen objetivo
+
+**Problema:** Las 7 habilidades no están validadas contra el examen real que el usuario quiere aprobar.
+
+**Solución propuesta:**
+
+1. **Si el examen tiene estructura pública:** Mapear cada habilidad del skills_map contra las secciones del examen. Documentar qué habilidades corresponden a qué parte del examen.
+
+2. **Si el examen NO tiene estructura pública:**
+   - Usar técnicas de reverse-engineering: analizar exams anteriores si existen
+   - Validar con usuarios que ya tomaron el examen: ¿las habilidades que entrenamos aparecen en el examen?
+   - Crear hipótesis y testear con datos reales post-lanzamiento
+
+3. **Crear matriz de trazabilidad:**
+
+| Habilidad | Examen sección | Preguntas tipo | Importancia |
+|-----------|---------------|----------------|-------------|
+| Comprensión literal | ¿? | ¿? | Crítica |
+| Inferencia | ¿? | ¿? | Crítica |
+| ... | ... | ... | ... |
+
+**Acción requerida:**
+- Alta prioridad - sin esto el entrenamiento podría ser irrelevante
+- Requiere acceso al examen o a informantes que lo conozcan
+
+---
+
+### E. Proceso de creación de contenido
+
+**Problema:** No hay metodología definida para crear ejercicios nuevos. "Original" no es suficiente.
+
+**Solución propuesta:**
+
+1. **Definir el proceso de creación de un ejercicio:**
+
+```
+Idea → Draft → Validación pedagógica → Revisión de errores comunes 
+→ Test con usuario → Aprobación → Banco de ejercicios
+```
+
+2. **Roles:**
+   - Pedagogo: valida que el ejercicio mide lo que dice medir
+   - Editor: revisa claridad de consigna, opciones, distractores
+   - Usuario beta: testea que el ejercicio es comprensible
+
+3. **Criterios de calidad de un ejercicio:**
+   - Mide una habilidad específica (no mezcladas)
+   - Distractores representan errores reales (no aleatorios)
+   - Consigna sin ambigüedad
+   - Respuesta correcta objetivamente verificable
+   - Para opción múltiple: 4 opciones, 1 correcta, 3 distractores plausibles
+
+4. **Banco de ejercicios vs generación procedural:**
+   - Para MVP: banco estático de ejercicios (100-200 por habilidad)
+   - Fase 2: generación procedural controlada (misma estructura, contenido variable)
+   - Fase 3: IA generativa (futuro)
+
+**Acción requerida:**
+- Prioridad alta - sin ejercicios el producto no existe
+- Empezar con 20-30 ejercicios por habilidad para tener MVP funcional
+
+---
+
+## 4. Riesgos del producto
 
 ---
 
@@ -261,68 +429,82 @@ Las piezas conceptuales existen pero no forman un sistema integrado. Hay duplica
 
 ## 5. Nivel del producto
 
-**Clasificación: BÁSICO**
+**Clasificación: BÁSICO → EN DESARROLLO**
 
 ### Justificación
 
-El sistema tiene conceptos correctos pero incompletos. Está en etapa de "boceto de producto", no de diseño de producto.
+El sistema ha avanzado de "boceto" a "diseño en progreso". Los conceptos centrales están más definidos y hay coherencia entre documentos. Sin embargo, persisten vacíos críticos.
 
 Evidencia:
 
-| Dimensión | Estado |
-|-----------|--------|
-| Visión de producto | Vacía (00_vision) |
-| Research | Vacío (01_research) |
-| Modelo pedagógico | Vacío (02_pedagogical_model) |
-| Skills validados | No (2 versiones contradictorias) |
-| Motor de ejercicios | Conceptual, sin algoritmo |
-| Adaptatividad | Reglas if-then, sin lógica robusta |
-| Métricas | Nombres, sin cálculo definido |
-| Modelo comercial | Principos, sin precio ni tiers |
-| Legal | Posicionamiento, no términos |
-| Scaling plan | No hay |
+| Dimensión | Estado anterior | Estado actual |
+|-----------|-----------------|---------------|
+| Visión de producto | Vacía | ✅ Completa |
+| Research | Vacío | ⚠️ Borrador (3 líneas) |
+| Modelo pedagógico | Vacío | ⚠️ Borrador (3 líneas) |
+| Skills validados | No (2 versiones) | ✅ Unificado (v2) |
+| Motor de ejercicios | Conceptual | ✅ Estructura definida, falta algoritmo |
+| Adaptatividad | Reglas if-then | ⚠️ Sin cambios |
+| Métricas | Nombres, sin cálculo | ⚠️ Sin cambios |
+| Modelo comercial | Principos, sin precio | ⚠️ Sin cambios |
+| Legal | Posicionamiento | ⚠️ Sin cambios |
+| Scaling plan | No hay | ✅ Roadmap existe |
 
-Lo que existe es un buen brief de producto, no un sistema de producto.
+**Lo que existe ahora es un diseño de producto funcional, no un boceto.**
+
+Para avanzar a implementación necesita:
+- Llenar los 2 documentos vacíos (research, modelo pedagógico) - no bloqueante pero recomendado
+- Resolver la contradicción autonomía vs rol del padre - bloqueante
+- Definir modelo comercial básico - bloqueante para lanzar
+- Validar skills contra examen objetivo - bloqueante para éxito del producto
 
 ---
 
-## 6. Recomendaciones concretas
+## 6. Recomendaciones actualizadas (Abril 2026)
 
-### Prioridad Alta
+### Prioridad Alta - Bloqueantes
 
-**1. Eliminar skills_map_v2 y fijar v1 como oficial (o fusionar)**
-Dos versiones = ninguna versión. Decidir una y documentar por qué se eligió.
+**1. Resolver contradicción autonomía vs rol del padre** ⭐ NUEVO
+- Crear ADR-005 "Modelo de roles" que separe UX estudiante vs UX padre
+- Modificar user_journey y business_rules para eliminar intervención del padre en flujo de práctica
+- Ver propuesta completa en sección 3.1.A
 
-**2. Validar skills contra el examen objetivo**
-Definir: ¿qué examen? ¿se tiene acceso a su estructura? ¿las habilidades cubren lo que ese examen evalúa?
+**2. Validar skills contra el examen objetivo** ⭐
+- Mapear las 7 habilidades a las secciones del examen real
+- Crear matriz de trazabilidad (ver sección 3.1.D)
+- Sin esto, el entrenamiento podría ser irrelevante
 
-**3. Definir la estructura de contenido**
-¿Cómo se crean ejercicios? ¿Quién los crea? ¿Cómo se valida que son buenos? Sin esto, el producto no escala.
+**3. Definir proceso de creación de contenido** ⭐
+- Diseñar workflow de creación de ejercicios (idea → draft → validación → aprobación)
+- Empezar con banco estático (100-200 ejercicios por habilidad)
+- Ver sección 3.1.E para propuesta detallada
 
-**4. Escribir product_vision**
-Sin visión no hay dirección. Minimum: target, problema que resuelve, propuesta de valor, diferencia.
+**4. Definir modelo comercial básico** ⭐ NUEVO
+- Diseñar tiers Free/Basic/Pro con precios
+- Definir política de cancelación y refund
+- Ver propuesta en sección 3.1.C
 
-**5. Definir modelo de usuario (quién usa realmente)**
-¿El usuario es el adolescente de 11-12 años o el padre que compra? Esto cambia onboarding, UX, legal y pricing.
+### Prioridad Media - Recomendados
 
-### Prioridad Media
+**5. Llenar documentos vacíos (01_research, 02_pedagogical_model)** ⭐ NUEVO
+- Ya no están vacíos conceptualmente pero sí en contenido
+- Research: análisis competitivo, user personas, validación de examen
+- Modelo pedagógico: fundamentación científica de spaced repetition y deliberate practice
 
 **6. Diseñar el loop de adaptatividad completo**
-El documento actual dice "falló → repetir" pero no dice: ¿cuántos ejercicios antes de cambiar? ¿cómo se detecta que el cambio funcionó?
+- Definir: ¿cuántos ejercicios antes de cambiar? ¿cómo se detecta que funcionó?
+- Parámetros sugeridos: 5 ejercicios por habilidad antes de re-evaluar
 
 **7. Definir métricas de retention**
-¿Cuántas sesiones/semana son el objetivo? ¿Qué pasa cuando el usuario no vuelve? Sin esto no hay forma de medir si el producto funciona.
+- ¿Cuántas sesiones/semana son el objetivo?
+- ¿Qué pasa cuando el usuario no vuelve? (re-engagement)
 
-**8. Escribir modelo pedagógico real**
-"No enseña, solo entrena" es un principio, no un modelo. Necesita fundamentación: ¿por qué funciona la práctica repetitiva? ¿qué dice la ciencia del aprendizaje?
+**8. Desarrollar términos legales reales**
+- Política de privacidad (crítico para menores)
+- Términos de uso
+- Consentimiento parental (GDPR/LOPD)
 
-**9. Desglosar business_rules en modelo comercial**
-Precio, tiers, períodos de facturación, refund policy. Los principios no son suficientes.
-
-**10. Desarrollar términos legales reales**
-El positioning actual no protege legalmente. Necesita política de privacidad, términos de uso, y handling de menores.
-
-### Prioridad Baja (después de tener lo anterior)
+### Prioridad Baja (después de MVP)
 
 - Gamificación (streaks, badges)
 - Dashboard de padre expandido
@@ -331,55 +513,71 @@ El positioning actual no protege legalmente. Necesita política de privacidad, t
 
 ---
 
-## 7. Antes de construir product_vision
+## 7. Checklist de pre-lanzamiento
 
-### Qué está listo
+### Lo que ya está listo ✅
 
-- Marco conceptual general (entrenamiento vs enseñanza, skills, feedback inmediato)
-- ADR consistentes que definen alcance y limitaciones
-- Roadmap con fases lógicas de evolución
-- Posicionamiento legal y comercial sensato
+- [x] Marco conceptual general (entrenamiento vs enseñanza, skills, feedback inmediato)
+- [x] ADR consistentes que definen alcance y limitaciones
+- [x] Roadmap con fases lógicas de evolución
+- [x] Posicionamiento legal y comercial sensato
+- [x] Product vision completa (target, propuesta de valor, diferencial)
+- [x] Skills unificado (7 habilidades con subhabilidades, criterios de dominio)
+- [x] Exercise engine con tipos de ejercicios y estructura definida
+- [x] User journey con flujo principal
 
-### Qué falta definir
+### Qué falta antes de poder construir (bloqueantes) ⚠️
 
-1. **Visión**: Vacía
-2. **Research**: Vacío (no hay análisis de mercado, usuario, ni competitivo)
-3. **Modelo pedagógico**: Vacío (no hay fundamentación de por qué esto funciona)
-4. **Skills oficial**: Dos versiones contradictorias
-5. **Contenido**: No hay método de creación de ejercicios
-6. **Usuario real**: Ambigüedad entre target demográfico
+- [ ] **Resolver contradicción autonomía vs rol del padre** (crear ADR-005)
+- [ ] **Validar skills contra examen objetivo** (matriz de trazabilidad)
+- [ ] **Definir proceso de creación de contenido** (workflow de ejercicios)
+- [ ] **Definir modelo comercial** (tiers, precios, refund)
+- [ ] **Llenar 01_research** (análisis competitivo, user personas)
+- [ ] **Llenar 02_pedagogical_model** (fundamentación científica)
 
-### Qué debería corregirse antes de avanzar
+### Qué falta antes de lanzar comercialmente ⚠️
 
-1. **skills_map**: Elegir UNA versión. Si v1 y v2 tienen elementos útiles, fusionar en una tercera versión coherente.
-2. **Target de usuario**: Definir si el producto es para el estudiante (11-12 años) o para el padre que compra. No puede ser ambos con la misma UX.
-3. **Creación de contenido**: Definir el proceso antes debuild engine. Si no hay forma de generar ejercicios, el engine no tiene sentido.
-4. **Legal + menores**: Decidir cómo se handled datos de menores de forma legalmente compliant.
-5. **Métricas de negocio**: Definir qué significa "éxito" en números (usuarios, retention, revenue).
+- [ ] Términos legales reales (política de privacidad, términos de uso)
+- [ ] Consentimiento parental para menores (GDPR/LOPD compliance)
+- [ ] Integración de pagos (si se cobra)
+- [ ] Dashboard de padre funcional
 
-### Secuencia sugerida
+### Secuencia sugerida para completar
 
-1. Validar skills contra examen objetivo
-2. Definir target de usuario y buyer persona
-3. Definir proceso de creación de contenido
-4. Escribir product_vision y modelo pedagógico
-5. Desarrollar legal real (no solo posicionamiento)
-6. Diseñar modelo comercial concreto
-7. Con lo anterior: unificar skills_map en una versión
+```
+1. Crear ADR-005 (modelo de roles) - resuelve contradicción
+2. Llenar 01_research y 02_pedagogical_model - semana 1
+3. Validar skills contra examen + crear proceso de contenido - semana 2
+4. Definir modelo comercial (tiers, precios) - semana 3
+5. Desarrollar términos legales reales - semana 4
+6. CON LO ANTERIOR: empezar a construir MVP técnico
+```
+
+**Nota:** Las secciones 3.1.A a 3.1.E tienen propuestas detalladas para cada problema crítico.
 
 ---
 
 ## Resumen
 
-El repositorio tiene bones mimbres de un sistema de producto EdTech. Los conceptos centrales (skills, práctica intensiva, feedback, simulaciones) están bien pensados y son coherentes entre sí.
+El producto ha evolucionado de "brief de producto" a "diseño en progreso". Los cambios más importantes fueron:
+- Unificación de skills_map (eliminando contradicciones v1/v2)
+- Product vision completa
+- Definición clara del usuario objetivo
 
-Sin embargo, está incompleto en lo esencial:
-- 4 de 11 documentos vacíos
-- Skills duplicados en dos versiones incompatibles
-- Sin validación contra el examen objetivo
-- Sin proceso de creación de contenido
-- Legal y comercial en modo "posicionamiento" no en modo "operativo"
+**Lo que se logró (~40% de problemas críticos):**
+- ✅ Sistema de skills unificado con 7 habilidades
+- ✅ Product vision y posicionamiento definidos
+- ✅ ADR consistentes y roadmap claro
+- ✅ Exercise engine con estructura definida
 
-**El sistema está en etapa de brief de producto, no de diseño de producto.**
+**Lo que falta (~60% de problemas críticos):**
+- ⚠️ Contradicción autonomía vs rol del padre (bloqueante)
+- ⚠️ Validación contra examen objetivo (bloqueante)
+- ⚠️ Proceso de creación de contenido (bloqueante)
+- ⚠️ Modelo comercial (bloqueante para lanzar)
+- ⚠️ Research y modelo pedagógico vacíos
+- ⚠️ Legal real (no solo posicionamiento)
 
-Para avanzar a implementación necesita: definir target, validar skills, crear proceso de contenido, y convertir documentos conceptuales en documentos operativos.
+**Estado actual:** Diseño de producto funcional, listo pararesolver bloqueantes antes de implementar.
+
+Las propuestas de solución detalladas están en la sección 3.1 (A-E).
