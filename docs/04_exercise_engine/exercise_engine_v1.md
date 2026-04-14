@@ -188,6 +188,16 @@ Esto permite:
 
 ---
 
+## Auditoría de ejercicios
+
+Todo set de ejercicios debe pasar auditoria antes de considerarse valido.
+
+La auditoria verifica loop completo, skill correcta, distractores plausibles y feedback breve.
+
+Referencia actual: `lengua_exercises_audit_v1.md`
+
+---
+
 ## Nota
 
 El motor de ejercicios es el núcleo operativo del sistema.

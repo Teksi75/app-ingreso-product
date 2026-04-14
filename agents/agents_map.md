@@ -171,6 +171,10 @@ Quality Auditor
 Codex Prompt Generator
   -> genera prompts ejecutables
   -> no define producto ni cambia reglas
+
+Generacion de ejercicios
+  -> despues de Codex Prompt Generator, Quality Auditor ejecuta validacion sobre ejercicios
+  -> ningun set de ejercicios queda valido sin auditoria documentada
 ```
 
 ## Fuentes de verdad

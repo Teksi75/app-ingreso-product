@@ -1,0 +1,91 @@
+import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
+import { dirname, resolve } from "node:path";
+
+export type SkillState = "weak" | "developing" | "mastered";
+export type SessionMode = "practice" | "simulator";
+
+export type SessionSkillResult = {
+  skill_id: string;
+  attempts: number;
+  correct: number;
+  state: SkillState;
+};
+
+export type SessionData = {
+  mode: SessionMode;
+  total_attempts: number;
+  total_correct: number;
+  total_errors: number;
+  skill_results: SessionSkillResult[];
+};
+
+export type StoredProgress = {
+  sessions: Array<SessionData & { id: string; created_at: string }>;
+  skill_stats: Record<
+    string,
+    {
+      total_attempts: number;
+      total_correct: number;
+      last_state: SkillState;
+    }
+  >;
+};
+
+const progressPath = resolve(process.cwd(), "data/progress.json");
+
+export function loadProgress(): StoredProgress {
+  if (!existsSync(progressPath)) {
+    return createEmptyProgress();
+  }
+
+  const raw = readFileSync(progressPath, "utf8");
+  return JSON.parse(raw) as StoredProgress;
+}
+
+export function saveSessionResult(sessionData: SessionData): StoredProgress {
+  const progress = loadProgress();
+  const session = {
+    ...sessionData,
+    id: createSessionId(),
+    created_at: new Date().toISOString(),
+  };
+
+  progress.sessions.push(session);
+  updateSkillStats(progress, sessionData);
+  writeProgress(progress);
+
+  return progress;
+}
+
+export function updateSkillStats(progress: StoredProgress, sessionData: SessionData): StoredProgress {
+  for (const skillResult of sessionData.skill_results) {
+    progress.skill_stats[skillResult.skill_id] ??= {
+      total_attempts: 0,
+      total_correct: 0,
+      last_state: skillResult.state,
+    };
+
+    const stats = progress.skill_stats[skillResult.skill_id];
+    stats.total_attempts += skillResult.attempts;
+    stats.total_correct += skillResult.correct;
+    stats.last_state = skillResult.state;
+  }
+
+  return progress;
+}
+
+function createEmptyProgress(): StoredProgress {
+  return {
+    sessions: [],
+    skill_stats: {},
+  };
+}
+
+function writeProgress(progress: StoredProgress): void {
+  mkdirSync(dirname(progressPath), { recursive: true });
+  writeFileSync(progressPath, `${JSON.stringify(progress, null, 2)}\n`, "utf8");
+}
+
+function createSessionId(): string {
+  return `session_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`;
+}

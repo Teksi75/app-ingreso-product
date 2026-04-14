@@ -1,0 +1,166 @@
+{
+  "sessions": [
+    {
+      "mode": "practice",
+      "total_attempts": 10,
+      "total_correct": 6,
+      "total_errors": 4,
+      "skill_results": [
+        {
+          "skill_id": "LEN-COMP-001",
+          "attempts": 1,
+          "correct": 1,
+          "state": "mastered"
+        },
+        {
+          "skill_id": "LEN-COMP-002",
+          "attempts": 1,
+          "correct": 1,
+          "state": "mastered"
+        },
+        {
+          "skill_id": "LEN-COMP-003",
+          "attempts": 6,
+          "correct": 2,
+          "state": "weak"
+        },
+        {
+          "skill_id": "LEN-COMP-004",
+          "attempts": 1,
+          "correct": 1,
+          "state": "mastered"
+        },
+        {
+          "skill_id": "LEN-GRAM-002",
+          "attempts": 1,
+          "correct": 1,
+          "state": "mastered"
+        }
+      ],
+      "id": "session_1776191106095_2yi6ee",
+      "created_at": "2026-04-14T18:25:06.100Z"
+    },
+    {
+      "mode": "simulator",
+      "total_attempts": 10,
+      "total_correct": 8,
+      "total_errors": 2,
+      "skill_results": [
+        {
+          "skill_id": "LEN-COMP-001",
+          "attempts": 1,
+          "correct": 1,
+          "state": "mastered"
+        },
+        {
+          "skill_id": "LEN-COMP-002",
+          "attempts": 1,
+          "correct": 1,
+          "state": "mastered"
+        },
+        {
+          "skill_id": "LEN-COMP-003",
+          "attempts": 1,
+          "correct": 0,
+          "state": "weak"
+        },
+        {
+          "skill_id": "LEN-COMP-004",
+          "attempts": 1,
+          "correct": 1,
+          "state": "mastered"
+        },
+        {
+          "skill_id": "LEN-GRAM-001",
+          "attempts": 1,
+          "correct": 1,
+          "state": "mastered"
+        },
+        {
+          "skill_id": "LEN-GRAM-002",
+          "attempts": 1,
+          "correct": 0,
+          "state": "weak"
+        },
+        {
+          "skill_id": "LEN-NORM-001",
+          "attempts": 1,
+          "correct": 1,
+          "state": "mastered"
+        },
+        {
+          "skill_id": "LEN-NORM-002",
+          "attempts": 1,
+          "correct": 1,
+          "state": "mastered"
+        },
+        {
+          "skill_id": "LEN-NORM-003",
+          "attempts": 1,
+          "correct": 1,
+          "state": "mastered"
+        },
+        {
+          "skill_id": "LEN-TEXT-001",
+          "attempts": 1,
+          "correct": 1,
+          "state": "mastered"
+        }
+      ],
+      "id": "session_1776191111107_wmnw09",
+      "created_at": "2026-04-14T18:25:11.109Z"
+    }
+  ],
+  "skill_stats": {
+    "LEN-COMP-001": {
+      "total_attempts": 2,
+      "total_correct": 2,
+      "last_state": "mastered"
+    },
+    "LEN-COMP-002": {
+      "total_attempts": 2,
+      "total_correct": 2,
+      "last_state": "mastered"
+    },
+    "LEN-COMP-003": {
+      "total_attempts": 7,
+      "total_correct": 2,
+      "last_state": "weak"
+    },
+    "LEN-COMP-004": {
+      "total_attempts": 2,
+      "total_correct": 2,
+      "last_state": "mastered"
+    },
+    "LEN-GRAM-002": {
+      "total_attempts": 2,
+      "total_correct": 1,
+      "last_state": "weak"
+    },
+    "LEN-GRAM-001": {
+      "total_attempts": 1,
+      "total_correct": 1,
+      "last_state": "mastered"
+    },
+    "LEN-NORM-001": {
+      "total_attempts": 1,
+      "total_correct": 1,
+      "last_state": "mastered"
+    },
+    "LEN-NORM-002": {
+      "total_attempts": 1,
+      "total_correct": 1,
+      "last_state": "mastered"
+    },
+    "LEN-NORM-003": {
+      "total_attempts": 1,
+      "total_correct": 1,
+      "last_state": "mastered"
+    },
+    "LEN-TEXT-001": {
+      "total_attempts": 1,
+      "total_correct": 1,
+      "last_state": "mastered"
+    }
+  }
+}

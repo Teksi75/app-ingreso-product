@@ -1,0 +1,450 @@
+{
+  "metadata": {
+    "validated_by": "Quality Auditor v1",
+    "audit_file": "docs/04_exercise_engine/lengua_exercises_audit_v1.md"
+  },
+  "exercises": [
+  {
+    "id": "LEN-EX-001",
+    "skill_id": "LEN-COMP-001",
+    "subskill": "reconocer tema central",
+    "difficulty": 1,
+    "type": "multiple_choice",
+    "prompt": "Texto: Bruno encontro una llave junto al porton. La guardo para preguntar de quien era.\n¿De que trata principalmente?",
+    "options": [
+      "De una llave encontrada",
+      "De un porton roto",
+      "De una pregunta dificil",
+      "De una casa nueva"
+    ],
+    "correct_answer": "De una llave encontrada",
+    "feedback_correct": "Correcto: el texto se centra en la llave encontrada.",
+    "feedback_incorrect": "Revisa que opcion resume todo el fragmento, no solo un detalle."
+  },
+  {
+    "id": "LEN-EX-002",
+    "skill_id": "LEN-COMP-001",
+    "subskill": "seleccionar titulo adecuado",
+    "difficulty": 2,
+    "type": "multiple_choice",
+    "prompt": "Texto: La plaza estaba vacia al amanecer. De a poco llegaron vendedores, perros y chicos con pelotas.\n¿Que titulo representa mejor el texto?",
+    "options": [
+      "La plaza despierta",
+      "Los perros de la plaza",
+      "Un partido temprano",
+      "Los vendedores del barrio"
+    ],
+    "correct_answer": "La plaza despierta",
+    "feedback_correct": "Correcto: el titulo abarca el cambio de toda la escena.",
+    "feedback_incorrect": "La respuesta elegida toma solo una parte del texto."
+  },
+  {
+    "id": "LEN-EX-003",
+    "skill_id": "LEN-COMP-002",
+    "subskill": "ubicar datos puntuales",
+    "difficulty": 1,
+    "type": "multiple_choice",
+    "prompt": "Texto: Mora llevo una linterna y una botella de agua para la caminata.\n¿Que llevo Mora?",
+    "options": [
+      "Una linterna y una botella de agua",
+      "Una mochila y una campera",
+      "Una botella de jugo y pan",
+      "Una linterna y un mapa"
+    ],
+    "correct_answer": "Una linterna y una botella de agua",
+    "feedback_correct": "Correcto: esos dos objetos aparecen en el texto.",
+    "feedback_incorrect": "Busca los objetos mencionados de forma directa."
+  },
+  {
+    "id": "LEN-EX-004",
+    "skill_id": "LEN-COMP-002",
+    "subskill": "diferenciar informacion textual de inferida",
+    "difficulty": 2,
+    "type": "multiple_choice",
+    "prompt": "Texto: El colectivo llego a las ocho. Tomas subio con una carpeta azul.\n¿Que dato aparece en el texto?",
+    "options": [
+      "El colectivo llego a las ocho",
+      "Tomas iba a rendir una prueba",
+      "La carpeta tenia dibujos",
+      "El viaje fue largo"
+    ],
+    "correct_answer": "El colectivo llego a las ocho",
+    "feedback_correct": "Correcto: es un dato dicho directamente.",
+    "feedback_incorrect": "Elige solo informacion escrita, no una suposicion."
+  },
+  {
+    "id": "LEN-EX-005",
+    "skill_id": "LEN-COMP-003",
+    "subskill": "inferir causa o consecuencia",
+    "difficulty": 2,
+    "type": "multiple_choice",
+    "prompt": "Texto: Al ver las nubes oscuras, Lara guardo los cuadernos en la mochila.\n¿Que se puede inferir?",
+    "options": [
+      "Lara penso que podia llover",
+      "Lara termino de estudiar",
+      "Lara perdio sus cuadernos",
+      "Lara queria cambiar de mochila"
+    ],
+    "correct_answer": "Lara penso que podia llover",
+    "feedback_correct": "Correcto: las nubes oscuras apoyan esa inferencia.",
+    "feedback_incorrect": "Busca una conclusion sostenida por una pista del texto."
+  },
+  {
+    "id": "LEN-EX-006",
+    "skill_id": "LEN-COMP-003",
+    "subskill": "deducir estados o motivos",
+    "difficulty": 3,
+    "type": "multiple_choice",
+    "prompt": "Texto: Mateo miro dos veces el sobre antes de abrirlo. Respiro hondo y se quedo quieto.\n¿Como se siente probablemente?",
+    "options": [
+      "Nervioso",
+      "Aburrido",
+      "Enojado",
+      "Distraido"
+    ],
+    "correct_answer": "Nervioso",
+    "feedback_correct": "Correcto: sus acciones muestran tension antes de abrir el sobre.",
+    "feedback_incorrect": "La opcion debe apoyarse en las acciones del personaje."
+  },
+  {
+    "id": "LEN-EX-007",
+    "skill_id": "LEN-COMP-004",
+    "subskill": "identificar intencion informativa",
+    "difficulty": 1,
+    "type": "multiple_choice",
+    "prompt": "Texto: La biblioteca abre de lunes a viernes de 9 a 18. Los sabados atiende hasta las 13.\n¿Cual es la intencion del texto?",
+    "options": [
+      "Informar horarios",
+      "Narrar una visita",
+      "Convencer de leer mas",
+      "Describir un edificio"
+    ],
+    "correct_answer": "Informar horarios",
+    "feedback_correct": "Correcto: el texto comunica datos concretos.",
+    "feedback_incorrect": "Observa si el texto da datos, cuenta hechos o intenta convencer."
+  },
+  {
+    "id": "LEN-EX-008",
+    "skill_id": "LEN-COMP-004",
+    "subskill": "identificar intencion persuasiva",
+    "difficulty": 2,
+    "type": "multiple_choice",
+    "prompt": "Texto: Cuidemos el patio: si cada uno junta su basura, todos lo disfrutamos mas.\n¿Para que fue escrito?",
+    "options": [
+      "Para convencer de cuidar el patio",
+      "Para explicar como barrer",
+      "Para contar una historia del patio",
+      "Para informar la medida del patio"
+    ],
+    "correct_answer": "Para convencer de cuidar el patio",
+    "feedback_correct": "Correcto: busca que el lector haga una accion.",
+    "feedback_incorrect": "Fijate si el texto pide o impulsa una conducta."
+  },
+  {
+    "id": "LEN-EX-009",
+    "skill_id": "LEN-VOC-001",
+    "subskill": "inferir significado por pistas cercanas",
+    "difficulty": 1,
+    "type": "multiple_choice",
+    "prompt": "Oracion: El perro estaba inquieto: caminaba de un lado a otro sin parar.\n¿Que significa inquieto en este caso?",
+    "options": [
+      "Nervioso",
+      "Dormido",
+      "Hambriento",
+      "Sucio"
+    ],
+    "correct_answer": "Nervioso",
+    "feedback_correct": "Correcto: la accion de moverse sin parar da la pista.",
+    "feedback_incorrect": "Usa las palabras cercanas para elegir el sentido."
+  },
+  {
+    "id": "LEN-EX-010",
+    "skill_id": "LEN-VOC-001",
+    "subskill": "reconocer acepcion adecuada",
+    "difficulty": 2,
+    "type": "multiple_choice",
+    "prompt": "Oracion: La noticia golpeo fuerte al equipo, que no esperaba ese resultado.\n¿Que significa golpeo en contexto?",
+    "options": [
+      "Afecto emocionalmente",
+      "Pego con la mano",
+      "Rompio una puerta",
+      "Hizo ruido"
+    ],
+    "correct_answer": "Afecto emocionalmente",
+    "feedback_correct": "Correcto: no se usa con sentido fisico.",
+    "feedback_incorrect": "Elige el sentido que encaja con noticia y equipo."
+  },
+  {
+    "id": "LEN-EX-011",
+    "skill_id": "LEN-VOC-002",
+    "subskill": "reconocer sinonimos contextuales",
+    "difficulty": 1,
+    "type": "multiple_choice",
+    "prompt": "Oracion: El camino era angosto y solo pasaba una bicicleta.\n¿Que palabra puede reemplazar angosto?",
+    "options": [
+      "Estrecho",
+      "Largo",
+      "Oscuro",
+      "Recto"
+    ],
+    "correct_answer": "Estrecho",
+    "feedback_correct": "Correcto: mantiene el sentido de poco ancho.",
+    "feedback_incorrect": "Busca una palabra que conserve la misma idea en la oracion."
+  },
+  {
+    "id": "LEN-EX-012",
+    "skill_id": "LEN-VOC-002",
+    "subskill": "evitar cambios de intensidad",
+    "difficulty": 3,
+    "type": "multiple_choice",
+    "prompt": "Oracion: La respuesta de Ana fue breve y precisa.\n¿Que opcion mantiene mejor el sentido de precisa?",
+    "options": [
+      "Exacta",
+      "Larga",
+      "Dudosa",
+      "Exagerada"
+    ],
+    "correct_answer": "Exacta",
+    "feedback_correct": "Correcto: exacta conserva la idea de precision.",
+    "feedback_incorrect": "La opcion correcta no cambia la valoracion de la respuesta."
+  },
+  {
+    "id": "LEN-EX-013",
+    "skill_id": "LEN-TEXT-001",
+    "subskill": "reconocer texto narrativo",
+    "difficulty": 1,
+    "type": "multiple_choice",
+    "prompt": "Texto: Julia abrio la ventana y vio que el gato estaba en el techo. Entonces busco una escalera.\n¿Que tipo de texto predomina?",
+    "options": [
+      "Narrativo",
+      "Instructivo",
+      "Argumentativo",
+      "Expositivo"
+    ],
+    "correct_answer": "Narrativo",
+    "feedback_correct": "Correcto: presenta acciones en secuencia.",
+    "feedback_incorrect": "Observa si hay hechos que avanzan en el tiempo."
+  },
+  {
+    "id": "LEN-EX-014",
+    "skill_id": "LEN-TEXT-001",
+    "subskill": "reconocer texto instructivo",
+    "difficulty": 2,
+    "type": "multiple_choice",
+    "prompt": "Texto: Primero lava las frutillas. Luego cortalas en mitades y mezclalas con yogur.\n¿Que tipo de texto predomina?",
+    "options": [
+      "Instructivo",
+      "Narrativo",
+      "Descriptivo",
+      "Argumentativo"
+    ],
+    "correct_answer": "Instructivo",
+    "feedback_correct": "Correcto: indica pasos para hacer algo.",
+    "feedback_incorrect": "Fijate si el texto ordena acciones al lector."
+  },
+  {
+    "id": "LEN-EX-015",
+    "skill_id": "LEN-TEXT-002",
+    "subskill": "reconocer proposito de informar",
+    "difficulty": 1,
+    "type": "multiple_choice",
+    "prompt": "Texto: El tren saldra a las 17 desde el andén 3. El viaje dura cuarenta minutos.\n¿Cual es su proposito principal?",
+    "options": [
+      "Informar datos del viaje",
+      "Convencer de viajar en tren",
+      "Contar una aventura",
+      "Dar una opinion personal"
+    ],
+    "correct_answer": "Informar datos del viaje",
+    "feedback_correct": "Correcto: presenta informacion puntual.",
+    "feedback_incorrect": "Busca el objetivo dominante del fragmento."
+  },
+  {
+    "id": "LEN-EX-016",
+    "skill_id": "LEN-TEXT-002",
+    "subskill": "reconocer proposito de orientar una accion",
+    "difficulty": 2,
+    "type": "multiple_choice",
+    "prompt": "Texto: Para activar la alarma, presiona el boton verde durante tres segundos.\n¿Cual es su proposito principal?",
+    "options": [
+      "Orientar una accion",
+      "Narrar un problema",
+      "Describir un sonido",
+      "Defender una opinion"
+    ],
+    "correct_answer": "Orientar una accion",
+    "feedback_correct": "Correcto: indica que hacer y como hacerlo.",
+    "feedback_incorrect": "La clave esta en si el texto guia una accion concreta."
+  },
+  {
+    "id": "LEN-EX-017",
+    "skill_id": "LEN-GRAM-001",
+    "subskill": "mantener coherencia temporal",
+    "difficulty": 1,
+    "type": "multiple_choice",
+    "prompt": "Oracion: Ayer Camila _____ temprano al club.\n¿Que forma completa mejor?",
+    "options": [
+      "llego",
+      "llegara",
+      "llega",
+      "llegaria"
+    ],
+    "correct_answer": "llego",
+    "feedback_correct": "Correcto: ayer pide una forma de pasado.",
+    "feedback_incorrect": "Mira la pista temporal antes de elegir el verbo."
+  },
+  {
+    "id": "LEN-EX-018",
+    "skill_id": "LEN-GRAM-001",
+    "subskill": "reconocer anterioridad o posterioridad",
+    "difficulty": 3,
+    "type": "multiple_choice",
+    "prompt": "Oracion: Cuando termine la lluvia, los chicos _____ al patio.\n¿Que forma completa mejor?",
+    "options": [
+      "saldran",
+      "salieron",
+      "salian",
+      "salen ayer"
+    ],
+    "correct_answer": "saldran",
+    "feedback_correct": "Correcto: la accion ocurrira despues de que termine la lluvia.",
+    "feedback_incorrect": "La forma verbal debe respetar que la accion aun no ocurrio."
+  },
+  {
+    "id": "LEN-EX-019",
+    "skill_id": "LEN-GRAM-002",
+    "subskill": "concordancia sujeto-verbo",
+    "difficulty": 1,
+    "type": "multiple_choice",
+    "prompt": "¿Que opcion esta correctamente escrita?",
+    "options": [
+      "Los chicos corren en la plaza.",
+      "Los chicos corre en la plaza.",
+      "El chicos corren en la plaza.",
+      "Los chico corre en la plaza."
+    ],
+    "correct_answer": "Los chicos corren en la plaza.",
+    "feedback_correct": "Correcto: sujeto y verbo concuerdan en plural.",
+    "feedback_incorrect": "Revisa si sujeto y verbo tienen el mismo numero."
+  },
+  {
+    "id": "LEN-EX-020",
+    "skill_id": "LEN-GRAM-002",
+    "subskill": "concordancia sustantivo-adjetivo",
+    "difficulty": 2,
+    "type": "multiple_choice",
+    "prompt": "¿Que opcion mantiene la concordancia?",
+    "options": [
+      "La mochila roja estaba sobre la silla.",
+      "La mochila rojo estaba sobre la silla.",
+      "El mochila roja estaba sobre la silla.",
+      "La mochilas roja estaba sobre la silla."
+    ],
+    "correct_answer": "La mochila roja estaba sobre la silla.",
+    "feedback_correct": "Correcto: articulo, sustantivo y adjetivo concuerdan.",
+    "feedback_incorrect": "Busca la opcion donde genero y numero coinciden."
+  },
+  {
+    "id": "LEN-EX-021",
+    "skill_id": "LEN-NORM-001",
+    "subskill": "uso de b/v",
+    "difficulty": 1,
+    "type": "multiple_choice",
+    "prompt": "¿Que palabra esta correctamente escrita?",
+    "options": [
+      "invierno",
+      "inbierno",
+      "imvierno",
+      "imbierno"
+    ],
+    "correct_answer": "invierno",
+    "feedback_correct": "Correcto: invierno se escribe con v.",
+    "feedback_incorrect": "Compara la palabra con su forma correcta de uso frecuente."
+  },
+  {
+    "id": "LEN-EX-022",
+    "skill_id": "LEN-NORM-001",
+    "subskill": "reconocimiento de errores ortograficos frecuentes",
+    "difficulty": 2,
+    "type": "multiple_choice",
+    "prompt": "¿Que oracion no tiene error ortografico?",
+    "options": [
+      "El viaje fue muy tranquilo.",
+      "El biaje fue muy tranquilo.",
+      "El viaje fue muy trankilo.",
+      "El viaje fue muy tranquílo."
+    ],
+    "correct_answer": "El viaje fue muy tranquilo.",
+    "feedback_correct": "Correcto: todas las palabras estan bien escritas.",
+    "feedback_incorrect": "Revisa la escritura de cada palabra, no solo el sonido."
+  },
+  {
+    "id": "LEN-EX-023",
+    "skill_id": "LEN-NORM-002",
+    "subskill": "decidir uso de tilde",
+    "difficulty": 1,
+    "type": "multiple_choice",
+    "prompt": "¿Que palabra esta correctamente acentuada?",
+    "options": [
+      "árbol",
+      "arbol",
+      "arból",
+      "árból"
+    ],
+    "correct_answer": "árbol",
+    "feedback_correct": "Correcto: arbol lleva tilde en la primera silaba.",
+    "feedback_incorrect": "Elige la forma que respeta la acentuacion correcta."
+  },
+  {
+    "id": "LEN-EX-024",
+    "skill_id": "LEN-NORM-002",
+    "subskill": "distinguir cambios de sentido por tilde",
+    "difficulty": 3,
+    "type": "multiple_choice",
+    "prompt": "Oracion: Si tienes tiempo, _____ conmigo.\n¿Que forma completa mejor?",
+    "options": [
+      "ven",
+      "vén",
+      "vèn",
+      "ben"
+    ],
+    "correct_answer": "ven",
+    "feedback_correct": "Correcto: ven, del verbo venir, no lleva tilde.",
+    "feedback_incorrect": "La opcion debe ser una forma verbal correcta en contexto."
+  },
+  {
+    "id": "LEN-EX-025",
+    "skill_id": "LEN-NORM-003",
+    "subskill": "separar silabas",
+    "difficulty": 1,
+    "type": "multiple_choice",
+    "prompt": "¿Cual es la separacion silabica correcta de camino?",
+    "options": [
+      "ca-mi-no",
+      "cam-i-no",
+      "ca-min-o",
+      "c-a-mi-no"
+    ],
+    "correct_answer": "ca-mi-no",
+    "feedback_correct": "Correcto: camino se separa en tres silabas.",
+    "feedback_incorrect": "Busca la separacion que mantiene los golpes de voz naturales."
+  },
+  {
+    "id": "LEN-EX-026",
+    "skill_id": "LEN-NORM-003",
+    "subskill": "reconocer hiato",
+    "difficulty": 3,
+    "type": "multiple_choice",
+    "prompt": "¿Cual es la separacion silabica correcta de poeta?",
+    "options": [
+      "po-e-ta",
+      "poe-ta",
+      "p-o-e-ta",
+      "po-et-a"
+    ],
+    "correct_answer": "po-e-ta",
+    "feedback_correct": "Correcto: poeta separa o y e en silabas distintas.",
+    "feedback_incorrect": "Revisa donde se cortan los sonidos al pronunciar la palabra."
+  }
+  ]
+}

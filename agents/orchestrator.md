@@ -16,7 +16,9 @@ INPUT
   -> Scope & Rules Validator, si aplica
   -> Quality Auditor, si aplica
   -> Codex Prompt Generator
-  -> OUTPUT
+  -> Generacion de ejercicios, si aplica
+  -> Quality Auditor, si se generaron ejercicios
+  -> OUTPUT validado
 ```
 
 No existe salida directa desde `INPUT` hacia implementacion.
@@ -59,6 +61,8 @@ No puede saltearse si el tipo de cambio lo requiere.
 
 Se ejecuta si el cambio afecta codigo existente, logica funcional, simulador, metricas, motor de ejercicios, feedback, adaptatividad, seleccion de siguiente ejercicio o riesgo de regresion.
 
+Tambien se ejecuta despues de generar un set de ejercicios.
+
 Debe validar el loop:
 
 ```text
@@ -82,6 +86,8 @@ Responsabilidades:
 - indicar validaciones posteriores
 
 No toma decisiones de producto y no puede ampliar alcance.
+
+Si el prompt genera ejercicios, el output debe volver a Quality Auditor antes de considerarse validado.
 
 ## Clasificacion obligatoria
 
@@ -130,6 +136,7 @@ Codex puede producir `OUTPUT` solo si:
 
 - el flujo obligatorio fue respetado
 - las validaciones requeridas fueron ejecutadas
+- todo set de ejercicios tiene auditoria documentada
 - la decision final esta expresada en el formato estandar
 - no hay prompt directo sin validacion previa
 
