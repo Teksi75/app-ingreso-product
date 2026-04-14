@@ -61,3 +61,11 @@ Objetivo: optimizar, expandir y preparar para crecimiento.
 
 Resultado esperado:
 → Producto robusto, escalable y vendible
+
+---
+
+## Expansión futura
+
+- Incorporación de módulo de Matemática
+- Definición de habilidades específicas (cálculo, resolución de problemas, etc.)
+- Adaptación del motor de ejercicios a lógica matemática
