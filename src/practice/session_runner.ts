@@ -2,9 +2,9 @@ import { readFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { loadProgress, saveSessionResult } from "../storage/local_progress_store.ts";
 
-type Result = "correct" | "incorrect";
+export type Result = "correct" | "incorrect";
 
-type Exercise = {
+export type Exercise = {
   id: string;
   skill_id: string;
   subskill: string;
@@ -25,7 +25,7 @@ type ExerciseFile = {
   exercises?: Exercise[];
 };
 
-type HistoryItem = {
+export type HistoryItem = {
   exercise_id: string;
   skill_id: string;
   subskill: string;
@@ -53,13 +53,19 @@ type ProgressMetric = {
   state: SkillState;
 };
 
+export type PracticeSelection = {
+  exercise: Exercise;
+  exercisePool: Exercise[];
+  usedExerciseIds: string[];
+};
+
 const SESSION_LENGTH = 10;
 const exercisesPath = resolve(
   process.cwd(),
   "docs/04_exercise_engine/lengua_exercises_v1.json",
 );
 
-function loadExercises(): Exercise[] {
+export function loadExercises(): Exercise[] {
   const raw = readFileSync(exercisesPath, "utf8");
   const parsed = JSON.parse(raw) as ExerciseFile | Exercise[];
   const exercises = Array.isArray(parsed) ? parsed : parsed.exercises;
@@ -71,11 +77,13 @@ function loadExercises(): Exercise[] {
   return exercises;
 }
 
-function getNextExercise(history: HistoryItem[], exercises: Exercise[]): Exercise {
+export function getNextExercise(history: HistoryItem[], exercises: Exercise[]): Exercise {
   const last = history.at(-1);
 
   if (!last) {
-    return pickExercise(exercises.filter((exercise) => exercise.difficulty === 1));
+    const easyExercises = exercises.filter((exercise) => exercise.difficulty === 1);
+
+    return pickExercise(easyExercises.length > 0 ? easyExercises : exercises);
   }
 
   const skillStats = buildSkillStats(history);
@@ -131,6 +139,27 @@ function getNextExercise(history: HistoryItem[], exercises: Exercise[]): Exercis
   }
 
   return pickExercise(exercises);
+}
+
+export function startPracticeSession(
+  skillId: string | null,
+  usedExerciseIds: string[] = [],
+): PracticeSelection {
+  const exercises = loadExercises();
+  const focusedExercises = skillId
+    ? exercises.filter((exercise) => exercise.skill_id === skillId)
+    : exercises;
+  const startingPool = focusedExercises.length > 0 ? focusedExercises : exercises;
+  const unusedExercises = startingPool.filter((exercise) => !usedExerciseIds.includes(exercise.id));
+  const selectionPool = unusedExercises.length > 0 ? unusedExercises : startingPool;
+  const activeUsedExerciseIds = unusedExercises.length > 0 ? usedExerciseIds : [];
+  const easyFocusedExercises = selectionPool.filter((exercise) => exercise.difficulty === 1);
+
+  return {
+    exercise: getNextExercise([], easyFocusedExercises.length > 0 ? easyFocusedExercises : selectionPool),
+    exercisePool: startingPool,
+    usedExerciseIds: activeUsedExerciseIds,
+  };
 }
 
 function simulateAnswer(exercise: Exercise): string {
@@ -398,4 +427,6 @@ function formatPercent(value: number): string {
   return `${Math.round(value * 100)}%`;
 }
 
-runSession();
+if (process.argv[1]?.endsWith("session_runner.ts")) {
+  runSession();
+}

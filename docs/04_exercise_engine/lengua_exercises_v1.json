@@ -445,6 +445,176 @@
     "correct_answer": "po-e-ta",
     "feedback_correct": "Correcto: poeta separa o y e en silabas distintas.",
     "feedback_incorrect": "Revisa donde se cortan los sonidos al pronunciar la palabra."
+  },
+  {
+    "id": "LEN-EX-027",
+    "skill_id": "LEN-COMP-003",
+    "subskill": "deducir estados o motivos",
+    "difficulty": 1,
+    "type": "multiple_choice",
+    "prompt": "Texto: Ines miro su dibujo y lo guardo rapido cuando entro la maestra. Despues se sento con las manos debajo del banco.\n¿Como se siente probablemente Ines?",
+    "options": [
+      "Avergonzada",
+      "Hambrienta",
+      "Orgullosa",
+      "Dormida"
+    ],
+    "correct_answer": "Avergonzada",
+    "feedback_correct": "Correcto: esconder el dibujo y las manos sugiere verguenza.",
+    "feedback_incorrect": "Fijate en lo que hace Ines al entrar la maestra."
+  },
+  {
+    "id": "LEN-EX-028",
+    "skill_id": "LEN-COMP-003",
+    "subskill": "inferir causa o consecuencia",
+    "difficulty": 1,
+    "type": "multiple_choice",
+    "prompt": "Texto: Joaquin llego al aula con el pelo mojado y sacudio el paraguas junto a la puerta.\n¿Que se puede inferir?",
+    "options": [
+      "Afuera estaba lloviendo",
+      "Joaquin venia de nadar",
+      "El aula estaba inundada",
+      "Joaquin rompio el paraguas"
+    ],
+    "correct_answer": "Afuera estaba lloviendo",
+    "feedback_correct": "Correcto: el pelo mojado y el paraguas dan esa pista.",
+    "feedback_incorrect": "La conclusion debe apoyarse en las dos pistas del texto."
+  },
+  {
+    "id": "LEN-EX-029",
+    "skill_id": "LEN-COMP-003",
+    "subskill": "deducir intenciones",
+    "difficulty": 2,
+    "type": "multiple_choice",
+    "prompt": "Texto: Antes de salir, Paula dejo una nota sobre la mesa y puso las llaves al lado.\n¿Que queria probablemente Paula?",
+    "options": [
+      "Que alguien encontrara un mensaje",
+      "Que nadie usara la mesa",
+      "Que las llaves se perdieran",
+      "Que la nota se mojara"
+    ],
+    "correct_answer": "Que alguien encontrara un mensaje",
+    "feedback_correct": "Correcto: dejar la nota visible indica que esperaba que la leyeran.",
+    "feedback_incorrect": "Observa donde dejo la nota y para que serviria hacerlo asi."
+  },
+  {
+    "id": "LEN-EX-030",
+    "skill_id": "LEN-COMP-003",
+    "subskill": "inferir causa o consecuencia",
+    "difficulty": 2,
+    "type": "multiple_choice",
+    "prompt": "Texto: El perro se escondio debajo de la cama apenas sono el trueno.\n¿Que se puede inferir del perro?",
+    "options": [
+      "Se asusto con el ruido",
+      "Queria jugar a esconderse",
+      "Tenia hambre",
+      "Buscaba un juguete"
+    ],
+    "correct_answer": "Se asusto con el ruido",
+    "feedback_correct": "Correcto: esconderse justo despues del trueno indica miedo.",
+    "feedback_incorrect": "Relaciona la accion del perro con el sonido mencionado."
+  },
+  {
+    "id": "LEN-EX-031",
+    "skill_id": "LEN-COMP-003",
+    "subskill": "deducir estados o motivos",
+    "difficulty": 1,
+    "type": "multiple_choice",
+    "prompt": "Texto: Camila reviso su mochila tres veces antes de cerrar la puerta. Llevaba una cartuchera nueva y una carpeta sin usar.\n¿Que se puede inferir?",
+    "options": [
+      "Camila estaba preparando un dia de clases",
+      "Camila iba a vender su mochila",
+      "Camila volvia de vacaciones",
+      "Camila buscaba comida"
+    ],
+    "correct_answer": "Camila estaba preparando un dia de clases",
+    "feedback_correct": "Correcto: la mochila, la cartuchera y la carpeta apuntan a la escuela.",
+    "feedback_incorrect": "Usa los objetos mencionados como pistas de la situacion."
+  },
+  {
+    "id": "LEN-EX-032",
+    "skill_id": "LEN-COMP-003",
+    "subskill": "deducir intenciones",
+    "difficulty": 2,
+    "type": "multiple_choice",
+    "prompt": "Texto: Martin bajo la voz cuando su hermano menor entro al cuarto. Luego tapo el paquete con una campera.\n¿Que queria hacer Martin?",
+    "options": [
+      "Mantener una sorpresa",
+      "Ordenar la ropa",
+      "Pedir ayuda con el paquete",
+      "Mostrar lo que habia comprado"
+    ],
+    "correct_answer": "Mantener una sorpresa",
+    "feedback_correct": "Correcto: hablar bajo y tapar el paquete muestran que queria ocultarlo.",
+    "feedback_incorrect": "La respuesta debe explicar por que oculto el paquete."
+  },
+  {
+    "id": "LEN-EX-033",
+    "skill_id": "LEN-COMP-003",
+    "subskill": "inferir causa o consecuencia",
+    "difficulty": 1,
+    "type": "multiple_choice",
+    "prompt": "Texto: Al abrir la heladera, Nina fruncio la nariz y cerro la puerta de inmediato.\n¿Que se puede inferir?",
+    "options": [
+      "Habia mal olor",
+      "La heladera estaba vacia",
+      "Nina tenia frio",
+      "La puerta estaba trabada"
+    ],
+    "correct_answer": "Habia mal olor",
+    "feedback_correct": "Correcto: fruncir la nariz y cerrar rapido sugiere un olor desagradable.",
+    "feedback_incorrect": "Fijate en la reaccion de Nina al abrir la heladera."
+  },
+  {
+    "id": "LEN-EX-034",
+    "skill_id": "LEN-COMP-003",
+    "subskill": "deducir estados o motivos",
+    "difficulty": 2,
+    "type": "multiple_choice",
+    "prompt": "Texto: Bruno miro el reloj varias veces y golpeo suavemente la mesa con los dedos.\n¿Como se siente probablemente Bruno?",
+    "options": [
+      "Impaciente",
+      "Divertido",
+      "Satisfecho",
+      "Confundido"
+    ],
+    "correct_answer": "Impaciente",
+    "feedback_correct": "Correcto: mirar el reloj y golpear la mesa indican espera ansiosa.",
+    "feedback_incorrect": "Las acciones muestran como vive Bruno la espera."
+  },
+  {
+    "id": "LEN-EX-035",
+    "skill_id": "LEN-COMP-003",
+    "subskill": "deducir intenciones",
+    "difficulty": 1,
+    "type": "multiple_choice",
+    "prompt": "Texto: Sofia puso una manta sobre el gato dormido y cerro la ventana sin hacer ruido.\n¿Que se puede inferir de Sofia?",
+    "options": [
+      "Queria cuidar al gato",
+      "Queria despertar al gato",
+      "Buscaba limpiar la ventana",
+      "Tenia miedo del gato"
+    ],
+    "correct_answer": "Queria cuidar al gato",
+    "feedback_correct": "Correcto: la manta y el cuidado de no hacer ruido muestran atencion al gato.",
+    "feedback_incorrect": "Relaciona las acciones suaves de Sofia con el gato dormido."
+  },
+  {
+    "id": "LEN-EX-036",
+    "skill_id": "LEN-COMP-003",
+    "subskill": "inferir causa o consecuencia",
+    "difficulty": 2,
+    "type": "multiple_choice",
+    "prompt": "Texto: El entrenador guardo los conos y pidio a los chicos que se sentaran bajo el techo. El cielo se habia puesto gris.\n¿Por que cambio probablemente la actividad?",
+    "options": [
+      "Porque podia empezar a llover",
+      "Porque termino el campeonato",
+      "Porque faltaba una pelota",
+      "Porque los chicos querian dormir"
+    ],
+    "correct_answer": "Porque podia empezar a llover",
+    "feedback_correct": "Correcto: el cielo gris y sentarse bajo techo sugieren posible lluvia.",
+    "feedback_incorrect": "Busca la causa que se relaciona con el cielo gris y el techo."
   }
   ]
 }
