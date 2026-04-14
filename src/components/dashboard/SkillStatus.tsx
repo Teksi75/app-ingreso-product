@@ -4,21 +4,18 @@ type SkillStatusProps = {
   state: SkillState;
 };
 
-const statusConfig: Record<SkillState, { label: string; color: string; background: string }> = {
+const statusConfig: Record<SkillState, { label: string; className: string }> = {
   weak: {
     label: "Debil",
-    color: "#9f1d1d",
-    background: "#fde8e8",
+    className: "bg-[#fde8e8] text-[#9f1d1d]",
   },
   developing: {
     label: "En desarrollo",
-    color: "#7a5400",
-    background: "#fff2bf",
+    className: "bg-[#fff2bf] text-[#7a5400]",
   },
   mastered: {
     label: "Dominada",
-    color: "#176534",
-    background: "#dcfce7",
+    className: "bg-[#dcfce7] text-[#176534]",
   },
 };
 
@@ -26,25 +23,8 @@ export function SkillStatus({ state }: SkillStatusProps) {
   const status = statusConfig[state];
 
   return (
-    <span
-      style={{
-        ...styles.badge,
-        color: status.color,
-        background: status.background,
-      }}
-    >
+    <span className={`w-fit rounded-lg px-2 py-1.5 text-xs leading-none font-bold ${status.className}`}>
       {status.label}
     </span>
   );
 }
-
-const styles = {
-  badge: {
-    width: "fit-content",
-    borderRadius: "8px",
-    fontSize: "12px",
-    fontWeight: 700,
-    lineHeight: 1,
-    padding: "6px 8px",
-  },
-} as const;

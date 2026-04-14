@@ -26,8 +26,8 @@ export default function DashboardPage() {
   const weakestSkill = getWeakestSkill(skills);
 
   return (
-    <main style={styles.page}>
-      <section style={styles.shell}>
+    <main className="min-h-screen bg-[#f7f7f4] px-4 py-8 text-[#1d1d1b]">
+      <section className="mx-auto grid max-w-[840px] gap-5">
         <Header title="Tu progreso" />
         <SkillList skills={skills} />
         <ActionPanel skill={weakestSkill} />
@@ -71,18 +71,3 @@ function normalizeAccuracy(accuracy: number): number {
 
   return Math.round(accuracy);
 }
-
-const styles = {
-  page: {
-    minHeight: "100vh",
-    background: "#f7f7f4",
-    color: "#1d1d1b",
-    padding: "32px 16px",
-  },
-  shell: {
-    maxWidth: "840px",
-    margin: "0 auto",
-    display: "grid",
-    gap: "20px",
-  },
-} as const;

@@ -13,59 +13,19 @@ type ActionPanelProps = {
 
 export function ActionPanel({ skill }: ActionPanelProps) {
   return (
-    <section style={styles.panel}>
+    <section className="flex flex-wrap items-center justify-between gap-4 rounded-lg bg-[#1d1d1b] px-5 py-[18px] text-white">
       <div>
-        <p style={styles.kicker}>Practicar ahora</p>
-        <h2 style={styles.title}>{skill ? skill.skill : "Empezar practica"}</h2>
+        <p className="mt-0 mb-1.5 text-[13px] font-bold text-[#d8ddd0]">Practicar ahora</p>
+        <h2 className="m-0 text-[22px] leading-[1.2] font-bold">{skill ? skill.skill : "Empezar practica"}</h2>
       </div>
-      <form action="/practice" style={styles.form}>
-        <button type="submit" style={styles.button}>
+      <form action="/practice" className="m-0">
+        <button
+          type="submit"
+          className="inline-flex min-h-[42px] cursor-pointer items-center justify-center rounded-lg border-0 bg-white px-4 py-0 font-[inherit] font-bold whitespace-nowrap text-[#1d1d1b]"
+        >
           Practicar ahora
         </button>
       </form>
     </section>
   );
 }
-
-const styles = {
-  panel: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "space-between",
-    flexWrap: "wrap",
-    gap: "16px",
-    borderRadius: "8px",
-    background: "#1d1d1b",
-    color: "#ffffff",
-    padding: "18px 20px",
-  },
-  kicker: {
-    margin: "0 0 6px",
-    color: "#d8ddd0",
-    fontSize: "13px",
-    fontWeight: 700,
-  },
-  title: {
-    margin: 0,
-    fontSize: "22px",
-    lineHeight: 1.2,
-  },
-  form: {
-    margin: 0,
-  },
-  button: {
-    border: 0,
-    borderRadius: "8px",
-    background: "#ffffff",
-    color: "#1d1d1b",
-    cursor: "pointer",
-    display: "inline-flex",
-    alignItems: "center",
-    justifyContent: "center",
-    minHeight: "42px",
-    padding: "0 16px",
-    font: "inherit",
-    fontWeight: 700,
-    whiteSpace: "nowrap",
-  },
-} as const;

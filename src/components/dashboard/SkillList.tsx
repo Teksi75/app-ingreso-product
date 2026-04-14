@@ -14,25 +14,14 @@ type SkillListProps = {
 
 export function SkillList({ skills }: SkillListProps) {
   if (skills.length === 0) {
-    return <p style={styles.empty}>Todavia no hay practica registrada.</p>;
+    return <p className="m-0 text-[#5f625b]">Todavia no hay practica registrada.</p>;
   }
 
   return (
-    <div style={styles.list}>
+    <div className="grid gap-2.5">
       {skills.map((skill) => (
         <SkillItem key={skill.skill} skill={skill} />
       ))}
     </div>
   );
 }
-
-const styles = {
-  list: {
-    display: "grid",
-    gap: "10px",
-  },
-  empty: {
-    margin: 0,
-    color: "#5f625b",
-  },
-} as const;
