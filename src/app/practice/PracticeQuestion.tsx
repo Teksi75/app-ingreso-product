@@ -9,6 +9,8 @@ type PracticeQuestionProps = {
   usedExerciseIds: string[];
 };
 
+const MAX_QUESTIONS = 10;
+
 export function PracticeQuestion({
   exercise,
   exercisePool,
@@ -19,18 +21,18 @@ export function PracticeQuestion({
     ...usedExerciseIds,
     exercise.id,
   ]);
+  const [questionCount, setQuestionCount] = useState(1);
+  const [sessionCompleted, setSessionCompleted] = useState(false);
   const [selectedAnswer, setSelectedAnswer] = useState("");
   const [submittedAnswer, setSubmittedAnswer] = useState<string | null>(null);
+  const hasSubmitted = submittedAnswer !== null;
   const isCorrect = submittedAnswer === currentExercise.correct_answer;
   const available = exercisePool.filter((item) => !usedExercises.includes(item.id));
-
-  console.log("usedExercises:", usedExercises);
-  console.log("available:", available.length);
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
-    if (selectedAnswer) {
+    if (selectedAnswer && !hasSubmitted) {
       setSubmittedAnswer(selectedAnswer);
     }
   }
@@ -41,6 +43,11 @@ export function PracticeQuestion({
   }
 
   function handleNext() {
+    if (questionCount >= MAX_QUESTIONS) {
+      setSessionCompleted(true);
+      return;
+    }
+
     const nextPool = available.length > 0 ? available : exercisePool;
     const nonRepeatingPool =
       nextPool.length > 1
@@ -51,12 +58,30 @@ export function PracticeQuestion({
 
     setCurrentExercise(nextExercise);
     setUsedExercises((prev) => [...prev, nextExercise.id]);
+    setQuestionCount((prev) => prev + 1);
     setSelectedAnswer("");
     setSubmittedAnswer(null);
   }
 
+  if (sessionCompleted) {
+    return (
+      <article className="grid gap-4 rounded-lg border border-gray-200 bg-white p-4">
+        <h1 className="text-xl font-semibold">Sesion completada</h1>
+        <a
+          className="w-full rounded bg-black py-2 text-center text-white"
+          href={`/practice?skill=${currentExercise.skill_id}`}
+        >
+          Volver a practicar
+        </a>
+      </article>
+    );
+  }
+
   return (
     <article className="grid gap-4 rounded-lg border border-gray-200 bg-white p-4">
+      <p className="text-sm font-medium text-gray-500">
+        Pregunta {questionCount} de {MAX_QUESTIONS}
+      </p>
       <h1 className="text-xl font-semibold">{currentExercise.prompt}</h1>
       <form className="grid gap-3" onSubmit={handleSubmit}>
         {currentExercise.options.map((option) => (
@@ -66,6 +91,7 @@ export function PracticeQuestion({
           >
             <input
               checked={selectedAnswer === option}
+              disabled={hasSubmitted}
               name="answer"
               onChange={handleAnswerChange}
               type="radio"
@@ -74,12 +100,19 @@ export function PracticeQuestion({
             <span>{option}</span>
           </label>
         ))}
-        {submittedAnswer ? (
-          <div className={isCorrect ? "text-green-500" : "text-red-500"}>
-            {isCorrect ? currentExercise.feedback_correct : currentExercise.feedback_incorrect}
+        {hasSubmitted ? (
+          <div
+            className={`rounded border p-3 text-sm font-medium ${
+              isCorrect
+                ? "border-green-200 bg-green-50 text-green-700"
+                : "border-red-200 bg-red-50 text-red-700"
+            }`}
+          >
+            <p>{isCorrect ? "Correcto" : "Incorrecto"}</p>
+            <p>{isCorrect ? currentExercise.feedback_correct : currentExercise.feedback_incorrect}</p>
           </div>
         ) : null}
-        {submittedAnswer ? (
+        {hasSubmitted ? (
           <button
             onClick={handleNext}
             type="button"
