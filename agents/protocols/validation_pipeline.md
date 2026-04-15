@@ -188,6 +188,84 @@ Usar P2 si:
 - hay mejora no critica de auditabilidad
 - falta precision en dificultad o copy, pero no afecta el comportamiento actual
 
+## Formato de paso entre gates
+
+Cada gate debe recibir un mensaje estructurado del gate anterior y emitir un mensaje estructurado para el siguiente. Ningun gate puede tomar decisiones sin el input del gate previo.
+
+### Formato de entrada a Gate 1 (Product Guardian)
+
+```text
+INPUT:
+  solicitud: [descripcion del cambio]
+  area_afectada: [vision | negocio | legal | pedagogia | tecnologia | ejercicio | simulador | metricas | flujo | acceso]
+  documentos_relacionados: [lista de rutas]
+  toca_codigo_existente: [si | no]
+```
+
+### Formato de salida de Gate 1 (Classification)
+
+```text
+GATE: 1 - Classification
+CHANGE_TYPE: [idea nueva | ajuste menor | cambio estructural | cambio sobre codigo existente]
+ACTIVATE_SCOPE_RULES: [si | no]
+ACTIVATE_QUALITY_AUDIT: [si | no]
+REASONS: [por que se activan o no los validadores]
+SOURCE_DOCS: [documentos relevantes consultados]
+NEXT_GATE: [2 | 3 | 4 | BLOCKED]
+```
+
+### Formato de salida de Gate 2 (Scope & Rules)
+
+```text
+GATE: 2 - Scope & Rules
+SEVERITY: [P0 | P1 | P2 | ninguna]
+DECISION: [APPROVED | APPROVED_WITH_NOTES | NEEDS_REVISION | BLOCKED]
+AFFECTED_RULES: [vision | negocio | legal | pedagogia | tecnologia | trazabilidad]
+P0_BLOCKERS: [lista, o "ninguno"]
+P1_CORRECTIONS: [lista de correcciones obligatorias antes de implementar, o "ninguna"]
+P2_NOTES: [observaciones no bloqueantes, o "ninguna"]
+CONSULTED_DOCS: [documentos consultados]
+UNBLOCK_CONDITIONS: [condiciones para desbloquear si hay P0, o "no aplica"]
+NEXT_GATE: [3 | 4 | BLOCKED | REVISION_REQUIRED]
+```
+
+### Formato de salida de Gate 3 (Quality)
+
+```text
+GATE: 3 - Quality
+AUDIT_RESULT: [PASS | PASS_WITH_NOTES | NEEDS_CORRECTION | BLOCKED]
+SEVERITY: [P0 | P1 | P2 | ninguna]
+REGRESSIONS: [lista de regresiones detectadas, o "ninguna"]
+LOOP_IMPACT: [el cambio afecta el loop Pregunta->Respuesta->Feedback->Ajuste->Siguiente?]
+P0_BLOCKERS: [lista, o "ninguno"]
+P1_CORRECTIONS: [correcciones funcionales obligatorias, o "ninguna"]
+P2_NOTES: [observaciones no bloqueantes, o "ninguna"]
+RE_AUIT_REQUIRED: [si | no] (si se generaron ejercicios, Quality Auditor debe re-auditar)
+NEXT_GATE: [4 | BLOCKED | REVISION_REQUIRED]
+```
+
+### Formato de salida de Gate 4 (Prompt)
+
+```text
+GATE: 4 - Prompt Generation
+OBJECTIVE: [objetivo concreto del prompt]
+SCOPE: [archivos, modulos, documentos exactos]
+SOURCE_DOCS: [documentos citados con ruta]
+RESTRICTIONS: [lista de restricciones del producto]
+ACCEPTANCE_CRITERIA: [criterios verificables]
+P1_INCORPORATED: [P1 resueltos dentro del prompt, o "ninguno"]
+POST_VALIDATION: [validaciones posteriores requeridas, incluyendo re-auditoria si genera ejercicios]
+READY_FOR_IMPLEMENTATION: [si | no]
+```
+
+### Regla de paso entre gates
+
+- Ningun gate puede ejecutarse sin el output completo del gate anterior.
+- Si un gate emite P0, el flujo se detiene. No se pasa al siguiente gate.
+- Si un gate emite P1, el P1 debe corregirse o incorporarse como tarea obligatoria antes de avanzar.
+- Si un gate emite P2, el P2 puede registrarse como observacion y el flujo puede continuar.
+- Si hay duda sobre si un gate aplica, se ejecuta el gate.
+
 ## Reglas de avance
 
 ### Puede avanzar a Codex Prompt Generator si

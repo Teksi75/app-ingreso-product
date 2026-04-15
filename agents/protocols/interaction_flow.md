@@ -181,6 +181,99 @@ La implementacion solo puede comenzar si:
 - Los `P1` estan corregidos o incluidos como trabajo obligatorio.
 - El prompt de Codex esta acotado.
 
+## Formatos de comunicacion entre agentes
+
+### Mensaje de entrada al sistema
+
+```text
+INPUT:
+  solicitud: [descripcion del cambio]
+  area_afectada: [vision | negocio | legal | pedagogia | tecnologia | ejercicio | simulador | metricas | flujo | acceso]
+  documentos_relacionados: [lista de rutas]
+  toca_codigo_existente: [si | no]
+  tipo_estimado: [idea nueva | ajuste menor | cambio estructural | cambio sobre codigo existente]
+```
+
+### Product Guardian -> Scope & Rules Validator
+
+```text
+FROM: Product Guardian
+TO: Scope & Rules Validator
+CHANGE_TYPE: [tipo]
+DECISION: NEEDS_SCOPE_RULES
+REASONS: [por que se activa Scope & Rules Validator]
+SOURCE_DOCS: [documentos relevantes]
+PROPOSAL: [descripcion del cambio]
+RISK_AREAS: [vision | negocio | legal | pedagogia | tecnologia | trazabilidad]
+```
+
+### Product Guardian -> Quality Auditor
+
+```text
+FROM: Product Guardian
+TO: Quality Auditor
+CHANGE_TYPE: [tipo]
+DECISION: NEEDS_QUALITY_AUDIT
+REASONS: [por que se activa Quality Auditor]
+SOURCE_DOCS: [documentos relevantes]
+PROPOSAL: [descripcion del cambio]
+AFFECTED_COMPONENTS: [ejercicios | simulador | metricas | feedback | adaptatividad | flujo | acceso]
+SCOPE_RULES_RESTRICTIONS: [restricciones heredadas, si Scope & Rules Validator ya paso]
+```
+
+### Scope & Rules Validator -> Codex Prompt Generator
+
+```text
+FROM: Scope & Rules Validator
+TO: Codex Prompt Generator
+SEVERITY: [P0 | P1 | P2 | ninguna]
+DECISION: [APPROVED | APPROVED_WITH_NOTES | NEEDS_REVISION | BLOCKED]
+AFFECTED_RULES: [lista de reglas afectadas]
+RESTRICTIONS: [restricciones que el prompt debe incluir]
+P1_CORRECTIONS: [correcciones obligatorias, si hay]
+CONSULTED_DOCS: [documentos consultados]
+```
+
+### Quality Auditor -> Codex Prompt Generator
+
+```text
+FROM: Quality Auditor
+TO: Codex Prompt Generator
+AUDIT_RESULT: [PASS | PASS_WITH_NOTES | NEEDS_CORRECTION | BLOCKED]
+SEVERITY: [P0 | P1 | P2 | ninguna]
+REGRESSIONS: [lista de regresiones, o "ninguna"]
+P1_CORRECTIONS: [correcciones funcionales obligatorias, si hay]
+VALIDATION_RECOMMENDATIONS: [que verificar post-implementacion]
+```
+
+### Codex Prompt Generator -> Output
+
+```text
+FROM: Codex Prompt Generator
+TO: Implementacion
+CHANGE_TYPE: [tipo]
+OBJECTIVE: [objetivo concreto]
+SCOPE: [archivos, modulos, documentos exactos]
+SOURCE_DOCS: [documentos citados]
+RESTRICTIONS: [lista de restricciones del producto]
+ACCEPTANCE_CRITERIA: [criterios verificables]
+P1_INCORPORATED: [P1 resueltos en el prompt]
+POST_VALIDATION: [validaciones posteriores requeridas]
+```
+
+### Formato de output final del orquestador
+
+```text
+CHANGE_TYPE: [tipo]
+AGENTS_ACTIVATED: [lista en orden de ejecucion]
+DECISION: [APPROVED | BLOCKED | NEEDS_REVISION]
+SEVERITIES: [P0/P1/P2 encontradas, o "ninguna"]
+REASONS: [razones de la decision]
+SOURCE_DOCS: [documentos consultados]
+PROMPT: [prompt generado, si aplica]
+NEXT_STEP: [implementar | corregir P1 | bloquear | re-auditar]
+```
+
 ## Reglas criticas del flujo
 
 Ningun paso puede permitir:
@@ -188,7 +281,7 @@ Ningun paso puede permitir:
 - derivar hacia curso
 - introducir contenido explicativo largo
 - agregar navegacion por modulos teoricos
-- introducir usuarios con datos personales
+- introducir usuarios con datos personas
 - introducir tutor humano o virtual
 - usar contenido oficial
 - prometer aprobacion o resultado
