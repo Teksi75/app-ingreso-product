@@ -1,335 +1,303 @@
-export type Result = "correct" | "incorrect";
+export type UserSkillState = {
+  skill: string;
+  subskill: string;
+  accuracy: number;
+  streak: number;
+  lastResult: "correct" | "incorrect";
+};
 
 export type Exercise = {
   id: string;
-  skill_id: string;
-  subskill: string;
-  difficulty: 1 | 2 | 3;
-};
-
-export type HistoryItem = {
-  exercise_id: string;
-  skill_id: string;
-  subskill: string;
-  difficulty: 1 | 2 | 3;
-  result: Result;
-};
-
-export type RuleApplied = "A" | "B" | "C" | "D" | "E";
-
-export type SelectionTrace = {
-  ruleApplied: RuleApplied;
   skill: string;
   subskill: string;
   difficulty: 1 | 2 | 3;
 };
 
-export type SelectionResult = {
-  exercise: Exercise;
-  trace: SelectionTrace;
+type RuleApplied = "A" | "B" | "C" | "D" | "E";
+type DifficultyMode = "exact" | "same_or_lower";
+
+type Target = {
+  skill: string;
+  subskill: string;
+  difficulty: 1 | 2 | 3;
+  difficultyMode: DifficultyMode;
 };
 
-function pickFirst(exercises: Exercise[]): Exercise {
+export function selectNextExercise(exercises: Exercise[], userState: UserSkillState[]): Exercise {
   if (exercises.length === 0) {
-    throw new Error("No hay ejercicios disponibles para seleccionar.");
+    throw new Error("selectNextExercise requires at least one exercise");
   }
 
-  return exercises[0];
-}
-
-function availableDifficulties(exercises: Exercise[], skillId: string): Array<1 | 2 | 3> {
-  return [...new Set(exercises.filter((e) => e.skill_id === skillId).map((e) => e.difficulty))].sort(
-    (a, b) => a - b,
-  ) as Array<1 | 2 | 3>;
-}
-
-function hasRecentRecurrentError(history: HistoryItem[], skillId: string): boolean {
-  const recent = history.filter((h) => h.skill_id === skillId).slice(-3);
-  const errors = recent.filter((h) => h.result === "incorrect").length;
-  return errors >= 2;
-}
-
-function hasConsistentCorrect(history: HistoryItem[], skillId: string): boolean {
-  const recent = history.filter((h) => h.skill_id === skillId).slice(-3);
-  if (recent.length < 2) {
-    return false;
+  if (userState.length === 0) {
+    const selected = pickDeterministic(exercises);
+    logSelection("E", selected);
+    return selected;
   }
 
-  const lastTwoCorrect = recent.slice(-2).every((h) => h.result === "correct");
-  const hasRecentError = recent.some((h) => h.result === "incorrect");
+  const currentState = userState[0];
+  const referenceDifficulty = getReferenceDifficulty(exercises, currentState);
+  const { ruleApplied, target } = resolveRuleTarget(exercises, currentState, referenceDifficulty);
 
-  return lastTwoCorrect && !hasRecentError;
+  const selected =
+    pickStrictCandidate(exercises, target) ??
+    pickFallbackCandidate(exercises, target) ??
+    pickDeterministic(exercises);
+
+  logSelection(ruleApplied, selected);
+  return selected;
 }
 
-function isHighPrecisionSkill(history: HistoryItem[], skillId: string): boolean {
-  const recent = history.filter((h) => h.skill_id === skillId).slice(-4);
-
-  if (recent.length < 3) {
-    return false;
-  }
-
-  const correct = recent.filter((h) => h.result === "correct").length;
-  return correct / recent.length >= 0.8;
-}
-
-function pickCandidate(
+function resolveRuleTarget(
   exercises: Exercise[],
-  skillId: string,
-  targetDifficulties: Array<1 | 2 | 3>,
-  lastExerciseId?: string,
-  preferredSubskill?: string,
-): Exercise | null {
-  for (const difficulty of targetDifficulties) {
-    const bySkillAndDifficulty = exercises.filter(
-      (e) => e.skill_id === skillId && e.difficulty === difficulty && e.id !== lastExerciseId,
-    );
-
-    if (bySkillAndDifficulty.length === 0) {
-      continue;
-    }
-
-    if (!preferredSubskill) {
-      return pickFirst(bySkillAndDifficulty);
-    }
-
-    const differentSubskill = bySkillAndDifficulty.find((e) => e.subskill !== preferredSubskill);
-    return differentSubskill ?? pickFirst(bySkillAndDifficulty);
+  state: UserSkillState,
+  referenceDifficulty: 1 | 2 | 3,
+): { ruleApplied: RuleApplied; target: Target } {
+  if (state.lastResult === "incorrect") {
+    return {
+      ruleApplied: "A",
+      target: {
+        skill: state.skill,
+        subskill: state.subskill,
+        difficulty: referenceDifficulty,
+        difficultyMode: "same_or_lower",
+      },
+    };
   }
 
-  return null;
-}
+  if (state.streak >= 3) {
+    return {
+      ruleApplied: "B",
+      target: {
+        skill: state.skill,
+        subskill: state.subskill,
+        difficulty: Math.min(referenceDifficulty + 1, 3) as 1 | 2 | 3,
+        difficultyMode: "exact",
+      },
+    };
+  }
 
-function pickAnyValid(exercises: Exercise[], lastExerciseId?: string): Exercise {
-  const filtered = exercises.filter((e) => e.id !== lastExerciseId);
-  return pickFirst(filtered.length > 0 ? filtered : exercises);
-}
+  if (state.accuracy > 0.85) {
+    const alternativeSubskill = findAlternativeSubskill(exercises, state.skill, state.subskill);
 
-function trace(ruleApplied: RuleApplied, exercise: Exercise): SelectionResult {
+    return {
+      ruleApplied: "C",
+      target: {
+        skill: state.skill,
+        subskill: alternativeSubskill ?? state.subskill,
+        difficulty: referenceDifficulty,
+        difficultyMode: "exact",
+      },
+    };
+  }
+
+  if (state.accuracy < 0.6) {
+    return {
+      ruleApplied: "D",
+      target: {
+        skill: state.skill,
+        subskill: state.subskill,
+        difficulty: Math.max(referenceDifficulty - 1, 1) as 1 | 2 | 3,
+        difficultyMode: "exact",
+      },
+    };
+  }
+
   return {
-    exercise,
-    trace: {
-      ruleApplied,
-      skill: exercise.skill_id,
-      subskill: exercise.subskill,
-      difficulty: exercise.difficulty,
+    ruleApplied: "E",
+    target: {
+      skill: state.skill,
+      subskill: state.subskill,
+      difficulty: referenceDifficulty,
+      difficultyMode: "exact",
     },
   };
 }
 
-export function selectNextExercise(history: HistoryItem[], exercises: Exercise[]): SelectionResult {
-  if (exercises.length === 0) {
-    throw new Error("No hay ejercicios para ejecutar selectNextExercise.");
-  }
+function findAlternativeSubskill(
+  exercises: Exercise[],
+  skill: string,
+  currentSubskill: string,
+): string | null {
+  const options = Array.from(
+    new Set(
+      exercises
+        .filter((exercise) => exercise.skill === skill)
+        .map((exercise) => exercise.subskill),
+    ),
+  ).sort((a, b) => a.localeCompare(b));
 
-  const last = history.at(-1);
+  return options.find((option) => option !== currentSubskill) ?? null;
+}
 
-  if (!last) {
-    return trace("E", pickAnyValid(exercises));
-  }
-
-  const lastExerciseId = last.exercise_id;
-
-  // Regla A: error recurrente -> mantener skill con menor dificultad disponible.
-  const recurrentSkill = [...new Set(history.map((h) => h.skill_id))].find((skillId) =>
-    hasRecentRecurrentError(history, skillId),
+function getReferenceDifficulty(exercises: Exercise[], state: UserSkillState): 1 | 2 | 3 {
+  const candidates = exercises.filter(
+    (exercise) => exercise.skill === state.skill && exercise.subskill === state.subskill,
   );
 
-  if (recurrentSkill) {
-    const recentInSkill = history.filter((h) => h.skill_id === recurrentSkill).at(-1);
-    const maxDifficulty = recentInSkill?.difficulty ?? 2;
-    const targetDiffs: Array<1 | 2 | 3> = [
-      (maxDifficulty > 1 ? maxDifficulty - 1 : 1) as 1 | 2 | 3,
-      maxDifficulty as 1 | 2 | 3,
-      1,
-      2,
-      3,
-    ];
-
-    const candidate =
-      pickCandidate(exercises, recurrentSkill, targetDiffs, lastExerciseId, recentInSkill?.subskill) ??
-      pickAnyValid(
-        exercises.filter((e) => e.skill_id === recurrentSkill && e.id !== lastExerciseId).length > 0
-          ? exercises.filter((e) => e.skill_id === recurrentSkill)
-          : exercises,
-        lastExerciseId,
-      );
-
-    return trace("A", candidate);
+  if (candidates.length === 0) {
+    return 1;
   }
 
-  // Regla B: ultimo resultado incorrecto (no recurrente) -> misma skill, misma o menor dificultad.
-  if (last.result === "incorrect") {
-    const lowerOrSameDiffs: Array<1 | 2 | 3> = [
-      (last.difficulty > 1 ? last.difficulty - 1 : 1) as 1 | 2 | 3,
-      last.difficulty,
-      1,
-      2,
-      3,
-    ];
-
-    const candidate =
-      pickCandidate(exercises, last.skill_id, lowerOrSameDiffs, lastExerciseId, last.subskill) ??
-      pickAnyValid(
-        exercises.filter((e) => e.skill_id === last.skill_id && e.id !== lastExerciseId).length > 0
-          ? exercises.filter((e) => e.skill_id === last.skill_id)
-          : exercises,
-        lastExerciseId,
-      );
-
-    return trace("B", candidate);
-  }
-
-  // Regla C: alta precision -> mantener skill, subir dificultad o variar subskill si no se puede subir.
-  if (isHighPrecisionSkill(history, last.skill_id)) {
-    const skillDiffs = availableDifficulties(exercises, last.skill_id);
-    const higher = skillDiffs.filter((d) => d > last.difficulty);
-    const targetDiffs = (higher.length > 0 ? [...higher, last.difficulty, 1, 2, 3] : [last.difficulty, 1, 2, 3]) as
-      Array<1 | 2 | 3>;
-
-    const candidate =
-      pickCandidate(exercises, last.skill_id, targetDiffs, lastExerciseId, last.subskill) ??
-      pickAnyValid(
-        exercises.filter((e) => e.skill_id === last.skill_id && e.id !== lastExerciseId).length > 0
-          ? exercises.filter((e) => e.skill_id === last.skill_id)
-          : exercises,
-        lastExerciseId,
-      );
-
-    return trace("C", candidate);
-  }
-
-  // Regla D: racha positiva -> mantener skill y variar subskill en misma dificultad cuando se pueda.
-  if (hasConsistentCorrect(history, last.skill_id)) {
-    const candidate =
-      pickCandidate(exercises, last.skill_id, [last.difficulty, 1, 2, 3], lastExerciseId, last.subskill) ??
-      pickAnyValid(
-        exercises.filter((e) => e.skill_id === last.skill_id && e.id !== lastExerciseId).length > 0
-          ? exercises.filter((e) => e.skill_id === last.skill_id)
-          : exercises,
-        lastExerciseId,
-      );
-
-    return trace("D", candidate);
-  }
-
-  // Regla E: fallback global robusto.
-  return trace("E", pickAnyValid(exercises, lastExerciseId));
+  const sorted = candidates.map((exercise) => exercise.difficulty).sort((a, b) => a - b);
+  return sorted[Math.floor(sorted.length / 2)] as 1 | 2 | 3;
 }
 
-function sampleExercises(): Exercise[] {
-  return [
-    { id: "e1", skill_id: "LEN-READ-001", subskill: "idea principal", difficulty: 1 },
-    { id: "e2", skill_id: "LEN-READ-001", subskill: "detalle explicito", difficulty: 1 },
-    { id: "e3", skill_id: "LEN-READ-001", subskill: "inferencias", difficulty: 2 },
-    { id: "e4", skill_id: "LEN-READ-001", subskill: "tono", difficulty: 3 },
-    { id: "e5", skill_id: "LEN-GRAM-001", subskill: "concordancia", difficulty: 1 },
-    { id: "e6", skill_id: "LEN-GRAM-001", subskill: "acentuacion", difficulty: 2 },
-    { id: "e7", skill_id: "LEN-VOC-001", subskill: "sinonimos", difficulty: 1 },
-  ];
-}
+function pickStrictCandidate(exercises: Exercise[], target: Target): Exercise | null {
+  const candidates = exercises.filter((exercise) => {
+    if (exercise.skill !== target.skill || exercise.subskill !== target.subskill) {
+      return false;
+    }
 
-export function testSelector(): SelectionTrace[] {
-  const exercises = sampleExercises();
+    if (target.difficultyMode === "same_or_lower") {
+      return exercise.difficulty <= target.difficulty;
+    }
 
-  const scenarios: Array<{ name: string; history: HistoryItem[] }> = [
-    {
-      name: "error recurrente",
-      history: [
-        {
-          exercise_id: "e3",
-          skill_id: "LEN-READ-001",
-          subskill: "inferencias",
-          difficulty: 2,
-          result: "incorrect",
-        },
-        {
-          exercise_id: "e4",
-          skill_id: "LEN-READ-001",
-          subskill: "tono",
-          difficulty: 3,
-          result: "incorrect",
-        },
-        {
-          exercise_id: "e6",
-          skill_id: "LEN-GRAM-001",
-          subskill: "acentuacion",
-          difficulty: 2,
-          result: "correct",
-        },
-        {
-          exercise_id: "e3",
-          skill_id: "LEN-READ-001",
-          subskill: "inferencias",
-          difficulty: 2,
-          result: "incorrect",
-        },
-      ],
-    },
-    {
-      name: "racha positiva",
-      history: [
-        {
-          exercise_id: "e1",
-          skill_id: "LEN-READ-001",
-          subskill: "idea principal",
-          difficulty: 1,
-          result: "correct",
-        },
-        {
-          exercise_id: "e2",
-          skill_id: "LEN-READ-001",
-          subskill: "detalle explicito",
-          difficulty: 1,
-          result: "correct",
-        },
-      ],
-    },
-    {
-      name: "alta precision",
-      history: [
-        {
-          exercise_id: "e1",
-          skill_id: "LEN-READ-001",
-          subskill: "idea principal",
-          difficulty: 1,
-          result: "correct",
-        },
-        {
-          exercise_id: "e2",
-          skill_id: "LEN-READ-001",
-          subskill: "detalle explicito",
-          difficulty: 1,
-          result: "correct",
-        },
-        {
-          exercise_id: "e3",
-          skill_id: "LEN-READ-001",
-          subskill: "inferencias",
-          difficulty: 2,
-          result: "correct",
-        },
-        {
-          exercise_id: "e4",
-          skill_id: "LEN-READ-001",
-          subskill: "tono",
-          difficulty: 3,
-          result: "correct",
-        },
-      ],
-    },
-  ];
-
-  const traces = scenarios.map((scenario) => {
-    const selected = selectNextExercise(scenario.history, exercises);
-    const { trace } = selected;
-
-    console.log(`[scenario:${scenario.name}]`);
-    console.log(
-      `ruleApplied=${trace.ruleApplied} | skill=${trace.skill} | subskill=${trace.subskill} | difficulty=${trace.difficulty}`,
-    );
-
-    return trace;
+    return exercise.difficulty === target.difficulty;
   });
 
-  return traces;
+  if (candidates.length === 0) {
+    return null;
+  }
+
+  if (target.difficultyMode === "same_or_lower") {
+    return [...candidates].sort((a, b) => b.difficulty - a.difficulty)[0];
+  }
+
+  return pickDeterministic(candidates);
+}
+
+function pickFallbackCandidate(exercises: Exercise[], target: Target): Exercise | null {
+  const sameSkill = exercises.filter((exercise) => exercise.skill === target.skill);
+
+  if (sameSkill.length === 0) {
+    return null;
+  }
+
+  const step1 = sameSkill.filter((exercise) => {
+    if (target.difficultyMode === "same_or_lower") {
+      return exercise.difficulty <= target.difficulty;
+    }
+
+    return exercise.difficulty === target.difficulty;
+  });
+
+  if (step1.length > 0) {
+    return pickDeterministic(step1);
+  }
+
+  return pickRandom(sameSkill);
+}
+
+function pickDeterministic(candidates: Exercise[]): Exercise {
+  return [...candidates].sort((a, b) => a.id.localeCompare(b.id))[0];
+}
+
+function pickRandom(candidates: Exercise[]): Exercise {
+  const index = Math.floor(Math.random() * candidates.length);
+  return candidates[index];
+}
+
+function logSelection(ruleApplied: RuleApplied, exercise: Exercise): void {
+  console.log({
+    ruleApplied,
+    selectedExerciseId: exercise.id,
+    skill: exercise.skill,
+    subskill: exercise.subskill,
+    difficulty: exercise.difficulty,
+  });
+}
+
+export function testSelector(): void {
+  const mockExercises: Exercise[] = [
+    {
+      id: "LEN-VOC-001-01",
+      skill: "LEN-VOC-001",
+      subskill: "inferir significado por pistas cercanas",
+      difficulty: 1,
+    },
+    {
+      id: "LEN-VOC-001-02",
+      skill: "LEN-VOC-001",
+      subskill: "inferir significado por pistas cercanas",
+      difficulty: 2,
+    },
+    {
+      id: "LEN-VOC-001-03",
+      skill: "LEN-VOC-001",
+      subskill: "inferir significado por pistas cercanas",
+      difficulty: 3,
+    },
+    {
+      id: "LEN-VOC-001-04",
+      skill: "LEN-VOC-001",
+      subskill: "reconocer acepcion adecuada",
+      difficulty: 2,
+    },
+    {
+      id: "LEN-VOC-001-05",
+      skill: "LEN-VOC-001",
+      subskill: "interpretar expresiones no literales",
+      difficulty: 2,
+    },
+  ];
+
+  const recurringErrors: UserSkillState[] = [
+    {
+      skill: "LEN-VOC-001",
+      subskill: "inferir significado por pistas cercanas",
+      accuracy: 0.55,
+      streak: 0,
+      lastResult: "incorrect",
+    },
+  ];
+
+  const positiveStreak: UserSkillState[] = [
+    {
+      skill: "LEN-VOC-001",
+      subskill: "inferir significado por pistas cercanas",
+      accuracy: 0.8,
+      streak: 3,
+      lastResult: "correct",
+    },
+  ];
+
+  const highAccuracy: UserSkillState[] = [
+    {
+      skill: "LEN-VOC-001",
+      subskill: "inferir significado por pistas cercanas",
+      accuracy: 0.9,
+      streak: 1,
+      lastResult: "correct",
+    },
+  ];
+
+  const selectionA = selectNextExercise(mockExercises, recurringErrors);
+  if (
+    selectionA.skill !== "LEN-VOC-001" ||
+    selectionA.subskill !== "inferir significado por pistas cercanas" ||
+    selectionA.difficulty > 2
+  ) {
+    throw new Error("Rule A violation");
+  }
+
+  const selectionB = selectNextExercise(mockExercises, positiveStreak);
+  if (
+    selectionB.skill !== "LEN-VOC-001" ||
+    selectionB.subskill !== "inferir significado por pistas cercanas" ||
+    selectionB.difficulty !== 3
+  ) {
+    throw new Error("Rule B violation");
+  }
+
+  const originalSkill = highAccuracy[0].skill;
+  const selectionC = selectNextExercise(mockExercises, highAccuracy);
+  if (selectionC.skill !== originalSkill) {
+    throw new Error("Rule C violation: skill changed");
+  }
+
+  if (selectionC.subskill === highAccuracy[0].subskill) {
+    throw new Error("Rule C violation: subskill did not change");
+  }
+
+  console.log("testSelector passed");
 }

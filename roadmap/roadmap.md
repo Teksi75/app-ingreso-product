@@ -4,7 +4,7 @@
 
 Objetivo: construir la base conceptual del producto (sin código).
 
-- Definición del sistema de habilidades (skills_map_v1)
+- Definición del sistema de habilidades (skills_map (canónico))
 - Modelo pedagógico (entrenamiento vs enseñanza)
 - Tipos de ejercicios por habilidad
 - Definición de errores frecuentes por habilidad
