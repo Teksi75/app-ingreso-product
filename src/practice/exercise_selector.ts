@@ -16,89 +16,42 @@ export type Exercise = {
 type RuleApplied = "A" | "B" | "C" | "D" | "E";
 type DifficultyMode = "exact" | "same_or_lower";
 
-type TargetConfig = {
+type Target = {
   skill: string;
   subskill: string;
   difficulty: 1 | 2 | 3;
   difficultyMode: DifficultyMode;
 };
 
-export function selectNextExercise(
-  exercises: Exercise[],
-  userState: UserSkillState[],
-): Exercise {
+export function selectNextExercise(exercises: Exercise[], userState: UserSkillState[]): Exercise {
   if (exercises.length === 0) {
     throw new Error("selectNextExercise requires at least one exercise");
   }
 
   if (userState.length === 0) {
-    const fallback = pickDeterministic(exercises);
-    logSelection("E", fallback);
-    return fallback;
+    const selected = pickDeterministic(exercises);
+    logSelection("E", selected);
+    return selected;
   }
 
-  const focusState = selectFocusState(userState);
-  const referenceDifficulty = getReferenceDifficulty(exercises, focusState);
-  const { ruleApplied, target } = buildTargetConfig(exercises, focusState, referenceDifficulty);
+  const currentState = userState[0];
+  const referenceDifficulty = getReferenceDifficulty(exercises, currentState);
+  const { ruleApplied, target } = resolveRuleTarget(exercises, currentState, referenceDifficulty);
 
   const selected =
-    pickWithStrictTarget(exercises, target) ??
-    pickWithFallback(exercises, target, ruleApplied) ??
+    pickStrictCandidate(exercises, target) ??
+    pickFallbackCandidate(exercises, target) ??
     pickDeterministic(exercises);
 
   logSelection(ruleApplied, selected);
   return selected;
 }
 
-function selectFocusState(userState: UserSkillState[]): UserSkillState {
-  const incorrectState = userState.find((state) => state.lastResult === "incorrect");
-
-  if (incorrectState) {
-    return incorrectState;
-  }
-
-  const streakState = userState.find((state) => state.streak >= 3);
-
-  if (streakState) {
-    return streakState;
-  }
-
-  const highAccuracyState = userState.find((state) => state.accuracy > 0.85);
-
-  if (highAccuracyState) {
-    return highAccuracyState;
-  }
-
-  const lowAccuracyState = userState.find((state) => state.accuracy < 0.6);
-
-  if (lowAccuracyState) {
-    return lowAccuracyState;
-  }
-
-  return userState[0];
-}
-
-function getReferenceDifficulty(exercises: Exercise[], state: UserSkillState): 1 | 2 | 3 {
-  const sameSubskill = exercises.filter(
-    (exercise) => exercise.skill === state.skill && exercise.subskill === state.subskill,
-  );
-
-  if (sameSubskill.length === 0) {
-    return 1;
-  }
-
-  const sorted = sameSubskill
-    .map((exercise) => exercise.difficulty)
-    .sort((a, b) => a - b);
-
-  return sorted[Math.floor(sorted.length / 2)] as 1 | 2 | 3;
-}
-
-function buildTargetConfig(
+function resolveRuleTarget(
   exercises: Exercise[],
   state: UserSkillState,
   referenceDifficulty: 1 | 2 | 3,
-): { ruleApplied: RuleApplied; target: TargetConfig } {
+): { ruleApplied: RuleApplied; target: Target } {
   if (state.lastResult === "incorrect") {
     return {
       ruleApplied: "A",
@@ -124,14 +77,13 @@ function buildTargetConfig(
   }
 
   if (state.accuracy > 0.85) {
-    const targetSubskill =
-      findAlternativeSubskill(exercises, state.skill, state.subskill) ?? state.subskill;
+    const alternativeSubskill = findAlternativeSubskill(exercises, state.skill, state.subskill);
 
     return {
       ruleApplied: "C",
       target: {
         skill: state.skill,
-        subskill: targetSubskill,
+        subskill: alternativeSubskill ?? state.subskill,
         difficulty: referenceDifficulty,
         difficultyMode: "exact",
       },
@@ -166,7 +118,7 @@ function findAlternativeSubskill(
   skill: string,
   currentSubskill: string,
 ): string | null {
-  const subskills = Array.from(
+  const options = Array.from(
     new Set(
       exercises
         .filter((exercise) => exercise.skill === skill)
@@ -174,10 +126,23 @@ function findAlternativeSubskill(
     ),
   ).sort((a, b) => a.localeCompare(b));
 
-  return subskills.find((subskill) => subskill !== currentSubskill) ?? null;
+  return options.find((option) => option !== currentSubskill) ?? null;
 }
 
-function pickWithStrictTarget(exercises: Exercise[], target: TargetConfig): Exercise | null {
+function getReferenceDifficulty(exercises: Exercise[], state: UserSkillState): 1 | 2 | 3 {
+  const candidates = exercises.filter(
+    (exercise) => exercise.skill === state.skill && exercise.subskill === state.subskill,
+  );
+
+  if (candidates.length === 0) {
+    return 1;
+  }
+
+  const sorted = candidates.map((exercise) => exercise.difficulty).sort((a, b) => a - b);
+  return sorted[Math.floor(sorted.length / 2)] as 1 | 2 | 3;
+}
+
+function pickStrictCandidate(exercises: Exercise[], target: Target): Exercise | null {
   const candidates = exercises.filter((exercise) => {
     if (exercise.skill !== target.skill || exercise.subskill !== target.subskill) {
       return false;
@@ -195,25 +160,20 @@ function pickWithStrictTarget(exercises: Exercise[], target: TargetConfig): Exer
   }
 
   if (target.difficultyMode === "same_or_lower") {
-    const sorted = [...candidates].sort((a, b) => b.difficulty - a.difficulty);
-    return sorted[0];
+    return [...candidates].sort((a, b) => b.difficulty - a.difficulty)[0];
   }
 
   return pickDeterministic(candidates);
 }
 
-function pickWithFallback(
-  exercises: Exercise[],
-  target: TargetConfig,
-  ruleApplied: RuleApplied,
-): Exercise | null {
+function pickFallbackCandidate(exercises: Exercise[], target: Target): Exercise | null {
   const sameSkill = exercises.filter((exercise) => exercise.skill === target.skill);
 
   if (sameSkill.length === 0) {
     return null;
   }
 
-  const fallbackStep1 = sameSkill.filter((exercise) => {
+  const step1 = sameSkill.filter((exercise) => {
     if (target.difficultyMode === "same_or_lower") {
       return exercise.difficulty <= target.difficulty;
     }
@@ -221,30 +181,20 @@ function pickWithFallback(
     return exercise.difficulty === target.difficulty;
   });
 
-  if (fallbackStep1.length > 0) {
-    return pickDeterministic(fallbackStep1);
-  }
-
-  const fallbackStep2 = sameSkill;
-
-  if (fallbackStep2.length > 0) {
-    return pickDeterministic(fallbackStep2);
-  }
-
-  if (ruleApplied === "C") {
-    return pickRandom(sameSkill);
+  if (step1.length > 0) {
+    return pickDeterministic(step1);
   }
 
   return pickRandom(sameSkill);
 }
 
-function pickDeterministic(exercises: Exercise[]): Exercise {
-  return [...exercises].sort((a, b) => a.id.localeCompare(b.id))[0];
+function pickDeterministic(candidates: Exercise[]): Exercise {
+  return [...candidates].sort((a, b) => a.id.localeCompare(b.id))[0];
 }
 
-function pickRandom(exercises: Exercise[]): Exercise {
-  const index = Math.floor(Math.random() * exercises.length);
-  return exercises[index];
+function pickRandom(candidates: Exercise[]): Exercise {
+  const index = Math.floor(Math.random() * candidates.length);
+  return candidates[index];
 }
 
 function logSelection(ruleApplied: RuleApplied, exercise: Exercise): void {
@@ -259,18 +209,43 @@ function logSelection(ruleApplied: RuleApplied, exercise: Exercise): void {
 
 export function testSelector(): void {
   const mockExercises: Exercise[] = [
-    { id: "e1", skill: "gramatica", subskill: "sujeto", difficulty: 1 },
-    { id: "e2", skill: "gramatica", subskill: "sujeto", difficulty: 2 },
-    { id: "e3", skill: "gramatica", subskill: "sujeto", difficulty: 3 },
-    { id: "e4", skill: "gramatica", subskill: "predicado", difficulty: 2 },
-    { id: "e5", skill: "gramatica", subskill: "predicado", difficulty: 3 },
+    {
+      id: "LEN-VOC-001-01",
+      skill: "LEN-VOC-001",
+      subskill: "inferir significado por pistas cercanas",
+      difficulty: 1,
+    },
+    {
+      id: "LEN-VOC-001-02",
+      skill: "LEN-VOC-001",
+      subskill: "inferir significado por pistas cercanas",
+      difficulty: 2,
+    },
+    {
+      id: "LEN-VOC-001-03",
+      skill: "LEN-VOC-001",
+      subskill: "inferir significado por pistas cercanas",
+      difficulty: 3,
+    },
+    {
+      id: "LEN-VOC-001-04",
+      skill: "LEN-VOC-001",
+      subskill: "reconocer acepcion adecuada",
+      difficulty: 2,
+    },
+    {
+      id: "LEN-VOC-001-05",
+      skill: "LEN-VOC-001",
+      subskill: "interpretar expresiones no literales",
+      difficulty: 2,
+    },
   ];
 
   const recurringErrors: UserSkillState[] = [
     {
-      skill: "gramatica",
-      subskill: "sujeto",
-      accuracy: 0.5,
+      skill: "LEN-VOC-001",
+      subskill: "inferir significado por pistas cercanas",
+      accuracy: 0.55,
       streak: 0,
       lastResult: "incorrect",
     },
@@ -278,9 +253,9 @@ export function testSelector(): void {
 
   const positiveStreak: UserSkillState[] = [
     {
-      skill: "gramatica",
-      subskill: "sujeto",
-      accuracy: 0.75,
+      skill: "LEN-VOC-001",
+      subskill: "inferir significado por pistas cercanas",
+      accuracy: 0.8,
       streak: 3,
       lastResult: "correct",
     },
@@ -288,8 +263,8 @@ export function testSelector(): void {
 
   const highAccuracy: UserSkillState[] = [
     {
-      skill: "gramatica",
-      subskill: "sujeto",
+      skill: "LEN-VOC-001",
+      subskill: "inferir significado por pistas cercanas",
       accuracy: 0.9,
       streak: 1,
       lastResult: "correct",
@@ -298,20 +273,30 @@ export function testSelector(): void {
 
   const selectionA = selectNextExercise(mockExercises, recurringErrors);
   if (
-    selectionA.subskill !== "sujeto" ||
-    !(selectionA.difficulty === 1 || selectionA.difficulty === 2)
+    selectionA.skill !== "LEN-VOC-001" ||
+    selectionA.subskill !== "inferir significado por pistas cercanas" ||
+    selectionA.difficulty > 2
   ) {
-    throw new Error("testSelector failed for recurringErrors");
+    throw new Error("Rule A violation");
   }
 
   const selectionB = selectNextExercise(mockExercises, positiveStreak);
-  if (selectionB.subskill !== "sujeto" || selectionB.difficulty !== 3) {
-    throw new Error("testSelector failed for positiveStreak");
+  if (
+    selectionB.skill !== "LEN-VOC-001" ||
+    selectionB.subskill !== "inferir significado por pistas cercanas" ||
+    selectionB.difficulty !== 3
+  ) {
+    throw new Error("Rule B violation");
   }
 
+  const originalSkill = highAccuracy[0].skill;
   const selectionC = selectNextExercise(mockExercises, highAccuracy);
-  if (selectionC.subskill !== "predicado") {
-    throw new Error("testSelector failed for highAccuracy");
+  if (selectionC.skill !== originalSkill) {
+    throw new Error("Rule C violation: skill changed");
+  }
+
+  if (selectionC.subskill === highAccuracy[0].subskill) {
+    throw new Error("Rule C violation: subskill did not change");
   }
 
   console.log("testSelector passed");
