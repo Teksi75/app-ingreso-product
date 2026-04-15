@@ -62,7 +62,7 @@ Plan de evolución del producto por fases
 ## 🚀 Cómo usar este repositorio
 
 1. Definir o actualizar habilidades en:
-   → `docs/03_skill_system/skills_map_v1.md`
+   → `docs/03_skill_system/skills_map.md`
 
 2. Diseñar ejercicios en base a habilidades:
    → `docs/04_exercise_engine/`

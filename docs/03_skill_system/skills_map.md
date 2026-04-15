@@ -1,238 +1,139 @@
-# Skills Map v2 - App Ingreso
+# Skills Map v2 - Lengua (canónico)
 
-## Principios del sistema
-
-Este producto no enseña contenido de forma tradicional.
-
-Se basa en:
-- entrenamiento intensivo
-- práctica repetitiva
+## Principios
+- entrenamiento por habilidades
+- práctica > explicación
 - feedback inmediato
-- detección de errores
-
-El foco está en habilidades evaluables, no en temas teóricos.
-
----
+- independencia de contenido fuente
 
 ## Habilidades principales
 
-### 1. Comprensión literal
+### 1) Comprensión e inferencia textual
+- **definición funcional (qué entrena):** extracción de sentido literal e implícito en textos breves y medianos.
+- **cuándo se activa:** lectura de fragmentos narrativos, informativos o descriptivos con preguntas de interpretación.
+- **cómo se evalúa:** precisión en respuestas de información explícita, inferencias causales y síntesis del sentido global.
 
-**Descripción:**
-Capacidad de identificar información explícita en un texto.
+### 2) Estructura y secuencia discursiva
+- **definición funcional (qué entrena):** organización lógica de ideas, orden temporal y coherencia entre enunciados.
+- **cuándo se activa:** tareas de ordenar segmentos, completar secuencias y detectar quiebres de progresión.
+- **cómo se evalúa:** consistencia del orden, mantenimiento de hilo narrativo y correcta relación entre eventos.
 
-**Qué evalúa:**
-- ¿Puede encontrar datos concretos?
-- ¿Responde en base al texto y no a su intuición?
+### 3) Producción escrita funcional
+- **definición funcional (qué entrena):** redacción de textos breves con objetivo comunicativo claro y restricciones formales.
+- **cuándo se activa:** escritura guiada por longitud, foco informativo y tipo de salida esperada.
+- **cómo se evalúa:** cumplimiento de objetivo, cobertura de datos relevantes y claridad sintáctica.
 
-**Ejemplos de tarea:**
-- Identificar información puntual
-- Responder quién, qué, cuándo, dónde
-- Ubicar datos dentro de un texto
+### 4) Morfosintaxis aplicada
+- **definición funcional (qué entrena):** uso operativo de categorías gramaticales, concordancia y funciones sintácticas.
+- **cuándo se activa:** análisis y edición de oraciones, sustituciones y detección de errores estructurales.
+- **cómo se evalúa:** identificación correcta de funciones, corrección de discordancias y estabilidad gramatical.
 
-**Errores comunes:**
-- Leer rápido sin procesar
-- Confundir información similar
-- Responder por intuición
+### 5) Gestión verbal en contexto
+- **definición funcional (qué entrena):** selección y control de tiempos, modos y personas verbales según intención y secuencia.
+- **cuándo se activa:** completar formas verbales, transformar enunciados y sostener continuidad temporal.
+- **cómo se evalúa:** adecuación temporal, concordancia con sujeto y coherencia de modo verbal.
 
-**Cómo se entrena:**
-Textos breves + preguntas directas. Alta repetición con variaciones.
+### 6) Norma ortográfica y tildación
+- **definición funcional (qué entrena):** escritura normativa de palabras, acentuación y uso correcto de grafías conflictivas.
+- **cuándo se activa:** corrección ortográfica, elección entre variantes y edición de frases con errores.
+- **cómo se evalúa:** tasa de error por regla, consistencia de tildes y precisión en grafemas críticos.
 
----
-
-### 2. Inferencia
-
-**Descripción:**
-Capacidad de deducir información que no está explícita.
-
-**Qué evalúa:**
-- ¿Puede interpretar lo implícito?
-- ¿Usa evidencia del texto para responder?
-
-**Ejemplos de tarea:**
-- Deducir intenciones
-- Inferir causas o consecuencias
-- Completar información implícita
-
-**Errores comunes:**
-- Inventar respuestas sin base
-- Elegir opciones extremas
-- No justificar con el texto
-
-**Cómo se entrena:**
-Preguntas con opciones cercanas. Entrenamiento en discriminación fina.
-
----
-
-### 3. Vocabulario en contexto
-
-**Descripción:**
-Capacidad de interpretar el significado de palabras según el contexto.
-
-**Qué evalúa:**
-- ¿Puede inferir significados sin conocer la palabra?
-- ¿Evita usar el significado más común incorrectamente?
-
-**Ejemplos de tarea:**
-- Elegir significado correcto de una palabra
-- Reemplazar palabras sin cambiar el sentido
-- Detectar tono o carga de una palabra
-
-**Errores comunes:**
-- Elegir la primera acepción conocida
-- Ignorar el contexto
-- Confundir palabras similares
-
-**Cómo se entrena:**
-Oraciones y textos con palabras clave. Variación constante de contexto.
-
----
-
-### 4. Cohesión y coherencia
-
-**Descripción:**
-Capacidad de entender cómo se conectan las ideas dentro de un texto.
-
-**Qué evalúa:**
-- ¿Reconoce relaciones entre oraciones?
-- ¿Identifica conectores correctamente?
-
-**Ejemplos de tarea:**
-- Completar conectores
-- Ordenar oraciones
-- Detectar oración fuera de lugar
-
-**Errores comunes:**
-- Elegir conectores por sonido
-- No distinguir causa, contraste o consecuencia
-- Leer sin captar estructura global
-
-**Cómo se entrena:**
-Reconstrucción de textos + ejercicios de conexión lógica.
-
----
-
-### 5. Tipo de texto
-
-**Descripción:**
-Capacidad de identificar la intención y estructura del texto.
-
-**Qué evalúa:**
-- ¿Reconoce si el texto informa, narra, argumenta?
-- ¿Identifica su propósito?
-
-**Ejemplos de tarea:**
-- Clasificar textos
-- Identificar intención comunicativa
-- Reconocer estructura general
-
-**Errores comunes:**
-- Fijarse solo en el tema
-- No distinguir intención
-
-**Cómo se entrena:**
-Comparación de textos con distintas funciones.
-
----
-
-### 6. Narrador y punto de vista
-
-**Descripción:**
-Capacidad de identificar quién cuenta la historia y desde qué perspectiva.
-
-**Qué evalúa:**
-- ¿Distingue tipos de narrador?
-- ¿Reconoce el punto de vista?
-
-**Ejemplos de tarea:**
-- Identificar narrador
-- Detectar cambios de perspectiva
-
-**Errores comunes:**
-- Confundir autor con narrador
-- No identificar marcas de persona
-
-**Cómo se entrena:**
-Análisis de fragmentos narrativos.
-
----
-
-### 7. Interpretación de consignas
-
-**Descripción:**
-Capacidad de entender exactamente qué pide una consigna.
-
-**Qué evalúa:**
-- ¿Lee toda la consigna?
-- ¿Detecta palabras clave (no, excepto, siempre)?
-
-**Ejemplos de tarea:**
-- Identificar qué se pide
-- Detectar respuestas incorrectas por mala interpretación
-
-**Errores comunes:**
-- Leer parcialmente
-- Ignorar negaciones
-- Responder sin analizar
-
-**Cómo se entrena:**
-Entrenamiento específico sobre consignas.
-
----
+### 7) Puntuación para sentido
+- **definición funcional (qué entrena):** uso de signos de puntuación para modificar, precisar o desambiguar significado.
+- **cuándo se activa:** comparación de versiones de una misma oración y edición de puntuación en contexto.
+- **cómo se evalúa:** impacto semántico correcto, legibilidad y adecuación del signo al propósito comunicativo.
 
 ## Subhabilidades
 
-### Comprensión literal
-- Identificación de datos explícitos
-- Ubicación de información
-- Reconocimiento de idea principal
+### Comprensión e inferencia textual
+- **identificación de información explícita**
+  - descripción operativa: localizar datos textuales sin reformulación.
+  - tipo de ejercicio asociado: `multiple_choice`, `highlight_selection`.
+- **inferencia de causa, consecuencia y motivación**
+  - descripción operativa: deducir relaciones no dichas de forma directa.
+  - tipo de ejercicio asociado: `multiple_choice`, `completion`.
+- **síntesis de idea global**
+  - descripción operativa: seleccionar el enunciado que represente el núcleo del texto.
+  - tipo de ejercicio asociado: `multiple_choice`, `categorization`.
 
-### Inferencia
-- Relación causa–efecto
-- Interpretación de intención
-- Deducción de información implícita
+### Estructura y secuencia discursiva
+- **ordenamiento cronológico y lógico**
+  - descripción operativa: rearmar secuencias con continuidad temporal.
+  - tipo de ejercicio asociado: `ordering`, `completion`.
+- **detección de ruptura de coherencia**
+  - descripción operativa: ubicar enunciado que interrumpe progresión temática.
+  - tipo de ejercicio asociado: `categorization`, `multiple_choice`.
+- **conexión entre segmentos**
+  - descripción operativa: elegir enlace adecuado entre partes del texto.
+  - tipo de ejercicio asociado: `completion`, `multiple_choice`.
 
-### Vocabulario en contexto
-- Inferencia de significado
-- Reconocimiento de sinónimos
-- Interpretación de tono
+### Producción escrita funcional
+- **redacción con restricción de formato**
+  - descripción operativa: producir texto con longitud y estructura pedidas.
+  - tipo de ejercicio asociado: `completion`, `categorization`.
+- **selección de datos relevantes**
+  - descripción operativa: priorizar información necesaria y descartar relleno.
+  - tipo de ejercicio asociado: `categorization`, `multiple_choice`.
+- **revisión de claridad y foco**
+  - descripción operativa: reescribir para mejorar precisión y legibilidad.
+  - tipo de ejercicio asociado: `completion`, `categorization`.
 
-### Cohesión y coherencia
-- Uso de conectores
-- Orden lógico
-- Relación entre oraciones
+### Morfosintaxis aplicada
+- **clasificación de categorías gramaticales**
+  - descripción operativa: reconocer función gramatical en contexto real.
+  - tipo de ejercicio asociado: `categorization`, `multiple_choice`.
+- **concordancia nominal y verbal**
+  - descripción operativa: ajustar género, número y persona.
+  - tipo de ejercicio asociado: `completion`, `multiple_choice`.
+- **función sintáctica básica**
+  - descripción operativa: identificar núcleo y relaciones dentro de la oración.
+  - tipo de ejercicio asociado: `categorization`, `multiple_choice`.
 
-### Tipo de texto
-- Identificación de propósito
-- Reconocimiento de estructura
+### Gestión verbal en contexto
+- **reconocimiento de tiempo y modo**
+  - descripción operativa: identificar valor temporal y modal de formas verbales.
+  - tipo de ejercicio asociado: `multiple_choice`, `categorization`.
+- **transformación verbal sin pérdida de sentido**
+  - descripción operativa: convertir formas manteniendo coherencia del enunciado.
+  - tipo de ejercicio asociado: `completion`, `multiple_choice`.
+- **continuidad temporal del relato**
+  - descripción operativa: sostener secuencia de acciones sin saltos arbitrarios.
+  - tipo de ejercicio asociado: `completion`, `ordering`.
 
-### Narrador
-- Identificación de voz narrativa
-- Reconocimiento de punto de vista
+### Norma ortográfica y tildación
+- **grafías de alta confusión**
+  - descripción operativa: discriminar letras con alternancia frecuente.
+  - tipo de ejercicio asociado: `multiple_choice`, `completion`.
+- **acentuación general y diacrítica**
+  - descripción operativa: aplicar tildes por regla y por distinción funcional.
+  - tipo de ejercicio asociado: `completion`, `multiple_choice`.
+- **edición ortográfica integral**
+  - descripción operativa: corregir bloques breves con más de un tipo de error.
+  - tipo de ejercicio asociado: `completion`, `highlight_selection`.
 
-### Interpretación de consignas
-- Identificación de palabras clave
-- Comprensión de lo pedido
+### Puntuación para sentido
+- **coma en enumeración e inserciones**
+  - descripción operativa: separar elementos y segmentos incidentales.
+  - tipo de ejercicio asociado: `completion`, `multiple_choice`.
+- **puntuación para desambiguación**
+  - descripción operativa: modificar signos para cambiar o fijar interpretación.
+  - tipo de ejercicio asociado: `multiple_choice`, `highlight_selection`.
+- **segmentación de enunciados**
+  - descripción operativa: distribuir pausas fuertes y débiles para legibilidad.
+  - tipo de ejercicio asociado: `completion`, `highlight_selection`.
 
----
+## Tipos de ejercicio soportados (alineados con Exercise Engine v1)
+- `multiple_choice`
+- `completion`
+- `ordering`
+- `highlight_selection`
+- `categorization`
 
-## Relación con evaluación
-
-### Ejercicios
-Cada ejercicio entrena una habilidad principal.
-
-### Simulaciones
-Combinan múltiples habilidades bajo presión de tiempo.
-
-### Progreso del alumno
-Se mide por habilidad, no por contenido.
-
----
-
-## Criterios de dominio
-
-| Nivel | Descripción | Condición |
-|------|------------|----------|
-| Inicial | Alto error | <60% aciertos |
-| En progreso | Mejora parcial | 60–85% |
-| Dominado | Precisión + velocidad | >85% |
+## Reglas del sistema
+- cada ejercicio debe mapear a skill + subskill
+- no contenido teórico como eje
+- no dependencia de textos fuente
+- cada subskill debe tener al menos un tipo de ejercicio objetivo
+- cada intento debe registrar desempeño por precisión y consistencia
+- la dificultad debe escalar por carga cognitiva, no por extensión textual
+- toda retroalimentación debe ser accionable y breve
