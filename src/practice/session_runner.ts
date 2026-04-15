@@ -1,15 +1,18 @@
 import { readFileSync } from "node:fs";
 import { resolve } from "node:path";
-import { loadProgress, saveSessionResult } from "../storage/local_progress_store.ts";
-
-export type Result = "correct" | "incorrect";
+import {
+  selectNextExerciseDetailed,
+  type Exercise as SelectorExercise,
+  type UserSkillState,
+} from "./exercise_selector.ts";
 
 export type Exercise = {
   id: string;
   skill_id: string;
   subskill: string;
   difficulty: 1 | 2 | 3;
-  type: "multiple_choice";
+  type: string;
+  text?: string;
   prompt: string;
   options: string[];
   correct_answer: string;
@@ -17,13 +20,7 @@ export type Exercise = {
   feedback_incorrect: string;
 };
 
-type ExerciseFile = {
-  metadata?: {
-    validated_by?: string;
-    audit_file?: string;
-  };
-  exercises?: Exercise[];
-};
+export type Result = "correct" | "incorrect";
 
 export type HistoryItem = {
   exercise_id: string;
@@ -33,24 +30,35 @@ export type HistoryItem = {
   result: Result;
 };
 
-type SkillStats = Record<
-  string,
-  {
+type ExerciseFile = {
+  metadata?: Record<string, string>;
+  exercises?: Exercise[];
+};
+
+type AttemptRecord = {
+  step: number;
+  exerciseId: string;
+  skill: string;
+  subskill: string;
+  difficulty: 1 | 2 | 3;
+  answer: string;
+  result: Result;
+  ruleApplied: string;
+};
+
+type SessionConfig = {
+  maxSteps: number;
+  datasetPath?: string;
+};
+
+type SessionResult = {
+  history: AttemptRecord[];
+  finalState: UserSkillState[];
+  summary: {
+    total: number;
     correct: number;
     incorrect: number;
-  }
->;
-
-type SkillState = "weak" | "developing" | "mastered";
-type Consistency = "alta" | "baja";
-
-type ProgressMetric = {
-  skill_id: string;
-  accuracy: number;
-  attempts: number;
-  error_rate: number;
-  consistency: Consistency;
-  state: SkillState;
+  };
 };
 
 export type PracticeSelection = {
@@ -59,374 +67,249 @@ export type PracticeSelection = {
   usedExerciseIds: string[];
 };
 
-const SESSION_LENGTH = 10;
-const exercisesPath = resolve(
+type AnswerProvider = (exercise: Exercise, step: number) => string;
+
+const DEFAULT_MAX_STEPS = 10;
+const DEFAULT_DATASET_PATH = resolve(
   process.cwd(),
-  "docs/04_exercise_engine/lengua_exercises_v1.json",
+  "docs/04_exercise_engine/lengua_exercises_modulo3.json",
 );
 
-export function loadExercises(): Exercise[] {
-  const raw = readFileSync(exercisesPath, "utf8");
+function toSelectorExercise(ex: Exercise): SelectorExercise {
+  return {
+    id: ex.id,
+    skill: ex.skill_id,
+    subskill: ex.subskill,
+    difficulty: ex.difficulty,
+  };
+}
+
+export function loadExercises(path: string): Exercise[] {
+  const raw = readFileSync(path, "utf8");
   const parsed = JSON.parse(raw) as ExerciseFile | Exercise[];
   const exercises = Array.isArray(parsed) ? parsed : parsed.exercises;
 
   if (!exercises?.length) {
-    throw new Error("No exercises found in lengua_exercises_v1.json");
+    throw new Error(`No exercises found in ${path}`);
   }
 
   return exercises;
 }
 
-export function getNextExercise(history: HistoryItem[], exercises: Exercise[]): Exercise {
-  const last = history.at(-1);
+function evaluateAnswer(exercise: Exercise, answer: string): Result {
+  return answer === exercise.correct_answer ? "correct" : "incorrect";
+}
 
-  if (!last) {
-    const easyExercises = exercises.filter((exercise) => exercise.difficulty === 1);
+function computeAccuracy(history: AttemptRecord[], skill: string, subskill: string): number {
+  const relevant = history.filter((h) => h.skill === skill && h.subskill === subskill);
 
-    return pickExercise(easyExercises.length > 0 ? easyExercises : exercises);
+  if (relevant.length === 0) return 0;
+
+  const correct = relevant.filter((h) => h.result === "correct").length;
+  return correct / relevant.length;
+}
+
+function computeStreak(history: AttemptRecord[], skill: string, subskill: string): number {
+  const relevant = history.filter((h) => h.skill === skill && h.subskill === subskill);
+  let streak = 0;
+
+  for (let i = relevant.length - 1; i >= 0; i -= 1) {
+    if (relevant[i].result === "correct") {
+      streak += 1;
+    } else {
+      break;
+    }
   }
 
-  const skillStats = buildSkillStats(history);
-  const recentBySkill = history.filter((item) => item.skill_id === last.skill_id).slice(-3);
-  const recentErrors = recentBySkill.filter((item) => item.result === "incorrect");
-  const recentErrorCount = recentErrors.length;
-  const forcedSkillChange = countConsecutiveSkill(history, last.skill_id) >= 3;
-  const consistentCorrect =
-    recentBySkill.length >= 2 && recentBySkill.slice(-2).every((item) => item.result === "correct");
+  return streak;
+}
 
-  const prioritySkill = forcedSkillChange
-    ? chooseLeastPracticedSkill(history, exercises, last.skill_id)
-    : choosePrioritySkill(history, exercises, skillStats, last, recentErrorCount);
-  const targetDifficulty = chooseDifficulty(last, recentErrorCount, consistentCorrect);
-  const lastExerciseId = last.exercise_id;
-  const excludedSubskill = recentErrorCount >= 3 ? last.subskill : undefined;
+function buildUserState(history: AttemptRecord[]): UserSkillState[] {
+  if (history.length === 0) return [];
 
-  const candidates = exercises.filter(
-    (exercise) =>
-      exercise.skill_id === prioritySkill &&
-      exercise.difficulty === targetDifficulty &&
-      exercise.subskill !== excludedSubskill &&
-      exercise.id !== lastExerciseId,
-  );
+  const last = history[history.length - 1];
 
-  if (candidates.length > 0) {
-    return pickExercise(candidates);
+  return [
+    {
+      skill: last.skill,
+      subskill: last.subskill,
+      accuracy: computeAccuracy(history, last.skill, last.subskill),
+      streak: computeStreak(history, last.skill, last.subskill),
+      lastResult: last.result,
+    },
+  ];
+}
+
+function findExercise(fullExercises: Exercise[], selectorExercise: SelectorExercise): Exercise {
+  const found = fullExercises.find((ex) => ex.id === selectorExercise.id);
+
+  if (!found) {
+    throw new Error(`Exercise ${selectorExercise.id} not found in full dataset`);
   }
 
-  const fallbackSameSkill = exercises.filter(
-    (exercise) =>
-      exercise.skill_id === prioritySkill &&
-      exercise.subskill !== excludedSubskill &&
-      exercise.id !== lastExerciseId,
-  );
+  return found;
+}
 
-  if (fallbackSameSkill.length > 0) {
-    return pickExercise(fallbackSameSkill);
+export function runSession(
+  fullExercises: Exercise[],
+  answerProvider: AnswerProvider,
+  config?: Partial<SessionConfig>,
+): SessionResult {
+  const maxSteps = config?.maxSteps ?? DEFAULT_MAX_STEPS;
+  const allSelectorExercises = fullExercises.map(toSelectorExercise);
+  const history: AttemptRecord[] = [];
+  const usedExerciseIds: Set<string> = new Set();
+  let userState: UserSkillState[] = [];
+
+  console.log("=== SESION DE PRACTICA ===");
+  console.log(`Ejercicios disponibles: ${fullExercises.length}`);
+  console.log(`Pasos configurados: ${maxSteps}`);
+  console.log("");
+
+  const availableExercises = (): SelectorExercise[] => {
+    const filtered = allSelectorExercises.filter((ex) => !usedExerciseIds.has(ex.id));
+    return filtered.length > 0 ? filtered : allSelectorExercises;
+  };
+
+  const firstSelection = selectNextExerciseDetailed(availableExercises(), userState);
+  let currentSelectorExercise = firstSelection.exercise;
+  let lastRuleApplied = firstSelection.ruleApplied;
+
+  for (let step = 1; step <= maxSteps; step += 1) {
+    const currentFull = findExercise(fullExercises, currentSelectorExercise);
+    usedExerciseIds.add(currentFull.id);
+    const answer = answerProvider(currentFull, step);
+    const result = evaluateAnswer(currentFull, answer);
+    const feedback =
+      result === "correct" ? currentFull.feedback_correct : currentFull.feedback_incorrect;
+
+    console.log(`--- Paso ${step} ---`);
+    console.log(`  Ejercicio: ${currentFull.id}`);
+    console.log(`  Skill: ${currentFull.skill_id} > ${currentFull.subskill}`);
+    console.log(`  Dificultad: ${currentFull.difficulty}`);
+    console.log(`  Regla aplicada: ${lastRuleApplied}`);
+    console.log(`  Respuesta: ${answer}`);
+    console.log(`  Resultado: ${result === "correct" ? "Correcto" : "Incorrecto"}`);
+    console.log(`  Feedback: ${feedback}`);
+
+    history.push({
+      step,
+      exerciseId: currentFull.id,
+      skill: currentFull.skill_id,
+      subskill: currentFull.subskill,
+      difficulty: currentFull.difficulty,
+      answer,
+      result,
+      ruleApplied: lastRuleApplied,
+    });
+
+    userState = buildUserState(history);
+
+    if (step < maxSteps) {
+      const selection = selectNextExerciseDetailed(availableExercises(), userState);
+      currentSelectorExercise = selection.exercise;
+      lastRuleApplied = selection.ruleApplied;
+    }
   }
 
-  const fallbackSameSkillAnySubskill = exercises.filter(
-    (exercise) => exercise.skill_id === prioritySkill && exercise.id !== lastExerciseId,
-  );
+  const totalCorrect = history.filter((h) => h.result === "correct").length;
+  const totalIncorrect = history.length - totalCorrect;
 
-  if (fallbackSameSkillAnySubskill.length > 0) {
-    return pickExercise(fallbackSameSkillAnySubskill);
+  console.log("");
+  console.log("=== RESUMEN ===");
+  console.log(`Total ejercicios: ${history.length}`);
+  console.log(`Correctos: ${totalCorrect}`);
+  console.log(`Incorrectos: ${totalIncorrect}`);
+  console.log(`Precision general: ${history.length > 0 ? Math.round((totalCorrect / history.length) * 100) : 0}%`);
+
+  const skillsUsed = [...new Set(history.map((h) => h.skill))];
+  console.log("");
+
+  for (const skill of skillsUsed) {
+    const skillHistory = history.filter((h) => h.skill === skill);
+    const skillCorrect = skillHistory.filter((h) => h.result === "correct").length;
+    const skillAccuracy = Math.round((skillCorrect / skillHistory.length) * 100);
+    console.log(`  [${skill}] ${skillHistory.length} intentos, ${skillAccuracy}% precision`);
   }
 
-  const fallbackAnySkill = exercises.filter((exercise) => exercise.id !== lastExerciseId);
+  const subskillsUsed = [...new Set(history.map((h) => `${h.skill}/${h.subskill}`))];
+  console.log("");
 
-  if (fallbackAnySkill.length > 0) {
-    return pickExercise(fallbackAnySkill);
+  for (const key of subskillsUsed) {
+    const [skill, subskill] = key.split("/");
+    const subHistory = history.filter((h) => h.skill === skill && h.subskill === subskill);
+    const subCorrect = subHistory.filter((h) => h.result === "correct").length;
+    const subAccuracy = Math.round((subCorrect / subHistory.length) * 100);
+    const lastRule = subHistory[subHistory.length - 1].ruleApplied;
+    console.log(`    ${subskill}: ${subHistory.length} intentos, ${subAccuracy}% precision, regla=${lastRule}`);
   }
 
-  return pickExercise(exercises);
+  console.log("");
+  console.log("Estado final del usuario:");
+
+  for (const state of userState) {
+    console.log(
+      `  [${state.skill}/${state.subskill}] accuracy=${Math.round(state.accuracy * 100)}%, streak=${state.streak}, lastResult=${state.lastResult}`,
+    );
+  }
+
+  return {
+    history,
+    finalState: userState,
+    summary: {
+      total: history.length,
+      correct: totalCorrect,
+      incorrect: totalIncorrect,
+    },
+  };
+}
+
+export function runDeterministicSession(config?: Partial<SessionConfig>): SessionResult {
+  const datasetPath = config?.datasetPath ?? DEFAULT_DATASET_PATH;
+  const fullExercises = loadExercises(datasetPath);
+
+  const deterministicAnswer: AnswerProvider = (exercise, _step) => exercise.correct_answer;
+
+  return runSession(fullExercises, deterministicAnswer, config);
+}
+
+export function runMixedSession(config?: Partial<SessionConfig>): SessionResult {
+  const datasetPath = config?.datasetPath ?? DEFAULT_DATASET_PATH;
+  const fullExercises = loadExercises(datasetPath);
+
+  const mixedAnswer: AnswerProvider = (exercise, step) => {
+    if (step <= 3) return exercise.correct_answer;
+    if (step <= 5) return exercise.options.find((o) => o !== exercise.correct_answer) ?? exercise.correct_answer;
+    return exercise.correct_answer;
+  };
+
+  return runSession(fullExercises, mixedAnswer, config);
 }
 
 export function startPracticeSession(
   skillId: string | null,
   usedExerciseIds: string[] = [],
 ): PracticeSelection {
-  const exercises = loadExercises();
+  const exercises = loadExercises(DEFAULT_DATASET_PATH);
   const focusedExercises = skillId
-    ? exercises.filter((exercise) => exercise.skill_id === skillId)
+    ? exercises.filter((ex) => ex.skill_id === skillId)
     : exercises;
   const startingPool = focusedExercises.length > 0 ? focusedExercises : exercises;
-  const unusedExercises = startingPool.filter((exercise) => !usedExerciseIds.includes(exercise.id));
+  const unusedExercises = startingPool.filter((ex) => !usedExerciseIds.includes(ex.id));
   const selectionPool = unusedExercises.length > 0 ? unusedExercises : startingPool;
-  const activeUsedExerciseIds = unusedExercises.length > 0 ? usedExerciseIds : [];
-  const easyFocusedExercises = selectionPool.filter((exercise) => exercise.difficulty === 1);
+  const activeUsedIds = unusedExercises.length > 0 ? usedExerciseIds : [];
+
+  const selectorExercises = selectionPool.map(toSelectorExercise);
+  const selection = selectNextExerciseDetailed(selectorExercises, []);
+  const exercise = findExercise(exercises, selection.exercise);
 
   return {
-    exercise: getNextExercise([], easyFocusedExercises.length > 0 ? easyFocusedExercises : selectionPool),
+    exercise,
     exercisePool: startingPool,
-    usedExerciseIds: activeUsedExerciseIds,
+    usedExerciseIds: [...activeUsedIds, exercise.id],
   };
 }
 
-function simulateAnswer(exercise: Exercise): string {
-  const shouldAnswerCorrectly = Math.random() < chanceByDifficulty(exercise.difficulty);
-
-  if (shouldAnswerCorrectly) {
-    return exercise.correct_answer;
-  }
-
-  const distractors = exercise.options.filter((option) => option !== exercise.correct_answer);
-  return pickValue(distractors);
-}
-
-function runSession(): void {
-  const exercises = loadExercises();
-  const progress = loadProgress();
-  const history: HistoryItem[] = [];
-
-  console.log(`Progreso cargado: ${progress.sessions.length} sesiones previas`);
-  console.log("");
-
-  let currentExercise = getNextExercise(history, exercises);
-
-  for (let index = 0; index < SESSION_LENGTH; index += 1) {
-    const selectedAnswer = simulateAnswer(currentExercise);
-    const result: Result =
-      selectedAnswer === currentExercise.correct_answer ? "correct" : "incorrect";
-    const feedback =
-      result === "correct"
-        ? currentExercise.feedback_correct
-        : currentExercise.feedback_incorrect;
-
-    console.log(`[${currentExercise.skill_id}] ${currentExercise.prompt}`);
-    console.log(`Respuesta elegida: ${selectedAnswer}`);
-    console.log(`Resultado: ${result === "correct" ? "Correcto" : "Incorrecto"}`);
-    console.log(`Feedback: ${feedback}`);
-    console.log("");
-
-    history.push({
-      exercise_id: currentExercise.id,
-      skill_id: currentExercise.skill_id,
-      subskill: currentExercise.subskill,
-      difficulty: currentExercise.difficulty,
-      result,
-    });
-
-    currentExercise = getNextExercise(history, exercises);
-  }
-
-  const progressMetrics = printSummary(history);
-  const totalCorrect = history.filter((item) => item.result === "correct").length;
-  const totalErrors = history.length - totalCorrect;
-
-  saveSessionResult({
-    mode: "practice",
-    total_attempts: history.length,
-    total_correct: totalCorrect,
-    total_errors: totalErrors,
-    skill_results: progressMetrics.map((metric) => ({
-      skill_id: metric.skill_id,
-      attempts: metric.attempts,
-      correct: Math.round(metric.accuracy * metric.attempts),
-      state: metric.state,
-    })),
-  });
-
-  console.log("Progreso guardado en data/progress.json");
-}
-
-function choosePrioritySkill(
-  history: HistoryItem[],
-  exercises: Exercise[],
-  skillStats: SkillStats,
-  last: HistoryItem,
-  recentErrorCount: number,
-): string {
-  if (last.result === "incorrect" || recentErrorCount > 0) {
-    return last.skill_id;
-  }
-
-  const weakestSkill = Object.entries(skillStats).sort(
-    ([, a], [, b]) => b.incorrect - a.incorrect,
-  )[0]?.[0];
-
-  if (weakestSkill && skillStats[weakestSkill].incorrect > 0) {
-    return weakestSkill;
-  }
-
-  return chooseLeastPracticedSkill(history, exercises) ?? last.skill_id;
-}
-
-function buildSkillStats(history: HistoryItem[]): SkillStats {
-  return history.reduce<SkillStats>((stats, item) => {
-    stats[item.skill_id] ??= { correct: 0, incorrect: 0 };
-    stats[item.skill_id][item.result === "correct" ? "correct" : "incorrect"] += 1;
-    return stats;
-  }, {});
-}
-
-function chooseLeastPracticedSkill(
-  history: HistoryItem[],
-  exercises: Exercise[],
-  excludedSkillId?: string,
-): string {
-  const skillCounts = history.reduce<Record<string, number>>((counts, item) => {
-    counts[item.skill_id] = (counts[item.skill_id] ?? 0) + 1;
-    return counts;
-  }, {});
-
-  const availableSkills = Array.from(new Set(exercises.map((exercise) => exercise.skill_id))).filter(
-    (skillId) => skillId !== excludedSkillId,
-  );
-
-  return availableSkills.sort((a, b) => (skillCounts[a] ?? 0) - (skillCounts[b] ?? 0))[0];
-}
-
-function chooseDifficulty(
-  last: HistoryItem,
-  recentErrorCount: number,
-  consistentCorrect: boolean,
-): 1 | 2 | 3 {
-  if (recentErrorCount >= 2) {
-    return lowerDifficulty(last.difficulty);
-  }
-
-  if (last.result === "incorrect") {
-    return last.difficulty;
-  }
-
-  if (consistentCorrect) {
-    return higherDifficulty(last.difficulty);
-  }
-
-  return last.difficulty;
-}
-
-function lowerDifficulty(difficulty: 1 | 2 | 3): 1 | 2 | 3 {
-  return difficulty === 1 ? 1 : ((difficulty - 1) as 1 | 2);
-}
-
-function higherDifficulty(difficulty: 1 | 2 | 3): 1 | 2 | 3 {
-  return difficulty === 3 ? 3 : ((difficulty + 1) as 2 | 3);
-}
-
-function chanceByDifficulty(difficulty: 1 | 2 | 3): number {
-  if (difficulty === 1) {
-    return 0.7;
-  }
-
-  if (difficulty === 2) {
-    return 0.5;
-  }
-
-  return 0.3;
-}
-
-function countConsecutiveSkill(history: HistoryItem[], skillId: string): number {
-  let count = 0;
-
-  for (let index = history.length - 1; index >= 0; index -= 1) {
-    if (history[index].skill_id !== skillId) {
-      break;
-    }
-
-    count += 1;
-  }
-
-  return count;
-}
-
-function pickExercise(exercises: Exercise[]): Exercise {
-  if (exercises.length === 0) {
-    throw new Error("Cannot pick an exercise from an empty list");
-  }
-
-  return pickValue(exercises);
-}
-
-function pickValue<T>(items: T[]): T {
-  return items[Math.floor(Math.random() * items.length)];
-}
-
-function printSummary(history: HistoryItem[]): ProgressMetric[] {
-  const skillStats = buildSkillStats(history);
-  const totalCorrect = history.filter((item) => item.result === "correct").length;
-  const totalErrors = history.length - totalCorrect;
-  const progressMetrics = buildProgressMetrics(history, skillStats);
-
-  console.log("Resumen");
-  console.log(`Total aciertos: ${totalCorrect}`);
-  console.log(`Total errores: ${totalErrors}`);
-  console.log("Errores por skill:");
-
-  const skillsWithErrors = Object.entries(skillStats).filter(([, stats]) => stats.incorrect > 0);
-
-  if (skillsWithErrors.length === 0) {
-    console.log("- ninguno");
-  } else {
-    for (const [skillId, stats] of skillsWithErrors) {
-      console.log(`- ${skillId}: ${stats.incorrect}`);
-    }
-  }
-
-  console.log("");
-  console.log("Metricas por skill:");
-
-  for (const metric of progressMetrics) {
-    console.log(`[${metric.skill_id}]`);
-    console.log(`accuracy: ${formatPercent(metric.accuracy)}`);
-    console.log(`attempts: ${metric.attempts}`);
-    console.log(`error_rate: ${formatPercent(metric.error_rate)}`);
-    console.log(`consistency: ${metric.consistency}`);
-    console.log(`estado: ${metric.state}`);
-    console.log("");
-  }
-
-  return progressMetrics;
-}
-
-function buildProgressMetrics(history: HistoryItem[], skillStats: SkillStats): ProgressMetric[] {
-  return Object.entries(skillStats)
-    .map(([skillId, stats]) => {
-      const attempts = stats.correct + stats.incorrect;
-      const accuracy = attempts === 0 ? 0 : stats.correct / attempts;
-      const errorRate = attempts === 0 ? 0 : stats.incorrect / attempts;
-
-      return {
-        skill_id: skillId,
-        accuracy,
-        attempts,
-        error_rate: errorRate,
-        consistency: calculateConsistency(history, skillId),
-        state: classifySkill(accuracy),
-      };
-    })
-    .sort((a, b) => a.skill_id.localeCompare(b.skill_id));
-}
-
-function calculateConsistency(history: HistoryItem[], skillId: string): Consistency {
-  const recentResults = history
-    .filter((item) => item.skill_id === skillId)
-    .slice(-3)
-    .map((item) => item.result);
-
-  const hasTwoCorrectInARow = recentResults.some(
-    (result, index) => result === "correct" && recentResults[index + 1] === "correct",
-  );
-
-  return hasTwoCorrectInARow ? "alta" : "baja";
-}
-
-function classifySkill(accuracy: number): SkillState {
-  if (accuracy < 0.5) {
-    return "weak";
-  }
-
-  if (accuracy <= 0.75) {
-    return "developing";
-  }
-
-  return "mastered";
-}
-
-function formatPercent(value: number): string {
-  return `${Math.round(value * 100)}%`;
-}
-
 if (process.argv[1]?.endsWith("session_runner.ts")) {
-  runSession();
+  runMixedSession();
 }

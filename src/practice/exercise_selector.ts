@@ -23,7 +23,15 @@ type Target = {
   difficultyMode: DifficultyMode;
 };
 
-export function selectNextExercise(exercises: Exercise[], userState: UserSkillState[]): Exercise {
+export type SelectionResult = {
+  exercise: Exercise;
+  ruleApplied: RuleApplied;
+};
+
+export function selectNextExerciseDetailed(
+  exercises: Exercise[],
+  userState: UserSkillState[],
+): SelectionResult {
   if (exercises.length === 0) {
     throw new Error("selectNextExercise requires at least one exercise");
   }
@@ -31,7 +39,7 @@ export function selectNextExercise(exercises: Exercise[], userState: UserSkillSt
   if (userState.length === 0) {
     const selected = pickDeterministic(exercises);
     logSelection("E", selected);
-    return selected;
+    return { exercise: selected, ruleApplied: "E" };
   }
 
   const currentState = userState[0];
@@ -44,7 +52,11 @@ export function selectNextExercise(exercises: Exercise[], userState: UserSkillSt
     pickDeterministic(exercises);
 
   logSelection(ruleApplied, selected);
-  return selected;
+  return { exercise: selected, ruleApplied };
+}
+
+export function selectNextExercise(exercises: Exercise[], userState: UserSkillState[]): Exercise {
+  return selectNextExerciseDetailed(exercises, userState).exercise;
 }
 
 function resolveRuleTarget(
