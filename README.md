@@ -1,88 +1,203 @@
-# app-ingreso-product
+# App Ingreso
 
-Sistema de producto para una app EdTech de preparación autónoma para exámenes de ingreso.
+Sistema de entrenamiento autónomo para estudiantes que se preparan para exámenes de ingreso.
 
-El enfoque del producto es:
-- entrenamiento por habilidades
-- práctica intensiva
-- simulaciones de examen
-- seguimiento del progreso
-
-⚠️ Este repositorio:
-- NO contiene código de la aplicación
-- NO utiliza contenido oficial
-- NO replica materiales existentes
-
-Su objetivo es definir el sistema completo antes de la implementación.
+> **No enseña contenido. Entrena habilidades.**
 
 ---
 
-## Sistema de agentes
+## 🎯 Propósito
 
-El producto utiliza un sistema de agentes para validar decisiones antes de avanzar.
-El flujo esta gobernado por `agents/orchestrator.md`.
-Todas las decisiones pasan por clasificacion, validaciones aplicables y generacion de prompt.
-Esto mantiene consistencia, trazabilidad y control de alcance.
+App Ingreso es una plataforma de práctica intensiva que ayuda a estudiantes de 11-12 años a mejorar su rendimiento en evaluaciones de ingreso mediante:
 
----
-
-## 📂 Estructura del repositorio
-
-### /docs
-Contiene la definición completa del producto:
-
-- **00_vision** → propósito y alcance del producto  
-- **01_research** → insights y análisis  
-- **02_pedagogical_model** → cómo aprende el usuario  
-- **03_skill_system** → habilidades entrenables (**núcleo del sistema**)  
-- **04_exercise_engine** → lógica de ejercicios  
-- **05_user_flow** → experiencia del usuario  
-- **06_simulator** → simulaciones de examen  
-- **07_metrics** → medición de progreso  
-- **08_business_rules** → reglas comerciales  
-- **09_legal_positioning** → posicionamiento legal y responsabilidad  
+- **Entrenamiento por habilidades** - Ejercicios focalizados en competencias específicas
+- **Práctica intensiva** - Sesiones cortas y repetitivas con feedback inmediato
+- **Simulaciones de examen** - Práctica en condiciones reales de tiempo
+- **Seguimiento del progreso** - Visualización del avance por habilidad
 
 ---
 
-### /decisions
-Registro de decisiones clave del producto (ADR - Architecture Decision Records)
+## ⚠️ Descargo de responsabilidad
 
-Define:
-- qué se decidió
-- por qué
-- qué implica
+Este producto:
+- **NO** utiliza contenido oficial de exámenes
+- **NO** replica materiales de academias existentes
+- **NO** garantiza resultados específicos
+- **NO** reemplaza el estudio académico
 
----
-
-### /roadmap
-Plan de evolución del producto por fases
+Su objetivo es maximizar la probabilidad de mejora mediante práctica sistemática.
 
 ---
 
-## 🚀 Cómo usar este repositorio
+## 🛠️ Stack Tecnológico
 
-1. Definir o actualizar habilidades en:
-   → `docs/03_skill_system/skills_map.md`
-
-2. Diseñar ejercicios en base a habilidades:
-   → `docs/04_exercise_engine/`
-
-3. Ajustar experiencia de usuario:
-   → `docs/05_user_flow/`
-
-4. Registrar decisiones importantes en:
-   → `/decisions`
+- **Framework**: [Next.js](https://nextjs.org/) 14+ (App Router)
+- **Lenguaje**: [TypeScript](https://www.typescriptlang.org/)
+- **Estilos**: [Tailwind CSS](https://tailwindcss.com/)
+- **Almacenamiento**: JSON local (mvp)
 
 ---
 
-## 🧠 Principio clave
+## 📂 Estructura del Repositorio
 
-Este producto no enseña contenido.
+### `/src` - Código Fuente
+Implementación funcional del producto:
 
-Entrena habilidades específicas necesarias para resolver evaluaciones.
+```
+src/
+├── app/                    # Páginas de Next.js
+│   ├── dashboard/         # Panel principal de habilidades
+│   ├── practice/          # Pantalla de práctica de ejercicios
+│   ├── layout.tsx         # Layout raíz de la aplicación
+│   └── globals.css        # Estilos globales
+├── components/            # Componentes React reutilizables
+│   └── dashboard/         # Componentes del panel (Header, SkillList, etc.)
+├── practice/              # Lógica de negocio del sistema de práctica
+│   ├── exercise_selector.ts      # Algoritmo de selección adaptativa
+│   ├── session_runner.ts         # Gestor de sesiones de práctica
+│   ├── simulator_runner.ts       # Simulador de examen con tiempo
+│   └── exercise_selector.test.ts # Tests del selector
+└── storage/
+    └── local_progress_store.ts   # Persistencia de progreso en JSON
+```
+
+### `/docs` - Definición del Producto
+Documentación completa del sistema:
+
+| Carpeta | Contenido |
+|---------|-----------|
+| `00_vision/` | Propósito y alcance del producto |
+| `01_research/` | Insights y análisis de usuarios |
+| `02_pedagogical_model/` | Modelo de aprendizaje aplicado |
+| `03_skill_system/` | **Sistema de habilidades** - núcleo del producto |
+| `04_exercise_engine/` | Lógica de ejercicios y selección |
+| `05_user_flow/` | Flujos de usuario y experiencia |
+| `06_simulator/` | Especificaciones del simulador de examen |
+| `07_metrics/` | Sistema de medición de progreso |
+| `08_business_rules/` | Reglas comerciales |
+| `09_legal_positioning/` | Posicionamiento legal |
+
+### `/agents` - Sistema de Agentes
+Protocolos y definiciones para validación de decisiones:
+
+- `orchestrator.md` - Flujo principal de validación
+- `definitions/` - Definición de cada agente (Product Guardian, Scope Validator, etc.)
+- `protocols/` - Protocolos de interacción
+- `prompts/` - Prompts especializados para agentes
+- `examples/` - Ejemplos de casos de uso
+
+### `/decisions` - Registro de Decisiones (ADR)
+Architecture Decision Records que documentan:
+- Qué se decidió
+- Por qué se decidió
+- Qué implica
+
+### `/roadmap` - Plan de Evolución
+Fases del desarrollo del producto desde MVP hasta escala.
+
+### `/data` - Datos de Ejemplo
+Progreso de usuario de ejemplo para desarrollo.
 
 ---
 
-## 📌 Estado
+## 🚀 Cómo Ejecutar el Proyecto
 
-Etapa: definición del sistema (pre-implementación)
+### Requisitos previos
+- Node.js 18+
+- npm o pnpm
+
+### Instalación
+
+```bash
+# Clonar el repositorio
+git clone <repo-url>
+cd app-ingreso-product
+
+# Instalar dependencias
+npm install
+
+# Iniciar servidor de desarrollo
+npm run dev
+```
+
+La aplicación estará disponible en `http://localhost:3000`
+
+### Ejecutar Tests
+
+```bash
+npm test
+```
+
+---
+
+## 📋 Flujo de Trabajo del Producto
+
+### 1. Definir o actualizar habilidades
+→ `docs/03_skill_system/skills_map.md`
+
+### 2. Diseñar ejercicios basados en habilidades
+→ `docs/04_exercise_engine/`
+
+### 3. Implementar funcionalidades
+→ `/src/practice/` para lógica de negocio
+→ `/src/components/` para UI
+
+### 4. Registrar decisiones importantes
+→ `/decisions/`
+
+### 5. Validar mediante sistema de agentes
+→ Seguir protocolo en `agents/orchestrator.md`
+
+---
+
+## ✅ Funcionalidades Implementadas
+
+### Dashboard
+- [x] Visualización de habilidades por módulo
+- [x] Indicadores de nivel y progreso
+- [x] Acceso rápido a práctica y simulador
+
+### Sistema de Práctica
+- [x] Selector de ejercicios adaptativo con 4 reglas de prioridad
+- [x] Sesiones de 10 ejercicios con seguimiento
+- [x] Feedback inmediato por respuesta
+- [x] Adaptación automática según rendimiento
+
+### Simulador de Examen
+- [x] Modo examen con tiempo limitado
+- [x] Preguntas de todas las habilidades
+- [x] Resultados y análisis post-simulación
+
+### Almacenamiento
+- [x] Persistencia local de progreso
+- [x] Seguimiento de nivel por habilidad
+- [x] Historial de sesiones
+
+---
+
+## 🧠 Principios del Producto
+
+1. **El aprendizaje ocurre por práctica, no por explicación**
+2. **Cada ejercicio debe tener un objetivo de habilidad claro**
+3. **El feedback debe ser inmediato y específico**
+4. **La dificultad se adapta al nivel del usuario**
+5. **La práctica debe ser constante, no extensa**
+
+---
+
+## 📌 Estado del Proyecto
+
+**Fase**: Implementación MVP en progreso
+
+- ✅ Definición del sistema completada
+- ✅ Arquitectura base implementada
+- ✅ Sistema de práctica funcional
+- ✅ Dashboard operativo
+- 🔄 Contenido de ejercicios en expansión
+- ⏳ Analytics avanzados (próximamente)
+
+---
+
+## 📄 Licencia
+
+Proyecto privado - Todos los derechos reservados.
