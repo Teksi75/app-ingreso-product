@@ -1,11 +1,11 @@
-# Rootlayout / Layout
+# Community 16
 
-> 2 nodes · cohesion 1.00
+> 2 nodes
 
 ## Key Concepts
 
-- **RootLayout()** (1 connections) — `src\app\layout.tsx`
-- **layout.tsx** (1 connections) — `src\app\layout.tsx`
+- **page.tsx** (1 connections) — `src\app\page.tsx`
+- **HomePage()** (1 connections) — `src\app\page.tsx`
 
 ## Relationships
 
@@ -13,7 +13,7 @@
 
 ## Source Files
 
-- `src\app\layout.tsx`
+- `src\app\page.tsx`
 
 ## Audit Trail
 

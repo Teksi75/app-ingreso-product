@@ -1,10 +1,11 @@
-# Next
+# Community 15
 
-> 1 nodes · cohesion 1.00
+> 2 nodes
 
 ## Key Concepts
 
-- **next-env.d.ts** (0 connections) — `next-env.d.ts`
+- **layout.tsx** (1 connections) — `src\app\layout.tsx`
+- **RootLayout()** (1 connections) — `src\app\layout.tsx`
 
 ## Relationships
 
@@ -12,11 +13,11 @@
 
 ## Source Files
 
-- `next-env.d.ts`
+- `src\app\layout.tsx`
 
 ## Audit Trail
 
-- EXTRACTED: 0 (0%)
+- EXTRACTED: 2 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

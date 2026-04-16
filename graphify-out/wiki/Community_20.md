@@ -1,10 +1,10 @@
-# Next / Config
+# Community 20
 
-> 1 nodes · cohesion 1.00
+> 1 nodes
 
 ## Key Concepts
 
-- **next.config.js** (0 connections) — `next.config.js`
+- **next-env.d.ts** (0 connections) — `next-env.d.ts`
 
 ## Relationships
 
@@ -12,7 +12,7 @@
 
 ## Source Files
 
-- `next.config.js`
+- `next-env.d.ts`
 
 ## Audit Trail
 

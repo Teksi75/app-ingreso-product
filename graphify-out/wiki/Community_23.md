@@ -1,10 +1,10 @@
-# Postcss / Config
+# Community 23
 
-> 1 nodes · cohesion 1.00
+> 1 nodes
 
 ## Key Concepts
 
-- **postcss.config.mjs** (0 connections) — `postcss.config.mjs`
+- **page.tsx** (0 connections) — `src\app\practice\page.tsx`
 
 ## Relationships
 
@@ -12,7 +12,7 @@
 
 ## Source Files
 
-- `postcss.config.mjs`
+- `src\app\practice\page.tsx`
 
 ## Audit Trail
 

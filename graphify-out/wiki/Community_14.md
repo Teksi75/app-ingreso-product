@@ -1,13 +1,13 @@
-# Cohesion / Coherencia / Conectores
+# Community 14
 
-> 5 nodes · cohesion 0.40
+> 5 nodes
 
 ## Key Concepts
 
 - **Lengua | modulo 4** (4 connections) — `content_sources/lengua/modulo-4.pdf`
-- **Cohesion, coherencia y conectores** (1 connections) — `content_sources/lengua/modulo-4.pdf`
 - **La leyenda de la Laguna de la Nina Encantada** (1 connections) — `content_sources/lengua/modulo-4.pdf`
 - **Narracion y tipos de narradores** (1 connections) — `content_sources/lengua/modulo-4.pdf`
+- **Cohesion, coherencia y conectores** (1 connections) — `content_sources/lengua/modulo-4.pdf`
 - **Posesivos, demostrativos y usos de B y V** (1 connections) — `content_sources/lengua/modulo-4.pdf`
 
 ## Relationships

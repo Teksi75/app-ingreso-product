@@ -1,11 +1,11 @@
-# Actionpanel
+# Community 18
 
-> 2 nodes · cohesion 1.00
+> 2 nodes
 
 ## Key Concepts
 
-- **ActionPanel()** (1 connections) — `src\components\dashboard\ActionPanel.tsx`
-- **ActionPanel.tsx** (1 connections) — `src\components\dashboard\ActionPanel.tsx`
+- **SkillList.tsx** (1 connections) — `src\components\dashboard\SkillList.tsx`
+- **SkillList()** (1 connections) — `src\components\dashboard\SkillList.tsx`
 
 ## Relationships
 
@@ -13,7 +13,7 @@
 
 ## Source Files
 
-- `src\components\dashboard\ActionPanel.tsx`
+- `src\components\dashboard\SkillList.tsx`
 
 ## Audit Trail
 

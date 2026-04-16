@@ -2,6 +2,8 @@
 
 > God node · 11 connections · `README.md`
 
+**Community:** [[Community 0]]
+
 ## Connections by Relation
 
 ### rationale_for

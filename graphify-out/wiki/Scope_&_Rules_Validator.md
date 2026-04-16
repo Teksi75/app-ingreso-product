@@ -2,6 +2,8 @@
 
 > God node · 11 connections · `agents/definitions/agent_02_scope_rules_validator.md`
 
+**Community:** [[Community 0]]
+
 ## Connections by Relation
 
 ### implements

@@ -1,15 +1,15 @@
-# Vocales / Lengua / Modulo
+# Community 13
 
-> 6 nodes · cohesion 0.40
+> 6 nodes
 
 ## Key Concepts
 
 - **Lengua | modulo 3** (4 connections) — `content_sources/lengua/modulo-3.pdf`
 - **Noticia 'Laguna de la nina encantada, una leyenda con lenguaje vanguardista'** (3 connections) — `content_sources/lengua/modulo-3.pdf`
 - **Texto periodistico** (2 connections) — `content_sources/lengua/modulo-3.pdf`
+- **Vocales, concurrencia de vocales, diptongo, triptongo e hiato** (1 connections) — `content_sources/lengua/modulo-3.pdf`
 - **Modo verbal y tiempos verbales** (1 connections) — `content_sources/lengua/modulo-3.pdf`
 - **UNO (25 de octubre de 2013)** (1 connections) — `content_sources/lengua/modulo-3.pdf`
-- **Vocales, concurrencia de vocales, diptongo, triptongo e hiato** (1 connections) — `content_sources/lengua/modulo-3.pdf`
 
 ## Relationships
 

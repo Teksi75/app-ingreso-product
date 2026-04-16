@@ -1,26 +1,26 @@
-# Exercise_Selector / Findalternativesubskill / Getreferencedifficulty
+# Community 6
 
-> 13 nodes · cohesion 0.31
+> 13 nodes
 
 ## Key Concepts
 
 - **exercise_selector.ts** (13 connections) — `src\practice\exercise_selector.ts`
 - **selectNextExerciseDetailed()** (10 connections) — `src\practice\exercise_selector.ts`
-- **pickDeterministic()** (4 connections) — `src\practice\exercise_selector.ts`
 - **pickFallbackCandidate()** (4 connections) — `src\practice\exercise_selector.ts`
-- **pickStrictCandidate()** (3 connections) — `src\practice\exercise_selector.ts`
-- **resolveRuleTarget()** (3 connections) — `src\practice\exercise_selector.ts`
+- **pickDeterministic()** (4 connections) — `src\practice\exercise_selector.ts`
 - **selectNextExercise()** (3 connections) — `src\practice\exercise_selector.ts`
+- **resolveRuleTarget()** (3 connections) — `src\practice\exercise_selector.ts`
+- **pickStrictCandidate()** (3 connections) — `src\practice\exercise_selector.ts`
 - **findAlternativeSubskill()** (2 connections) — `src\practice\exercise_selector.ts`
 - **getReferenceDifficulty()** (2 connections) — `src\practice\exercise_selector.ts`
-- **logSelection()** (2 connections) — `src\practice\exercise_selector.ts`
 - **pickRandom()** (2 connections) — `src\practice\exercise_selector.ts`
+- **logSelection()** (2 connections) — `src\practice\exercise_selector.ts`
 - **testSelector()** (2 connections) — `src\practice\exercise_selector.ts`
 - **exercise_selector.test.ts** (1 connections) — `src\practice\exercise_selector.test.ts`
 
 ## Relationships
 
-- No strong cross-community connections detected
+- [[Community 7]] (3 shared connections)
 
 ## Source Files
 

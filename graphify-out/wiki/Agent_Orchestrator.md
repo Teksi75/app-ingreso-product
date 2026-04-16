@@ -2,6 +2,8 @@
 
 > God node · 12 connections · `agents/orchestrator.md`
 
+**Community:** [[Community 0]]
+
 ## Connections by Relation
 
 ### implements

@@ -2,6 +2,8 @@
 
 > God node · 11 connections · `agents/definitions/agent_04_codex_prompt_generator.md`
 
+**Community:** [[Community 0]]
+
 ## Connections by Relation
 
 ### implements

@@ -2,6 +2,8 @@
 
 > God node · 10 connections · `agents/definitions/agent_01_product_guardian.md`
 
+**Community:** [[Community 0]]
+
 ## Connections by Relation
 
 ### implements

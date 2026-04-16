@@ -1,11 +1,11 @@
-# Skillitem
+# Community 19
 
-> 2 nodes · cohesion 1.00
+> 2 nodes
 
 ## Key Concepts
 
-- **SkillItem()** (1 connections) — `src\components\dashboard\SkillItem.tsx`
-- **SkillItem.tsx** (1 connections) — `src\components\dashboard\SkillItem.tsx`
+- **SkillStatus.tsx** (1 connections) — `src\components\dashboard\SkillStatus.tsx`
+- **SkillStatus()** (1 connections) — `src\components\dashboard\SkillStatus.tsx`
 
 ## Relationships
 
@@ -13,7 +13,7 @@
 
 ## Source Files
 
-- `src\components\dashboard\SkillItem.tsx`
+- `src\components\dashboard\SkillStatus.tsx`
 
 ## Audit Trail
 

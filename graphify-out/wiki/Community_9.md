@@ -1,6 +1,6 @@
-# Biografia / Hans / Christian
+# Community 9
 
-> 10 nodes · cohesion 0.24
+> 10 nodes
 
 ## Key Concepts
 
@@ -10,10 +10,10 @@
 - **Biografia de Hans Christian Andersen (reutilizada)** (3 connections) — `content_sources/lengua/modulo-2.pdf`
 - **Clase textual, paratexto y datos enciclopedicos** (2 connections) — `content_sources/lengua/modulo-1.pdf`
 - **Cotexto, sinonimia y antonimia** (2 connections) — `content_sources/lengua/modulo-2.pdf`
-- **Oracion, parrafo, mayusculas y coma** (1 connections) — `content_sources/lengua/modulo-1.pdf`
 - **Sustantivos y adjetivos** (1 connections) — `content_sources/lengua/modulo-1.pdf`
-- **Acentuacion y tilde diacritica** (1 connections) — `content_sources/lengua/modulo-2.pdf`
+- **Oracion, parrafo, mayusculas y coma** (1 connections) — `content_sources/lengua/modulo-1.pdf`
 - **Verbo, persona y numero; pronombres personales** (1 connections) — `content_sources/lengua/modulo-2.pdf`
+- **Acentuacion y tilde diacritica** (1 connections) — `content_sources/lengua/modulo-2.pdf`
 
 ## Relationships
 

@@ -1,11 +1,11 @@
-# Skilllist
+# Community 17
 
-> 2 nodes · cohesion 1.00
+> 2 nodes
 
 ## Key Concepts
 
-- **SkillList()** (1 connections) — `src\components\dashboard\SkillList.tsx`
-- **SkillList.tsx** (1 connections) — `src\components\dashboard\SkillList.tsx`
+- **Header.tsx** (1 connections) — `src\components\dashboard\Header.tsx`
+- **Header()** (1 connections) — `src\components\dashboard\Header.tsx`
 
 ## Relationships
 
@@ -13,7 +13,7 @@
 
 ## Source Files
 
-- `src\components\dashboard\SkillList.tsx`
+- `src\components\dashboard\Header.tsx`
 
 ## Audit Trail
 
