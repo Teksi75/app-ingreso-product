@@ -91,7 +91,7 @@
       "source_file": "next-env.d.ts",
       "source_location": "L1",
       "id": "next_env_d_ts",
-      "community": 21,
+      "community": 22,
       "norm_label": "next-env.d.ts"
     },
     {
@@ -100,7 +100,7 @@
       "source_file": "next.config.js",
       "source_location": "L1",
       "id": "next_config_js",
-      "community": 22,
+      "community": 23,
       "norm_label": "next.config.js"
     },
     {
@@ -109,7 +109,7 @@
       "source_file": "postcss.config.mjs",
       "source_location": "L1",
       "id": "postcss_config_mjs",
-      "community": 23,
+      "community": 24,
       "norm_label": "postcss.config.mjs"
     },
     {
@@ -129,6 +129,24 @@
       "id": "layout_rootlayout",
       "community": 15,
       "norm_label": "rootlayout()"
+    },
+    {
+      "label": "page.tsx",
+      "file_type": "code",
+      "source_file": "src\\app\\page.tsx",
+      "source_location": "L1",
+      "id": "src_app_page_tsx",
+      "community": 16,
+      "norm_label": "page.tsx"
+    },
+    {
+      "label": "HomePage()",
+      "file_type": "code",
+      "source_file": "src\\app\\page.tsx",
+      "source_location": "L3",
+      "id": "page_homepage",
+      "community": 16,
+      "norm_label": "homepage()"
     },
     {
       "label": "page.tsx",
@@ -244,7 +262,7 @@
       "source_file": "src\\components\\dashboard\\ActionPanel.tsx",
       "source_location": "L1",
       "id": "src_components_dashboard_actionpanel_tsx",
-      "community": 16,
+      "community": 17,
       "norm_label": "actionpanel.tsx"
     },
     {
@@ -253,7 +271,7 @@
       "source_file": "src\\components\\dashboard\\ActionPanel.tsx",
       "source_location": "L15",
       "id": "actionpanel_actionpanel",
-      "community": 16,
+      "community": 17,
       "norm_label": "actionpanel()"
     },
     {
@@ -262,7 +280,7 @@
       "source_file": "src\\components\\dashboard\\Header.tsx",
       "source_location": "L1",
       "id": "src_components_dashboard_header_tsx",
-      "community": 17,
+      "community": 18,
       "norm_label": "header.tsx"
     },
     {
@@ -271,7 +289,7 @@
       "source_file": "src\\components\\dashboard\\Header.tsx",
       "source_location": "L5",
       "id": "header_header",
-      "community": 17,
+      "community": 18,
       "norm_label": "header()"
     },
     {
@@ -280,7 +298,7 @@
       "source_file": "src\\components\\dashboard\\SkillItem.tsx",
       "source_location": "L1",
       "id": "src_components_dashboard_skillitem_tsx",
-      "community": 18,
+      "community": 19,
       "norm_label": "skillitem.tsx"
     },
     {
@@ -289,7 +307,7 @@
       "source_file": "src\\components\\dashboard\\SkillItem.tsx",
       "source_location": "L15",
       "id": "skillitem_skillitem",
-      "community": 18,
+      "community": 19,
       "norm_label": "skillitem()"
     },
     {
@@ -298,7 +316,7 @@
       "source_file": "src\\components\\dashboard\\SkillList.tsx",
       "source_location": "L1",
       "id": "src_components_dashboard_skilllist_tsx",
-      "community": 19,
+      "community": 20,
       "norm_label": "skilllist.tsx"
     },
     {
@@ -307,7 +325,7 @@
       "source_file": "src\\components\\dashboard\\SkillList.tsx",
       "source_location": "L15",
       "id": "skilllist_skilllist",
-      "community": 19,
+      "community": 20,
       "norm_label": "skilllist()"
     },
     {
@@ -316,7 +334,7 @@
       "source_file": "src\\components\\dashboard\\SkillStatus.tsx",
       "source_location": "L1",
       "id": "src_components_dashboard_skillstatus_tsx",
-      "community": 20,
+      "community": 21,
       "norm_label": "skillstatus.tsx"
     },
     {
@@ -325,7 +343,7 @@
       "source_file": "src\\components\\dashboard\\SkillStatus.tsx",
       "source_location": "L22",
       "id": "skillstatus_skillstatus",
-      "community": 20,
+      "community": 21,
       "norm_label": "skillstatus()"
     },
     {
@@ -334,7 +352,7 @@
       "source_file": "src\\practice\\exercise_selector.test.ts",
       "source_location": "L1",
       "id": "src_practice_exercise_selector_test_ts",
-      "community": 7,
+      "community": 6,
       "norm_label": "exercise_selector.test.ts"
     },
     {
@@ -343,7 +361,7 @@
       "source_file": "src\\practice\\exercise_selector.ts",
       "source_location": "L1",
       "id": "src_practice_exercise_selector_ts",
-      "community": 7,
+      "community": 6,
       "norm_label": "exercise_selector.ts"
     },
     {
@@ -352,7 +370,7 @@
       "source_file": "src\\practice\\exercise_selector.ts",
       "source_location": "L31",
       "id": "exercise_selector_selectnextexercisedetailed",
-      "community": 7,
+      "community": 6,
       "norm_label": "selectnextexercisedetailed()"
     },
     {
@@ -361,7 +379,7 @@
       "source_file": "src\\practice\\exercise_selector.ts",
       "source_location": "L58",
       "id": "exercise_selector_selectnextexercise",
-      "community": 7,
+      "community": 6,
       "norm_label": "selectnextexercise()"
     },
     {
@@ -370,7 +388,7 @@
       "source_file": "src\\practice\\exercise_selector.ts",
       "source_location": "L62",
       "id": "exercise_selector_resolveruletarget",
-      "community": 7,
+      "community": 6,
       "norm_label": "resolveruletarget()"
     },
     {
@@ -379,7 +397,7 @@
       "source_file": "src\\practice\\exercise_selector.ts",
       "source_location": "L128",
       "id": "exercise_selector_findalternativesubskill",
-      "community": 7,
+      "community": 6,
       "norm_label": "findalternativesubskill()"
     },
     {
@@ -388,7 +406,7 @@
       "source_file": "src\\practice\\exercise_selector.ts",
       "source_location": "L144",
       "id": "exercise_selector_getreferencedifficulty",
-      "community": 7,
+      "community": 6,
       "norm_label": "getreferencedifficulty()"
     },
     {
@@ -397,7 +415,7 @@
       "source_file": "src\\practice\\exercise_selector.ts",
       "source_location": "L157",
       "id": "exercise_selector_pickstrictcandidate",
-      "community": 7,
+      "community": 6,
       "norm_label": "pickstrictcandidate()"
     },
     {
@@ -406,7 +424,7 @@
       "source_file": "src\\practice\\exercise_selector.ts",
       "source_location": "L181",
       "id": "exercise_selector_pickfallbackcandidate",
-      "community": 7,
+      "community": 6,
       "norm_label": "pickfallbackcandidate()"
     },
     {
@@ -415,7 +433,7 @@
       "source_file": "src\\practice\\exercise_selector.ts",
       "source_location": "L203",
       "id": "exercise_selector_pickdeterministic",
-      "community": 7,
+      "community": 6,
       "norm_label": "pickdeterministic()"
     },
     {
@@ -424,7 +442,7 @@
       "source_file": "src\\practice\\exercise_selector.ts",
       "source_location": "L207",
       "id": "exercise_selector_pickrandom",
-      "community": 7,
+      "community": 6,
       "norm_label": "pickrandom()"
     },
     {
@@ -433,7 +451,7 @@
       "source_file": "src\\practice\\exercise_selector.ts",
       "source_location": "L212",
       "id": "exercise_selector_logselection",
-      "community": 7,
+      "community": 6,
       "norm_label": "logselection()"
     },
     {
@@ -442,7 +460,7 @@
       "source_file": "src\\practice\\exercise_selector.ts",
       "source_location": "L222",
       "id": "exercise_selector_testselector",
-      "community": 7,
+      "community": 6,
       "norm_label": "testselector()"
     },
     {
@@ -1077,7 +1095,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
+      "community": 2,
       "norm_label": "immediate feedback",
       "id": "immediate_feedback"
     },
@@ -1116,7 +1134,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
+      "community": 2,
       "norm_label": "no official content",
       "id": "no_official_content"
     },
@@ -1298,7 +1316,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
+      "community": 2,
       "norm_label": "adr-002: no official content",
       "id": "adr_002_no_official_content"
     },
@@ -1454,7 +1472,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 6,
+      "community": 7,
       "norm_label": "user journey",
       "id": "user_journey"
     },
@@ -1467,7 +1485,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 6,
+      "community": 7,
       "norm_label": "simulator model",
       "id": "simulator_model"
     },
@@ -1480,7 +1498,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 6,
+      "community": 7,
       "norm_label": "progress metrics",
       "id": "progress_metrics"
     },
@@ -1493,7 +1511,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 6,
+      "community": 7,
       "norm_label": "progress metrics v1",
       "id": "progress_metrics_v1"
     },
@@ -1649,7 +1667,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 6,
+      "community": 7,
       "norm_label": "simulator mode",
       "id": "simulator_mode"
     },
@@ -1662,7 +1680,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 6,
+      "community": 7,
       "norm_label": "progress by skill",
       "id": "progress_by_skill"
     },
@@ -1766,7 +1784,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 6,
+      "community": 2,
       "norm_label": "diagnostic initial",
       "id": "diagnostic_initial"
     },
@@ -1779,7 +1797,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 6,
+      "community": 7,
       "norm_label": "training vs simulation",
       "id": "training_vs_simulation"
     },
@@ -1792,7 +1810,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 6,
+      "community": 7,
       "norm_label": "accuracy metric",
       "id": "accuracy_metric"
     },
@@ -1805,7 +1823,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 6,
+      "community": 7,
       "norm_label": "consistency metric",
       "id": "consistency_metric"
     },
@@ -1818,7 +1836,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 6,
+      "community": 7,
       "norm_label": "mastery levels",
       "id": "mastery_levels"
     },
@@ -1909,7 +1927,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 6,
+      "community": 7,
       "norm_label": "parent visibility",
       "id": "parent_visibility"
     },
@@ -2013,7 +2031,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 6,
+      "community": 7,
       "norm_label": "frequent short sessions",
       "id": "frequent_short_sessions"
     },
@@ -2026,7 +2044,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 2,
+      "community": 1,
       "norm_label": "original content",
       "id": "original_content"
     },
@@ -2039,7 +2057,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 6,
+      "community": 7,
       "norm_label": "time-limited simulation",
       "id": "time_limited_simulation"
     },
@@ -2796,6 +2814,18 @@
       "_tgt": "layout_rootlayout",
       "source": "src_app_layout_tsx",
       "target": "layout_rootlayout",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\app\\page.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_src": "src_app_page_tsx",
+      "_tgt": "page_homepage",
+      "source": "src_app_page_tsx",
+      "target": "page_homepage",
       "confidence_score": 1.0
     },
     {
