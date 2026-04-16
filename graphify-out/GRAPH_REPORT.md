@@ -1,12 +1,12 @@
 # Graph Report - .  (2026-04-16)
 
 ## Corpus Check
-- 19 files · ~54,381 words
+- 21 files · ~56,598 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 234 nodes · 351 edges · 26 communities detected
-- Extraction: 95% EXTRACTED · 5% INFERRED · 0% AMBIGUOUS · INFERRED: 19 edges (avg confidence: 0.83)
+- 277 nodes · 437 edges · 26 communities detected
+- Extraction: 94% EXTRACTED · 6% INFERRED · 0% AMBIGUOUS · INFERRED: 27 edges (avg confidence: 0.82)
 - Token cost: 0 input · 0 output
 
 ## Community Hubs (Navigation)
@@ -39,27 +39,27 @@
 
 ## God Nodes (most connected - your core abstractions)
 1. `Product Analysis` - 21 edges
-2. `Agent Orchestrator` - 12 edges
-3. `selectNextExerciseDetailed()` - 11 edges
-4. `App Ingreso` - 11 edges
-5. `Scope & Rules Validator` - 11 edges
-6. `Codex Prompt Generator` - 11 edges
-7. `Product Guardian` - 10 edges
-8. `Quality Auditor` - 10 edges
-9. `runSession()` - 9 edges
-10. `Agents Map` - 9 edges
+2. `selectNextExerciseDetailed()` - 17 edges
+3. `Agent Orchestrator` - 12 edges
+4. `normalizeExercise()` - 11 edges
+5. `App Ingreso` - 11 edges
+6. `Scope & Rules Validator` - 11 edges
+7. `Codex Prompt Generator` - 11 edges
+8. `runSession()` - 10 edges
+9. `Product Guardian` - 10 edges
+10. `Quality Auditor` - 10 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `Product Roadmap - App Ingreso` --conceptually_related_to--> `App icon with dark square and white stylized mark`  [INFERRED]
   roadmap/roadmap.md → src/app/icon.svg
-- `DashboardPage()` --calls--> `loadProgress()`  [INFERRED]
-  src\app\dashboard\page.tsx → src\storage\local_progress_store.ts
-- `selectNextExerciseDetailed()` --calls--> `startPracticeSession()`  [INFERRED]
-  src\practice\exercise_selector.ts → src\practice\session_runner.ts
-- `selectNextExerciseDetailed()` --calls--> `runSession()`  [INFERRED]
-  src\practice\exercise_selector.ts → src\practice\session_runner.ts
-- `runSimulator()` --calls--> `loadProgress()`  [INFERRED]
-  src\practice\simulator_runner.ts → src\storage\local_progress_store.ts
+- `loadLenguaExercises()` --calls--> `listLenguaExerciseFiles()`  [INFERRED]
+  src\practice\session_runner.ts → src\practice\exercise_selector.ts
+- `normalizeExercise()` --calls--> `normalizeSkillId()`  [INFERRED]
+  src\practice\session_runner.ts → src\practice\exercise_selector.ts
+- `startPracticeSession()` --calls--> `normalizeSkillId()`  [INFERRED]
+  src\practice\session_runner.ts → src\practice\exercise_selector.ts
+- `normalizeExercise()` --calls--> `normalizeSubskillId()`  [INFERRED]
+  src\practice\session_runner.ts → src\practice\exercise_selector.ts
 
 ## Hyperedges (group relationships)
 - **Four-agent validation stack** — agent_01_product_guardian, agent_02_scope_rules_validator, agent_03_quality_auditor, agent_04_codex_prompt_generator [INFERRED 0.94]
@@ -72,20 +72,20 @@
 ## Communities
 
 ### Community 0 - "Community 0"
-Cohesion: 0.11
-Nodes (38): ADR-001 Product Scope, ADR-002: No Official Content, Product Guardian, Scope & Rules Validator, Quality Auditor, Codex Prompt Generator, Agents Map, AGENTS instructions (+30 more)
+Cohesion: 0.07
+Nodes (46): Access by Time, Adaptive Practice, ADR-002: No Official Content, ADR-003: Autonomous Learning, ADR-004: Parent Responsibility, Adult Customer, Adult Responsibility, Autonomous Training Platform (+38 more)
 
 ### Community 1 - "Community 1"
 Cohesion: 0.1
-Nodes (25): Access by Time, ADR-004: Parent Responsibility, Adult Customer, Adult Responsibility, Autonomous Training Platform, Business Rules, Cognitive Load Theory, Commercial Tiers (+17 more)
+Nodes (34): clampDifficulty(), clampMastery(), dedupeExercises(), extractSelectorExercises(), filterImmediateRepeats(), filterUnlockedExercises(), findAlternativeSubskill(), findRelatedTarget() (+26 more)
 
 ### Community 2 - "Community 2"
-Cohesion: 0.19
-Nodes (19): createEmptyProgress(), createSessionId(), getSeenSkills(), loadProgress(), markSkillsSeen(), saveSessionResult(), updateSeenSkills(), updateSkillStats() (+11 more)
+Cohesion: 0.1
+Nodes (39): ADR-001 Product Scope, Product Guardian, Scope & Rules Validator, Quality Auditor, Codex Prompt Generator, Agents Map, AGENTS instructions, App Ingreso product scope (+31 more)
 
 ### Community 3 - "Community 3"
-Cohesion: 0.16
-Nodes (19): Adaptive Practice, ADR-003: Autonomous Learning, Diagnostic Initial, Difficulty 1-3, Exercise Engine v1, Exercise Selection Logic v1, Exercise Skill-Subskill Mapping, Brief Feedback (+11 more)
+Cohesion: 0.15
+Nodes (21): loadLenguaSelectionGraph(), buildUserState(), ensureOptions(), evaluateAnswer(), findExercise(), loadExercises(), loadLenguaExercises(), normalizeCorrectAnswer() (+13 more)
 
 ### Community 4 - "Community 4"
 Cohesion: 0.11
@@ -96,8 +96,8 @@ Cohesion: 0.22
 Nodes (15): buildSkillResults(), buildSkillStats(), chanceByDifficulty(), formatPercent(), groupBySkill(), hasAvailableExercises(), loadExercises(), pickValue() (+7 more)
 
 ### Community 6 - "Community 6"
-Cohesion: 0.3
-Nodes (12): findAlternativeSubskill(), getReferenceDifficulty(), logSelection(), pickDeterministic(), pickFallbackCandidate(), pickRandom(), pickStrictCandidate(), pickUnseenSkillExercise() (+4 more)
+Cohesion: 0.25
+Nodes (12): createEmptyProgress(), createSessionId(), getSeenSkills(), loadProgress(), markSkillsSeen(), saveSessionResult(), updateSeenSkills(), updateSkillStats() (+4 more)
 
 ### Community 7 - "Community 7"
 Cohesion: 0.23
@@ -124,16 +124,16 @@ Cohesion: 0.4
 Nodes (6): Lengua | modulo 3, Modo verbal y tiempos verbales, Noticia 'Laguna de la nina encantada, una leyenda con lenguaje vanguardista', Texto periodistico, UNO (25 de octubre de 2013), Vocales, concurrencia de vocales, diptongo, triptongo e hiato
 
 ### Community 13 - "Community 13"
-Cohesion: 0.6
-Nodes (3): DashboardPage(), getDashboardSkills(), getWeakestSkill()
-
-### Community 14 - "Community 14"
 Cohesion: 0.4
 Nodes (5): Cohesion, coherencia y conectores, Lengua | modulo 4, La leyenda de la Laguna de la Nina Encantada, Narracion y tipos de narradores, Posesivos, demostrativos y usos de B y V
 
+### Community 14 - "Community 14"
+Cohesion: 1.0
+Nodes (0): 
+
 ### Community 15 - "Community 15"
-Cohesion: 0.67
-Nodes (3): Lengua content sources, Original content only, Skill extraction and difficulty analysis
+Cohesion: 1.0
+Nodes (0): 
 
 ### Community 16 - "Community 16"
 Cohesion: 1.0
@@ -178,41 +178,45 @@ Nodes (0):
 ## Knowledge Gaps
 - **69 isolated node(s):** `AGENTS instructions`, `Minor-adjustment example`, `Codex Prompt Generator system prompt`, `Product Guardian system prompt`, `Quality Auditor system prompt` (+64 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **Thin community `Community 16`** (2 nodes): `RootLayout()`, `layout.tsx`
+- **Thin community `Community 14`** (2 nodes): `RootLayout()`, `layout.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 17`** (2 nodes): `HomePage()`, `page.tsx`
+- **Thin community `Community 15`** (2 nodes): `HomePage()`, `page.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 18`** (2 nodes): `Header()`, `Header.tsx`
+- **Thin community `Community 16`** (2 nodes): `Header()`, `Header.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 19`** (2 nodes): `SkillList()`, `SkillList.tsx`
+- **Thin community `Community 17`** (2 nodes): `SkillList()`, `SkillList.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 20`** (2 nodes): `SkillStatus()`, `SkillStatus.tsx`
+- **Thin community `Community 18`** (2 nodes): `SkillStatus()`, `SkillStatus.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 21`** (1 nodes): `next-env.d.ts`
+- **Thin community `Community 19`** (1 nodes): `next-env.d.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 22`** (1 nodes): `next.config.js`
+- **Thin community `Community 20`** (1 nodes): `next.config.js`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 23`** (1 nodes): `postcss.config.mjs`
+- **Thin community `Community 21`** (1 nodes): `postcss.config.mjs`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 24`** (1 nodes): `page.tsx`
+- **Thin community `Community 22`** (1 nodes): `page.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 25`** (1 nodes): `ActionPanel.tsx`
+- **Thin community `Community 23`** (1 nodes): `ActionPanel.tsx`
+  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
+- **Thin community `Community 24`** (1 nodes): `exercise_selector.ts`
+  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
+- **Thin community `Community 25`** (1 nodes): `session_runner.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `Product Analysis` connect `Community 1` to `Community 3`, `Community 7`?**
-  _High betweenness centrality (0.080) - this node is a cross-community bridge._
-- **Why does `No official content` connect `Community 0` to `Community 1`, `Community 3`?**
-  _High betweenness centrality (0.051) - this node is a cross-community bridge._
-- **Why does `Immediate feedback` connect `Community 0` to `Community 3`?**
-  _High betweenness centrality (0.035) - this node is a cross-community bridge._
-- **Are the 2 inferred relationships involving `Agent Orchestrator` (e.g. with `Validation Pipeline` and `Interaction Flow`) actually correct?**
-  _`Agent Orchestrator` has 2 INFERRED edges - model-reasoned connections that need verification._
+- **Why does `Product Analysis` connect `Community 0` to `Community 7`?**
+  _High betweenness centrality (0.057) - this node is a cross-community bridge._
+- **Why does `loadProgress()` connect `Community 6` to `Community 5`?**
+  _High betweenness centrality (0.045) - this node is a cross-community bridge._
+- **Why does `No official content` connect `Community 0` to `Community 2`?**
+  _High betweenness centrality (0.037) - this node is a cross-community bridge._
 - **Are the 2 inferred relationships involving `selectNextExerciseDetailed()` (e.g. with `startPracticeSession()` and `runSession()`) actually correct?**
   _`selectNextExerciseDetailed()` has 2 INFERRED edges - model-reasoned connections that need verification._
+- **Are the 2 inferred relationships involving `Agent Orchestrator` (e.g. with `Validation Pipeline` and `Interaction Flow`) actually correct?**
+  _`Agent Orchestrator` has 2 INFERRED edges - model-reasoned connections that need verification._
+- **Are the 2 inferred relationships involving `normalizeExercise()` (e.g. with `normalizeSkillId()` and `normalizeSubskillId()`) actually correct?**
+  _`normalizeExercise()` has 2 INFERRED edges - model-reasoned connections that need verification._
 - **What connects `AGENTS instructions`, `Minor-adjustment example`, `Codex Prompt Generator system prompt` to the rest of the system?**
   _69 weakly-connected nodes found - possible documentation gaps or missing edges._
-- **Should `Community 0` be split into smaller, more focused modules?**
-  _Cohesion score 0.11 - nodes in this community are weakly interconnected._

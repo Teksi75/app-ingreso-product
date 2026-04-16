@@ -1,0 +1,93 @@
+{
+  "subject": "Lengua",
+  "version": "1.0.0",
+  "base_path": "docs/04_exercise_engine",
+  "loader": {
+    "exercise_file_pattern": "lengua_*.json",
+    "excluded_files": [
+      "lengua_skill_relationships.json",
+      "lengua_mastery_map.json",
+      "lengua_content_index.json"
+    ],
+    "relationships_file": "lengua_skill_relationships.json",
+    "mastery_file": "lengua_mastery_map.json"
+  },
+  "exercise_types_allowed": [
+    "multiple_choice",
+    "completion",
+    "ordering",
+    "highlight_selection",
+    "categorization"
+  ],
+  "canonical_skills": [
+    "lengua.skill_1",
+    "lengua.skill_2",
+    "lengua.skill_3",
+    "lengua.skill_4",
+    "lengua.skill_5",
+    "lengua.skill_6",
+    "lengua.skill_7"
+  ],
+  "files": [
+    {
+      "file": "lengua_exercises_modulo3.json",
+      "kind": "legacy_exercise_set",
+      "exercise_count": 29,
+      "skills": [
+        "lengua.skill_1",
+        "lengua.skill_5",
+        "lengua.skill_6"
+      ]
+    },
+    {
+      "file": "lengua_exercises_v1.json",
+      "kind": "legacy_exercise_set",
+      "exercise_count": 48,
+      "skills": [
+        "lengua.skill_1",
+        "lengua.skill_2",
+        "lengua.skill_3",
+        "lengua.skill_4",
+        "lengua.skill_5",
+        "lengua.skill_6",
+        "lengua.skill_7"
+      ]
+    },
+    {
+      "file": "lengua_subskills_skills_1_2_practice.json",
+      "kind": "subskill_practice_set",
+      "exercise_count": 40,
+      "skills": [
+        "lengua.skill_1",
+        "lengua.skill_2"
+      ]
+    },
+    {
+      "file": "lengua_subskills_skill_3_production.json",
+      "kind": "subskill_production_set",
+      "exercise_count": 18,
+      "skills": [
+        "lengua.skill_3"
+      ]
+    },
+    {
+      "file": "lengua_subskills_skills_4_5_practice.json",
+      "kind": "subskill_practice_set",
+      "exercise_count": 48,
+      "skills": [
+        "lengua.skill_4",
+        "lengua.skill_5"
+      ]
+    },
+    {
+      "file": "lengua_subskills_skills_6_7_practice.json",
+      "kind": "subskill_practice_set",
+      "exercise_count": 48,
+      "skills": [
+        "lengua.skill_6",
+        "lengua.skill_7"
+      ]
+    }
+  ],
+  "total_exercise_count": 231
+}

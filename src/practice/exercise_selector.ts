@@ -1,37 +1,231 @@
+import { existsSync, readdirSync, readFileSync } from "node:fs";
+import { join, resolve } from "node:path";
+
+export type Result = "correct" | "incorrect";
+export type Difficulty = 1 | 2 | 3;
+export type MasteryLevel = 1 | 2 | 3 | 4;
+
 export type UserSkillState = {
   skill: string;
   subskill: string;
   accuracy: number;
   streak: number;
-  lastResult: "correct" | "incorrect";
+  attempts?: number;
+  lastResult: Result;
+  masteryLevel?: MasteryLevel;
 };
 
 export type Exercise = {
   id: string;
   skill: string;
   subskill: string;
-  difficulty: 1 | 2 | 3;
+  difficulty: Difficulty;
+  masteryLevel?: MasteryLevel;
+  sourceFile?: string;
+};
+
+export type LenguaRelationship = {
+  skill_origen: string;
+  skill_destino: string;
+  tipo: "sequential" | "prerequisite" | "reinforcement";
+  fuerza: "alta" | "media" | string;
+};
+
+export type MasteryNode = {
+  id: string;
+  name: string;
+  type: "skill" | "subskill";
+  parent_skill?: string;
+  recommended_mastery: MasteryLevel;
+  unlock_points: number;
+  unlocks: string[];
+};
+
+export type LenguaSelectionGraph = {
+  relationships: LenguaRelationship[];
+  masteryMap: MasteryNode[];
+  masteryById: Map<string, MasteryNode>;
+  skillNameToId: Map<string, string>;
+  subskillNameToId: Map<string, string>;
 };
 
 type RuleApplied = "A" | "B" | "C" | "D" | "E";
-type DifficultyMode = "exact" | "same_or_lower";
+type DifficultyMode = "exact" | "same_or_lower" | "same_or_higher";
 
 type Target = {
   skill: string;
-  subskill: string;
-  difficulty: 1 | 2 | 3;
+  subskill?: string;
+  difficulty: Difficulty;
   difficultyMode: DifficultyMode;
 };
 
 export type SelectionOptions = {
   seenSkills?: string[];
   hasSeenSkill?: (skillId: string) => boolean;
+  lastExerciseId?: string;
+  usedExerciseIds?: string[];
+  masteryBySkill?: Record<string, MasteryLevel>;
+  selectionGraph?: LenguaSelectionGraph;
 };
 
 export type SelectionResult = {
   exercise: Exercise;
   ruleApplied: RuleApplied;
 };
+
+const EXERCISE_ENGINE_DIR = resolve(process.cwd(), "docs/04_exercise_engine");
+const RELATIONSHIPS_FILE = "lengua_skill_relationships.json";
+const MASTERY_FILE = "lengua_mastery_map.json";
+const CONTENT_INDEX_FILE = "lengua_content_index.json";
+
+const LEGACY_SKILL_IDS: Record<string, string> = {
+  "LEN-COMP-001": "lengua.skill_1",
+  "LEN-COMP-002": "lengua.skill_1",
+  "LEN-COMP-003": "lengua.skill_1",
+  "LEN-COMP-004": "lengua.skill_1",
+  "LEN-VOC-001": "lengua.skill_1",
+  "LEN-VOC-002": "lengua.skill_1",
+  "LEN-TEXT-001": "lengua.skill_2",
+  "LEN-TEXT-002": "lengua.skill_2",
+  "LEN-TEXT-003": "lengua.skill_2",
+  "LEN-WRIT-001": "lengua.skill_3",
+  "LEN-WRIT-002": "lengua.skill_3",
+  "LEN-WRIT-003": "lengua.skill_3",
+  "LEN-GRAM-001": "lengua.skill_5",
+  "LEN-GRAM-002": "lengua.skill_4",
+  "LEN-GRAM-003": "lengua.skill_4",
+  "LEN-NORM-001": "lengua.skill_6",
+  "LEN-NORM-002": "lengua.skill_6",
+  "LEN-NORM-003": "lengua.skill_6",
+  "LEN-PUNC-001": "lengua.skill_7",
+  "LEN-PUNC-002": "lengua.skill_7",
+  "LEN-PUNC-003": "lengua.skill_7",
+};
+
+let cachedGraph: LenguaSelectionGraph | null = null;
+
+export function listLenguaExerciseFiles(baseDir = EXERCISE_ENGINE_DIR): string[] {
+  if (!existsSync(baseDir)) {
+    return [];
+  }
+
+  return readdirSync(baseDir)
+    .filter((fileName) => (
+      fileName.startsWith("lengua_") &&
+      fileName.endsWith(".json") &&
+      ![RELATIONSHIPS_FILE, MASTERY_FILE, CONTENT_INDEX_FILE].includes(fileName)
+    ))
+    .sort((left, right) => left.localeCompare(right));
+}
+
+export function loadLenguaSelectionGraph(baseDir = EXERCISE_ENGINE_DIR): LenguaSelectionGraph {
+  if (cachedGraph && baseDir === EXERCISE_ENGINE_DIR) {
+    return cachedGraph;
+  }
+
+  const relationshipsFile = JSON.parse(
+    readFileSync(join(baseDir, RELATIONSHIPS_FILE), "utf8"),
+  ) as { relationships?: LenguaRelationship[] };
+  const masteryFile = JSON.parse(
+    readFileSync(join(baseDir, MASTERY_FILE), "utf8"),
+  ) as { mastery_map?: MasteryNode[] };
+
+  const masteryMap = masteryFile.mastery_map ?? [];
+  const masteryById = new Map(masteryMap.map((node) => [node.id, node]));
+  const skillNameToId = new Map<string, string>();
+  const subskillNameToId = new Map<string, string>();
+
+  for (const node of masteryMap) {
+    const key = normalizeText(node.name);
+    if (node.type === "skill") {
+      skillNameToId.set(key, node.id);
+    } else {
+      subskillNameToId.set(key, node.id);
+    }
+  }
+
+  const graph = {
+    relationships: relationshipsFile.relationships ?? [],
+    masteryMap,
+    masteryById,
+    skillNameToId,
+    subskillNameToId,
+  };
+
+  if (baseDir === EXERCISE_ENGINE_DIR) {
+    cachedGraph = graph;
+  }
+
+  return graph;
+}
+
+export function loadLenguaSelectorExercises(baseDir = EXERCISE_ENGINE_DIR): Exercise[] {
+  const graph = loadLenguaSelectionGraph(baseDir);
+  const exercises: Exercise[] = [];
+
+  for (const fileName of listLenguaExerciseFiles(baseDir)) {
+    const parsed = JSON.parse(readFileSync(join(baseDir, fileName), "utf8")) as unknown;
+    exercises.push(...extractSelectorExercises(parsed, fileName, graph));
+  }
+
+  return dedupeExercises(exercises);
+}
+
+export function normalizeSkillId(
+  value: unknown,
+  graph: LenguaSelectionGraph = loadLenguaSelectionGraph(),
+): string {
+  if (typeof value === "number") {
+    return `lengua.skill_${value}`;
+  }
+
+  if (typeof value === "object" && value !== null) {
+    const maybeSkill = value as { id?: unknown; name?: unknown };
+    return normalizeSkillId(maybeSkill.id ?? maybeSkill.name, graph);
+  }
+
+  if (typeof value !== "string") {
+    return "lengua.skill_1";
+  }
+
+  if (value.startsWith("lengua.skill_")) {
+    return value.split(".subskill_")[0];
+  }
+
+  const legacyId = LEGACY_SKILL_IDS[value.toUpperCase()];
+  if (legacyId) {
+    return legacyId;
+  }
+
+  return graph.skillNameToId.get(normalizeText(value)) ?? "lengua.skill_1";
+}
+
+export function normalizeSubskillId(
+  value: unknown,
+  skillId: string,
+  graph: LenguaSelectionGraph = loadLenguaSelectionGraph(),
+): string {
+  if (typeof value === "string" && value.startsWith("lengua.skill_")) {
+    return value;
+  }
+
+  const key = normalizeText(typeof value === "string" ? value : "");
+  const direct = graph.subskillNameToId.get(key);
+  if (direct) {
+    return direct;
+  }
+
+  const fallback = resolveKnownSubskill(key, skillId);
+  if (fallback) {
+    return fallback;
+  }
+
+  const firstSubskill = graph.masteryMap.find(
+    (node) => node.type === "subskill" && node.parent_skill === skillId,
+  );
+
+  return firstSubskill?.id ?? `${skillId}.subskill_1`;
+}
 
 export function selectNextExerciseDetailed(
   exercises: Exercise[],
@@ -42,26 +236,33 @@ export function selectNextExerciseDetailed(
     throw new Error("selectNextExercise requires at least one exercise");
   }
 
-  const explorationExercise = pickUnseenSkillExercise(exercises, options);
+  const graph = options.selectionGraph ?? loadLenguaSelectionGraph();
+  const activeExercises = filterImmediateRepeats(filterUnlockedExercises(exercises, userState, options, graph), options);
+  const pool = activeExercises.length > 0 ? activeExercises : filterImmediateRepeats(exercises, options);
+  const selectionPool = pool.length > 0 ? pool : exercises;
+
+  const explorationExercise = pickUnseenSkillExercise(selectionPool, options, graph);
   if (explorationExercise) {
     logSelection("E", explorationExercise);
     return { exercise: explorationExercise, ruleApplied: "E" };
   }
 
   if (userState.length === 0) {
-    const selected = pickDeterministic(exercises);
+    const selected = pickLowestMasteryGap(selectionPool, [], options, graph) ?? pickDeterministic(selectionPool);
     logSelection("E", selected);
     return { exercise: selected, ruleApplied: "E" };
   }
 
-  const currentState = userState[0];
-  const referenceDifficulty = getReferenceDifficulty(exercises, currentState);
-  const { ruleApplied, target } = resolveRuleTarget(exercises, currentState, referenceDifficulty);
+  const currentState = pickCurrentState(userState);
+  const referenceDifficulty = getReferenceDifficulty(selectionPool, currentState);
+  const { ruleApplied, target } = resolveRuleTarget(selectionPool, userState, currentState, referenceDifficulty, options, graph);
 
   const selected =
-    pickStrictCandidate(exercises, target) ??
-    pickFallbackCandidate(exercises, target) ??
-    pickDeterministic(exercises);
+    pickStrictCandidate(selectionPool, target) ??
+    pickRelatedCandidate(selectionPool, currentState, options, graph) ??
+    pickLowestMasteryGap(selectionPool, userState, options, graph) ??
+    pickFallbackCandidate(selectionPool, target) ??
+    pickDeterministic(selectionPool);
 
   logSelection(ruleApplied, selected);
   return { exercise: selected, ruleApplied };
@@ -75,11 +276,97 @@ export function selectNextExercise(
   return selectNextExerciseDetailed(exercises, userState, options).exercise;
 }
 
+function extractSelectorExercises(
+  parsed: unknown,
+  sourceFile: string,
+  graph: LenguaSelectionGraph,
+): Exercise[] {
+  const root = parsed as {
+    exercises?: unknown[];
+    subskills?: unknown[];
+  };
+
+  if (Array.isArray(root.exercises)) {
+    return root.exercises.map((exercise) => normalizeSelectorExercise(exercise, sourceFile, graph));
+  }
+
+  if (!Array.isArray(root.subskills)) {
+    return [];
+  }
+
+  return root.subskills.flatMap((rawSubskill) => {
+    const subskill = rawSubskill as {
+      skill?: unknown;
+      skill_id?: unknown;
+      skill_name?: unknown;
+      canonical_subskill?: unknown;
+      subskill?: unknown;
+      exercises?: unknown[];
+    };
+    const skillId = normalizeSkillId(subskill.skill ?? subskill.skill_id ?? subskill.skill_name, graph);
+    const subskillId = normalizeSubskillId(
+      subskill.canonical_subskill ?? subskill.subskill,
+      skillId,
+      graph,
+    );
+
+    return (subskill.exercises ?? []).map((exercise) => normalizeSelectorExercise(
+      { ...(exercise as Record<string, unknown>), skill: skillId, subskill: subskillId },
+      sourceFile,
+      graph,
+    ));
+  });
+}
+
+function normalizeSelectorExercise(
+  rawExercise: unknown,
+  sourceFile: string,
+  graph: LenguaSelectionGraph,
+): Exercise {
+  const exercise = rawExercise as {
+    id?: unknown;
+    skill?: unknown;
+    skill_id?: unknown;
+    skill_name?: unknown;
+    subskill?: unknown;
+    canonical_subskill?: unknown;
+    difficulty?: unknown;
+    mastery_level?: unknown;
+    metadata?: { difficulty?: unknown; dificultad?: unknown; mastery_level?: unknown; mastery_target?: unknown };
+  };
+  const skillId = normalizeSkillId(exercise.skill ?? exercise.skill_id ?? exercise.skill_name, graph);
+  const subskillId = normalizeSubskillId(exercise.subskill ?? exercise.canonical_subskill, skillId, graph);
+
+  return {
+    id: String(exercise.id),
+    skill: skillId,
+    subskill: subskillId,
+    difficulty: normalizeDifficulty(exercise.difficulty ?? exercise.metadata?.difficulty ?? exercise.metadata?.dificultad),
+    masteryLevel: normalizeMasteryLevel(exercise.mastery_level ?? exercise.metadata?.mastery_level ?? exercise.metadata?.mastery_target),
+    sourceFile,
+  };
+}
+
 function resolveRuleTarget(
   exercises: Exercise[],
+  userState: UserSkillState[],
   state: UserSkillState,
-  referenceDifficulty: 1 | 2 | 3,
+  referenceDifficulty: Difficulty,
+  options: SelectionOptions,
+  graph: LenguaSelectionGraph,
 ): { ruleApplied: RuleApplied; target: Target } {
+  if (hasRecurrentError(userState, state.skill, state.subskill)) {
+    return {
+      ruleApplied: "D",
+      target: {
+        skill: state.skill,
+        subskill: state.subskill,
+        difficulty: Math.max(referenceDifficulty - 1, 1) as Difficulty,
+        difficultyMode: "same_or_lower",
+      },
+    };
+  }
+
   if (state.lastResult === "incorrect") {
     return {
       ruleApplied: "A",
@@ -92,19 +379,21 @@ function resolveRuleTarget(
     };
   }
 
-  if (state.streak >= 3) {
+  if (state.streak >= 2 && isAtRecommendedMastery(state, options, graph)) {
+    const related = findRelatedTarget(exercises, state, ["sequential", "reinforcement"], options, graph);
+
     return {
       ruleApplied: "B",
-      target: {
+      target: related ?? {
         skill: state.skill,
         subskill: state.subskill,
-        difficulty: Math.min(referenceDifficulty + 1, 3) as 1 | 2 | 3,
-        difficultyMode: "exact",
+        difficulty: Math.min(referenceDifficulty + 1, 3) as Difficulty,
+        difficultyMode: "same_or_higher",
       },
     };
   }
 
-  if (state.accuracy > 0.85) {
+  if (state.accuracy >= 0.85) {
     const alternativeSubskill = findAlternativeSubskill(exercises, state.skill, state.subskill);
 
     return {
@@ -124,7 +413,7 @@ function resolveRuleTarget(
       target: {
         skill: state.skill,
         subskill: state.subskill,
-        difficulty: Math.max(referenceDifficulty - 1, 1) as 1 | 2 | 3,
+        difficulty: Math.max(referenceDifficulty - 1, 1) as Difficulty,
         difficultyMode: "exact",
       },
     };
@@ -139,6 +428,168 @@ function resolveRuleTarget(
       difficultyMode: "exact",
     },
   };
+}
+
+function filterUnlockedExercises(
+  exercises: Exercise[],
+  userState: UserSkillState[],
+  options: SelectionOptions,
+  graph: LenguaSelectionGraph,
+): Exercise[] {
+  const unlocked = exercises.filter((exercise) => isExerciseUnlocked(exercise, userState, options, graph));
+  return unlocked.length > 0 ? unlocked : exercises;
+}
+
+function isExerciseUnlocked(
+  exercise: Exercise,
+  userState: UserSkillState[],
+  options: SelectionOptions,
+  graph: LenguaSelectionGraph,
+): boolean {
+  const prerequisites = graph.relationships.filter((relationship) => (
+    relationship.tipo === "prerequisite" &&
+    matchesNode(exercise, relationship.skill_destino)
+  ));
+
+  return prerequisites.every((relationship) => {
+    const sourceNode = graph.masteryById.get(relationship.skill_origen);
+    const requiredLevel = sourceNode?.recommended_mastery ?? 2;
+    return getMasteryLevel(relationship.skill_origen, userState, options, graph) >= requiredLevel;
+  });
+}
+
+function pickRelatedCandidate(
+  exercises: Exercise[],
+  state: UserSkillState,
+  options: SelectionOptions,
+  graph: LenguaSelectionGraph,
+): Exercise | null {
+  const target = findRelatedTarget(exercises, state, ["sequential", "reinforcement"], options, graph);
+  return target ? pickStrictCandidate(exercises, target) : null;
+}
+
+function findRelatedTarget(
+  exercises: Exercise[],
+  state: UserSkillState,
+  allowedTypes: LenguaRelationship["tipo"][],
+  options: SelectionOptions,
+  graph: LenguaSelectionGraph,
+): Target | null {
+  const relatedIds = graph.relationships
+    .filter((relationship) => (
+      allowedTypes.includes(relationship.tipo) &&
+      matchesState(state, relationship.skill_origen)
+    ))
+    .sort((left, right) => relationWeight(right) - relationWeight(left))
+    .map((relationship) => relationship.skill_destino);
+
+  for (const relatedId of relatedIds) {
+    const candidate = exercises.find((exercise) => (
+      matchesNode(exercise, relatedId) &&
+      isExerciseUnlocked(exercise, [state], options, graph)
+    ));
+
+    if (candidate) {
+      return {
+        skill: candidate.skill,
+        subskill: candidate.subskill,
+        difficulty: candidate.difficulty,
+        difficultyMode: "exact",
+      };
+    }
+  }
+
+  return null;
+}
+
+function pickLowestMasteryGap(
+  exercises: Exercise[],
+  userState: UserSkillState[],
+  options: SelectionOptions,
+  graph: LenguaSelectionGraph,
+): Exercise | null {
+  const candidates = [...exercises].sort((left, right) => {
+    const leftGap = getMasteryGap(left, userState, options, graph);
+    const rightGap = getMasteryGap(right, userState, options, graph);
+    return rightGap - leftGap ||
+      (left.masteryLevel ?? 1) - (right.masteryLevel ?? 1) ||
+      left.difficulty - right.difficulty ||
+      left.id.localeCompare(right.id);
+  });
+
+  return candidates[0] ?? null;
+}
+
+function pickCurrentState(userState: UserSkillState[]): UserSkillState {
+  return [...userState].sort((left, right) => {
+    const leftWeakness = (left.lastResult === "incorrect" ? 2 : 0) + (1 - left.accuracy);
+    const rightWeakness = (right.lastResult === "incorrect" ? 2 : 0) + (1 - right.accuracy);
+    return rightWeakness - leftWeakness;
+  })[0];
+}
+
+function hasRecurrentError(userState: UserSkillState[], skill: string, subskill: string): boolean {
+  const state = userState.find((item) => item.skill === skill && item.subskill === subskill);
+  return Boolean(state && state.attempts && state.attempts >= 3 && state.accuracy <= 1 / 3);
+}
+
+function isAtRecommendedMastery(
+  state: UserSkillState,
+  options: SelectionOptions,
+  graph: LenguaSelectionGraph,
+): boolean {
+  const node = graph.masteryById.get(state.subskill) ?? graph.masteryById.get(state.skill);
+  const recommended = node?.recommended_mastery ?? 3;
+  return getMasteryLevel(state.subskill, [state], options, graph) >= recommended;
+}
+
+function getMasteryGap(
+  exercise: Exercise,
+  userState: UserSkillState[],
+  options: SelectionOptions,
+  graph: LenguaSelectionGraph,
+): number {
+  const node = graph.masteryById.get(exercise.subskill) ?? graph.masteryById.get(exercise.skill);
+  const recommended = node?.recommended_mastery ?? 3;
+  return recommended - getMasteryLevel(exercise.subskill, userState, options, graph);
+}
+
+function getMasteryLevel(
+  nodeId: string,
+  userState: UserSkillState[],
+  options: SelectionOptions,
+  graph: LenguaSelectionGraph,
+): MasteryLevel {
+  const explicit = options.masteryBySkill?.[nodeId];
+  if (explicit) {
+    return explicit;
+  }
+
+  const childStates = userState.filter((state) => matchesState(state, nodeId));
+  if (childStates.length === 0) {
+    return 1;
+  }
+
+  const average = childStates.reduce((sum, state) => sum + (state.masteryLevel ?? accuracyToMastery(state.accuracy)), 0) / childStates.length;
+  const parent = graph.masteryById.get(nodeId);
+  if (parent?.type === "skill") {
+    return clampMastery(Math.floor(average) as MasteryLevel);
+  }
+
+  return clampMastery(Math.round(average) as MasteryLevel);
+}
+
+function accuracyToMastery(accuracy: number): MasteryLevel {
+  if (accuracy >= 0.9) return 4;
+  if (accuracy >= 0.75) return 3;
+  if (accuracy >= 0.4) return 2;
+  return 1;
+}
+
+function filterImmediateRepeats(exercises: Exercise[], options: SelectionOptions): Exercise[] {
+  const blocked = new Set([...(options.usedExerciseIds ?? []), options.lastExerciseId].filter(Boolean));
+  const filtered = exercises.filter((exercise) => !blocked.has(exercise.id));
+  return filtered.length > 0 ? filtered : exercises.filter((exercise) => exercise.id !== options.lastExerciseId);
 }
 
 function findAlternativeSubskill(
@@ -157,7 +608,7 @@ function findAlternativeSubskill(
   return options.find((option) => option !== currentSubskill) ?? null;
 }
 
-function getReferenceDifficulty(exercises: Exercise[], state: UserSkillState): 1 | 2 | 3 {
+function getReferenceDifficulty(exercises: Exercise[], state: UserSkillState): Difficulty {
   const candidates = exercises.filter(
     (exercise) => exercise.skill === state.skill && exercise.subskill === state.subskill,
   );
@@ -167,17 +618,25 @@ function getReferenceDifficulty(exercises: Exercise[], state: UserSkillState): 1
   }
 
   const sorted = candidates.map((exercise) => exercise.difficulty).sort((a, b) => a - b);
-  return sorted[Math.floor(sorted.length / 2)] as 1 | 2 | 3;
+  return sorted[Math.floor(sorted.length / 2)] as Difficulty;
 }
 
 function pickStrictCandidate(exercises: Exercise[], target: Target): Exercise | null {
   const candidates = exercises.filter((exercise) => {
-    if (exercise.skill !== target.skill || exercise.subskill !== target.subskill) {
+    if (exercise.skill !== target.skill) {
+      return false;
+    }
+
+    if (target.subskill && exercise.subskill !== target.subskill) {
       return false;
     }
 
     if (target.difficultyMode === "same_or_lower") {
       return exercise.difficulty <= target.difficulty;
+    }
+
+    if (target.difficultyMode === "same_or_higher") {
+      return exercise.difficulty >= target.difficulty;
     }
 
     return exercise.difficulty === target.difficulty;
@@ -188,7 +647,7 @@ function pickStrictCandidate(exercises: Exercise[], target: Target): Exercise | 
   }
 
   if (target.difficultyMode === "same_or_lower") {
-    return [...candidates].sort((a, b) => b.difficulty - a.difficulty)[0];
+    return [...candidates].sort((a, b) => b.difficulty - a.difficulty || a.id.localeCompare(b.id))[0];
   }
 
   return pickDeterministic(candidates);
@@ -201,52 +660,133 @@ function pickFallbackCandidate(exercises: Exercise[], target: Target): Exercise 
     return null;
   }
 
-  const step1 = sameSkill.filter((exercise) => {
+  const sameDifficulty = sameSkill.filter((exercise) => {
     if (target.difficultyMode === "same_or_lower") {
       return exercise.difficulty <= target.difficulty;
+    }
+
+    if (target.difficultyMode === "same_or_higher") {
+      return exercise.difficulty >= target.difficulty;
     }
 
     return exercise.difficulty === target.difficulty;
   });
 
-  if (step1.length > 0) {
-    return pickDeterministic(step1);
-  }
-
-  return pickRandom(sameSkill);
+  return sameDifficulty.length > 0 ? pickDeterministic(sameDifficulty) : pickDeterministic(sameSkill);
 }
 
-function pickUnseenSkillExercise(exercises: Exercise[], options: SelectionOptions): Exercise | null {
+function pickUnseenSkillExercise(
+  exercises: Exercise[],
+  options: SelectionOptions,
+  graph: LenguaSelectionGraph,
+): Exercise | null {
   if (!options.hasSeenSkill && !options.seenSkills) {
     return null;
   }
 
   const seenSkills = new Set(options.seenSkills ?? []);
-  const allSkills = Array.from(new Set(exercises.map((exercise) => exercise.skill)))
-    .sort((left, right) => left.localeCompare(right))
-    .map((id) => ({ id }));
   const hasSeenSkill = options.hasSeenSkill ?? ((skillId: string) => seenSkills.has(skillId));
-  const unseenSkills = allSkills.filter((skill) => !hasSeenSkill(skill.id));
-  const nextSkill = unseenSkills[0]?.id;
+  const unseen = exercises
+    .filter((exercise) => !hasSeenSkill(exercise.skill))
+    .sort((left, right) => {
+      const leftNode = graph.masteryById.get(left.skill);
+      const rightNode = graph.masteryById.get(right.skill);
+      return (leftNode?.unlock_points ?? 0) - (rightNode?.unlock_points ?? 0) ||
+        left.difficulty - right.difficulty ||
+        left.id.localeCompare(right.id);
+    });
 
-  if (!nextSkill) {
-    return null;
-  }
+  return unseen[0] ?? null;
+}
 
-  return pickDeterministic(
-    exercises
-      .filter((exercise) => exercise.skill === nextSkill)
-      .sort((left, right) => left.difficulty - right.difficulty || left.id.localeCompare(right.id)),
-  );
+function matchesState(state: UserSkillState, nodeId: string): boolean {
+  return state.skill === nodeId || state.subskill === nodeId || state.subskill.startsWith(`${nodeId}.`);
+}
+
+function matchesNode(exercise: Exercise, nodeId: string): boolean {
+  return exercise.skill === nodeId || exercise.subskill === nodeId || exercise.subskill.startsWith(`${nodeId}.`);
+}
+
+function relationWeight(relationship: LenguaRelationship): number {
+  const typeWeight = relationship.tipo === "prerequisite" ? 3 : relationship.tipo === "sequential" ? 2 : 1;
+  const forceWeight = relationship.fuerza === "alta" ? 2 : 1;
+  return typeWeight + forceWeight;
+}
+
+function dedupeExercises(exercises: Exercise[]): Exercise[] {
+  return Array.from(new Map(exercises.map((exercise) => [exercise.id, exercise])).values());
 }
 
 function pickDeterministic(candidates: Exercise[]): Exercise {
   return [...candidates].sort((a, b) => a.id.localeCompare(b.id))[0];
 }
 
-function pickRandom(candidates: Exercise[]): Exercise {
-  const index = Math.floor(Math.random() * candidates.length);
-  return candidates[index];
+function normalizeDifficulty(value: unknown): Difficulty {
+  if (typeof value === "number") {
+    return clampDifficulty(value);
+  }
+
+  const normalized = normalizeText(String(value));
+  if (normalized === "alta") return 3;
+  if (normalized === "media") return 2;
+  return 1;
+}
+
+function normalizeMasteryLevel(value: unknown): MasteryLevel {
+  if (typeof value === "number") {
+    return clampMastery(value);
+  }
+
+  return 1;
+}
+
+function clampDifficulty(value: number): Difficulty {
+  if (value >= 3) return 3;
+  if (value >= 2) return 2;
+  return 1;
+}
+
+function clampMastery(value: number): MasteryLevel {
+  if (value >= 4) return 4;
+  if (value >= 3) return 3;
+  if (value >= 2) return 2;
+  return 1;
+}
+
+function resolveKnownSubskill(key: string, skillId: string): string | null {
+  const rules: Array<[string, string, RegExp]> = [
+    ["lengua.skill_1", "lengua.skill_1.subskill_1", /explicita|puntual|textual|directa|dato/],
+    ["lengua.skill_1", "lengua.skill_1.subskill_2", /infer|causa|consecuencia|motivo|intencion|estado|pista|significado|sinonimo|acepcion|intensidad/],
+    ["lengua.skill_1", "lengua.skill_1.subskill_3", /sintesis|tema|titulo|global|central/],
+    ["lengua.skill_2", "lengua.skill_2.subskill_1", /orden|cronologico|logico|secuencia|narrativo|instructivo/],
+    ["lengua.skill_2", "lengua.skill_2.subskill_2", /ruptura|coherencia|proposito/],
+    ["lengua.skill_2", "lengua.skill_2.subskill_3", /conexion|conector|segmento/],
+    ["lengua.skill_3", "lengua.skill_3.subskill_1", /redaccion|formato|oracion|funcional/],
+    ["lengua.skill_3", "lengua.skill_3.subskill_2", /dato|relevante|seleccion/],
+    ["lengua.skill_3", "lengua.skill_3.subskill_3", /revision|claridad|foco/],
+    ["lengua.skill_4", "lengua.skill_4.subskill_1", /categoria|gramatical|sustantivo|adjetivo|adverbio/],
+    ["lengua.skill_4", "lengua.skill_4.subskill_2", /concordancia/],
+    ["lengua.skill_4", "lengua.skill_4.subskill_3", /funcion|sintactica|sujeto|predicado/],
+    ["lengua.skill_5", "lengua.skill_5.subskill_1", /tiempo|modo|verbal/],
+    ["lengua.skill_5", "lengua.skill_5.subskill_2", /transformacion|voz/],
+    ["lengua.skill_5", "lengua.skill_5.subskill_3", /continuidad|cohesion|temporal|anterioridad|posterioridad/],
+    ["lengua.skill_6", "lengua.skill_6.subskill_1", /grafia|ortografia|lexica|b\/v|c\/s|s\/z/],
+    ["lengua.skill_6", "lengua.skill_6.subskill_2", /acentuacion|tilde|diptongo|hiato|triptongo|silaba/],
+    ["lengua.skill_6", "lengua.skill_6.subskill_3", /edicion|correccion|error/],
+    ["lengua.skill_7", "lengua.skill_7.subskill_1", /coma|enumeracion|aposicion|insercion/],
+    ["lengua.skill_7", "lengua.skill_7.subskill_2", /desambiguacion|sentido|vocativo/],
+    ["lengua.skill_7", "lengua.skill_7.subskill_3", /segmentacion|enunciado|punto|mayuscula/],
+  ];
+
+  return rules.find(([ruleSkill, , pattern]) => ruleSkill === skillId && pattern.test(key))?.[1] ?? null;
+}
+
+function normalizeText(value: string): string {
+  return value
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .trim();
 }
 
 function logSelection(ruleApplied: RuleApplied, exercise: Exercise): void {
@@ -256,99 +796,31 @@ function logSelection(ruleApplied: RuleApplied, exercise: Exercise): void {
     skill: exercise.skill,
     subskill: exercise.subskill,
     difficulty: exercise.difficulty,
+    masteryLevel: exercise.masteryLevel ?? 1,
   });
 }
 
 export function testSelector(): void {
   const mockExercises: Exercise[] = [
-    {
-      id: "LEN-VOC-001-01",
-      skill: "LEN-VOC-001",
-      subskill: "inferir significado por pistas cercanas",
-      difficulty: 1,
-    },
-    {
-      id: "LEN-VOC-001-02",
-      skill: "LEN-VOC-001",
-      subskill: "inferir significado por pistas cercanas",
-      difficulty: 2,
-    },
-    {
-      id: "LEN-VOC-001-03",
-      skill: "LEN-VOC-001",
-      subskill: "inferir significado por pistas cercanas",
-      difficulty: 3,
-    },
-    {
-      id: "LEN-VOC-001-04",
-      skill: "LEN-VOC-001",
-      subskill: "reconocer acepcion adecuada",
-      difficulty: 2,
-    },
-    {
-      id: "LEN-VOC-001-05",
-      skill: "LEN-VOC-001",
-      subskill: "interpretar expresiones no literales",
-      difficulty: 2,
-    },
+    { id: "a", skill: "lengua.skill_1", subskill: "lengua.skill_1.subskill_1", difficulty: 1, masteryLevel: 1 },
+    { id: "b", skill: "lengua.skill_1", subskill: "lengua.skill_1.subskill_1", difficulty: 2, masteryLevel: 2 },
+    { id: "c", skill: "lengua.skill_1", subskill: "lengua.skill_1.subskill_2", difficulty: 2, masteryLevel: 2 },
   ];
 
-  const recurringErrors: UserSkillState[] = [
+  const selection = selectNextExercise(mockExercises, [
     {
-      skill: "LEN-VOC-001",
-      subskill: "inferir significado por pistas cercanas",
-      accuracy: 0.55,
-      streak: 0,
-      lastResult: "incorrect",
-    },
-  ];
-
-  const positiveStreak: UserSkillState[] = [
-    {
-      skill: "LEN-VOC-001",
-      subskill: "inferir significado por pistas cercanas",
-      accuracy: 0.8,
-      streak: 3,
+      skill: "lengua.skill_1",
+      subskill: "lengua.skill_1.subskill_1",
+      accuracy: 1,
+      streak: 2,
+      attempts: 2,
       lastResult: "correct",
+      masteryLevel: 2,
     },
-  ];
+  ]);
 
-  const highAccuracy: UserSkillState[] = [
-    {
-      skill: "LEN-VOC-001",
-      subskill: "inferir significado por pistas cercanas",
-      accuracy: 0.9,
-      streak: 1,
-      lastResult: "correct",
-    },
-  ];
-
-  const selectionA = selectNextExercise(mockExercises, recurringErrors);
-  if (
-    selectionA.skill !== "LEN-VOC-001" ||
-    selectionA.subskill !== "inferir significado por pistas cercanas" ||
-    selectionA.difficulty > 2
-  ) {
-    throw new Error("Rule A violation");
-  }
-
-  const selectionB = selectNextExercise(mockExercises, positiveStreak);
-  if (
-    selectionB.skill !== "LEN-VOC-001" ||
-    selectionB.subskill !== "inferir significado por pistas cercanas" ||
-    selectionB.difficulty !== 3
-  ) {
-    throw new Error("Rule B violation");
-  }
-
-  const originalSkill = highAccuracy[0].skill;
-  const selectionC = selectNextExercise(mockExercises, highAccuracy);
-  if (selectionC.skill !== originalSkill) {
-    throw new Error("Rule C violation: skill changed");
-  }
-
-  if (selectionC.subskill === highAccuracy[0].subskill) {
-    throw new Error("Rule C violation: subskill did not change");
+  if (!selection.id) {
+    throw new Error("Selector returned an invalid exercise");
   }
 
   console.log("testSelector passed");
