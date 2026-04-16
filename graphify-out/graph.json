@@ -199,44 +199,8 @@
       "source_file": "src\\app\\practice\\page.tsx",
       "source_location": "L1",
       "id": "src_app_practice_page_tsx",
-      "community": 12,
+      "community": 24,
       "norm_label": "page.tsx"
-    },
-    {
-      "label": "PracticePage()",
-      "file_type": "code",
-      "source_file": "src\\app\\practice\\page.tsx",
-      "source_location": "L12",
-      "id": "page_practicepage",
-      "community": 12,
-      "norm_label": "practicepage()"
-    },
-    {
-      "label": "parseUsedExerciseIds()",
-      "file_type": "code",
-      "source_file": "src\\app\\practice\\page.tsx",
-      "source_location": "L44",
-      "id": "page_parseusedexerciseids",
-      "community": 12,
-      "norm_label": "parseusedexerciseids()"
-    },
-    {
-      "label": "isEnabledParam()",
-      "file_type": "code",
-      "source_file": "src\\app\\practice\\page.tsx",
-      "source_location": "L55",
-      "id": "page_isenabledparam",
-      "community": 12,
-      "norm_label": "isenabledparam()"
-    },
-    {
-      "label": "buildRestartHref()",
-      "file_type": "code",
-      "source_file": "src\\app\\practice\\page.tsx",
-      "source_location": "L59",
-      "id": "page_buildrestarthref",
-      "community": 12,
-      "norm_label": "buildrestarthref()"
     },
     {
       "label": "PracticeQuestion.tsx",
@@ -244,7 +208,7 @@
       "source_file": "src\\app\\practice\\PracticeQuestion.tsx",
       "source_location": "L1",
       "id": "src_app_practice_practicequestion_tsx",
-      "community": 10,
+      "community": 11,
       "norm_label": "practicequestion.tsx"
     },
     {
@@ -253,7 +217,7 @@
       "source_file": "src\\app\\practice\\PracticeQuestion.tsx",
       "source_location": "L16",
       "id": "practicequestion_practicequestion",
-      "community": 10,
+      "community": 11,
       "norm_label": "practicequestion()"
     },
     {
@@ -262,7 +226,7 @@
       "source_file": "src\\components\\dashboard\\ActionPanel.tsx",
       "source_location": "L1",
       "id": "src_components_dashboard_actionpanel_tsx",
-      "community": 24,
+      "community": 25,
       "norm_label": "actionpanel.tsx"
     },
     {
@@ -289,7 +253,7 @@
       "source_file": "src\\components\\dashboard\\SkillItem.tsx",
       "source_location": "L1",
       "id": "src_components_dashboard_skillitem_tsx",
-      "community": 10,
+      "community": 11,
       "norm_label": "skillitem.tsx"
     },
     {
@@ -298,7 +262,7 @@
       "source_file": "src\\components\\dashboard\\SkillItem.tsx",
       "source_location": "L16",
       "id": "skillitem_skillitem",
-      "community": 10,
+      "community": 11,
       "norm_label": "skillitem()"
     },
     {
@@ -343,7 +307,7 @@
       "source_file": "src\\practice\\exercise_selector.test.ts",
       "source_location": "L1",
       "id": "src_practice_exercise_selector_test_ts",
-      "community": 5,
+      "community": 6,
       "norm_label": "exercise_selector.test.ts"
     },
     {
@@ -352,7 +316,7 @@
       "source_file": "src\\practice\\exercise_selector.ts",
       "source_location": "L1",
       "id": "src_practice_exercise_selector_ts",
-      "community": 5,
+      "community": 6,
       "norm_label": "exercise_selector.ts"
     },
     {
@@ -361,7 +325,7 @@
       "source_file": "src\\practice\\exercise_selector.ts",
       "source_location": "L36",
       "id": "exercise_selector_selectnextexercisedetailed",
-      "community": 5,
+      "community": 6,
       "norm_label": "selectnextexercisedetailed()"
     },
     {
@@ -370,7 +334,7 @@
       "source_file": "src\\practice\\exercise_selector.ts",
       "source_location": "L70",
       "id": "exercise_selector_selectnextexercise",
-      "community": 5,
+      "community": 6,
       "norm_label": "selectnextexercise()"
     },
     {
@@ -379,7 +343,7 @@
       "source_file": "src\\practice\\exercise_selector.ts",
       "source_location": "L78",
       "id": "exercise_selector_resolveruletarget",
-      "community": 5,
+      "community": 6,
       "norm_label": "resolveruletarget()"
     },
     {
@@ -388,7 +352,7 @@
       "source_file": "src\\practice\\exercise_selector.ts",
       "source_location": "L144",
       "id": "exercise_selector_findalternativesubskill",
-      "community": 5,
+      "community": 6,
       "norm_label": "findalternativesubskill()"
     },
     {
@@ -397,7 +361,7 @@
       "source_file": "src\\practice\\exercise_selector.ts",
       "source_location": "L160",
       "id": "exercise_selector_getreferencedifficulty",
-      "community": 5,
+      "community": 6,
       "norm_label": "getreferencedifficulty()"
     },
     {
@@ -406,7 +370,7 @@
       "source_file": "src\\practice\\exercise_selector.ts",
       "source_location": "L173",
       "id": "exercise_selector_pickstrictcandidate",
-      "community": 5,
+      "community": 6,
       "norm_label": "pickstrictcandidate()"
     },
     {
@@ -415,7 +379,7 @@
       "source_file": "src\\practice\\exercise_selector.ts",
       "source_location": "L197",
       "id": "exercise_selector_pickfallbackcandidate",
-      "community": 5,
+      "community": 6,
       "norm_label": "pickfallbackcandidate()"
     },
     {
@@ -424,7 +388,7 @@
       "source_file": "src\\practice\\exercise_selector.ts",
       "source_location": "L219",
       "id": "exercise_selector_pickunseenskillexercise",
-      "community": 5,
+      "community": 6,
       "norm_label": "pickunseenskillexercise()"
     },
     {
@@ -433,7 +397,7 @@
       "source_file": "src\\practice\\exercise_selector.ts",
       "source_location": "L243",
       "id": "exercise_selector_pickdeterministic",
-      "community": 5,
+      "community": 6,
       "norm_label": "pickdeterministic()"
     },
     {
@@ -442,7 +406,7 @@
       "source_file": "src\\practice\\exercise_selector.ts",
       "source_location": "L247",
       "id": "exercise_selector_pickrandom",
-      "community": 5,
+      "community": 6,
       "norm_label": "pickrandom()"
     },
     {
@@ -451,7 +415,7 @@
       "source_file": "src\\practice\\exercise_selector.ts",
       "source_location": "L252",
       "id": "exercise_selector_logselection",
-      "community": 5,
+      "community": 6,
       "norm_label": "logselection()"
     },
     {
@@ -460,7 +424,7 @@
       "source_file": "src\\practice\\exercise_selector.ts",
       "source_location": "L262",
       "id": "exercise_selector_testselector",
-      "community": 5,
+      "community": 6,
       "norm_label": "testselector()"
     },
     {
@@ -577,7 +541,7 @@
       "source_file": "src\\practice\\simulator_runner.ts",
       "source_location": "L1",
       "id": "src_practice_simulator_runner_ts",
-      "community": 4,
+      "community": 5,
       "norm_label": "simulator_runner.ts"
     },
     {
@@ -586,7 +550,7 @@
       "source_file": "src\\practice\\simulator_runner.ts",
       "source_location": "L57",
       "id": "simulator_runner_loadexercises",
-      "community": 4,
+      "community": 5,
       "norm_label": "loadexercises()"
     },
     {
@@ -595,7 +559,7 @@
       "source_file": "src\\practice\\simulator_runner.ts",
       "source_location": "L69",
       "id": "simulator_runner_selectsimulatorexercises",
-      "community": 4,
+      "community": 5,
       "norm_label": "selectsimulatorexercises()"
     },
     {
@@ -604,7 +568,7 @@
       "source_file": "src\\practice\\simulator_runner.ts",
       "source_location": "L92",
       "id": "simulator_runner_runsimulator",
-      "community": 4,
+      "community": 5,
       "norm_label": "runsimulator()"
     },
     {
@@ -613,7 +577,7 @@
       "source_file": "src\\practice\\simulator_runner.ts",
       "source_location": "L134",
       "id": "simulator_runner_simulateanswer",
-      "community": 4,
+      "community": 5,
       "norm_label": "simulateanswer()"
     },
     {
@@ -622,7 +586,7 @@
       "source_file": "src\\practice\\simulator_runner.ts",
       "source_location": "L145",
       "id": "simulator_runner_simulatetimeseconds",
-      "community": 4,
+      "community": 5,
       "norm_label": "simulatetimeseconds()"
     },
     {
@@ -631,7 +595,7 @@
       "source_file": "src\\practice\\simulator_runner.ts",
       "source_location": "L149",
       "id": "simulator_runner_printfinalresults",
-      "community": 4,
+      "community": 5,
       "norm_label": "printfinalresults()"
     },
     {
@@ -640,7 +604,7 @@
       "source_file": "src\\practice\\simulator_runner.ts",
       "source_location": "L181",
       "id": "simulator_runner_buildskillstats",
-      "community": 4,
+      "community": 5,
       "norm_label": "buildskillstats()"
     },
     {
@@ -649,7 +613,7 @@
       "source_file": "src\\practice\\simulator_runner.ts",
       "source_location": "L189",
       "id": "simulator_runner_buildskillresults",
-      "community": 4,
+      "community": 5,
       "norm_label": "buildskillresults()"
     },
     {
@@ -658,7 +622,7 @@
       "source_file": "src\\practice\\simulator_runner.ts",
       "source_location": "L205",
       "id": "simulator_runner_classifyskill",
-      "community": 4,
+      "community": 5,
       "norm_label": "classifyskill()"
     },
     {
@@ -667,7 +631,7 @@
       "source_file": "src\\practice\\simulator_runner.ts",
       "source_location": "L217",
       "id": "simulator_runner_groupbyskill",
-      "community": 4,
+      "community": 5,
       "norm_label": "groupbyskill()"
     },
     {
@@ -676,7 +640,7 @@
       "source_file": "src\\practice\\simulator_runner.ts",
       "source_location": "L225",
       "id": "simulator_runner_hasavailableexercises",
-      "community": 4,
+      "community": 5,
       "norm_label": "hasavailableexercises()"
     },
     {
@@ -685,7 +649,7 @@
       "source_file": "src\\practice\\simulator_runner.ts",
       "source_location": "L229",
       "id": "simulator_runner_chancebydifficulty",
-      "community": 4,
+      "community": 5,
       "norm_label": "chancebydifficulty()"
     },
     {
@@ -694,7 +658,7 @@
       "source_file": "src\\practice\\simulator_runner.ts",
       "source_location": "L241",
       "id": "simulator_runner_formatpercent",
-      "community": 4,
+      "community": 5,
       "norm_label": "formatpercent()"
     },
     {
@@ -703,7 +667,7 @@
       "source_file": "src\\practice\\simulator_runner.ts",
       "source_location": "L245",
       "id": "simulator_runner_shuffle",
-      "community": 4,
+      "community": 5,
       "norm_label": "shuffle()"
     },
     {
@@ -712,7 +676,7 @@
       "source_file": "src\\practice\\simulator_runner.ts",
       "source_location": "L256",
       "id": "simulator_runner_pickvalue",
-      "community": 4,
+      "community": 5,
       "norm_label": "pickvalue()"
     },
     {
@@ -721,7 +685,7 @@
       "source_file": "src\\practice\\simulator_runner.ts",
       "source_location": "L260",
       "id": "simulator_runner_randomint",
-      "community": 4,
+      "community": 5,
       "norm_label": "randomint()"
     },
     {
@@ -730,7 +694,7 @@
       "source_file": "src\\skills\\skill_metadata.ts",
       "source_location": "L1",
       "id": "src_skills_skill_metadata_ts",
-      "community": 10,
+      "community": 11,
       "norm_label": "skill_metadata.ts"
     },
     {
@@ -739,7 +703,7 @@
       "source_file": "src\\skills\\skill_metadata.ts",
       "source_location": "L115",
       "id": "skill_metadata_getskillmetadata",
-      "community": 10,
+      "community": 11,
       "norm_label": "getskillmetadata()"
     },
     {
@@ -841,7 +805,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 0,
       "norm_label": "agents instructions",
       "id": "agents_md"
     },
@@ -854,7 +818,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 0,
       "norm_label": "app ingreso",
       "id": "readme_app_ingreso"
     },
@@ -867,7 +831,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 0,
       "norm_label": "agents map",
       "id": "agents_map"
     },
@@ -880,7 +844,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 0,
       "norm_label": "agent orchestrator",
       "id": "orchestrator"
     },
@@ -893,7 +857,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 0,
       "norm_label": "orchestrator prompt",
       "id": "orchestrator_prompt"
     },
@@ -906,7 +870,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 0,
       "norm_label": "product guardian",
       "id": "agent_01_product_guardian"
     },
@@ -919,7 +883,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 0,
       "norm_label": "scope & rules validator",
       "id": "agent_02_scope_rules_validator"
     },
@@ -932,7 +896,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 0,
       "norm_label": "quality auditor",
       "id": "agent_03_quality_auditor"
     },
@@ -945,7 +909,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 0,
       "norm_label": "codex prompt generator",
       "id": "agent_04_codex_prompt_generator"
     },
@@ -958,7 +922,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 0,
       "norm_label": "minor-adjustment example",
       "id": "ejemplo_01_ajuste_menor"
     },
@@ -971,7 +935,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 0,
       "norm_label": "new-idea example",
       "id": "ejemplo_02_idea_nueva"
     },
@@ -984,7 +948,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 0,
       "norm_label": "blocked p0 example",
       "id": "ejemplo_03_bloqueado_p0"
     },
@@ -997,7 +961,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 0,
       "norm_label": "codex prompt generator system prompt",
       "id": "codex_prompt_generator_prompt"
     },
@@ -1010,7 +974,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 0,
       "norm_label": "product guardian system prompt",
       "id": "product_guardian_prompt"
     },
@@ -1023,7 +987,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 0,
       "norm_label": "quality auditor system prompt",
       "id": "quality_auditor_prompt"
     },
@@ -1036,7 +1000,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 0,
       "norm_label": "scope & rules validator system prompt",
       "id": "scope_rules_validator_prompt"
     },
@@ -1049,7 +1013,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 0,
       "norm_label": "interaction flow",
       "id": "interaction_flow"
     },
@@ -1062,7 +1026,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 0,
       "norm_label": "validation pipeline",
       "id": "validation_pipeline"
     },
@@ -1088,7 +1052,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 0,
       "norm_label": "adr-001 product scope",
       "id": "adr_001_product_scope"
     },
@@ -1101,7 +1065,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 0,
       "norm_label": "app ingreso product scope",
       "id": "app_ingreso_product_scope"
     },
@@ -1114,7 +1078,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 0,
       "norm_label": "autonomous skill-based training",
       "id": "autonomous_skill_training"
     },
@@ -1127,7 +1091,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 0,
       "norm_label": "practice over explanation",
       "id": "practice_over_explanation"
     },
@@ -1153,7 +1117,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 0,
       "norm_label": "exam simulations",
       "id": "exam_simulations"
     },
@@ -1166,7 +1130,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 0,
       "norm_label": "progress tracking",
       "id": "progress_tracking"
     },
@@ -1192,7 +1156,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 0,
       "norm_label": "no tutor or tutoring",
       "id": "no_tutor"
     },
@@ -1205,7 +1169,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 0,
       "norm_label": "minimal data collection",
       "id": "minimal_data_collection"
     },
@@ -1218,7 +1182,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 0,
       "norm_label": "local json storage",
       "id": "local_json_storage"
     },
@@ -1231,7 +1195,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 0,
       "norm_label": "four-agent system",
       "id": "four_agent_system"
     },
@@ -1244,7 +1208,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 0,
       "norm_label": "mandatory validation flow",
       "id": "mandatory_validation_flow"
     },
@@ -1257,7 +1221,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 0,
       "norm_label": "change type classification",
       "id": "change_type_classification"
     },
@@ -1270,7 +1234,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 0,
       "norm_label": "fast path for minor adjustments",
       "id": "fast_path_minor_adjustments"
     },
@@ -1283,7 +1247,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 0,
       "norm_label": "product guardian always first",
       "id": "product_guardian_always_first"
     },
@@ -1296,7 +1260,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 0,
       "norm_label": "source traceability",
       "id": "source_traceability"
     },
@@ -1309,7 +1273,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 0,
       "norm_label": "question-response-feedback-adjustment-next loop",
       "id": "question_response_feedback_adjustment_next"
     },
@@ -1348,7 +1312,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 0,
       "norm_label": "blocked tutorial modules",
       "id": "blocked_tutorial_modules"
     },
@@ -1374,7 +1338,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
+      "community": 3,
       "norm_label": "adr-003: autonomous learning",
       "id": "adr_003_autonomous_learning"
     },
@@ -1387,7 +1351,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
+      "community": 1,
       "norm_label": "adr-004: parent responsibility",
       "id": "adr_004_parent_responsibility"
     },
@@ -1400,7 +1364,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
+      "community": 1,
       "norm_label": "product vision",
       "id": "product_vision"
     },
@@ -1413,7 +1377,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
+      "community": 1,
       "norm_label": "research summary draft",
       "id": "research_summary"
     },
@@ -1426,7 +1390,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
+      "community": 1,
       "norm_label": "learning model draft",
       "id": "learning_model"
     },
@@ -1439,7 +1403,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
+      "community": 3,
       "norm_label": "skills map v2",
       "id": "skills_map_v2"
     },
@@ -1452,7 +1416,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
+      "community": 3,
       "norm_label": "exercise engine v1",
       "id": "exercise_engine_v1"
     },
@@ -1465,7 +1429,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
+      "community": 3,
       "norm_label": "exercise selection logic v1",
       "id": "exercise_selection_logic_v1"
     },
@@ -1478,7 +1442,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
+      "community": 3,
       "norm_label": "lengua exercises audit v1",
       "id": "lengua_exercises_audit_v1"
     },
@@ -1491,7 +1455,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
+      "community": 3,
       "norm_label": "lengua exercises modulo 3 audit",
       "id": "lengua_exercises_modulo3_audit"
     },
@@ -1504,7 +1468,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
+      "community": 3,
       "norm_label": "practice session flow v1",
       "id": "practice_session_flow_v1"
     },
@@ -1517,7 +1481,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 6,
+      "community": 7,
       "norm_label": "user journey",
       "id": "user_journey"
     },
@@ -1530,7 +1494,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 6,
+      "community": 7,
       "norm_label": "simulator model",
       "id": "simulator_model"
     },
@@ -1543,7 +1507,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 6,
+      "community": 7,
       "norm_label": "progress metrics",
       "id": "progress_metrics"
     },
@@ -1556,7 +1520,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 6,
+      "community": 7,
       "norm_label": "progress metrics v1",
       "id": "progress_metrics_v1"
     },
@@ -1569,7 +1533,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
+      "community": 1,
       "norm_label": "business rules",
       "id": "business_rules"
     },
@@ -1582,7 +1546,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
+      "community": 1,
       "norm_label": "legal positioning",
       "id": "legal_positioning"
     },
@@ -1595,7 +1559,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
+      "community": 1,
       "norm_label": "product analysis",
       "id": "product_analysis"
     },
@@ -1608,7 +1572,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
+      "community": 1,
       "norm_label": "autonomous training platform",
       "id": "autonomous_training_platform"
     },
@@ -1621,7 +1585,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
+      "community": 1,
       "norm_label": "practice-based learning",
       "id": "practice_based_learning"
     },
@@ -1634,7 +1598,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
+      "community": 1,
       "norm_label": "adult responsibility",
       "id": "adult_responsibility"
     },
@@ -1647,7 +1611,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
+      "community": 3,
       "norm_label": "skill-based training",
       "id": "skill_based_training"
     },
@@ -1660,7 +1624,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
+      "community": 3,
       "norm_label": "adaptive practice",
       "id": "adaptive_practice"
     },
@@ -1673,7 +1637,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
+      "community": 3,
       "norm_label": "exercise skill-subskill mapping",
       "id": "exercise_skill_subskill_mapping"
     },
@@ -1686,7 +1650,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
+      "community": 3,
       "norm_label": "practice session loop",
       "id": "practice_session_loop"
     },
@@ -1699,7 +1663,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
+      "community": 3,
       "norm_label": "rule-based selection",
       "id": "rule_based_selection"
     },
@@ -1712,7 +1676,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 6,
+      "community": 7,
       "norm_label": "simulator mode",
       "id": "simulator_mode"
     },
@@ -1725,7 +1689,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 6,
+      "community": 7,
       "norm_label": "progress by skill",
       "id": "progress_by_skill"
     },
@@ -1738,7 +1702,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
+      "community": 1,
       "norm_label": "no guarantee of results",
       "id": "no_guarantee_of_results"
     },
@@ -1751,7 +1715,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
+      "community": 1,
       "norm_label": "content creation workflow",
       "id": "content_creation_workflow"
     },
@@ -1764,7 +1728,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
+      "community": 1,
       "norm_label": "exam validation matrix",
       "id": "exam_validation_matrix"
     },
@@ -1777,7 +1741,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
+      "community": 1,
       "norm_label": "role model separation",
       "id": "role_model_separation"
     },
@@ -1790,7 +1754,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
+      "community": 1,
       "norm_label": "access by time",
       "id": "access_by_time"
     },
@@ -1803,7 +1767,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
+      "community": 3,
       "norm_label": "plausible distractors",
       "id": "plausible_distractors"
     },
@@ -1816,7 +1780,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
+      "community": 3,
       "norm_label": "no personal data",
       "id": "no_personal_data"
     },
@@ -1829,7 +1793,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 6,
+      "community": 3,
       "norm_label": "diagnostic initial",
       "id": "diagnostic_initial"
     },
@@ -1842,7 +1806,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 6,
+      "community": 7,
       "norm_label": "training vs simulation",
       "id": "training_vs_simulation"
     },
@@ -1855,7 +1819,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 6,
+      "community": 7,
       "norm_label": "accuracy metric",
       "id": "accuracy_metric"
     },
@@ -1868,7 +1832,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 6,
+      "community": 7,
       "norm_label": "consistency metric",
       "id": "consistency_metric"
     },
@@ -1881,7 +1845,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 6,
+      "community": 7,
       "norm_label": "mastery levels",
       "id": "mastery_levels"
     },
@@ -1894,7 +1858,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
+      "community": 1,
       "norm_label": "commercial tiers",
       "id": "commercial_tiers"
     },
@@ -1907,7 +1871,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
+      "community": 1,
       "norm_label": "research gap",
       "id": "research_gap"
     },
@@ -1920,7 +1884,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
+      "community": 1,
       "norm_label": "pedagogical model gap",
       "id": "pedagogical_model_gap"
     },
@@ -1933,7 +1897,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
+      "community": 1,
       "norm_label": "spaced repetition",
       "id": "spaced_repetition"
     },
@@ -1946,7 +1910,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
+      "community": 1,
       "norm_label": "deliberate practice",
       "id": "deliberate_practice"
     },
@@ -1959,7 +1923,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
+      "community": 1,
       "norm_label": "cognitive load theory",
       "id": "cognitive_load_theory"
     },
@@ -1972,7 +1936,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 6,
+      "community": 7,
       "norm_label": "parent visibility",
       "id": "parent_visibility"
     },
@@ -1985,7 +1949,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
+      "community": 1,
       "norm_label": "parent supervision",
       "id": "parent_supervision"
     },
@@ -1998,7 +1962,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
+      "community": 3,
       "norm_label": "brief feedback",
       "id": "feedback_breve"
     },
@@ -2011,7 +1975,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
+      "community": 3,
       "norm_label": "simple summary",
       "id": "simple_summary"
     },
@@ -2024,7 +1988,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
+      "community": 3,
       "norm_label": "difficulty 1-3",
       "id": "difficulty_1_3"
     },
@@ -2037,7 +2001,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
+      "community": 1,
       "norm_label": "content source independence",
       "id": "content_source_independence"
     },
@@ -2050,7 +2014,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
+      "community": 1,
       "norm_label": "student user 11-12",
       "id": "student_user_11_12"
     },
@@ -2063,7 +2027,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
+      "community": 1,
       "norm_label": "adult customer",
       "id": "adult_customer"
     },
@@ -2076,7 +2040,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 6,
+      "community": 7,
       "norm_label": "frequent short sessions",
       "id": "frequent_short_sessions"
     },
@@ -2089,7 +2053,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
+      "community": 3,
       "norm_label": "original content",
       "id": "original_content"
     },
@@ -2102,7 +2066,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 6,
+      "community": 7,
       "norm_label": "time-limited simulation",
       "id": "time_limited_simulation"
     },
@@ -2115,7 +2079,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 3,
+      "community": 4,
       "norm_label": "product roadmap - app ingreso",
       "id": "roadmap_product_roadmap_app_ingreso"
     },
@@ -2128,7 +2092,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 3,
+      "community": 4,
       "norm_label": "construir la base conceptual del producto (sin codigo)",
       "id": "roadmap_fase_1_objetivo_base_conceptual"
     },
@@ -2141,7 +2105,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 3,
+      "community": 4,
       "norm_label": "definicion del sistema de habilidades (skills_map canonico)",
       "id": "roadmap_skills_map_canonico"
     },
@@ -2154,7 +2118,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 3,
+      "community": 4,
       "norm_label": "modelo pedagogico (entrenamiento vs ensenanza)",
       "id": "roadmap_modelo_pedagogico_entrenamiento_vs_ensenanza"
     },
@@ -2167,7 +2131,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 3,
+      "community": 4,
       "norm_label": "sistema de feedback inmediato",
       "id": "roadmap_feedback_inmediato"
     },
@@ -2180,7 +2144,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 3,
+      "community": 4,
       "norm_label": "niveles de dominio (inicial / progreso / dominado)",
       "id": "roadmap_niveles_de_dominio"
     },
@@ -2193,7 +2157,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 3,
+      "community": 4,
       "norm_label": "construir un producto usable sin logica compleja",
       "id": "roadmap_fase_2_objetivo_primer_sistema_funcional"
     },
@@ -2206,7 +2170,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 3,
+      "community": 4,
       "norm_label": "motor de ejercicios simple (sin adaptatividad)",
       "id": "roadmap_motor_de_ejercicios_simple"
     },
@@ -2219,7 +2183,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 3,
+      "community": 4,
       "norm_label": "primer simulador (sin personalizacion)",
       "id": "roadmap_primer_simulador_sin_personalizacion"
     },
@@ -2232,7 +2196,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 3,
+      "community": 4,
       "norm_label": "registro basico de resultados (local o backend simple)",
       "id": "roadmap_registro_basico_de_resultados"
     },
@@ -2245,7 +2209,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 3,
+      "community": 4,
       "norm_label": "mejorar el producto a nivel de aprendizaje real",
       "id": "roadmap_fase_3_objetivo_inteligencia_del_sistema"
     },
@@ -2258,7 +2222,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 3,
+      "community": 4,
       "norm_label": "sistema adaptativo (repeticion segun errores)",
       "id": "roadmap_sistema_adaptativo"
     },
@@ -2271,7 +2235,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 3,
+      "community": 4,
       "norm_label": "metricas de progreso por habilidad",
       "id": "roadmap_metricas_de_progreso_por_habilidad"
     },
@@ -2284,7 +2248,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 3,
+      "community": 4,
       "norm_label": "mejora de ux para reducir friccion",
       "id": "roadmap_mejora_ux_para_reducir_friccion"
     },
@@ -2297,7 +2261,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 3,
+      "community": 4,
       "norm_label": "optimizar, expandir y preparar para crecimiento",
       "id": "roadmap_fase_4_objetivo_producto_solido_y_comercial"
     },
@@ -2310,7 +2274,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 3,
+      "community": 4,
       "norm_label": "dashboard para padres (uso + progreso)",
       "id": "roadmap_dashboard_para_padres"
     },
@@ -2323,7 +2287,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 3,
+      "community": 4,
       "norm_label": "incorporacion futura de modulo de matematica",
       "id": "roadmap_expansion_futura_matematica"
     },
@@ -2336,7 +2300,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 3,
+      "community": 4,
       "norm_label": "app icon with dark square and white stylized mark",
       "id": "icon_app_ingreso_product"
     },
@@ -2349,7 +2313,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 7,
+      "community": 8,
       "norm_label": "lengua | modulo 1",
       "id": "modulo_1_lengua_modulo_1"
     },
@@ -2362,7 +2326,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 7,
+      "community": 8,
       "norm_label": "biografia de hans christian andersen",
       "id": "modulo_1_biografia_hans_christian_andersen"
     },
@@ -2375,7 +2339,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 7,
+      "community": 8,
       "norm_label": "clase textual, paratexto y datos enciclopedicos",
       "id": "modulo_1_clase_textual_paratexto"
     },
@@ -2388,7 +2352,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 7,
+      "community": 8,
       "norm_label": "sustantivos y adjetivos",
       "id": "modulo_1_sustantivos_adjetivos"
     },
@@ -2401,7 +2365,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 7,
+      "community": 8,
       "norm_label": "oracion, parrafo, mayusculas y coma",
       "id": "modulo_1_oracion_parrafo_mayusculas_coma"
     },
@@ -2414,7 +2378,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 7,
+      "community": 8,
       "norm_label": "lengua | modulo 2",
       "id": "modulo_2_lengua_modulo_2"
     },
@@ -2427,7 +2391,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 7,
+      "community": 8,
       "norm_label": "biografia de hans christian andersen (reutilizada)",
       "id": "modulo_2_biografia_hans_christian_andersen"
     },
@@ -2440,7 +2404,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 7,
+      "community": 8,
       "norm_label": "cotexto, sinonimia y antonimia",
       "id": "modulo_2_cotexto_sinonimia_antonimia"
     },
@@ -2453,7 +2417,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 7,
+      "community": 8,
       "norm_label": "verbo, persona y numero; pronombres personales",
       "id": "modulo_2_verbo_pronombres_personales"
     },
@@ -2466,7 +2430,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 7,
+      "community": 8,
       "norm_label": "acentuacion y tilde diacritica",
       "id": "modulo_2_acentuacion_tilde_diacritica"
     },
@@ -2479,7 +2443,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 11,
+      "community": 12,
       "norm_label": "lengua | modulo 3",
       "id": "modulo_3_lengua_modulo_3"
     },
@@ -2492,7 +2456,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 11,
+      "community": 12,
       "norm_label": "noticia 'laguna de la nina encantada, una leyenda con lenguaje vanguardista'",
       "id": "modulo_3_noticia_laguna_de_la_nina_encantada"
     },
@@ -2505,7 +2469,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 11,
+      "community": 12,
       "norm_label": "texto periodistico",
       "id": "modulo_3_texto_periodistico"
     },
@@ -2518,7 +2482,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 11,
+      "community": 12,
       "norm_label": "vocales, concurrencia de vocales, diptongo, triptongo e hiato",
       "id": "modulo_3_vocales_diptongo_triptongo_hiato"
     },
@@ -2531,7 +2495,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 11,
+      "community": 12,
       "norm_label": "modo verbal y tiempos verbales",
       "id": "modulo_3_modo_y_tiempos_verbales"
     },
@@ -2544,7 +2508,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 11,
+      "community": 12,
       "norm_label": "uno (25 de octubre de 2013)",
       "id": "modulo_3_uno_2013"
     },
@@ -2622,7 +2586,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 8,
+      "community": 9,
       "norm_label": "lengua | modulo 5",
       "id": "modulo_5_lengua_modulo_5"
     },
@@ -2635,7 +2599,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 8,
+      "community": 9,
       "norm_label": "el tawantinsuyu: un imperio de piedra y oro",
       "id": "modulo_5_tawantinsuyu"
     },
@@ -2648,7 +2612,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 8,
+      "community": 9,
       "norm_label": "articulo enciclopedico",
       "id": "modulo_5_articulo_enciclopedico"
     },
@@ -2661,7 +2625,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 8,
+      "community": 9,
       "norm_label": "la leyenda de cacheuta",
       "id": "modulo_5_leyenda_de_cacheuta"
     },
@@ -2674,7 +2638,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 8,
+      "community": 9,
       "norm_label": "adverbios",
       "id": "modulo_5_adverbios"
     },
@@ -2687,7 +2651,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 8,
+      "community": 9,
       "norm_label": "sintaxis de la oracion simple",
       "id": "modulo_5_sintaxis_oracion_simple"
     },
@@ -2700,7 +2664,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 8,
+      "community": 9,
       "norm_label": "usos de la c, s y z",
       "id": "modulo_5_usos_de_c_s_z"
     },
@@ -2713,7 +2677,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 8,
+      "community": 9,
       "norm_label": "enciclopedia ilustrada para ninos. historia del mundo. lexus (2018)",
       "id": "modulo_5_lexus_2018"
     },
@@ -2726,7 +2690,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 8,
+      "community": 9,
       "norm_label": "diccionario de la lengua espanola (rae)",
       "id": "modulo_5_rae_dle"
     },
@@ -2739,7 +2703,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 9,
+      "community": 10,
       "norm_label": "actividades de integracion",
       "id": "modulo_6_actividades_de_integracion"
     },
@@ -2752,7 +2716,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 9,
+      "community": 10,
       "norm_label": "el caso del laberinto del terror",
       "id": "modulo_6_el_caso_del_laberinto_del_terror"
     },
@@ -2765,7 +2729,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 9,
+      "community": 10,
       "norm_label": "sinonimia y antonimia",
       "id": "modulo_6_sinonimia_antonimia"
     },
@@ -2778,7 +2742,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 9,
+      "community": 10,
       "norm_label": "clases de palabras",
       "id": "modulo_6_clases_de_palabras"
     },
@@ -2791,7 +2755,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 9,
+      "community": 10,
       "norm_label": "pronombres personales, posesivos y demostrativos",
       "id": "modulo_6_pronombres_posesivos_demostrativos"
     },
@@ -2804,7 +2768,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 9,
+      "community": 10,
       "norm_label": "sintaxis",
       "id": "modulo_6_sintaxis"
     },
@@ -2817,7 +2781,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 9,
+      "community": 10,
       "norm_label": "cohesion, mayusculas y coma",
       "id": "modulo_6_cohesion_mayusculas_coma"
     },
@@ -2830,7 +2794,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 9,
+      "community": 10,
       "norm_label": "acentuacion, diptongos y hiatos",
       "id": "modulo_6_acentuacion_diptongos_hiatos"
     },
@@ -2843,7 +2807,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 9,
+      "community": 10,
       "norm_label": "ortografia de b/v, c/s/z",
       "id": "modulo_6_ortografia_b_v_c_s_z"
     }
@@ -2956,102 +2920,6 @@
       "_tgt": "local_progress_store_loadprogress",
       "source": "page_dashboardpage",
       "target": "local_progress_store_loadprogress"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src\\app\\practice\\page.tsx",
-      "source_location": "L12",
-      "weight": 1.0,
-      "_src": "src_app_practice_page_tsx",
-      "_tgt": "page_practicepage",
-      "source": "src_app_practice_page_tsx",
-      "target": "page_practicepage",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src\\app\\practice\\page.tsx",
-      "source_location": "L44",
-      "weight": 1.0,
-      "_src": "src_app_practice_page_tsx",
-      "_tgt": "page_parseusedexerciseids",
-      "source": "src_app_practice_page_tsx",
-      "target": "page_parseusedexerciseids",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src\\app\\practice\\page.tsx",
-      "source_location": "L55",
-      "weight": 1.0,
-      "_src": "src_app_practice_page_tsx",
-      "_tgt": "page_isenabledparam",
-      "source": "src_app_practice_page_tsx",
-      "target": "page_isenabledparam",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src\\app\\practice\\page.tsx",
-      "source_location": "L59",
-      "weight": 1.0,
-      "_src": "src_app_practice_page_tsx",
-      "_tgt": "page_buildrestarthref",
-      "source": "src_app_practice_page_tsx",
-      "target": "page_buildrestarthref",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "confidence": "EXTRACTED",
-      "source_file": "src\\app\\practice\\page.tsx",
-      "source_location": "L17",
-      "weight": 1.0,
-      "_src": "page_practicepage",
-      "_tgt": "page_parseusedexerciseids",
-      "source": "page_practicepage",
-      "target": "page_parseusedexerciseids",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "confidence": "EXTRACTED",
-      "source_file": "src\\app\\practice\\page.tsx",
-      "source_location": "L18",
-      "weight": 1.0,
-      "_src": "page_practicepage",
-      "_tgt": "page_isenabledparam",
-      "source": "page_practicepage",
-      "target": "page_isenabledparam",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "confidence": "EXTRACTED",
-      "source_file": "src\\app\\practice\\page.tsx",
-      "source_location": "L19",
-      "weight": 1.0,
-      "_src": "page_practicepage",
-      "_tgt": "page_buildrestarthref",
-      "source": "page_practicepage",
-      "target": "page_buildrestarthref",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "confidence": "INFERRED",
-      "confidence_score": 0.8,
-      "source_file": "src\\app\\practice\\page.tsx",
-      "source_location": "L24",
-      "weight": 1.0,
-      "_src": "page_practicepage",
-      "_tgt": "session_runner_startpracticesession",
-      "source": "page_practicepage",
-      "target": "session_runner_startpracticesession"
     },
     {
       "relation": "contains",

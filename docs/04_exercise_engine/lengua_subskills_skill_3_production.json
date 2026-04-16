@@ -1,0 +1,276 @@
+{
+  "metadata": {
+    "subject": "Lengua",
+    "skill_id": "lengua.skill_3",
+    "skill_name": "Produccion escrita funcional",
+    "version": "1.0.0",
+    "sources": [
+      "docs/03_skill_system/skills_map.md",
+      "graphify-out/GRAPH_REPORT.md"
+    ],
+    "graph_report_date": "2026-04-16",
+    "exercise_count": 18,
+    "allowed_types": [
+      "multiple_choice",
+      "completion",
+      "ordering",
+      "highlight_selection",
+      "categorization"
+    ],
+    "graph_anchors": [
+      "Community 3",
+      "Community 7",
+      "Community 10",
+      "Community 14"
+    ]
+  },
+  "exercises": [
+    {
+      "id": "lengua_s3_prod_001",
+      "type": "categorization",
+      "skill": "lengua.skill_3",
+      "subskill": "lengua.skill_3.subskill_2",
+      "prompt": "Selecciona los datos necesarios para redactar un aviso breve sobre un cambio de horario.",
+      "items": [
+        { "id": "a", "text": "Nuevo horario: 16:30", "category": "relevante" },
+        { "id": "b", "text": "Actividad: practica de lectura", "category": "relevante" },
+        { "id": "c", "text": "Lugar: aula 2", "category": "relevante" },
+        { "id": "d", "text": "El aula tiene ventanas grandes", "category": "descartar" }
+      ],
+      "answer": { "relevante": ["a", "b", "c"], "descartar": ["d"] },
+      "feedback": { "correct": "Datos suficientes y sin relleno.", "incorrect": "Conserva horario, actividad y lugar; descarta detalles sin funcion." },
+      "metadata": { "difficulty": 1, "mastery_target": 2, "combines_skills": ["lengua.skill_1.subskill_1", "lengua.skill_3.subskill_2"], "graph_refs": ["Community 3", "Community 7"] }
+    },
+    {
+      "id": "lengua_s3_prod_002",
+      "type": "completion",
+      "skill": "lengua.skill_3",
+      "subskill": "lengua.skill_3.subskill_1",
+      "prompt": "Completa el mensaje con una sola oracion clara.",
+      "stem": "Manana no habra practica en el patio porque ____.",
+      "acceptable_answers": ["se realizara en el aula 2", "la actividad se hara en el aula 2", "la practica cambiara al aula 2"],
+      "feedback": { "correct": "La oracion cumple el objetivo y mantiene foco.", "incorrect": "Completa con causa o cambio concreto, sin agregar datos laterales." },
+      "metadata": { "difficulty": 1, "mastery_target": 2, "combines_skills": ["lengua.skill_2.subskill_3", "lengua.skill_3.subskill_1"], "graph_refs": ["Community 3", "Community 14"] }
+    },
+    {
+      "id": "lengua_s3_prod_003",
+      "type": "multiple_choice",
+      "skill": "lengua.skill_3",
+      "subskill": "lengua.skill_3.subskill_3",
+      "prompt": "Elige la version mas clara y enfocada.",
+      "options": [
+        { "id": "a", "text": "La reunion sera el viernes a las 10 en biblioteca.", "correct": true },
+        { "id": "b", "text": "La reunion, que es algo importante, capaz sea el viernes.", "correct": false },
+        { "id": "c", "text": "El viernes hay cosas y una reunion en algun lugar.", "correct": false }
+      ],
+      "answer": "a",
+      "feedback": { "correct": "La version informa dia, hora y lugar sin rodeos.", "incorrect": "Elige la opcion con datos precisos y menor ambiguedad." },
+      "metadata": { "difficulty": 1, "mastery_target": 2, "combines_skills": ["lengua.skill_3.subskill_3", "lengua.skill_7.subskill_3"], "graph_refs": ["Community 3", "Community 10"] }
+    },
+    {
+      "id": "lengua_s3_prod_004",
+      "type": "ordering",
+      "skill": "lengua.skill_3",
+      "subskill": "lengua.skill_3.subskill_1",
+      "prompt": "Ordena las partes para formar una nota breve coherente.",
+      "items": [
+        { "id": "a", "text": "Por eso, lleven carpeta y lapicera." },
+        { "id": "b", "text": "El miercoles trabajaremos revision de textos." },
+        { "id": "c", "text": "La actividad sera en parejas." }
+      ],
+      "answer": ["b", "c", "a"],
+      "feedback": { "correct": "La secuencia presenta actividad, modalidad e indicacion final.", "incorrect": "Primero ubica la actividad, despues el modo de trabajo y al final la indicacion." },
+      "metadata": { "difficulty": 2, "mastery_target": 2, "combines_skills": ["lengua.skill_2.subskill_1", "lengua.skill_3.subskill_1"], "graph_refs": ["Community 3", "Community 14"] }
+    },
+    {
+      "id": "lengua_s3_prod_005",
+      "type": "highlight_selection",
+      "skill": "lengua.skill_3",
+      "subskill": "lengua.skill_3.subskill_3",
+      "prompt": "Marca el segmento que conviene eliminar para mejorar el foco.",
+      "text": "La entrega sera el jueves a las 9, en secretaria, y mi primo tambien entrega trabajos ese dia.",
+      "targets": [{ "id": "a", "text": "y mi primo tambien entrega trabajos ese dia" }],
+      "answer": ["a"],
+      "feedback": { "correct": "El segmento eliminado no aporta al objetivo del aviso.", "incorrect": "Marca la informacion que se aparta de entrega, dia, hora y lugar." },
+      "metadata": { "difficulty": 2, "mastery_target": 3, "combines_skills": ["lengua.skill_2.subskill_2", "lengua.skill_3.subskill_3"], "graph_refs": ["Community 3", "Community 10", "Community 14"] }
+    },
+    {
+      "id": "lengua_s3_prod_006",
+      "type": "completion",
+      "skill": "lengua.skill_3",
+      "subskill": "lengua.skill_3.subskill_1",
+      "prompt": "Completa con un cierre adecuado para una invitacion breve.",
+      "stem": "Trae un cuento corto para compartir en clase. ____.",
+      "acceptable_answers": ["Te esperamos", "Los esperamos", "Esperamos tu participacion"],
+      "feedback": { "correct": "El cierre mantiene el objetivo comunicativo.", "incorrect": "Usa un cierre breve que invite o confirme participacion." },
+      "metadata": { "difficulty": 2, "mastery_target": 2, "combines_skills": ["lengua.skill_3.subskill_1", "lengua.skill_7.subskill_3"], "graph_refs": ["Community 3", "Community 14"] }
+    },
+    {
+      "id": "lengua_s3_prod_007",
+      "type": "multiple_choice",
+      "skill": "lengua.skill_3",
+      "subskill": "lengua.skill_3.subskill_2",
+      "prompt": "Elige el dato que falta para que el aviso sea completo: 'La evaluacion sera el martes en el aula 4'.",
+      "options": [
+        { "id": "a", "text": "Hora", "correct": true },
+        { "id": "b", "text": "Color del aula", "correct": false },
+        { "id": "c", "text": "Nombre de una mascota", "correct": false }
+      ],
+      "answer": "a",
+      "feedback": { "correct": "La hora completa la informacion operativa.", "incorrect": "Busca el dato necesario para actuar sobre el aviso." },
+      "metadata": { "difficulty": 1, "mastery_target": 2, "combines_skills": ["lengua.skill_1.subskill_1", "lengua.skill_3.subskill_2"], "graph_refs": ["Community 3", "Community 7"] }
+    },
+    {
+      "id": "lengua_s3_prod_008",
+      "type": "completion",
+      "skill": "lengua.skill_3",
+      "subskill": "lengua.skill_3.subskill_3",
+      "prompt": "Reescribe la frase para mejorar concordancia y claridad.",
+      "stem": "Los alumno entrega la tarea completo.",
+      "acceptable_answers": ["Los alumnos entregan la tarea completa.", "El alumno entrega la tarea completa."],
+      "feedback": { "correct": "La version ajusta concordancia y conserva el sentido.", "incorrect": "Ajusta numero, persona y genero sin cambiar la informacion." },
+      "metadata": { "difficulty": 2, "mastery_target": 3, "combines_skills": ["lengua.skill_4.subskill_2", "lengua.skill_3.subskill_3"], "graph_refs": ["Community 3", "Community 8", "Community 10"] }
+    },
+    {
+      "id": "lengua_s3_prod_009",
+      "type": "multiple_choice",
+      "skill": "lengua.skill_3",
+      "subskill": "lengua.skill_3.subskill_1",
+      "prompt": "Elige la version que cumple la restriccion: una sola oracion, objetivo claro.",
+      "options": [
+        { "id": "a", "text": "Manda el resumen antes del jueves por la plataforma.", "correct": true },
+        { "id": "b", "text": "El resumen. Antes del jueves. Plataforma.", "correct": false },
+        { "id": "c", "text": "Podrias tal vez hacer algo con el resumen cuando puedas.", "correct": false }
+      ],
+      "answer": "a",
+      "feedback": { "correct": "La consigna queda completa en una oracion.", "incorrect": "Elige una sola oracion con accion, plazo y medio." },
+      "metadata": { "difficulty": 2, "mastery_target": 3, "combines_skills": ["lengua.skill_3.subskill_1", "lengua.skill_7.subskill_3"], "graph_refs": ["Community 3", "Community 14"] }
+    },
+    {
+      "id": "lengua_s3_prod_010",
+      "type": "categorization",
+      "skill": "lengua.skill_3",
+      "subskill": "lengua.skill_3.subskill_2",
+      "prompt": "Clasifica los datos para redactar una respuesta a una ausencia.",
+      "items": [
+        { "id": "a", "text": "Motivo: turno medico", "category": "relevante" },
+        { "id": "b", "text": "Fecha de ausencia: lunes", "category": "relevante" },
+        { "id": "c", "text": "Pedido: recuperar la actividad", "category": "relevante" },
+        { "id": "d", "text": "Comida favorita del estudiante", "category": "descartar" }
+      ],
+      "answer": { "relevante": ["a", "b", "c"], "descartar": ["d"] },
+      "feedback": { "correct": "La seleccion sostiene una respuesta funcional.", "incorrect": "Mantiene motivo, fecha y pedido; descarta datos personales sin funcion." },
+      "metadata": { "difficulty": 2, "mastery_target": 3, "combines_skills": ["lengua.skill_1.subskill_1", "lengua.skill_3.subskill_2"], "graph_refs": ["Community 3", "Community 7"] }
+    },
+    {
+      "id": "lengua_s3_prod_011",
+      "type": "completion",
+      "skill": "lengua.skill_3",
+      "subskill": "lengua.skill_3.subskill_3",
+      "prompt": "Completa con el conector mas adecuado.",
+      "stem": "Revise la consigna; ____, corregi la respuesta antes de entregarla.",
+      "acceptable_answers": ["por eso", "por lo tanto", "entonces"],
+      "feedback": { "correct": "El conector marca consecuencia y mantiene continuidad.", "incorrect": "Usa un conector que una revision con correccion posterior." },
+      "metadata": { "difficulty": 2, "mastery_target": 3, "combines_skills": ["lengua.skill_2.subskill_3", "lengua.skill_3.subskill_3"], "graph_refs": ["Community 3", "Community 14"] }
+    },
+    {
+      "id": "lengua_s3_prod_012",
+      "type": "ordering",
+      "skill": "lengua.skill_3",
+      "subskill": "lengua.skill_3.subskill_1",
+      "prompt": "Ordena las acciones para redactar un breve relato coherente.",
+      "items": [
+        { "id": "a", "text": "Despues, reviso los datos importantes." },
+        { "id": "b", "text": "Primero leyo la consigna." },
+        { "id": "c", "text": "Finalmente escribio la respuesta." }
+      ],
+      "answer": ["b", "a", "c"],
+      "feedback": { "correct": "La progresion temporal queda estable.", "incorrect": "Ordena por inicio, accion intermedia y cierre." },
+      "metadata": { "difficulty": 2, "mastery_target": 3, "combines_skills": ["lengua.skill_2.subskill_1", "lengua.skill_5.subskill_3", "lengua.skill_3.subskill_1"], "graph_refs": ["Community 3", "Community 12", "Community 14"] }
+    },
+    {
+      "id": "lengua_s3_prod_013",
+      "type": "multiple_choice",
+      "skill": "lengua.skill_3",
+      "subskill": "lengua.skill_3.subskill_3",
+      "prompt": "Elige la revision que mantiene el sentido y mejora la puntuacion.",
+      "options": [
+        { "id": "a", "text": "Cuando termines la lectura, responde las dos preguntas.", "correct": true },
+        { "id": "b", "text": "Cuando termines, la lectura responde las dos preguntas.", "correct": false },
+        { "id": "c", "text": "Cuando termines la lectura responde, las dos preguntas.", "correct": false }
+      ],
+      "answer": "a",
+      "feedback": { "correct": "La coma separa el segmento inicial y evita ambiguedad.", "incorrect": "Ubica la pausa despues del segmento inicial completo." },
+      "metadata": { "difficulty": 3, "mastery_target": 3, "combines_skills": ["lengua.skill_7.subskill_1", "lengua.skill_7.subskill_2", "lengua.skill_3.subskill_3"], "graph_refs": ["Community 3", "Community 10", "Community 14"] }
+    },
+    {
+      "id": "lengua_s3_prod_014",
+      "type": "completion",
+      "skill": "lengua.skill_3",
+      "subskill": "lengua.skill_3.subskill_3",
+      "prompt": "Corrige la ortografia y conserva el foco del aviso.",
+      "stem": "El miercoles abrá revision de parrafos.",
+      "acceptable_answers": ["El miercoles habra revision de parrafos.", "El miércoles habrá revisión de párrafos."],
+      "feedback": { "correct": "La correccion conserva el mensaje y elimina errores.", "incorrect": "Corrige grafia y tildes sin agregar informacion." },
+      "metadata": { "difficulty": 3, "mastery_target": 3, "combines_skills": ["lengua.skill_6.subskill_1", "lengua.skill_6.subskill_2", "lengua.skill_3.subskill_3"], "graph_refs": ["Community 3", "Community 10", "Community 12"] }
+    },
+    {
+      "id": "lengua_s3_prod_015",
+      "type": "highlight_selection",
+      "skill": "lengua.skill_3",
+      "subskill": "lengua.skill_3.subskill_2",
+      "prompt": "Marca los datos que deben aparecer en una respuesta breve al docente.",
+      "text": "No asisti el martes por un turno medico. Quiero saber como recuperar la actividad. Ese dia hizo frio.",
+      "targets": [
+        { "id": "a", "text": "No asisti el martes" },
+        { "id": "b", "text": "por un turno medico" },
+        { "id": "c", "text": "Quiero saber como recuperar la actividad" }
+      ],
+      "answer": ["a", "b", "c"],
+      "feedback": { "correct": "La seleccion incluye fecha, motivo y pedido.", "incorrect": "Marca fecha, motivo y pedido; deja afuera datos ambientales." },
+      "metadata": { "difficulty": 3, "mastery_target": 3, "combines_skills": ["lengua.skill_1.subskill_1", "lengua.skill_3.subskill_2"], "graph_refs": ["Community 3", "Community 7"] }
+    },
+    {
+      "id": "lengua_s3_prod_016",
+      "type": "multiple_choice",
+      "skill": "lengua.skill_3",
+      "subskill": "lengua.skill_3.subskill_1",
+      "prompt": "Elige el texto que respeta formato breve, datos relevantes y continuidad verbal.",
+      "options": [
+        { "id": "a", "text": "Ayer falte por un turno medico. Hoy pido recuperar la actividad.", "correct": true },
+        { "id": "b", "text": "Ayer falto y hoy pedia recuperar la actividad.", "correct": false },
+        { "id": "c", "text": "Falte, turnos, actividad, recuperar, hoy.", "correct": false }
+      ],
+      "answer": "a",
+      "feedback": { "correct": "El texto mantiene persona, tiempo y objetivo.", "incorrect": "Elige la version con continuidad verbal y pedido claro." },
+      "metadata": { "difficulty": 3, "mastery_target": 4, "combines_skills": ["lengua.skill_5.subskill_3", "lengua.skill_3.subskill_1", "lengua.skill_3.subskill_2"], "graph_refs": ["Community 3", "Community 12", "Community 14"] }
+    },
+    {
+      "id": "lengua_s3_prod_017",
+      "type": "completion",
+      "skill": "lengua.skill_3",
+      "subskill": "lengua.skill_3.subskill_3",
+      "prompt": "Reescribe en dos oraciones claras.",
+      "stem": "La actividad cambio de aula porque van a limpiar el patio los estudiantes tienen que ir al aula 3.",
+      "acceptable_answers": ["La actividad cambio de aula porque van a limpiar el patio. Los estudiantes tienen que ir al aula 3.", "Como van a limpiar el patio, la actividad cambio de aula. Los estudiantes tienen que ir al aula 3."],
+      "feedback": { "correct": "La segmentacion mejora legibilidad y conserva los datos.", "incorrect": "Separa causa e indicacion sin perder informacion." },
+      "metadata": { "difficulty": 3, "mastery_target": 4, "combines_skills": ["lengua.skill_2.subskill_3", "lengua.skill_7.subskill_3", "lengua.skill_3.subskill_3"], "graph_refs": ["Community 3", "Community 10", "Community 14"] }
+    },
+    {
+      "id": "lengua_s3_prod_018",
+      "type": "categorization",
+      "skill": "lengua.skill_3",
+      "subskill": "lengua.skill_3.subskill_3",
+      "prompt": "Clasifica cada revision segun el problema principal que corrige.",
+      "items": [
+        { "id": "a", "text": "Los estudiantes entregan la tarea.", "category": "concordancia" },
+        { "id": "b", "text": "Primero lei la consigna. Despues respondi.", "category": "secuencia" },
+        { "id": "c", "text": "Trae libro, carpeta y lapicera.", "category": "puntuacion" },
+        { "id": "d", "text": "El miercoles habra revision.", "category": "ortografia" }
+      ],
+      "answer": { "concordancia": ["a"], "secuencia": ["b"], "puntuacion": ["c"], "ortografia": ["d"] },
+      "feedback": { "correct": "Cada revision queda asociada a su foco de mejora.", "incorrect": "Relaciona cada version con el ajuste que hace visible." },
+      "metadata": { "difficulty": 4, "mastery_target": 4, "combines_skills": ["lengua.skill_2.subskill_1", "lengua.skill_4.subskill_2", "lengua.skill_6.subskill_3", "lengua.skill_7.subskill_1", "lengua.skill_3.subskill_3"], "graph_refs": ["Community 3", "Community 7", "Community 10", "Community 14"] }
+    }
+  ]
+}

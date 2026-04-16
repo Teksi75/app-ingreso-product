@@ -4,6 +4,7 @@ out/
 dist/
 *.tsbuildinfo
 .playwright-cli/
+.codex/
 .env*.local
 npm-debug.log*
 yarn-debug.log*

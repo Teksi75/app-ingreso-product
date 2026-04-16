@@ -1,0 +1,647 @@
+{
+  "source_constraints": [
+    "docs/03_skill_system/skills_map.md",
+    "graphify-out/GRAPH_REPORT.md"
+  ],
+  "exercise_types_allowed": [
+    "multiple_choice",
+    "completion",
+    "ordering",
+    "highlight_selection",
+    "categorization"
+  ],
+  "subskills": [
+    {
+      "requested_subskill": "Clasificación de categorías gramaticales en contexto",
+      "skill_id": 4,
+      "skill_name": "Morfosintaxis aplicada",
+      "canonical_subskill": "clasificación de categorías gramaticales",
+      "graph_relations": [
+        {
+          "community": 8,
+          "nodes": ["Sustantivos y adjetivos", "Oracion, parrafo, mayusculas y coma", "Lengua | modulo 1"],
+          "edge": "clasificación de categorías gramaticales -> Sustantivos y adjetivos"
+        },
+        {
+          "community": 9,
+          "nodes": ["Adverbios", "Sintaxis de la oracion simple", "Lengua | modulo 5"],
+          "edge": "clasificación de categorías gramaticales -> Adverbios"
+        },
+        {
+          "community": 10,
+          "nodes": ["Clases de palabras", "Pronombres personales, posesivos y demostrativos"],
+          "edge": "clasificación de categorías gramaticales -> Clases de palabras"
+        }
+      ],
+      "exercises": [
+        {
+          "id": "len-4-cat-001",
+          "type": "categorization",
+          "mastery_level": 1,
+          "difficulty": "baja",
+          "prompt": "Clasificá cada palabra destacada según su categoría en contexto.",
+          "items": [{"text": "La leyenda antigua sigue viva.", "target": "leyenda"}, {"text": "La leyenda antigua sigue viva.", "target": "antigua"}, {"text": "La leyenda antigua sigue viva.", "target": "sigue"}],
+          "categories": ["sustantivo", "adjetivo", "verbo"],
+          "answer": {"leyenda": "sustantivo", "antigua": "adjetivo", "sigue": "verbo"},
+          "feedback": {"correct": "Bien: cada palabra quedó ubicada por su uso en la oración. Practicá con frases breves y una palabra por vez.", "incorrect": "Revisá si la palabra nombra, describe o indica acción. Practicá sustantivo-adjetivo-verbo en oraciones cortas."}
+        },
+        {
+          "id": "len-4-cat-002",
+          "type": "multiple_choice",
+          "mastery_level": 1,
+          "difficulty": "baja",
+          "prompt": "En 'El viajero caminó lentamente', ¿qué categoría tiene 'lentamente'?",
+          "options": [{"id": "a", "text": "adverbio"}, {"id": "b", "text": "adjetivo"}, {"id": "c", "text": "sustantivo"}, {"id": "d", "text": "artículo"}],
+          "answer": "a",
+          "feedback": {"correct": "Bien: 'lentamente' modifica cómo se realiza la acción. Practicá localizando palabras que acompañan al verbo.", "incorrect": "No describe al viajero, sino la forma de caminar. Practicá separando palabras que modifican sustantivos y verbos."}
+        },
+        {
+          "id": "len-4-cat-003",
+          "type": "highlight_selection",
+          "mastery_level": 2,
+          "difficulty": "media",
+          "prompt": "Seleccioná todos los adjetivos.",
+          "text": "El imperio poderoso levantó muros enormes.",
+          "tokens": ["El", "imperio", "poderoso", "levantó", "muros", "enormes"],
+          "answer": {"correct_tokens": ["poderoso", "enormes"]},
+          "feedback": {"correct": "Bien: elegiste palabras que caracterizan sustantivos. Practicá preguntando qué palabra describe a cada nombre.", "incorrect": "Faltó o sobró una palabra descriptiva. Revisá qué términos caracterizan a 'imperio' y 'muros'."}
+        },
+        {
+          "id": "len-4-cat-004",
+          "type": "categorization",
+          "mastery_level": 2,
+          "difficulty": "media",
+          "prompt": "Ubicá cada palabra destacada en su categoría.",
+          "items": [{"text": "Ese relato conserva su misterio.", "target": "Ese"}, {"text": "Ese relato conserva su misterio.", "target": "su"}, {"text": "Ese relato conserva su misterio.", "target": "misterio"}],
+          "categories": ["demostrativo", "posesivo", "sustantivo"],
+          "answer": {"Ese": "demostrativo", "su": "posesivo", "misterio": "sustantivo"},
+          "feedback": {"correct": "Bien: reconociste demostrativo, posesivo y nombre en contexto. Practicá con grupos nominales cortos.", "incorrect": "Revisá si la palabra señala, indica pertenencia o nombra. Practicá con frases de tres palabras."}
+        },
+        {
+          "id": "len-4-cat-005",
+          "type": "multiple_choice",
+          "mastery_level": 2,
+          "difficulty": "media",
+          "prompt": "En 'Los niños escucharon atentos', ¿qué categoría tiene 'atentos'?",
+          "options": [{"id": "a", "text": "verbo"}, {"id": "b", "text": "adjetivo"}, {"id": "c", "text": "adverbio"}, {"id": "d", "text": "sustantivo"}],
+          "answer": "b",
+          "feedback": {"correct": "Bien: 'atentos' caracteriza a 'niños'. Practicá verificando con qué sustantivo concuerda.", "incorrect": "La palabra no indica acción; caracteriza a los niños. Practicá unir cada adjetivo con su sustantivo."}
+        },
+        {
+          "id": "len-4-cat-006",
+          "type": "categorization",
+          "mastery_level": 3,
+          "difficulty": "media",
+          "prompt": "Clasificá las palabras destacadas.",
+          "items": [{"text": "Nosotros leímos aquel artículo ayer.", "target": "Nosotros"}, {"text": "Nosotros leímos aquel artículo ayer.", "target": "aquel"}, {"text": "Nosotros leímos aquel artículo ayer.", "target": "ayer"}],
+          "categories": ["pronombre personal", "demostrativo", "adverbio"],
+          "answer": {"Nosotros": "pronombre personal", "aquel": "demostrativo", "ayer": "adverbio"},
+          "feedback": {"correct": "Bien: resolviste persona, señalamiento y tiempo en contexto. Practicá con oraciones que incluyan pronombres.", "incorrect": "Revisá si la palabra reemplaza personas, señala un objeto o ubica cuándo. Practicá una categoría por intento."}
+        },
+        {
+          "id": "len-4-cat-007",
+          "type": "highlight_selection",
+          "mastery_level": 3,
+          "difficulty": "alta",
+          "prompt": "Seleccioná solo los sustantivos.",
+          "text": "La biografía breve relata viajes, lecturas y recuerdos.",
+          "tokens": ["La", "biografía", "breve", "relata", "viajes", "lecturas", "y", "recuerdos"],
+          "answer": {"correct_tokens": ["biografía", "viajes", "lecturas", "recuerdos"]},
+          "feedback": {"correct": "Bien: seleccionaste palabras que nombran entidades o hechos. Practicá en listas con sustantivos mezclados.", "incorrect": "Incluiste una palabra que no nombra o dejaste un nombre afuera. Practicá separando nombres de descripciones y acciones."}
+        },
+        {
+          "id": "len-4-cat-008",
+          "type": "multiple_choice",
+          "mastery_level": 4,
+          "difficulty": "alta",
+          "prompt": "En 'El antes parecía lejano', ¿qué categoría cumple 'antes' en esa oración?",
+          "options": [{"id": "a", "text": "sustantivo"}, {"id": "b", "text": "verbo"}, {"id": "c", "text": "adjetivo"}, {"id": "d", "text": "artículo"}],
+          "answer": "a",
+          "feedback": {"correct": "Bien: en este contexto 'antes' funciona como nombre. Practicá observando el uso real, no solo la palabra aislada.", "incorrect": "La clave es el contexto: 'el' convierte a 'antes' en nombre. Practicá con palabras que cambian de función."}
+        }
+      ]
+    },
+    {
+      "requested_subskill": "Concordancia nominal y verbal",
+      "skill_id": 4,
+      "skill_name": "Morfosintaxis aplicada",
+      "canonical_subskill": "concordancia nominal y verbal",
+      "graph_relations": [
+        {
+          "community": 8,
+          "nodes": ["Sustantivos y adjetivos", "Oracion, parrafo, mayusculas y coma"],
+          "edge": "concordancia nominal y verbal -> Sustantivos y adjetivos"
+        },
+        {
+          "community": 9,
+          "nodes": ["Sintaxis de la oracion simple", "Adverbios"],
+          "edge": "concordancia nominal y verbal -> Sintaxis de la oracion simple"
+        }
+      ],
+      "exercises": [
+        {
+          "id": "len-4-conc-001",
+          "type": "completion",
+          "mastery_level": 1,
+          "difficulty": "baja",
+          "prompt": "Completá con la forma que concuerda: 'Las montañas ___ altas.'",
+          "blank": "___",
+          "options": ["es", "son"],
+          "answer": "son",
+          "feedback": {"correct": "Bien: el verbo acompaña a un sujeto plural. Practicá revisando número antes de completar.", "incorrect": "El sujeto está en plural: necesitás una forma plural. Practicá marcando primero el núcleo del sujeto."}
+        },
+        {
+          "id": "len-4-conc-002",
+          "type": "multiple_choice",
+          "mastery_level": 1,
+          "difficulty": "baja",
+          "prompt": "Elegí la oración correcta.",
+          "options": [{"id": "a", "text": "El relato antiguo conserva detalles."}, {"id": "b", "text": "El relato antigua conserva detalles."}, {"id": "c", "text": "El relato antiguos conserva detalles."}],
+          "answer": "a",
+          "feedback": {"correct": "Bien: artículo, sustantivo y adjetivo concuerdan. Practicá revisando género y número juntos.", "incorrect": "Hay discordancia dentro del grupo nominal. Practicá comparando artículo, sustantivo y adjetivo."}
+        },
+        {
+          "id": "len-4-conc-003",
+          "type": "completion",
+          "mastery_level": 2,
+          "difficulty": "media",
+          "prompt": "Completá: 'El artículo y la noticia ___ información clara.'",
+          "blank": "___",
+          "options": ["presenta", "presentan"],
+          "answer": "presentan",
+          "feedback": {"correct": "Bien: dos núcleos coordinados piden verbo plural. Practicá detectando sujetos compuestos.", "incorrect": "El sujeto suma dos elementos, por eso el verbo debe ir en plural. Practicá subrayando todos los núcleos."}
+        },
+        {
+          "id": "len-4-conc-004",
+          "type": "highlight_selection",
+          "mastery_level": 2,
+          "difficulty": "media",
+          "prompt": "Seleccioná la palabra que rompe la concordancia.",
+          "text": "Las historias antigua emocionan al grupo.",
+          "tokens": ["Las", "historias", "antigua", "emocionan", "al", "grupo"],
+          "answer": {"correct_tokens": ["antigua"]},
+          "feedback": {"correct": "Bien: detectaste el adjetivo discordante. Practicá comparándolo con el sustantivo que acompaña.", "incorrect": "La discordancia está dentro del grupo 'Las historias'. Practicá revisando número en adjetivos."}
+        },
+        {
+          "id": "len-4-conc-005",
+          "type": "multiple_choice",
+          "mastery_level": 2,
+          "difficulty": "media",
+          "prompt": "Elegí la forma correcta: 'Nosotros ___ el texto con atención.'",
+          "options": [{"id": "a", "text": "lee"}, {"id": "b", "text": "leen"}, {"id": "c", "text": "leemos"}],
+          "answer": "c",
+          "feedback": {"correct": "Bien: el verbo concuerda con 'nosotros'. Practicá asociando persona y terminación verbal.", "incorrect": "El sujeto es primera persona plural. Practicá reemplazando el sujeto por el pronombre antes de elegir."}
+        },
+        {
+          "id": "len-4-conc-006",
+          "type": "completion",
+          "mastery_level": 3,
+          "difficulty": "media",
+          "prompt": "Completá: 'La clase textual y el paratexto ___ datos útiles.'",
+          "blank": "___",
+          "options": ["aporta", "aportan"],
+          "answer": "aportan",
+          "feedback": {"correct": "Bien: el sujeto compuesto exige plural. Practicá localizando los dos núcleos antes del verbo.", "incorrect": "Hay dos núcleos unidos: 'clase' y 'paratexto'. Practicá con sujetos coordinados."}
+        },
+        {
+          "id": "len-4-conc-007",
+          "type": "multiple_choice",
+          "mastery_level": 3,
+          "difficulty": "alta",
+          "prompt": "Elegí la opción con concordancia correcta.",
+          "options": [{"id": "a", "text": "Una serie de relatos conserva su orden."}, {"id": "b", "text": "Una serie de relatos conservan su orden."}, {"id": "c", "text": "Una serie de relatos conservamos su orden."}],
+          "answer": "a",
+          "feedback": {"correct": "Bien: el núcleo es 'serie', no 'relatos'. Practicá identificando el núcleo antes de concordar.", "incorrect": "El verbo debe concordar con 'serie'. Practicá separando núcleo y complemento."}
+        },
+        {
+          "id": "len-4-conc-008",
+          "type": "completion",
+          "mastery_level": 4,
+          "difficulty": "alta",
+          "prompt": "Completá sin romper concordancia: 'La mayoría de los estudiantes ___ la respuesta.'",
+          "blank": "___",
+          "options": ["eligió", "eligieron"],
+          "answer": "eligió",
+          "feedback": {"correct": "Bien: concordaste con el núcleo 'mayoría'. Practicá detectando cuantificadores con complemento plural.", "incorrect": "La forma esperada sigue el núcleo singular 'mayoría'. Practicá marcando el núcleo antes del complemento."}
+        }
+      ]
+    },
+    {
+      "requested_subskill": "Identificación de función sintáctica",
+      "skill_id": 4,
+      "skill_name": "Morfosintaxis aplicada",
+      "canonical_subskill": "función sintáctica básica",
+      "graph_relations": [
+        {
+          "community": 9,
+          "nodes": ["Sintaxis de la oracion simple", "Lengua | modulo 5"],
+          "edge": "función sintáctica básica -> Sintaxis de la oracion simple"
+        },
+        {
+          "community": 8,
+          "nodes": ["Oracion, parrafo, mayusculas y coma", "Sustantivos y adjetivos"],
+          "edge": "función sintáctica básica -> Oracion"
+        }
+      ],
+      "exercises": [
+        {
+          "id": "len-4-func-001",
+          "type": "multiple_choice",
+          "mastery_level": 1,
+          "difficulty": "baja",
+          "prompt": "En 'La niña leyó la noticia', ¿cuál es el sujeto?",
+          "options": [{"id": "a", "text": "La niña"}, {"id": "b", "text": "leyó"}, {"id": "c", "text": "la noticia"}],
+          "answer": "a",
+          "feedback": {"correct": "Bien: identificaste quién realiza la acción. Practicá preguntando de quién se habla.", "incorrect": "Buscá quién realiza la acción principal. Practicá separando sujeto y predicado en oraciones cortas."}
+        },
+        {
+          "id": "len-4-func-002",
+          "type": "highlight_selection",
+          "mastery_level": 1,
+          "difficulty": "baja",
+          "prompt": "Seleccioná el verbo núcleo del predicado.",
+          "text": "El viajero cruzó el puente.",
+          "tokens": ["El", "viajero", "cruzó", "el", "puente"],
+          "answer": {"correct_tokens": ["cruzó"]},
+          "feedback": {"correct": "Bien: marcaste la acción central del predicado. Practicá ubicando primero el verbo conjugado.", "incorrect": "El núcleo del predicado es el verbo conjugado. Practicá buscando la acción principal."}
+        },
+        {
+          "id": "len-4-func-003",
+          "type": "categorization",
+          "mastery_level": 2,
+          "difficulty": "media",
+          "prompt": "Clasificá cada segmento por su función.",
+          "items": [{"text": "Los relatos tradicionales conservan memoria.", "target": "Los relatos tradicionales"}, {"text": "Los relatos tradicionales conservan memoria.", "target": "conservan"}, {"text": "Los relatos tradicionales conservan memoria.", "target": "memoria"}],
+          "categories": ["sujeto", "núcleo verbal", "complemento"],
+          "answer": {"Los relatos tradicionales": "sujeto", "conservan": "núcleo verbal", "memoria": "complemento"},
+          "feedback": {"correct": "Bien: separaste sujeto, verbo y complemento. Practicá con el patrón quién + acción + qué.", "incorrect": "Revisá la acción principal y quién la realiza. Practicá dividiendo la oración en tres partes."}
+        },
+        {
+          "id": "len-4-func-004",
+          "type": "multiple_choice",
+          "mastery_level": 2,
+          "difficulty": "media",
+          "prompt": "En 'Ayer los chicos ordenaron las tarjetas', ¿qué segmento funciona como complemento?",
+          "options": [{"id": "a", "text": "los chicos"}, {"id": "b", "text": "ordenaron"}, {"id": "c", "text": "las tarjetas"}],
+          "answer": "c",
+          "feedback": {"correct": "Bien: 'las tarjetas' completa la acción de ordenar. Practicá preguntando qué recibe la acción.", "incorrect": "El complemento completa el verbo. Practicá preguntando '¿qué ordenaron?'."}
+        },
+        {
+          "id": "len-4-func-005",
+          "type": "highlight_selection",
+          "mastery_level": 2,
+          "difficulty": "media",
+          "prompt": "Seleccioná el sujeto completo.",
+          "text": "Las antiguas leyendas de la zona atraen visitantes.",
+          "tokens": ["Las", "antiguas", "leyendas", "de", "la", "zona", "atraen", "visitantes"],
+          "answer": {"correct_tokens": ["Las", "antiguas", "leyendas", "de", "la", "zona"]},
+          "feedback": {"correct": "Bien: seleccionaste el grupo completo del sujeto. Practicá incluyendo todos sus modificadores.", "incorrect": "El sujeto incluye más que el núcleo. Practicá expandiendo desde el sustantivo hasta antes del verbo."}
+        },
+        {
+          "id": "len-4-func-006",
+          "type": "categorization",
+          "mastery_level": 3,
+          "difficulty": "alta",
+          "prompt": "Clasificá los segmentos de la oración.",
+          "items": [{"text": "En el cuaderno, Ana escribió una síntesis breve.", "target": "Ana"}, {"text": "En el cuaderno, Ana escribió una síntesis breve.", "target": "escribió"}, {"text": "En el cuaderno, Ana escribió una síntesis breve.", "target": "una síntesis breve"}, {"text": "En el cuaderno, Ana escribió una síntesis breve.", "target": "En el cuaderno"}],
+          "categories": ["sujeto", "núcleo verbal", "complemento", "circunstancial"],
+          "answer": {"Ana": "sujeto", "escribió": "núcleo verbal", "una síntesis breve": "complemento", "En el cuaderno": "circunstancial"},
+          "feedback": {"correct": "Bien: distinguiste lugar, sujeto, verbo y complemento. Practicá separando primero el verbo central.", "incorrect": "Revisá qué indica lugar y qué completa la acción. Practicá con preguntas: quién, qué hizo, qué, dónde."}
+        },
+        {
+          "id": "len-4-func-007",
+          "type": "multiple_choice",
+          "mastery_level": 3,
+          "difficulty": "alta",
+          "prompt": "En 'Llegaron temprano los visitantes', ¿cuál es el sujeto?",
+          "options": [{"id": "a", "text": "Llegaron temprano"}, {"id": "b", "text": "los visitantes"}, {"id": "c", "text": "temprano"}],
+          "answer": "b",
+          "feedback": {"correct": "Bien: reconociste el sujeto aunque aparece después del verbo. Practicá cambiando el orden de la oración.", "incorrect": "El sujeto no siempre aparece primero. Practicá preguntando quiénes llegaron."}
+        },
+        {
+          "id": "len-4-func-008",
+          "type": "ordering",
+          "mastery_level": 4,
+          "difficulty": "alta",
+          "prompt": "Ordená los segmentos según su función: sujeto, núcleo verbal, complemento, circunstancial.",
+          "items": ["en clase", "los estudiantes", "resolvieron", "el ejercicio"],
+          "answer": ["los estudiantes", "resolvieron", "el ejercicio", "en clase"],
+          "feedback": {"correct": "Bien: organizaste la oración por funciones. Practicá armando cadenas sujeto-verbo-complemento-circunstancial.", "incorrect": "Revisá primero quién actúa y cuál es el verbo. Practicá ordenando por función, no por aparición posible."}
+        }
+      ]
+    },
+    {
+      "requested_subskill": "Reconocimiento de tiempo y modo verbal",
+      "skill_id": 5,
+      "skill_name": "Gestión verbal en contexto",
+      "canonical_subskill": "reconocimiento de tiempo y modo",
+      "graph_relations": [
+        {
+          "community": 12,
+          "nodes": ["Modo verbal y tiempos verbales", "Lengua | modulo 3"],
+          "edge": "reconocimiento de tiempo y modo -> Modo verbal y tiempos verbales"
+        },
+        {
+          "community": 14,
+          "nodes": ["Cohesion, coherencia y conectores", "Narracion y tipos de narradores"],
+          "edge": "reconocimiento de tiempo y modo -> Cohesion verbal"
+        }
+      ],
+      "exercises": [
+        {
+          "id": "len-5-tiempo-001",
+          "type": "multiple_choice",
+          "mastery_level": 1,
+          "difficulty": "baja",
+          "prompt": "En 'Los chicos leen la consigna', ¿qué tiempo verbal aparece?",
+          "options": [{"id": "a", "text": "presente"}, {"id": "b", "text": "pretérito"}, {"id": "c", "text": "futuro"}],
+          "answer": "a",
+          "feedback": {"correct": "Bien: 'leen' ubica la acción en presente. Practicá marcando el verbo antes de elegir el tiempo.", "incorrect": "La forma 'leen' no indica pasado ni futuro. Practicá comparándola con 'leyeron' y 'leerán'."}
+        },
+        {
+          "id": "len-5-tiempo-002",
+          "type": "categorization",
+          "mastery_level": 1,
+          "difficulty": "baja",
+          "prompt": "Clasificá cada forma verbal por tiempo.",
+          "items": ["camina", "caminó", "caminará"],
+          "categories": ["presente", "pretérito", "futuro"],
+          "answer": {"camina": "presente", "caminó": "pretérito", "caminará": "futuro"},
+          "feedback": {"correct": "Bien: distinguiste presente, pasado y futuro. Practicá con una misma raíz verbal.", "incorrect": "Revisá la terminación de cada forma. Practicá agrupando tres tiempos del mismo verbo."}
+        },
+        {
+          "id": "len-5-tiempo-003",
+          "type": "multiple_choice",
+          "mastery_level": 2,
+          "difficulty": "media",
+          "prompt": "En 'Ojalá encuentres la respuesta', ¿qué modo predomina?",
+          "options": [{"id": "a", "text": "indicativo"}, {"id": "b", "text": "subjuntivo"}, {"id": "c", "text": "imperativo"}],
+          "answer": "b",
+          "feedback": {"correct": "Bien: la forma expresa deseo. Practicá con enunciados que empiecen con 'ojalá'.", "incorrect": "El enunciado expresa deseo, no hecho confirmado ni orden. Practicá reconociendo intención antes de modo."}
+        },
+        {
+          "id": "len-5-tiempo-004",
+          "type": "categorization",
+          "mastery_level": 2,
+          "difficulty": "media",
+          "prompt": "Clasificá cada forma según el modo.",
+          "items": ["estudia", "estudiá", "estudie"],
+          "categories": ["indicativo", "imperativo", "subjuntivo"],
+          "answer": {"estudia": "indicativo", "estudiá": "imperativo", "estudie": "subjuntivo"},
+          "feedback": {"correct": "Bien: separaste hecho, orden y posibilidad. Practicá con formas parecidas del mismo verbo.", "incorrect": "Revisá la intención de cada forma: afirmar, ordenar o plantear posibilidad. Practicá con un verbo por vez."}
+        },
+        {
+          "id": "len-5-tiempo-005",
+          "type": "highlight_selection",
+          "mastery_level": 2,
+          "difficulty": "media",
+          "prompt": "Seleccioná los verbos en pretérito.",
+          "text": "La narradora recordó el paisaje y escribe una nota.",
+          "tokens": ["La", "narradora", "recordó", "el", "paisaje", "y", "escribe", "una", "nota"],
+          "answer": {"correct_tokens": ["recordó"]},
+          "feedback": {"correct": "Bien: elegiste la forma que marca pasado. Practicá separando verbos de distintos tiempos.", "incorrect": "Hay un verbo en pasado y otro en presente. Practicá comparando 'recordó' con 'escribe'."}
+        },
+        {
+          "id": "len-5-tiempo-006",
+          "type": "multiple_choice",
+          "mastery_level": 3,
+          "difficulty": "media",
+          "prompt": "En 'Cuando termine, revisaré el texto', ¿qué modo tiene 'termine'?",
+          "options": [{"id": "a", "text": "subjuntivo"}, {"id": "b", "text": "indicativo"}, {"id": "c", "text": "imperativo"}],
+          "answer": "a",
+          "feedback": {"correct": "Bien: 'termine' presenta una acción no cumplida todavía. Practicá con acciones dependientes de otra.", "incorrect": "La acción de terminar aún no está confirmada. Practicá ubicando formas dependientes del futuro."}
+        },
+        {
+          "id": "len-5-tiempo-007",
+          "type": "categorization",
+          "mastery_level": 3,
+          "difficulty": "alta",
+          "prompt": "Clasificá las formas por tiempo y modo.",
+          "items": ["hablamos", "habláramos", "hablarán"],
+          "categories": ["presente indicativo", "pretérito subjuntivo", "futuro indicativo"],
+          "answer": {"hablamos": "presente indicativo", "habláramos": "pretérito subjuntivo", "hablarán": "futuro indicativo"},
+          "feedback": {"correct": "Bien: cruzaste tiempo y modo sin mezclar formas. Practicá con familias verbales completas.", "incorrect": "Revisá tiempo y modo por separado antes de clasificar. Practicá primero tiempo, después modo."}
+        },
+        {
+          "id": "len-5-tiempo-008",
+          "type": "multiple_choice",
+          "mastery_level": 4,
+          "difficulty": "alta",
+          "prompt": "En 'Si tuviera tiempo, leería la biografía', ¿qué combinación aparece?",
+          "options": [{"id": "a", "text": "subjuntivo + condicional"}, {"id": "b", "text": "imperativo + presente"}, {"id": "c", "text": "futuro + pretérito"}],
+          "answer": "a",
+          "feedback": {"correct": "Bien: identificaste condición y resultado posible. Practicá con oraciones que empiezan con 'si'.", "incorrect": "La forma 'tuviera' no ordena ni afirma un hecho; 'leería' marca resultado posible. Practicá pares condicionales."}
+        }
+      ]
+    },
+    {
+      "requested_subskill": "Transformación verbal (cambio de tiempo, modo, voz)",
+      "skill_id": 5,
+      "skill_name": "Gestión verbal en contexto",
+      "canonical_subskill": "transformación verbal sin pérdida de sentido",
+      "graph_relations": [
+        {
+          "community": 12,
+          "nodes": ["Modo verbal y tiempos verbales", "Texto periodistico"],
+          "edge": "transformación verbal sin pérdida de sentido -> Modo verbal y tiempos verbales"
+        },
+        {
+          "community": 14,
+          "nodes": ["Narracion y tipos de narradores", "Cohesion, coherencia y conectores"],
+          "edge": "transformación verbal sin pérdida de sentido -> Narracion"
+        }
+      ],
+      "exercises": [
+        {
+          "id": "len-5-trans-001",
+          "type": "completion",
+          "mastery_level": 1,
+          "difficulty": "baja",
+          "prompt": "Pasá al futuro: 'Ana lee el artículo' -> 'Ana ___ el artículo'.",
+          "blank": "___",
+          "answer": "leerá",
+          "feedback": {"correct": "Bien: cambiaste el tiempo sin cambiar persona ni sentido. Practicá presente a futuro con sujetos singulares.", "incorrect": "Mantené el sujeto 'Ana' y cambiá solo el tiempo. Practicá con 'lee/leerá'."}
+        },
+        {
+          "id": "len-5-trans-002",
+          "type": "multiple_choice",
+          "mastery_level": 1,
+          "difficulty": "baja",
+          "prompt": "Pasá al pretérito: 'Ellos ordenan las frases'.",
+          "options": [{"id": "a", "text": "Ellos ordenaron las frases."}, {"id": "b", "text": "Ellos ordenarán las frases."}, {"id": "c", "text": "Ellos ordenan las frases."}],
+          "answer": "a",
+          "feedback": {"correct": "Bien: transformaste presente en pasado. Practicá manteniendo sujeto y complemento iguales.", "incorrect": "La opción debe marcar pasado, no futuro ni presente. Practicá comparando terminaciones."}
+        },
+        {
+          "id": "len-5-trans-003",
+          "type": "completion",
+          "mastery_level": 2,
+          "difficulty": "media",
+          "prompt": "Pasá a primera persona plural: 'Ella revisó el párrafo' -> 'Nosotros ___ el párrafo'.",
+          "blank": "___",
+          "answer": "revisamos",
+          "feedback": {"correct": "Bien: ajustaste persona y mantuviste la acción. Practicá cambiando sujeto antes del verbo.", "incorrect": "El nuevo sujeto es 'nosotros'. Practicá transformar primero la persona y luego revisar el tiempo."}
+        },
+        {
+          "id": "len-5-trans-004",
+          "type": "multiple_choice",
+          "mastery_level": 2,
+          "difficulty": "media",
+          "prompt": "Transformá a modo imperativo: 'Ustedes completan la tabla'.",
+          "options": [{"id": "a", "text": "Completen la tabla."}, {"id": "b", "text": "Completaron la tabla."}, {"id": "c", "text": "Completarían la tabla."}],
+          "answer": "a",
+          "feedback": {"correct": "Bien: convertiste la acción en indicación directa. Practicá con consignas breves.", "incorrect": "La forma esperada debe sonar a instrucción. Practicá pasando enunciados a consignas."}
+        },
+        {
+          "id": "len-5-trans-005",
+          "type": "completion",
+          "mastery_level": 2,
+          "difficulty": "media",
+          "prompt": "Pasá a voz pasiva: 'El grupo resolvió el ejercicio' -> 'El ejercicio ___ por el grupo'.",
+          "blank": "___",
+          "answer": "fue resuelto",
+          "feedback": {"correct": "Bien: mantuviste el sentido y cambiaste el foco al ejercicio. Practicá con objeto que pasa a sujeto.", "incorrect": "El ejercicio debe quedar como foco de la acción. Practicá el patrón 'fue + participio'."}
+        },
+        {
+          "id": "len-5-trans-006",
+          "type": "multiple_choice",
+          "mastery_level": 3,
+          "difficulty": "alta",
+          "prompt": "Elegí la transformación correcta al subjuntivo: 'Sé que estudia' -> 'Espero que ___'.",
+          "options": [{"id": "a", "text": "estudia"}, {"id": "b", "text": "estudie"}, {"id": "c", "text": "estudió"}],
+          "answer": "b",
+          "feedback": {"correct": "Bien: cambiaste la forma para expresar deseo. Practicá con 'espero que' y un verbo por vez.", "incorrect": "Después de 'espero que' la forma esperada no afirma un hecho. Practicá presente indicativo a subjuntivo."}
+        },
+        {
+          "id": "len-5-trans-007",
+          "type": "completion",
+          "mastery_level": 3,
+          "difficulty": "alta",
+          "prompt": "Pasá al condicional: 'Leeremos la noticia' -> '___ la noticia'.",
+          "blank": "___",
+          "answer": "Leeríamos",
+          "feedback": {"correct": "Bien: transformaste futuro en condicional sin cambiar persona. Practicá pares 'leeremos/leeríamos'.", "incorrect": "Mantené primera persona plural y cambiá a condicional. Practicá con terminaciones '-ríamos'."}
+        },
+        {
+          "id": "len-5-trans-008",
+          "type": "ordering",
+          "mastery_level": 4,
+          "difficulty": "alta",
+          "prompt": "Ordená las transformaciones desde la forma original hasta la pasiva en futuro.",
+          "items": ["El texto será revisado por Ana.", "Ana revisa el texto.", "Ana revisará el texto."],
+          "answer": ["Ana revisa el texto.", "Ana revisará el texto.", "El texto será revisado por Ana."],
+          "feedback": {"correct": "Bien: mantuviste sentido, cambiaste tiempo y luego voz. Practicá transformaciones en pasos separados.", "incorrect": "Primero cambia el tiempo y después la voz. Practicá no mezclar dos cambios en un solo paso."}
+        }
+      ]
+    },
+    {
+      "requested_subskill": "Continuidad temporal y cohesión verbal",
+      "skill_id": 5,
+      "skill_name": "Gestión verbal en contexto",
+      "canonical_subskill": "continuidad temporal del relato",
+      "graph_relations": [
+        {
+          "community": 14,
+          "nodes": ["Cohesion, coherencia y conectores", "Narracion y tipos de narradores", "La leyenda de la Laguna de la Nina Encantada"],
+          "edge": "continuidad temporal del relato -> Cohesion, coherencia y conectores"
+        },
+        {
+          "community": 12,
+          "nodes": ["Modo verbal y tiempos verbales", "Texto periodistico"],
+          "edge": "continuidad temporal del relato -> Modo verbal y tiempos verbales"
+        },
+        {
+          "community": 3,
+          "nodes": ["Exercise Skill-Subskill Mapping", "Brief Feedback", "Practice Loop"],
+          "edge": "continuidad temporal del relato -> feedback inmediato y selección por subskill"
+        }
+      ],
+      "exercises": [
+        {
+          "id": "len-5-cont-001",
+          "type": "completion",
+          "mastery_level": 1,
+          "difficulty": "baja",
+          "prompt": "Completá manteniendo el pasado: 'La niña llegó al lago y ___ una luz.'",
+          "blank": "___",
+          "options": ["vio", "verá", "ve"],
+          "answer": "vio",
+          "feedback": {"correct": "Bien: mantuviste la secuencia en pasado. Practicá revisar el tiempo del verbo anterior.", "incorrect": "La oración ya empezó en pasado. Practicá completar con el mismo eje temporal."}
+        },
+        {
+          "id": "len-5-cont-002",
+          "type": "ordering",
+          "mastery_level": 1,
+          "difficulty": "baja",
+          "prompt": "Ordená la secuencia temporal.",
+          "items": ["Después escribió una síntesis.", "Primero leyó el artículo.", "Finalmente revisó la respuesta."],
+          "answer": ["Primero leyó el artículo.", "Después escribió una síntesis.", "Finalmente revisó la respuesta."],
+          "feedback": {"correct": "Bien: respetaste los conectores temporales. Practicá siguiendo marcas como primero, después y finalmente.", "incorrect": "Los conectores indican el orden. Practicá ubicando primero la marca temporal de cada oración."}
+        },
+        {
+          "id": "len-5-cont-003",
+          "type": "multiple_choice",
+          "mastery_level": 2,
+          "difficulty": "media",
+          "prompt": "Elegí la opción que mantiene continuidad temporal: 'El grupo investigó el tema y luego ___ sus conclusiones.'",
+          "options": [{"id": "a", "text": "presentó"}, {"id": "b", "text": "presenta"}, {"id": "c", "text": "presentará"}],
+          "answer": "a",
+          "feedback": {"correct": "Bien: conservaste el relato en pasado. Practicá enlazando acciones con el mismo tiempo base.", "incorrect": "El primer verbo está en pasado. Practicá no saltar a presente o futuro sin señal temporal."}
+        },
+        {
+          "id": "len-5-cont-004",
+          "type": "highlight_selection",
+          "mastery_level": 2,
+          "difficulty": "media",
+          "prompt": "Seleccioná el verbo que rompe la continuidad temporal.",
+          "text": "El viajero entró al pueblo, pregunta por el camino y encontró la plaza.",
+          "tokens": ["El", "viajero", "entró", "al", "pueblo", "pregunta", "por", "el", "camino", "y", "encontró", "la", "plaza"],
+          "answer": {"correct_tokens": ["pregunta"]},
+          "feedback": {"correct": "Bien: detectaste el salto de pasado a presente. Practicá revisar todos los verbos de la serie.", "incorrect": "Hay una forma en presente entre verbos en pasado. Practicá comparar verbo por verbo."}
+        },
+        {
+          "id": "len-5-cont-005",
+          "type": "completion",
+          "mastery_level": 2,
+          "difficulty": "media",
+          "prompt": "Completá manteniendo futuro: 'Mañana leeremos la noticia y ___ las ideas principales.'",
+          "blank": "___",
+          "options": ["anotamos", "anotaremos", "anotamos ayer"],
+          "answer": "anotaremos",
+          "feedback": {"correct": "Bien: mantuviste el plan en futuro. Practicá identificar marcas temporales como 'mañana'.", "incorrect": "La marca 'mañana' y 'leeremos' piden futuro. Practicá completar según la señal temporal inicial."}
+        },
+        {
+          "id": "len-5-cont-006",
+          "type": "ordering",
+          "mastery_level": 3,
+          "difficulty": "media",
+          "prompt": "Ordená los hechos para que el relato avance sin saltos.",
+          "items": ["Al final, corrigió la última oración.", "Luego, detectó una discordancia.", "Primero, leyó el párrafo completo."],
+          "answer": ["Primero, leyó el párrafo completo.", "Luego, detectó una discordancia.", "Al final, corrigió la última oración."],
+          "feedback": {"correct": "Bien: ordenaste acciones y mantuviste pasado. Practicá usando conectores como guía de secuencia.", "incorrect": "El orden temporal está marcado por primero, luego y al final. Practicá antes de mirar los verbos."}
+        },
+        {
+          "id": "len-5-cont-007",
+          "type": "multiple_choice",
+          "mastery_level": 3,
+          "difficulty": "alta",
+          "prompt": "Elegí la versión más cohesionada.",
+          "options": [{"id": "a", "text": "La narradora recordó la escena, describió el lago y cerró el relato."}, {"id": "b", "text": "La narradora recordó la escena, describe el lago y cerrará el relato."}, {"id": "c", "text": "La narradora recuerda la escena, describió el lago y cierra el relato."}],
+          "answer": "a",
+          "feedback": {"correct": "Bien: todos los verbos sostienen el mismo eje temporal. Practicá detectando series verbales.", "incorrect": "La opción correcta no mezcla pasado, presente y futuro. Practicá subrayando cada verbo antes de elegir."}
+        },
+        {
+          "id": "len-5-cont-008",
+          "type": "completion",
+          "mastery_level": 4,
+          "difficulty": "alta",
+          "prompt": "Completá con continuidad verbal: 'Si revisáramos el texto, ___ menos errores.'",
+          "blank": "___",
+          "options": ["encontraremos", "encontramos", "encontraríamos"],
+          "answer": "encontraríamos",
+          "feedback": {"correct": "Bien: mantuviste la relación condicional. Practicá pares 'si + -ramos' con condicional.", "incorrect": "La primera forma abre una condición, no un hecho. Practicá completar con condicional cuando aparezca 'si revisáramos'."}
+        }
+      ]
+    }
+  ]
+}
