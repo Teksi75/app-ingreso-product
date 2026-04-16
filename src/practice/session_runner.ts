@@ -1,5 +1,6 @@
 import { readFileSync } from "node:fs";
 import { resolve } from "node:path";
+import { getSeenSkills, markSkillsSeen } from "../storage/local_progress_store.ts";
 import {
   selectNextExerciseDetailed,
   type Exercise as SelectorExercise,
@@ -49,6 +50,7 @@ type AttemptRecord = {
 type SessionConfig = {
   maxSteps: number;
   datasetPath?: string;
+  forceNewStudent?: boolean;
 };
 
 type SessionResult = {
@@ -65,6 +67,10 @@ export type PracticeSelection = {
   exercise: Exercise;
   exercisePool: Exercise[];
   usedExerciseIds: string[];
+};
+
+type PracticeSessionOptions = {
+  forceNewStudent?: boolean;
 };
 
 type AnswerProvider = (exercise: Exercise, step: number) => string;
@@ -159,6 +165,8 @@ export function runSession(
   const allSelectorExercises = fullExercises.map(toSelectorExercise);
   const history: AttemptRecord[] = [];
   const usedExerciseIds: Set<string> = new Set();
+  const forceNewStudent = config?.forceNewStudent ?? false;
+  const coveredSkills: Set<string> = new Set(forceNewStudent ? [] : getSeenSkills());
   let userState: UserSkillState[] = [];
 
   console.log("=== SESION DE PRACTICA ===");
@@ -171,13 +179,27 @@ export function runSession(
     return filtered.length > 0 ? filtered : allSelectorExercises;
   };
 
-  const firstSelection = selectNextExerciseDetailed(availableExercises(), userState);
+  const selectNext = (): ReturnType<typeof selectNextExerciseDetailed> => {
+    const available = availableExercises();
+    return selectNextExerciseDetailed(available, userState, {
+      seenSkills: Array.from(coveredSkills),
+      hasSeenSkill: (skillId: string) => coveredSkills.has(skillId),
+    });
+  };
+
+  const firstSelection = selectNext();
   let currentSelectorExercise = firstSelection.exercise;
   let lastRuleApplied = firstSelection.ruleApplied;
 
   for (let step = 1; step <= maxSteps; step += 1) {
     const currentFull = findExercise(fullExercises, currentSelectorExercise);
     usedExerciseIds.add(currentFull.id);
+    coveredSkills.add(currentFull.skill_id);
+
+    if (!forceNewStudent) {
+      markSkillsSeen([currentFull.skill_id]);
+    }
+
     const answer = answerProvider(currentFull, step);
     const result = evaluateAnswer(currentFull, answer);
     const feedback =
@@ -206,7 +228,7 @@ export function runSession(
     userState = buildUserState(history);
 
     if (step < maxSteps) {
-      const selection = selectNextExerciseDetailed(availableExercises(), userState);
+      const selection = selectNext();
       currentSelectorExercise = selection.exercise;
       lastRuleApplied = selection.ruleApplied;
     }
@@ -289,6 +311,7 @@ export function runMixedSession(config?: Partial<SessionConfig>): SessionResult 
 export function startPracticeSession(
   skillId: string | null,
   usedExerciseIds: string[] = [],
+  options: PracticeSessionOptions = {},
 ): PracticeSelection {
   const exercises = loadExercises(DEFAULT_DATASET_PATH);
   const focusedExercises = skillId
@@ -298,10 +321,30 @@ export function startPracticeSession(
   const unusedExercises = startingPool.filter((ex) => !usedExerciseIds.includes(ex.id));
   const selectionPool = unusedExercises.length > 0 ? unusedExercises : startingPool;
   const activeUsedIds = unusedExercises.length > 0 ? usedExerciseIds : [];
+  const seenSkills = options.forceNewStudent ? [] : getSeenSkills();
+  const usedSkills = new Set(
+    [
+      ...seenSkills,
+      ...startingPool
+      .filter((ex) => activeUsedIds.includes(ex.id))
+      .map((ex) => ex.skill_id),
+    ],
+  );
 
   const selectorExercises = selectionPool.map(toSelectorExercise);
-  const selection = selectNextExerciseDetailed(selectorExercises, []);
+  const selection = selectNextExerciseDetailed(
+    selectorExercises,
+    [],
+    {
+      seenSkills: Array.from(usedSkills),
+      hasSeenSkill: (skillId: string) => usedSkills.has(skillId),
+    },
+  );
   const exercise = findExercise(exercises, selection.exercise);
+
+  if (!options.forceNewStudent) {
+    markSkillsSeen([exercise.skill_id]);
+  }
 
   return {
     exercise,

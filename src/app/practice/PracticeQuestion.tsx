@@ -7,6 +7,7 @@ import { getSkillMetadata } from "../../skills/skill_metadata";
 type PracticeQuestionProps = {
   exercise: Exercise;
   exercisePool: Exercise[];
+  restartHref: string;
   usedExerciseIds: string[];
 };
 
@@ -15,6 +16,7 @@ const MAX_QUESTIONS = 10;
 export function PracticeQuestion({
   exercise,
   exercisePool,
+  restartHref,
   usedExerciseIds,
 }: PracticeQuestionProps) {
   const [currentExercise, setCurrentExercise] = useState(exercise);
@@ -87,7 +89,7 @@ export function PracticeQuestion({
           <h1 className="text-xl font-semibold">Sesion completada</h1>
           <a
             className="w-full rounded bg-black py-2 text-center text-white"
-            href={`/practice?skill=${currentExercise.skill_id}`}
+            href={restartHref}
           >
             Volver a practicar
           </a>

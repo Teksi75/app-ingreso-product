@@ -23,6 +23,11 @@ type Target = {
   difficultyMode: DifficultyMode;
 };
 
+export type SelectionOptions = {
+  seenSkills?: string[];
+  hasSeenSkill?: (skillId: string) => boolean;
+};
+
 export type SelectionResult = {
   exercise: Exercise;
   ruleApplied: RuleApplied;
@@ -31,9 +36,16 @@ export type SelectionResult = {
 export function selectNextExerciseDetailed(
   exercises: Exercise[],
   userState: UserSkillState[],
+  options: SelectionOptions = {},
 ): SelectionResult {
   if (exercises.length === 0) {
     throw new Error("selectNextExercise requires at least one exercise");
+  }
+
+  const explorationExercise = pickUnseenSkillExercise(exercises, options);
+  if (explorationExercise) {
+    logSelection("E", explorationExercise);
+    return { exercise: explorationExercise, ruleApplied: "E" };
   }
 
   if (userState.length === 0) {
@@ -55,8 +67,12 @@ export function selectNextExerciseDetailed(
   return { exercise: selected, ruleApplied };
 }
 
-export function selectNextExercise(exercises: Exercise[], userState: UserSkillState[]): Exercise {
-  return selectNextExerciseDetailed(exercises, userState).exercise;
+export function selectNextExercise(
+  exercises: Exercise[],
+  userState: UserSkillState[],
+  options: SelectionOptions = {},
+): Exercise {
+  return selectNextExerciseDetailed(exercises, userState, options).exercise;
 }
 
 function resolveRuleTarget(
@@ -198,6 +214,30 @@ function pickFallbackCandidate(exercises: Exercise[], target: Target): Exercise 
   }
 
   return pickRandom(sameSkill);
+}
+
+function pickUnseenSkillExercise(exercises: Exercise[], options: SelectionOptions): Exercise | null {
+  if (!options.hasSeenSkill && !options.seenSkills) {
+    return null;
+  }
+
+  const seenSkills = new Set(options.seenSkills ?? []);
+  const allSkills = Array.from(new Set(exercises.map((exercise) => exercise.skill)))
+    .sort((left, right) => left.localeCompare(right))
+    .map((id) => ({ id }));
+  const hasSeenSkill = options.hasSeenSkill ?? ((skillId: string) => seenSkills.has(skillId));
+  const unseenSkills = allSkills.filter((skill) => !hasSeenSkill(skill.id));
+  const nextSkill = unseenSkills[0]?.id;
+
+  if (!nextSkill) {
+    return null;
+  }
+
+  return pickDeterministic(
+    exercises
+      .filter((exercise) => exercise.skill === nextSkill)
+      .sort((left, right) => left.difficulty - right.difficulty || left.id.localeCompare(right.id)),
+  );
 }
 
 function pickDeterministic(candidates: Exercise[]): Exercise {

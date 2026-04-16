@@ -91,7 +91,7 @@
       "source_file": "next-env.d.ts",
       "source_location": "L1",
       "id": "next_env_d_ts",
-      "community": 20,
+      "community": 21,
       "norm_label": "next-env.d.ts"
     },
     {
@@ -100,7 +100,7 @@
       "source_file": "next.config.js",
       "source_location": "L1",
       "id": "next_config_js",
-      "community": 21,
+      "community": 22,
       "norm_label": "next.config.js"
     },
     {
@@ -109,7 +109,7 @@
       "source_file": "postcss.config.mjs",
       "source_location": "L1",
       "id": "postcss_config_mjs",
-      "community": 22,
+      "community": 23,
       "norm_label": "postcss.config.mjs"
     },
     {
@@ -118,7 +118,7 @@
       "source_file": "src\\app\\layout.tsx",
       "source_location": "L1",
       "id": "src_app_layout_tsx",
-      "community": 15,
+      "community": 16,
       "norm_label": "layout.tsx"
     },
     {
@@ -127,7 +127,7 @@
       "source_file": "src\\app\\layout.tsx",
       "source_location": "L14",
       "id": "layout_rootlayout",
-      "community": 15,
+      "community": 16,
       "norm_label": "rootlayout()"
     },
     {
@@ -136,7 +136,7 @@
       "source_file": "src\\app\\page.tsx",
       "source_location": "L1",
       "id": "src_app_page_tsx",
-      "community": 16,
+      "community": 17,
       "norm_label": "page.tsx"
     },
     {
@@ -145,7 +145,7 @@
       "source_file": "src\\app\\page.tsx",
       "source_location": "L3",
       "id": "page_homepage",
-      "community": 16,
+      "community": 17,
       "norm_label": "homepage()"
     },
     {
@@ -154,7 +154,7 @@
       "source_file": "src\\app\\dashboard\\page.tsx",
       "source_location": "L1",
       "id": "src_app_dashboard_page_tsx",
-      "community": 8,
+      "community": 13,
       "norm_label": "page.tsx"
     },
     {
@@ -163,7 +163,7 @@
       "source_file": "src\\app\\dashboard\\page.tsx",
       "source_location": "L23",
       "id": "page_dashboardpage",
-      "community": 8,
+      "community": 13,
       "norm_label": "dashboardpage()"
     },
     {
@@ -172,7 +172,7 @@
       "source_file": "src\\app\\dashboard\\page.tsx",
       "source_location": "L39",
       "id": "page_getdashboardskills",
-      "community": 8,
+      "community": 13,
       "norm_label": "getdashboardskills()"
     },
     {
@@ -181,7 +181,7 @@
       "source_file": "src\\app\\dashboard\\page.tsx",
       "source_location": "L55",
       "id": "page_getweakestskill",
-      "community": 8,
+      "community": 13,
       "norm_label": "getweakestskill()"
     },
     {
@@ -190,7 +190,7 @@
       "source_file": "src\\app\\dashboard\\page.tsx",
       "source_location": "L67",
       "id": "page_normalizeaccuracy",
-      "community": 8,
+      "community": 13,
       "norm_label": "normalizeaccuracy()"
     },
     {
@@ -199,8 +199,44 @@
       "source_file": "src\\app\\practice\\page.tsx",
       "source_location": "L1",
       "id": "src_app_practice_page_tsx",
-      "community": 23,
+      "community": 12,
       "norm_label": "page.tsx"
+    },
+    {
+      "label": "PracticePage()",
+      "file_type": "code",
+      "source_file": "src\\app\\practice\\page.tsx",
+      "source_location": "L12",
+      "id": "page_practicepage",
+      "community": 12,
+      "norm_label": "practicepage()"
+    },
+    {
+      "label": "parseUsedExerciseIds()",
+      "file_type": "code",
+      "source_file": "src\\app\\practice\\page.tsx",
+      "source_location": "L44",
+      "id": "page_parseusedexerciseids",
+      "community": 12,
+      "norm_label": "parseusedexerciseids()"
+    },
+    {
+      "label": "isEnabledParam()",
+      "file_type": "code",
+      "source_file": "src\\app\\practice\\page.tsx",
+      "source_location": "L55",
+      "id": "page_isenabledparam",
+      "community": 12,
+      "norm_label": "isenabledparam()"
+    },
+    {
+      "label": "buildRestartHref()",
+      "file_type": "code",
+      "source_file": "src\\app\\practice\\page.tsx",
+      "source_location": "L59",
+      "id": "page_buildrestarthref",
+      "community": 12,
+      "norm_label": "buildrestarthref()"
     },
     {
       "label": "PracticeQuestion.tsx",
@@ -208,16 +244,16 @@
       "source_file": "src\\app\\practice\\PracticeQuestion.tsx",
       "source_location": "L1",
       "id": "src_app_practice_practicequestion_tsx",
-      "community": 12,
+      "community": 10,
       "norm_label": "practicequestion.tsx"
     },
     {
       "label": "PracticeQuestion()",
       "file_type": "code",
       "source_file": "src\\app\\practice\\PracticeQuestion.tsx",
-      "source_location": "L15",
+      "source_location": "L16",
       "id": "practicequestion_practicequestion",
-      "community": 12,
+      "community": 10,
       "norm_label": "practicequestion()"
     },
     {
@@ -235,7 +271,7 @@
       "source_file": "src\\components\\dashboard\\Header.tsx",
       "source_location": "L1",
       "id": "src_components_dashboard_header_tsx",
-      "community": 17,
+      "community": 18,
       "norm_label": "header.tsx"
     },
     {
@@ -244,7 +280,7 @@
       "source_file": "src\\components\\dashboard\\Header.tsx",
       "source_location": "L5",
       "id": "header_header",
-      "community": 17,
+      "community": 18,
       "norm_label": "header()"
     },
     {
@@ -253,7 +289,7 @@
       "source_file": "src\\components\\dashboard\\SkillItem.tsx",
       "source_location": "L1",
       "id": "src_components_dashboard_skillitem_tsx",
-      "community": 12,
+      "community": 10,
       "norm_label": "skillitem.tsx"
     },
     {
@@ -262,7 +298,7 @@
       "source_file": "src\\components\\dashboard\\SkillItem.tsx",
       "source_location": "L16",
       "id": "skillitem_skillitem",
-      "community": 12,
+      "community": 10,
       "norm_label": "skillitem()"
     },
     {
@@ -271,7 +307,7 @@
       "source_file": "src\\components\\dashboard\\SkillList.tsx",
       "source_location": "L1",
       "id": "src_components_dashboard_skilllist_tsx",
-      "community": 18,
+      "community": 19,
       "norm_label": "skilllist.tsx"
     },
     {
@@ -280,7 +316,7 @@
       "source_file": "src\\components\\dashboard\\SkillList.tsx",
       "source_location": "L15",
       "id": "skilllist_skilllist",
-      "community": 18,
+      "community": 19,
       "norm_label": "skilllist()"
     },
     {
@@ -289,7 +325,7 @@
       "source_file": "src\\components\\dashboard\\SkillStatus.tsx",
       "source_location": "L1",
       "id": "src_components_dashboard_skillstatus_tsx",
-      "community": 19,
+      "community": 20,
       "norm_label": "skillstatus.tsx"
     },
     {
@@ -298,7 +334,7 @@
       "source_file": "src\\components\\dashboard\\SkillStatus.tsx",
       "source_location": "L22",
       "id": "skillstatus_skillstatus",
-      "community": 19,
+      "community": 20,
       "norm_label": "skillstatus()"
     },
     {
@@ -307,7 +343,7 @@
       "source_file": "src\\practice\\exercise_selector.test.ts",
       "source_location": "L1",
       "id": "src_practice_exercise_selector_test_ts",
-      "community": 6,
+      "community": 5,
       "norm_label": "exercise_selector.test.ts"
     },
     {
@@ -316,106 +352,115 @@
       "source_file": "src\\practice\\exercise_selector.ts",
       "source_location": "L1",
       "id": "src_practice_exercise_selector_ts",
-      "community": 6,
+      "community": 5,
       "norm_label": "exercise_selector.ts"
     },
     {
       "label": "selectNextExerciseDetailed()",
       "file_type": "code",
       "source_file": "src\\practice\\exercise_selector.ts",
-      "source_location": "L31",
+      "source_location": "L36",
       "id": "exercise_selector_selectnextexercisedetailed",
-      "community": 6,
+      "community": 5,
       "norm_label": "selectnextexercisedetailed()"
     },
     {
       "label": "selectNextExercise()",
       "file_type": "code",
       "source_file": "src\\practice\\exercise_selector.ts",
-      "source_location": "L58",
+      "source_location": "L70",
       "id": "exercise_selector_selectnextexercise",
-      "community": 6,
+      "community": 5,
       "norm_label": "selectnextexercise()"
     },
     {
       "label": "resolveRuleTarget()",
       "file_type": "code",
       "source_file": "src\\practice\\exercise_selector.ts",
-      "source_location": "L62",
+      "source_location": "L78",
       "id": "exercise_selector_resolveruletarget",
-      "community": 6,
+      "community": 5,
       "norm_label": "resolveruletarget()"
     },
     {
       "label": "findAlternativeSubskill()",
       "file_type": "code",
       "source_file": "src\\practice\\exercise_selector.ts",
-      "source_location": "L128",
+      "source_location": "L144",
       "id": "exercise_selector_findalternativesubskill",
-      "community": 6,
+      "community": 5,
       "norm_label": "findalternativesubskill()"
     },
     {
       "label": "getReferenceDifficulty()",
       "file_type": "code",
       "source_file": "src\\practice\\exercise_selector.ts",
-      "source_location": "L144",
+      "source_location": "L160",
       "id": "exercise_selector_getreferencedifficulty",
-      "community": 6,
+      "community": 5,
       "norm_label": "getreferencedifficulty()"
     },
     {
       "label": "pickStrictCandidate()",
       "file_type": "code",
       "source_file": "src\\practice\\exercise_selector.ts",
-      "source_location": "L157",
+      "source_location": "L173",
       "id": "exercise_selector_pickstrictcandidate",
-      "community": 6,
+      "community": 5,
       "norm_label": "pickstrictcandidate()"
     },
     {
       "label": "pickFallbackCandidate()",
       "file_type": "code",
       "source_file": "src\\practice\\exercise_selector.ts",
-      "source_location": "L181",
+      "source_location": "L197",
       "id": "exercise_selector_pickfallbackcandidate",
-      "community": 6,
+      "community": 5,
       "norm_label": "pickfallbackcandidate()"
+    },
+    {
+      "label": "pickUnseenSkillExercise()",
+      "file_type": "code",
+      "source_file": "src\\practice\\exercise_selector.ts",
+      "source_location": "L219",
+      "id": "exercise_selector_pickunseenskillexercise",
+      "community": 5,
+      "norm_label": "pickunseenskillexercise()"
     },
     {
       "label": "pickDeterministic()",
       "file_type": "code",
       "source_file": "src\\practice\\exercise_selector.ts",
-      "source_location": "L203",
+      "source_location": "L243",
       "id": "exercise_selector_pickdeterministic",
-      "community": 6,
+      "community": 5,
       "norm_label": "pickdeterministic()"
     },
     {
       "label": "pickRandom()",
       "file_type": "code",
       "source_file": "src\\practice\\exercise_selector.ts",
-      "source_location": "L207",
+      "source_location": "L247",
       "id": "exercise_selector_pickrandom",
-      "community": 6,
+      "community": 5,
       "norm_label": "pickrandom()"
     },
     {
       "label": "logSelection()",
       "file_type": "code",
       "source_file": "src\\practice\\exercise_selector.ts",
-      "source_location": "L212",
+      "source_location": "L252",
       "id": "exercise_selector_logselection",
-      "community": 6,
+      "community": 5,
       "norm_label": "logselection()"
     },
     {
       "label": "testSelector()",
       "file_type": "code",
       "source_file": "src\\practice\\exercise_selector.ts",
-      "source_location": "L222",
+      "source_location": "L262",
       "id": "exercise_selector_testselector",
-      "community": 6,
+      "community": 5,
       "norm_label": "testselector()"
     },
     {
@@ -424,106 +469,106 @@
       "source_file": "src\\practice\\session_runner.ts",
       "source_location": "L1",
       "id": "src_practice_session_runner_ts",
-      "community": 7,
+      "community": 2,
       "norm_label": "session_runner.ts"
     },
     {
       "label": "toSelectorExercise()",
       "file_type": "code",
       "source_file": "src\\practice\\session_runner.ts",
-      "source_location": "L78",
+      "source_location": "L84",
       "id": "session_runner_toselectorexercise",
-      "community": 7,
+      "community": 2,
       "norm_label": "toselectorexercise()"
     },
     {
       "label": "loadExercises()",
       "file_type": "code",
       "source_file": "src\\practice\\session_runner.ts",
-      "source_location": "L87",
+      "source_location": "L93",
       "id": "session_runner_loadexercises",
-      "community": 7,
+      "community": 2,
       "norm_label": "loadexercises()"
     },
     {
       "label": "evaluateAnswer()",
       "file_type": "code",
       "source_file": "src\\practice\\session_runner.ts",
-      "source_location": "L99",
+      "source_location": "L105",
       "id": "session_runner_evaluateanswer",
-      "community": 7,
+      "community": 2,
       "norm_label": "evaluateanswer()"
     },
     {
       "label": "computeAccuracy()",
       "file_type": "code",
       "source_file": "src\\practice\\session_runner.ts",
-      "source_location": "L103",
+      "source_location": "L109",
       "id": "session_runner_computeaccuracy",
-      "community": 7,
+      "community": 2,
       "norm_label": "computeaccuracy()"
     },
     {
       "label": "computeStreak()",
       "file_type": "code",
       "source_file": "src\\practice\\session_runner.ts",
-      "source_location": "L112",
+      "source_location": "L118",
       "id": "session_runner_computestreak",
-      "community": 7,
+      "community": 2,
       "norm_label": "computestreak()"
     },
     {
       "label": "buildUserState()",
       "file_type": "code",
       "source_file": "src\\practice\\session_runner.ts",
-      "source_location": "L127",
+      "source_location": "L133",
       "id": "session_runner_builduserstate",
-      "community": 7,
+      "community": 2,
       "norm_label": "builduserstate()"
     },
     {
       "label": "findExercise()",
       "file_type": "code",
       "source_file": "src\\practice\\session_runner.ts",
-      "source_location": "L143",
+      "source_location": "L149",
       "id": "session_runner_findexercise",
-      "community": 7,
+      "community": 2,
       "norm_label": "findexercise()"
     },
     {
       "label": "runSession()",
       "file_type": "code",
       "source_file": "src\\practice\\session_runner.ts",
-      "source_location": "L153",
+      "source_location": "L159",
       "id": "session_runner_runsession",
-      "community": 7,
+      "community": 2,
       "norm_label": "runsession()"
     },
     {
       "label": "runDeterministicSession()",
       "file_type": "code",
       "source_file": "src\\practice\\session_runner.ts",
-      "source_location": "L267",
+      "source_location": "L289",
       "id": "session_runner_rundeterministicsession",
-      "community": 7,
+      "community": 2,
       "norm_label": "rundeterministicsession()"
     },
     {
       "label": "runMixedSession()",
       "file_type": "code",
       "source_file": "src\\practice\\session_runner.ts",
-      "source_location": "L276",
+      "source_location": "L298",
       "id": "session_runner_runmixedsession",
-      "community": 7,
+      "community": 2,
       "norm_label": "runmixedsession()"
     },
     {
       "label": "startPracticeSession()",
       "file_type": "code",
       "source_file": "src\\practice\\session_runner.ts",
-      "source_location": "L289",
+      "source_location": "L311",
       "id": "session_runner_startpracticesession",
-      "community": 7,
+      "community": 2,
       "norm_label": "startpracticesession()"
     },
     {
@@ -685,16 +730,16 @@
       "source_file": "src\\skills\\skill_metadata.ts",
       "source_location": "L1",
       "id": "src_skills_skill_metadata_ts",
-      "community": 12,
+      "community": 10,
       "norm_label": "skill_metadata.ts"
     },
     {
       "label": "getSkillMetadata()",
       "file_type": "code",
       "source_file": "src\\skills\\skill_metadata.ts",
-      "source_location": "L70",
+      "source_location": "L115",
       "id": "skill_metadata_getskillmetadata",
-      "community": 12,
+      "community": 10,
       "norm_label": "getskillmetadata()"
     },
     {
@@ -703,61 +748,88 @@
       "source_file": "src\\storage\\local_progress_store.ts",
       "source_location": "L1",
       "id": "src_storage_local_progress_store_ts",
-      "community": 8,
+      "community": 2,
       "norm_label": "local_progress_store.ts"
     },
     {
       "label": "loadProgress()",
       "file_type": "code",
       "source_file": "src\\storage\\local_progress_store.ts",
-      "source_location": "L36",
+      "source_location": "L37",
       "id": "local_progress_store_loadprogress",
-      "community": 8,
+      "community": 2,
       "norm_label": "loadprogress()"
     },
     {
       "label": "saveSessionResult()",
       "file_type": "code",
       "source_file": "src\\storage\\local_progress_store.ts",
-      "source_location": "L45",
+      "source_location": "L49",
       "id": "local_progress_store_savesessionresult",
-      "community": 8,
+      "community": 2,
       "norm_label": "savesessionresult()"
     },
     {
       "label": "updateSkillStats()",
       "file_type": "code",
       "source_file": "src\\storage\\local_progress_store.ts",
-      "source_location": "L60",
+      "source_location": "L68",
       "id": "local_progress_store_updateskillstats",
-      "community": 8,
+      "community": 2,
       "norm_label": "updateskillstats()"
+    },
+    {
+      "label": "markSkillsSeen()",
+      "file_type": "code",
+      "source_file": "src\\storage\\local_progress_store.ts",
+      "source_location": "L85",
+      "id": "local_progress_store_markskillsseen",
+      "community": 2,
+      "norm_label": "markskillsseen()"
+    },
+    {
+      "label": "getSeenSkills()",
+      "file_type": "code",
+      "source_file": "src\\storage\\local_progress_store.ts",
+      "source_location": "L93",
+      "id": "local_progress_store_getseenskills",
+      "community": 2,
+      "norm_label": "getseenskills()"
+    },
+    {
+      "label": "updateSeenSkills()",
+      "file_type": "code",
+      "source_file": "src\\storage\\local_progress_store.ts",
+      "source_location": "L97",
+      "id": "local_progress_store_updateseenskills",
+      "community": 2,
+      "norm_label": "updateseenskills()"
     },
     {
       "label": "createEmptyProgress()",
       "file_type": "code",
       "source_file": "src\\storage\\local_progress_store.ts",
-      "source_location": "L77",
+      "source_location": "L109",
       "id": "local_progress_store_createemptyprogress",
-      "community": 8,
+      "community": 2,
       "norm_label": "createemptyprogress()"
     },
     {
       "label": "writeProgress()",
       "file_type": "code",
       "source_file": "src\\storage\\local_progress_store.ts",
-      "source_location": "L84",
+      "source_location": "L117",
       "id": "local_progress_store_writeprogress",
-      "community": 8,
+      "community": 2,
       "norm_label": "writeprogress()"
     },
     {
       "label": "createSessionId()",
       "file_type": "code",
       "source_file": "src\\storage\\local_progress_store.ts",
-      "source_location": "L89",
+      "source_location": "L122",
       "id": "local_progress_store_createsessionid",
-      "community": 8,
+      "community": 2,
       "norm_label": "createsessionid()"
     },
     {
@@ -769,7 +841,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
+      "community": 1,
       "norm_label": "agents instructions",
       "id": "agents_md"
     },
@@ -782,7 +854,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
+      "community": 1,
       "norm_label": "app ingreso",
       "id": "readme_app_ingreso"
     },
@@ -795,7 +867,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
+      "community": 1,
       "norm_label": "agents map",
       "id": "agents_map"
     },
@@ -808,7 +880,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
+      "community": 1,
       "norm_label": "agent orchestrator",
       "id": "orchestrator"
     },
@@ -821,7 +893,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
+      "community": 1,
       "norm_label": "orchestrator prompt",
       "id": "orchestrator_prompt"
     },
@@ -834,7 +906,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
+      "community": 1,
       "norm_label": "product guardian",
       "id": "agent_01_product_guardian"
     },
@@ -847,7 +919,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
+      "community": 1,
       "norm_label": "scope & rules validator",
       "id": "agent_02_scope_rules_validator"
     },
@@ -860,7 +932,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
+      "community": 1,
       "norm_label": "quality auditor",
       "id": "agent_03_quality_auditor"
     },
@@ -873,7 +945,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
+      "community": 1,
       "norm_label": "codex prompt generator",
       "id": "agent_04_codex_prompt_generator"
     },
@@ -886,7 +958,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
+      "community": 1,
       "norm_label": "minor-adjustment example",
       "id": "ejemplo_01_ajuste_menor"
     },
@@ -899,7 +971,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
+      "community": 1,
       "norm_label": "new-idea example",
       "id": "ejemplo_02_idea_nueva"
     },
@@ -912,7 +984,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
+      "community": 1,
       "norm_label": "blocked p0 example",
       "id": "ejemplo_03_bloqueado_p0"
     },
@@ -925,7 +997,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
+      "community": 1,
       "norm_label": "codex prompt generator system prompt",
       "id": "codex_prompt_generator_prompt"
     },
@@ -938,7 +1010,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
+      "community": 1,
       "norm_label": "product guardian system prompt",
       "id": "product_guardian_prompt"
     },
@@ -951,7 +1023,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
+      "community": 1,
       "norm_label": "quality auditor system prompt",
       "id": "quality_auditor_prompt"
     },
@@ -964,7 +1036,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
+      "community": 1,
       "norm_label": "scope & rules validator system prompt",
       "id": "scope_rules_validator_prompt"
     },
@@ -977,7 +1049,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
+      "community": 1,
       "norm_label": "interaction flow",
       "id": "interaction_flow"
     },
@@ -990,7 +1062,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
+      "community": 1,
       "norm_label": "validation pipeline",
       "id": "validation_pipeline"
     },
@@ -1003,7 +1075,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
+      "community": 15,
       "norm_label": "lengua content sources",
       "id": "content_sources_lengua_readme"
     },
@@ -1016,7 +1088,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
+      "community": 1,
       "norm_label": "adr-001 product scope",
       "id": "adr_001_product_scope"
     },
@@ -1029,7 +1101,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
+      "community": 1,
       "norm_label": "app ingreso product scope",
       "id": "app_ingreso_product_scope"
     },
@@ -1042,7 +1114,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
+      "community": 1,
       "norm_label": "autonomous skill-based training",
       "id": "autonomous_skill_training"
     },
@@ -1055,7 +1127,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
+      "community": 1,
       "norm_label": "practice over explanation",
       "id": "practice_over_explanation"
     },
@@ -1081,7 +1153,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
+      "community": 1,
       "norm_label": "exam simulations",
       "id": "exam_simulations"
     },
@@ -1094,7 +1166,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
+      "community": 1,
       "norm_label": "progress tracking",
       "id": "progress_tracking"
     },
@@ -1107,7 +1179,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 2,
+      "community": 0,
       "norm_label": "no official content",
       "id": "no_official_content"
     },
@@ -1120,7 +1192,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
+      "community": 1,
       "norm_label": "no tutor or tutoring",
       "id": "no_tutor"
     },
@@ -1133,7 +1205,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
+      "community": 1,
       "norm_label": "minimal data collection",
       "id": "minimal_data_collection"
     },
@@ -1146,7 +1218,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
+      "community": 1,
       "norm_label": "local json storage",
       "id": "local_json_storage"
     },
@@ -1159,7 +1231,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
+      "community": 1,
       "norm_label": "four-agent system",
       "id": "four_agent_system"
     },
@@ -1172,7 +1244,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
+      "community": 1,
       "norm_label": "mandatory validation flow",
       "id": "mandatory_validation_flow"
     },
@@ -1185,7 +1257,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
+      "community": 1,
       "norm_label": "change type classification",
       "id": "change_type_classification"
     },
@@ -1198,7 +1270,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
+      "community": 1,
       "norm_label": "fast path for minor adjustments",
       "id": "fast_path_minor_adjustments"
     },
@@ -1211,7 +1283,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
+      "community": 1,
       "norm_label": "product guardian always first",
       "id": "product_guardian_always_first"
     },
@@ -1224,7 +1296,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
+      "community": 1,
       "norm_label": "source traceability",
       "id": "source_traceability"
     },
@@ -1237,7 +1309,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
+      "community": 1,
       "norm_label": "question-response-feedback-adjustment-next loop",
       "id": "question_response_feedback_adjustment_next"
     },
@@ -1250,7 +1322,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
+      "community": 15,
       "norm_label": "original content only",
       "id": "original_content_only"
     },
@@ -1263,7 +1335,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
+      "community": 15,
       "norm_label": "skill extraction and difficulty analysis",
       "id": "skill_extraction_and_difficulty_analysis"
     },
@@ -1276,7 +1348,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
+      "community": 1,
       "norm_label": "blocked tutorial modules",
       "id": "blocked_tutorial_modules"
     },
@@ -1289,7 +1361,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 2,
+      "community": 0,
       "norm_label": "adr-002: no official content",
       "id": "adr_002_no_official_content"
     },
@@ -1302,7 +1374,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 2,
+      "community": 0,
       "norm_label": "adr-003: autonomous learning",
       "id": "adr_003_autonomous_learning"
     },
@@ -1315,7 +1387,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 0,
       "norm_label": "adr-004: parent responsibility",
       "id": "adr_004_parent_responsibility"
     },
@@ -1328,7 +1400,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 0,
       "norm_label": "product vision",
       "id": "product_vision"
     },
@@ -1341,7 +1413,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 0,
       "norm_label": "research summary draft",
       "id": "research_summary"
     },
@@ -1354,7 +1426,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 0,
       "norm_label": "learning model draft",
       "id": "learning_model"
     },
@@ -1367,7 +1439,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 2,
+      "community": 0,
       "norm_label": "skills map v2",
       "id": "skills_map_v2"
     },
@@ -1380,7 +1452,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 2,
+      "community": 0,
       "norm_label": "exercise engine v1",
       "id": "exercise_engine_v1"
     },
@@ -1393,7 +1465,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 2,
+      "community": 0,
       "norm_label": "exercise selection logic v1",
       "id": "exercise_selection_logic_v1"
     },
@@ -1406,7 +1478,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 2,
+      "community": 0,
       "norm_label": "lengua exercises audit v1",
       "id": "lengua_exercises_audit_v1"
     },
@@ -1419,7 +1491,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 2,
+      "community": 0,
       "norm_label": "lengua exercises modulo 3 audit",
       "id": "lengua_exercises_modulo3_audit"
     },
@@ -1432,7 +1504,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 2,
+      "community": 0,
       "norm_label": "practice session flow v1",
       "id": "practice_session_flow_v1"
     },
@@ -1445,7 +1517,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 5,
+      "community": 6,
       "norm_label": "user journey",
       "id": "user_journey"
     },
@@ -1458,7 +1530,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 5,
+      "community": 6,
       "norm_label": "simulator model",
       "id": "simulator_model"
     },
@@ -1471,7 +1543,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 5,
+      "community": 6,
       "norm_label": "progress metrics",
       "id": "progress_metrics"
     },
@@ -1484,7 +1556,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 5,
+      "community": 6,
       "norm_label": "progress metrics v1",
       "id": "progress_metrics_v1"
     },
@@ -1497,7 +1569,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 0,
       "norm_label": "business rules",
       "id": "business_rules"
     },
@@ -1510,7 +1582,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 0,
       "norm_label": "legal positioning",
       "id": "legal_positioning"
     },
@@ -1523,7 +1595,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 0,
       "norm_label": "product analysis",
       "id": "product_analysis"
     },
@@ -1536,7 +1608,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 0,
       "norm_label": "autonomous training platform",
       "id": "autonomous_training_platform"
     },
@@ -1549,7 +1621,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 0,
       "norm_label": "practice-based learning",
       "id": "practice_based_learning"
     },
@@ -1562,7 +1634,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 0,
       "norm_label": "adult responsibility",
       "id": "adult_responsibility"
     },
@@ -1575,7 +1647,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 2,
+      "community": 0,
       "norm_label": "skill-based training",
       "id": "skill_based_training"
     },
@@ -1588,7 +1660,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 2,
+      "community": 0,
       "norm_label": "adaptive practice",
       "id": "adaptive_practice"
     },
@@ -1601,7 +1673,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 2,
+      "community": 0,
       "norm_label": "exercise skill-subskill mapping",
       "id": "exercise_skill_subskill_mapping"
     },
@@ -1614,7 +1686,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 2,
+      "community": 0,
       "norm_label": "practice session loop",
       "id": "practice_session_loop"
     },
@@ -1627,7 +1699,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 2,
+      "community": 0,
       "norm_label": "rule-based selection",
       "id": "rule_based_selection"
     },
@@ -1640,7 +1712,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 5,
+      "community": 6,
       "norm_label": "simulator mode",
       "id": "simulator_mode"
     },
@@ -1653,7 +1725,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 5,
+      "community": 6,
       "norm_label": "progress by skill",
       "id": "progress_by_skill"
     },
@@ -1666,7 +1738,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 0,
       "norm_label": "no guarantee of results",
       "id": "no_guarantee_of_results"
     },
@@ -1679,7 +1751,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 0,
       "norm_label": "content creation workflow",
       "id": "content_creation_workflow"
     },
@@ -1692,7 +1764,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 0,
       "norm_label": "exam validation matrix",
       "id": "exam_validation_matrix"
     },
@@ -1705,7 +1777,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 0,
       "norm_label": "role model separation",
       "id": "role_model_separation"
     },
@@ -1718,7 +1790,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 0,
       "norm_label": "access by time",
       "id": "access_by_time"
     },
@@ -1731,7 +1803,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 2,
+      "community": 0,
       "norm_label": "plausible distractors",
       "id": "plausible_distractors"
     },
@@ -1744,7 +1816,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 2,
+      "community": 0,
       "norm_label": "no personal data",
       "id": "no_personal_data"
     },
@@ -1757,7 +1829,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 5,
+      "community": 6,
       "norm_label": "diagnostic initial",
       "id": "diagnostic_initial"
     },
@@ -1770,7 +1842,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 5,
+      "community": 6,
       "norm_label": "training vs simulation",
       "id": "training_vs_simulation"
     },
@@ -1783,7 +1855,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 5,
+      "community": 6,
       "norm_label": "accuracy metric",
       "id": "accuracy_metric"
     },
@@ -1796,7 +1868,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 5,
+      "community": 6,
       "norm_label": "consistency metric",
       "id": "consistency_metric"
     },
@@ -1809,7 +1881,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 5,
+      "community": 6,
       "norm_label": "mastery levels",
       "id": "mastery_levels"
     },
@@ -1822,7 +1894,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 0,
       "norm_label": "commercial tiers",
       "id": "commercial_tiers"
     },
@@ -1835,7 +1907,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 0,
       "norm_label": "research gap",
       "id": "research_gap"
     },
@@ -1848,7 +1920,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 0,
       "norm_label": "pedagogical model gap",
       "id": "pedagogical_model_gap"
     },
@@ -1861,7 +1933,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 0,
       "norm_label": "spaced repetition",
       "id": "spaced_repetition"
     },
@@ -1874,7 +1946,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 0,
       "norm_label": "deliberate practice",
       "id": "deliberate_practice"
     },
@@ -1887,7 +1959,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 0,
       "norm_label": "cognitive load theory",
       "id": "cognitive_load_theory"
     },
@@ -1900,7 +1972,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 5,
+      "community": 6,
       "norm_label": "parent visibility",
       "id": "parent_visibility"
     },
@@ -1913,7 +1985,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 0,
       "norm_label": "parent supervision",
       "id": "parent_supervision"
     },
@@ -1926,7 +1998,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 2,
+      "community": 0,
       "norm_label": "brief feedback",
       "id": "feedback_breve"
     },
@@ -1939,7 +2011,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 2,
+      "community": 0,
       "norm_label": "simple summary",
       "id": "simple_summary"
     },
@@ -1952,7 +2024,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 2,
+      "community": 0,
       "norm_label": "difficulty 1-3",
       "id": "difficulty_1_3"
     },
@@ -1965,7 +2037,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 0,
       "norm_label": "content source independence",
       "id": "content_source_independence"
     },
@@ -1978,7 +2050,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 0,
       "norm_label": "student user 11-12",
       "id": "student_user_11_12"
     },
@@ -1991,7 +2063,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 0,
       "norm_label": "adult customer",
       "id": "adult_customer"
     },
@@ -2004,7 +2076,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 5,
+      "community": 6,
       "norm_label": "frequent short sessions",
       "id": "frequent_short_sessions"
     },
@@ -2017,7 +2089,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 0,
       "norm_label": "original content",
       "id": "original_content"
     },
@@ -2030,7 +2102,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 5,
+      "community": 6,
       "norm_label": "time-limited simulation",
       "id": "time_limited_simulation"
     },
@@ -2277,7 +2349,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 9,
+      "community": 7,
       "norm_label": "lengua | modulo 1",
       "id": "modulo_1_lengua_modulo_1"
     },
@@ -2290,7 +2362,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 9,
+      "community": 7,
       "norm_label": "biografia de hans christian andersen",
       "id": "modulo_1_biografia_hans_christian_andersen"
     },
@@ -2303,7 +2375,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 9,
+      "community": 7,
       "norm_label": "clase textual, paratexto y datos enciclopedicos",
       "id": "modulo_1_clase_textual_paratexto"
     },
@@ -2316,7 +2388,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 9,
+      "community": 7,
       "norm_label": "sustantivos y adjetivos",
       "id": "modulo_1_sustantivos_adjetivos"
     },
@@ -2329,7 +2401,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 9,
+      "community": 7,
       "norm_label": "oracion, parrafo, mayusculas y coma",
       "id": "modulo_1_oracion_parrafo_mayusculas_coma"
     },
@@ -2342,7 +2414,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 9,
+      "community": 7,
       "norm_label": "lengua | modulo 2",
       "id": "modulo_2_lengua_modulo_2"
     },
@@ -2355,7 +2427,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 9,
+      "community": 7,
       "norm_label": "biografia de hans christian andersen (reutilizada)",
       "id": "modulo_2_biografia_hans_christian_andersen"
     },
@@ -2368,7 +2440,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 9,
+      "community": 7,
       "norm_label": "cotexto, sinonimia y antonimia",
       "id": "modulo_2_cotexto_sinonimia_antonimia"
     },
@@ -2381,7 +2453,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 9,
+      "community": 7,
       "norm_label": "verbo, persona y numero; pronombres personales",
       "id": "modulo_2_verbo_pronombres_personales"
     },
@@ -2394,7 +2466,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 9,
+      "community": 7,
       "norm_label": "acentuacion y tilde diacritica",
       "id": "modulo_2_acentuacion_tilde_diacritica"
     },
@@ -2407,7 +2479,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 13,
+      "community": 11,
       "norm_label": "lengua | modulo 3",
       "id": "modulo_3_lengua_modulo_3"
     },
@@ -2420,7 +2492,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 13,
+      "community": 11,
       "norm_label": "noticia 'laguna de la nina encantada, una leyenda con lenguaje vanguardista'",
       "id": "modulo_3_noticia_laguna_de_la_nina_encantada"
     },
@@ -2433,7 +2505,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 13,
+      "community": 11,
       "norm_label": "texto periodistico",
       "id": "modulo_3_texto_periodistico"
     },
@@ -2446,7 +2518,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 13,
+      "community": 11,
       "norm_label": "vocales, concurrencia de vocales, diptongo, triptongo e hiato",
       "id": "modulo_3_vocales_diptongo_triptongo_hiato"
     },
@@ -2459,7 +2531,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 13,
+      "community": 11,
       "norm_label": "modo verbal y tiempos verbales",
       "id": "modulo_3_modo_y_tiempos_verbales"
     },
@@ -2472,7 +2544,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 13,
+      "community": 11,
       "norm_label": "uno (25 de octubre de 2013)",
       "id": "modulo_3_uno_2013"
     },
@@ -2550,7 +2622,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 10,
+      "community": 8,
       "norm_label": "lengua | modulo 5",
       "id": "modulo_5_lengua_modulo_5"
     },
@@ -2563,7 +2635,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 10,
+      "community": 8,
       "norm_label": "el tawantinsuyu: un imperio de piedra y oro",
       "id": "modulo_5_tawantinsuyu"
     },
@@ -2576,7 +2648,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 10,
+      "community": 8,
       "norm_label": "articulo enciclopedico",
       "id": "modulo_5_articulo_enciclopedico"
     },
@@ -2589,7 +2661,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 10,
+      "community": 8,
       "norm_label": "la leyenda de cacheuta",
       "id": "modulo_5_leyenda_de_cacheuta"
     },
@@ -2602,7 +2674,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 10,
+      "community": 8,
       "norm_label": "adverbios",
       "id": "modulo_5_adverbios"
     },
@@ -2615,7 +2687,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 10,
+      "community": 8,
       "norm_label": "sintaxis de la oracion simple",
       "id": "modulo_5_sintaxis_oracion_simple"
     },
@@ -2628,7 +2700,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 10,
+      "community": 8,
       "norm_label": "usos de la c, s y z",
       "id": "modulo_5_usos_de_c_s_z"
     },
@@ -2641,7 +2713,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 10,
+      "community": 8,
       "norm_label": "enciclopedia ilustrada para ninos. historia del mundo. lexus (2018)",
       "id": "modulo_5_lexus_2018"
     },
@@ -2654,7 +2726,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 10,
+      "community": 8,
       "norm_label": "diccionario de la lengua espanola (rae)",
       "id": "modulo_5_rae_dle"
     },
@@ -2667,7 +2739,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 11,
+      "community": 9,
       "norm_label": "actividades de integracion",
       "id": "modulo_6_actividades_de_integracion"
     },
@@ -2680,7 +2752,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 11,
+      "community": 9,
       "norm_label": "el caso del laberinto del terror",
       "id": "modulo_6_el_caso_del_laberinto_del_terror"
     },
@@ -2693,7 +2765,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 11,
+      "community": 9,
       "norm_label": "sinonimia y antonimia",
       "id": "modulo_6_sinonimia_antonimia"
     },
@@ -2706,7 +2778,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 11,
+      "community": 9,
       "norm_label": "clases de palabras",
       "id": "modulo_6_clases_de_palabras"
     },
@@ -2719,7 +2791,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 11,
+      "community": 9,
       "norm_label": "pronombres personales, posesivos y demostrativos",
       "id": "modulo_6_pronombres_posesivos_demostrativos"
     },
@@ -2732,7 +2804,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 11,
+      "community": 9,
       "norm_label": "sintaxis",
       "id": "modulo_6_sintaxis"
     },
@@ -2745,7 +2817,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 11,
+      "community": 9,
       "norm_label": "cohesion, mayusculas y coma",
       "id": "modulo_6_cohesion_mayusculas_coma"
     },
@@ -2758,7 +2830,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 11,
+      "community": 9,
       "norm_label": "acentuacion, diptongos y hiatos",
       "id": "modulo_6_acentuacion_diptongos_hiatos"
     },
@@ -2771,7 +2843,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 11,
+      "community": 9,
       "norm_label": "ortografia de b/v, c/s/z",
       "id": "modulo_6_ortografia_b_v_c_s_z"
     }
@@ -2888,8 +2960,104 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "src\\app\\practice\\page.tsx",
+      "source_location": "L12",
+      "weight": 1.0,
+      "_src": "src_app_practice_page_tsx",
+      "_tgt": "page_practicepage",
+      "source": "src_app_practice_page_tsx",
+      "target": "page_practicepage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\app\\practice\\page.tsx",
+      "source_location": "L44",
+      "weight": 1.0,
+      "_src": "src_app_practice_page_tsx",
+      "_tgt": "page_parseusedexerciseids",
+      "source": "src_app_practice_page_tsx",
+      "target": "page_parseusedexerciseids",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\app\\practice\\page.tsx",
+      "source_location": "L55",
+      "weight": 1.0,
+      "_src": "src_app_practice_page_tsx",
+      "_tgt": "page_isenabledparam",
+      "source": "src_app_practice_page_tsx",
+      "target": "page_isenabledparam",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\app\\practice\\page.tsx",
+      "source_location": "L59",
+      "weight": 1.0,
+      "_src": "src_app_practice_page_tsx",
+      "_tgt": "page_buildrestarthref",
+      "source": "src_app_practice_page_tsx",
+      "target": "page_buildrestarthref",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\app\\practice\\page.tsx",
+      "source_location": "L17",
+      "weight": 1.0,
+      "_src": "page_practicepage",
+      "_tgt": "page_parseusedexerciseids",
+      "source": "page_practicepage",
+      "target": "page_parseusedexerciseids",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\app\\practice\\page.tsx",
+      "source_location": "L18",
+      "weight": 1.0,
+      "_src": "page_practicepage",
+      "_tgt": "page_isenabledparam",
+      "source": "page_practicepage",
+      "target": "page_isenabledparam",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\app\\practice\\page.tsx",
+      "source_location": "L19",
+      "weight": 1.0,
+      "_src": "page_practicepage",
+      "_tgt": "page_buildrestarthref",
+      "source": "page_practicepage",
+      "target": "page_buildrestarthref",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src\\app\\practice\\page.tsx",
+      "source_location": "L24",
+      "weight": 1.0,
+      "_src": "page_practicepage",
+      "_tgt": "session_runner_startpracticesession",
+      "source": "page_practicepage",
+      "target": "session_runner_startpracticesession"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "src\\app\\practice\\PracticeQuestion.tsx",
-      "source_location": "L15",
+      "source_location": "L16",
       "weight": 1.0,
       "_src": "src_app_practice_practicequestion_tsx",
       "_tgt": "practicequestion_practicequestion",
@@ -2985,7 +3153,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src\\practice\\exercise_selector.ts",
-      "source_location": "L31",
+      "source_location": "L36",
       "weight": 1.0,
       "_src": "src_practice_exercise_selector_ts",
       "_tgt": "exercise_selector_selectnextexercisedetailed",
@@ -2997,7 +3165,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src\\practice\\exercise_selector.ts",
-      "source_location": "L58",
+      "source_location": "L70",
       "weight": 1.0,
       "_src": "src_practice_exercise_selector_ts",
       "_tgt": "exercise_selector_selectnextexercise",
@@ -3009,7 +3177,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src\\practice\\exercise_selector.ts",
-      "source_location": "L62",
+      "source_location": "L78",
       "weight": 1.0,
       "_src": "src_practice_exercise_selector_ts",
       "_tgt": "exercise_selector_resolveruletarget",
@@ -3021,7 +3189,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src\\practice\\exercise_selector.ts",
-      "source_location": "L128",
+      "source_location": "L144",
       "weight": 1.0,
       "_src": "src_practice_exercise_selector_ts",
       "_tgt": "exercise_selector_findalternativesubskill",
@@ -3033,7 +3201,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src\\practice\\exercise_selector.ts",
-      "source_location": "L144",
+      "source_location": "L160",
       "weight": 1.0,
       "_src": "src_practice_exercise_selector_ts",
       "_tgt": "exercise_selector_getreferencedifficulty",
@@ -3045,7 +3213,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src\\practice\\exercise_selector.ts",
-      "source_location": "L157",
+      "source_location": "L173",
       "weight": 1.0,
       "_src": "src_practice_exercise_selector_ts",
       "_tgt": "exercise_selector_pickstrictcandidate",
@@ -3057,7 +3225,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src\\practice\\exercise_selector.ts",
-      "source_location": "L181",
+      "source_location": "L197",
       "weight": 1.0,
       "_src": "src_practice_exercise_selector_ts",
       "_tgt": "exercise_selector_pickfallbackcandidate",
@@ -3069,7 +3237,19 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src\\practice\\exercise_selector.ts",
-      "source_location": "L203",
+      "source_location": "L219",
+      "weight": 1.0,
+      "_src": "src_practice_exercise_selector_ts",
+      "_tgt": "exercise_selector_pickunseenskillexercise",
+      "source": "src_practice_exercise_selector_ts",
+      "target": "exercise_selector_pickunseenskillexercise",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\practice\\exercise_selector.ts",
+      "source_location": "L243",
       "weight": 1.0,
       "_src": "src_practice_exercise_selector_ts",
       "_tgt": "exercise_selector_pickdeterministic",
@@ -3081,7 +3261,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src\\practice\\exercise_selector.ts",
-      "source_location": "L207",
+      "source_location": "L247",
       "weight": 1.0,
       "_src": "src_practice_exercise_selector_ts",
       "_tgt": "exercise_selector_pickrandom",
@@ -3093,7 +3273,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src\\practice\\exercise_selector.ts",
-      "source_location": "L212",
+      "source_location": "L252",
       "weight": 1.0,
       "_src": "src_practice_exercise_selector_ts",
       "_tgt": "exercise_selector_logselection",
@@ -3105,7 +3285,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src\\practice\\exercise_selector.ts",
-      "source_location": "L222",
+      "source_location": "L262",
       "weight": 1.0,
       "_src": "src_practice_exercise_selector_ts",
       "_tgt": "exercise_selector_testselector",
@@ -3117,7 +3297,7 @@
       "relation": "imports_from",
       "confidence": "EXTRACTED",
       "source_file": "src\\practice\\session_runner.ts",
-      "source_location": "L3",
+      "source_location": "L4",
       "weight": 1.0,
       "_src": "src_practice_session_runner_ts",
       "_tgt": "src_practice_exercise_selector_ts",
@@ -3129,19 +3309,19 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src\\practice\\exercise_selector.ts",
-      "source_location": "L40",
+      "source_location": "L45",
       "weight": 1.0,
       "_src": "exercise_selector_selectnextexercisedetailed",
-      "_tgt": "exercise_selector_pickdeterministic",
+      "_tgt": "exercise_selector_pickunseenskillexercise",
       "source": "exercise_selector_selectnextexercisedetailed",
-      "target": "exercise_selector_pickdeterministic",
+      "target": "exercise_selector_pickunseenskillexercise",
       "confidence_score": 1.0
     },
     {
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src\\practice\\exercise_selector.ts",
-      "source_location": "L41",
+      "source_location": "L47",
       "weight": 1.0,
       "_src": "exercise_selector_selectnextexercisedetailed",
       "_tgt": "exercise_selector_logselection",
@@ -3153,7 +3333,19 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src\\practice\\exercise_selector.ts",
-      "source_location": "L46",
+      "source_location": "L52",
+      "weight": 1.0,
+      "_src": "exercise_selector_selectnextexercisedetailed",
+      "_tgt": "exercise_selector_pickdeterministic",
+      "source": "exercise_selector_selectnextexercisedetailed",
+      "target": "exercise_selector_pickdeterministic",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\practice\\exercise_selector.ts",
+      "source_location": "L58",
       "weight": 1.0,
       "_src": "exercise_selector_selectnextexercisedetailed",
       "_tgt": "exercise_selector_getreferencedifficulty",
@@ -3165,7 +3357,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src\\practice\\exercise_selector.ts",
-      "source_location": "L47",
+      "source_location": "L59",
       "weight": 1.0,
       "_src": "exercise_selector_selectnextexercisedetailed",
       "_tgt": "exercise_selector_resolveruletarget",
@@ -3177,7 +3369,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src\\practice\\exercise_selector.ts",
-      "source_location": "L50",
+      "source_location": "L62",
       "weight": 1.0,
       "_src": "exercise_selector_selectnextexercisedetailed",
       "_tgt": "exercise_selector_pickstrictcandidate",
@@ -3189,7 +3381,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src\\practice\\exercise_selector.ts",
-      "source_location": "L51",
+      "source_location": "L63",
       "weight": 1.0,
       "_src": "exercise_selector_selectnextexercisedetailed",
       "_tgt": "exercise_selector_pickfallbackcandidate",
@@ -3201,25 +3393,13 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src\\practice\\exercise_selector.ts",
-      "source_location": "L59",
+      "source_location": "L75",
       "weight": 1.0,
       "_src": "exercise_selector_selectnextexercise",
       "_tgt": "exercise_selector_selectnextexercisedetailed",
       "source": "exercise_selector_selectnextexercisedetailed",
       "target": "exercise_selector_selectnextexercise",
       "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "confidence": "INFERRED",
-      "confidence_score": 0.8,
-      "source_file": "src\\practice\\session_runner.ts",
-      "source_location": "L174",
-      "weight": 1.0,
-      "_src": "exercise_selector_selectnextexercisedetailed",
-      "_tgt": "session_runner_runsession",
-      "source": "exercise_selector_selectnextexercisedetailed",
-      "target": "session_runner_runsession"
     },
     {
       "relation": "calls",
@@ -3235,9 +3415,21 @@
     },
     {
       "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src\\practice\\session_runner.ts",
+      "source_location": "L174",
+      "weight": 1.0,
+      "_src": "exercise_selector_selectnextexercisedetailed",
+      "_tgt": "session_runner_runsession",
+      "source": "exercise_selector_selectnextexercisedetailed",
+      "target": "session_runner_runsession"
+    },
+    {
+      "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src\\practice\\exercise_selector.ts",
-      "source_location": "L286",
+      "source_location": "L326",
       "weight": 1.0,
       "_src": "exercise_selector_testselector",
       "_tgt": "exercise_selector_selectnextexercise",
@@ -3249,7 +3441,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src\\practice\\exercise_selector.ts",
-      "source_location": "L92",
+      "source_location": "L108",
       "weight": 1.0,
       "_src": "exercise_selector_resolveruletarget",
       "_tgt": "exercise_selector_findalternativesubskill",
@@ -3261,7 +3453,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src\\practice\\exercise_selector.ts",
-      "source_location": "L178",
+      "source_location": "L194",
       "weight": 1.0,
       "_src": "exercise_selector_pickstrictcandidate",
       "_tgt": "exercise_selector_pickdeterministic",
@@ -3273,7 +3465,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src\\practice\\exercise_selector.ts",
-      "source_location": "L197",
+      "source_location": "L213",
       "weight": 1.0,
       "_src": "exercise_selector_pickfallbackcandidate",
       "_tgt": "exercise_selector_pickdeterministic",
@@ -3285,7 +3477,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src\\practice\\exercise_selector.ts",
-      "source_location": "L200",
+      "source_location": "L216",
       "weight": 1.0,
       "_src": "exercise_selector_pickfallbackcandidate",
       "_tgt": "exercise_selector_pickrandom",
@@ -3294,10 +3486,22 @@
       "confidence_score": 1.0
     },
     {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\practice\\exercise_selector.ts",
+      "source_location": "L236",
+      "weight": 1.0,
+      "_src": "exercise_selector_pickunseenskillexercise",
+      "_tgt": "exercise_selector_pickdeterministic",
+      "source": "exercise_selector_pickunseenskillexercise",
+      "target": "exercise_selector_pickdeterministic",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src\\practice\\session_runner.ts",
-      "source_location": "L78",
+      "source_location": "L84",
       "weight": 1.0,
       "_src": "src_practice_session_runner_ts",
       "_tgt": "session_runner_toselectorexercise",
@@ -3309,7 +3513,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src\\practice\\session_runner.ts",
-      "source_location": "L87",
+      "source_location": "L93",
       "weight": 1.0,
       "_src": "src_practice_session_runner_ts",
       "_tgt": "session_runner_loadexercises",
@@ -3321,7 +3525,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src\\practice\\session_runner.ts",
-      "source_location": "L99",
+      "source_location": "L105",
       "weight": 1.0,
       "_src": "src_practice_session_runner_ts",
       "_tgt": "session_runner_evaluateanswer",
@@ -3333,7 +3537,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src\\practice\\session_runner.ts",
-      "source_location": "L103",
+      "source_location": "L109",
       "weight": 1.0,
       "_src": "src_practice_session_runner_ts",
       "_tgt": "session_runner_computeaccuracy",
@@ -3345,7 +3549,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src\\practice\\session_runner.ts",
-      "source_location": "L112",
+      "source_location": "L118",
       "weight": 1.0,
       "_src": "src_practice_session_runner_ts",
       "_tgt": "session_runner_computestreak",
@@ -3357,7 +3561,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src\\practice\\session_runner.ts",
-      "source_location": "L127",
+      "source_location": "L133",
       "weight": 1.0,
       "_src": "src_practice_session_runner_ts",
       "_tgt": "session_runner_builduserstate",
@@ -3369,7 +3573,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src\\practice\\session_runner.ts",
-      "source_location": "L143",
+      "source_location": "L149",
       "weight": 1.0,
       "_src": "src_practice_session_runner_ts",
       "_tgt": "session_runner_findexercise",
@@ -3381,7 +3585,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src\\practice\\session_runner.ts",
-      "source_location": "L153",
+      "source_location": "L159",
       "weight": 1.0,
       "_src": "src_practice_session_runner_ts",
       "_tgt": "session_runner_runsession",
@@ -3393,7 +3597,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src\\practice\\session_runner.ts",
-      "source_location": "L267",
+      "source_location": "L289",
       "weight": 1.0,
       "_src": "src_practice_session_runner_ts",
       "_tgt": "session_runner_rundeterministicsession",
@@ -3405,7 +3609,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src\\practice\\session_runner.ts",
-      "source_location": "L276",
+      "source_location": "L298",
       "weight": 1.0,
       "_src": "src_practice_session_runner_ts",
       "_tgt": "session_runner_runmixedsession",
@@ -3417,7 +3621,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src\\practice\\session_runner.ts",
-      "source_location": "L289",
+      "source_location": "L311",
       "weight": 1.0,
       "_src": "src_practice_session_runner_ts",
       "_tgt": "session_runner_startpracticesession",
@@ -3429,7 +3633,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src\\practice\\session_runner.ts",
-      "source_location": "L269",
+      "source_location": "L291",
       "weight": 1.0,
       "_src": "session_runner_rundeterministicsession",
       "_tgt": "session_runner_loadexercises",
@@ -3441,7 +3645,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src\\practice\\session_runner.ts",
-      "source_location": "L278",
+      "source_location": "L300",
       "weight": 1.0,
       "_src": "session_runner_runmixedsession",
       "_tgt": "session_runner_loadexercises",
@@ -3453,7 +3657,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src\\practice\\session_runner.ts",
-      "source_location": "L293",
+      "source_location": "L316",
       "weight": 1.0,
       "_src": "session_runner_startpracticesession",
       "_tgt": "session_runner_loadexercises",
@@ -3465,7 +3669,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src\\practice\\session_runner.ts",
-      "source_location": "L182",
+      "source_location": "L204",
       "weight": 1.0,
       "_src": "session_runner_runsession",
       "_tgt": "session_runner_evaluateanswer",
@@ -3477,7 +3681,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src\\practice\\session_runner.ts",
-      "source_location": "L136",
+      "source_location": "L142",
       "weight": 1.0,
       "_src": "session_runner_builduserstate",
       "_tgt": "session_runner_computeaccuracy",
@@ -3489,7 +3693,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src\\practice\\session_runner.ts",
-      "source_location": "L137",
+      "source_location": "L143",
       "weight": 1.0,
       "_src": "session_runner_builduserstate",
       "_tgt": "session_runner_computestreak",
@@ -3501,7 +3705,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src\\practice\\session_runner.ts",
-      "source_location": "L206",
+      "source_location": "L228",
       "weight": 1.0,
       "_src": "session_runner_runsession",
       "_tgt": "session_runner_builduserstate",
@@ -3513,7 +3717,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src\\practice\\session_runner.ts",
-      "source_location": "L179",
+      "source_location": "L195",
       "weight": 1.0,
       "_src": "session_runner_runsession",
       "_tgt": "session_runner_findexercise",
@@ -3525,7 +3729,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src\\practice\\session_runner.ts",
-      "source_location": "L304",
+      "source_location": "L343",
       "weight": 1.0,
       "_src": "session_runner_startpracticesession",
       "_tgt": "session_runner_findexercise",
@@ -3537,7 +3741,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src\\practice\\session_runner.ts",
-      "source_location": "L273",
+      "source_location": "L295",
       "weight": 1.0,
       "_src": "session_runner_rundeterministicsession",
       "_tgt": "session_runner_runsession",
@@ -3549,13 +3753,61 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src\\practice\\session_runner.ts",
-      "source_location": "L286",
+      "source_location": "L308",
       "weight": 1.0,
       "_src": "session_runner_runmixedsession",
       "_tgt": "session_runner_runsession",
       "source": "session_runner_runsession",
       "target": "session_runner_runmixedsession",
       "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src\\practice\\session_runner.ts",
+      "source_location": "L169",
+      "weight": 1.0,
+      "_src": "session_runner_runsession",
+      "_tgt": "local_progress_store_getseenskills",
+      "source": "session_runner_runsession",
+      "target": "local_progress_store_getseenskills"
+    },
+    {
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src\\practice\\session_runner.ts",
+      "source_location": "L203",
+      "weight": 1.0,
+      "_src": "session_runner_runsession",
+      "_tgt": "local_progress_store_markskillsseen",
+      "source": "session_runner_runsession",
+      "target": "local_progress_store_markskillsseen"
+    },
+    {
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src\\practice\\session_runner.ts",
+      "source_location": "L325",
+      "weight": 1.0,
+      "_src": "session_runner_startpracticesession",
+      "_tgt": "local_progress_store_getseenskills",
+      "source": "session_runner_startpracticesession",
+      "target": "local_progress_store_getseenskills"
+    },
+    {
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src\\practice\\session_runner.ts",
+      "source_location": "L343",
+      "weight": 1.0,
+      "_src": "session_runner_startpracticesession",
+      "_tgt": "local_progress_store_markskillsseen",
+      "source": "session_runner_startpracticesession",
+      "target": "local_progress_store_markskillsseen"
     },
     {
       "relation": "contains",
@@ -3945,7 +4197,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src\\skills\\skill_metadata.ts",
-      "source_location": "L70",
+      "source_location": "L115",
       "weight": 1.0,
       "_src": "src_skills_skill_metadata_ts",
       "_tgt": "skill_metadata_getskillmetadata",
@@ -3957,7 +4209,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src\\storage\\local_progress_store.ts",
-      "source_location": "L36",
+      "source_location": "L37",
       "weight": 1.0,
       "_src": "src_storage_local_progress_store_ts",
       "_tgt": "local_progress_store_loadprogress",
@@ -3969,7 +4221,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src\\storage\\local_progress_store.ts",
-      "source_location": "L45",
+      "source_location": "L49",
       "weight": 1.0,
       "_src": "src_storage_local_progress_store_ts",
       "_tgt": "local_progress_store_savesessionresult",
@@ -3981,7 +4233,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src\\storage\\local_progress_store.ts",
-      "source_location": "L60",
+      "source_location": "L68",
       "weight": 1.0,
       "_src": "src_storage_local_progress_store_ts",
       "_tgt": "local_progress_store_updateskillstats",
@@ -3993,7 +4245,43 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src\\storage\\local_progress_store.ts",
-      "source_location": "L77",
+      "source_location": "L85",
+      "weight": 1.0,
+      "_src": "src_storage_local_progress_store_ts",
+      "_tgt": "local_progress_store_markskillsseen",
+      "source": "src_storage_local_progress_store_ts",
+      "target": "local_progress_store_markskillsseen",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\storage\\local_progress_store.ts",
+      "source_location": "L93",
+      "weight": 1.0,
+      "_src": "src_storage_local_progress_store_ts",
+      "_tgt": "local_progress_store_getseenskills",
+      "source": "src_storage_local_progress_store_ts",
+      "target": "local_progress_store_getseenskills",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\storage\\local_progress_store.ts",
+      "source_location": "L97",
+      "weight": 1.0,
+      "_src": "src_storage_local_progress_store_ts",
+      "_tgt": "local_progress_store_updateseenskills",
+      "source": "src_storage_local_progress_store_ts",
+      "target": "local_progress_store_updateseenskills",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\storage\\local_progress_store.ts",
+      "source_location": "L109",
       "weight": 1.0,
       "_src": "src_storage_local_progress_store_ts",
       "_tgt": "local_progress_store_createemptyprogress",
@@ -4005,7 +4293,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src\\storage\\local_progress_store.ts",
-      "source_location": "L84",
+      "source_location": "L117",
       "weight": 1.0,
       "_src": "src_storage_local_progress_store_ts",
       "_tgt": "local_progress_store_writeprogress",
@@ -4017,7 +4305,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src\\storage\\local_progress_store.ts",
-      "source_location": "L89",
+      "source_location": "L122",
       "weight": 1.0,
       "_src": "src_storage_local_progress_store_ts",
       "_tgt": "local_progress_store_createsessionid",
@@ -4029,7 +4317,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src\\storage\\local_progress_store.ts",
-      "source_location": "L38",
+      "source_location": "L39",
       "weight": 1.0,
       "_src": "local_progress_store_loadprogress",
       "_tgt": "local_progress_store_createemptyprogress",
@@ -4041,7 +4329,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src\\storage\\local_progress_store.ts",
-      "source_location": "L46",
+      "source_location": "L50",
       "weight": 1.0,
       "_src": "local_progress_store_savesessionresult",
       "_tgt": "local_progress_store_loadprogress",
@@ -4053,7 +4341,31 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src\\storage\\local_progress_store.ts",
-      "source_location": "L49",
+      "source_location": "L86",
+      "weight": 1.0,
+      "_src": "local_progress_store_markskillsseen",
+      "_tgt": "local_progress_store_loadprogress",
+      "source": "local_progress_store_loadprogress",
+      "target": "local_progress_store_markskillsseen",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\storage\\local_progress_store.ts",
+      "source_location": "L94",
+      "weight": 1.0,
+      "_src": "local_progress_store_getseenskills",
+      "_tgt": "local_progress_store_loadprogress",
+      "source": "local_progress_store_loadprogress",
+      "target": "local_progress_store_getseenskills",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\storage\\local_progress_store.ts",
+      "source_location": "L53",
       "weight": 1.0,
       "_src": "local_progress_store_savesessionresult",
       "_tgt": "local_progress_store_createsessionid",
@@ -4065,7 +4377,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src\\storage\\local_progress_store.ts",
-      "source_location": "L54",
+      "source_location": "L58",
       "weight": 1.0,
       "_src": "local_progress_store_savesessionresult",
       "_tgt": "local_progress_store_updateskillstats",
@@ -4077,11 +4389,47 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src\\storage\\local_progress_store.ts",
-      "source_location": "L55",
+      "source_location": "L59",
+      "weight": 1.0,
+      "_src": "local_progress_store_savesessionresult",
+      "_tgt": "local_progress_store_updateseenskills",
+      "source": "local_progress_store_savesessionresult",
+      "target": "local_progress_store_updateseenskills",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\storage\\local_progress_store.ts",
+      "source_location": "L63",
       "weight": 1.0,
       "_src": "local_progress_store_savesessionresult",
       "_tgt": "local_progress_store_writeprogress",
       "source": "local_progress_store_savesessionresult",
+      "target": "local_progress_store_writeprogress",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\storage\\local_progress_store.ts",
+      "source_location": "L87",
+      "weight": 1.0,
+      "_src": "local_progress_store_markskillsseen",
+      "_tgt": "local_progress_store_updateseenskills",
+      "source": "local_progress_store_markskillsseen",
+      "target": "local_progress_store_updateseenskills",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\storage\\local_progress_store.ts",
+      "source_location": "L88",
+      "weight": 1.0,
+      "_src": "local_progress_store_markskillsseen",
+      "_tgt": "local_progress_store_writeprogress",
+      "source": "local_progress_store_markskillsseen",
       "target": "local_progress_store_writeprogress",
       "confidence_score": 1.0
     },

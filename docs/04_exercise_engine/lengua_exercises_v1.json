@@ -615,6 +615,210 @@
     "correct_answer": "Porque podia empezar a llover",
     "feedback_correct": "Correcto: el cielo gris y sentarse bajo techo sugieren posible lluvia.",
     "feedback_incorrect": "Busca la causa que se relaciona con el cielo gris y el techo."
+  },
+  {
+    "id": "LEN-EX-066",
+    "skill_id": "LEN-PUNC-001",
+    "subskill": "coma en enumeracion e inserciones",
+    "difficulty": 1,
+    "type": "multiple_choice",
+    "prompt": "Oracion: Llevamos hojas lapices regla y goma.\n¿Que opcion usa correctamente la coma?",
+    "options": [
+      "Llevamos hojas, lapices, regla y goma.",
+      "Llevamos, hojas lapices regla y goma.",
+      "Llevamos hojas lapices, regla y goma.",
+      "Llevamos hojas, lapices regla y goma."
+    ],
+    "correct_answer": "Llevamos hojas, lapices, regla y goma.",
+    "feedback_correct": "Correcto: las comas separan los elementos de la lista.",
+    "feedback_incorrect": "Busca todos los elementos de la enumeracion y separalos con comas."
+  },
+  {
+    "id": "LEN-EX-067",
+    "skill_id": "LEN-PUNC-001",
+    "subskill": "coma en enumeracion e inserciones",
+    "difficulty": 2,
+    "type": "multiple_choice",
+    "prompt": "Oracion: Valeria la delegada del grupo aviso el cambio de aula.\n¿Que opcion puntua correctamente la aclaracion?",
+    "options": [
+      "Valeria, la delegada del grupo, aviso el cambio de aula.",
+      "Valeria la delegada, del grupo aviso el cambio de aula.",
+      "Valeria, la delegada del grupo aviso, el cambio de aula.",
+      "Valeria la delegada del grupo, aviso, el cambio de aula."
+    ],
+    "correct_answer": "Valeria, la delegada del grupo, aviso el cambio de aula.",
+    "feedback_correct": "Correcto: la aclaracion queda encerrada entre comas.",
+    "feedback_incorrect": "La aclaracion es 'la delegada del grupo' y debe separarse."
+  },
+  {
+    "id": "LEN-EX-068",
+    "skill_id": "LEN-PUNC-002",
+    "subskill": "puntuacion para desambiguacion",
+    "difficulty": 2,
+    "type": "multiple_choice",
+    "prompt": "Oracion: No corran chicos.\nSi alguien les habla a los chicos y les pide que no corran, ¿que opcion corresponde?",
+    "options": [
+      "No corran, chicos.",
+      "No, corran chicos.",
+      "No corran chicos.",
+      "No corran. Chicos."
+    ],
+    "correct_answer": "No corran, chicos.",
+    "feedback_correct": "Correcto: la coma separa la orden de a quien se le habla.",
+    "feedback_incorrect": "La palabra 'chicos' nombra a quienes reciben la orden."
+  },
+  {
+    "id": "LEN-EX-069",
+    "skill_id": "LEN-PUNC-003",
+    "subskill": "segmentacion de enunciados",
+    "difficulty": 3,
+    "type": "multiple_choice",
+    "prompt": "Texto: El timbre sono temprano los estudiantes guardaron sus carpetas despues salieron al patio.\n¿Que opcion segmenta mejor las ideas?",
+    "options": [
+      "El timbre sono temprano. Los estudiantes guardaron sus carpetas. Despues salieron al patio.",
+      "El timbre sono. Temprano los estudiantes guardaron sus carpetas despues salieron al patio.",
+      "El timbre sono temprano los estudiantes. Guardaron sus carpetas despues. Salieron al patio.",
+      "El timbre sono temprano, los estudiantes guardaron. Sus carpetas despues salieron al patio."
+    ],
+    "correct_answer": "El timbre sono temprano. Los estudiantes guardaron sus carpetas. Despues salieron al patio.",
+    "feedback_correct": "Correcto: cada accion queda separada sin cortar el sentido.",
+    "feedback_incorrect": "Separa las acciones completas y evita cortar una idea por la mitad."
+  },
+  {
+    "id": "LEN-EX-070",
+    "skill_id": "LEN-WRIT-001",
+    "subskill": "redaccion con restriccion de formato",
+    "difficulty": 1,
+    "type": "multiple_choice",
+    "prompt": "Objetivo: avisar en una oracion que el taller empieza a las cinco.\n¿Que mensaje cumple mejor el objetivo?",
+    "options": [
+      "El taller empieza a las cinco.",
+      "Los talleres pueden ser utiles para practicar.",
+      "Cinco, taller, empezar, aviso.",
+      "Hay un taller y varias personas esperan."
+    ],
+    "correct_answer": "El taller empieza a las cinco.",
+    "feedback_correct": "Correcto: informa el dato pedido de forma directa.",
+    "feedback_incorrect": "El mensaje debe decir que pasa y a que hora."
+  },
+  {
+    "id": "LEN-EX-071",
+    "skill_id": "LEN-WRIT-002",
+    "subskill": "seleccion de datos relevantes",
+    "difficulty": 2,
+    "type": "multiple_choice",
+    "prompt": "Datos: lugar: sala 2; hora: 16:30; motivo: reunion del equipo; color de la mesa: azul.\n¿Que datos son necesarios para un aviso util?",
+    "options": [
+      "Lugar, hora y motivo.",
+      "Color de la mesa y lugar.",
+      "Hora y color de la mesa.",
+      "Motivo, color de la mesa y una opinion."
+    ],
+    "correct_answer": "Lugar, hora y motivo.",
+    "feedback_correct": "Correcto: esos datos permiten saber donde, cuando y para que.",
+    "feedback_incorrect": "Elegi los datos que ayudan a actuar: lugar, hora y motivo."
+  },
+  {
+    "id": "LEN-EX-072",
+    "skill_id": "LEN-WRIT-003",
+    "subskill": "revision de claridad y foco",
+    "difficulty": 3,
+    "type": "multiple_choice",
+    "prompt": "Version inicial: El tema ese de las cartulinas quedo para despues porque hoy nadie las trajo.\n¿Que reescritura mejora la claridad sin cambiar el sentido?",
+    "options": [
+      "La entrega de cartulinas quedo para otro dia porque hoy nadie las trajo.",
+      "Las cartulinas son cosas que a veces se dejan para despues.",
+      "Hoy nadie y despues el tema quedo con cartulinas.",
+      "El asunto quedo raro porque las cosas no estaban."
+    ],
+    "correct_answer": "La entrega de cartulinas quedo para otro dia porque hoy nadie las trajo.",
+    "feedback_correct": "Correcto: conserva el sentido y usa palabras mas precisas.",
+    "feedback_incorrect": "La mejor opcion mantiene la informacion y elimina expresiones vagas."
+  },
+  {
+    "id": "LEN-EX-073",
+    "skill_id": "LEN-TEXT-001",
+    "subskill": "ordenamiento cronologico y logico",
+    "difficulty": 1,
+    "type": "multiple_choice",
+    "prompt": "Segmentos: A) Cerro la mochila. B) Busco los libros. C) Salio hacia la escuela.\n¿Cual es el orden mas logico?",
+    "options": [
+      "B - A - C",
+      "A - C - B",
+      "C - B - A",
+      "B - C - A"
+    ],
+    "correct_answer": "B - A - C",
+    "feedback_correct": "Correcto: primero busca los libros, luego cierra la mochila y despues sale.",
+    "feedback_incorrect": "Ordena las acciones segun lo que debe pasar primero."
+  },
+  {
+    "id": "LEN-EX-074",
+    "skill_id": "LEN-TEXT-002",
+    "subskill": "deteccion de ruptura de coherencia",
+    "difficulty": 2,
+    "type": "multiple_choice",
+    "prompt": "Texto: El grupo preparo las semillas para el experimento. Luego lleno las macetas con tierra. Los trenes tienen distintos recorridos. Finalmente regaron cada maceta.\n¿Que oracion rompe la coherencia?",
+    "options": [
+      "Los trenes tienen distintos recorridos.",
+      "El grupo preparo las semillas para el experimento.",
+      "Luego lleno las macetas con tierra.",
+      "Finalmente regaron cada maceta."
+    ],
+    "correct_answer": "Los trenes tienen distintos recorridos.",
+    "feedback_correct": "Correcto: esa oracion cambia de tema y corta la progresion.",
+    "feedback_incorrect": "Busca la oracion que no sigue el tema del experimento."
+  },
+  {
+    "id": "LEN-EX-075",
+    "skill_id": "LEN-TEXT-003",
+    "subskill": "conexion entre segmentos",
+    "difficulty": 3,
+    "type": "multiple_choice",
+    "prompt": "Oracion: El equipo llego tarde. _____ pudo jugar porque el partido empezo despues.\n¿Que conector completa mejor la relacion?",
+    "options": [
+      "Sin embargo,",
+      "Por eso,",
+      "Antes,",
+      "Ademas,"
+    ],
+    "correct_answer": "Sin embargo,",
+    "feedback_correct": "Correcto: marca contraste entre llegar tarde y poder jugar.",
+    "feedback_incorrect": "La segunda idea contrasta con lo esperado, no muestra una consecuencia directa."
+  },
+  {
+    "id": "LEN-EX-076",
+    "skill_id": "LEN-GRAM-002",
+    "subskill": "concordancia nominal y verbal",
+    "difficulty": 1,
+    "type": "multiple_choice",
+    "prompt": "Oracion: Las ventanas _____ abiertas durante la mañana.\n¿Que forma completa correctamente?",
+    "options": [
+      "quedaron",
+      "quedo",
+      "queda",
+      "quedaria"
+    ],
+    "correct_answer": "quedaron",
+    "feedback_correct": "Correcto: 'las ventanas' exige verbo en plural.",
+    "feedback_incorrect": "El sujeto esta en plural, por eso el verbo tambien debe estarlo."
+  },
+  {
+    "id": "LEN-EX-077",
+    "skill_id": "LEN-GRAM-003",
+    "subskill": "funcion sintactica basica",
+    "difficulty": 2,
+    "type": "multiple_choice",
+    "prompt": "Oracion: La profesora corrigio los ejercicios.\n¿Cual es el nucleo del sujeto?",
+    "options": [
+      "profesora",
+      "corrigio",
+      "ejercicios",
+      "la"
+    ],
+    "correct_answer": "profesora",
+    "feedback_correct": "Correcto: es la palabra central de quien realiza la accion.",
+    "feedback_incorrect": "Busca quien realiza la accion; el nucleo es el sustantivo principal."
   }
   ]
 }
