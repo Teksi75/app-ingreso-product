@@ -62,6 +62,168 @@
       "feedback_correct": "Correcto: calles cerradas y vallas indican una intervention u obra."
     },
     {
+      "id": "LEN-EX-057",
+      "skill_id": "LEN-COMP-003",
+      "subskill": "inferir causa o consecuencia",
+      "difficulty": 1,
+      "type": "multiple_choice",
+      "text": "El patio de la escuela amanecio mojado y varias mochilas tenian gotas de agua. La directora pidio que el recreo se hiciera adentro.",
+      "prompt": "Que se puede inferir?",
+      "options": [
+        "Habia llovido o estaba lloviendo",
+        "Los estudiantes limpiaron el patio",
+        "La escuela habia cerrado por vacaciones",
+        "Las mochilas estaban nuevas"
+      ],
+      "correct_answer": "Habia llovido o estaba lloviendo",
+      "feedback_correct": "Correcto: el patio mojado y las gotas permiten inferir lluvia.",
+      "feedback_incorrect": "Busca una causa que explique el patio mojado y el recreo adentro."
+    },
+    {
+      "id": "LEN-EX-058",
+      "skill_id": "LEN-COMP-003",
+      "subskill": "inferir causa o consecuencia",
+      "difficulty": 1,
+      "type": "multiple_choice",
+      "text": "Tomas guardo el cuaderno en la mochila y salio rapido. Al llegar a clase, no tenia lapicera para copiar.",
+      "prompt": "Que consecuencia se puede inferir?",
+      "options": [
+        "Tomas tendra que pedir una lapicera",
+        "Tomas ya termino la tarea",
+        "La clase se suspendio",
+        "El cuaderno estaba roto"
+      ],
+      "correct_answer": "Tomas tendra que pedir una lapicera",
+      "feedback_correct": "Correcto: si no tiene lapicera, probablemente necesitara pedir una.",
+      "feedback_incorrect": "Piensa que necesita para copiar en clase."
+    },
+    {
+      "id": "LEN-EX-059",
+      "skill_id": "LEN-COMP-003",
+      "subskill": "inferir causa o consecuencia",
+      "difficulty": 2,
+      "type": "multiple_choice",
+      "text": "La biblioteca coloco un cartel de silencio en la entrada. Varias personas estudiaban con auriculares y libros abiertos.",
+      "prompt": "Por que pusieron probablemente el cartel?",
+      "options": [
+        "Para cuidar un ambiente de estudio",
+        "Para anunciar una venta de libros",
+        "Para indicar una salida de emergencia",
+        "Para invitar a una charla con musica"
+      ],
+      "correct_answer": "Para cuidar un ambiente de estudio",
+      "feedback_correct": "Correcto: el contexto muestra personas estudiando y necesidad de silencio.",
+      "feedback_incorrect": "Relaciona el cartel con lo que estan haciendo las personas."
+    },
+    {
+      "id": "LEN-EX-060",
+      "skill_id": "LEN-COMP-003",
+      "subskill": "inferir causa o consecuencia",
+      "difficulty": 2,
+      "type": "multiple_choice",
+      "text": "El tren llego veinte minutos tarde. Algunos pasajeros miraban el reloj y apuraban el paso al bajar.",
+      "prompt": "Que se puede inferir sobre algunos pasajeros?",
+      "options": [
+        "Podian llegar tarde a sus actividades",
+        "Querian pasear por la estacion",
+        "Habian olvidado comprar boletos",
+        "No sabian leer la hora"
+      ],
+      "correct_answer": "Podian llegar tarde a sus actividades",
+      "feedback_correct": "Correcto: mirar el reloj y apurarse se relaciona con llegar tarde.",
+      "feedback_incorrect": "Fijate que efecto puede tener la demora del tren."
+    },
+    {
+      "id": "LEN-EX-061",
+      "skill_id": "LEN-COMP-003",
+      "subskill": "inferir causa o consecuencia",
+      "difficulty": 2,
+      "type": "multiple_choice",
+      "text": "El club aviso que la pileta no estaria disponible durante la tarde. Minutos despues, un tecnico entro con herramientas y reviso las bombas de agua.",
+      "prompt": "Cual es la causa mas probable del cierre?",
+      "options": [
+        "Habia que hacer una reparacion o revision",
+        "El club organizo una competencia",
+        "Los socios pidieron mas horarios",
+        "La pileta estaba demasiado llena de gente"
+      ],
+      "correct_answer": "Habia que hacer una reparacion o revision",
+      "feedback_correct": "Correcto: el tecnico y las herramientas indican mantenimiento.",
+      "feedback_incorrect": "Usa la pista del tecnico con herramientas."
+    },
+    {
+      "id": "LEN-EX-062",
+      "skill_id": "LEN-COMP-003",
+      "subskill": "inferir causa o consecuencia",
+      "difficulty": 2,
+      "type": "multiple_choice",
+      "text": "La maestra pidio guardar los mapas y repartir hojas en blanco. Luego escribio en el pizarron: Evaluacion de geografia.",
+      "prompt": "Que se puede inferir?",
+      "options": [
+        "La clase iba a tener una prueba",
+        "La maestra iba a decorar el aula",
+        "Los estudiantes iban a salir al patio",
+        "La materia cambiaria a matematica"
+      ],
+      "correct_answer": "La clase iba a tener una prueba",
+      "feedback_correct": "Correcto: hojas en blanco y evaluacion anuncian una prueba.",
+      "feedback_incorrect": "Relaciona la palabra evaluacion con las hojas en blanco."
+    },
+    {
+      "id": "LEN-EX-063",
+      "skill_id": "LEN-COMP-003",
+      "subskill": "inferir causa o consecuencia",
+      "difficulty": 3,
+      "type": "multiple_choice",
+      "text": "El almacenero bajo la persiana antes del horario habitual. En la puerta dejo un papel que decia: Volvemos cuando se restablezca la luz.",
+      "prompt": "Que se puede inferir?",
+      "options": [
+        "El negocio no podia atender por un corte de electricidad",
+        "El almacenero cambio de rubro",
+        "El negocio habia vendido toda la mercaderia",
+        "La persiana estaba recien pintada"
+      ],
+      "correct_answer": "El negocio no podia atender por un corte de electricidad",
+      "feedback_correct": "Correcto: restablecer la luz indica un corte electrico.",
+      "feedback_incorrect": "Presta atencion al aviso pegado en la puerta."
+    },
+    {
+      "id": "LEN-EX-064",
+      "skill_id": "LEN-COMP-003",
+      "subskill": "inferir causa o consecuencia",
+      "difficulty": 3,
+      "type": "multiple_choice",
+      "text": "El equipo llevo botellas extra y gorras al entrenamiento. El profesor redujo la duracion de los ejercicios al aire libre.",
+      "prompt": "Cual es la inferencia mas probable?",
+      "options": [
+        "Hacia mucho calor durante el entrenamiento",
+        "El equipo entrenaba de noche",
+        "Los jugadores habian olvidado las zapatillas",
+        "El profesor queria suspender la temporada"
+      ],
+      "correct_answer": "Hacia mucho calor durante el entrenamiento",
+      "feedback_correct": "Correcto: agua, gorras y menos actividad al aire libre apuntan al calor.",
+      "feedback_incorrect": "Busca una condicion que explique las botellas, las gorras y la reduccion."
+    },
+    {
+      "id": "LEN-EX-065",
+      "skill_id": "LEN-COMP-003",
+      "subskill": "inferir causa o consecuencia",
+      "difficulty": 3,
+      "type": "multiple_choice",
+      "text": "En la terminal anunciaron que el micro saldria por otra plataforma. Varias personas juntaron sus bolsos y caminaron hacia el sector opuesto.",
+      "prompt": "Que consecuencia produjo el anuncio?",
+      "options": [
+        "Los pasajeros cambiaron de lugar para abordar",
+        "Los pasajeros cancelaron todos los pasajes",
+        "El micro llego a destino antes de tiempo",
+        "La terminal cerro sus puertas"
+      ],
+      "correct_answer": "Los pasajeros cambiaron de lugar para abordar",
+      "feedback_correct": "Correcto: el cambio de plataforma hizo que se movieran con sus bolsos.",
+      "feedback_incorrect": "Observa que hicieron las personas despues del anuncio."
+    },
+    {
       "id": "LEN-EX-040",
       "skill_id": "LEN-COMP-004",
       "subskill": "identificar intencion informativa",

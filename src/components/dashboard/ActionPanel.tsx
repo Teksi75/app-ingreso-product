@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { type SkillState } from "../../storage/local_progress_store";
+import { getSkillMetadata } from "../../skills/skill_metadata";
 
 type DashboardSkill = {
   skill: string;
@@ -14,12 +15,23 @@ type ActionPanelProps = {
 
 export function ActionPanel({ skill }: ActionPanelProps) {
   const practiceHref = skill ? `/practice?skill=${encodeURIComponent(skill.skill)}` : "/practice";
+  const metadata = skill ? getSkillMetadata(skill.skill) : null;
 
   return (
     <section className="flex flex-wrap items-center justify-between gap-4 rounded-lg bg-[#1d1d1b] px-5 py-[18px] text-white">
       <div>
         <p className="mt-0 mb-1.5 text-[13px] font-bold text-[#d8ddd0]">Practicar ahora</p>
-        <h2 className="m-0 text-[22px] leading-[1.2] font-bold">{skill ? skill.skill : "Empezar practica"}</h2>
+        <h2 className="m-0 text-[22px] leading-[1.2] font-bold">
+          {metadata ? metadata.title : "Empezar practica"}
+        </h2>
+        {metadata ? (
+          <>
+            <p className="mt-1 mb-0 text-[13px] font-semibold text-[#d8ddd0]">{metadata.id}</p>
+            <p className="mt-1.5 mb-0 max-w-[520px] text-[14px] leading-5 text-[#d8ddd0]">
+              {metadata.description}
+            </p>
+          </>
+        ) : null}
       </div>
       <Link
         href={practiceHref}
