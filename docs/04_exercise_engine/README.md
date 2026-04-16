@@ -43,3 +43,17 @@ El selector usa:
 - historial de intentos para accuracy, streak y mastery efectivo.
 - `usedExerciseIds` y `lastExerciseId` para evitar repeticion inmediata.
 
+## Estado actual
+
+- 6 archivos de ejercicios de Lengua cargados por el runtime.
+- 231 ejercicios normalizados y deduplicados.
+- 27 relaciones de seleccion activas.
+- 28 nodos de mastery activos.
+- Cobertura de integracion en `src/components/practice/__tests__/lengua_integration.test.ts`.
+
+## Como probar
+
+```bash
+node src/components/practice/__tests__/lengua_integration.test.ts
+npm run typecheck
+```

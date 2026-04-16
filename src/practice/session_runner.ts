@@ -170,7 +170,7 @@ function normalizeExercise(
   const subskillId = normalizeSubskillId(exercise.subskill ?? exercise.canonical_subskill, skillId, graph);
   const answer = exercise.answer;
   const options = normalizeOptions(exercise.options, answer);
-  const correctAnswer = normalizeCorrectAnswer(answer, exercise.options, options);
+  const correctAnswer = normalizeCorrectAnswer(answer, exercise.options, options, exercise);
   const feedback = normalizeFeedback(exercise);
 
   return {
@@ -459,7 +459,12 @@ function normalizeOptions(rawOptions: unknown, answer: unknown): string[] {
   return [];
 }
 
-function normalizeCorrectAnswer(answer: unknown, rawOptions: unknown, options: string[]): string {
+function normalizeCorrectAnswer(
+  answer: unknown,
+  rawOptions: unknown,
+  options: string[],
+  exercise: Record<string, unknown>,
+): string {
   if (typeof answer === "string") {
     if (Array.isArray(rawOptions)) {
       const matchingObject = rawOptions.find((option) => (
@@ -483,6 +488,15 @@ function normalizeCorrectAnswer(answer: unknown, rawOptions: unknown, options: s
 
   if (typeof answer === "object" && answer !== null) {
     return JSON.stringify(answer);
+  }
+
+  const acceptedAnswer = [
+    ...normalizeStringArray(exercise.accepted_answers),
+    ...normalizeStringArray(exercise.acceptable_answers),
+  ][0];
+
+  if (acceptedAnswer) {
+    return acceptedAnswer;
   }
 
   return options[0] ?? "";

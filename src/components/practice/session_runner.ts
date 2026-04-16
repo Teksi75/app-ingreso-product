@@ -1,1 +1,1 @@
-export * from "../../practice/session_runner";
+export * from "../../practice/session_runner.ts";

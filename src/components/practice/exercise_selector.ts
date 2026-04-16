@@ -1,1 +1,1 @@
-export * from "../../practice/exercise_selector";
+export * from "../../practice/exercise_selector.ts";

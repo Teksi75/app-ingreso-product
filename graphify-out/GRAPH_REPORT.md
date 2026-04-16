@@ -1,12 +1,12 @@
 # Graph Report - .  (2026-04-16)
 
 ## Corpus Check
-- 21 files · ~56,598 words
+- 22 files · ~57,144 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 277 nodes · 437 edges · 26 communities detected
-- Extraction: 94% EXTRACTED · 6% INFERRED · 0% AMBIGUOUS · INFERRED: 27 edges (avg confidence: 0.82)
+- 284 nodes · 455 edges · 26 communities detected
+- Extraction: 92% EXTRACTED · 8% INFERRED · 0% AMBIGUOUS · INFERRED: 35 edges (avg confidence: 0.82)
 - Token cost: 0 input · 0 output
 
 ## Community Hubs (Navigation)
@@ -45,21 +45,21 @@
 5. `App Ingreso` - 11 edges
 6. `Scope & Rules Validator` - 11 edges
 7. `Codex Prompt Generator` - 11 edges
-8. `runSession()` - 10 edges
-9. `Product Guardian` - 10 edges
-10. `Quality Auditor` - 10 edges
+8. `loadLenguaSelectionGraph()` - 10 edges
+9. `runSession()` - 10 edges
+10. `Product Guardian` - 10 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `Product Roadmap - App Ingreso` --conceptually_related_to--> `App icon with dark square and white stylized mark`  [INFERRED]
   roadmap/roadmap.md → src/app/icon.svg
-- `loadLenguaExercises()` --calls--> `listLenguaExerciseFiles()`  [INFERRED]
-  src\practice\session_runner.ts → src\practice\exercise_selector.ts
-- `normalizeExercise()` --calls--> `normalizeSkillId()`  [INFERRED]
-  src\practice\session_runner.ts → src\practice\exercise_selector.ts
-- `startPracticeSession()` --calls--> `normalizeSkillId()`  [INFERRED]
-  src\practice\session_runner.ts → src\practice\exercise_selector.ts
-- `normalizeExercise()` --calls--> `normalizeSubskillId()`  [INFERRED]
-  src\practice\session_runner.ts → src\practice\exercise_selector.ts
+- `assertLoadsAllLenguaJson()` --calls--> `loadLenguaSelectorExercises()`  [INFERRED]
+  src\components\practice\__tests__\lengua_integration.test.ts → src\practice\exercise_selector.ts
+- `assertNormalizedExerciseShape()` --calls--> `normalizeSubskillId()`  [INFERRED]
+  src\components\practice\__tests__\lengua_integration.test.ts → src\practice\exercise_selector.ts
+- `normalizeSubskillId()` --calls--> `normalizeExercise()`  [INFERRED]
+  src\practice\exercise_selector.ts → src\practice\session_runner.ts
+- `selectNextExerciseDetailed()` --calls--> `startPracticeSession()`  [INFERRED]
+  src\practice\exercise_selector.ts → src\practice\session_runner.ts
 
 ## Hyperedges (group relationships)
 - **Four-agent validation stack** — agent_01_product_guardian, agent_02_scope_rules_validator, agent_03_quality_auditor, agent_04_codex_prompt_generator [INFERRED 0.94]
@@ -73,19 +73,19 @@
 
 ### Community 0 - "Community 0"
 Cohesion: 0.07
-Nodes (46): Access by Time, Adaptive Practice, ADR-002: No Official Content, ADR-003: Autonomous Learning, ADR-004: Parent Responsibility, Adult Customer, Adult Responsibility, Autonomous Training Platform (+38 more)
+Nodes (44): Access by Time, Adaptive Practice, ADR-003: Autonomous Learning, ADR-004: Parent Responsibility, Adult Customer, Adult Responsibility, Autonomous Training Platform, Business Rules (+36 more)
 
 ### Community 1 - "Community 1"
 Cohesion: 0.1
-Nodes (34): clampDifficulty(), clampMastery(), dedupeExercises(), extractSelectorExercises(), filterImmediateRepeats(), filterUnlockedExercises(), findAlternativeSubskill(), findRelatedTarget() (+26 more)
+Nodes (41): ADR-001 Product Scope, ADR-002: No Official Content, Product Guardian, Scope & Rules Validator, Quality Auditor, Codex Prompt Generator, Agents Map, AGENTS instructions (+33 more)
 
 ### Community 2 - "Community 2"
 Cohesion: 0.1
-Nodes (39): ADR-001 Product Scope, Product Guardian, Scope & Rules Validator, Quality Auditor, Codex Prompt Generator, Agents Map, AGENTS instructions, App Ingreso product scope (+31 more)
+Nodes (32): clampDifficulty(), clampMastery(), dedupeExercises(), extractSelectorExercises(), filterImmediateRepeats(), filterUnlockedExercises(), findAlternativeSubskill(), findRelatedTarget() (+24 more)
 
 ### Community 3 - "Community 3"
-Cohesion: 0.15
-Nodes (21): loadLenguaSelectionGraph(), buildUserState(), ensureOptions(), evaluateAnswer(), findExercise(), loadExercises(), loadLenguaExercises(), normalizeCorrectAnswer() (+13 more)
+Cohesion: 0.11
+Nodes (29): listLenguaExerciseFiles(), loadLenguaSelectionGraph(), normalizeSkillId(), assertLoadsAllLenguaJson(), assertNormalizedExerciseShape(), assertSelectionRespectsPrerequisitesAndMastery(), assertSessionRunnerUsesCrossRelationships(), buildExercise() (+21 more)
 
 ### Community 4 - "Community 4"
 Cohesion: 0.11
@@ -207,11 +207,11 @@ Nodes (0):
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `Product Analysis` connect `Community 0` to `Community 7`?**
-  _High betweenness centrality (0.057) - this node is a cross-community bridge._
+  _High betweenness centrality (0.054) - this node is a cross-community bridge._
 - **Why does `loadProgress()` connect `Community 6` to `Community 5`?**
-  _High betweenness centrality (0.045) - this node is a cross-community bridge._
-- **Why does `No official content` connect `Community 0` to `Community 2`?**
-  _High betweenness centrality (0.037) - this node is a cross-community bridge._
+  _High betweenness centrality (0.047) - this node is a cross-community bridge._
+- **Why does `runSimulator()` connect `Community 5` to `Community 6`?**
+  _High betweenness centrality (0.036) - this node is a cross-community bridge._
 - **Are the 2 inferred relationships involving `selectNextExerciseDetailed()` (e.g. with `startPracticeSession()` and `runSession()`) actually correct?**
   _`selectNextExerciseDetailed()` has 2 INFERRED edges - model-reasoned connections that need verification._
 - **Are the 2 inferred relationships involving `Agent Orchestrator` (e.g. with `Validation Pipeline` and `Interaction Flow`) actually correct?**
