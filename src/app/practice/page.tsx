@@ -25,7 +25,6 @@ export default async function PracticePage({ searchParams }: PracticePageProps) 
   return (
     <main className="min-h-screen bg-[#f7f7f4] px-4 py-8 text-[#1d1d1b]">
       <section className="mx-auto grid max-w-md gap-5">
-        <p className="text-sm font-medium text-gray-500">{exercise.skill_id}</p>
         <PracticeQuestion
           exercise={exercise}
           exercisePool={exercisePool}

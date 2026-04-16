@@ -3,18 +3,27 @@
 ## Set auditado
 
 - Archivo: `lengua_exercises_modulo3.json`
-- Cantidad de ejercicios: 20
+- Cantidad de ejercicios: 29
 - Origen: original, no derivado de contenido oficial
 
 ## Verificacion por habilidad
 
-### Comprension (noticia) - 5 ejercicios
+### Comprension (noticia) - 14 ejercicios
 
 | ID | Skill | Subskill | Dificultad | Loop completo | Distractores | Feedback |
 |----|-------|----------|-----------|--------------|-------------|----------|
 | LEN-EX-037 | LEN-COMP-001 | reconocer tema central | 1 | OK | OK | OK |
 | LEN-EX-038 | LEN-COMP-002 | ubicar datos puntuales | 1 | OK | OK | OK |
 | LEN-EX-039 | LEN-COMP-003 | inferir causa o consecuencia | 2 | OK | OK | OK |
+| LEN-EX-057 | LEN-COMP-003 | inferir causa o consecuencia | 1 | OK | OK | OK |
+| LEN-EX-058 | LEN-COMP-003 | inferir causa o consecuencia | 1 | OK | OK | OK |
+| LEN-EX-059 | LEN-COMP-003 | inferir causa o consecuencia | 2 | OK | OK | OK |
+| LEN-EX-060 | LEN-COMP-003 | inferir causa o consecuencia | 2 | OK | OK | OK |
+| LEN-EX-061 | LEN-COMP-003 | inferir causa o consecuencia | 2 | OK | OK | OK |
+| LEN-EX-062 | LEN-COMP-003 | inferir causa o consecuencia | 2 | OK | OK | OK |
+| LEN-EX-063 | LEN-COMP-003 | inferir causa o consecuencia | 3 | OK | OK | OK |
+| LEN-EX-064 | LEN-COMP-003 | inferir causa o consecuencia | 3 | OK | OK | OK |
+| LEN-EX-065 | LEN-COMP-003 | inferir causa o consecuencia | 3 | OK | OK | OK |
 | LEN-EX-040 | LEN-COMP-004 | identificar intencion informativa | 2 | OK | OK | OK |
 | LEN-EX-041 | LEN-COMP-002 | distinguir dato textual de inferencia | 3 | OK | OK | OK |
 
@@ -87,4 +96,4 @@
 
 ## Aprobacion
 
-El set de 20 ejercicios esta aprobado para integrarse al motor de ejercicios.
+El set de 29 ejercicios esta aprobado para integrarse al motor de ejercicios.
