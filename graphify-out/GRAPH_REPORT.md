@@ -5,8 +5,8 @@
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 232 nodes · 340 edges · 25 communities detected
-- Extraction: 95% EXTRACTED · 5% INFERRED · 0% AMBIGUOUS · INFERRED: 16 edges (avg confidence: 0.83)
+- 230 nodes · 336 edges · 25 communities detected
+- Extraction: 96% EXTRACTED · 4% INFERRED · 0% AMBIGUOUS · INFERRED: 15 edges (avg confidence: 0.84)
 - Token cost: 0 input · 0 output
 
 ## Community Hubs (Navigation)
@@ -71,16 +71,16 @@
 ## Communities
 
 ### Community 0 - "Community 0"
-Cohesion: 0.11
-Nodes (37): ADR-001 Product Scope, ADR-002: No Official Content, Product Guardian, Scope & Rules Validator, Quality Auditor, Codex Prompt Generator, Agents Map, AGENTS instructions (+29 more)
+Cohesion: 0.1
+Nodes (39): ADR-001 Product Scope, Product Guardian, Scope & Rules Validator, Quality Auditor, Codex Prompt Generator, Agents Map, AGENTS instructions, App Ingreso product scope (+31 more)
 
 ### Community 1 - "Community 1"
 Cohesion: 0.1
-Nodes (25): Access by Time, ADR-004: Parent Responsibility, Adult Customer, Adult Responsibility, Autonomous Training Platform, Business Rules, Cognitive Load Theory, Commercial Tiers (+17 more)
+Nodes (26): Access by Time, ADR-004: Parent Responsibility, Adult Customer, Adult Responsibility, Autonomous Training Platform, Business Rules, Cognitive Load Theory, Commercial Tiers (+18 more)
 
 ### Community 2 - "Community 2"
 Cohesion: 0.17
-Nodes (19): Adaptive Practice, ADR-003: Autonomous Learning, Difficulty 1-3, Exercise Engine v1, Exercise Selection Logic v1, Exercise Skill-Subskill Mapping, Brief Feedback, Immediate feedback (+11 more)
+Nodes (19): Adaptive Practice, ADR-002: No Official Content, ADR-003: Autonomous Learning, Difficulty 1-3, Exercise Engine v1, Exercise Selection Logic v1, Exercise Skill-Subskill Mapping, Brief Feedback (+11 more)
 
 ### Community 3 - "Community 3"
 Cohesion: 0.11
@@ -91,16 +91,16 @@ Cohesion: 0.22
 Nodes (15): buildSkillResults(), buildSkillStats(), chanceByDifficulty(), formatPercent(), groupBySkill(), hasAvailableExercises(), loadExercises(), pickValue() (+7 more)
 
 ### Community 5 - "Community 5"
-Cohesion: 0.25
-Nodes (12): parseUsedExerciseIds(), PracticePage(), buildUserState(), computeAccuracy(), computeStreak(), evaluateAnswer(), findExercise(), loadExercises() (+4 more)
-
-### Community 6 - "Community 6"
 Cohesion: 0.21
 Nodes (14): Accuracy Metric, Consistency Metric, Diagnostic Initial, Frequent Short Sessions, Mastery Levels, Parent Visibility, Progress by Skill, Progress Metrics (+6 more)
 
-### Community 7 - "Community 7"
+### Community 6 - "Community 6"
 Cohesion: 0.31
 Nodes (11): findAlternativeSubskill(), getReferenceDifficulty(), logSelection(), pickDeterministic(), pickFallbackCandidate(), pickRandom(), pickStrictCandidate(), resolveRuleTarget() (+3 more)
+
+### Community 7 - "Community 7"
+Cohesion: 0.33
+Nodes (10): buildUserState(), computeAccuracy(), computeStreak(), evaluateAnswer(), findExercise(), loadExercises(), runDeterministicSession(), runMixedSession() (+2 more)
 
 ### Community 8 - "Community 8"
 Cohesion: 0.27
@@ -131,8 +131,8 @@ Cohesion: 0.4
 Nodes (5): Cohesion, coherencia y conectores, Lengua | modulo 4, La leyenda de la Laguna de la Nina Encantada, Narracion y tipos de narradores, Posesivos, demostrativos y usos de B y V
 
 ### Community 15 - "Community 15"
-Cohesion: 0.67
-Nodes (3): Lengua content sources, Original content only, Skill extraction and difficulty analysis
+Cohesion: 1.0
+Nodes (0): 
 
 ### Community 16 - "Community 16"
 Cohesion: 1.0
@@ -173,21 +173,23 @@ Nodes (0):
 ## Knowledge Gaps
 - **69 isolated node(s):** `AGENTS instructions`, `Minor-adjustment example`, `Codex Prompt Generator system prompt`, `Product Guardian system prompt`, `Quality Auditor system prompt` (+64 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **Thin community `Community 16`** (2 nodes): `RootLayout()`, `layout.tsx`
+- **Thin community `Community 15`** (2 nodes): `RootLayout()`, `layout.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 17`** (2 nodes): `HomePage()`, `page.tsx`
+- **Thin community `Community 16`** (2 nodes): `HomePage()`, `page.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 18`** (2 nodes): `Header()`, `Header.tsx`
+- **Thin community `Community 17`** (2 nodes): `Header()`, `Header.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 19`** (2 nodes): `SkillList()`, `SkillList.tsx`
+- **Thin community `Community 18`** (2 nodes): `SkillList()`, `SkillList.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 20`** (2 nodes): `SkillStatus()`, `SkillStatus.tsx`
+- **Thin community `Community 19`** (2 nodes): `SkillStatus()`, `SkillStatus.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 21`** (1 nodes): `next-env.d.ts`
+- **Thin community `Community 20`** (1 nodes): `next-env.d.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 22`** (1 nodes): `next.config.js`
+- **Thin community `Community 21`** (1 nodes): `next.config.js`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 23`** (1 nodes): `postcss.config.mjs`
+- **Thin community `Community 22`** (1 nodes): `postcss.config.mjs`
+  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
+- **Thin community `Community 23`** (1 nodes): `page.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
 - **Thin community `Community 24`** (1 nodes): `ActionPanel.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
@@ -195,17 +197,17 @@ Nodes (0):
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `Product Analysis` connect `Community 1` to `Community 2`, `Community 6`?**
-  _High betweenness centrality (0.081) - this node is a cross-community bridge._
-- **Why does `No official content` connect `Community 0` to `Community 1`, `Community 2`?**
-  _High betweenness centrality (0.052) - this node is a cross-community bridge._
-- **Why does `Immediate feedback` connect `Community 2` to `Community 0`?**
+- **Why does `Product Analysis` connect `Community 1` to `Community 2`, `Community 5`?**
+  _High betweenness centrality (0.082) - this node is a cross-community bridge._
+- **Why does `No official content` connect `Community 2` to `Community 0`, `Community 1`?**
+  _High betweenness centrality (0.053) - this node is a cross-community bridge._
+- **Why does `Immediate feedback` connect `Community 0` to `Community 2`?**
   _High betweenness centrality (0.036) - this node is a cross-community bridge._
 - **Are the 2 inferred relationships involving `Agent Orchestrator` (e.g. with `Validation Pipeline` and `Interaction Flow`) actually correct?**
   _`Agent Orchestrator` has 2 INFERRED edges - model-reasoned connections that need verification._
 - **What connects `AGENTS instructions`, `Minor-adjustment example`, `Codex Prompt Generator system prompt` to the rest of the system?**
   _69 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Community 0` be split into smaller, more focused modules?**
-  _Cohesion score 0.11 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.1 - nodes in this community are weakly interconnected._
 - **Should `Community 1` be split into smaller, more focused modules?**
   _Cohesion score 0.1 - nodes in this community are weakly interconnected._
