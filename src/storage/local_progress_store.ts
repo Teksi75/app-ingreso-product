@@ -21,6 +21,7 @@ export type SessionData = {
 
 export type StoredProgress = {
   sessions: Array<SessionData & { id: string; created_at: string }>;
+  seenSkills?: string[];
   skill_stats: Record<
     string,
     {
@@ -39,7 +40,10 @@ export function loadProgress(): StoredProgress {
   }
 
   const raw = readFileSync(progressPath, "utf8");
-  return JSON.parse(raw) as StoredProgress;
+  const progress = JSON.parse(raw) as StoredProgress;
+  progress.seenSkills ??= [];
+
+  return progress;
 }
 
 export function saveSessionResult(sessionData: SessionData): StoredProgress {
@@ -52,6 +56,10 @@ export function saveSessionResult(sessionData: SessionData): StoredProgress {
 
   progress.sessions.push(session);
   updateSkillStats(progress, sessionData);
+  updateSeenSkills(
+    progress,
+    sessionData.skill_results.map((skillResult) => skillResult.skill_id),
+  );
   writeProgress(progress);
 
   return progress;
@@ -74,9 +82,34 @@ export function updateSkillStats(progress: StoredProgress, sessionData: SessionD
   return progress;
 }
 
+export function markSkillsSeen(skillIds: string[]): StoredProgress {
+  const progress = loadProgress();
+  updateSeenSkills(progress, skillIds);
+  writeProgress(progress);
+
+  return progress;
+}
+
+export function getSeenSkills(): string[] {
+  return loadProgress().seenSkills ?? [];
+}
+
+function updateSeenSkills(progress: StoredProgress, skillIds: string[]): StoredProgress {
+  const seenSkills = new Set(progress.seenSkills ?? []);
+
+  for (const skillId of skillIds) {
+    seenSkills.add(skillId);
+  }
+
+  progress.seenSkills = [...seenSkills].sort((left, right) => left.localeCompare(right));
+
+  return progress;
+}
+
 function createEmptyProgress(): StoredProgress {
   return {
     sessions: [],
+    seenSkills: [],
     skill_stats: {},
   };
 }

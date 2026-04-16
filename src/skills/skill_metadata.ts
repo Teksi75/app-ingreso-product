@@ -35,6 +35,11 @@ const skillMetadata: Record<string, SkillMetadata> = {
     title: "Concordancia gramatical",
     description: "Entrena mantener acuerdo de genero, numero y persona dentro de la oracion.",
   },
+  "LEN-GRAM-003": {
+    id: "LEN-GRAM-003",
+    title: "Funcion sintactica",
+    description: "Entrena reconocer nucleos y relaciones basicas dentro de la oracion.",
+  },
   "LEN-NORM-001": {
     id: "LEN-NORM-001",
     title: "Ortografia de uso",
@@ -54,6 +59,46 @@ const skillMetadata: Record<string, SkillMetadata> = {
     id: "LEN-TEXT-001",
     title: "Coherencia textual",
     description: "Entrena ordenar ideas y sostener un hilo claro entre partes de un texto.",
+  },
+  "LEN-TEXT-002": {
+    id: "LEN-TEXT-002",
+    title: "Proposito y coherencia",
+    description: "Entrena reconocer propositos comunicativos y detectar rupturas de coherencia.",
+  },
+  "LEN-TEXT-003": {
+    id: "LEN-TEXT-003",
+    title: "Conectores",
+    description: "Entrena elegir enlaces adecuados entre segmentos de un texto.",
+  },
+  "LEN-PUNC-001": {
+    id: "LEN-PUNC-001",
+    title: "Comas",
+    description: "Entrena usar comas en enumeraciones e inserciones breves.",
+  },
+  "LEN-PUNC-002": {
+    id: "LEN-PUNC-002",
+    title: "Puntuacion y sentido",
+    description: "Entrena elegir signos que fijan o cambian la interpretacion de una oracion.",
+  },
+  "LEN-PUNC-003": {
+    id: "LEN-PUNC-003",
+    title: "Segmentacion",
+    description: "Entrena separar enunciados para mantener claridad y sentido.",
+  },
+  "LEN-WRIT-001": {
+    id: "LEN-WRIT-001",
+    title: "Formato breve",
+    description: "Entrena producir mensajes breves con objetivo comunicativo claro.",
+  },
+  "LEN-WRIT-002": {
+    id: "LEN-WRIT-002",
+    title: "Datos relevantes",
+    description: "Entrena seleccionar informacion necesaria y descartar relleno.",
+  },
+  "LEN-WRIT-003": {
+    id: "LEN-WRIT-003",
+    title: "Claridad y foco",
+    description: "Entrena mejorar precision y legibilidad sin cambiar el sentido.",
   },
   "LEN-VOC-001": {
     id: "LEN-VOC-001",
