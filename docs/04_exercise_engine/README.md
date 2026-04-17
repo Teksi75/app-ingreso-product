@@ -51,6 +51,17 @@ El selector usa:
 - 28 nodos de mastery activos.
 - Cobertura de integracion en `src/components/practice/__tests__/lengua_integration.test.ts`.
 
+## Flujo de navegacion post-sesion
+
+Al cerrar una sesion de practica, la UI guarda el resultado con `LocalProgressStore` y muestra:
+
+- resumen de correctas sobre total;
+- mastery actualizado para el foco actual;
+- accion de repeticion con variacion cuando el mastery queda por debajo de 3;
+- siguiente subskill recomendada desde `exercise_selector`, usando el foco actual, `lengua_skill_relationships.json` y `lengua_mastery_map.json`;
+- acceso al mapa completo de mastery;
+- cambio de habilidad como accion secundaria persistente.
+
 ## Como probar
 
 ```bash

@@ -1,13 +1,20 @@
 "use client";
 
 import { FormEvent, useState, type ChangeEvent } from "react";
-import { type Exercise } from "../../practice/session_runner";
+import {
+  type MasteryMapNode,
+  type RecommendedSubskill,
+} from "../../components/practice/exercise_selector";
+import { type Exercise } from "../../components/practice/session_runner";
 import { getSkillMetadata } from "../../skills/skill_metadata";
+import { type PracticeSessionProgressInput, type PracticeSessionProgressResult } from "./page";
 
 type PracticeQuestionProps = {
   exercise: Exercise;
   exercisePool: Exercise[];
+  masteryMap: MasteryMapNode[];
   restartHref: string;
+  saveProgress: (input: PracticeSessionProgressInput) => Promise<PracticeSessionProgressResult>;
   usedExerciseIds: string[];
 };
 
@@ -16,7 +23,9 @@ const MAX_QUESTIONS = 10;
 export function PracticeQuestion({
   exercise,
   exercisePool,
+  masteryMap,
   restartHref,
+  saveProgress,
   usedExerciseIds,
 }: PracticeQuestionProps) {
   const [currentExercise, setCurrentExercise] = useState(exercise);
@@ -24,7 +33,11 @@ export function PracticeQuestion({
     Array.from(new Set([...usedExerciseIds, exercise.id])),
   );
   const [questionCount, setQuestionCount] = useState(1);
+  const [correctCount, setCorrectCount] = useState(0);
   const [sessionCompleted, setSessionCompleted] = useState(false);
+  const [progressResult, setProgressResult] = useState<PracticeSessionProgressResult | null>(null);
+  const [isSavingProgress, setIsSavingProgress] = useState(false);
+  const [showMasteryMap, setShowMasteryMap] = useState(false);
   const [selectedAnswer, setSelectedAnswer] = useState("");
   const [submittedAnswer, setSubmittedAnswer] = useState<string | null>(null);
   const hasSubmitted = submittedAnswer !== null;
@@ -66,9 +79,28 @@ export function PracticeQuestion({
     setSubmittedAnswer(null);
   }
 
-  function handleNext() {
+  async function handleNext() {
+    const nextCorrectCount = correctCount + (isCorrect ? 1 : 0);
+    setCorrectCount(nextCorrectCount);
+
     if (questionCount >= sessionQuestionCount || available.length === 0) {
       setSessionCompleted(true);
+      setIsSavingProgress(true);
+
+      try {
+        const result = await saveProgress({
+          currentFocus: currentExercise.subskill,
+          skillId: currentExercise.skill_id,
+          attempts: questionCount,
+          correct: nextCorrectCount,
+          currentMastery: currentExercise.mastery_level,
+        });
+
+        setProgressResult(result);
+      } finally {
+        setIsSavingProgress(false);
+      }
+
       return;
     }
 
@@ -82,18 +114,64 @@ export function PracticeQuestion({
   }
 
   if (sessionCompleted) {
+    const masteryLevel = progressResult?.masteryLevel ?? currentExercise.mastery_level;
+    const recommendedSubskill = progressResult?.recommendation ?? null;
+    const repeatHref = buildPracticeHref(currentExercise.skill_id, currentExercise.subskill, usedExercises);
+    const recommendedHref = recommendedSubskill
+      ? buildPracticeHref(recommendedSubskill.parentSkill, recommendedSubskill.id, [])
+      : restartHref;
+
     return (
       <>
         {skillBanner}
-        <article className="grid gap-4 rounded-lg border border-gray-200 bg-white p-4">
-          <h1 className="text-xl font-semibold">Sesion completada</h1>
-          <a
-            className="w-full rounded bg-black py-2 text-center text-white"
-            href={restartHref}
-          >
-            Volver a practicar
-          </a>
+        <article className="grid gap-4 rounded-[8px] border border-gray-200 bg-white p-4">
+          <div className="grid gap-2">
+            <p className="m-0 text-sm font-medium text-gray-500">Sesion completada</p>
+            <h1 className="m-0 text-xl font-semibold">
+              {nextCorrectText(correctCount, sessionQuestionCount)}
+            </h1>
+            <p className="m-0 text-sm font-semibold text-[#55554d]">
+              Mastery actualizado: {isSavingProgress ? "guardando" : masteryLevel}
+            </p>
+          </div>
+          <div className="grid gap-3">
+            {masteryLevel < 3 ? (
+              <a
+                className="inline-flex h-11 w-full items-center justify-center rounded-[8px] bg-[#1d1d1b] px-4 text-center text-sm font-semibold text-white"
+                href={repeatHref}
+              >
+                Repetir con variacion
+              </a>
+            ) : null}
+            <a
+              aria-disabled={!recommendedSubskill || isSavingProgress}
+              className="inline-flex h-11 w-full items-center justify-center rounded-[8px] border border-[#1d1d1b] px-4 text-center text-sm font-semibold text-[#1d1d1b] aria-disabled:pointer-events-none aria-disabled:opacity-50"
+              href={recommendedHref}
+            >
+              Siguiente subskill recomendada
+            </a>
+            <button
+              className="inline-flex h-11 w-full items-center justify-center rounded-[8px] border border-gray-300 px-4 text-sm font-semibold text-[#1d1d1b]"
+              onClick={() => setShowMasteryMap(true)}
+              type="button"
+            >
+              Ver mapa de mastery completo
+            </button>
+            <a
+              className="inline-flex h-11 w-full items-center justify-center rounded-[8px] border border-gray-300 px-4 text-center text-sm font-semibold text-[#1d1d1b]"
+              href="/dashboard"
+            >
+              Ver avance y progreso
+            </a>
+          </div>
         </article>
+        {showMasteryMap ? (
+          <MasteryMapModal
+            masteryMap={masteryMap}
+            onClose={() => setShowMasteryMap(false)}
+            recommendation={recommendedSubskill}
+          />
+        ) : null}
       </>
     );
   }
@@ -142,7 +220,9 @@ export function PracticeQuestion({
           ) : null}
           {hasSubmitted ? (
             <button
-              onClick={handleNext}
+              onClick={() => {
+                void handleNext();
+              }}
               type="button"
               className="w-full rounded bg-black py-2 text-center text-white"
             >
@@ -157,6 +237,70 @@ export function PracticeQuestion({
       </article>
     </>
   );
+}
+
+type MasteryMapModalProps = {
+  masteryMap: MasteryMapNode[];
+  onClose: () => void;
+  recommendation: RecommendedSubskill | null;
+};
+
+function MasteryMapModal({ masteryMap, onClose, recommendation }: MasteryMapModalProps) {
+  return (
+    <div
+      aria-modal="true"
+      className="fixed inset-0 z-10 grid place-items-center bg-black/40 px-4 py-6"
+      role="dialog"
+    >
+      <section className="grid max-h-[85vh] w-full max-w-[560px] gap-4 overflow-hidden rounded-[8px] bg-white p-4">
+        <div className="flex items-start justify-between gap-3">
+          <div>
+            <p className="m-0 text-sm font-medium text-gray-500">Lengua</p>
+            <h2 className="m-0 text-xl font-semibold">Mapa de mastery</h2>
+          </div>
+          <button
+            className="rounded-[8px] border border-gray-300 px-3 py-2 text-sm font-semibold"
+            onClick={onClose}
+            type="button"
+          >
+            Cerrar
+          </button>
+        </div>
+        <div className="grid gap-2 overflow-auto pr-1">
+          {masteryMap.map((node) => (
+            <div
+              className={`grid gap-1 rounded-[8px] border p-3 ${
+                recommendation?.id === node.id ? "border-[#1d1d1b] bg-[#f7f7f4]" : "border-gray-200"
+              }`}
+              key={node.id}
+            >
+              <p className="m-0 text-sm font-semibold text-[#1d1d1b]">{node.name}</p>
+              <p className="m-0 text-xs font-medium text-[#55554d]">
+                {node.id} · mastery {node.recommended_mastery}
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
+    </div>
+  );
+}
+
+function nextCorrectText(correct: number, total: number): string {
+  return `${correct} / ${total} correctos`;
+}
+
+function buildPracticeHref(skillId: string, focus: string, usedExerciseIds: string[]): string {
+  const params = new URLSearchParams({
+    skill: skillId,
+    focus,
+  });
+
+  if (usedExerciseIds.length > 0) {
+    params.set("used", Array.from(new Set(usedExerciseIds)).join(","));
+  }
+
+  return `/practice?${params.toString()}`;
 }
 
 function pickExercise(exercises: Exercise[]): Exercise {

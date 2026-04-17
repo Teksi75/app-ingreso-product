@@ -1,20 +1,24 @@
 import Link from "next/link";
-import { type SkillState } from "../../storage/local_progress_store";
 import { getSkillMetadata } from "../../skills/skill_metadata";
+import { type DashboardSkillState } from "./SkillStatus";
 
 type DashboardSkill = {
   skill: string;
-  accuracy: number;
+  accuracy: number | null;
   attempts: number;
-  last_state: SkillState;
+  practiceSessions: number;
+  last_state: DashboardSkillState;
 };
 
 type ActionPanelProps = {
+  isNewStudent?: boolean;
   skill: DashboardSkill | null;
 };
 
-export function ActionPanel({ skill }: ActionPanelProps) {
+export function ActionPanel({ isNewStudent = false, skill }: ActionPanelProps) {
   const metadata = skill ? getSkillMetadata(skill.skill) : null;
+  const href = isNewStudent ? "/practice?newStudent=1" : "/";
+  const label = isNewStudent ? "Inicia tu entrenamiento" : "Ir al inicio";
 
   return (
     <section className="flex flex-wrap items-center justify-between gap-4 rounded-lg bg-[#1d1d1b] px-5 py-[18px] text-white">
@@ -33,10 +37,10 @@ export function ActionPanel({ skill }: ActionPanelProps) {
         ) : null}
       </div>
       <Link
-        href="/"
+        href={href}
         className="inline-flex min-h-[42px] cursor-pointer items-center justify-center rounded-lg border-0 bg-white px-4 py-0 font-[inherit] font-bold whitespace-nowrap text-[#1d1d1b]"
       >
-        Ir al inicio
+        {label}
       </Link>
     </section>
   );

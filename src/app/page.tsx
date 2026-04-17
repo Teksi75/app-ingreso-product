@@ -17,10 +17,10 @@ export default function HomePage() {
             Continuar entrenamiento
           </Link>
           <Link
-            href="/practice?newStudent=1"
+            href="/dashboard?newStudent=1"
             className="inline-flex h-12 items-center justify-center rounded-[8px] border border-[#1d1d1b] px-5 text-[16px] font-semibold text-[#1d1d1b]"
           >
-            Simular alumno nuevo
+            Nuevo Alumno
           </Link>
         </div>
         <Link

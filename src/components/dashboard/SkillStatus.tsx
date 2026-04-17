@@ -1,10 +1,16 @@
 import { type SkillState } from "../../storage/local_progress_store";
 
+export type DashboardSkillState = SkillState | "not_started";
+
 type SkillStatusProps = {
-  state: SkillState;
+  state: DashboardSkillState;
 };
 
-const statusConfig: Record<SkillState, { label: string; className: string }> = {
+const statusConfig: Record<DashboardSkillState, { label: string; className: string }> = {
+  not_started: {
+    label: "Todavia no resuelto",
+    className: "bg-[#eceee8] text-[#55554d]",
+  },
   weak: {
     label: "Debil",
     className: "bg-[#fde8e8] text-[#9f1d1d]",

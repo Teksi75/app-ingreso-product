@@ -9,6 +9,7 @@ export type SessionSkillResult = {
   attempts: number;
   correct: number;
   state: SkillState;
+  mastery_level?: number;
 };
 
 export type SessionData = {
@@ -28,6 +29,7 @@ export type StoredProgress = {
       total_attempts: number;
       total_correct: number;
       last_state: SkillState;
+      mastery_level?: number;
     }
   >;
 };
@@ -71,12 +73,14 @@ export function updateSkillStats(progress: StoredProgress, sessionData: SessionD
       total_attempts: 0,
       total_correct: 0,
       last_state: skillResult.state,
+      mastery_level: skillResult.mastery_level,
     };
 
     const stats = progress.skill_stats[skillResult.skill_id];
     stats.total_attempts += skillResult.attempts;
     stats.total_correct += skillResult.correct;
     stats.last_state = skillResult.state;
+    stats.mastery_level = skillResult.mastery_level ?? stats.mastery_level;
   }
 
   return progress;

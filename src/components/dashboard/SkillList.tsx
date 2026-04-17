@@ -1,11 +1,12 @@
-import { type SkillState } from "../../storage/local_progress_store";
 import { SkillItem } from "./SkillItem";
+import { type DashboardSkillState } from "./SkillStatus";
 
 type DashboardSkill = {
   skill: string;
-  accuracy: number;
+  accuracy: number | null;
   attempts: number;
-  last_state: SkillState;
+  practiceSessions: number;
+  last_state: DashboardSkillState;
 };
 
 type SkillListProps = {

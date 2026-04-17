@@ -5,6 +5,41 @@ export type SkillMetadata = {
 };
 
 const skillMetadata: Record<string, SkillMetadata> = {
+  "lengua.skill_1": {
+    id: "lengua.skill_1",
+    title: "Comprension e inferencia textual",
+    description: "Entrena entender ideas, datos e inferencias en textos breves.",
+  },
+  "lengua.skill_2": {
+    id: "lengua.skill_2",
+    title: "Estructura y secuencia discursiva",
+    description: "Entrena ordenar informacion y reconocer como avanza un texto.",
+  },
+  "lengua.skill_3": {
+    id: "lengua.skill_3",
+    title: "Produccion escrita funcional",
+    description: "Entrena escribir respuestas breves con proposito, foco y claridad.",
+  },
+  "lengua.skill_4": {
+    id: "lengua.skill_4",
+    title: "Morfosintaxis aplicada",
+    description: "Entrena clases de palabras y relaciones gramaticales en contexto.",
+  },
+  "lengua.skill_5": {
+    id: "lengua.skill_5",
+    title: "Gestion verbal en contexto",
+    description: "Entrena reconocer y usar tiempos y modos verbales con coherencia.",
+  },
+  "lengua.skill_6": {
+    id: "lengua.skill_6",
+    title: "Norma ortografica y tildacion",
+    description: "Entrena acentuacion, ortografia y uso correcto de grafias.",
+  },
+  "lengua.skill_7": {
+    id: "lengua.skill_7",
+    title: "Puntuacion para sentido",
+    description: "Entrena usar signos de puntuacion para ordenar y precisar el sentido.",
+  },
   "LEN-COMP-001": {
     id: "LEN-COMP-001",
     title: "Tema central",
