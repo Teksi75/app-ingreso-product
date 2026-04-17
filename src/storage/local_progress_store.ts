@@ -18,6 +18,7 @@ export type SessionData = {
   total_correct: number;
   total_errors: number;
   skill_results: SessionSkillResult[];
+  readingUnitId?: string;
 };
 
 export type StoredProgress = {

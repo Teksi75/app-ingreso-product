@@ -1,12 +1,12 @@
 # Graph Report - .  (2026-04-17)
 
 ## Corpus Check
-- 27 files · ~58,340 words
+- 27 files · ~57,962 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 337 nodes · 564 edges · 30 communities detected
-- Extraction: 92% EXTRACTED · 8% INFERRED · 0% AMBIGUOUS · INFERRED: 46 edges (avg confidence: 0.81)
+- 342 nodes · 580 edges · 30 communities detected
+- Extraction: 92% EXTRACTED · 8% INFERRED · 0% AMBIGUOUS · INFERRED: 48 edges (avg confidence: 0.81)
 - Token cost: 0 input · 0 output
 
 ## Community Hubs (Navigation)
@@ -46,12 +46,12 @@
 2. `selectNextExerciseDetailed()` - 18 edges
 3. `Agent Orchestrator` - 12 edges
 4. `loadLenguaSelectionGraph()` - 11 edges
-5. `normalizeExercise()` - 11 edges
-6. `App Ingreso` - 11 edges
-7. `Scope & Rules Validator` - 11 edges
-8. `Codex Prompt Generator` - 11 edges
-9. `loadLenguaExercises()` - 10 edges
-10. `runSession()` - 10 edges
+5. `loadLenguaExercises()` - 11 edges
+6. `normalizeExercise()` - 11 edges
+7. `App Ingreso` - 11 edges
+8. `Scope & Rules Validator` - 11 edges
+9. `Codex Prompt Generator` - 11 edges
+10. `loadContentLenguaExercises()` - 10 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `Product Roadmap - App Ingreso` --conceptually_related_to--> `App icon with dark square and white stylized mark`  [INFERRED]
@@ -81,19 +81,19 @@ Nodes (57): Access by Time, Accuracy Metric, Adaptive Practice, ADR-003: Autonom
 
 ### Community 1 - "Community 1"
 Cohesion: 0.09
-Nodes (39): clampDifficulty(), clampMastery(), dedupeExercises(), extractSelectorExercises(), filterImmediateRepeats(), filterUnlockedExercises(), findAlternativeSubskill(), findRelatedTarget() (+31 more)
+Nodes (38): listLenguaExerciseFiles(), assertLoadsAllLenguaJson(), buildFallbackOptions(), buildGeneratedOptions(), buildHighlightOptions(), buildObjectAnswerOptions(), buildOrderingOptions(), buildSkillTrainingPool() (+30 more)
 
 ### Community 2 - "Community 2"
 Cohesion: 0.1
-Nodes (41): ADR-001 Product Scope, ADR-002: No Official Content, Product Guardian, Scope & Rules Validator, Quality Auditor, Codex Prompt Generator, Agents Map, AGENTS instructions (+33 more)
+Nodes (35): clampDifficulty(), clampMastery(), dedupeExercises(), extractSelectorExercises(), filterImmediateRepeats(), filterUnlockedExercises(), findAlternativeSubskill(), findRelatedTarget() (+27 more)
 
 ### Community 3 - "Community 3"
-Cohesion: 0.11
-Nodes (29): buildFallbackOptions(), buildGeneratedOptions(), buildHighlightOptions(), buildObjectAnswerOptions(), buildOrderingOptions(), buildUserState(), ensureOptions(), evaluateAnswer() (+21 more)
+Cohesion: 0.1
+Nodes (41): ADR-001 Product Scope, ADR-002: No Official Content, Product Guardian, Scope & Rules Validator, Quality Auditor, Codex Prompt Generator, Agents Map, AGENTS instructions (+33 more)
 
 ### Community 4 - "Community 4"
-Cohesion: 0.15
-Nodes (20): findMasteryNode(), getLenguaMasteryMap(), getMasteryGap(), getMasteryLevel(), loadMasteryMap(), loadRelationships(), readJsonFile(), recommendNextSubskill() (+12 more)
+Cohesion: 0.16
+Nodes (18): findMasteryNode(), getLenguaMasteryMap(), loadMasteryMap(), loadRelationships(), readJsonFile(), recommendNextSubskill(), buildRestartHref(), calculateUpdatedMastery() (+10 more)
 
 ### Community 5 - "Community 5"
 Cohesion: 0.11
@@ -104,16 +104,16 @@ Cohesion: 0.22
 Nodes (15): buildSkillResults(), buildSkillStats(), chanceByDifficulty(), formatPercent(), groupBySkill(), hasAvailableExercises(), loadExercises(), pickValue() (+7 more)
 
 ### Community 7 - "Community 7"
-Cohesion: 0.24
-Nodes (12): assertPracticeSessionsUseChoiceExercises(), assertReadingUnitSessionsShareGeneratedTexts(), assertSelectionRespectsPrerequisitesAndMastery(), assertSessionRunnerUsesCrossRelationships(), assertTextPatternExtractorDoesNotReturnSourceText(), buildExercise(), withMutedConsole(), analyzePlainTextShape() (+4 more)
+Cohesion: 0.23
+Nodes (13): assertPracticeSessionsUseChoiceExercises(), assertReadingUnitSessionsShareGeneratedTexts(), assertSelectionRespectsPrerequisitesAndMastery(), assertSessionRunnerUsesCrossRelationships(), assertSkillPracticeCompletesReadingUnitBeforeFallback(), assertTextPatternExtractorDoesNotReturnSourceText(), buildExercise(), withMutedConsole() (+5 more)
 
 ### Community 8 - "Community 8"
 Cohesion: 0.33
 Nodes (10): assertReadingModeDatasetRunsSequentially(), ensureOptions(), findReadingUnit(), loadReadingExercises(), loadReadingUnits(), normalizeDifficulty(), normalizeReadingExercise(), normalizeReadingUnit() (+2 more)
 
 ### Community 9 - "Community 9"
-Cohesion: 0.42
-Nodes (9): createEmptyProgress(), createSessionId(), getSeenSkills(), loadProgress(), markSkillsSeen(), saveSessionResult(), updateSeenSkills(), updateSkillStats() (+1 more)
+Cohesion: 0.38
+Nodes (10): createEmptyProgress(), createSessionId(), getSeenSkills(), loadProgress(), markSkillsSeen(), saveSessionResult(), updateSeenSkills(), updateSkillStats() (+2 more)
 
 ### Community 10 - "Community 10"
 Cohesion: 0.24
@@ -238,7 +238,7 @@ _Questions this graph is uniquely positioned to answer:_
   _`Agent Orchestrator` has 2 INFERRED edges - model-reasoned connections that need verification._
 - **Are the 7 inferred relationships involving `loadLenguaSelectionGraph()` (e.g. with `assertNormalizedExerciseShape()` and `assertSelectionRespectsPrerequisitesAndMastery()`) actually correct?**
   _`loadLenguaSelectionGraph()` has 7 INFERRED edges - model-reasoned connections that need verification._
-- **Are the 2 inferred relationships involving `normalizeExercise()` (e.g. with `normalizeSkillId()` and `normalizeSubskillId()`) actually correct?**
-  _`normalizeExercise()` has 2 INFERRED edges - model-reasoned connections that need verification._
+- **Are the 5 inferred relationships involving `loadLenguaExercises()` (e.g. with `assertLoadsAllLenguaJson()` and `assertNormalizedExerciseShape()`) actually correct?**
+  _`loadLenguaExercises()` has 5 INFERRED edges - model-reasoned connections that need verification._
 - **What connects `AGENTS instructions`, `Minor-adjustment example`, `Codex Prompt Generator system prompt` to the rest of the system?**
   _69 weakly-connected nodes found - possible documentation gaps or missing edges._

@@ -70,7 +70,16 @@ function assertLoadsAllLenguaJson(): void {
   const selectorExercises = loadLenguaSelectorExercises(engineDir);
 
   assert.deepEqual(listedFiles, expectedFiles);
-  assert.equal(fullExercises.length, contentIndex.total_exercise_count);
+  const expectedFileSet = new Set(expectedFiles);
+  const engineExerciseCount = fullExercises.filter(
+    (exercise) => exercise.source_file && expectedFileSet.has(exercise.source_file),
+  ).length;
+  const contentReadingExerciseCount = fullExercises.filter(
+    (exercise) => exercise.source_file && !expectedFileSet.has(exercise.source_file) && exercise.readingUnitId,
+  ).length;
+  assert.equal(engineExerciseCount, contentIndex.total_exercise_count);
+  assert.ok(fullExercises.length >= contentIndex.total_exercise_count);
+  assert.equal(contentReadingExerciseCount, 3);
   assert.equal(selectorExercises.length, contentIndex.total_exercise_count);
   assert.equal(new Set(fullExercises.map((exercise) => exercise.id)).size, fullExercises.length);
 
@@ -262,6 +271,25 @@ function assertReadingModeDatasetRunsSequentially(): void {
   assert.ok(session.exercises.every((exercise) => exercise.options.includes(exercise.correct_answer)));
 }
 
+function assertSkillPracticeCompletesReadingUnitBeforeFallback(): void {
+  let usedExerciseIds: string[] = [];
+  const selected: Exercise[] = [];
+
+  for (let index = 0; index < 3; index += 1) {
+    const session = withMutedConsole(() => (
+      startPracticeSession("lengua.skill_1", usedExerciseIds, { forceNewStudent: true })
+    ));
+
+    selected.push(session.exercise);
+    usedExerciseIds = session.usedExerciseIds;
+  }
+
+  const readingUnitId = selected[0].readingUnitId;
+
+  assert.ok(readingUnitId);
+  assert.ok(selected.every((exercise) => exercise.readingUnitId === readingUnitId));
+}
+
 function assertTextPatternExtractorDoesNotReturnSourceText(): void {
   const summary = extractTextPatterns();
 
@@ -278,6 +306,7 @@ assertSessionRunnerUsesCrossRelationships();
 assertPracticeSessionsUseChoiceExercises();
 assertReadingUnitSessionsShareGeneratedTexts();
 assertReadingModeDatasetRunsSequentially();
+assertSkillPracticeCompletesReadingUnitBeforeFallback();
 assertTextPatternExtractorDoesNotReturnSourceText();
 
 console.log("lengua integration validated");
