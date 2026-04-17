@@ -1,12 +1,12 @@
 # Graph Report - .  (2026-04-16)
 
 ## Corpus Check
-- 22 files · ~57,144 words
+- 22 files · ~57,768 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 284 nodes · 455 edges · 26 communities detected
-- Extraction: 92% EXTRACTED · 8% INFERRED · 0% AMBIGUOUS · INFERRED: 35 edges (avg confidence: 0.82)
+- 296 nodes · 482 edges · 26 communities detected
+- Extraction: 93% EXTRACTED · 7% INFERRED · 0% AMBIGUOUS · INFERRED: 35 edges (avg confidence: 0.82)
 - Token cost: 0 input · 0 output
 
 ## Community Hubs (Navigation)
@@ -52,13 +52,13 @@
 ## Surprising Connections (you probably didn't know these)
 - `Product Roadmap - App Ingreso` --conceptually_related_to--> `App icon with dark square and white stylized mark`  [INFERRED]
   roadmap/roadmap.md → src/app/icon.svg
-- `assertLoadsAllLenguaJson()` --calls--> `loadLenguaSelectorExercises()`  [INFERRED]
+- `assertSelectionRespectsPrerequisitesAndMastery()` --calls--> `loadLenguaSelectionGraph()`  [INFERRED]
   src\components\practice\__tests__\lengua_integration.test.ts → src\practice\exercise_selector.ts
-- `assertNormalizedExerciseShape()` --calls--> `normalizeSubskillId()`  [INFERRED]
-  src\components\practice\__tests__\lengua_integration.test.ts → src\practice\exercise_selector.ts
-- `normalizeSubskillId()` --calls--> `normalizeExercise()`  [INFERRED]
+- `loadLenguaSelectionGraph()` --calls--> `loadExercises()`  [INFERRED]
   src\practice\exercise_selector.ts → src\practice\session_runner.ts
-- `selectNextExerciseDetailed()` --calls--> `startPracticeSession()`  [INFERRED]
+- `loadLenguaSelectionGraph()` --calls--> `runSession()`  [INFERRED]
+  src\practice\exercise_selector.ts → src\practice\session_runner.ts
+- `loadLenguaSelectionGraph()` --calls--> `startPracticeSession()`  [INFERRED]
   src\practice\exercise_selector.ts → src\practice\session_runner.ts
 
 ## Hyperedges (group relationships)
@@ -72,20 +72,20 @@
 ## Communities
 
 ### Community 0 - "Community 0"
-Cohesion: 0.07
-Nodes (44): Access by Time, Adaptive Practice, ADR-003: Autonomous Learning, ADR-004: Parent Responsibility, Adult Customer, Adult Responsibility, Autonomous Training Platform, Business Rules (+36 more)
+Cohesion: 0.05
+Nodes (57): Access by Time, Accuracy Metric, Adaptive Practice, ADR-003: Autonomous Learning, ADR-004: Parent Responsibility, Adult Customer, Adult Responsibility, Autonomous Training Platform (+49 more)
 
 ### Community 1 - "Community 1"
-Cohesion: 0.1
-Nodes (41): ADR-001 Product Scope, ADR-002: No Official Content, Product Guardian, Scope & Rules Validator, Quality Auditor, Codex Prompt Generator, Agents Map, AGENTS instructions (+33 more)
+Cohesion: 0.09
+Nodes (38): clampDifficulty(), clampMastery(), dedupeExercises(), extractSelectorExercises(), filterImmediateRepeats(), filterUnlockedExercises(), findAlternativeSubskill(), findRelatedTarget() (+30 more)
 
 ### Community 2 - "Community 2"
 Cohesion: 0.1
-Nodes (32): clampDifficulty(), clampMastery(), dedupeExercises(), extractSelectorExercises(), filterImmediateRepeats(), filterUnlockedExercises(), findAlternativeSubskill(), findRelatedTarget() (+24 more)
+Nodes (41): ADR-001 Product Scope, ADR-002: No Official Content, Product Guardian, Scope & Rules Validator, Quality Auditor, Codex Prompt Generator, Agents Map, AGENTS instructions (+33 more)
 
 ### Community 3 - "Community 3"
-Cohesion: 0.11
-Nodes (29): listLenguaExerciseFiles(), loadLenguaSelectionGraph(), normalizeSkillId(), assertLoadsAllLenguaJson(), assertNormalizedExerciseShape(), assertSelectionRespectsPrerequisitesAndMastery(), assertSessionRunnerUsesCrossRelationships(), buildExercise() (+21 more)
+Cohesion: 0.12
+Nodes (29): buildFallbackOptions(), buildGeneratedOptions(), buildHighlightOptions(), buildObjectAnswerOptions(), buildOrderingOptions(), buildUserState(), ensureOptions(), evaluateAnswer() (+21 more)
 
 ### Community 4 - "Community 4"
 Cohesion: 0.11
@@ -96,24 +96,24 @@ Cohesion: 0.22
 Nodes (15): buildSkillResults(), buildSkillStats(), chanceByDifficulty(), formatPercent(), groupBySkill(), hasAvailableExercises(), loadExercises(), pickValue() (+7 more)
 
 ### Community 6 - "Community 6"
-Cohesion: 0.25
-Nodes (12): createEmptyProgress(), createSessionId(), getSeenSkills(), loadProgress(), markSkillsSeen(), saveSessionResult(), updateSeenSkills(), updateSkillStats() (+4 more)
+Cohesion: 0.23
+Nodes (13): createEmptyProgress(), createSessionId(), getSeenSkills(), loadProgress(), markSkillsSeen(), saveSessionResult(), updateSeenSkills(), updateSkillStats() (+5 more)
 
 ### Community 7 - "Community 7"
-Cohesion: 0.23
-Nodes (13): Accuracy Metric, Consistency Metric, Frequent Short Sessions, Mastery Levels, Parent Visibility, Progress by Skill, Progress Metrics, Progress Metrics v1 (+5 more)
-
-### Community 8 - "Community 8"
 Cohesion: 0.24
 Nodes (10): Biografia de Hans Christian Andersen, Clase textual, paratexto y datos enciclopedicos, Lengua | modulo 1, Oracion, parrafo, mayusculas y coma, Sustantivos y adjetivos, Acentuacion y tilde diacritica, Biografia de Hans Christian Andersen (reutilizada), Cotexto, sinonimia y antonimia (+2 more)
 
-### Community 9 - "Community 9"
+### Community 8 - "Community 8"
 Cohesion: 0.22
 Nodes (9): Adverbios, Articulo enciclopedico, Lengua | modulo 5, Enciclopedia ilustrada para ninos. Historia del Mundo. Lexus (2018), La leyenda de Cacheuta, Diccionario de la lengua espanola (RAE), Sintaxis de la oracion simple, El Tawantinsuyu: un imperio de piedra y oro (+1 more)
 
-### Community 10 - "Community 10"
+### Community 9 - "Community 9"
 Cohesion: 0.22
 Nodes (9): Acentuacion, diptongos y hiatos, Actividades de integracion, Clases de palabras, Cohesion, mayusculas y coma, El caso del laberinto del terror, Ortografia de B/V, C/S/Z, Pronombres personales, posesivos y demostrativos, Sinonimia y antonimia (+1 more)
+
+### Community 10 - "Community 10"
+Cohesion: 0.6
+Nodes (5): assertPracticeSessionsUseChoiceExercises(), assertSelectionRespectsPrerequisitesAndMastery(), assertSessionRunnerUsesCrossRelationships(), buildExercise(), withMutedConsole()
 
 ### Community 11 - "Community 11"
 Cohesion: 0.33
@@ -206,12 +206,10 @@ Nodes (0):
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `Product Analysis` connect `Community 0` to `Community 7`?**
-  _High betweenness centrality (0.054) - this node is a cross-community bridge._
 - **Why does `loadProgress()` connect `Community 6` to `Community 5`?**
-  _High betweenness centrality (0.047) - this node is a cross-community bridge._
+  _High betweenness centrality (0.050) - this node is a cross-community bridge._
 - **Why does `runSimulator()` connect `Community 5` to `Community 6`?**
-  _High betweenness centrality (0.036) - this node is a cross-community bridge._
+  _High betweenness centrality (0.037) - this node is a cross-community bridge._
 - **Are the 2 inferred relationships involving `selectNextExerciseDetailed()` (e.g. with `startPracticeSession()` and `runSession()`) actually correct?**
   _`selectNextExerciseDetailed()` has 2 INFERRED edges - model-reasoned connections that need verification._
 - **Are the 2 inferred relationships involving `Agent Orchestrator` (e.g. with `Validation Pipeline` and `Interaction Flow`) actually correct?**
@@ -220,3 +218,5 @@ _Questions this graph is uniquely positioned to answer:_
   _`normalizeExercise()` has 2 INFERRED edges - model-reasoned connections that need verification._
 - **What connects `AGENTS instructions`, `Minor-adjustment example`, `Codex Prompt Generator system prompt` to the rest of the system?**
   _69 weakly-connected nodes found - possible documentation gaps or missing edges._
+- **Should `Community 0` be split into smaller, more focused modules?**
+  _Cohesion score 0.05 - nodes in this community are weakly interconnected._

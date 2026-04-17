@@ -325,7 +325,7 @@
       "source_file": "src\\components\\practice\\__tests__\\lengua_integration.test.ts",
       "source_location": "L1",
       "id": "src_components_practice_tests_lengua_integration_test_ts",
-      "community": 3,
+      "community": 10,
       "norm_label": "lengua_integration.test.ts"
     },
     {
@@ -334,7 +334,7 @@
       "source_file": "src\\components\\practice\\__tests__\\lengua_integration.test.ts",
       "source_location": "L25",
       "id": "lengua_integration_test_withmutedconsole",
-      "community": 3,
+      "community": 10,
       "norm_label": "withmutedconsole()"
     },
     {
@@ -343,7 +343,7 @@
       "source_file": "src\\components\\practice\\__tests__\\lengua_integration.test.ts",
       "source_location": "L36",
       "id": "lengua_integration_test_buildexercise",
-      "community": 3,
+      "community": 10,
       "norm_label": "buildexercise()"
     },
     {
@@ -352,7 +352,7 @@
       "source_file": "src\\components\\practice\\__tests__\\lengua_integration.test.ts",
       "source_location": "L58",
       "id": "lengua_integration_test_assertloadsalllenguajson",
-      "community": 3,
+      "community": 1,
       "norm_label": "assertloadsalllenguajson()"
     },
     {
@@ -361,26 +361,35 @@
       "source_file": "src\\components\\practice\\__tests__\\lengua_integration.test.ts",
       "source_location": "L78",
       "id": "lengua_integration_test_assertnormalizedexerciseshape",
-      "community": 3,
+      "community": 1,
       "norm_label": "assertnormalizedexerciseshape()"
     },
     {
       "label": "assertSelectionRespectsPrerequisitesAndMastery()",
       "file_type": "code",
       "source_file": "src\\components\\practice\\__tests__\\lengua_integration.test.ts",
-      "source_location": "L113",
+      "source_location": "L117",
       "id": "lengua_integration_test_assertselectionrespectsprerequisitesandmastery",
-      "community": 3,
+      "community": 10,
       "norm_label": "assertselectionrespectsprerequisitesandmastery()"
     },
     {
       "label": "assertSessionRunnerUsesCrossRelationships()",
       "file_type": "code",
       "source_file": "src\\components\\practice\\__tests__\\lengua_integration.test.ts",
-      "source_location": "L154",
+      "source_location": "L158",
       "id": "lengua_integration_test_assertsessionrunnerusescrossrelationships",
-      "community": 3,
+      "community": 10,
       "norm_label": "assertsessionrunnerusescrossrelationships()"
+    },
+    {
+      "label": "assertPracticeSessionsUseChoiceExercises()",
+      "file_type": "code",
+      "source_file": "src\\components\\practice\\__tests__\\lengua_integration.test.ts",
+      "source_location": "L188",
+      "id": "lengua_integration_test_assertpracticesessionsusechoiceexercises",
+      "community": 10,
+      "norm_label": "assertpracticesessionsusechoiceexercises()"
     },
     {
       "label": "exercise_selector.test.ts",
@@ -388,7 +397,7 @@
       "source_file": "src\\practice\\exercise_selector.test.ts",
       "source_location": "L1",
       "id": "src_practice_exercise_selector_test_ts",
-      "community": 2,
+      "community": 1,
       "norm_label": "exercise_selector.test.ts"
     },
     {
@@ -397,7 +406,7 @@
       "source_file": "src\\practice\\exercise_selector.ts",
       "source_location": "L1",
       "id": "src_practice_exercise_selector_ts",
-      "community": 2,
+      "community": 1,
       "norm_label": "exercise_selector.ts"
     },
     {
@@ -406,7 +415,7 @@
       "source_file": "src\\practice\\exercise_selector.ts",
       "source_location": "L107",
       "id": "exercise_selector_listlenguaexercisefiles",
-      "community": 3,
+      "community": 1,
       "norm_label": "listlenguaexercisefiles()"
     },
     {
@@ -415,7 +424,7 @@
       "source_file": "src\\practice\\exercise_selector.ts",
       "source_location": "L121",
       "id": "exercise_selector_loadlenguaselectiongraph",
-      "community": 3,
+      "community": 1,
       "norm_label": "loadlenguaselectiongraph()"
     },
     {
@@ -424,7 +433,7 @@
       "source_file": "src\\practice\\exercise_selector.ts",
       "source_location": "L162",
       "id": "exercise_selector_loadlenguaselectorexercises",
-      "community": 2,
+      "community": 1,
       "norm_label": "loadlenguaselectorexercises()"
     },
     {
@@ -433,7 +442,7 @@
       "source_file": "src\\practice\\exercise_selector.ts",
       "source_location": "L174",
       "id": "exercise_selector_normalizeskillid",
-      "community": 3,
+      "community": 1,
       "norm_label": "normalizeskillid()"
     },
     {
@@ -442,7 +451,7 @@
       "source_file": "src\\practice\\exercise_selector.ts",
       "source_location": "L203",
       "id": "exercise_selector_normalizesubskillid",
-      "community": 2,
+      "community": 1,
       "norm_label": "normalizesubskillid()"
     },
     {
@@ -451,7 +460,7 @@
       "source_file": "src\\practice\\exercise_selector.ts",
       "source_location": "L230",
       "id": "exercise_selector_selectnextexercisedetailed",
-      "community": 2,
+      "community": 1,
       "norm_label": "selectnextexercisedetailed()"
     },
     {
@@ -460,7 +469,7 @@
       "source_file": "src\\practice\\exercise_selector.ts",
       "source_location": "L271",
       "id": "exercise_selector_selectnextexercise",
-      "community": 2,
+      "community": 1,
       "norm_label": "selectnextexercise()"
     },
     {
@@ -469,7 +478,7 @@
       "source_file": "src\\practice\\exercise_selector.ts",
       "source_location": "L279",
       "id": "exercise_selector_extractselectorexercises",
-      "community": 2,
+      "community": 1,
       "norm_label": "extractselectorexercises()"
     },
     {
@@ -478,7 +487,7 @@
       "source_file": "src\\practice\\exercise_selector.ts",
       "source_location": "L321",
       "id": "exercise_selector_normalizeselectorexercise",
-      "community": 2,
+      "community": 1,
       "norm_label": "normalizeselectorexercise()"
     },
     {
@@ -487,7 +496,7 @@
       "source_file": "src\\practice\\exercise_selector.ts",
       "source_location": "L350",
       "id": "exercise_selector_resolveruletarget",
-      "community": 2,
+      "community": 1,
       "norm_label": "resolveruletarget()"
     },
     {
@@ -496,7 +505,7 @@
       "source_file": "src\\practice\\exercise_selector.ts",
       "source_location": "L433",
       "id": "exercise_selector_filterunlockedexercises",
-      "community": 2,
+      "community": 1,
       "norm_label": "filterunlockedexercises()"
     },
     {
@@ -505,7 +514,7 @@
       "source_file": "src\\practice\\exercise_selector.ts",
       "source_location": "L443",
       "id": "exercise_selector_isexerciseunlocked",
-      "community": 2,
+      "community": 1,
       "norm_label": "isexerciseunlocked()"
     },
     {
@@ -514,7 +523,7 @@
       "source_file": "src\\practice\\exercise_selector.ts",
       "source_location": "L461",
       "id": "exercise_selector_pickrelatedcandidate",
-      "community": 2,
+      "community": 1,
       "norm_label": "pickrelatedcandidate()"
     },
     {
@@ -523,7 +532,7 @@
       "source_file": "src\\practice\\exercise_selector.ts",
       "source_location": "L471",
       "id": "exercise_selector_findrelatedtarget",
-      "community": 2,
+      "community": 1,
       "norm_label": "findrelatedtarget()"
     },
     {
@@ -532,7 +541,7 @@
       "source_file": "src\\practice\\exercise_selector.ts",
       "source_location": "L505",
       "id": "exercise_selector_picklowestmasterygap",
-      "community": 2,
+      "community": 1,
       "norm_label": "picklowestmasterygap()"
     },
     {
@@ -541,7 +550,7 @@
       "source_file": "src\\practice\\exercise_selector.ts",
       "source_location": "L523",
       "id": "exercise_selector_pickcurrentstate",
-      "community": 2,
+      "community": 1,
       "norm_label": "pickcurrentstate()"
     },
     {
@@ -550,7 +559,7 @@
       "source_file": "src\\practice\\exercise_selector.ts",
       "source_location": "L531",
       "id": "exercise_selector_hasrecurrenterror",
-      "community": 2,
+      "community": 1,
       "norm_label": "hasrecurrenterror()"
     },
     {
@@ -559,7 +568,7 @@
       "source_file": "src\\practice\\exercise_selector.ts",
       "source_location": "L536",
       "id": "exercise_selector_isatrecommendedmastery",
-      "community": 2,
+      "community": 1,
       "norm_label": "isatrecommendedmastery()"
     },
     {
@@ -568,7 +577,7 @@
       "source_file": "src\\practice\\exercise_selector.ts",
       "source_location": "L546",
       "id": "exercise_selector_getmasterygap",
-      "community": 2,
+      "community": 1,
       "norm_label": "getmasterygap()"
     },
     {
@@ -577,7 +586,7 @@
       "source_file": "src\\practice\\exercise_selector.ts",
       "source_location": "L557",
       "id": "exercise_selector_getmasterylevel",
-      "community": 2,
+      "community": 1,
       "norm_label": "getmasterylevel()"
     },
     {
@@ -586,7 +595,7 @@
       "source_file": "src\\practice\\exercise_selector.ts",
       "source_location": "L582",
       "id": "exercise_selector_accuracytomastery",
-      "community": 2,
+      "community": 1,
       "norm_label": "accuracytomastery()"
     },
     {
@@ -595,7 +604,7 @@
       "source_file": "src\\practice\\exercise_selector.ts",
       "source_location": "L589",
       "id": "exercise_selector_filterimmediaterepeats",
-      "community": 2,
+      "community": 1,
       "norm_label": "filterimmediaterepeats()"
     },
     {
@@ -604,7 +613,7 @@
       "source_file": "src\\practice\\exercise_selector.ts",
       "source_location": "L595",
       "id": "exercise_selector_findalternativesubskill",
-      "community": 2,
+      "community": 1,
       "norm_label": "findalternativesubskill()"
     },
     {
@@ -613,7 +622,7 @@
       "source_file": "src\\practice\\exercise_selector.ts",
       "source_location": "L611",
       "id": "exercise_selector_getreferencedifficulty",
-      "community": 2,
+      "community": 1,
       "norm_label": "getreferencedifficulty()"
     },
     {
@@ -622,7 +631,7 @@
       "source_file": "src\\practice\\exercise_selector.ts",
       "source_location": "L624",
       "id": "exercise_selector_pickstrictcandidate",
-      "community": 2,
+      "community": 1,
       "norm_label": "pickstrictcandidate()"
     },
     {
@@ -631,7 +640,7 @@
       "source_file": "src\\practice\\exercise_selector.ts",
       "source_location": "L656",
       "id": "exercise_selector_pickfallbackcandidate",
-      "community": 2,
+      "community": 1,
       "norm_label": "pickfallbackcandidate()"
     },
     {
@@ -640,7 +649,7 @@
       "source_file": "src\\practice\\exercise_selector.ts",
       "source_location": "L678",
       "id": "exercise_selector_pickunseenskillexercise",
-      "community": 2,
+      "community": 1,
       "norm_label": "pickunseenskillexercise()"
     },
     {
@@ -649,7 +658,7 @@
       "source_file": "src\\practice\\exercise_selector.ts",
       "source_location": "L702",
       "id": "exercise_selector_matchesstate",
-      "community": 2,
+      "community": 1,
       "norm_label": "matchesstate()"
     },
     {
@@ -658,7 +667,7 @@
       "source_file": "src\\practice\\exercise_selector.ts",
       "source_location": "L706",
       "id": "exercise_selector_matchesnode",
-      "community": 2,
+      "community": 1,
       "norm_label": "matchesnode()"
     },
     {
@@ -667,7 +676,7 @@
       "source_file": "src\\practice\\exercise_selector.ts",
       "source_location": "L710",
       "id": "exercise_selector_relationweight",
-      "community": 2,
+      "community": 1,
       "norm_label": "relationweight()"
     },
     {
@@ -676,7 +685,7 @@
       "source_file": "src\\practice\\exercise_selector.ts",
       "source_location": "L716",
       "id": "exercise_selector_dedupeexercises",
-      "community": 2,
+      "community": 1,
       "norm_label": "dedupeexercises()"
     },
     {
@@ -685,7 +694,7 @@
       "source_file": "src\\practice\\exercise_selector.ts",
       "source_location": "L720",
       "id": "exercise_selector_pickdeterministic",
-      "community": 2,
+      "community": 1,
       "norm_label": "pickdeterministic()"
     },
     {
@@ -694,7 +703,7 @@
       "source_file": "src\\practice\\exercise_selector.ts",
       "source_location": "L724",
       "id": "exercise_selector_normalizedifficulty",
-      "community": 2,
+      "community": 1,
       "norm_label": "normalizedifficulty()"
     },
     {
@@ -703,7 +712,7 @@
       "source_file": "src\\practice\\exercise_selector.ts",
       "source_location": "L735",
       "id": "exercise_selector_normalizemasterylevel",
-      "community": 2,
+      "community": 1,
       "norm_label": "normalizemasterylevel()"
     },
     {
@@ -712,7 +721,7 @@
       "source_file": "src\\practice\\exercise_selector.ts",
       "source_location": "L743",
       "id": "exercise_selector_clampdifficulty",
-      "community": 2,
+      "community": 1,
       "norm_label": "clampdifficulty()"
     },
     {
@@ -721,7 +730,7 @@
       "source_file": "src\\practice\\exercise_selector.ts",
       "source_location": "L749",
       "id": "exercise_selector_clampmastery",
-      "community": 2,
+      "community": 1,
       "norm_label": "clampmastery()"
     },
     {
@@ -730,7 +739,7 @@
       "source_file": "src\\practice\\exercise_selector.ts",
       "source_location": "L756",
       "id": "exercise_selector_resolveknownsubskill",
-      "community": 2,
+      "community": 1,
       "norm_label": "resolveknownsubskill()"
     },
     {
@@ -739,7 +748,7 @@
       "source_file": "src\\practice\\exercise_selector.ts",
       "source_location": "L784",
       "id": "exercise_selector_normalizetext",
-      "community": 2,
+      "community": 1,
       "norm_label": "normalizetext()"
     },
     {
@@ -748,7 +757,7 @@
       "source_file": "src\\practice\\exercise_selector.ts",
       "source_location": "L792",
       "id": "exercise_selector_logselection",
-      "community": 2,
+      "community": 1,
       "norm_label": "logselection()"
     },
     {
@@ -757,7 +766,7 @@
       "source_file": "src\\practice\\exercise_selector.ts",
       "source_location": "L803",
       "id": "exercise_selector_testselector",
-      "community": 2,
+      "community": 1,
       "norm_label": "testselector()"
     },
     {
@@ -793,7 +802,7 @@
       "source_file": "src\\practice\\session_runner.ts",
       "source_location": "L115",
       "id": "session_runner_loadlenguaexercises",
-      "community": 3,
+      "community": 1,
       "norm_label": "loadlenguaexercises()"
     },
     {
@@ -901,7 +910,7 @@
       "source_file": "src\\practice\\session_runner.ts",
       "source_location": "L395",
       "id": "session_runner_startpracticesession",
-      "community": 3,
+      "community": 6,
       "norm_label": "startpracticesession()"
     },
     {
@@ -932,10 +941,109 @@
       "norm_label": "ensureoptions()"
     },
     {
+      "label": "buildGeneratedOptions()",
+      "file_type": "code",
+      "source_file": "src\\practice\\session_runner.ts",
+      "source_location": "L524",
+      "id": "session_runner_buildgeneratedoptions",
+      "community": 3,
+      "norm_label": "buildgeneratedoptions()"
+    },
+    {
+      "label": "buildOrderingOptions()",
+      "file_type": "code",
+      "source_file": "src\\practice\\session_runner.ts",
+      "source_location": "L542",
+      "id": "session_runner_buildorderingoptions",
+      "community": 3,
+      "norm_label": "buildorderingoptions()"
+    },
+    {
+      "label": "buildObjectAnswerOptions()",
+      "file_type": "code",
+      "source_file": "src\\practice\\session_runner.ts",
+      "source_location": "L559",
+      "id": "session_runner_buildobjectansweroptions",
+      "community": 3,
+      "norm_label": "buildobjectansweroptions()"
+    },
+    {
+      "label": "buildHighlightOptions()",
+      "file_type": "code",
+      "source_file": "src\\practice\\session_runner.ts",
+      "source_location": "L608",
+      "id": "session_runner_buildhighlightoptions",
+      "community": 3,
+      "norm_label": "buildhighlightoptions()"
+    },
+    {
+      "label": "buildFallbackOptions()",
+      "file_type": "code",
+      "source_file": "src\\practice\\session_runner.ts",
+      "source_location": "L627",
+      "id": "session_runner_buildfallbackoptions",
+      "community": 3,
+      "norm_label": "buildfallbackoptions()"
+    },
+    {
+      "label": "formatAnswerArray()",
+      "file_type": "code",
+      "source_file": "src\\practice\\session_runner.ts",
+      "source_location": "L638",
+      "id": "session_runner_formatanswerarray",
+      "community": 3,
+      "norm_label": "formatanswerarray()"
+    },
+    {
+      "label": "formatAnswerObject()",
+      "file_type": "code",
+      "source_file": "src\\practice\\session_runner.ts",
+      "source_location": "L646",
+      "id": "session_runner_formatanswerobject",
+      "community": 3,
+      "norm_label": "formatanswerobject()"
+    },
+    {
+      "label": "formatAnswerValue()",
+      "file_type": "code",
+      "source_file": "src\\practice\\session_runner.ts",
+      "source_location": "L652",
+      "id": "session_runner_formatanswervalue",
+      "community": 3,
+      "norm_label": "formatanswervalue()"
+    },
+    {
+      "label": "resolveItemLabel()",
+      "file_type": "code",
+      "source_file": "src\\practice\\session_runner.ts",
+      "source_location": "L664",
+      "id": "session_runner_resolveitemlabel",
+      "community": 3,
+      "norm_label": "resolveitemlabel()"
+    },
+    {
+      "label": "oppositeShortAnswer()",
+      "file_type": "code",
+      "source_file": "src\\practice\\session_runner.ts",
+      "source_location": "L676",
+      "id": "session_runner_oppositeshortanswer",
+      "community": 3,
+      "norm_label": "oppositeshortanswer()"
+    },
+    {
+      "label": "removeAccents()",
+      "file_type": "code",
+      "source_file": "src\\practice\\session_runner.ts",
+      "source_location": "L688",
+      "id": "session_runner_removeaccents",
+      "community": 3,
+      "norm_label": "removeaccents()"
+    },
+    {
       "label": "normalizeFeedback()",
       "file_type": "code",
       "source_file": "src\\practice\\session_runner.ts",
-      "source_location": "L514",
+      "source_location": "L693",
       "id": "session_runner_normalizefeedback",
       "community": 3,
       "norm_label": "normalizefeedback()"
@@ -944,7 +1052,7 @@
       "label": "normalizeStringArray()",
       "file_type": "code",
       "source_file": "src\\practice\\session_runner.ts",
-      "source_location": "L523",
+      "source_location": "L702",
       "id": "session_runner_normalizestringarray",
       "community": 3,
       "norm_label": "normalizestringarray()"
@@ -953,7 +1061,7 @@
       "label": "normalizeRelatedSkills()",
       "file_type": "code",
       "source_file": "src\\practice\\session_runner.ts",
-      "source_location": "L527",
+      "source_location": "L706",
       "id": "session_runner_normalizerelatedskills",
       "community": 3,
       "norm_label": "normalizerelatedskills()"
@@ -962,7 +1070,7 @@
       "label": "normalizeTextField()",
       "file_type": "code",
       "source_file": "src\\practice\\session_runner.ts",
-      "source_location": "L531",
+      "source_location": "L710",
       "id": "session_runner_normalizetextfield",
       "community": 3,
       "norm_label": "normalizetextfield()"
@@ -971,7 +1079,7 @@
       "label": "normalizeDifficulty()",
       "file_type": "code",
       "source_file": "src\\practice\\session_runner.ts",
-      "source_location": "L535",
+      "source_location": "L714",
       "id": "session_runner_normalizedifficulty",
       "community": 3,
       "norm_label": "normalizedifficulty()"
@@ -980,7 +1088,7 @@
       "label": "normalizeMasteryLevel()",
       "file_type": "code",
       "source_file": "src\\practice\\session_runner.ts",
-      "source_location": "L548",
+      "source_location": "L727",
       "id": "session_runner_normalizemasterylevel",
       "community": 3,
       "norm_label": "normalizemasterylevel()"
@@ -1255,7 +1363,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 2,
       "norm_label": "agents instructions",
       "id": "agents_md"
     },
@@ -1268,7 +1376,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 2,
       "norm_label": "app ingreso",
       "id": "readme_app_ingreso"
     },
@@ -1281,7 +1389,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 2,
       "norm_label": "agents map",
       "id": "agents_map"
     },
@@ -1294,7 +1402,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 2,
       "norm_label": "agent orchestrator",
       "id": "orchestrator"
     },
@@ -1307,7 +1415,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 2,
       "norm_label": "orchestrator prompt",
       "id": "orchestrator_prompt"
     },
@@ -1320,7 +1428,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 2,
       "norm_label": "product guardian",
       "id": "agent_01_product_guardian"
     },
@@ -1333,7 +1441,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 2,
       "norm_label": "scope & rules validator",
       "id": "agent_02_scope_rules_validator"
     },
@@ -1346,7 +1454,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 2,
       "norm_label": "quality auditor",
       "id": "agent_03_quality_auditor"
     },
@@ -1359,7 +1467,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 2,
       "norm_label": "codex prompt generator",
       "id": "agent_04_codex_prompt_generator"
     },
@@ -1372,7 +1480,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 2,
       "norm_label": "minor-adjustment example",
       "id": "ejemplo_01_ajuste_menor"
     },
@@ -1385,7 +1493,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 2,
       "norm_label": "new-idea example",
       "id": "ejemplo_02_idea_nueva"
     },
@@ -1398,7 +1506,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 2,
       "norm_label": "blocked p0 example",
       "id": "ejemplo_03_bloqueado_p0"
     },
@@ -1411,7 +1519,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 2,
       "norm_label": "codex prompt generator system prompt",
       "id": "codex_prompt_generator_prompt"
     },
@@ -1424,7 +1532,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 2,
       "norm_label": "product guardian system prompt",
       "id": "product_guardian_prompt"
     },
@@ -1437,7 +1545,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 2,
       "norm_label": "quality auditor system prompt",
       "id": "quality_auditor_prompt"
     },
@@ -1450,7 +1558,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 2,
       "norm_label": "scope & rules validator system prompt",
       "id": "scope_rules_validator_prompt"
     },
@@ -1463,7 +1571,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 2,
       "norm_label": "interaction flow",
       "id": "interaction_flow"
     },
@@ -1476,7 +1584,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 2,
       "norm_label": "validation pipeline",
       "id": "validation_pipeline"
     },
@@ -1489,7 +1597,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 2,
       "norm_label": "lengua content sources",
       "id": "content_sources_lengua_readme"
     },
@@ -1502,7 +1610,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 2,
       "norm_label": "adr-001 product scope",
       "id": "adr_001_product_scope"
     },
@@ -1515,7 +1623,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 2,
       "norm_label": "app ingreso product scope",
       "id": "app_ingreso_product_scope"
     },
@@ -1528,7 +1636,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 2,
       "norm_label": "autonomous skill-based training",
       "id": "autonomous_skill_training"
     },
@@ -1541,7 +1649,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 2,
       "norm_label": "practice over explanation",
       "id": "practice_over_explanation"
     },
@@ -1554,7 +1662,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 2,
       "norm_label": "immediate feedback",
       "id": "immediate_feedback"
     },
@@ -1567,7 +1675,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 2,
       "norm_label": "exam simulations",
       "id": "exam_simulations"
     },
@@ -1580,7 +1688,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 2,
       "norm_label": "progress tracking",
       "id": "progress_tracking"
     },
@@ -1593,7 +1701,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 2,
       "norm_label": "no official content",
       "id": "no_official_content"
     },
@@ -1606,7 +1714,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 2,
       "norm_label": "no tutor or tutoring",
       "id": "no_tutor"
     },
@@ -1619,7 +1727,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 2,
       "norm_label": "minimal data collection",
       "id": "minimal_data_collection"
     },
@@ -1632,7 +1740,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 2,
       "norm_label": "local json storage",
       "id": "local_json_storage"
     },
@@ -1645,7 +1753,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 2,
       "norm_label": "four-agent system",
       "id": "four_agent_system"
     },
@@ -1658,7 +1766,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 2,
       "norm_label": "mandatory validation flow",
       "id": "mandatory_validation_flow"
     },
@@ -1671,7 +1779,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 2,
       "norm_label": "change type classification",
       "id": "change_type_classification"
     },
@@ -1684,7 +1792,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 2,
       "norm_label": "fast path for minor adjustments",
       "id": "fast_path_minor_adjustments"
     },
@@ -1697,7 +1805,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 2,
       "norm_label": "product guardian always first",
       "id": "product_guardian_always_first"
     },
@@ -1710,7 +1818,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 2,
       "norm_label": "source traceability",
       "id": "source_traceability"
     },
@@ -1723,7 +1831,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 2,
       "norm_label": "question-response-feedback-adjustment-next loop",
       "id": "question_response_feedback_adjustment_next"
     },
@@ -1736,7 +1844,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 2,
       "norm_label": "original content only",
       "id": "original_content_only"
     },
@@ -1749,7 +1857,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 2,
       "norm_label": "skill extraction and difficulty analysis",
       "id": "skill_extraction_and_difficulty_analysis"
     },
@@ -1762,7 +1870,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 2,
       "norm_label": "blocked tutorial modules",
       "id": "blocked_tutorial_modules"
     },
@@ -1775,7 +1883,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 2,
       "norm_label": "adr-002: no official content",
       "id": "adr_002_no_official_content"
     },
@@ -1931,7 +2039,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 7,
+      "community": 0,
       "norm_label": "user journey",
       "id": "user_journey"
     },
@@ -1944,7 +2052,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 7,
+      "community": 0,
       "norm_label": "simulator model",
       "id": "simulator_model"
     },
@@ -1957,7 +2065,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 7,
+      "community": 0,
       "norm_label": "progress metrics",
       "id": "progress_metrics"
     },
@@ -1970,7 +2078,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 7,
+      "community": 0,
       "norm_label": "progress metrics v1",
       "id": "progress_metrics_v1"
     },
@@ -2126,7 +2234,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 7,
+      "community": 0,
       "norm_label": "simulator mode",
       "id": "simulator_mode"
     },
@@ -2139,7 +2247,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 7,
+      "community": 0,
       "norm_label": "progress by skill",
       "id": "progress_by_skill"
     },
@@ -2256,7 +2364,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 7,
+      "community": 0,
       "norm_label": "training vs simulation",
       "id": "training_vs_simulation"
     },
@@ -2269,7 +2377,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 7,
+      "community": 0,
       "norm_label": "accuracy metric",
       "id": "accuracy_metric"
     },
@@ -2282,7 +2390,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 7,
+      "community": 0,
       "norm_label": "consistency metric",
       "id": "consistency_metric"
     },
@@ -2295,7 +2403,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 7,
+      "community": 0,
       "norm_label": "mastery levels",
       "id": "mastery_levels"
     },
@@ -2386,7 +2494,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 7,
+      "community": 0,
       "norm_label": "parent visibility",
       "id": "parent_visibility"
     },
@@ -2490,7 +2598,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 7,
+      "community": 0,
       "norm_label": "frequent short sessions",
       "id": "frequent_short_sessions"
     },
@@ -2516,7 +2624,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 7,
+      "community": 0,
       "norm_label": "time-limited simulation",
       "id": "time_limited_simulation"
     },
@@ -2763,7 +2871,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 8,
+      "community": 7,
       "norm_label": "lengua | modulo 1",
       "id": "modulo_1_lengua_modulo_1"
     },
@@ -2776,7 +2884,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 8,
+      "community": 7,
       "norm_label": "biografia de hans christian andersen",
       "id": "modulo_1_biografia_hans_christian_andersen"
     },
@@ -2789,7 +2897,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 8,
+      "community": 7,
       "norm_label": "clase textual, paratexto y datos enciclopedicos",
       "id": "modulo_1_clase_textual_paratexto"
     },
@@ -2802,7 +2910,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 8,
+      "community": 7,
       "norm_label": "sustantivos y adjetivos",
       "id": "modulo_1_sustantivos_adjetivos"
     },
@@ -2815,7 +2923,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 8,
+      "community": 7,
       "norm_label": "oracion, parrafo, mayusculas y coma",
       "id": "modulo_1_oracion_parrafo_mayusculas_coma"
     },
@@ -2828,7 +2936,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 8,
+      "community": 7,
       "norm_label": "lengua | modulo 2",
       "id": "modulo_2_lengua_modulo_2"
     },
@@ -2841,7 +2949,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 8,
+      "community": 7,
       "norm_label": "biografia de hans christian andersen (reutilizada)",
       "id": "modulo_2_biografia_hans_christian_andersen"
     },
@@ -2854,7 +2962,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 8,
+      "community": 7,
       "norm_label": "cotexto, sinonimia y antonimia",
       "id": "modulo_2_cotexto_sinonimia_antonimia"
     },
@@ -2867,7 +2975,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 8,
+      "community": 7,
       "norm_label": "verbo, persona y numero; pronombres personales",
       "id": "modulo_2_verbo_pronombres_personales"
     },
@@ -2880,7 +2988,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 8,
+      "community": 7,
       "norm_label": "acentuacion y tilde diacritica",
       "id": "modulo_2_acentuacion_tilde_diacritica"
     },
@@ -3036,7 +3144,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 9,
+      "community": 8,
       "norm_label": "lengua | modulo 5",
       "id": "modulo_5_lengua_modulo_5"
     },
@@ -3049,7 +3157,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 9,
+      "community": 8,
       "norm_label": "el tawantinsuyu: un imperio de piedra y oro",
       "id": "modulo_5_tawantinsuyu"
     },
@@ -3062,7 +3170,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 9,
+      "community": 8,
       "norm_label": "articulo enciclopedico",
       "id": "modulo_5_articulo_enciclopedico"
     },
@@ -3075,7 +3183,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 9,
+      "community": 8,
       "norm_label": "la leyenda de cacheuta",
       "id": "modulo_5_leyenda_de_cacheuta"
     },
@@ -3088,7 +3196,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 9,
+      "community": 8,
       "norm_label": "adverbios",
       "id": "modulo_5_adverbios"
     },
@@ -3101,7 +3209,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 9,
+      "community": 8,
       "norm_label": "sintaxis de la oracion simple",
       "id": "modulo_5_sintaxis_oracion_simple"
     },
@@ -3114,7 +3222,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 9,
+      "community": 8,
       "norm_label": "usos de la c, s y z",
       "id": "modulo_5_usos_de_c_s_z"
     },
@@ -3127,7 +3235,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 9,
+      "community": 8,
       "norm_label": "enciclopedia ilustrada para ninos. historia del mundo. lexus (2018)",
       "id": "modulo_5_lexus_2018"
     },
@@ -3140,7 +3248,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 9,
+      "community": 8,
       "norm_label": "diccionario de la lengua espanola (rae)",
       "id": "modulo_5_rae_dle"
     },
@@ -3153,7 +3261,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 10,
+      "community": 9,
       "norm_label": "actividades de integracion",
       "id": "modulo_6_actividades_de_integracion"
     },
@@ -3166,7 +3274,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 10,
+      "community": 9,
       "norm_label": "el caso del laberinto del terror",
       "id": "modulo_6_el_caso_del_laberinto_del_terror"
     },
@@ -3179,7 +3287,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 10,
+      "community": 9,
       "norm_label": "sinonimia y antonimia",
       "id": "modulo_6_sinonimia_antonimia"
     },
@@ -3192,7 +3300,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 10,
+      "community": 9,
       "norm_label": "clases de palabras",
       "id": "modulo_6_clases_de_palabras"
     },
@@ -3205,7 +3313,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 10,
+      "community": 9,
       "norm_label": "pronombres personales, posesivos y demostrativos",
       "id": "modulo_6_pronombres_posesivos_demostrativos"
     },
@@ -3218,7 +3326,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 10,
+      "community": 9,
       "norm_label": "sintaxis",
       "id": "modulo_6_sintaxis"
     },
@@ -3231,7 +3339,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 10,
+      "community": 9,
       "norm_label": "cohesion, mayusculas y coma",
       "id": "modulo_6_cohesion_mayusculas_coma"
     },
@@ -3244,7 +3352,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 10,
+      "community": 9,
       "norm_label": "acentuacion, diptongos y hiatos",
       "id": "modulo_6_acentuacion_diptongos_hiatos"
     },
@@ -3257,7 +3365,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 10,
+      "community": 9,
       "norm_label": "ortografia de b/v, c/s/z",
       "id": "modulo_6_ortografia_b_v_c_s_z"
     }
@@ -3507,7 +3615,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src\\components\\practice\\__tests__\\lengua_integration.test.ts",
-      "source_location": "L113",
+      "source_location": "L117",
       "weight": 1.0,
       "_src": "src_components_practice_tests_lengua_integration_test_ts",
       "_tgt": "lengua_integration_test_assertselectionrespectsprerequisitesandmastery",
@@ -3519,7 +3627,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src\\components\\practice\\__tests__\\lengua_integration.test.ts",
-      "source_location": "L154",
+      "source_location": "L158",
       "weight": 1.0,
       "_src": "src_components_practice_tests_lengua_integration_test_ts",
       "_tgt": "lengua_integration_test_assertsessionrunnerusescrossrelationships",
@@ -3528,10 +3636,22 @@
       "confidence_score": 1.0
     },
     {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\components\\practice\\__tests__\\lengua_integration.test.ts",
+      "source_location": "L188",
+      "weight": 1.0,
+      "_src": "src_components_practice_tests_lengua_integration_test_ts",
+      "_tgt": "lengua_integration_test_assertpracticesessionsusechoiceexercises",
+      "source": "src_components_practice_tests_lengua_integration_test_ts",
+      "target": "lengua_integration_test_assertpracticesessionsusechoiceexercises",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src\\components\\practice\\__tests__\\lengua_integration.test.ts",
-      "source_location": "L121",
+      "source_location": "L125",
       "weight": 1.0,
       "_src": "lengua_integration_test_assertselectionrespectsprerequisitesandmastery",
       "_tgt": "lengua_integration_test_withmutedconsole",
@@ -3543,7 +3663,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src\\components\\practice\\__tests__\\lengua_integration.test.ts",
-      "source_location": "L161",
+      "source_location": "L165",
       "weight": 1.0,
       "_src": "lengua_integration_test_assertsessionrunnerusescrossrelationships",
       "_tgt": "lengua_integration_test_withmutedconsole",
@@ -3555,7 +3675,19 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src\\components\\practice\\__tests__\\lengua_integration.test.ts",
-      "source_location": "L156",
+      "source_location": "L190",
+      "weight": 1.0,
+      "_src": "lengua_integration_test_assertpracticesessionsusechoiceexercises",
+      "_tgt": "lengua_integration_test_withmutedconsole",
+      "source": "lengua_integration_test_withmutedconsole",
+      "target": "lengua_integration_test_assertpracticesessionsusechoiceexercises",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\components\\practice\\__tests__\\lengua_integration.test.ts",
+      "source_location": "L160",
       "weight": 1.0,
       "_src": "lengua_integration_test_assertsessionrunnerusescrossrelationships",
       "_tgt": "lengua_integration_test_buildexercise",
@@ -4995,7 +5127,139 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src\\practice\\session_runner.ts",
-      "source_location": "L514",
+      "source_location": "L524",
+      "weight": 1.0,
+      "_src": "src_practice_session_runner_ts",
+      "_tgt": "session_runner_buildgeneratedoptions",
+      "source": "src_practice_session_runner_ts",
+      "target": "session_runner_buildgeneratedoptions",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\practice\\session_runner.ts",
+      "source_location": "L542",
+      "weight": 1.0,
+      "_src": "src_practice_session_runner_ts",
+      "_tgt": "session_runner_buildorderingoptions",
+      "source": "src_practice_session_runner_ts",
+      "target": "session_runner_buildorderingoptions",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\practice\\session_runner.ts",
+      "source_location": "L559",
+      "weight": 1.0,
+      "_src": "src_practice_session_runner_ts",
+      "_tgt": "session_runner_buildobjectansweroptions",
+      "source": "src_practice_session_runner_ts",
+      "target": "session_runner_buildobjectansweroptions",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\practice\\session_runner.ts",
+      "source_location": "L608",
+      "weight": 1.0,
+      "_src": "src_practice_session_runner_ts",
+      "_tgt": "session_runner_buildhighlightoptions",
+      "source": "src_practice_session_runner_ts",
+      "target": "session_runner_buildhighlightoptions",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\practice\\session_runner.ts",
+      "source_location": "L627",
+      "weight": 1.0,
+      "_src": "src_practice_session_runner_ts",
+      "_tgt": "session_runner_buildfallbackoptions",
+      "source": "src_practice_session_runner_ts",
+      "target": "session_runner_buildfallbackoptions",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\practice\\session_runner.ts",
+      "source_location": "L638",
+      "weight": 1.0,
+      "_src": "src_practice_session_runner_ts",
+      "_tgt": "session_runner_formatanswerarray",
+      "source": "src_practice_session_runner_ts",
+      "target": "session_runner_formatanswerarray",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\practice\\session_runner.ts",
+      "source_location": "L646",
+      "weight": 1.0,
+      "_src": "src_practice_session_runner_ts",
+      "_tgt": "session_runner_formatanswerobject",
+      "source": "src_practice_session_runner_ts",
+      "target": "session_runner_formatanswerobject",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\practice\\session_runner.ts",
+      "source_location": "L652",
+      "weight": 1.0,
+      "_src": "src_practice_session_runner_ts",
+      "_tgt": "session_runner_formatanswervalue",
+      "source": "src_practice_session_runner_ts",
+      "target": "session_runner_formatanswervalue",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\practice\\session_runner.ts",
+      "source_location": "L664",
+      "weight": 1.0,
+      "_src": "src_practice_session_runner_ts",
+      "_tgt": "session_runner_resolveitemlabel",
+      "source": "src_practice_session_runner_ts",
+      "target": "session_runner_resolveitemlabel",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\practice\\session_runner.ts",
+      "source_location": "L676",
+      "weight": 1.0,
+      "_src": "src_practice_session_runner_ts",
+      "_tgt": "session_runner_oppositeshortanswer",
+      "source": "src_practice_session_runner_ts",
+      "target": "session_runner_oppositeshortanswer",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\practice\\session_runner.ts",
+      "source_location": "L688",
+      "weight": 1.0,
+      "_src": "src_practice_session_runner_ts",
+      "_tgt": "session_runner_removeaccents",
+      "source": "src_practice_session_runner_ts",
+      "target": "session_runner_removeaccents",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\practice\\session_runner.ts",
+      "source_location": "L693",
       "weight": 1.0,
       "_src": "src_practice_session_runner_ts",
       "_tgt": "session_runner_normalizefeedback",
@@ -5007,7 +5271,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src\\practice\\session_runner.ts",
-      "source_location": "L523",
+      "source_location": "L702",
       "weight": 1.0,
       "_src": "src_practice_session_runner_ts",
       "_tgt": "session_runner_normalizestringarray",
@@ -5019,7 +5283,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src\\practice\\session_runner.ts",
-      "source_location": "L527",
+      "source_location": "L706",
       "weight": 1.0,
       "_src": "src_practice_session_runner_ts",
       "_tgt": "session_runner_normalizerelatedskills",
@@ -5031,7 +5295,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src\\practice\\session_runner.ts",
-      "source_location": "L531",
+      "source_location": "L710",
       "weight": 1.0,
       "_src": "src_practice_session_runner_ts",
       "_tgt": "session_runner_normalizetextfield",
@@ -5043,7 +5307,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src\\practice\\session_runner.ts",
-      "source_location": "L535",
+      "source_location": "L714",
       "weight": 1.0,
       "_src": "src_practice_session_runner_ts",
       "_tgt": "session_runner_normalizedifficulty",
@@ -5055,7 +5319,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src\\practice\\session_runner.ts",
-      "source_location": "L548",
+      "source_location": "L727",
       "weight": 1.0,
       "_src": "src_practice_session_runner_ts",
       "_tgt": "session_runner_normalizemasterylevel",
@@ -5355,6 +5619,30 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src\\practice\\session_runner.ts",
+      "source_location": "L486",
+      "weight": 1.0,
+      "_src": "session_runner_normalizecorrectanswer",
+      "_tgt": "session_runner_formatanswerarray",
+      "source": "session_runner_normalizecorrectanswer",
+      "target": "session_runner_formatanswerarray",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\practice\\session_runner.ts",
+      "source_location": "L490",
+      "weight": 1.0,
+      "_src": "session_runner_normalizecorrectanswer",
+      "_tgt": "session_runner_formatanswerobject",
+      "source": "session_runner_normalizecorrectanswer",
+      "target": "session_runner_formatanswerobject",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\practice\\session_runner.ts",
       "source_location": "L494",
       "weight": 1.0,
       "_src": "session_runner_normalizecorrectanswer",
@@ -5373,6 +5661,150 @@
       "_tgt": "session_runner_normalizestringarray",
       "source": "session_runner_ensureoptions",
       "target": "session_runner_normalizestringarray",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\practice\\session_runner.ts",
+      "source_location": "L510",
+      "weight": 1.0,
+      "_src": "session_runner_ensureoptions",
+      "_tgt": "session_runner_buildgeneratedoptions",
+      "source": "session_runner_ensureoptions",
+      "target": "session_runner_buildgeneratedoptions",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\practice\\session_runner.ts",
+      "source_location": "L528",
+      "weight": 1.0,
+      "_src": "session_runner_buildgeneratedoptions",
+      "_tgt": "session_runner_buildorderingoptions",
+      "source": "session_runner_buildgeneratedoptions",
+      "target": "session_runner_buildorderingoptions",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\practice\\session_runner.ts",
+      "source_location": "L532",
+      "weight": 1.0,
+      "_src": "session_runner_buildgeneratedoptions",
+      "_tgt": "session_runner_buildobjectansweroptions",
+      "source": "session_runner_buildgeneratedoptions",
+      "target": "session_runner_buildobjectansweroptions",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\practice\\session_runner.ts",
+      "source_location": "L536",
+      "weight": 1.0,
+      "_src": "session_runner_buildgeneratedoptions",
+      "_tgt": "session_runner_buildhighlightoptions",
+      "source": "session_runner_buildgeneratedoptions",
+      "target": "session_runner_buildhighlightoptions",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\practice\\session_runner.ts",
+      "source_location": "L539",
+      "weight": 1.0,
+      "_src": "session_runner_buildgeneratedoptions",
+      "_tgt": "session_runner_buildfallbackoptions",
+      "source": "session_runner_buildgeneratedoptions",
+      "target": "session_runner_buildfallbackoptions",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\practice\\session_runner.ts",
+      "source_location": "L582",
+      "weight": 1.0,
+      "_src": "session_runner_buildobjectansweroptions",
+      "_tgt": "session_runner_formatanswerobject",
+      "source": "session_runner_buildobjectansweroptions",
+      "target": "session_runner_formatanswerobject",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\practice\\session_runner.ts",
+      "source_location": "L609",
+      "weight": 1.0,
+      "_src": "session_runner_buildhighlightoptions",
+      "_tgt": "session_runner_normalizestringarray",
+      "source": "session_runner_buildhighlightoptions",
+      "target": "session_runner_normalizestringarray",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\practice\\session_runner.ts",
+      "source_location": "L628",
+      "weight": 1.0,
+      "_src": "session_runner_buildfallbackoptions",
+      "_tgt": "session_runner_normalizestringarray",
+      "source": "session_runner_buildfallbackoptions",
+      "target": "session_runner_normalizestringarray",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\practice\\session_runner.ts",
+      "source_location": "L632",
+      "weight": 1.0,
+      "_src": "session_runner_buildfallbackoptions",
+      "_tgt": "session_runner_oppositeshortanswer",
+      "source": "session_runner_buildfallbackoptions",
+      "target": "session_runner_oppositeshortanswer",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\practice\\session_runner.ts",
+      "source_location": "L632",
+      "weight": 1.0,
+      "_src": "session_runner_buildfallbackoptions",
+      "_tgt": "session_runner_removeaccents",
+      "source": "session_runner_buildfallbackoptions",
+      "target": "session_runner_removeaccents",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\practice\\session_runner.ts",
+      "source_location": "L658",
+      "weight": 1.0,
+      "_src": "session_runner_formatanswervalue",
+      "_tgt": "session_runner_formatanswerobject",
+      "source": "session_runner_formatanswerobject",
+      "target": "session_runner_formatanswervalue",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\practice\\session_runner.ts",
+      "source_location": "L661",
+      "weight": 1.0,
+      "_src": "session_runner_formatanswervalue",
+      "_tgt": "session_runner_resolveitemlabel",
+      "source": "session_runner_formatanswervalue",
+      "target": "session_runner_resolveitemlabel",
       "confidence_score": 1.0
     },
     {

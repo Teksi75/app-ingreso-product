@@ -162,5 +162,11 @@
       "total_correct": 1,
       "last_state": "mastered"
     }
-  }
+  },
+  "seenSkills": [
+    "lengua.skill_1",
+    "lengua.skill_4",
+    "lengua.skill_6",
+    "lengua.skill_7"
+  ]
 }

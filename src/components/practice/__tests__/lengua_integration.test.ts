@@ -11,7 +11,7 @@ import {
   type Exercise as SelectorExercise,
   type MasteryLevel,
 } from "../exercise_selector.ts";
-import { loadLenguaExercises, runSession, type Exercise } from "../session_runner.ts";
+import { loadLenguaExercises, runSession, startPracticeSession, type Exercise } from "../session_runner.ts";
 
 const engineDir = resolve(process.cwd(), "docs/04_exercise_engine");
 const contentIndex = JSON.parse(
@@ -91,8 +91,12 @@ function assertNormalizedExerciseShape(): void {
     assert.ok([1, 2, 3, 4].includes(exercise.mastery_level), exercise.id);
     assert.match(exercise.type, /\S/);
     assert.match(exercise.prompt, /\S/);
-    assert.ok(exercise.options.length > 0, exercise.id);
+    assert.ok(
+      exercise.options.filter((option) => option.trim().length > 0).length >= 2,
+      exercise.id,
+    );
     assert.ok(exercise.options.includes(exercise.correct_answer), exercise.id);
+    assert.doesNotMatch(exercise.correct_answer, /^[\[{]/, exercise.id);
     assert.match(exercise.feedback_correct, /\S/);
     assert.match(exercise.feedback_incorrect, /\S/);
   }
@@ -181,9 +185,31 @@ function assertSessionRunnerUsesCrossRelationships(): void {
   );
 }
 
+function assertPracticeSessionsUseChoiceExercises(): void {
+  for (const skillId of [null, ...contentIndex.canonical_skills]) {
+    const session = withMutedConsole(() => (
+      startPracticeSession(skillId, [], { forceNewStudent: true })
+    ));
+
+    assert.ok(
+      session.exercise.options.filter((option) => option.trim().length > 0).length >= 2,
+      session.exercise.id,
+    );
+    assert.ok(session.exercisePool.length > 0, String(skillId));
+
+    for (const exercise of session.exercisePool) {
+      assert.ok(
+        exercise.options.filter((option) => option.trim().length > 0).length >= 2,
+        exercise.id,
+      );
+    }
+  }
+}
+
 assertLoadsAllLenguaJson();
 assertNormalizedExerciseShape();
 assertSelectionRespectsPrerequisitesAndMastery();
 assertSessionRunnerUsesCrossRelationships();
+assertPracticeSessionsUseChoiceExercises();
 
 console.log("lengua integration validated");

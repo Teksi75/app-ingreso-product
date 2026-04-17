@@ -483,11 +483,11 @@ function normalizeCorrectAnswer(
   }
 
   if (Array.isArray(answer)) {
-    return answer.join(" | ");
+    return formatAnswerArray(answer, exercise);
   }
 
   if (typeof answer === "object" && answer !== null) {
-    return JSON.stringify(answer);
+    return formatAnswerObject(answer as Record<string, unknown>, exercise);
   }
 
   const acceptedAnswer = [
@@ -507,8 +507,187 @@ function ensureOptions(options: string[], correctAnswer: string, exercise: Recor
     ...normalizeStringArray(exercise.accepted_answers),
     ...normalizeStringArray(exercise.acceptable_answers),
   ];
-  const merged = Array.from(new Set([...options, correctAnswer, ...fromAccepted].filter(Boolean)));
-  return merged.length > 0 ? merged : [correctAnswer];
+  const generated = buildGeneratedOptions(correctAnswer, exercise);
+  const merged = Array.from(new Set(
+    [...options, correctAnswer, ...fromAccepted, ...generated]
+      .map((option) => option.trim())
+      .filter(Boolean),
+  ));
+
+  if (merged.length >= 2) {
+    return merged;
+  }
+
+  return Array.from(new Set([correctAnswer, "No corresponde"].filter(Boolean)));
+}
+
+function buildGeneratedOptions(correctAnswer: string, exercise: Record<string, unknown>): string[] {
+  const type = String(exercise.type ?? "");
+
+  if (type === "ordering" && Array.isArray(exercise.answer)) {
+    return buildOrderingOptions(exercise.answer, exercise);
+  }
+
+  if (typeof exercise.answer === "object" && exercise.answer !== null && !Array.isArray(exercise.answer)) {
+    return buildObjectAnswerOptions(exercise.answer as Record<string, unknown>, exercise);
+  }
+
+  if (type === "highlight_selection") {
+    return buildHighlightOptions(correctAnswer, exercise);
+  }
+
+  return buildFallbackOptions(correctAnswer, exercise);
+}
+
+function buildOrderingOptions(answer: unknown[], exercise: Record<string, unknown>): string[] {
+  const values = answer.map((item) => resolveItemLabel(item, exercise)).filter(Boolean);
+
+  if (values.length < 2) {
+    return [];
+  }
+
+  const swapped = [...values];
+  [swapped[0], swapped[1]] = [swapped[1], swapped[0]];
+
+  return [
+    values.join(" | "),
+    swapped.join(" | "),
+    [...values].reverse().join(" | "),
+  ];
+}
+
+function buildObjectAnswerOptions(
+  answer: Record<string, unknown>,
+  exercise: Record<string, unknown>,
+): string[] {
+  const keys = Object.keys(answer);
+
+  if (!keys.length) {
+    return [];
+  }
+
+  if (keys.every((key) => typeof answer[key] === "string")) {
+    const values = keys.map((key) => String(answer[key]));
+
+    if (values.length < 2) {
+      return [];
+    }
+
+    const rotated = keys.reduce<Record<string, string>>((accumulator, key, index) => {
+      accumulator[key] = values[(index + 1) % values.length];
+      return accumulator;
+    }, {});
+
+    return [
+      formatAnswerObject(answer, exercise),
+      formatAnswerObject(rotated, exercise),
+    ];
+  }
+
+  if (keys.every((key) => Array.isArray(answer[key]))) {
+    const groups = keys.map((key) => answer[key] as unknown[]);
+
+    if (groups.length < 2) {
+      return [];
+    }
+
+    const swapped = keys.reduce<Record<string, unknown[]>>((accumulator, key, index) => {
+      accumulator[key] = groups[(index + 1) % groups.length];
+      return accumulator;
+    }, {});
+
+    return [
+      formatAnswerObject(answer, exercise),
+      formatAnswerObject(swapped, exercise),
+    ];
+  }
+
+  return [formatAnswerObject(answer, exercise)];
+}
+
+function buildHighlightOptions(correctAnswer: string, exercise: Record<string, unknown>): string[] {
+  const tokens = normalizeStringArray(exercise.tokens);
+  const items = normalizeStringArray(exercise.items);
+  const candidates = tokens.length > 0 ? tokens : items;
+
+  if (!candidates.length) {
+    return [];
+  }
+
+  const correctParts = new Set(correctAnswer.split(" | ").map((item) => item.trim()));
+  const wrong = candidates.filter((item) => !correctParts.has(item));
+
+  return [
+    correctAnswer,
+    wrong.slice(0, Math.max(1, correctParts.size)).join(" | "),
+    candidates.slice(0, Math.max(1, correctParts.size)).join(" | "),
+  ];
+}
+
+function buildFallbackOptions(correctAnswer: string, exercise: Record<string, unknown>): string[] {
+  const values = [...normalizeStringArray(exercise.items), ...normalizeStringArray(exercise.tokens)]
+    .map((item) => resolveItemLabel(item, exercise))
+    .filter((item) => item && item !== correctAnswer);
+
+  const alternatives = [oppositeShortAnswer(correctAnswer), removeAccents(correctAnswer), ...values]
+    .filter((option): option is string => Boolean(option && option !== correctAnswer));
+
+  return [correctAnswer, ...alternatives, "No corresponde"];
+}
+
+function formatAnswerArray(answer: unknown[], exercise: Record<string, unknown>): string {
+  if (answer.length === 0) {
+    return "No corresponde";
+  }
+
+  return answer.map((item) => resolveItemLabel(item, exercise)).join(" | ");
+}
+
+function formatAnswerObject(answer: Record<string, unknown>, exercise: Record<string, unknown>): string {
+  return Object.entries(answer)
+    .map(([key, value]) => `${key}: ${formatAnswerValue(value, exercise)}`)
+    .join("; ");
+}
+
+function formatAnswerValue(value: unknown, exercise: Record<string, unknown>): string {
+  if (Array.isArray(value)) {
+    return value.map((item) => resolveItemLabel(item, exercise)).join(", ");
+  }
+
+  if (typeof value === "object" && value !== null) {
+    return formatAnswerObject(value as Record<string, unknown>, exercise);
+  }
+
+  return resolveItemLabel(value, exercise);
+}
+
+function resolveItemLabel(value: unknown, exercise: Record<string, unknown>): string {
+  const rawValue = String(value);
+  const items = Array.isArray(exercise.items) ? exercise.items : [];
+  const matchingItem = items.find((item) => (
+    typeof item === "object" &&
+    item !== null &&
+    String((item as { id?: unknown }).id) === rawValue
+  )) as { text?: unknown } | undefined;
+
+  return String(matchingItem?.text ?? rawValue);
+}
+
+function oppositeShortAnswer(answer: string): string | undefined {
+  const opposites: Record<string, string> = {
+    b: "v",
+    v: "b",
+    c: "s",
+    s: "c",
+    z: "s",
+  };
+
+  return opposites[answer.toLowerCase()];
+}
+
+function removeAccents(value: string): string | undefined {
+  const normalized = value.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+  return normalized === value ? undefined : normalized;
 }
 
 function normalizeFeedback(exercise: Record<string, unknown>): { correct: string; incorrect: string } {
