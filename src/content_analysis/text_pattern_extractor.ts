@@ -8,6 +8,9 @@ export type TextPatternSummary = {
 };
 
 const DEFAULT_SOURCE_DIR = resolve(process.cwd(), "content_sources/lengua");
+const MANUAL_EXTRACTS_DIR = "manual_extracts";
+
+const BLOCKED_EXTENSIONS = new Set([".pdf", ".doc", ".docx", ".odt"]);
 
 export function extractTextPatterns(sourceDir = DEFAULT_SOURCE_DIR): TextPatternSummary {
   if (!existsSync(sourceDir)) {
@@ -19,13 +22,27 @@ export function extractTextPatterns(sourceDir = DEFAULT_SOURCE_DIR): TextPattern
   }
 
   const files = readdirSync(sourceDir)
+    .filter((fileName) => fileName !== MANUAL_EXTRACTS_DIR)
     .map((fileName) => join(sourceDir, fileName))
     .filter((path) => statSync(path).isFile());
+
+  const manualDir = join(sourceDir, MANUAL_EXTRACTS_DIR);
+  const manualFiles = existsSync(manualDir)
+    ? readdirSync(manualDir)
+        .filter((fileName) => {
+          const ext = extname(fileName).toLowerCase();
+          return !BLOCKED_EXTENSIONS.has(ext);
+        })
+        .map((fileName) => join(manualDir, fileName))
+        .filter((path) => statSync(path).isFile())
+    : [];
+
+  const allFiles = [...files, ...manualFiles];
   const textTypes = new Set<string>();
   const structures = new Set<string>();
   const lengths: number[] = [];
 
-  for (const filePath of files) {
+  for (const filePath of allFiles) {
     const extension = extname(filePath).toLowerCase();
 
     if (extension === ".pdf") {

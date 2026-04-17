@@ -4,7 +4,10 @@
     {
       "id": "ex_001",
       "readingUnitId": "reading_001",
-      "skill": "inference",
+      "skill": "lengua.skill_1",
+      "subskill": "lengua.skill_1.subskill_1",
+      "difficulty": 1,
+      "mastery_level": 1,
       "type": "multiple_choice",
       "question": "Por que estaba cerrado el parque?",
       "options": [
@@ -13,12 +16,17 @@
         "Porque Tomas habia perdido una cometa",
         "Porque la cuidadora habia cambiado la reja"
       ],
-      "correctAnswer": "Porque el viento habia quebrado ramas"
+      "correctAnswer": "Porque el viento habia quebrado ramas",
+      "feedback_correct": "Correcto: la cuidadora explico que el viento habia quebrado varias ramas.",
+      "feedback_incorrect": "Revisa el texto: la cuidadora da la razon del cierre."
     },
     {
       "id": "ex_002",
       "readingUnitId": "reading_001",
-      "skill": "explicit_information",
+      "skill": "lengua.skill_1",
+      "subskill": "lengua.skill_1.subskill_2",
+      "difficulty": 1,
+      "mastery_level": 1,
       "type": "multiple_choice",
       "question": "Que objeto vio Tomas atrapado en una rama?",
       "options": [
@@ -27,12 +35,17 @@
         "Una cometa roja",
         "Una cadena vieja"
       ],
-      "correctAnswer": "Una cometa roja"
+      "correctAnswer": "Una cometa roja",
+      "feedback_correct": "Correcto: el texto dice que habia una cometa roja atrapada en la rama.",
+      "feedback_incorrect": "Busca en el texto que objeto estaba en la rama del fresno."
     },
     {
       "id": "ex_003",
       "readingUnitId": "reading_001",
-      "skill": "inference",
+      "skill": "lengua.skill_1",
+      "subskill": "lengua.skill_1.subskill_3",
+      "difficulty": 2,
+      "mastery_level": 1,
       "type": "multiple_choice",
       "question": "Que penso Tomas al final?",
       "options": [
@@ -41,7 +54,9 @@
         "Que el bebedero estaba roto desde hacia meses",
         "Que el parque nunca volveria a abrir"
       ],
-      "correctAnswer": "Que alguien habia estado en el parque antes de la tormenta"
+      "correctAnswer": "Que alguien habia estado en el parque antes de la tormenta",
+      "feedback_correct": "Correcto: Tomas concluyo que alguien habia estado antes porque la cometa estaba alli.",
+      "feedback_incorrect": "Revisa el texto: Tomas conecta la cometa atrapada con una inferencia temporal."
     }
   ]
 }

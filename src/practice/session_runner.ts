@@ -1,4 +1,4 @@
-import { readFileSync } from "node:fs";
+import { existsSync, readdirSync, readFileSync } from "node:fs";
 import { join, resolve } from "node:path";
 import { getSeenSkills, markSkillsSeen } from "../storage/local_progress_store.ts";
 import { type ReadingUnit } from "../types/reading_unit.ts";
@@ -53,6 +53,33 @@ type ExerciseFile = {
   subskills?: unknown[];
 };
 
+type ContentLenguaExerciseFile = {
+  readingUnitId?: string;
+  exercises?: ContentLenguaExercise[];
+};
+
+type ContentLenguaExercise = {
+  id: string;
+  readingUnitId?: string;
+  skill: string;
+  subskill?: string;
+  difficulty?: unknown;
+  mastery_level?: unknown;
+  masteryLevel?: unknown;
+  type?: string;
+  question?: string;
+  prompt?: string;
+  options?: string[];
+  correctAnswer?: string;
+  correct_answer?: string;
+  feedback_correct?: string;
+  feedback_incorrect?: string;
+  feedbackCorrect?: string;
+  feedbackIncorrect?: string;
+  related_skills?: unknown;
+  relatedSkills?: unknown;
+};
+
 type AttemptRecord = {
   step: number;
   exerciseId: string;
@@ -100,6 +127,8 @@ type AnswerProvider = (exercise: Exercise, step: number) => string;
 
 const DEFAULT_MAX_STEPS = 10;
 const EXERCISE_ENGINE_DIR = resolve(process.cwd(), "docs/04_exercise_engine");
+const CONTENT_LENGUA_UNITS_DIR = resolve(process.cwd(), "content/lengua/reading_units");
+const CONTENT_LENGUA_EXERCISES_DIR = resolve(process.cwd(), "content/lengua/exercises");
 
 function toSelectorExercise(exercise: Exercise): SelectorExercise {
   return {
@@ -132,7 +161,73 @@ export function loadLenguaExercises(baseDir = EXERCISE_ENGINE_DIR): Exercise[] {
     return normalizeExerciseFile(parsed, fileName, graph);
   });
 
-  return Array.from(new Map(exercises.map((exercise) => [exercise.id, exercise])).values());
+  const contentExercises = loadContentLenguaExercises(graph);
+  const merged = [...exercises, ...contentExercises];
+
+  return Array.from(new Map(merged.map((exercise) => [exercise.id, exercise])).values());
+}
+
+function loadContentLenguaExercises(graph: ReturnType<typeof loadLenguaSelectionGraph>): Exercise[] {
+  if (!existsSync(CONTENT_LENGUA_UNITS_DIR) || !existsSync(CONTENT_LENGUA_EXERCISES_DIR)) {
+    return [];
+  }
+
+  const readingUnits = new Map<string, ReadingUnit>();
+
+  for (const fileName of readdirSync(CONTENT_LENGUA_UNITS_DIR).filter((f) => f.endsWith(".json")).sort()) {
+    const rawUnit = JSON.parse(readFileSync(join(CONTENT_LENGUA_UNITS_DIR, fileName), "utf8")) as Record<string, unknown>;
+    const id = normalizeTextField(rawUnit.id);
+
+    if (!id) continue;
+
+    const unit: ReadingUnit = {
+      id,
+      title: String(rawUnit.title),
+      text: String(rawUnit.text),
+      difficulty: normalizeDifficulty(rawUnit.difficulty),
+      textType: rawUnit.textType === "informative" ? "informative" : "narrative",
+      source: "generated",
+    };
+
+    readingUnits.set(id, unit);
+  }
+
+  const exercises: Exercise[] = [];
+
+  for (const fileName of readdirSync(CONTENT_LENGUA_EXERCISES_DIR).filter((f) => f.endsWith(".json")).sort()) {
+    const parsed = JSON.parse(readFileSync(join(CONTENT_LENGUA_EXERCISES_DIR, fileName), "utf8")) as ContentLenguaExerciseFile;
+    const fileUnitId = normalizeTextField(parsed.readingUnitId);
+
+    for (const rawExercise of parsed.exercises ?? []) {
+      const exerciseUnitId = normalizeTextField(rawExercise.readingUnitId ?? fileUnitId);
+      const readingUnit = exerciseUnitId ? readingUnits.get(exerciseUnitId) : undefined;
+      const skillId = normalizeSkillId(rawExercise.skill, graph);
+      const subskillId = normalizeSubskillId(rawExercise.subskill ?? rawExercise.skill, skillId, graph);
+      const options = normalizeContentOptions(rawExercise.options, rawExercise.correctAnswer);
+
+      exercises.push({
+        id: String(rawExercise.id),
+        skill_id: skillId,
+        subskill: subskillId,
+        difficulty: normalizeDifficulty(rawExercise.difficulty ?? readingUnit?.difficulty),
+        mastery_level: normalizeMasteryLevel(rawExercise.mastery_level ?? rawExercise.masteryLevel),
+        type: String(rawExercise.type ?? "multiple_choice"),
+        text: readingUnit?.text,
+        readingUnitId: exerciseUnitId,
+        reading_unit_id: exerciseUnitId,
+        reading_unit: readingUnit,
+        prompt: String(rawExercise.question ?? rawExercise.prompt ?? ""),
+        options: ensureContentOptions(options, String(rawExercise.correctAnswer ?? rawExercise.correct_answer ?? "")),
+        correct_answer: String(rawExercise.correctAnswer ?? rawExercise.correct_answer ?? ""),
+        feedback_correct: String(rawExercise.feedback_correct ?? rawExercise.feedbackCorrect ?? "Correcto."),
+        feedback_incorrect: String(rawExercise.feedback_incorrect ?? rawExercise.feedbackIncorrect ?? "Incorrecto."),
+        source_file: fileName,
+        related_skills: normalizeRelatedSkills(rawExercise.related_skills ?? rawExercise.relatedSkills),
+      });
+    }
+  }
+
+  return exercises;
 }
 
 function normalizeExerciseFile(
@@ -470,10 +565,17 @@ export function startPracticeSession(
   const graph = loadLenguaSelectionGraph();
   const exercises = loadLenguaExercises();
   const canonicalSkillId = skillId ? normalizeSkillId(skillId, graph) : null;
-  const focusedExercises = canonicalSkillId
-    ? exercises.filter((exercise) => exercise.skill_id === canonicalSkillId)
-    : exercises;
-  const startingPool = focusedExercises.length > 0 ? focusedExercises : exercises;
+
+  const skillFilter = canonicalSkillId
+    ? (e: Exercise) => e.skill_id === canonicalSkillId
+    : () => true;
+
+  const filtered = exercises.filter(skillFilter);
+  const basePool = filtered.length > 0 ? filtered : exercises;
+  const startingPool = canonicalSkillId
+    ? buildSkillTrainingPool(basePool, usedExerciseIds, skillFilter)
+    : basePool;
+
   const unusedExercises = startingPool.filter((exercise) => !usedExerciseIds.includes(exercise.id));
   const selectionPool = unusedExercises.length > 0 ? unusedExercises : startingPool;
   const activeUsedIds = unusedExercises.length > 0 ? usedExerciseIds : [];
@@ -508,6 +610,45 @@ export function startPracticeSession(
     exercisePool: startingPool,
     usedExerciseIds: [...activeUsedIds, exercise.id],
   };
+}
+
+function buildSkillTrainingPool(
+  basePool: Exercise[],
+  usedExerciseIds: string[],
+  skillFilter: (exercise: Exercise) => boolean,
+): Exercise[] {
+  const readingExercises = basePool.filter((exercise) => Boolean(exercise.readingUnitId) && skillFilter(exercise));
+  const standaloneExercises = basePool.filter((exercise) => !exercise.readingUnitId && skillFilter(exercise));
+
+  if (readingExercises.length === 0) {
+    return standaloneExercises.length > 0 ? standaloneExercises : basePool;
+  }
+
+  const usedIds = new Set(usedExerciseIds);
+  const usedReadingUnitIds = readingExercises
+    .filter((exercise) => usedIds.has(exercise.id))
+    .map((exercise) => exercise.readingUnitId)
+    .filter((readingUnitId): readingUnitId is string => Boolean(readingUnitId));
+  const candidateUnitIds = [
+    ...usedReadingUnitIds,
+    ...readingExercises
+      .map((exercise) => exercise.readingUnitId)
+      .filter((readingUnitId): readingUnitId is string => Boolean(readingUnitId))
+      .sort((left, right) => left.localeCompare(right)),
+  ];
+
+  for (const readingUnitId of Array.from(new Set(candidateUnitIds))) {
+    const unitExercises = readingExercises
+      .filter((exercise) => exercise.readingUnitId === readingUnitId)
+      .sort((left, right) => left.difficulty - right.difficulty || left.id.localeCompare(right.id));
+    const hasUnused = unitExercises.some((exercise) => !usedIds.has(exercise.id));
+
+    if (hasUnused) {
+      return unitExercises;
+    }
+  }
+
+  return standaloneExercises.length > 0 ? standaloneExercises : basePool;
 }
 
 export function startReadingUnitSession(
@@ -836,6 +977,22 @@ function normalizeRelatedSkills(value: unknown): string[] {
 
 function normalizeTextField(value: unknown): string | undefined {
   return typeof value === "string" && value.length > 0 ? value : undefined;
+}
+
+function normalizeContentOptions(options: unknown, correctAnswer: unknown): string[] {
+  if (Array.isArray(options)) {
+    return options.map((o) => String(o)).filter(Boolean);
+  }
+
+  if (typeof correctAnswer === "string") {
+    return [correctAnswer];
+  }
+
+  return [];
+}
+
+function ensureContentOptions(options: string[], correctAnswer: string): string[] {
+  return Array.from(new Set([...options, correctAnswer].filter(Boolean)));
 }
 
 function normalizeDifficulty(value: unknown): Difficulty {

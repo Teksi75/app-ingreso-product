@@ -101,6 +101,7 @@ export function PracticeQuestion({
           attempts: questionCount,
           correct: nextCorrectCount,
           currentMastery: currentExercise.mastery_level,
+          readingUnitId: currentExercise.readingUnitId ?? currentExercise.reading_unit_id ?? undefined,
         });
 
         setProgressResult(result);
@@ -212,13 +213,18 @@ export function PracticeQuestion({
           Pregunta {questionCount} de {sessionQuestionCount}
         </p>
         {currentExercise.text && mode === "practice" ? (
-          <section className="grid gap-2 rounded border border-gray-200 bg-[#f7f7f4] p-3">
+          <section className="grid gap-2 rounded border border-[#d8d0a8] bg-[#fff8d7] p-3">
             {currentExercise.reading_unit ? (
-              <p className="m-0 text-sm font-semibold text-[#55554d]">
+              <p className="m-0 text-xs font-semibold uppercase text-[#6a5d21]">
+                Texto base
+              </p>
+            ) : null}
+            {currentExercise.reading_unit ? (
+              <p className="m-0 text-sm font-semibold text-[#1d1d1b]">
                 {currentExercise.reading_unit.title}
               </p>
             ) : null}
-            <p className="m-0 text-base leading-7">
+            <p className="m-0 text-sm leading-6 text-[#1d1d1b]">
               {currentExercise.text}
             </p>
           </section>

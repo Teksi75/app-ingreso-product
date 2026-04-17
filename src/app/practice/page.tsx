@@ -27,6 +27,7 @@ export type PracticeSessionProgressInput = {
   attempts: number;
   correct: number;
   currentMastery: MasteryLevel;
+  readingUnitId?: string;
 };
 
 export type PracticeSessionProgressResult = {
@@ -125,7 +126,7 @@ async function savePracticeSessionProgress(
   const masteryLevel = calculateUpdatedMastery(input);
   const skillState = getSkillState(masteryLevel);
 
-  saveSessionResult({
+saveSessionResult({
     mode: input.mode ?? "practice",
     total_attempts: input.attempts,
     total_correct: input.correct,
@@ -146,6 +147,7 @@ async function savePracticeSessionProgress(
         mastery_level: masteryLevel,
       },
     ],
+    readingUnitId: input.readingUnitId,
   });
 
   const masteryByFocus = getStoredMasteryByFocus();
