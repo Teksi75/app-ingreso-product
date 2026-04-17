@@ -1,12 +1,12 @@
 # Graph Report - .  (2026-04-17)
 
 ## Corpus Check
-- 27 files · ~57,962 words
+- 27 files · ~58,275 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 342 nodes · 580 edges · 30 communities detected
-- Extraction: 92% EXTRACTED · 8% INFERRED · 0% AMBIGUOUS · INFERRED: 48 edges (avg confidence: 0.81)
+- 180 nodes · 333 edges · 26 communities detected
+- Extraction: 90% EXTRACTED · 10% INFERRED · 0% AMBIGUOUS · INFERRED: 34 edges (avg confidence: 0.8)
 - Token cost: 0 input · 0 output
 
 ## Community Hubs (Navigation)
@@ -36,111 +36,99 @@
 - [[_COMMUNITY_Community 23|Community 23]]
 - [[_COMMUNITY_Community 24|Community 24]]
 - [[_COMMUNITY_Community 25|Community 25]]
-- [[_COMMUNITY_Community 26|Community 26]]
-- [[_COMMUNITY_Community 27|Community 27]]
-- [[_COMMUNITY_Community 28|Community 28]]
-- [[_COMMUNITY_Community 29|Community 29]]
 
 ## God Nodes (most connected - your core abstractions)
-1. `Product Analysis` - 21 edges
-2. `selectNextExerciseDetailed()` - 18 edges
-3. `Agent Orchestrator` - 12 edges
-4. `loadLenguaSelectionGraph()` - 11 edges
-5. `loadLenguaExercises()` - 11 edges
-6. `normalizeExercise()` - 11 edges
-7. `App Ingreso` - 11 edges
-8. `Scope & Rules Validator` - 11 edges
-9. `Codex Prompt Generator` - 11 edges
-10. `loadContentLenguaExercises()` - 10 edges
+1. `selectNextExerciseDetailed()` - 17 edges
+2. `loadLenguaSelectionGraph()` - 11 edges
+3. `loadLenguaExercises()` - 11 edges
+4. `normalizeExercise()` - 11 edges
+5. `loadContentLenguaExercises()` - 10 edges
+6. `runSession()` - 9 edges
+7. `startPracticeSession()` - 9 edges
+8. `runSimulator()` - 8 edges
+9. `normalizeSkillId()` - 7 edges
+10. `normalizeSubskillId()` - 7 edges
 
 ## Surprising Connections (you probably didn't know these)
-- `Product Roadmap - App Ingreso` --conceptually_related_to--> `App icon with dark square and white stylized mark`  [INFERRED]
-  roadmap/roadmap.md → src/app/icon.svg
 - `DashboardPage()` --calls--> `loadProgress()`  [INFERRED]
   src\app\dashboard\page.tsx → src\storage\local_progress_store.ts
-- `PracticePage()` --calls--> `startReadingSession()`  [INFERRED]
-  src\app\practice\page.tsx → src\practice\reading_session_runner.ts
-- `PracticePage()` --calls--> `startPracticeSession()`  [INFERRED]
-  src\app\practice\page.tsx → src\practice\session_runner.ts
-- `savePracticeSessionProgress()` --calls--> `saveSessionResult()`  [INFERRED]
-  src\app\practice\page.tsx → src\storage\local_progress_store.ts
-
-## Hyperedges (group relationships)
-- **Four-agent validation stack** — agent_01_product_guardian, agent_02_scope_rules_validator, agent_03_quality_auditor, agent_04_codex_prompt_generator [INFERRED 0.94]
-- **Validation protocol docs** — orchestrator, interaction_flow, validation_pipeline [INFERRED 0.95]
-- **Worked decision examples** — ejemplo_01_ajuste_menor, ejemplo_02_idea_nueva, ejemplo_03_bloqueado_p0 [INFERRED 0.90]
-- **Policy Guardrails** — adr_002_no_official_content, adr_003_autonomous_learning, adr_004_parent_responsibility [INFERRED 0.90]
-- **Practice Loop** — exercise_engine_v1, exercise_selection_logic_v1, practice_session_flow_v1 [EXTRACTED 0.96]
-- **Measurement Stack** — simulator_model, progress_metrics, progress_metrics_v1 [INFERRED 0.87]
+- `assertSelectionRespectsPrerequisitesAndMastery()` --calls--> `loadLenguaSelectionGraph()`  [INFERRED]
+  src\components\practice\__tests__\lengua_integration.test.ts → src\practice\exercise_selector.ts
+- `assertReadingUnitSessionsShareGeneratedTexts()` --calls--> `loadLenguaExercises()`  [INFERRED]
+  src\components\practice\__tests__\lengua_integration.test.ts → src\practice\session_runner.ts
+- `assertReadingModeDatasetRunsSequentially()` --calls--> `startReadingSession()`  [INFERRED]
+  src\components\practice\__tests__\lengua_integration.test.ts → src\practice\reading_session_runner.ts
+- `loadContentLenguaExercises()` --calls--> `normalizeSkillId()`  [INFERRED]
+  src\practice\session_runner.ts → src\practice\exercise_selector.ts
 
 ## Communities
 
 ### Community 0 - "Community 0"
-Cohesion: 0.05
-Nodes (57): Access by Time, Accuracy Metric, Adaptive Practice, ADR-003: Autonomous Learning, ADR-004: Parent Responsibility, Adult Customer, Adult Responsibility, Autonomous Training Platform (+49 more)
+Cohesion: 0.12
+Nodes (27): buildFallbackOptions(), buildGeneratedOptions(), buildHighlightOptions(), buildObjectAnswerOptions(), buildOrderingOptions(), buildSkillTrainingPool(), ensureContentOptions(), ensureOptions() (+19 more)
 
 ### Community 1 - "Community 1"
-Cohesion: 0.09
-Nodes (38): listLenguaExerciseFiles(), assertLoadsAllLenguaJson(), buildFallbackOptions(), buildGeneratedOptions(), buildHighlightOptions(), buildObjectAnswerOptions(), buildOrderingOptions(), buildSkillTrainingPool() (+30 more)
+Cohesion: 0.13
+Nodes (21): clampMastery(), filterImmediateRepeats(), filterUnlockedExercises(), findAlternativeSubskill(), findRelatedTarget(), getReferenceDifficulty(), hasRecurrentError(), isAtRecommendedMastery() (+13 more)
 
 ### Community 2 - "Community 2"
-Cohesion: 0.1
-Nodes (35): clampDifficulty(), clampMastery(), dedupeExercises(), extractSelectorExercises(), filterImmediateRepeats(), filterUnlockedExercises(), findAlternativeSubskill(), findRelatedTarget() (+27 more)
+Cohesion: 0.14
+Nodes (24): clampDifficulty(), dedupeExercises(), extractSelectorExercises(), listLenguaExerciseFiles(), loadLenguaSelectionGraph(), loadLenguaSelectorExercises(), normalizeDifficulty(), normalizeSelectorExercise() (+16 more)
 
 ### Community 3 - "Community 3"
-Cohesion: 0.1
-Nodes (41): ADR-001 Product Scope, ADR-002: No Official Content, Product Guardian, Scope & Rules Validator, Quality Auditor, Codex Prompt Generator, Agents Map, AGENTS instructions (+33 more)
-
-### Community 4 - "Community 4"
-Cohesion: 0.16
-Nodes (18): findMasteryNode(), getLenguaMasteryMap(), loadMasteryMap(), loadRelationships(), readJsonFile(), recommendNextSubskill(), buildRestartHref(), calculateUpdatedMastery() (+10 more)
-
-### Community 5 - "Community 5"
-Cohesion: 0.11
-Nodes (18): App icon with dark square and white stylized mark, Dashboard para padres (uso + progreso), Incorporacion futura de modulo de Matematica, Construir la base conceptual del producto (sin codigo), Construir un producto usable sin logica compleja, Mejorar el producto a nivel de aprendizaje real, Optimizar, expandir y preparar para crecimiento, Sistema de feedback inmediato (+10 more)
-
-### Community 6 - "Community 6"
 Cohesion: 0.22
 Nodes (15): buildSkillResults(), buildSkillStats(), chanceByDifficulty(), formatPercent(), groupBySkill(), hasAvailableExercises(), loadExercises(), pickValue() (+7 more)
 
-### Community 7 - "Community 7"
-Cohesion: 0.23
-Nodes (13): assertPracticeSessionsUseChoiceExercises(), assertReadingUnitSessionsShareGeneratedTexts(), assertSelectionRespectsPrerequisitesAndMastery(), assertSessionRunnerUsesCrossRelationships(), assertSkillPracticeCompletesReadingUnitBeforeFallback(), assertTextPatternExtractorDoesNotReturnSourceText(), buildExercise(), withMutedConsole() (+5 more)
-
-### Community 8 - "Community 8"
+### Community 4 - "Community 4"
 Cohesion: 0.33
 Nodes (10): assertReadingModeDatasetRunsSequentially(), ensureOptions(), findReadingUnit(), loadReadingExercises(), loadReadingUnits(), normalizeDifficulty(), normalizeReadingExercise(), normalizeReadingUnit() (+2 more)
 
-### Community 9 - "Community 9"
+### Community 5 - "Community 5"
 Cohesion: 0.38
-Nodes (10): createEmptyProgress(), createSessionId(), getSeenSkills(), loadProgress(), markSkillsSeen(), saveSessionResult(), updateSeenSkills(), updateSkillStats() (+2 more)
+Nodes (8): findMasteryNode(), getLenguaMasteryMap(), getMasteryGap(), getMasteryLevel(), loadMasteryMap(), loadRelationships(), readJsonFile(), recommendNextSubskill()
+
+### Community 6 - "Community 6"
+Cohesion: 0.42
+Nodes (9): createEmptyProgress(), createSessionId(), getSeenSkills(), loadProgress(), markSkillsSeen(), saveSessionResult(), updateSeenSkills(), updateSkillStats() (+1 more)
+
+### Community 7 - "Community 7"
+Cohesion: 0.46
+Nodes (7): assertPracticeSessionsUseChoiceExercises(), assertReadingUnitSessionsShareGeneratedTexts(), assertSelectionRespectsPrerequisitesAndMastery(), assertSessionRunnerUsesCrossRelationships(), assertSkillPracticeCompletesReadingUnitBeforeFallback(), buildExercise(), withMutedConsole()
+
+### Community 8 - "Community 8"
+Cohesion: 0.48
+Nodes (6): assertTextPatternExtractorDoesNotReturnSourceText(), analyzePlainTextShape(), estimatePdfLength(), extractTextPatterns(), inferStructuresFromShape(), inferTextTypesFromShape()
+
+### Community 9 - "Community 9"
+Cohesion: 0.6
+Nodes (5): DashboardPage(), getDashboardSkills(), getPracticeSkillStats(), getWeakestSkill(), isEnabledParam()
 
 ### Community 10 - "Community 10"
-Cohesion: 0.24
-Nodes (10): Biografia de Hans Christian Andersen, Clase textual, paratexto y datos enciclopedicos, Lengua | modulo 1, Oracion, parrafo, mayusculas y coma, Sustantivos y adjetivos, Acentuacion y tilde diacritica, Biografia de Hans Christian Andersen (reutilizada), Cotexto, sinonimia y antonimia (+2 more)
-
-### Community 11 - "Community 11"
-Cohesion: 0.22
-Nodes (9): Adverbios, Articulo enciclopedico, Lengua | modulo 5, Enciclopedia ilustrada para ninos. Historia del Mundo. Lexus (2018), La leyenda de Cacheuta, Diccionario de la lengua espanola (RAE), Sintaxis de la oracion simple, El Tawantinsuyu: un imperio de piedra y oro (+1 more)
-
-### Community 12 - "Community 12"
-Cohesion: 0.22
-Nodes (9): Acentuacion, diptongos y hiatos, Actividades de integracion, Clases de palabras, Cohesion, mayusculas y coma, El caso del laberinto del terror, Ortografia de B/V, C/S/Z, Pronombres personales, posesivos y demostrativos, Sinonimia y antonimia (+1 more)
-
-### Community 13 - "Community 13"
-Cohesion: 0.4
-Nodes (6): Lengua | modulo 3, Modo verbal y tiempos verbales, Noticia 'Laguna de la nina encantada, una leyenda con lenguaje vanguardista', Texto periodistico, UNO (25 de octubre de 2013), Vocales, concurrencia de vocales, diptongo, triptongo e hiato
-
-### Community 14 - "Community 14"
-Cohesion: 0.4
-Nodes (5): Cohesion, coherencia y conectores, Lengua | modulo 4, La leyenda de la Laguna de la Nina Encantada, Narracion y tipos de narradores, Posesivos, demostrativos y usos de B y V
-
-### Community 15 - "Community 15"
 Cohesion: 0.5
 Nodes (2): getSkillMetadata(), SkillItem()
 
-### Community 16 - "Community 16"
+### Community 11 - "Community 11"
 Cohesion: 0.67
+Nodes (0): 
+
+### Community 12 - "Community 12"
+Cohesion: 1.0
+Nodes (0): 
+
+### Community 13 - "Community 13"
+Cohesion: 1.0
+Nodes (0): 
+
+### Community 14 - "Community 14"
+Cohesion: 1.0
+Nodes (0): 
+
+### Community 15 - "Community 15"
+Cohesion: 1.0
+Nodes (0): 
+
+### Community 16 - "Community 16"
+Cohesion: 1.0
 Nodes (0): 
 
 ### Community 17 - "Community 17"
@@ -179,66 +167,50 @@ Nodes (0):
 Cohesion: 1.0
 Nodes (0): 
 
-### Community 26 - "Community 26"
-Cohesion: 1.0
-Nodes (0): 
-
-### Community 27 - "Community 27"
-Cohesion: 1.0
-Nodes (0): 
-
-### Community 28 - "Community 28"
-Cohesion: 1.0
-Nodes (0): 
-
-### Community 29 - "Community 29"
-Cohesion: 1.0
-Nodes (0): 
-
 ## Knowledge Gaps
-- **69 isolated node(s):** `AGENTS instructions`, `Minor-adjustment example`, `Codex Prompt Generator system prompt`, `Product Guardian system prompt`, `Quality Auditor system prompt` (+64 more)
-  These have ≤1 connection - possible missing edges or undocumented components.
-- **Thin community `Community 17`** (2 nodes): `RootLayout()`, `layout.tsx`
+- **Thin community `Community 12`** (2 nodes): `RootLayout()`, `layout.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 18`** (2 nodes): `HomePage()`, `page.tsx`
+- **Thin community `Community 13`** (2 nodes): `HomePage()`, `page.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 19`** (2 nodes): `Header()`, `Header.tsx`
+- **Thin community `Community 14`** (2 nodes): `Header()`, `Header.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 20`** (2 nodes): `SkillList()`, `SkillList.tsx`
+- **Thin community `Community 15`** (2 nodes): `SkillList()`, `SkillList.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 21`** (2 nodes): `SkillStatus()`, `SkillStatus.tsx`
+- **Thin community `Community 16`** (2 nodes): `SkillStatus()`, `SkillStatus.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 22`** (1 nodes): `next-env.d.ts`
+- **Thin community `Community 17`** (1 nodes): `next-env.d.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 23`** (1 nodes): `next.config.js`
+- **Thin community `Community 18`** (1 nodes): `next.config.js`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 24`** (1 nodes): `playwright.config.ts`
+- **Thin community `Community 19`** (1 nodes): `playwright.config.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 25`** (1 nodes): `postcss.config.mjs`
+- **Thin community `Community 20`** (1 nodes): `postcss.config.mjs`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 26`** (1 nodes): `ActionPanel.tsx`
+- **Thin community `Community 21`** (1 nodes): `page.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 27`** (1 nodes): `session_runner.ts`
+- **Thin community `Community 22`** (1 nodes): `ActionPanel.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 28`** (1 nodes): `reading_unit.ts`
+- **Thin community `Community 23`** (1 nodes): `session_runner.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 29`** (1 nodes): `dashboard-progress.spec.ts`
+- **Thin community `Community 24`** (1 nodes): `reading_unit.ts`
+  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
+- **Thin community `Community 25`** (1 nodes): `dashboard-progress.spec.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `loadProgress()` connect `Community 9` to `Community 4`, `Community 6`?**
-  _High betweenness centrality (0.043) - this node is a cross-community bridge._
-- **Why does `runSimulator()` connect `Community 6` to `Community 9`?**
-  _High betweenness centrality (0.040) - this node is a cross-community bridge._
-- **Are the 3 inferred relationships involving `selectNextExerciseDetailed()` (e.g. with `startPracticeSession()` and `startReadingUnitSession()`) actually correct?**
-  _`selectNextExerciseDetailed()` has 3 INFERRED edges - model-reasoned connections that need verification._
-- **Are the 2 inferred relationships involving `Agent Orchestrator` (e.g. with `Validation Pipeline` and `Interaction Flow`) actually correct?**
-  _`Agent Orchestrator` has 2 INFERRED edges - model-reasoned connections that need verification._
+- **Why does `loadProgress()` connect `Community 6` to `Community 9`, `Community 3`?**
+  _High betweenness centrality (0.195) - this node is a cross-community bridge._
+- **Why does `runSimulator()` connect `Community 3` to `Community 6`?**
+  _High betweenness centrality (0.138) - this node is a cross-community bridge._
+- **Why does `markSkillsSeen()` connect `Community 6` to `Community 2`?**
+  _High betweenness centrality (0.127) - this node is a cross-community bridge._
+- **Are the 2 inferred relationships involving `selectNextExerciseDetailed()` (e.g. with `startPracticeSession()` and `startReadingUnitSession()`) actually correct?**
+  _`selectNextExerciseDetailed()` has 2 INFERRED edges - model-reasoned connections that need verification._
 - **Are the 7 inferred relationships involving `loadLenguaSelectionGraph()` (e.g. with `assertNormalizedExerciseShape()` and `assertSelectionRespectsPrerequisitesAndMastery()`) actually correct?**
   _`loadLenguaSelectionGraph()` has 7 INFERRED edges - model-reasoned connections that need verification._
 - **Are the 5 inferred relationships involving `loadLenguaExercises()` (e.g. with `assertLoadsAllLenguaJson()` and `assertNormalizedExerciseShape()`) actually correct?**
   _`loadLenguaExercises()` has 5 INFERRED edges - model-reasoned connections that need verification._
-- **What connects `AGENTS instructions`, `Minor-adjustment example`, `Codex Prompt Generator system prompt` to the rest of the system?**
-  _69 weakly-connected nodes found - possible documentation gaps or missing edges._
+- **Are the 2 inferred relationships involving `normalizeExercise()` (e.g. with `normalizeSkillId()` and `normalizeSubskillId()`) actually correct?**
+  _`normalizeExercise()` has 2 INFERRED edges - model-reasoned connections that need verification._

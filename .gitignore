@@ -11,3 +11,4 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 content_sources/lengua/manual_extracts/
+graphify-out/cache/
