@@ -7,12 +7,15 @@ import {
 } from "../../components/practice/exercise_selector";
 import { type Exercise } from "../../components/practice/session_runner";
 import { getSkillMetadata } from "../../skills/skill_metadata";
+import { type ReadingUnit } from "../../types/reading_unit";
 import { type PracticeSessionProgressInput, type PracticeSessionProgressResult } from "./page";
 
 type PracticeQuestionProps = {
   exercise: Exercise;
   exercisePool: Exercise[];
   masteryMap: MasteryMapNode[];
+  mode?: "practice" | "reading";
+  readingUnit?: ReadingUnit | null;
   restartHref: string;
   saveProgress: (input: PracticeSessionProgressInput) => Promise<PracticeSessionProgressResult>;
   usedExerciseIds: string[];
@@ -24,11 +27,14 @@ export function PracticeQuestion({
   exercise,
   exercisePool,
   masteryMap,
+  mode = "practice",
+  readingUnit = null,
   restartHref,
   saveProgress,
   usedExerciseIds,
 }: PracticeQuestionProps) {
   const [currentExercise, setCurrentExercise] = useState(exercise);
+  const [hasStartedReadingExercises, setHasStartedReadingExercises] = useState(mode !== "reading");
   const [usedExercises, setUsedExercises] = useState<string[]>(
     Array.from(new Set([...usedExerciseIds, exercise.id])),
   );
@@ -90,6 +96,7 @@ export function PracticeQuestion({
       try {
         const result = await saveProgress({
           currentFocus: currentExercise.subskill,
+          mode,
           skillId: currentExercise.skill_id,
           attempts: questionCount,
           correct: nextCorrectCount,
@@ -104,7 +111,7 @@ export function PracticeQuestion({
       return;
     }
 
-    const nextExercise = pickExercise(available);
+    const nextExercise = mode === "reading" ? available[0] : pickExercise(available);
 
     setCurrentExercise(nextExercise);
     setUsedExercises((prev) => [...prev, nextExercise.id]);
@@ -176,16 +183,49 @@ export function PracticeQuestion({
     );
   }
 
+  if (mode === "reading" && readingUnit && !hasStartedReadingExercises) {
+    return (
+      <article className="grid gap-4 rounded-lg border border-gray-200 bg-white p-4">
+        <div className="grid gap-2">
+          <p className="m-0 text-sm font-medium text-gray-500">Lectura completa</p>
+          <h1 className="m-0 text-xl font-semibold">{readingUnit.title}</h1>
+        </div>
+        <p className="m-0 rounded border border-gray-200 bg-[#f7f7f4] p-3 text-base leading-7">
+          {readingUnit.text}
+        </p>
+        <button
+          className="w-full rounded bg-black py-2 text-white"
+          onClick={() => setHasStartedReadingExercises(true)}
+          type="button"
+        >
+          Empezar ejercicios
+        </button>
+      </article>
+    );
+  }
+
   return (
     <>
-      {skillBanner}
+      {mode === "practice" ? skillBanner : null}
       <article className="grid gap-4 rounded-lg border border-gray-200 bg-white p-4">
         <p className="text-sm font-medium text-gray-500">
           Pregunta {questionCount} de {sessionQuestionCount}
         </p>
-        {currentExercise.text ? (
-          <p className="m-0 rounded border border-gray-200 bg-[#f7f7f4] p-3 text-base leading-7">
-            {currentExercise.text}
+        {currentExercise.text && mode === "practice" ? (
+          <section className="grid gap-2 rounded border border-gray-200 bg-[#f7f7f4] p-3">
+            {currentExercise.reading_unit ? (
+              <p className="m-0 text-sm font-semibold text-[#55554d]">
+                {currentExercise.reading_unit.title}
+              </p>
+            ) : null}
+            <p className="m-0 text-base leading-7">
+              {currentExercise.text}
+            </p>
+          </section>
+        ) : null}
+        {mode === "reading" && readingUnit ? (
+          <p className="m-0 text-sm font-semibold text-[#55554d]">
+            Texto: {readingUnit.title}
           </p>
         ) : null}
         <h1 className="text-xl font-semibold">{currentExercise.prompt}</h1>

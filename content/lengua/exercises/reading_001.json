@@ -1,0 +1,47 @@
+{
+  "readingUnitId": "reading_001",
+  "exercises": [
+    {
+      "id": "ex_001",
+      "readingUnitId": "reading_001",
+      "skill": "inference",
+      "type": "multiple_choice",
+      "question": "Por que estaba cerrado el parque?",
+      "options": [
+        "Porque estaban pintando los bancos",
+        "Porque el viento habia quebrado ramas",
+        "Porque Tomas habia perdido una cometa",
+        "Porque la cuidadora habia cambiado la reja"
+      ],
+      "correctAnswer": "Porque el viento habia quebrado ramas"
+    },
+    {
+      "id": "ex_002",
+      "readingUnitId": "reading_001",
+      "skill": "explicit_information",
+      "type": "multiple_choice",
+      "question": "Que objeto vio Tomas atrapado en una rama?",
+      "options": [
+        "Una pelota azul",
+        "Una mochila",
+        "Una cometa roja",
+        "Una cadena vieja"
+      ],
+      "correctAnswer": "Una cometa roja"
+    },
+    {
+      "id": "ex_003",
+      "readingUnitId": "reading_001",
+      "skill": "inference",
+      "type": "multiple_choice",
+      "question": "Que penso Tomas al final?",
+      "options": [
+        "Que alguien habia estado en el parque antes de la tormenta",
+        "Que la cuidadora habia escondido la cometa",
+        "Que el bebedero estaba roto desde hacia meses",
+        "Que el parque nunca volveria a abrir"
+      ],
+      "correctAnswer": "Que alguien habia estado en el parque antes de la tormenta"
+    }
+  ]
+}

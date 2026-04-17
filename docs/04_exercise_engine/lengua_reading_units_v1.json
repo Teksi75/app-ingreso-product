@@ -1,0 +1,142 @@
+{
+  "metadata": {
+    "set": "reading-units-v1",
+    "generated_by": "Codex",
+    "source": "generated - original, no derivado de contenido oficial",
+    "purpose": "text-based reading comprehension sessions"
+  },
+  "reading_units": [
+    {
+      "id": "RU-LEN-INF-001",
+      "title": "El vivero de la escuela",
+      "text": "En la escuela del barrio San Martin funciona un vivero pequeno junto al patio. Los estudiantes de sexto grado riegan las plantas tres veces por semana y anotan cada viernes la altura de los tallos y la humedad de la tierra. En marzo, varias semillas de albahaca crecieron poco porque recibian sombra durante casi toda la manana. Por eso, el grupo movio los cajones cerca del alambrado, donde llega mas sol. Dos semanas despues, las plantas nuevas tenian hojas mas firmes y el encargado decidio usar esos datos para planificar la huerta de invierno.",
+      "difficulty": 2,
+      "textType": "informative",
+      "source": "generated"
+    },
+    {
+      "id": "RU-LEN-NAR-001",
+      "title": "La radio del taller",
+      "text": "Ines entro al taller de su abuelo buscando una caja de botones. Entre frascos vacios y herramientas antiguas encontro una radio verde cubierta de polvo. La llevo a la mesa, limpio la perilla con cuidado y pregunto si todavia servia. Su abuelo sonrio, cambio una pila gastada y giro la antena hacia la ventana. Primero se escucho un ruido seco; despues, una cancion vieja lleno la habitacion. Ines no dijo nada durante un minuto, porque entendio que esa radio guardaba una parte importante de la historia familiar.",
+      "difficulty": 2,
+      "textType": "narrative",
+      "source": "generated"
+    }
+  ],
+  "exercises": [
+    {
+      "id": "LEN-RU-001",
+      "reading_unit_id": "RU-LEN-INF-001",
+      "skill_id": "lengua.skill_1",
+      "subskill": "lengua.skill_1.subskill_1",
+      "difficulty": 1,
+      "mastery_level": 1,
+      "type": "multiple_choice",
+      "prompt": "Que registran los estudiantes cada viernes?",
+      "options": [
+        "La altura de los tallos y la humedad de la tierra",
+        "El precio de las semillas y las macetas",
+        "La cantidad de aulas abiertas",
+        "Los nombres de quienes visitan el vivero"
+      ],
+      "answer": "La altura de los tallos y la humedad de la tierra",
+      "feedback_correct": "Correcto: esos datos aparecen de forma directa en el texto.",
+      "feedback_incorrect": "Busca la informacion que el texto dice que anotan cada viernes."
+    },
+    {
+      "id": "LEN-RU-002",
+      "reading_unit_id": "RU-LEN-INF-001",
+      "skill_id": "lengua.skill_1",
+      "subskill": "lengua.skill_1.subskill_2",
+      "difficulty": 2,
+      "mastery_level": 2,
+      "type": "multiple_choice",
+      "prompt": "Por que movieron los cajones cerca del alambrado?",
+      "options": [
+        "Porque las semillas necesitaban recibir mas sol",
+        "Porque querian dejar libre el patio para jugar",
+        "Porque el encargado habia perdido las herramientas",
+        "Porque las plantas ya estaban listas para venderse"
+      ],
+      "answer": "Porque las semillas necesitaban recibir mas sol",
+      "feedback_correct": "Correcto: el cambio responde al problema de la sombra.",
+      "feedback_incorrect": "Relaciona la decision con la causa mencionada antes en el texto."
+    },
+    {
+      "id": "LEN-RU-003",
+      "reading_unit_id": "RU-LEN-INF-001",
+      "skill_id": "lengua.skill_1",
+      "subskill": "lengua.skill_1.subskill_3",
+      "difficulty": 2,
+      "mastery_level": 2,
+      "type": "multiple_choice",
+      "prompt": "Cual es la idea global del texto?",
+      "options": [
+        "Un grupo observa un vivero escolar y usa datos para mejorar el cultivo",
+        "Una escuela decide cerrar su patio durante el invierno",
+        "Un encargado cambia de trabajo por falta de plantas",
+        "Un curso prepara una feria para vender cajones"
+      ],
+      "answer": "Un grupo observa un vivero escolar y usa datos para mejorar el cultivo",
+      "feedback_correct": "Correcto: resume el seguimiento y la decision tomada con esos datos.",
+      "feedback_incorrect": "Elige una opcion que abarque todo el texto, no solo un detalle."
+    },
+    {
+      "id": "LEN-RU-004",
+      "reading_unit_id": "RU-LEN-NAR-001",
+      "skill_id": "lengua.skill_2",
+      "subskill": "lengua.skill_2.subskill_1",
+      "difficulty": 1,
+      "mastery_level": 1,
+      "type": "multiple_choice",
+      "prompt": "Que opcion ordena correctamente los hechos?",
+      "options": [
+        "Ines encontro la radio, la limpio y escucho una cancion",
+        "Ines escucho una cancion, encontro una radio y busco botones",
+        "El abuelo compro una radio, Ines salio al patio y limpio frascos",
+        "La radio sono, Ines cambio la antena y el abuelo entro al taller"
+      ],
+      "answer": "Ines encontro la radio, la limpio y escucho una cancion",
+      "feedback_correct": "Correcto: esa secuencia respeta el orden narrado.",
+      "feedback_incorrect": "Revisa que paso primero, que hizo Ines despues y como termino la escena."
+    },
+    {
+      "id": "LEN-RU-005",
+      "reading_unit_id": "RU-LEN-NAR-001",
+      "skill_id": "lengua.skill_1",
+      "subskill": "lengua.skill_1.subskill_2",
+      "difficulty": 2,
+      "mastery_level": 2,
+      "type": "multiple_choice",
+      "prompt": "Por que Ines queda en silencio al final?",
+      "options": [
+        "Porque comprende que la radio tiene valor para su familia",
+        "Porque la radio se rompe por completo",
+        "Porque no le gusta la cancion que escucha",
+        "Porque recuerda que tenia que ordenar los frascos"
+      ],
+      "answer": "Porque comprende que la radio tiene valor para su familia",
+      "feedback_correct": "Correcto: el texto indica que entendio su importancia familiar.",
+      "feedback_incorrect": "Busca la pista que explica que siente Ines cuando la radio vuelve a sonar."
+    },
+    {
+      "id": "LEN-RU-006",
+      "reading_unit_id": "RU-LEN-NAR-001",
+      "skill_id": "lengua.skill_1",
+      "subskill": "lengua.skill_1.subskill_3",
+      "difficulty": 2,
+      "mastery_level": 2,
+      "type": "multiple_choice",
+      "prompt": "Que titulo representa mejor el relato?",
+      "options": [
+        "La radio que volvio a sonar",
+        "La caja perdida de botones",
+        "Una ventana sin antena",
+        "El taller cerrado del barrio"
+      ],
+      "answer": "La radio que volvio a sonar",
+      "feedback_correct": "Correcto: el titulo recupera el objeto central y el cierre del relato.",
+      "feedback_incorrect": "El titulo debe representar el centro del relato completo."
+    }
+  ]
+}

@@ -19,6 +19,7 @@ export function ActionPanel({ isNewStudent = false, skill }: ActionPanelProps) {
   const metadata = skill ? getSkillMetadata(skill.skill) : null;
   const href = isNewStudent ? "/practice?newStudent=1" : "/";
   const label = isNewStudent ? "Inicia tu entrenamiento" : "Ir al inicio";
+  const skillHref = isNewStudent ? "/practice?newStudent=1" : "/practice";
 
   return (
     <section className="flex flex-wrap items-center justify-between gap-4 rounded-lg bg-[#1d1d1b] px-5 py-[18px] text-white">
@@ -42,6 +43,20 @@ export function ActionPanel({ isNewStudent = false, skill }: ActionPanelProps) {
       >
         {label}
       </Link>
+      <div className="flex w-full flex-wrap gap-2">
+        <Link
+          href={skillHref}
+          className="inline-flex min-h-[38px] cursor-pointer items-center justify-center rounded-lg border border-white px-3 py-0 text-sm font-bold text-white"
+        >
+          Entrenamiento por habilidades
+        </Link>
+        <Link
+          href="/practice?mode=reading"
+          className="inline-flex min-h-[38px] cursor-pointer items-center justify-center rounded-lg border border-white px-3 py-0 text-sm font-bold text-white"
+        >
+          Lectura completa
+        </Link>
+      </div>
     </section>
   );
 }

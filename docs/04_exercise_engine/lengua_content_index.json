@@ -54,6 +54,15 @@
       ]
     },
     {
+      "file": "lengua_reading_units_v1.json",
+      "kind": "reading_unit_exercise_set",
+      "exercise_count": 6,
+      "skills": [
+        "lengua.skill_1",
+        "lengua.skill_2"
+      ]
+    },
+    {
       "file": "lengua_subskills_skills_1_2_practice.json",
       "kind": "subskill_practice_set",
       "exercise_count": 40,
@@ -89,5 +98,5 @@
       ]
     }
   ],
-  "total_exercise_count": 231
+  "total_exercise_count": 237
 }

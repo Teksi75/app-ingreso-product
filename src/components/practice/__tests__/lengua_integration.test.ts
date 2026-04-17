@@ -11,7 +11,15 @@ import {
   type Exercise as SelectorExercise,
   type MasteryLevel,
 } from "../exercise_selector.ts";
-import { loadLenguaExercises, runSession, startPracticeSession, type Exercise } from "../session_runner.ts";
+import {
+  loadLenguaExercises,
+  runSession,
+  startPracticeSession,
+  startReadingUnitSession,
+  type Exercise,
+} from "../session_runner.ts";
+import { extractTextPatterns } from "../../../content_analysis/text_pattern_extractor.ts";
+import { startReadingSession } from "../../../practice/reading_session_runner.ts";
 
 const engineDir = resolve(process.cwd(), "docs/04_exercise_engine");
 const contentIndex = JSON.parse(
@@ -206,10 +214,70 @@ function assertPracticeSessionsUseChoiceExercises(): void {
   }
 }
 
+function assertReadingUnitSessionsShareGeneratedTexts(): void {
+  const exercises = loadLenguaExercises(engineDir);
+  const readingExercises = exercises.filter((exercise) => exercise.reading_unit_id);
+  const unitsById = new Map<string, Exercise[]>();
+
+  for (const exercise of readingExercises) {
+    assert.ok(exercise.reading_unit, exercise.id);
+    assert.equal(exercise.reading_unit?.source, "generated", exercise.id);
+    assert.equal(exercise.text, exercise.reading_unit?.text, exercise.id);
+
+    const unitExercises = unitsById.get(exercise.reading_unit_id ?? "") ?? [];
+    unitExercises.push(exercise);
+    unitsById.set(exercise.reading_unit_id ?? "", unitExercises);
+  }
+
+  assert.ok(unitsById.size >= 2);
+
+  for (const [unitId, unitExercises] of unitsById) {
+    assert.ok(unitExercises.length >= 2, unitId);
+  }
+
+  const session = withMutedConsole(() => (
+    startReadingUnitSession("RU-LEN-INF-001", [], { forceNewStudent: true })
+  ));
+
+  assert.equal(session.readingUnit.id, "RU-LEN-INF-001");
+  assert.ok(session.exercisePool.length >= 2);
+  assert.ok(session.exercisePool.every((exercise) => exercise.reading_unit_id === "RU-LEN-INF-001"));
+  assert.equal(session.exercise.reading_unit?.id, session.readingUnit.id);
+}
+
+function assertReadingModeDatasetRunsSequentially(): void {
+  const session = startReadingSession("reading_001");
+
+  assert.equal(session.readingUnit.id, "reading_001");
+  assert.equal(session.readingUnit.source, "generated");
+  assert.ok(session.exercises.length >= 2);
+  assert.deepEqual(
+    session.exercises.map((exercise) => exercise.readingUnitId),
+    session.exercises.map(() => "reading_001"),
+  );
+  assert.deepEqual(
+    session.exercises.map((exercise) => exercise.id),
+    ["ex_001", "ex_002", "ex_003"],
+  );
+  assert.ok(session.exercises.every((exercise) => exercise.options.includes(exercise.correct_answer)));
+}
+
+function assertTextPatternExtractorDoesNotReturnSourceText(): void {
+  const summary = extractTextPatterns();
+
+  assert.ok(summary.avgLength > 0);
+  assert.ok(summary.textTypes.length > 0);
+  assert.ok(summary.commonStructures.length > 0);
+  assert.ok(!JSON.stringify(summary).includes("Tomas"));
+}
+
 assertLoadsAllLenguaJson();
 assertNormalizedExerciseShape();
 assertSelectionRespectsPrerequisitesAndMastery();
 assertSessionRunnerUsesCrossRelationships();
 assertPracticeSessionsUseChoiceExercises();
+assertReadingUnitSessionsShareGeneratedTexts();
+assertReadingModeDatasetRunsSequentially();
+assertTextPatternExtractorDoesNotReturnSourceText();
 
 console.log("lengua integration validated");

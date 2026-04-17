@@ -2,7 +2,7 @@ import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 
 export type SkillState = "weak" | "developing" | "mastered";
-export type SessionMode = "practice" | "simulator";
+export type SessionMode = "practice" | "reading" | "simulator";
 
 export type SessionSkillResult = {
   skill_id: string;

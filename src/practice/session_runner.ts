@@ -1,6 +1,7 @@
 import { readFileSync } from "node:fs";
 import { join, resolve } from "node:path";
 import { getSeenSkills, markSkillsSeen } from "../storage/local_progress_store.ts";
+import { type ReadingUnit } from "../types/reading_unit.ts";
 import {
   listLenguaExerciseFiles,
   loadLenguaSelectionGraph,
@@ -22,6 +23,9 @@ export type Exercise = {
   mastery_level: MasteryLevel;
   type: string;
   text?: string;
+  readingUnitId?: string;
+  reading_unit_id?: string;
+  reading_unit?: ReadingUnit;
   prompt: string;
   options: string[];
   correct_answer: string;
@@ -33,6 +37,8 @@ export type Exercise = {
 
 export type HistoryItem = {
   exercise_id: string;
+  readingUnitId?: string;
+  reading_unit_id?: string;
   skill_id: string;
   subskill: string;
   difficulty: Difficulty;
@@ -42,12 +48,15 @@ export type HistoryItem = {
 type ExerciseFile = {
   metadata?: Record<string, unknown>;
   exercises?: unknown[];
+  reading_units?: unknown[];
+  readingUnits?: unknown[];
   subskills?: unknown[];
 };
 
 type AttemptRecord = {
   step: number;
   exerciseId: string;
+  readingUnitId?: string;
   skill: string;
   subskill: string;
   difficulty: Difficulty;
@@ -77,6 +86,10 @@ export type PracticeSelection = {
   exercise: Exercise;
   exercisePool: Exercise[];
   usedExerciseIds: string[];
+};
+
+export type ReadingUnitSelection = PracticeSelection & {
+  readingUnit: ReadingUnit;
 };
 
 type PracticeSessionOptions = {
@@ -128,11 +141,13 @@ function normalizeExerciseFile(
   graph: ReturnType<typeof loadLenguaSelectionGraph>,
 ): Exercise[] {
   if (Array.isArray(parsed)) {
-    return parsed.map((exercise) => normalizeExercise(exercise, sourceFile, graph));
+    return parsed.map((exercise) => normalizeExercise(exercise, sourceFile, graph, new Map()));
   }
 
+  const readingUnits = normalizeReadingUnits(parsed.reading_units ?? parsed.readingUnits, sourceFile);
+
   if (Array.isArray(parsed.exercises)) {
-    return parsed.exercises.map((exercise) => normalizeExercise(exercise, sourceFile, graph));
+    return parsed.exercises.map((exercise) => normalizeExercise(exercise, sourceFile, graph, readingUnits));
   }
 
   if (!Array.isArray(parsed.subskills)) {
@@ -155,6 +170,7 @@ function normalizeExerciseFile(
       { ...(exercise as Record<string, unknown>), skill: skillId, subskill: subskillId },
       sourceFile,
       graph,
+      readingUnits,
     ));
   });
 }
@@ -163,15 +179,22 @@ function normalizeExercise(
   rawExercise: unknown,
   sourceFile: string,
   graph: ReturnType<typeof loadLenguaSelectionGraph>,
+  readingUnits: Map<string, ReadingUnit>,
 ): Exercise {
   const exercise = rawExercise as Record<string, unknown>;
   const metadata = (exercise.metadata ?? {}) as Record<string, unknown>;
   const skillId = normalizeSkillId(exercise.skill ?? exercise.skill_id ?? exercise.skill_name, graph);
   const subskillId = normalizeSubskillId(exercise.subskill ?? exercise.canonical_subskill, skillId, graph);
-  const answer = exercise.answer;
+  const answer = exercise.answer ?? exercise.correct_answer;
   const options = normalizeOptions(exercise.options, answer);
   const correctAnswer = normalizeCorrectAnswer(answer, exercise.options, options, exercise);
   const feedback = normalizeFeedback(exercise);
+  const readingUnitId = normalizeTextField(exercise.readingUnitId ?? exercise.reading_unit_id);
+  const readingUnit = readingUnitId ? readingUnits.get(readingUnitId) : undefined;
+
+  if (readingUnitId && !readingUnit) {
+    throw new Error(`Exercise ${String(exercise.id)} references missing reading unit ${readingUnitId} in ${sourceFile}`);
+  }
 
   return {
     id: String(exercise.id),
@@ -180,7 +203,10 @@ function normalizeExercise(
     difficulty: normalizeDifficulty(exercise.difficulty ?? metadata.difficulty ?? metadata.dificultad),
     mastery_level: normalizeMasteryLevel(exercise.mastery_level ?? metadata.mastery_level ?? metadata.mastery_target),
     type: String(exercise.type ?? "multiple_choice"),
-    text: normalizeTextField(exercise.text ?? exercise.stem),
+    text: normalizeTextField(exercise.text ?? exercise.stem) ?? readingUnit?.text,
+    readingUnitId,
+    reading_unit_id: readingUnitId,
+    reading_unit: readingUnit,
     prompt: String(exercise.prompt ?? ""),
     options: ensureOptions(options, correctAnswer, exercise),
     correct_answer: correctAnswer,
@@ -189,6 +215,46 @@ function normalizeExercise(
     source_file: sourceFile,
     related_skills: normalizeRelatedSkills(metadata.combines_skills),
   };
+}
+
+function normalizeReadingUnits(value: unknown, sourceFile: string): Map<string, ReadingUnit> {
+  if (!Array.isArray(value)) {
+    return new Map();
+  }
+
+  return new Map(value.map((rawUnit) => {
+    const unit = rawUnit as Record<string, unknown>;
+    const id = normalizeTextField(unit.id);
+    const title = normalizeTextField(unit.title);
+    const text = normalizeTextField(unit.text);
+    const source = unit.source ?? "generated";
+
+    if (!id || !title || !text) {
+      throw new Error(`Invalid reading unit in ${sourceFile}: id, title and text are required`);
+    }
+
+    if (source !== "generated") {
+      throw new Error(`Reading unit ${id} in ${sourceFile} must use source "generated"`);
+    }
+
+    const normalizedUnit: ReadingUnit = {
+      id,
+      title,
+      text,
+      difficulty: normalizeDifficulty(unit.difficulty),
+      textType: normalizeTextType(unit.textType ?? unit.text_type),
+      source: "generated",
+    };
+
+    return [
+      id,
+      normalizedUnit,
+    ] as const;
+  }));
+}
+
+function normalizeTextType(value: unknown): ReadingUnit["textType"] {
+  return value === "narrative" ? "narrative" : "informative";
 }
 
 function evaluateAnswer(exercise: Exercise, answer: string): Result {
@@ -317,6 +383,9 @@ export function runSession(
 
     console.log(`--- Paso ${step} ---`);
     console.log(`  Ejercicio: ${currentFull.id}`);
+    if (currentFull.reading_unit_id) {
+      console.log(`  ReadingUnit: ${currentFull.reading_unit_id}`);
+    }
     console.log(`  Skill: ${currentFull.skill_id} > ${currentFull.subskill}`);
     console.log(`  Dificultad: ${currentFull.difficulty}`);
     console.log(`  Mastery: ${currentFull.mastery_level}`);
@@ -328,6 +397,7 @@ export function runSession(
     history.push({
       step,
       exerciseId: currentFull.id,
+      readingUnitId: currentFull.reading_unit_id,
       skill: currentFull.skill_id,
       subskill: currentFull.subskill,
       difficulty: currentFull.difficulty,
@@ -436,6 +506,63 @@ export function startPracticeSession(
   return {
     exercise,
     exercisePool: startingPool,
+    usedExerciseIds: [...activeUsedIds, exercise.id],
+  };
+}
+
+export function startReadingUnitSession(
+  readingUnitId: string | null = null,
+  usedExerciseIds: string[] = [],
+  options: PracticeSessionOptions = {},
+): ReadingUnitSelection {
+  const graph = loadLenguaSelectionGraph();
+  const exercises = loadLenguaExercises();
+  const readingExercises = exercises.filter((exercise) => exercise.reading_unit);
+
+  if (readingExercises.length === 0) {
+    throw new Error("No reading unit exercises available");
+  }
+
+  const selectedUnitId = readingUnitId ?? readingExercises
+    .map((exercise) => exercise.reading_unit_id)
+    .filter((id): id is string => Boolean(id))
+    .sort()[0];
+  const startingPool = readingExercises.filter((exercise) => exercise.reading_unit_id === selectedUnitId);
+
+  if (startingPool.length === 0) {
+    throw new Error(`Reading unit ${selectedUnitId} has no exercises`);
+  }
+
+  const unusedExercises = startingPool.filter((exercise) => !usedExerciseIds.includes(exercise.id));
+  const selectionPool = unusedExercises.length > 0 ? unusedExercises : startingPool;
+  const activeUsedIds = unusedExercises.length > 0 ? usedExerciseIds : [];
+  const readingUnit = startingPool[0].reading_unit;
+  const seenSkills = options.forceNewStudent ? [] : getSeenSkills();
+
+  if (!readingUnit) {
+    throw new Error(`Reading unit ${selectedUnitId} could not be resolved`);
+  }
+
+  const selection = selectNextExerciseDetailed(
+    selectionPool.map(toSelectorExercise),
+    [],
+    {
+      seenSkills,
+      hasSeenSkill: (currentSkillId: string) => seenSkills.includes(currentSkillId),
+      usedExerciseIds: activeUsedIds,
+      selectionGraph: graph,
+    },
+  );
+  const exercise = findExercise(exercises, selection.exercise);
+
+  if (!options.forceNewStudent) {
+    markSkillsSeen([exercise.skill_id]);
+  }
+
+  return {
+    exercise,
+    exercisePool: startingPool,
+    readingUnit,
     usedExerciseIds: [...activeUsedIds, exercise.id],
   };
 }

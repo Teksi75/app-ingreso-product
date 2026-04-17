@@ -1,0 +1,13 @@
+
+> app-ingreso-product@0.1.0 dev
+> next dev --port 3000
+
+▲ Next.js 16.2.3 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://192.168.2.55:3000
+✓ Ready in 1255ms
+
+ GET /practice?mode=reading 200 in 1648ms (next.js: 567ms, application-code: 1081ms)
+ GET /dashboard 200 in 469ms (next.js: 84ms, application-code: 385ms)
+ GET /dashboard 200 in 221ms (next.js: 22ms, application-code: 199ms)
+ GET /practice?mode=reading 200 in 312ms (next.js: 20ms, application-code: 292ms)
