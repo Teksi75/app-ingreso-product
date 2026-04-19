@@ -33,13 +33,13 @@ export function SkillItem({ skill }: SkillItemProps) {
       </div>
       <dl className="m-0 flex flex-wrap gap-[18px]">
         <div className="min-w-[72px]">
-          <dt className="m-0 text-xs text-[#666961]">Precision</dt>
+          <dt className="m-0 text-xs text-[#666961]">Precisión</dt>
           <dd className="mt-0.5 mb-0 text-lg font-bold">
             {skill.accuracy === null ? "-" : `${skill.accuracy}%`}
           </dd>
         </div>
         <div className="min-w-[72px]">
-          <dt className="m-0 text-xs text-[#666961]">Practicas</dt>
+          <dt className="m-0 text-xs text-[#666961]">Prácticas</dt>
           <dd className="mt-0.5 mb-0 text-lg font-bold">{skill.practiceSessions}</dd>
         </div>
         <div className="min-w-[84px]">

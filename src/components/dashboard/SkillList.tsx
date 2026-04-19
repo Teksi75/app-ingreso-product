@@ -15,7 +15,7 @@ type SkillListProps = {
 
 export function SkillList({ skills }: SkillListProps) {
   if (skills.length === 0) {
-    return <p className="m-0 text-[#5f625b]">Todavia no hay practica registrada.</p>;
+    return <p className="m-0 text-[#5f625b]">Todavía no hay práctica registrada.</p>;
   }
 
   return (

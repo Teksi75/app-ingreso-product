@@ -14,9 +14,7 @@ import { PracticeQuestion } from "./PracticeQuestion";
 type PracticePageProps = {
   searchParams: Promise<{
     focus?: string | string[];
-    mode?: string | string[];
     newStudent?: string | string[];
-    readingUnit?: string | string[];
     skill?: string | string[];
     used?: string | string[];
   }>;
@@ -24,7 +22,6 @@ type PracticePageProps = {
 
 export type PracticeSessionProgressInput = {
   currentFocus: string;
-  mode?: "practice" | "reading";
   skillId: string;
   attempts: number;
   correct: number;
@@ -40,28 +37,20 @@ export type PracticeSessionProgressResult = {
 export default async function PracticePage({ searchParams }: PracticePageProps) {
   const params = await searchParams;
   const focus = Array.isArray(params.focus) ? params.focus[0] : params.focus;
-  const modeParam = Array.isArray(params.mode) ? params.mode[0] : params.mode;
   const newStudent = Array.isArray(params.newStudent) ? params.newStudent[0] : params.newStudent;
-  const readingUnitParam = Array.isArray(params.readingUnit) ? params.readingUnit[0] : params.readingUnit;
   const skill = Array.isArray(params.skill) ? params.skill[0] : params.skill;
   const used = Array.isArray(params.used) ? params.used[0] : params.used;
-  const mode = modeParam === "reading" ? "reading" : "practice";
   const usedExerciseIds = parseUsedExerciseIds(used);
   const forceNewStudent = isEnabledParam(newStudent);
-  const restartHref = buildRestartHref(skill, forceNewStudent, mode);
-  const readingSession = mode === "reading" ? startReadingUnitSession(
-    readingUnitParam ?? null,
-    usedExerciseIds,
-    { forceNewStudent },
-  ) : null;
-  const practiceSelection = readingSession ? null : startPracticeSession(
+  const restartHref = buildRestartHref(skill, forceNewStudent);
+  const practiceSelection = startPracticeSession(
     skill ?? null,
     usedExerciseIds,
     { forceNewStudent },
   );
-  const exercise = readingSession?.exercise ?? practiceSelection?.exercise;
-  const exercisePool = readingSession?.exercisePool ?? practiceSelection?.exercisePool ?? [];
-  const activeUsedExerciseIds = readingSession?.usedExerciseIds ?? practiceSelection?.usedExerciseIds ?? [];
+  const exercise = practiceSelection?.exercise;
+  const exercisePool = practiceSelection?.exercisePool ?? [];
+  const activeUsedExerciseIds = practiceSelection?.usedExerciseIds ?? [];
 
   if (!exercise) {
     throw new Error("No exercise available for practice session");
@@ -82,8 +71,6 @@ export default async function PracticePage({ searchParams }: PracticePageProps) 
           exercise={activeExercise}
           exercisePool={activeExercisePool}
           masteryMap={getLenguaMasteryMap()}
-          mode={mode}
-          readingUnit={readingSession?.readingUnit ?? null}
           restartHref={restartHref}
           saveProgress={savePracticeSessionProgress}
           usedExerciseIds={activeUsedExerciseIds}
@@ -108,11 +95,7 @@ function isEnabledParam(value: string | undefined): boolean {
   return value === "1" || value === "true";
 }
 
-function buildRestartHref(skill: string | undefined, forceNewStudent: boolean, mode: "practice" | "reading"): string {
-  if (mode === "reading") {
-    return "/practice?mode=reading";
-  }
-
+function buildRestartHref(skill: string | undefined, forceNewStudent: boolean): string {
   if (forceNewStudent) {
     return "/practice?newStudent=1";
   }
@@ -133,7 +116,7 @@ async function savePracticeSessionProgress(
   const skillState = getSkillState(masteryLevel);
 
 saveSessionResult({
-    mode: input.mode ?? "practice",
+    mode: "practice",
     total_attempts: input.attempts,
     total_correct: input.correct,
     total_errors: input.attempts - input.correct,

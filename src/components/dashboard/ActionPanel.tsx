@@ -27,7 +27,7 @@ export function ActionPanel({ isNewStudent = false, skill }: ActionPanelProps) {
       <div>
         <p className="mt-0 mb-1.5 text-[13px] font-bold text-[#d8ddd0]">Foco sugerido</p>
         <h2 className="m-0 text-[22px] leading-[1.2] font-bold">
-          {metadata ? metadata.title : "Sin practica registrada"}
+          {metadata ? metadata.title : "Sin práctica registrada"}
         </h2>
         {metadata ? (
           <>
@@ -55,7 +55,7 @@ export function ActionPanel({ isNewStudent = false, skill }: ActionPanelProps) {
           href={readingStimulusHref}
           className="inline-flex min-h-[38px] cursor-pointer items-center justify-center rounded-lg border border-white px-3 py-0 text-sm font-bold text-white"
         >
-          Lectura como estimulo
+          Practicar comprensión lectora
         </Link>
       </div>
     </section>

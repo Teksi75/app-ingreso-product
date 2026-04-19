@@ -78,10 +78,10 @@ test("dashboard separates practice count from answered questions", async ({ page
   await page.goto("/dashboard");
 
   const skillRow = page.getByRole("article", {
-    name: "Comprension e inferencia textual",
+    name: "Comprensión e inferencia textual",
   });
 
-  await expect(skillRow.getByText("Practicas")).toBeVisible();
+  await expect(skillRow.getByText("Prácticas")).toBeVisible();
   await expect(skillRow.getByText("2", { exact: true })).toBeVisible();
   await expect(skillRow.getByText("Respuestas")).toBeVisible();
   await expect(skillRow.getByText("20", { exact: true })).toBeVisible();

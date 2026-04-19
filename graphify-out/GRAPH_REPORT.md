@@ -1,11 +1,11 @@
 # Graph Report - .  (2026-04-19)
 
 ## Corpus Check
-- 27 files · ~86,616 words
+- 27 files · ~86,468 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 200 nodes · 374 edges · 25 communities detected
+- 201 nodes · 375 edges · 25 communities detected
 - Extraction: 91% EXTRACTED · 9% INFERRED · 0% AMBIGUOUS · INFERRED: 35 edges (avg confidence: 0.8)
 - Token cost: 0 input · 0 output
 
@@ -51,7 +51,7 @@
 ## Surprising Connections (you probably didn't know these)
 - `DashboardPage()` --calls--> `loadProgress()`  [INFERRED]
   src\app\dashboard\page.tsx → src\storage\local_progress_store.ts
-- `assertNormalizedExerciseShape()` --calls--> `loadLenguaSelectionGraph()`  [INFERRED]
+- `assertLoadsAllLenguaJson()` --calls--> `loadLenguaSelectorExercises()`  [INFERRED]
   src\components\practice\__tests__\lengua_integration.test.ts → src\practice\exercise_selector.ts
 - `assertNormalizedExerciseShape()` --calls--> `loadLenguaExercises()`  [INFERRED]
   src\components\practice\__tests__\lengua_integration.test.ts → src\practice\session_runner.ts
@@ -63,36 +63,36 @@
 ## Communities
 
 ### Community 0 - "Community 0"
-Cohesion: 0.1
-Nodes (35): buildFallbackOptions(), buildGeneratedOptions(), buildHighlightOptions(), buildObjectAnswerOptions(), buildOrderingOptions(), ensureContentOptions(), ensureOptions(), flattenPartOptions() (+27 more)
+Cohesion: 0.09
+Nodes (41): buildFallbackOptions(), buildGeneratedOptions(), buildHighlightOptions(), buildObjectAnswerOptions(), buildOrderingOptions(), buildUserState(), ensureContentOptions(), ensureOptions() (+33 more)
 
 ### Community 1 - "Community 1"
 Cohesion: 0.1
-Nodes (31): clampDifficulty(), clampMastery(), filterImmediateRepeats(), filterUnlockedExercises(), findAlternativeSubskill(), findRelatedTarget(), getMasteryGap(), getMasteryLevel() (+23 more)
+Nodes (35): clampDifficulty(), clampMastery(), dedupeExercises(), extractSelectorExercises(), filterImmediateRepeats(), filterUnlockedExercises(), findAlternativeSubskill(), findRelatedTarget() (+27 more)
 
 ### Community 2 - "Community 2"
-Cohesion: 0.19
-Nodes (20): loadLenguaSelectionGraph(), createEmptyProgress(), createSessionId(), getSeenSkills(), loadProgress(), markSkillsSeen(), saveSessionResult(), updateSeenSkills() (+12 more)
-
-### Community 3 - "Community 3"
 Cohesion: 0.23
 Nodes (16): assertReadingModeDatasetRunsSequentially(), ensureOptions(), findReadingUnit(), loadReadingExercises(), loadReadingUnits(), normalizeDifficulty(), normalizeGlossary(), normalizeMasteryLevel() (+8 more)
 
-### Community 4 - "Community 4"
+### Community 3 - "Community 3"
 Cohesion: 0.22
 Nodes (15): buildSkillResults(), buildSkillStats(), chanceByDifficulty(), formatPercent(), groupBySkill(), hasAvailableExercises(), loadExercises(), pickValue() (+7 more)
 
+### Community 4 - "Community 4"
+Cohesion: 0.29
+Nodes (13): createEmptyProgress(), createSessionId(), getSeenSkills(), loadProgress(), markSkillsSeen(), saveSessionResult(), updateSeenSkills(), updateSkillStats() (+5 more)
+
 ### Community 5 - "Community 5"
-Cohesion: 0.23
-Nodes (14): dedupeExercises(), extractSelectorExercises(), listLenguaExerciseFiles(), loadLenguaSelectorExercises(), assertBioStimulusLoadsAsSkillTraining(), assertLoadsAllLenguaJson(), assertPracticeSessionsUseChoiceExercises(), assertReadingUnitSessionsShareGeneratedTexts() (+6 more)
+Cohesion: 0.3
+Nodes (11): listLenguaExerciseFiles(), assertBioStimulusLoadsAsSkillTraining(), assertLoadsAllLenguaJson(), assertPracticeSessionsUseChoiceExercises(), assertReadingUnitSessionsShareGeneratedTexts(), assertSelectionRespectsPrerequisitesAndMastery(), assertSessionRunnerUsesCrossRelationships(), assertSkillPracticeCompletesReadingUnitBeforeFallback() (+3 more)
 
 ### Community 6 - "Community 6"
-Cohesion: 0.5
-Nodes (6): findMasteryNode(), getLenguaMasteryMap(), loadMasteryMap(), loadRelationships(), readJsonFile(), recommendNextSubskill()
+Cohesion: 0.25
+Nodes (0): 
 
 ### Community 7 - "Community 7"
-Cohesion: 0.29
-Nodes (0): 
+Cohesion: 0.5
+Nodes (6): findMasteryNode(), getLenguaMasteryMap(), loadMasteryMap(), loadRelationships(), readJsonFile(), recommendNextSubskill()
 
 ### Community 8 - "Community 8"
 Cohesion: 0.48
@@ -195,10 +195,12 @@ Nodes (0):
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `loadProgress()` connect `Community 2` to `Community 9`, `Community 4`?**
-  _High betweenness centrality (0.177) - this node is a cross-community bridge._
-- **Why does `runSimulator()` connect `Community 4` to `Community 2`?**
-  _High betweenness centrality (0.125) - this node is a cross-community bridge._
+- **Why does `loadProgress()` connect `Community 4` to `Community 9`, `Community 3`?**
+  _High betweenness centrality (0.175) - this node is a cross-community bridge._
+- **Why does `runSimulator()` connect `Community 3` to `Community 4`?**
+  _High betweenness centrality (0.123) - this node is a cross-community bridge._
+- **Why does `markSkillsSeen()` connect `Community 4` to `Community 0`?**
+  _High betweenness centrality (0.115) - this node is a cross-community bridge._
 - **Are the 2 inferred relationships involving `loadContentLenguaExercises()` (e.g. with `normalizeSkillId()` and `normalizeSubskillId()`) actually correct?**
   _`loadContentLenguaExercises()` has 2 INFERRED edges - model-reasoned connections that need verification._
 - **Are the 2 inferred relationships involving `selectNextExerciseDetailed()` (e.g. with `startPracticeSession()` and `startReadingUnitSession()`) actually correct?**
@@ -207,5 +209,3 @@ _Questions this graph is uniquely positioned to answer:_
   _`loadLenguaExercises()` has 6 INFERRED edges - model-reasoned connections that need verification._
 - **Are the 7 inferred relationships involving `loadLenguaSelectionGraph()` (e.g. with `assertNormalizedExerciseShape()` and `assertSelectionRespectsPrerequisitesAndMastery()`) actually correct?**
   _`loadLenguaSelectionGraph()` has 7 INFERRED edges - model-reasoned connections that need verification._
-- **Are the 2 inferred relationships involving `normalizeExercise()` (e.g. with `normalizeSkillId()` and `normalizeSubskillId()`) actually correct?**
-  _`normalizeExercise()` has 2 INFERRED edges - model-reasoned connections that need verification._

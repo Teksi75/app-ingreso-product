@@ -1,6 +1,6 @@
 "use client";
 
-import { FormEvent, useState, type ChangeEvent } from "react";
+import { FormEvent, useRef, useState, type ChangeEvent } from "react";
 import {
   type MasteryMapNode,
   type RecommendedSubskill,
@@ -14,8 +14,6 @@ type PracticeQuestionProps = {
   exercise: Exercise;
   exercisePool: Exercise[];
   masteryMap: MasteryMapNode[];
-  mode?: "practice" | "reading";
-  readingUnit?: ReadingUnit | null;
   restartHref: string;
   saveProgress: (input: PracticeSessionProgressInput) => Promise<PracticeSessionProgressResult>;
   usedExerciseIds: string[];
@@ -27,14 +25,11 @@ export function PracticeQuestion({
   exercise,
   exercisePool,
   masteryMap,
-  mode = "practice",
-  readingUnit = null,
   restartHref,
   saveProgress,
   usedExerciseIds,
 }: PracticeQuestionProps) {
   const [currentExercise, setCurrentExercise] = useState(exercise);
-  const [hasStartedReadingExercises, setHasStartedReadingExercises] = useState(mode !== "reading");
   const [usedExercises, setUsedExercises] = useState<string[]>(
     Array.from(new Set([...usedExerciseIds, exercise.id])),
   );
@@ -49,6 +44,7 @@ export function PracticeQuestion({
   const [partAnswers, setPartAnswers] = useState<Record<string, string>>({});
   const [categoryAnswers, setCategoryAnswers] = useState<Record<string, string>>({});
   const [hasSubmitted, setHasSubmitted] = useState(false);
+  const questionRef = useRef<HTMLElement>(null);
   const isCorrect = evaluateCurrentExercise(
     currentExercise,
     selectedAnswer,
@@ -67,8 +63,8 @@ export function PracticeQuestion({
   const available = exercisePool.filter((item) => !usedExercises.includes(item.id));
   const skillMetadata = getSkillMetadata(currentExercise.skill_id);
   const options = getStableShuffledOptions(currentExercise);
-  const hasReadingStimulus = Boolean(currentExercise.reading_unit || (mode === "reading" && readingUnit));
-  const activeReadingUnit = currentExercise.reading_unit ?? readingUnit;
+  const hasReadingStimulus = Boolean(currentExercise.reading_unit);
+  const activeReadingUnit = currentExercise.reading_unit;
   const skillBanner = (
     <aside className="rounded-[8px] border border-[#d8d0a8] bg-[#fff8d7] p-3">
       <p className="m-0 text-[12px] font-semibold uppercase text-[#6a5d21]">
@@ -134,7 +130,6 @@ export function PracticeQuestion({
       try {
         const result = await saveProgress({
           currentFocus: currentExercise.subskill,
-          mode,
           skillId: currentExercise.skill_id,
           attempts: questionCount,
           correct: nextCorrectCount,
@@ -150,7 +145,7 @@ export function PracticeQuestion({
       return;
     }
 
-    const nextExercise = mode === "reading" ? available[0] : pickExercise(available);
+    const nextExercise = pickExercise(available);
 
     setCurrentExercise(nextExercise);
     setUsedExercises((prev) => [...prev, nextExercise.id]);
@@ -175,7 +170,7 @@ export function PracticeQuestion({
         {skillBanner}
         <article className="grid gap-4 rounded-[8px] border border-gray-200 bg-white p-4">
           <div className="grid gap-2">
-            <p className="m-0 text-sm font-medium text-gray-500">Sesion completada</p>
+            <p className="m-0 text-sm font-medium text-gray-500">Sesión completada</p>
             <h1 className="m-0 text-xl font-semibold">
               {nextCorrectText(correctCount, sessionQuestionCount)}
             </h1>
@@ -225,39 +220,15 @@ export function PracticeQuestion({
     );
   }
 
-  if (mode === "reading" && readingUnit && !hasStartedReadingExercises) {
-    return (
-      <article className="grid gap-4 rounded-lg border border-gray-200 bg-white p-4">
-        <div className="grid gap-2">
-          <p className="m-0 text-sm font-medium text-gray-500">Estímulo de lectura</p>
-          <h1 className="m-0 text-xl font-semibold">{readingUnit.title}</h1>
-        </div>
-        <p className="m-0 rounded border border-gray-200 bg-[#f7f7f4] p-3 text-base leading-7">
-          {readingUnit.text}
-        </p>
-        <button
-          className="w-full rounded bg-black py-2 text-white"
-          onClick={() => setHasStartedReadingExercises(true)}
-          type="button"
-        >
-          Empezar ejercicios
-        </button>
-      </article>
-    );
-  }
-
   return (
     <>
       {skillBanner}
       <div className={hasReadingStimulus ? "grid gap-5 lg:grid-cols-[minmax(0,1.15fr)_minmax(360px,0.85fr)] lg:items-start" : "grid gap-5"}>
-        {hasReadingStimulus && activeReadingUnit ? (
-          <ReadingStimulusPanel readingUnit={activeReadingUnit} />
-        ) : null}
-      <article className="grid gap-4 rounded-lg border border-gray-200 bg-white p-4">
+      <article ref={questionRef} className={`grid gap-4 rounded-lg border border-gray-200 bg-white p-4 ${hasReadingStimulus ? "order-2 lg:order-2" : ""}`}>
         <p className="text-sm font-medium text-gray-500">
           Pregunta {questionCount} de {sessionQuestionCount}
         </p>
-        {currentExercise.text && mode === "practice" && !hasReadingStimulus ? (
+        {currentExercise.text && !hasReadingStimulus ? (
           <section className="grid gap-2 rounded border border-[#d8d0a8] bg-[#fff8d7] p-3">
             {currentExercise.reading_unit ? (
               <p className="m-0 text-xs font-semibold uppercase text-[#6a5d21]">
@@ -274,11 +245,7 @@ export function PracticeQuestion({
             </p>
           </section>
         ) : null}
-        {mode === "reading" && readingUnit ? (
-          <p className="m-0 text-sm font-semibold text-[#55554d]">
-            Texto: {readingUnit.title}
-          </p>
-        ) : null}
+
         <div className="grid gap-2">
           {hasReadingStimulus ? (
             <p className="m-0 text-xs font-semibold uppercase text-[#6a5d21]">
@@ -334,6 +301,14 @@ export function PracticeQuestion({
           )}
         </form>
       </article>
+      {hasReadingStimulus && activeReadingUnit ? (
+          <div className="order-1 lg:order-1">
+            <ReadingStimulusPanel 
+              readingUnit={activeReadingUnit} 
+              questionRef={questionRef}
+            />
+          </div>
+        ) : null}
       </div>
     </>
   );
@@ -341,10 +316,15 @@ export function PracticeQuestion({
 
 type ReadingStimulusPanelProps = {
   readingUnit: ReadingUnit;
+  questionRef: React.RefObject<HTMLElement | null>;
 };
 
-function ReadingStimulusPanel({ readingUnit }: ReadingStimulusPanelProps) {
+function ReadingStimulusPanel({ readingUnit, questionRef }: ReadingStimulusPanelProps) {
   const paragraphs = readingUnit.text.split(/\n{2,}/).filter(Boolean);
+
+  function scrollToQuestion() {
+    questionRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
 
   return (
     <article className="grid gap-4 rounded-[8px] border border-[#d8d0a8] bg-[#fffdf0] p-4 lg:sticky lg:top-4">
@@ -362,7 +342,7 @@ function ReadingStimulusPanel({ readingUnit }: ReadingStimulusPanelProps) {
         <figure className="m-0 grid gap-2">
           <img
             alt={readingUnit.image.alt}
-            className="max-h-[260px] w-full rounded-[8px] object-cover object-top"
+            className="max-h-[200px] w-full rounded-[8px] object-contain object-top lg:max-h-[180px]"
             src={readingUnit.image.src}
           />
           <figcaption className="text-xs leading-5 text-[#55554d]">
@@ -371,7 +351,7 @@ function ReadingStimulusPanel({ readingUnit }: ReadingStimulusPanelProps) {
           </figcaption>
         </figure>
       ) : null}
-      <div className="grid max-h-[58vh] gap-3 overflow-auto pr-1 text-[15px] leading-7 text-[#1d1d1b] lg:max-h-[62vh]">
+      <div className="grid max-h-[50vh] gap-3 overflow-auto pr-1 text-[15px] leading-7 text-[#1d1d1b] lg:max-h-[45vh]">
         {paragraphs.map((paragraph) => (
           <p className="m-0" key={paragraph.slice(0, 48)}>{paragraph}</p>
         ))}
@@ -389,6 +369,13 @@ function ReadingStimulusPanel({ readingUnit }: ReadingStimulusPanelProps) {
           </dl>
         </details>
       ) : null}
+      <button
+        onClick={scrollToQuestion}
+        type="button"
+        className="inline-flex h-10 w-full items-center justify-center rounded-[8px] border border-[#1d1d1b] bg-white px-4 text-sm font-semibold text-[#1d1d1b] hover:bg-[#f7f7f4] lg:hidden"
+      >
+        Volver a la pregunta
+      </button>
     </article>
   );
 }

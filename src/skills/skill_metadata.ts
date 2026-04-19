@@ -7,18 +7,18 @@ export type SkillMetadata = {
 const skillMetadata: Record<string, SkillMetadata> = {
   "lengua.skill_1": {
     id: "lengua.skill_1",
-    title: "Comprension e inferencia textual",
+    title: "Comprensión e inferencia textual",
     description: "Entrena entender ideas, datos e inferencias en textos breves.",
   },
   "lengua.skill_2": {
     id: "lengua.skill_2",
     title: "Estructura y secuencia discursiva",
-    description: "Entrena ordenar informacion y reconocer como avanza un texto.",
+    description: "Entrena ordenar información y reconocer cómo avanza un texto.",
   },
   "lengua.skill_3": {
     id: "lengua.skill_3",
-    title: "Produccion escrita funcional",
-    description: "Entrena escribir respuestas breves con proposito, foco y claridad.",
+    title: "Producción escrita funcional",
+    description: "Entrena escribir respuestas breves con propósito, foco y claridad.",
   },
   "lengua.skill_4": {
     id: "lengua.skill_4",
@@ -27,28 +27,28 @@ const skillMetadata: Record<string, SkillMetadata> = {
   },
   "lengua.skill_5": {
     id: "lengua.skill_5",
-    title: "Gestion verbal en contexto",
+    title: "Gestión verbal en contexto",
     description: "Entrena reconocer y usar tiempos y modos verbales con coherencia.",
   },
   "lengua.skill_6": {
     id: "lengua.skill_6",
-    title: "Norma ortografica y tildacion",
-    description: "Entrena acentuacion, ortografia y uso correcto de grafias.",
+    title: "Norma ortográfica y tildación",
+    description: "Entrena acentuación, ortografía y uso correcto de grafías.",
   },
   "lengua.skill_7": {
     id: "lengua.skill_7",
-    title: "Puntuacion para sentido",
-    description: "Entrena usar signos de puntuacion para ordenar y precisar el sentido.",
+    title: "Puntuación para sentido",
+    description: "Entrena usar signos de puntuación para ordenar y precisar el sentido.",
   },
   "LEN-COMP-001": {
     id: "LEN-COMP-001",
     title: "Tema central",
-    description: "Entrena la identificacion de la idea principal en textos breves.",
+    description: "Entrena la identificación de la idea principal en textos breves.",
   },
   "LEN-COMP-002": {
     id: "LEN-COMP-002",
     title: "Datos e inferencias",
-    description: "Entrena localizar informacion explicita y distinguirla de lo que se deduce.",
+    description: "Entrena localizar información explícita y distinguirla de lo que se deduce.",
   },
   "LEN-COMP-003": {
     id: "LEN-COMP-003",
@@ -57,8 +57,8 @@ const skillMetadata: Record<string, SkillMetadata> = {
   },
   "LEN-COMP-004": {
     id: "LEN-COMP-004",
-    title: "Intencion del texto",
-    description: "Entrena reconocer para que fue escrito un texto y que busca provocar en el lector.",
+    title: "Intención del texto",
+    description: "Entrena reconocer para qué fue escrito un texto y qué busca provocar en el lector.",
   },
   "LEN-GRAM-001": {
     id: "LEN-GRAM-001",
@@ -68,27 +68,27 @@ const skillMetadata: Record<string, SkillMetadata> = {
   "LEN-GRAM-002": {
     id: "LEN-GRAM-002",
     title: "Concordancia gramatical",
-    description: "Entrena mantener acuerdo de genero, numero y persona dentro de la oracion.",
+    description: "Entrena mantener acuerdo de género, número y persona dentro de la oración.",
   },
   "LEN-GRAM-003": {
     id: "LEN-GRAM-003",
-    title: "Funcion sintactica",
-    description: "Entrena reconocer nucleos y relaciones basicas dentro de la oracion.",
+    title: "Función sintáctica",
+    description: "Entrena reconocer núcleos y relaciones básicas dentro de la oración.",
   },
   "LEN-NORM-001": {
     id: "LEN-NORM-001",
-    title: "Ortografia de uso",
-    description: "Entrena seleccionar grafias correctas en palabras de confusion frecuente.",
+    title: "Ortografía de uso",
+    description: "Entrena seleccionar grafías correctas en palabras de confusión frecuente.",
   },
   "LEN-NORM-002": {
     id: "LEN-NORM-002",
-    title: "Acentuacion",
-    description: "Entrena aplicar tildes y reglas de acentuacion en palabras y frases.",
+    title: "Acentuación",
+    description: "Entrena aplicar tildes y reglas de acentuación en palabras y frases.",
   },
   "LEN-NORM-003": {
     id: "LEN-NORM-003",
     title: "Diptongo, hiato y triptongo",
-    description: "Entrena reconocer como se agrupan o separan vocales dentro de las silabas.",
+    description: "Entrena reconocer cómo se agrupan o separan vocales dentro de las sílabas.",
   },
   "LEN-TEXT-001": {
     id: "LEN-TEXT-001",
@@ -97,8 +97,8 @@ const skillMetadata: Record<string, SkillMetadata> = {
   },
   "LEN-TEXT-002": {
     id: "LEN-TEXT-002",
-    title: "Proposito y coherencia",
-    description: "Entrena reconocer propositos comunicativos y detectar rupturas de coherencia.",
+    title: "Propósito y coherencia",
+    description: "Entrena reconocer propósitos comunicativos y detectar rupturas de coherencia.",
   },
   "LEN-TEXT-003": {
     id: "LEN-TEXT-003",
@@ -112,12 +112,12 @@ const skillMetadata: Record<string, SkillMetadata> = {
   },
   "LEN-PUNC-002": {
     id: "LEN-PUNC-002",
-    title: "Puntuacion y sentido",
-    description: "Entrena elegir signos que fijan o cambian la interpretacion de una oracion.",
+    title: "Puntuación y sentido",
+    description: "Entrena elegir signos que fijan o cambian la interpretación de una oración.",
   },
   "LEN-PUNC-003": {
     id: "LEN-PUNC-003",
-    title: "Segmentacion",
+    title: "Segmentación",
     description: "Entrena separar enunciados para mantener claridad y sentido.",
   },
   "LEN-WRIT-001": {
@@ -128,12 +128,12 @@ const skillMetadata: Record<string, SkillMetadata> = {
   "LEN-WRIT-002": {
     id: "LEN-WRIT-002",
     title: "Datos relevantes",
-    description: "Entrena seleccionar informacion necesaria y descartar relleno.",
+    description: "Entrena seleccionar información necesaria y descartar relleno.",
   },
   "LEN-WRIT-003": {
     id: "LEN-WRIT-003",
     title: "Claridad y foco",
-    description: "Entrena mejorar precision y legibilidad sin cambiar el sentido.",
+    description: "Entrena mejorar precisión y legibilidad sin cambiar el sentido.",
   },
   "LEN-VOC-001": {
     id: "LEN-VOC-001",
@@ -142,7 +142,7 @@ const skillMetadata: Record<string, SkillMetadata> = {
   },
   "LEN-VOC-002": {
     id: "LEN-VOC-002",
-    title: "Sinonimos en contexto",
+    title: "Sinónimos en contexto",
     description: "Entrena reemplazar palabras sin cambiar el sentido ni la intensidad del texto.",
   },
 };
