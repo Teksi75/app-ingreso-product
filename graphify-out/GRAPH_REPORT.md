@@ -1,7 +1,7 @@
-# Graph Report - .  (2026-04-17)
+# Graph Report - .  (2026-04-18)
 
 ## Corpus Check
-- 27 files · ~58,275 words
+- 27 files · ~80,086 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
@@ -58,8 +58,8 @@
   src\components\practice\__tests__\lengua_integration.test.ts → src\practice\session_runner.ts
 - `assertReadingModeDatasetRunsSequentially()` --calls--> `startReadingSession()`  [INFERRED]
   src\components\practice\__tests__\lengua_integration.test.ts → src\practice\reading_session_runner.ts
-- `loadContentLenguaExercises()` --calls--> `normalizeSkillId()`  [INFERRED]
-  src\practice\session_runner.ts → src\practice\exercise_selector.ts
+- `normalizeSkillId()` --calls--> `loadContentLenguaExercises()`  [INFERRED]
+  src\practice\exercise_selector.ts → src\practice\session_runner.ts
 
 ## Communities
 

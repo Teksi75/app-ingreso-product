@@ -96,7 +96,30 @@
         "lengua.skill_6",
         "lengua.skill_7"
       ]
+    },
+    {
+      "file": "lengua_textgroup_bio001_violeta_parra.json",
+      "kind": "textgroup",
+      "exercise_count": 19,
+      "skills": [
+        "lengua.skill_1",
+        "lengua.skill_2",
+        "lengua.skill_4",
+        "lengua.skill_5",
+        "lengua.skill_6",
+        "lengua.skill_7"
+      ],
+      "module_coverage": ["modulo_1", "modulo_2"],
+      "text_type": "biografia",
+      "candidate_id": "bio-001"
+    },
+    {
+      "file": "textgroup_candidates.json",
+      "kind": "candidate_inventory",
+      "exercise_count": 0,
+      "skills": [],
+      "note": "Inventario de textos candidatos - no ejercicios ejecutables"
     }
   ],
-  "total_exercise_count": 237
+  "total_exercise_count": 256
 }

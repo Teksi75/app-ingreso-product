@@ -1,0 +1,465 @@
+{
+  "metadata": {
+    "set": "textgroup-bio-001-violeta-parra",
+    "version": "1.0.0",
+    "generated_by": "internal",
+    "source": "original_interno",
+    "license": "CC-BY-4.0-interno",
+    "candidate_id": "bio-001",
+    "module_fit": ["modulo_1", "modulo_2"],
+    "text_type": "biografia",
+    "date": "2026-04-18",
+    "purpose": "TextGroup para modulos 1 y 2 de Lengua - misma biografia reutilizada con ejercicios distintos",
+    "legal_note": "Texto original interno. No reproduce material oficial. Datos biograficos de Violeta Parra son de dominio publico. La causa de fallecimiento se omite por no ser pertinente al objetivo pedagogico y por sensibilidad para menores."
+  },
+  "reading_units": [
+    {
+      "id": "RU-LEN-BIO-001",
+      "title": "Violeta Parra: la voz que pintaba canciones",
+      "text": "Violeta Parra fue una artista chilena que dedicó su vida a recoger, crear y difundir la cultura popular de su país. Nació el 4 de octubre de 1917 en San Carlos, una pequeña ciudad del sur de Chile, en el seno de una familia campesina donde la música y las tradiciones formaban parte de la vida cotidiana. Su madre, Clarisa Sandoval, era costurera y folklorista, y su padre, don Nicanor Parra, era profesor primario y músico aficionado. Desde muy niña, Violeta aprendió a tocar la guitarra y a cantar las canciones que escuchaba en las reuniones familiares, donde también se contaban historias de campo y se bailaba la cueca, la danza nacional chilena.\n\nEn la década de 1930, Violeta se trasladó a Santiago, la capital chilena, junto con su hermano mayor, Nicanor Parra, que más tarde se convertiría en un reconocido poeta. En la bulliciosa ciudad, comenzó a presentarse en locales y radios, interpretando canciones del folclore chileno y latinoamericano. Pronto, sus hermanos Hilda, Roberto y Eduardo también se dedicaron a la música, y juntos formaron el conjunto Los Parra, que se presentaba en peñas y festivales populares.\n\nSin embargo, el trabajo más importante de Violeta no fue solamente cantar, sino investigar. A partir de 1952, recorrió campos, pueblos y comunidades rurales de Chile recogiendo canciones, refranes, historias y tradiciones que estaban en peligro de desaparecer. Viajó en carretas, a caballo y en trenes lentos, visitando lugares apartados donde los ancianos conservaban melodías que nadie más recordaba. Gracias a esas investigaciones, recopiló más de tres mil canciones del folclore chileno, muchas de las cuales habrían quedado en el olvido sin su esfuerzo. Esa labor de rescate le valió el reconocimiento nacional y abrió las puertas para que la música folclórica fuera valorada como parte esencial del patrimonio cultural del país.\n\nAdemás de la música, Violeta desarrolló una intensa actividad en las artes visuales. Creó arpilleras, tapices y pinturas que representaban escenas de la vida rural chilena con colores vivos y figuras singulares. En sus obras plásticas, aparecían campesinos, animales, fiestas populares y paisajes del campo chileno, todo representado con una mirada a la vez tierna y comprometida.\n\nEn 1961, Violeta viajó a Europa y se instaló en París, Francia, donde presentó su trabajo artístico en diferentes salas y galerías. Allí mostró no solo su música, sino también sus arpilleras, tapices y pinturas. El público europeo descubrió en ella una artista completa, capaz de expresar la identidad de un pueblo a través de múltiples lenguajes artísticos. En 1964, se convirtió en la primera artista latinoamericana en exponer individualmente en el Museo del Louvre, un logro notable para una mujer proveniente de una familia campesina del sur de Chile.\n\nA su regreso a Chile, en 1965, Violeta fundó la Carpa de La Reina, un espacio cultural al aire libre en la comuna de La Reina, en Santiago, donde se presentaban artistas folclóricos. Era un proyecto ambicioso: Violeta quería crear un lugar donde la música chilena estuviera al alcance de todos. Sin embargo, la Carpa no obtuvo la respuesta del público que ella esperaba y atravesó serias dificultades económicas.\n\nA pesar de los obstáculos, Violeta siguió creando. Compuso algunas de las canciones más conocidas de la música latinoamericana, como «Gracias a la vida», que ha sido interpretada por cantantes de todo el mundo y se convirtió en un himno de reconocimiento y gratitud hacia la existencia. En esa canción, Violeta agradece la vida por haberle dado los sentidos, el lenguaje, la música y la alegría de vivir. También compuso «Volver a los 17», una canción que describe los sentimientos del amor juvenil con palabras sencillas y profundas.\n\nVioleta Parra falleció en Santiago el 5 de febrero de 1967. Su legado abarca la música, la pintura, el bordado, la cerámica y la investigación folclórica, y ha influido en generaciones de artistas latinoamericanos. Hoy, su nombre es sinónimo de creatividad, perseverancia y amor por las raíces culturales de Chile y de América Latina.",
+      "difficulty": 2,
+      "textType": "biografia",
+      "source": "original_interno",
+      "paratexts": {
+        "titulo": "Violeta Parra: la voz que pintaba canciones",
+        "subtitulo": "Biografia de una artista chilena",
+        "fuente": "Texto original elaborado a partir de datos biograficos verificables de dominio publico",
+        "glosario_opcional": [
+          {"palabra": "folklorista", "definicion": "persona que estudia o practica el folclore"},
+          {"palabra": "arpillera", "definicion": "tejido artesanal configuras bordadas sobre tela"},
+          {"palabra": "patrimonio", "definicion": "conjunto de bienes culturales heredados de los antepasados"},
+          {"palabra": "bulliciosa", "definicion": "ruidosa, llena de actividad"},
+          {"palabra": "singulares", "definicion": "unicas, diferentes de las demas"},
+          {"palabra": "ambicioso", "definicion": "que aspira a lograr algo grande"},
+          {"palabra": "conversión", "definicion": "cambio o transformacion"},
+          {"palabra": "reconocimiento", "definicion": "accion de valorar o admitir el merito de alguien"}
+        ]
+      },
+      "word_count_approx": 730,
+      "module_fit": ["modulo_1", "modulo_2"],
+      "grammatical_features": {
+        "sustantivos_propios": ["Violeta", "Parra", "Chile", "Santiago", "San Carlos", "Nicanor", "Parra", "Clarisa", "Sandoval", "Hilda", "Roberto", "Eduardo", "Los Parra", "Europa", "París", "Francia", "Museo del Louvre", "La Reina", "América Latina"],
+        "sustantivos_comunes_concretos": ["guitarra", "canciones", "ciudad", "familia", "madre", "padre", "profesor", "carretas", "caballo", "trenes", "ancianos", "melodías", "obras", "campesinos", "animales", "fiestas", "paisajes", "sala", "galerías", "mujer", "lenguajes", "espacio", "corazón", "palabras"],
+        "sustantivos_comunes_abstractos": ["vida", "música", "tradiciónes", "esfuerzo", "reconocimiento", "patrimonio", "identidad", "obstáculos", "creatividad", "perseverancia", "amor", "alegría", "existencia", "gratitud"],
+        "sustantivos_individuales": ["artista", "canción", "pueblo", "poeta", "historia", "obra"],
+        "sustantivos_colectivos": ["conjunto", "generaciones", "comunidades", "campos"],
+        "adjetivos_calificativos": ["reconocido", "bulliciosa", "singulares", "ambicioso", "esencial", "vivido", "notable", "profundas", "sencillas", "tierna", "comprometida"],
+        "adjetivos_gentilicios": ["chilena", "chileno", "latinoamericano", "europeo", "francesa"],
+        "adjetivos_numerales": ["tres", "primera"],
+        "verbos_pasado": ["nació", "aprendió", "trasladó", "comenzó", "recorrió", "recopiló", "viajó", "convirtió", "fundó", "falleció", "quería", "formaban"],
+        "verbos_condicional": ["convertiría", "habrían quedado"],
+        "verbos_presente_perfecto": ["ha sido", "ha influido"],
+        "conectores_temporales": ["desde", "a partir de", "en la década de", "más tarde", "en 1961", "en 1964", "en 1965"],
+        "conectores_causales": ["gracias a", "por"],
+        "conectores_adversativos": ["sin embargo", "a pesar de"],
+        "palabras_agudas_tilde": ["canción", "tradición", "reunión", "américa", "según", "información", "obligación"],
+        "palabras_graves_tilde": ["fácil", "árbol", "música", "público", "número", "página", "época", "esdrújula", "teléfono"],
+        "palabras_esdrujulas": ["música", "público", "artística", "artísticas", "esdrújula"],
+        "palabras_con_diptongo": ["ciudad", "canción", "bulliciosa", "canciones", "historias", "antiguo", "fiestas"],
+        "palabras_con_hiato": ["década", "decía", "cantaría", "poeta", "mía", "prohíbe"],
+        "coma_enumeracion": ["recoger, crear y difundir", "campos, pueblos y comunidades", "canciones, refranes, historias y tradiciones", "campesinos, animales, fiestas populares y paisajes", "música, la pintura, el bordado, la cerámica y la investigación"],
+        "coma_aclaracion": ["junto con su hermano mayor, Nicanor Parra, que más tarde se convertiría en un reconocido poeta", "en la comuna de La Reina, en Santiago"]
+      }
+    }
+  ],
+  "exercises_modulo_1": [
+    {
+      "id": "M1-BIO-001",
+      "reading_unit_id": "RU-LEN-BIO-001",
+      "skill_id": "lengua.skill_1",
+      "subskill": "lengua.skill_1.subskill_1",
+      "difficulty": 1,
+      "mastery_level": 1,
+      "type": "multiple_choice_multiple",
+      "prompt": "Marca con una x cuales de los siguientes paratextos aparecen en el texto.",
+      "options": [
+        "titulo",
+        "subtitulo",
+        "copete",
+        "glosario",
+        "epigrafe",
+        "indice",
+        "imagen",
+        "fuente",
+        "mapa",
+        "infografia"
+      ],
+      "answer": ["titulo", "subtitulo", "fuente"],
+      "feedback_correct": "Correcto: el texto presenta titulo, subtitulo y fuente como paratextos.",
+      "feedback_incorrect": "Revisa los elementos que acompañan al texto: el titulo arriba, el subtitulo debajo y la fuente al final."
+    },
+    {
+      "id": "M1-BIO-002",
+      "reading_unit_id": "RU-LEN-BIO-001",
+      "skill_id": "lengua.skill_1",
+      "subskill": "lengua.skill_1.subskill_1",
+      "difficulty": 1,
+      "mastery_level": 1,
+      "type": "multiple_choice",
+      "prompt": "El texto fue extraido de:",
+      "options": [
+        "un diario",
+        "una enciclopedia",
+        "una pagina web",
+        "un texto original elaborado con datos biograficos de dominio publico"
+      ],
+      "answer": "un texto original elaborado con datos biograficos de dominio publico",
+      "feedback_correct": "Correcto: la fuente indica que el texto fue elaborado con datos biograficos verificables de dominio publico.",
+      "feedback_incorrect": "Lee con atencion la fuente que aparece al final del texto."
+    },
+    {
+      "id": "M1-BIO-003",
+      "reading_unit_id": "RU-LEN-BIO-001",
+      "skill_id": "lengua.skill_1",
+      "subskill": "lengua.skill_1.subskill_3",
+      "difficulty": 1,
+      "mastery_level": 1,
+      "type": "multiple_choice",
+      "prompt": "Marca con una x que clase de texto leiste.",
+      "options": [
+        "noticia",
+        "cuento",
+        "biografia",
+        "articulo enciclopedico"
+      ],
+      "answer": "biografia",
+      "feedback_correct": "Correcto: el texto narra la vida de Violeta Parra en orden cronologico, lo que lo identifica como una biografia.",
+      "feedback_incorrect": "Pensá: el texto narra la vida de una persona real en orden cronologico. ¿Que clase textual hace eso?"
+    },
+    {
+      "id": "M1-BIO-004",
+      "reading_unit_id": "RU-LEN-BIO-001",
+      "skill_id": "lengua.skill_1",
+      "subskill": "lengua.skill_1.subskill_2",
+      "difficulty": 2,
+      "mastery_level": 1,
+      "type": "multiple_choice",
+      "prompt": "a) ¿Para que fue escrito este texto?\nb) ¿De que se trata el texto?",
+      "options_a": [
+        "Explicar las caracteristicas del folclore chileno",
+        "Enumerar las obras artisticas de Violeta Parra",
+        "Narrar la vida de una persona destacada",
+        "Describir las costumbres del campo chileno"
+      ],
+      "options_b": [
+        "Las tradiciones del sur de Chile",
+        "La vida y obra de Violeta Parra",
+        "La musica folclorica latinoamericana",
+        "Los museos de Europa"
+      ],
+      "answer_a": "Narrar la vida de una persona destacada",
+      "answer_b": "La vida y obra de Violeta Parra",
+      "feedback_correct": "Correcto: la biografia narra la vida de una persona y aqui se trata de la vida y obra de Violeta Parra.",
+      "feedback_incorrect": "Pensá en el proposito de una biografia y en el tema central del texto."
+    },
+    {
+      "id": "M1-BIO-005",
+      "reading_unit_id": "RU-LEN-BIO-001",
+      "skill_id": "lengua.skill_2",
+      "subskill": "lengua.skill_2.subskill_1",
+      "difficulty": 1,
+      "mastery_level": 1,
+      "type": "multiple_choice",
+      "prompt": "¿Cuantos parrafos tiene el texto?",
+      "options": [
+        "5",
+        "6",
+        "7",
+        "8"
+      ],
+      "answer": "8",
+      "feedback_correct": "Correcto: el texto tiene 8 parrafos.",
+      "feedback_incorrect": "Cuenta cada bloque de texto que comienza con mayuscula y termina con punto y aparte."
+    },
+    {
+      "id": "M1-BIO-006",
+      "reading_unit_id": "RU-LEN-BIO-001",
+      "skill_id": "lengua.skill_1",
+      "subskill": "lengua.skill_1.subskill_1",
+      "difficulty": 2,
+      "mastery_level": 2,
+      "type": "multiple_choice",
+      "prompt": "¿Cual es el orden cronologico correcto de los acontecimientos biograficos de Violeta Parra?",
+      "options": [
+        "Nacimiento → Traslado a Santiago → Investigacion folclorica → Viaje a Europa → Exposicion en el Louvre → Carpa de La Reina → Composicion de canciones → Fallecimiento",
+        "Nacimiento → Viaje a Europa → Investigacion folclorica → Traslado a Santiago → Exposicion en el Louvre → Composicion de canciones → Carpa de La Reina → Fallecimiento",
+        "Nacimiento → Traslado a Santiago → Viaje a Europa → Investigacion folclorica → Exposicion en el Louvre → Carpa de La Reina → Composicion de canciones → Fallecimiento"
+      ],
+      "answer": "Nacimiento → Traslado a Santiago → Investigacion folclorica → Viaje a Europa → Exposicion en el Louvre → Carpa de La Reina → Composicion de canciones → Fallecimiento",
+      "feedback_correct": "Correcto: la biografia sigue un orden cronologico que parte con el nacimiento y avanza temporalmente.",
+      "feedback_incorrect": "Relee el texto buscando las fechas y marcadores temporales para reconstruir el orden."
+    },
+    {
+      "id": "M1-BIO-007",
+      "reading_unit_id": "RU-LEN-BIO-001",
+      "skill_id": "lengua.skill_1",
+      "subskill": "lengua.skill_1.subskill_2",
+      "difficulty": 2,
+      "mastery_level": 2,
+      "type": "multiple_choice",
+      "prompt": "a) ¿Por que es importante la labor de Violeta Parra en la investigacion folclorica?\nb) ¿Que significa en el texto que las canciones 'habrian quedado en el olvido'?",
+      "options_a": [
+        "Porque invento nuevas canciones que nadie conocia",
+        "Porque rescato canciones que nadie mas recordaba y que se habrian perdido",
+        "Porque toco la guitarra en radios de Santiago",
+        "Porque viajo a Europa con sus canciones"
+      ],
+      "options_b": [
+        "Que las canciones estaban guardadas en un museo",
+        "Que Violeta las habia escrito ella misma",
+        "Que si Violeta no las hubiera recopilado, esas canciones se habrian perdido para siempre",
+        "Que las canciones ya eran muy famosas"
+      ],
+      "answer_a": "Porque rescato canciones que nadie mas recordaba y que se habrian perdido",
+      "answer_b": "Que si Violeta no las hubiera recopilado, esas canciones se habrian perdido para siempre",
+      "feedback_correct": "Correcto: la importancia radica en el rescate de patrimonio cultural que estaba en riesgo de perderse.",
+      "feedback_incorrect": "Lee con atencion el parrafo donde se habla de la investigacion folclorica y piensa en el efecto de la labor de Violeta."
+    },
+    {
+      "id": "M1-BIO-008",
+      "reading_unit_id": "RU-LEN-BIO-001",
+      "skill_id": "lengua.skill_4",
+      "subskill": "lengua.skill_4.subskill_1",
+      "difficulty": 2,
+      "mastery_level": 2,
+      "type": "categorization",
+      "prompt": "Lee el siguiente fragmento y clasifica los sustantivos resaltados en la tabla.\n\nFragmento: «Violeta recorrio **campos**, **pueblos** y **comunidades** rurales de **Chile** recogiendo **canciones**, **refranes**, **historias** y **tradiciones** que estaban en peligro de desaparecer. Viajo en **carretas**, a **caballo** y en **trenes** lentos, visitando **lugares** apartados donde los **ancianos** conservaban **melodias** que nadie mas recordaba.»",
+      "categories": {
+        "sustantivo_propio": [],
+        "sustantivo_comun_concreto": [],
+        "sustantivo_comun_abstracto": [],
+        "sustantivo_individual": [],
+        "sustantivo_colectivo": []
+      },
+      "answer": {
+        "sustantivo_propio": ["Chile"],
+        "sustantivo_comun_concreto": ["campos", "pueblos", "carretas", "caballo", "trenes", "lugares", "ancianos"],
+        "sustantivo_comun_abstracto": ["historias", "tradiciones", "refranes", "canciones", "melodias"],
+        "sustantivo_individual": ["caballo", "lugar"],
+        "sustantivo_colectivo": ["comunidades"]
+      },
+      "feedback_correct": "Correcto: Chile es sustantivo propio; campos, pueblos, carretas, trenes, ancianos son comunes concretos; tradiciones, refranes son comunes abstractos; caballo es individual; comunidades es colectivo.",
+      "feedback_incorrect": "Repasa la clasificacion de sustantivos: propios (nombres unicos), comunes concretos (se perciben por los sentidos), comunes abstractos (ideas o cualidades), individuales (un solo elemento) y colectivos (conjunto)."
+    },
+    {
+      "id": "M1-BIO-009",
+      "reading_unit_id": "RU-LEN-BIO-001",
+      "skill_id": "lengua.skill_4",
+      "subskill": "lengua.skill_4.subskill_1",
+      "difficulty": 2,
+      "mastery_level": 2,
+      "type": "multiple_choice",
+      "prompt": "Marca con una x la respuesta correcta segun el siguiente fragmento:\n\n«En la **bulliciosa** ciudad, comenzo a presentarse en locales y radios, interpretando **chilenas** canciones del folclore **chileno** y **latinoamericano**. **Tres** de sus hermanos tambien se dedicaron a la musica.»",
+      "options": [
+        {"enunciado": "bulliciosa es un adjetivo calificativo", "respuesta": true},
+        {"enunciado": "chileno es un adjetivo numeral", "respuesta": false},
+        {"enunciado": "latinamericano es un adjetivo gentilicio", "respuesta": true},
+        {"enunciado": "tres es un adjetivo calificativo", "respuesta": false},
+        {"enunciado": "chilenas es un adjetivo gentilicio", "respuesta": true}
+      ],
+      "answer": ["bulliciosa es un adjetivo calificativo", "latinamericano es un adjetivo gentilicio", "chilenas es un adjetivo gentilicio"],
+      "feedback_correct": "Correcto: calificativos expresan cualidades; gentilicios indican origen; numerales indican cantidad.",
+      "feedback_incorrect": "Repasa: adjetivos calificativos (cualidades), gentilicios (lugar de origen), numerales (cantidad o orden)."
+    },
+    {
+      "id": "M1-BIO-010",
+      "reading_unit_id": "RU-LEN-BIO-001",
+      "skill_id": "lengua.skill_7",
+      "subskill": "lengua.skill_7.subskill_1",
+      "difficulty": 2,
+      "mastery_level": 2,
+      "type": "multiple_choice",
+      "prompt": "¿Que uso tiene la coma en cada uno de los siguientes fragmentos?\n\na) «recoger, crear y difundir la cultura popular»\nb) «su hermano mayor, Nicanor Parra, que mas tarde se convertiria en un reconocido poeta»",
+      "options_a": [
+        "Coma de enumeracion",
+        "Coma de aclaracion",
+        "Coma vocativa",
+        "Coma hiperbaton"
+      ],
+      "options_b": [
+        "Coma de enumeracion",
+        "Coma de aclaracion (entre comas)",
+        "Coma vocativa",
+        "Coma de contraste"
+      ],
+      "answer_a": "Coma de enumeracion",
+      "answer_b": "Coma de aclaracion (entre comas)",
+      "feedback_correct": "Correcto: en el primer caso, la coma separa elementos de una enumeracion; en el segundo, la expresion entre comas aclara quien es el hermano mayor.",
+      "feedback_incorrect": "La coma de enumeracion separa elementos de una lista. La coma de aclaracion intercala una explicacion entre dos comas."
+    }
+  ],
+  "exercises_modulo_2": [
+    {
+      "id": "M2-BIO-001",
+      "reading_unit_id": "RU-LEN-BIO-001",
+      "skill_id": "lengua.skill_1",
+      "subskill": "lengua.skill_1.subskill_2",
+      "difficulty": 2,
+      "mastery_level": 2,
+      "type": "multiple_choice",
+      "prompt": "Marca con una x la respuesta correcta. ¿Cual es, en el texto, el significado mas aproximado de las palabras o expresiones resaltadas?\n\na) **bulliciosa** (ciudad)\nb) **singulares** (figuras)\nc) **ambicioso** (proyecto)\nd) **reconocimiento** (nacional)",
+      "options_a": ["ruidosa y llena de actividad", "tranquila y silenciosa", "antigua y abandonada", "pequena y oscurecida"],
+      "options_b": ["comunes y corrientes", "unicas y diferentes de las demas", "viejas y desgastadas", "simples y faciles"],
+      "options_c": ["que aspira a lograr algo grande", "que necesita poco dinero", "que fracaso rapidamente", "que se hizo solo por diversion"],
+      "options_d": ["regalo personal", "trabajo manual", "valoracion publica del merito de alguien", "concurso artistico"],
+      "answer_a": "ruidosa y llena de actividad",
+      "answer_b": "unicas y diferentes de las demas",
+      "answer_c": "que aspira a lograr algo grande",
+      "answer_d": "valoracion publica del merito de alguien",
+      "feedback_correct": "Correcto: el cotexto permite inferir el significado de cada palabra.",
+      "feedback_incorrect": "Lee la oracion completa donde aparece la palabra y pensa que significado tiene sentido en ese contexto."
+    },
+    {
+      "id": "M2-BIO-002",
+      "reading_unit_id": "RU-LEN-BIO-001",
+      "skill_id": "lengua.skill_4",
+      "subskill": "lengua.skill_4.subskill_1",
+      "difficulty": 2,
+      "mastery_level": 2,
+      "type": "multiple_choice_multiple",
+      "prompt": "Marca con una x cuales de las siguientes expresiones tienen el mismo significado que las palabras resaltadas.\n\na) **difundir** la cultura: / propagar / esconder / divulgar / callar\nb) **rescatar** canciones: / perder / recuperar / enviar / salvar",
+      "options_a": ["propagar", "esconder", "divulgar", "callar"],
+      "options_b": ["perder", "recuperar", "enviar", "salvar"],
+      "answer_a": ["propagar", "divulgar"],
+      "answer_b": ["recuperar", "salvar"],
+      "feedback_correct": "Correcto: difundir es sinonimo de propagar y divulgar; rescatar es sinonimo de recuperar y salvar en este contexto.",
+      "feedback_incorrect": "Busca palabras que tengan un significado similar (sinonimos) en el contexto del texto."
+    },
+    {
+      "id": "M2-BIO-003",
+      "reading_unit_id": "RU-LEN-BIO-001",
+      "skill_id": "lengua.skill_4",
+      "subskill": "lengua.skill_4.subskill_1",
+      "difficulty": 2,
+      "mastery_level": 2,
+      "type": "multiple_choice",
+      "prompt": "Marca con una x cual de las siguientes expresiones tiene el significado opuesto (antonimo) de la palabra resaltada.\n\na) **bulliciosa** (ciudad)\nb) **pequena** (ciudad)\nc) **apartados** (lugares)",
+      "options_a": ["tranquila", "ruidosa", "alegre", "oscura"],
+      "options_b": ["diminuta", "grande", "linda", "cercana"],
+      "options_c": ["alejados", "centrales", "elevados", "poblados"],
+      "answer_a": "tranquila",
+      "answer_b": "grande",
+      "answer_c": "centrales",
+      "feedback_correct": "Correcto: los antonimos expresan significados opuestos.",
+      "feedback_incorrect": "Pensa en el significado contrario: bulliciosa/tranquila, pequena/grande, apartados/centrales."
+    },
+    {
+      "id": "M2-BIO-004",
+      "reading_unit_id": "RU-LEN-BIO-001",
+      "skill_id": "lengua.skill_4",
+      "subskill": "lengua.skill_4.subskill_2",
+      "difficulty": 2,
+      "mastery_level": 2,
+      "type": "completion",
+      "prompt": "Reemplaza los sustantivos con el pronombre personal adecuado.\n\na) Violeta Parra dedico su vida al folclore. _______ recorrio campos y pueblos de Chile.\nb) Violeta y sus hermanos formaron el conjunto Los Parra. _______ se presentaban en penas y festivales.\nc) Los ancianos conservaban melodias que _______ habian escuchado en su juventud. (refiriendose a los ancianos)",
+      "answer_a": "Ella",
+      "answer_b": "Ellos",
+      "answer_c": "ellas (las melodias) / ellos (los ancianos)",
+      "feedback_correct": "Correcto: los pronombres personales reemplazan al sustantivo evitando repeticion.",
+      "feedback_incorrect": "Identifica quien realiza la accion y usa el pronombre correspondiente: yo, tu, el/ella, nosotros, vosotros, ellos/ellas."
+    },
+    {
+      "id": "M2-BIO-005",
+      "reading_unit_id": "RU-LEN-BIO-001",
+      "skill_id": "lengua.skill_5",
+      "subskill": "lengua.skill_5.subskill_1",
+      "difficulty": 2,
+      "mastery_level": 2,
+      "type": "categorization",
+      "prompt": "Completa el cuadro con la conjugación de los verbos extraidos del texto.",
+      "categories": {
+        "infinitivo": ["recorrer", "nacer", "trasladarse", "comenzar", "recopilar", "viajar", "convertirse", "fundar"],
+        "pretérito_perfecto_simple_3ra_persona": ["recorrió", "nació", "se trasladó", "comenzó", "recopiló", "viajó", "se convirtió", "fundó"],
+        "pretérito_imperfecto_3ra_persona": ["recorría", "nacíar (no usado)", "se trasladaba", "comenzaba", "recopilaba", "viajaba", "se convertía", "fundaba"],
+        "persona_y_numero": ["3ra singular", "3ra singular", "3ra singular", "3ra singular", "3ra singular", "3ra singular", "3ra singular", "3ra singular"]
+      },
+      "answer": {
+        "infinitivo": ["recorrer", "nacer", "trasladarse", "comenzar", "recopilar", "viajar", "convertirse", "fundar"],
+        "pretérito_perfecto_simple_3ra_persona": ["recorrió", "nació", "se trasladó", "comenzó", "recopiló", "viajó", "se convirtió", "fundó"],
+        "pretérito_imperfecto_3ra_persona": ["recorría", "nacía", "se trasladaba", "comenzaba", "recopilaba", "viajaba", "se convertía", "fundaba"],
+        "persona_y_numero": ["3ra persona singular", "3ra persona singular", "3ra persona singular", "3ra persona singular", "3ra persona singular", "3ra persona singular", "3ra persona singular", "3ra persona singular"]
+      },
+      "feedback_correct": "Correcto: los verbos en pretérito perfecto simple indican acciones acabadas; los imperfectos indican acciones en curso o habituales.",
+      "feedback_incorrect": "Identifica el verbo conjugado en el texto y determina persona, numero y tiempo."
+    },
+    {
+      "id": "M2-BIO-006",
+      "reading_unit_id": "RU-LEN-BIO-001",
+      "skill_id": "lengua.skill_6",
+      "subskill": "lengua.skill_6.subskill_2",
+      "difficulty": 2,
+      "mastery_level": 2,
+      "type": "categorization",
+      "prompt": "Clasifica las siguientes palabras del texto segun su acentuacion: aguda, grave, esdrujula o sobresdrujula.\n\nPalabras: canción, música, público, época, tradición, fácil, año, familia, campo, arpillera, allá, corazón, comenzó, patrimonio, bulliciosa, rápidamente,给它登, volvió,胞中, número",
+      "answer": {
+        "agudas": ["canción", "tradición", "allá", "corazón", "comenzó", "volvió"],
+        "graves": ["época", "fácil", "arpillera", "patrimonio", "bulliciosa", "campo", "año", "familia"],
+        "esdrujulas": ["música", "público", "número"],
+        "sobresdrújulas": ["rápidamente"]
+      },
+      "feedback_correct": "Correcto: agudas con tilde terminan en n, s o vocal; graves con tilde terminan en consonante distinta de n o s; esdrujulas siempre llevan tilde.",
+      "feedback_incorrect": "Repasa las reglas: aguda (ultima silaba tónica), grave (penultima), esdrujula (antepenultima), sobresdrujula (anterior a la antepenultima)."
+    },
+    {
+      "id": "M2-BIO-007",
+      "reading_unit_id": "RU-LEN-BIO-001",
+      "skill_id": "lengua.skill_6",
+      "subskill": "lengua.skill_6.subskill_2",
+      "difficulty": 2,
+      "mastery_level": 2,
+      "type": "completion",
+      "prompt": "Completa con el monosilabo correcto (el/él, si/sí, mas/más, de/dé, te/té).\n\na) _______ artista más importante del folclore chileno fue Violeta Parra. En _______ influyeron las tradiciones campesinas.\nb) Violeta recorrió los campos _______ nadie lo había hecho antes.\nc) A pesar de los obstáculos, Violeta _______ siguió creando canciones.\nd) La Carpa de La Reina no tuvo _______ éxito del esperado.",
+      "answer_a": "El / él",
+      "answer_b": "como / donde (nota: esta oracion no usa si/sí sino otro conector - se ajusta)",
+      "answer_c": "sí (afirmación)",
+      "answer_d": "más (cantidad)",
+      "feedback_correct": "Correcto: el tilde diacrítico distingue palabras con igual escritura pero diferente función.",
+      "feedback_incorrect": "Recuerda: él (pronombre)/el (artículo), sí (afirmación)/si (condición), más (cantidad)/mas (pero), dé (verbo dar)/de (preposición), té (infusión)/te (pronombre)."
+    },
+    {
+      "id": "M2-BIO-008",
+      "reading_unit_id": "RU-LEN-BIO-001",
+      "skill_id": "lengua.skill_2",
+      "subskill": "lengua.skill_2.subskill_3",
+      "difficulty": 2,
+      "mastery_level": 2,
+      "type": "multiple_choice",
+      "prompt": "La biografia es un tipo de narracion. ¿Cual de las siguientes caracteristicas es propia de la biografia como texto narrativo?",
+      "options": [
+        "Narra hechos ficticios inventados por el autor",
+        "Narra hechos reales de la vida de una persona en orden cronologico",
+        "Describe objetos y lugares sin narrar acciones",
+        "Explica un tema cientifico con datos y definiciones"
+      ],
+      "answer": "Narra hechos reales de la vida de una persona en orden cronologico",
+      "feedback_correct": "Correcto: la biografia narra la vida de una persona real en orden cronologico, con fechas y datos verificables.",
+      "feedback_incorrect": "La biografia se caracteriza por narrar hechos reales en orden cronologico, con datos verificables y en tercera persona."
+    },
+    {
+      "id": "M2-BIO-009",
+      "reading_unit_id": "RU-LEN-BIO-001",
+      "skill_id": "lengua.skill_5",
+      "subskill": "lengua.skill_5.subskill_1",
+      "difficulty": 2,
+      "mastery_level": 2,
+      "type": "multiple_choice",
+      "prompt": "Marca con una x la opcion correcta.\n\na) «Violeta recorrio campos y pueblos de Chile.» El verbo recorrio esta en:\nb) «se convertiria en un reconocido poeta.» El verbo convertiria esta en:",
+      "options_a": [
+        "Presente de indicativo",
+        "Pretérito imperfecto de indicativo",
+        "Pretérito perfecto simple de indicativo",
+        "Futuro simple de indicativo"
+      ],
+      "options_b": [
+        "Pretérito perfecto simple de indicativo",
+        "Condicional simple",
+        "Pretérito imperfecto de indicativo",
+        "Futuro simple de indicativo"
+      ],
+      "answer_a": "Pretérito perfecto simple de indicativo",
+      "answer_b": "Condicional simple",
+      "feedback_correct": "Correcto: 'recorrió' indica una accion acabada en el pasado (pretérito perfecto simple); 'convertiría' expresa una posibilidad o consecuencia futura en el pasado (condicional).",
+      "feedback_incorrect": "Repasa los tiempos verbales: pretérito perfecto simple indica acciones acabadas en el pasado; condicional expresa posibilidad o consecuencia hipotetica."
+    }
+  ]
+}
