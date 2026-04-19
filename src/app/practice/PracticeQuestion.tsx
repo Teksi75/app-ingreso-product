@@ -232,7 +232,7 @@ export function PracticeQuestion({
           <section className="grid gap-2 rounded border border-[#d8d0a8] bg-[#fff8d7] p-3">
             {currentExercise.reading_unit ? (
               <p className="m-0 text-xs font-semibold uppercase text-[#6a5d21]">
-                Texto base
+                Texto de referencia
               </p>
             ) : null}
             {currentExercise.reading_unit ? (
@@ -249,7 +249,7 @@ export function PracticeQuestion({
         <div className="grid gap-2">
           {hasReadingStimulus ? (
             <p className="m-0 text-xs font-semibold uppercase text-[#6a5d21]">
-              Resuelve desde el estímulo
+              Usando el texto como contexto
             </p>
           ) : null}
           <h1 className="m-0 text-xl font-semibold leading-7">{currentExercise.prompt}</h1>
@@ -329,7 +329,7 @@ function ReadingStimulusPanel({ readingUnit, questionRef }: ReadingStimulusPanel
   return (
     <article className="grid gap-4 rounded-[8px] border border-[#d8d0a8] bg-[#fffdf0] p-4 lg:sticky lg:top-4">
       <div className="grid gap-1">
-        <p className="m-0 text-xs font-semibold uppercase text-[#6a5d21]">Estímulo de lectura</p>
+        <p className="m-0 text-xs font-semibold uppercase text-[#6a5d21]">Texto de práctica</p>
         <h2 className="m-0 text-2xl font-bold leading-8 text-[#1d1d1b]">{readingUnit.title}</h2>
         {readingUnit.subtitle ? (
           <p className="m-0 text-sm font-semibold text-[#55554d]">{readingUnit.subtitle}</p>
