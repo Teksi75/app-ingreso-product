@@ -1,0 +1,30 @@
+{
+  "id": "RU-LEN-BIO-001",
+  "title": "Violeta Parra: la voz que pintaba canciones",
+  "subtitle": "Biografía de una artista chilena",
+  "text": "Violeta Parra fue una artista chilena que dedicó su vida a recoger, crear y difundir la cultura popular de su país. Nació el 4 de octubre de 1917 en San Carlos, una pequeña ciudad del sur de Chile, en el seno de una familia campesina donde la música y las tradiciones formaban parte de la vida cotidiana. Su madre, Clarisa Sandoval, era costurera y folklorista, y su padre, don Nicanor Parra, era profesor primario y músico aficionado. Desde muy niña, Violeta aprendió a tocar la guitarra y a cantar las canciones que escuchaba en las reuniones familiares, donde también se contaban historias de campo y se bailaba la cueca, la danza nacional chilena.\n\nEn la década de 1930, Violeta se trasladó a Santiago, la capital chilena, junto con su hermano mayor, Nicanor Parra, que más tarde se convertiría en un reconocido poeta. En la bulliciosa ciudad, comenzó a presentarse en locales y radios, interpretando canciones del folclore chileno y latinoamericano. Pronto, sus hermanos Hilda, Roberto y Eduardo también se dedicaron a la música, y juntos formaron el conjunto Los Parra, que se presentaba en peñas y festivales populares.\n\nSin embargo, el trabajo más importante de Violeta no fue solamente cantar, sino investigar. A partir de 1952, recorrió campos, pueblos y comunidades rurales de Chile recogiendo canciones, refranes, historias y tradiciones que estaban en peligro de desaparecer. Viajó en carretas, a caballo y en trenes lentos, visitando lugares apartados donde los ancianos conservaban melodías que nadie más recordaba. Gracias a esas investigaciones, recopiló más de tres mil canciones del folclore chileno, muchas de las cuales habrían quedado en el olvido sin su esfuerzo. Esa labor de rescate le valió el reconocimiento nacional y abrió las puertas para que la música folclórica fuera valorada como parte esencial del patrimonio cultural del país.\n\nAdemás de la música, Violeta desarrolló una intensa actividad en las artes visuales. Creó arpilleras, tapices y pinturas que representaban escenas de la vida rural chilena con colores vivos y figuras singulares. En sus obras plásticas, aparecían campesinos, animales, fiestas populares y paisajes del campo chileno, todo representado con una mirada a la vez tierna y comprometida.\n\nEn 1961, Violeta viajó a Europa y se instaló en París, Francia, donde presentó su trabajo artístico en diferentes salas y galerías. Allí mostró no solo su música, sino también sus arpilleras, tapices y pinturas. El público europeo descubrió en ella una artista completa, capaz de expresar la identidad de un pueblo a través de múltiples lenguajes artísticos. En 1964, se convirtió en la primera artista latinoamericana en exponer individualmente en el Museo del Louvre, un logro notable para una mujer proveniente de una familia campesina del sur de Chile.\n\nA su regreso a Chile, en 1965, Violeta fundó la Carpa de La Reina, un espacio cultural al aire libre en la comuna de La Reina, en Santiago, donde se presentaban artistas folclóricos. Era un proyecto ambicioso: Violeta quería crear un lugar donde la música chilena estuviera al alcance de todos. Sin embargo, la Carpa no obtuvo la respuesta del público que ella esperaba y atravesó serias dificultades económicas.\n\nA pesar de los obstáculos, Violeta siguió creando. Compuso algunas de las canciones más conocidas de la música latinoamericana, como «Gracias a la vida», que ha sido interpretada por cantantes de todo el mundo y se convirtió en un himno de reconocimiento y gratitud hacia la existencia. En esa canción, Violeta agradece la vida por haberle dado los sentidos, el lenguaje, la música y la alegría de vivir. También compuso «Volver a los 17», una canción que describe los sentimientos del amor juvenil con palabras sencillas y profundas.\n\nVioleta Parra falleció en Santiago el 5 de febrero de 1967. Su legado abarca la música, la pintura, el bordado, la cerámica y la investigación folclórica, y ha influido en generaciones de artistas latinoamericanos. Hoy, su nombre es sinónimo de creatividad, perseverancia y amor por las raíces culturales de Chile y de América Latina.",
+  "difficulty": 2,
+  "textType": "biografia",
+  "source": "original_interno",
+  "sourceLabel": "Texto original elaborado a partir de datos biográficos verificables de dominio público.",
+  "license": "CC-BY-4.0-interno",
+  "moduleFit": ["modulo_1", "modulo_2"],
+  "wordCountApprox": 730,
+  "glossary": [
+    { "word": "folklorista", "definition": "persona que estudia o practica el folclore" },
+    { "word": "arpillera", "definition": "tejido artesanal con figuras bordadas sobre tela" },
+    { "word": "patrimonio", "definition": "conjunto de bienes culturales heredados de los antepasados" },
+    { "word": "bulliciosa", "definition": "ruidosa, llena de actividad" },
+    { "word": "singulares", "definition": "únicas, diferentes de las demás" },
+    { "word": "ambicioso", "definition": "que aspira a lograr algo grande" },
+    { "word": "conversión", "definition": "cambio o transformación" },
+    { "word": "reconocimiento", "definition": "acción de valorar o admitir el mérito de alguien" }
+  ],
+  "image": {
+    "src": "https://upload.wikimedia.org/wikipedia/commons/4/45/Violeta_Parra.jpg",
+    "alt": "Retrato fotográfico de Violeta Parra",
+    "caption": "Violeta Parra (1917-1967), artista chilena.",
+    "attribution": "Ariel Quiroz / CC BY 2.0",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Violeta_Parra.jpg"
+  }
+}

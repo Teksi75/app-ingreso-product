@@ -1,0 +1,211 @@
+{
+  "readingUnitId": "RU-LEN-BIO-001",
+  "moduleFit": ["modulo_1"],
+  "exercises": [
+    {
+      "id": "M1-BIO-001",
+      "readingUnitId": "RU-LEN-BIO-001",
+      "skill": "lengua.skill_1",
+      "subskill": "lengua.skill_1.subskill_1",
+      "difficulty": 1,
+      "mastery_level": 1,
+      "type": "multiple_choice_multiple",
+      "question": "Marca cuáles de los siguientes paratextos aparecen en el estímulo.",
+      "options": ["título", "subtítulo", "copete", "glosario", "epígrafe", "índice", "imagen", "fuente", "mapa", "infografía"],
+      "correctAnswers": ["título", "subtítulo", "glosario", "imagen", "fuente"],
+      "feedback_correct": "Correcto: el estímulo presenta título, subtítulo, fuente, glosario e imagen.",
+      "feedback_incorrect": "Revisa los elementos que acompañan al texto: arriba aparecen título, subtítulo e imagen; también hay fuente y glosario."
+    },
+    {
+      "id": "M1-BIO-002",
+      "readingUnitId": "RU-LEN-BIO-001",
+      "skill": "lengua.skill_1",
+      "subskill": "lengua.skill_1.subskill_1",
+      "difficulty": 1,
+      "mastery_level": 1,
+      "type": "multiple_choice",
+      "question": "El texto fue extraído de:",
+      "options": ["un diario", "una enciclopedia", "una página web", "un texto original elaborado con datos biográficos de dominio público"],
+      "correctAnswer": "un texto original elaborado con datos biográficos de dominio público",
+      "feedback_correct": "Correcto: la fuente indica que el texto fue elaborado con datos biográficos verificables de dominio público.",
+      "feedback_incorrect": "Lee con atención la fuente que aparece junto al estímulo."
+    },
+    {
+      "id": "M1-BIO-003",
+      "readingUnitId": "RU-LEN-BIO-001",
+      "skill": "lengua.skill_1",
+      "subskill": "lengua.skill_1.subskill_3",
+      "difficulty": 1,
+      "mastery_level": 1,
+      "type": "multiple_choice",
+      "question": "¿Qué clase de texto leíste?",
+      "options": ["noticia", "cuento", "biografía", "artículo enciclopédico"],
+      "correctAnswer": "biografía",
+      "feedback_correct": "Correcto: el texto narra la vida de Violeta Parra en orden cronológico.",
+      "feedback_incorrect": "Piensa en la clase textual que narra la vida de una persona real."
+    },
+    {
+      "id": "M1-BIO-004",
+      "readingUnitId": "RU-LEN-BIO-001",
+      "skill": "lengua.skill_1",
+      "subskill": "lengua.skill_1.subskill_2",
+      "difficulty": 2,
+      "mastery_level": 1,
+      "type": "multipart_choice",
+      "question": "Responde sobre el propósito y el tema central del texto.",
+      "parts": [
+        {
+          "id": "a",
+          "label": "a)",
+          "question": "¿Para qué fue escrito este texto?",
+          "options": ["Explicar las características del folclore chileno", "Enumerar las obras artísticas de Violeta Parra", "Narrar la vida de una persona destacada", "Describir las costumbres del campo chileno"],
+          "correctAnswer": "Narrar la vida de una persona destacada"
+        },
+        {
+          "id": "b",
+          "label": "b)",
+          "question": "¿De qué se trata el texto?",
+          "options": ["Las tradiciones del sur de Chile", "La vida y obra de Violeta Parra", "La música folclórica latinoamericana", "Los museos de Europa"],
+          "correctAnswer": "La vida y obra de Violeta Parra"
+        }
+      ],
+      "feedback_correct": "Correcto: la biografía narra la vida de una persona y aquí se trata de la vida y obra de Violeta Parra.",
+      "feedback_incorrect": "Piensa en el propósito de una biografía y en el tema que organiza todos los párrafos."
+    },
+    {
+      "id": "M1-BIO-005",
+      "readingUnitId": "RU-LEN-BIO-001",
+      "skill": "lengua.skill_2",
+      "subskill": "lengua.skill_2.subskill_1",
+      "difficulty": 1,
+      "mastery_level": 1,
+      "type": "multiple_choice",
+      "question": "¿Cuántos párrafos tiene el texto?",
+      "options": ["5", "6", "7", "8"],
+      "correctAnswer": "8",
+      "feedback_correct": "Correcto: el texto tiene 8 párrafos.",
+      "feedback_incorrect": "Cuenta cada bloque de texto separado por punto y aparte."
+    },
+    {
+      "id": "M1-BIO-006",
+      "readingUnitId": "RU-LEN-BIO-001",
+      "skill": "lengua.skill_1",
+      "subskill": "lengua.skill_1.subskill_1",
+      "difficulty": 2,
+      "mastery_level": 2,
+      "type": "multiple_choice",
+      "question": "¿Cuál es el orden cronológico correcto de los acontecimientos biográficos de Violeta Parra?",
+      "options": [
+        "Nacimiento → Traslado a Santiago → Investigación folclórica → Viaje a Europa → Exposición en el Louvre → Carpa de La Reina → Composición de canciones → Fallecimiento",
+        "Nacimiento → Viaje a Europa → Investigación folclórica → Traslado a Santiago → Exposición en el Louvre → Composición de canciones → Carpa de La Reina → Fallecimiento",
+        "Nacimiento → Traslado a Santiago → Viaje a Europa → Investigación folclórica → Exposición en el Louvre → Carpa de La Reina → Composición de canciones → Fallecimiento"
+      ],
+      "correctAnswer": "Nacimiento → Traslado a Santiago → Investigación folclórica → Viaje a Europa → Exposición en el Louvre → Carpa de La Reina → Composición de canciones → Fallecimiento",
+      "feedback_correct": "Correcto: la biografía avanza desde el nacimiento hacia los hechos posteriores.",
+      "feedback_incorrect": "Relee las fechas y marcadores temporales: 1917, década de 1930, 1952, 1961, 1964, 1965 y 1967."
+    },
+    {
+      "id": "M1-BIO-007",
+      "readingUnitId": "RU-LEN-BIO-001",
+      "skill": "lengua.skill_1",
+      "subskill": "lengua.skill_1.subskill_2",
+      "difficulty": 2,
+      "mastery_level": 2,
+      "type": "multipart_choice",
+      "question": "Responde sobre la investigación folclórica de Violeta Parra.",
+      "parts": [
+        {
+          "id": "a",
+          "label": "a)",
+          "question": "¿Por qué es importante la labor de Violeta Parra en la investigación folclórica?",
+          "options": ["Porque inventó nuevas canciones que nadie conocía", "Porque rescató canciones que nadie más recordaba y que se habrían perdido", "Porque tocó la guitarra en radios de Santiago", "Porque viajó a Europa con sus canciones"],
+          "correctAnswer": "Porque rescató canciones que nadie más recordaba y que se habrían perdido"
+        },
+        {
+          "id": "b",
+          "label": "b)",
+          "question": "¿Qué significa en el texto que las canciones \"habrían quedado en el olvido\"?",
+          "options": ["Que las canciones estaban guardadas en un museo", "Que Violeta las había escrito ella misma", "Que si Violeta no las hubiera recopilado, esas canciones se habrían perdido para siempre", "Que las canciones ya eran muy famosas"],
+          "correctAnswer": "Que si Violeta no las hubiera recopilado, esas canciones se habrían perdido para siempre"
+        }
+      ],
+      "feedback_correct": "Correcto: la importancia está en el rescate de patrimonio cultural que estaba en riesgo de perderse.",
+      "feedback_incorrect": "Vuelve al párrafo sobre los viajes desde 1952 y piensa qué habría pasado sin esa recopilación."
+    },
+    {
+      "id": "M1-BIO-008",
+      "readingUnitId": "RU-LEN-BIO-001",
+      "skill": "lengua.skill_4",
+      "subskill": "lengua.skill_4.subskill_1",
+      "difficulty": 2,
+      "mastery_level": 2,
+      "type": "categorization",
+      "question": "Clasifica los sustantivos resaltados del fragmento.",
+      "fragment": "Violeta recorrió campos, pueblos y comunidades rurales de Chile recogiendo canciones, refranes, historias y tradiciones que estaban en peligro de desaparecer. Viajó en carretas, a caballo y en trenes lentos, visitando lugares apartados donde los ancianos conservaban melodías que nadie más recordaba.",
+      "categorization": {
+        "categories": ["sustantivo propio", "sustantivo común concreto", "sustantivo común abstracto", "sustantivo individual", "sustantivo colectivo"],
+        "items": ["Chile", "campos", "pueblos", "carretas", "caballo", "trenes", "lugares", "ancianos", "historias", "tradiciones", "refranes", "canciones", "melodías", "comunidades"],
+        "answers": {
+          "Chile": "sustantivo propio",
+          "campos": "sustantivo común concreto",
+          "pueblos": "sustantivo común concreto",
+          "carretas": "sustantivo común concreto",
+          "caballo": "sustantivo individual",
+          "trenes": "sustantivo común concreto",
+          "lugares": "sustantivo común concreto",
+          "ancianos": "sustantivo común concreto",
+          "historias": "sustantivo común abstracto",
+          "tradiciones": "sustantivo común abstracto",
+          "refranes": "sustantivo común abstracto",
+          "canciones": "sustantivo común abstracto",
+          "melodías": "sustantivo común abstracto",
+          "comunidades": "sustantivo colectivo"
+        }
+      },
+      "feedback_correct": "Correcto: clasificaste los sustantivos según su función en el fragmento.",
+      "feedback_incorrect": "Revisa si el sustantivo nombra algo único, algo perceptible, una idea, un individuo o un conjunto."
+    },
+    {
+      "id": "M1-BIO-009",
+      "readingUnitId": "RU-LEN-BIO-001",
+      "skill": "lengua.skill_4",
+      "subskill": "lengua.skill_4.subskill_1",
+      "difficulty": 2,
+      "mastery_level": 2,
+      "type": "multiple_choice_multiple",
+      "question": "Marca las afirmaciones correctas según el fragmento: \"En la bulliciosa ciudad, comenzó a presentarse en locales y radios, interpretando chilenas canciones del folclore chileno y latinoamericano. Tres de sus hermanos también se dedicaron a la música.\"",
+      "options": ["bulliciosa es un adjetivo calificativo", "chileno es un adjetivo numeral", "latinoamericano es un adjetivo gentilicio", "tres es un adjetivo calificativo", "chilenas es un adjetivo gentilicio"],
+      "correctAnswers": ["bulliciosa es un adjetivo calificativo", "latinoamericano es un adjetivo gentilicio", "chilenas es un adjetivo gentilicio"],
+      "feedback_correct": "Correcto: los calificativos expresan cualidades, los gentilicios indican origen y los numerales indican cantidad.",
+      "feedback_incorrect": "Revisa la diferencia entre cualidad, origen y cantidad."
+    },
+    {
+      "id": "M1-BIO-010",
+      "readingUnitId": "RU-LEN-BIO-001",
+      "skill": "lengua.skill_7",
+      "subskill": "lengua.skill_7.subskill_1",
+      "difficulty": 2,
+      "mastery_level": 2,
+      "type": "multipart_choice",
+      "question": "¿Qué uso tiene la coma en cada fragmento?",
+      "parts": [
+        {
+          "id": "a",
+          "label": "a)",
+          "question": "\"recoger, crear y difundir la cultura popular\"",
+          "options": ["Coma de enumeración", "Coma de aclaración", "Coma vocativa", "Coma de hipérbaton"],
+          "correctAnswer": "Coma de enumeración"
+        },
+        {
+          "id": "b",
+          "label": "b)",
+          "question": "\"su hermano mayor, Nicanor Parra, que más tarde se convertiría en un reconocido poeta\"",
+          "options": ["Coma de enumeración", "Coma de aclaración (entre comas)", "Coma vocativa", "Coma de contraste"],
+          "correctAnswer": "Coma de aclaración (entre comas)"
+        }
+      ],
+      "feedback_correct": "Correcto: en el primer caso la coma separa elementos de una lista; en el segundo intercala una aclaración.",
+      "feedback_incorrect": "La coma de enumeración separa elementos; la coma de aclaración encierra información agregada."
+    }
+  ]
+}

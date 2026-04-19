@@ -19,7 +19,8 @@ export function ActionPanel({ isNewStudent = false, skill }: ActionPanelProps) {
   const metadata = skill ? getSkillMetadata(skill.skill) : null;
   const href = isNewStudent ? "/practice?newStudent=1" : "/";
   const label = isNewStudent ? "Inicia tu entrenamiento" : "Ir al inicio";
-  const skillHref = isNewStudent ? "/practice?newStudent=1" : "/practice";
+  const skillHref = buildPracticeHref(skill?.skill, isNewStudent);
+  const readingStimulusHref = buildPracticeHref("lengua.skill_1", isNewStudent);
 
   return (
     <section className="flex flex-wrap items-center justify-between gap-4 rounded-lg bg-[#1d1d1b] px-5 py-[18px] text-white">
@@ -48,15 +49,31 @@ export function ActionPanel({ isNewStudent = false, skill }: ActionPanelProps) {
           href={skillHref}
           className="inline-flex min-h-[38px] cursor-pointer items-center justify-center rounded-lg border border-white px-3 py-0 text-sm font-bold text-white"
         >
-          Entrenamiento por habilidades
+          Entrenar foco sugerido
         </Link>
         <Link
-          href="/practice?mode=reading"
+          href={readingStimulusHref}
           className="inline-flex min-h-[38px] cursor-pointer items-center justify-center rounded-lg border border-white px-3 py-0 text-sm font-bold text-white"
         >
-          Lectura completa
+          Lectura como estimulo
         </Link>
       </div>
     </section>
   );
+}
+
+function buildPracticeHref(skillId: string | undefined, isNewStudent: boolean): string {
+  const params = new URLSearchParams();
+
+  if (skillId) {
+    params.set("skill", skillId);
+  }
+
+  if (isNewStudent) {
+    params.set("newStudent", "1");
+  }
+
+  const query = params.toString();
+
+  return query ? `/practice?${query}` : "/practice";
 }

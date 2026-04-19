@@ -3,9 +3,14 @@
     "set": "textgroup-candidates-v1",
     "generated_by": "internal-search",
     "date": "2026-04-18",
-    "purpose": "TextGroup candidate inventory for reading comprehension units",
+    "purpose": "reading stimuli inventory for skill training",
     "legal_framework": "textgroup_candidate_search.md",
-    "criteria_version": "1.0"
+    "criteria_version": "1.1",
+    "model_note": "TextGroups are internal reading stimuli selected after skill/subskill priority, not student-facing content units.",
+    "module_fit_usage": "internal_coverage_only",
+    "student_navigation": "skill_first_no_module_navigation",
+    "primary_pedagogical_field": "trainable_skills",
+    "candidate_search_open": true
   },
   "search_fiches": [
     {
@@ -619,6 +624,10 @@
       "cuento_narracion_integradora": 1
     },
     "all_mandatory_criteria": true,
+    "module_fit_is_internal": true,
+    "trainable_skills_required": true,
+    "student_navigation": "skill_first_no_module_navigation",
+    "candidate_search_open": true,
     "min_pedagogical_criteria": 9,
     "max_pedagogical_criteria": 9,
     "all_accepted": true,
@@ -626,8 +635,10 @@
       "Redactar cada texto completo siguiendo su ficha de busqueda",
       "Revision manual de cada texto antes de incorporar al JSON del proyecto",
       "Mapear cada pregunta a skill_id y subskill_id especifico",
-      "Crear archivos text_groups en formato compatible con el loader",
-      "Verificar que cada texto pueda sostenerse visible durante toda la sesion"
+      "Crear archivos text_groups como estimulos internos compatibles con el loader",
+      "Verificar que cada texto pueda sostenerse visible cuando la skill lo requiera",
+      "Mantener module_fit como cobertura interna, no como navegacion visible",
+      "Priorizar trainable_skills por encima de module_fit al aceptar nuevos candidatos"
     ]
   }
 }

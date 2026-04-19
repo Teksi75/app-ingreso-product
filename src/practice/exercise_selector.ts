@@ -113,6 +113,7 @@ export function listLenguaExerciseFiles(baseDir = EXERCISE_ENGINE_DIR): string[]
     .filter((fileName) => (
       fileName.startsWith("lengua_") &&
       fileName.endsWith(".json") &&
+      !fileName.startsWith("lengua_textgroup_") &&
       ![RELATIONSHIPS_FILE, MASTERY_FILE, CONTENT_INDEX_FILE].includes(fileName)
     ))
     .sort((left, right) => left.localeCompare(right));

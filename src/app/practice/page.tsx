@@ -4,8 +4,10 @@ import {
   type MasteryLevel,
   type RecommendedSubskill,
 } from "../../components/practice/exercise_selector";
-import { startReadingSession } from "../../practice/reading_session_runner";
-import { startPracticeSession } from "../../components/practice/session_runner";
+import {
+  startPracticeSession,
+  startReadingUnitSession,
+} from "../../components/practice/session_runner";
 import { loadProgress, saveSessionResult, type SkillState } from "../../storage/local_progress_store";
 import { PracticeQuestion } from "./PracticeQuestion";
 
@@ -47,15 +49,19 @@ export default async function PracticePage({ searchParams }: PracticePageProps) 
   const usedExerciseIds = parseUsedExerciseIds(used);
   const forceNewStudent = isEnabledParam(newStudent);
   const restartHref = buildRestartHref(skill, forceNewStudent, mode);
-  const readingSession = mode === "reading" ? startReadingSession(readingUnitParam) : null;
+  const readingSession = mode === "reading" ? startReadingUnitSession(
+    readingUnitParam ?? null,
+    usedExerciseIds,
+    { forceNewStudent },
+  ) : null;
   const practiceSelection = readingSession ? null : startPracticeSession(
     skill ?? null,
     usedExerciseIds,
     { forceNewStudent },
   );
-  const exercise = readingSession?.exercises[0] ?? practiceSelection?.exercise;
-  const exercisePool = readingSession?.exercises ?? practiceSelection?.exercisePool ?? [];
-  const activeUsedExerciseIds = readingSession ? [] : practiceSelection?.usedExerciseIds ?? [];
+  const exercise = readingSession?.exercise ?? practiceSelection?.exercise;
+  const exercisePool = readingSession?.exercisePool ?? practiceSelection?.exercisePool ?? [];
+  const activeUsedExerciseIds = readingSession?.usedExerciseIds ?? practiceSelection?.usedExerciseIds ?? [];
 
   if (!exercise) {
     throw new Error("No exercise available for practice session");
@@ -65,13 +71,13 @@ export default async function PracticePage({ searchParams }: PracticePageProps) 
     ? exercisePool.filter((item) => item.subskill === focus)
     : exercisePool;
   const activeExercisePool = focusedExercisePool.length > 0 ? focusedExercisePool : exercisePool;
-  const activeExercise = activeExercisePool.find((item) => !activeUsedExerciseIds.includes(item.id))
-    ?? activeExercisePool[0]
-    ?? exercise;
+  const activeExercise = focus
+    ? activeExercisePool.find((item) => !activeUsedExerciseIds.includes(item.id)) ?? activeExercisePool[0] ?? exercise
+    : exercise;
 
   return (
     <main className="min-h-screen bg-[#f7f7f4] px-4 py-8 text-[#1d1d1b]">
-      <section className="mx-auto grid max-w-md gap-5">
+      <section className="mx-auto grid w-full max-w-6xl gap-5">
         <PracticeQuestion
           exercise={activeExercise}
           exercisePool={activeExercisePool}

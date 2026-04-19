@@ -79,7 +79,7 @@ function assertLoadsAllLenguaJson(): void {
   ).length;
   assert.equal(engineExerciseCount, contentIndex.total_exercise_count);
   assert.ok(fullExercises.length >= contentIndex.total_exercise_count);
-  assert.equal(contentReadingExerciseCount, 3);
+  assert.equal(contentReadingExerciseCount, 13);
   assert.equal(selectorExercises.length, contentIndex.total_exercise_count);
   assert.equal(new Set(fullExercises.map((exercise) => exercise.id)).size, fullExercises.length);
 
@@ -230,7 +230,7 @@ function assertReadingUnitSessionsShareGeneratedTexts(): void {
 
   for (const exercise of readingExercises) {
     assert.ok(exercise.reading_unit, exercise.id);
-    assert.equal(exercise.reading_unit?.source, "generated", exercise.id);
+    assert.ok(["generated", "original_interno"].includes(exercise.reading_unit?.source ?? ""), exercise.id);
     assert.equal(exercise.text, exercise.reading_unit?.text, exercise.id);
 
     const unitExercises = unitsById.get(exercise.reading_unit_id ?? "") ?? [];
@@ -252,6 +252,32 @@ function assertReadingUnitSessionsShareGeneratedTexts(): void {
   assert.ok(session.exercisePool.length >= 2);
   assert.ok(session.exercisePool.every((exercise) => exercise.reading_unit_id === "RU-LEN-INF-001"));
   assert.equal(session.exercise.reading_unit?.id, session.readingUnit.id);
+}
+
+function assertBioStimulusLoadsAsSkillTraining(): void {
+  const exercises = loadLenguaExercises(engineDir);
+  const bioExercises = exercises.filter((exercise) => exercise.readingUnitId === "RU-LEN-BIO-001");
+
+  assert.equal(bioExercises.length, 10);
+  assert.ok(bioExercises.every((exercise) => exercise.reading_unit?.source === "original_interno"));
+  assert.ok(bioExercises.every((exercise) => exercise.reading_unit?.image?.attribution === "Ariel Quiroz / CC BY 2.0"));
+  assert.ok(bioExercises.every((exercise) => exercise.reading_unit?.moduleFit?.includes("modulo_1")));
+  assert.ok(bioExercises.every((exercise) => exercise.skill_id.startsWith("lengua.skill_")));
+  assert.ok(bioExercises.every((exercise) => exercise.subskill.startsWith(`${exercise.skill_id}.subskill_`)));
+
+  const paratextExercise = bioExercises.find((exercise) => exercise.id === "M1-BIO-001");
+  assert.ok(paratextExercise);
+  assert.equal(paratextExercise.type, "multiple_choice_multiple");
+  assert.ok(paratextExercise.correct_answers?.includes("imagen"));
+  assert.ok(paratextExercise.correct_answers?.includes("glosario"));
+
+  const multipartExercise = bioExercises.find((exercise) => exercise.id === "M1-BIO-004");
+  assert.ok(multipartExercise?.parts);
+  assert.equal(multipartExercise.parts.length, 2);
+
+  const categorizationExercise = bioExercises.find((exercise) => exercise.id === "M1-BIO-008");
+  assert.ok(categorizationExercise?.categorization);
+  assert.ok(categorizationExercise.categorization.items.includes("Chile"));
 }
 
 function assertReadingModeDatasetRunsSequentially(): void {
@@ -305,6 +331,7 @@ assertSelectionRespectsPrerequisitesAndMastery();
 assertSessionRunnerUsesCrossRelationships();
 assertPracticeSessionsUseChoiceExercises();
 assertReadingUnitSessionsShareGeneratedTexts();
+assertBioStimulusLoadsAsSkillTraining();
 assertReadingModeDatasetRunsSequentially();
 assertSkillPracticeCompletesReadingUnitBeforeFallback();
 assertTextPatternExtractorDoesNotReturnSourceText();

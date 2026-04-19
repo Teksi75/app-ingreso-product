@@ -1,158 +1,196 @@
-# Busqueda de textos candidatos para TextGroup
+# Búsqueda de estímulos lectores candidatos
 
 ## Objetivo
 
-Definir como buscar, evaluar e incorporar textos principales alternativos a los propuestos por los modulos oficiales, para avanzar hacia el modelo de lectura con un texto compartido y multiples preguntas asociadas.
+Definir cómo buscar, evaluar e incorporar textos alternativos a los materiales oficiales sin convertirlos en unidades didácticas visibles.
 
-Este documento toma como insumo los informes generados en:
+El objetivo es construir un banco propio de estímulos lectores que permitan entrenar skills de Lengua con contenido original, legalmente compatible y pedagógicamente trazable.
 
-`C:\Users\pablo\OneDrive\Desarrollo\content-analysis-system\analysis\outputs`
-
-La busqueda no debe reproducir textos oficiales ni consignas oficiales. El objetivo es construir un banco propio de textos equivalentes en funcion pedagogica, no equivalentes por copia.
+Los textos no se aceptan porque "se parecen" a un módulo oficial. Se aceptan si permiten entrenar habilidades transferibles mediante preguntas mapeadas a `skill_id` y `subskill`.
 
 ## Principio rector
 
-Cada texto candidato debe funcionar como unidad de entrenamiento reutilizable:
+Cada candidato debe funcionar como estímulo lector reutilizable:
 
-- un texto base visible durante toda la actividad;
-- al menos 3 preguntas asociadas;
-- cobertura de comprension lectora y reflexion sobre la lengua;
-- metadatos suficientes para justificar clase textual, fuente, tema, dificultad y habilidades entrenadas.
+- texto base o fragmento visible cuando una skill lo requiere;
+- al menos 3 preguntas posibles;
+- cobertura de comprensión lectora y reflexión sobre la lengua;
+- metadatos suficientes para justificar tipo textual, fuente, tema, dificultad y skills entrenables;
+- uso subordinado al selector por skills.
 
-El texto no se acepta porque "se parece" al modulo oficial. Se acepta si permite entrenar las mismas habilidades transferibles con contenido original o reutilizable legalmente.
+La unidad pedagógica del producto sigue siendo:
+
+```text
+skill_id + subskill + intento evaluable
+```
+
+El TextGroup o estímulo lector es infraestructura interna. No debe convertirse en biblioteca, módulo visible ni progreso por lectura completada.
+
+## Rol de los módulos
+
+Las referencias a módulos sirven solo como matriz interna de cobertura:
+
+- indican clases textuales esperadas;
+- orientan rasgos lingüísticos a cubrir;
+- ayudan a auditar sustitutos legales;
+- permiten verificar que el banco no deja huecos relevantes.
+
+`module_fit` nunca debe organizar la experiencia del alumno. El campo principal para aceptar y seleccionar un texto es `trainable_skills`.
+
+## Familias de búsqueda abiertas
+
+El banco debe poder crecer con cinco familias textuales:
+
+1. Biografía.
+2. Noticia periodística.
+3. Leyenda.
+4. Artículo enciclopédico.
+5. Cuento o narración integradora.
+
+Cada familia puede tener varios candidatos. La prioridad no es completar una secuencia por módulo, sino ampliar la variedad de estímulos para practicar skills en contexto.
 
 ## Restricciones de contenido
 
 No se deben incorporar:
 
-- textos oficiales de examenes, cuadernillos institucionales o materiales de ingreso;
+- textos oficiales de exámenes, cuadernillos institucionales o materiales de ingreso;
 - adaptaciones demasiado cercanas a textos oficiales;
-- noticias, articulos o fragmentos con licencia dudosa;
-- textos con licencia que prohiba obras derivadas;
-- textos con licencia no comercial si el producto se proyecta como comercial, salvo decision explicita posterior;
-- textos que requieran imagen, mapa o grafico para ser entendidos si la primera version de TextGroup sera solo texto;
-- textos con carga ideologica, religiosa, partidaria o sensible que distraiga del objetivo linguistico;
-- textos demasiado largos para sostener una sesion corta.
+- noticias, artículos o fragmentos con licencia dudosa;
+- textos con licencia que prohíba obras derivadas;
+- textos con licencia no comercial si el producto se proyecta como comercial, salvo decisión explícita posterior;
+- textos que requieran imagen, mapa o gráfico obligatorio para entender el estímulo;
+- textos con carga ideológica, religiosa, partidaria o sensible que distraiga del objetivo lingüístico;
+- textos demasiado largos para sostener práctica breve;
+- textos sin skills evaluables explícitas.
 
 ## Fuentes candidatas
 
 Prioridad alta:
 
-1. Textos originales redactados internamente a partir de una ficha pedagogica.
-2. Textos en dominio publico verificable.
-3. Textos con licencia CC BY o CC BY-SA, si se conserva atribucion y licencia.
-4. Relatos tradicionales reescritos internamente desde fuentes multiples, sin copiar una version moderna protegida.
+1. Textos originales redactados internamente a partir de una ficha pedagógica.
+2. Textos en dominio público verificable.
+3. Textos con licencia CC BY o CC BY-SA, si se conserva atribución y licencia.
+4. Relatos tradicionales reescritos internamente desde fuentes múltiples, sin copiar una versión moderna protegida.
 
 Prioridad media:
 
 1. Fuentes gubernamentales o educativas con licencia clara y compatible.
-2. Articulos enciclopedicos abiertos que permitan adaptacion.
-3. Biografias de personajes historicos fallecidos hace suficiente tiempo, siempre que el texto usado sea propio o de fuente libre.
+2. Artículos enciclopédicos abiertos que permitan adaptación.
+3. Biografías de personajes históricos fallecidos hace suficiente tiempo, siempre que el texto usado sea propio o de fuente libre.
 
 Prioridad baja:
 
-1. Sitios periodisticos actuales.
+1. Sitios periodísticos actuales.
 2. Blogs personales.
-3. Materiales didacticos comerciales.
-4. Textos sin pagina de licencia o sin autor/fuente identificable.
+3. Materiales didácticos comerciales.
+4. Textos sin página de licencia o sin autor/fuente identificable.
 
-## Flujo de busqueda
+## Flujo de búsqueda
 
-### 1. Extraer la necesidad desde los informes
+### 1. Extraer la necesidad como cobertura interna
 
-Para cada modulo, registrar:
+Para cada hueco de cobertura, registrar:
 
-- clase textual trabajada;
-- longitud aproximada del texto oficial;
-- habilidades asociadas;
+- clase textual requerida;
+- longitud aproximada;
+- skills y subskills a entrenar;
 - paratextos necesarios;
-- rasgos linguisticos que deben aparecer;
-- cantidad minima de preguntas que puede sostener.
+- rasgos lingüísticos que deben aparecer;
+- cantidad mínima de preguntas que puede sostener;
+- relación interna con módulos, si corresponde.
 
-Los informes actuales muestran este mapa:
+Mapa actual de cobertura interna:
 
-| Modulo | Clase textual principal | Funcion esperada |
+| Cobertura interna | Clase textual principal | Función esperada |
 |---|---|---|
-| 1 | Biografia | Paratexto, clase textual, parrafo, sustantivos, adjetivos, mayusculas, coma |
-| 2 | Biografia reutilizada | Cotexto, sinonimos, antonimos, verbos, pronombres, acentuacion, narracion |
-| 3 | Noticia periodistica | Paratextos periodisticos, comprension, diptongo/triptongo/hiato, modos y tiempos verbales |
-| 4 | Leyenda | Narrador, cohesion, coherencia, conectores, posesivos, demostrativos, uso de B/V |
-| 5 | Articulo enciclopedico + leyenda | Comprension expositiva, adverbios, sintaxis, sujeto/predicado, complementos, uso de C/S/Z |
-| 6 | Cuento/narracion integradora | Integracion de comprension, clases textuales, gramatica, sintaxis y ortografia |
+| Módulos 1-2 | Biografía | Paratexto, clase textual, párrafo, cotexto, sustantivos, adjetivos, verbos, pronombres, acentuación, coma |
+| Módulo 3 | Noticia periodística | Paratextos periodísticos, comprensión, diptongo/triptongo/hiato, modos y tiempos verbales |
+| Módulo 4 | Leyenda | Narrador, cohesión, coherencia, conectores, posesivos, demostrativos, uso de B/V |
+| Módulo 5 | Artículo enciclopédico y leyenda | Comprensión expositiva, adverbios, sintaxis, sujeto/predicado, complementos, uso de C/S/Z |
+| Módulo 6 | Cuento o narración integradora | Integración de comprensión, clases textuales, gramática, sintaxis y ortografía |
 
-### 2. Redactar una ficha de busqueda
+Estas etiquetas son internas. La búsqueda debe registrar `trainable_skills` como criterio principal.
 
-Antes de buscar, crear una ficha breve:
+### 2. Redactar una ficha de búsqueda
+
+Antes de buscar o redactar, crear una ficha:
 
 ```text
-Modulo objetivo:
-Clase textual:
+Tipo textual:
 Tema deseado:
-Longitud:
-Habilidades que debe cubrir:
+Longitud objetivo:
+Skills entrenables:
+Subskills entrenables:
 Paratextos requeridos:
-Rasgos gramaticales necesarios:
+Rasgos lingüísticos necesarios:
 Restricciones legales:
-Nivel de dificultad:
+Riesgos de sensibilidad:
+Dificultad:
 Cantidad esperada de preguntas:
+Cobertura interna/module_fit:
+Decisión esperada: aceptar / adaptar / descartar
 ```
 
-### 3. Buscar por funcion, no por titulo
+### 3. Buscar por función, no por título
 
-Las consultas deben combinar clase textual, tema, licencia y rasgos utiles:
+Las consultas deben combinar tipo textual, tema, licencia y rasgos útiles:
 
-- `biografia cientifica dominio publico ninos`
-- `biografia escritora argentina licencia creative commons`
-- `leyenda argentina dominio publico texto`
-- `relato tradicional mendocino dominio publico`
-- `articulo enciclopedico incas licencia creative commons`
+- `biografía científica dominio público niños`
+- `biografía escritora argentina licencia creative commons`
+- `leyenda argentina dominio público texto`
+- `relato tradicional mendocino dominio público`
+- `artículo enciclopédico patrimonio natural licencia abierta`
 - `noticia cultural licencia creative commons`
-- `texto expositivo patrimonio natural argentina licencia abierta`
+- `texto expositivo geografía argentina licencia abierta`
 
-Para noticias, la opcion preferente es no copiar una noticia real. Conviene crear una noticia original basada en un hecho cultural o comunitario no sensible, con estructura periodistica completa: volanta, titulo, copete, fuente simulada interna, fecha, cuerpo y autor institucional propio.
+Para noticias, la opción preferente es no copiar una noticia real. Conviene crear una noticia original basada en un hecho cultural o comunitario no sensible, con estructura periodística completa: volanta, título, copete, fuente interna, fecha, cuerpo y autor institucional propio.
 
 ### 4. Registrar candidatos
 
-Cada texto encontrado o propuesto debe quedar registrado antes de adaptarse:
+Cada texto encontrado, propuesto o redactado debe quedar registrado antes de adaptarse:
 
 ```text
 ID candidato:
-Titulo:
-Clase textual:
+Título:
+Tipo textual:
 Tema:
 Fuente URL o fuente interna:
 Autor:
 Licencia:
-Permite adaptacion: si/no
-Permite uso comercial: si/no/no definido
+Permite adaptación: sí/no
+Permite uso comercial: sí/no/no definido
 Palabras aproximadas:
-Parrafos:
+Párrafos:
 Paratextos disponibles:
-Habilidades entrenables:
+Trainable skills:
+Rasgos lingüísticos útiles:
+Cobertura interna/module_fit:
 Riesgos:
-Decision: aceptar / adaptar / descartar
+Decisión: aceptar / adaptar / descartar
 Motivo:
 ```
 
-### 5. Evaluar con rubrica
+### 5. Evaluar con rúbrica
 
-Un texto pasa a banco candidato si cumple todos los criterios obligatorios y al menos 4 criterios pedagogicos.
+Un texto pasa a banco candidato si cumple todos los criterios obligatorios y al menos 4 criterios pedagógicos.
 
 Criterios obligatorios:
 
-- licencia clara o autoria interna;
+- licencia clara o autoría interna;
 - no reproduce material oficial;
 - permite crear preguntas derivadas;
 - tiene una clase textual identificable;
-- puede sostener minimo 3 preguntas;
+- declara `trainable_skills`;
+- puede sostener mínimo 3 preguntas;
 - es comprensible sin imagen obligatoria;
-- no contiene informacion riesgosa para menores.
+- no contiene información riesgosa para menores;
+- es apto para estudiantes de 11-12 años.
 
-Criterios pedagogicos:
+Criterios pedagógicos:
 
 - tiene vocabulario con palabras inferibles por cotexto;
 - incluye suficientes sustantivos, adjetivos, verbos y pronombres analizables;
-- esta organizado en parrafos claros;
+- está organizado en párrafos claros;
 - permite preguntas literales e inferenciales;
 - contiene conectores reconocibles;
 - tiene marcas temporales o causales;
@@ -160,123 +198,123 @@ Criterios pedagogicos:
 - se puede adaptar a 350-900 palabras sin perder sentido;
 - admite dificultad graduable.
 
-## Criterios especificos por tipo textual
+## Criterios específicos por tipo textual
 
-### Biografia
+### Biografía
 
-Uso principal: modulos 1 y 2.
+Uso interno principal: cobertura de habilidades asociadas a módulos 1 y 2.
 
-Caracteristicas requeridas:
+Características requeridas:
 
-- 600 a 850 palabras para texto principal; 350 a 550 si es version inicial corta;
+- 600 a 850 palabras para texto principal; 350 a 550 si es versión inicial corta;
 - tercera persona;
-- orden cronologico dominante;
+- orden cronológico dominante;
 - fechas, lugares, nombres propios y hechos verificables;
-- parrafos que desarrollen etapas de vida;
+- párrafos que desarrollen etapas de vida;
 - fuente o nota de procedencia;
 - vocabulario con adjetivos calificativos y gentilicios;
 - variedad de sustantivos propios, comunes, concretos y abstractos;
-- verbos en pasado y algunos conectores temporales.
+- verbos en pasado y conectores temporales.
 
 Debe permitir preguntas sobre:
 
-- proposito de la biografia;
+- propósito de la biografía;
 - tema central;
 - orden de acontecimientos;
 - paratextos;
-- cantidad o funcion de parrafos;
+- cantidad o función de párrafos;
 - significado por cotexto;
-- sinonimos y antonimos;
+- sinónimos y antónimos;
 - pronombres;
-- acentuacion;
-- sustantivos, adjetivos y uso de mayusculas.
+- acentuación;
+- sustantivos, adjetivos y uso de mayúsculas.
 
 Temas recomendados:
 
-- escritores, cientificas, artistas, deportistas o exploradores de relevancia cultural;
+- escritores, científicas, artistas, deportistas o exploradores de relevancia cultural;
 - figuras con vida documentada y baja controversia;
 - personajes que permitan conectar logros con perseverancia, creatividad o aporte social.
 
-### Noticia periodistica
+### Noticia periodística
 
-Uso principal: modulo 3.
+Uso interno principal: cobertura de habilidades asociadas a módulo 3.
 
-Caracteristicas requeridas:
+Características requeridas:
 
 - 350 a 600 palabras;
-- estructura con volanta o seccion, titulo, copete, fecha, fuente/autor y cuerpo;
+- estructura con volanta o sección, título, copete, fecha, fuente/autor y cuerpo;
 - acontecimiento claro y cerrado;
-- tema cultural, cientifico, ambiental o comunitario;
-- datos que respondan que, quien, cuando, donde, como y por que;
-- verbos en pasado para hechos ocurridos y futuro/condicional si hay proyeccion;
+- tema cultural, científico, ambiental o comunitario;
+- datos que respondan qué, quién, cuándo, dónde, cómo y por qué;
+- verbos en pasado para hechos ocurridos y futuro/condicional si hay proyección;
 - palabras con diptongo, hiato y, si es posible, triptongo;
 - vocabulario que permita inferencia por cotexto.
 
 Debe permitir preguntas sobre:
 
 - clase textual;
-- paratextos periodisticos;
+- paratextos periodísticos;
 - fuente;
-- tema y proposito;
-- informacion explicita;
+- tema y propósito;
+- información explícita;
 - diptongo, triptongo e hiato;
 - modo y tiempo verbal;
-- reconstruccion de datos de la noticia.
+- reconstrucción de datos de la noticia.
 
-Recomendacion operativa:
+Recomendación operativa:
 
-- producir noticias originales internas a partir de eventos ficticios verosimiles o hechos publicos no sensibles;
+- producir noticias originales internas a partir de eventos ficticios verosímiles o hechos públicos no sensibles;
 - evitar copiar noticias reales por riesgo de derechos y obsolescencia.
 
 ### Leyenda
 
-Uso principal: modulo 4 y apoyo del modulo 5.
+Uso interno principal: cobertura de habilidades asociadas a módulos 4 y 5.
 
-Caracteristicas requeridas:
+Características requeridas:
 
 - 600 a 900 palabras;
 - tercera persona;
 - narrador identificable, preferentemente omnisciente;
 - personajes con objetivos claros;
 - secuencia de conflicto, desarrollo y desenlace;
-- relacion con lugar, fenomeno natural o tradicion;
+- relación con lugar, fenómeno natural o tradición;
 - conectores temporales, causales y adversativos;
 - pronombres, posesivos y demostrativos abundantes;
-- casos utiles para cohesion y referentes;
-- palabras con B/V cuando se necesite entrenamiento ortografico.
+- casos útiles para cohesión y referentes;
+- palabras con B/V cuando se necesite entrenamiento ortográfico.
 
 Debe permitir preguntas sobre:
 
 - clase textual;
-- proposito;
+- propósito;
 - narrador;
 - personajes y motivaciones;
-- orden cronologico;
-- cohesion y referentes;
+- orden cronológico;
+- cohesión y referentes;
 - conectores;
 - demostrativos y posesivos;
 - uso de B/V;
 - inferencias de causa y consecuencia.
 
-Recomendacion operativa:
+Recomendación operativa:
 
-- preferir relatos tradicionales en dominio publico y redactar una version propia;
-- registrar siempre la tradicion de origen y evitar apropiaciones o simplificaciones ofensivas.
+- preferir relatos tradicionales en dominio público y redactar una versión propia;
+- registrar siempre la tradición de origen y evitar apropiaciones o simplificaciones ofensivas.
 
-### Articulo enciclopedico
+### Artículo enciclopédico
 
-Uso principal: modulo 5.
+Uso interno principal: cobertura de habilidades asociadas a módulo 5.
 
-Caracteristicas requeridas:
+Características requeridas:
 
 - 600 a 900 palabras;
 - tono expositivo objetivo;
-- titulo y subtitulos;
-- progresion por subtemas;
+- título y subtítulos;
+- progresión por subtemas;
 - definiciones claras;
 - tercera persona y modo indicativo;
 - adjetivos descriptivos, no valorativos;
-- adverbios de lugar, tiempo, modo, cantidad, afirmacion, negacion y duda;
+- adverbios de lugar, tiempo, modo, cantidad, afirmación, negación y duda;
 - oraciones bimembres analizables;
 - ejemplos de sujeto simple/compuesto, predicado simple/compuesto, modificadores, objeto directo y circunstanciales;
 - vocabulario con C/S/Z entrenable.
@@ -286,8 +324,8 @@ Debe permitir preguntas sobre:
 - tema;
 - clase textual;
 - paratextos;
-- comprension explicita;
-- organizacion por subtemas;
+- comprensión explícita;
+- organización por subtemas;
 - adverbios;
 - sujeto y predicado;
 - modificadores;
@@ -297,18 +335,18 @@ Debe permitir preguntas sobre:
 Temas recomendados:
 
 - patrimonio natural;
-- pueblos y culturas historicas;
-- fenomenos geograficos;
+- pueblos y culturas históricas;
+- fenómenos geográficos;
 - inventos;
 - animales;
-- sitios historicos;
-- procesos cientificos simples.
+- sitios históricos;
+- procesos científicos simples.
 
-### Cuento o narracion integradora
+### Cuento o narración integradora
 
-Uso principal: modulo 6.
+Uso interno principal: cobertura integradora asociada a módulo 6.
 
-Caracteristicas requeridas:
+Características requeridas:
 
 - 700 a 1000 palabras;
 - trama cerrada;
@@ -316,77 +354,78 @@ Caracteristicas requeridas:
 - personajes reconocibles;
 - narrador y temporalidad analizables;
 - variedad gramatical suficiente;
-- texto apto para preguntas de opcion multiple;
+- texto apto para preguntas de opción múltiple;
 - sin dependencia de conocimientos externos.
 
 Debe permitir preguntas mixtas sobre:
 
-- comprension global;
+- comprensión global;
 - inferencias;
 - clase textual;
 - narrador;
 - verbos;
 - pronombres;
 - clases de palabras;
-- acentuacion;
+- acentuación;
 - sintaxis;
-- cohesion;
-- ortografia.
+- cohesión;
+- ortografía.
 
-## Umbral de incorporacion al proyecto
+## Umbral de incorporación al proyecto
 
-Un texto puede incorporarse como `TextGroup` cuando:
+Un texto puede incorporarse como estímulo lector o TextGroup interno cuando:
 
 1. tiene ficha de candidato completa;
-2. tiene decision legal clara;
+2. tiene decisión legal clara;
 3. cubre al menos una clase textual prioritaria;
-4. permite generar 3 a 8 preguntas;
-5. cada pregunta puede mapearse a `skill_id` y `subskill_id`;
-6. el texto puede mantenerse visible durante toda la secuencia;
-7. no requiere copiar consigna oficial;
-8. tiene dificultad compatible con sesiones cortas;
-9. fue revisado manualmente antes de entrar al JSON del proyecto.
+4. declara `trainable_skills`;
+5. permite generar 3 a 8 preguntas;
+6. cada pregunta puede mapearse a `skill_id` y `subskill_id`;
+7. puede mantenerse visible cuando la práctica lo requiera;
+8. no requiere copiar consigna oficial;
+9. tiene dificultad compatible con sesiones cortas;
+10. fue revisado manualmente antes de entrar al JSON del proyecto.
 
 ## Formato recomendado para el primer banco
 
-Para el primer ciclo de implementacion, conviene crear pocos textos pero bien controlados:
+Para el primer ciclo, conviene crear pocos estímulos bien controlados:
 
-- 2 biografias;
+- 2 biografías;
 - 2 noticias originales;
 - 2 leyendas;
-- 2 articulos enciclopedicos;
+- 2 artículos enciclopédicos;
 - 1 cuento integrador.
 
-Cada uno deberia tener inicialmente 3 preguntas. Luego se puede ampliar a 5-8 preguntas por texto.
+Cada uno debería tener inicialmente 3 preguntas. Luego se puede ampliar a 5-8 preguntas por texto si las preguntas siguen subordinadas a skills.
 
-## Salida esperada de la busqueda
+## Salida esperada de la búsqueda
 
-La busqueda no termina con una lista de enlaces. Termina con un inventario curado:
+La búsqueda no termina con una lista de enlaces. Termina con un inventario curado:
 
 ```json
 {
   "candidate_id": "bio-001",
   "module_fit": ["modulo_1", "modulo_2"],
+  "module_fit_usage": "internal_coverage_only",
   "text_type": "biografia",
   "title": "",
   "source": "",
   "license": "",
   "word_count": 0,
   "difficulty": "inicial",
-  "target_skills": [],
+  "trainable_skills": [],
   "candidate_status": "accepted_for_adaptation",
   "notes": ""
 }
 ```
 
-Ese inventario puede convertirse despues en archivos `text_groups` para el loader.
+Ese inventario puede convertirse después en archivos de TextGroup o estímulo lector para el loader, siempre con selección visible por skill.
 
 ## Referencias de licencia a verificar
 
-Antes de usar una fuente externa, revisar la pagina de licencia vigente de esa fuente. Puntos ya detectados:
+Antes de usar una fuente externa, revisar la página de licencia vigente de esa fuente. Puntos ya detectados:
 
-- Wikisource declara contenido bajo CC BY-SA 4.0 y admite textos en dominio publico o licencias compatibles. Es util, pero exige atribucion y compartir igual cuando corresponda.
+- Wikisource declara contenido bajo CC BY-SA 4.0 y admite textos en dominio público o licencias compatibles. Es útil, pero exige atribución y compartir igual cuando corresponda.
 - Project Gutenberg permite usos amplios para textos no restringidos por copyright en Estados Unidos, pero advierte que fuera de Estados Unidos debe verificarse la ley local y que hay reglas sobre la marca Project Gutenberg.
-- Educ.ar publica muchos recursos con Creative Commons Atribucion - No Comercial - Compartir Igual. Esa condicion no comercial vuelve esos textos problematicos para un producto vendible, salvo decision explicita de alcance.
-- La presencia de una obra en internet no implica permiso de reutilizacion. Si no hay licencia clara, descartar o usar solo como inspiracion tematica para redactar un texto propio.
-
+- Educ.ar publica muchos recursos con Creative Commons Atribución - No Comercial - Compartir Igual. Esa condición no comercial vuelve esos textos problemáticos para un producto vendible, salvo decisión explícita de alcance.
+- La presencia de una obra en internet no implica permiso de reutilización. Si no hay licencia clara, descartar o usar solo como inspiración temática para redactar un texto propio.

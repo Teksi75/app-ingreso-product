@@ -29,10 +29,28 @@ export type Exercise = {
   prompt: string;
   options: string[];
   correct_answer: string;
+  correct_answers?: string[];
+  parts?: ExercisePart[];
+  fragment?: string;
+  categorization?: CategorizationExercise;
   feedback_correct: string;
   feedback_incorrect: string;
   source_file?: string;
   related_skills: string[];
+};
+
+export type ExercisePart = {
+  id: string;
+  label?: string;
+  question: string;
+  options: string[];
+  correctAnswer: string;
+};
+
+export type CategorizationExercise = {
+  categories: string[];
+  items: string[];
+  answers: Record<string, string>;
 };
 
 export type HistoryItem = {
@@ -71,7 +89,11 @@ type ContentLenguaExercise = {
   prompt?: string;
   options?: string[];
   correctAnswer?: string;
+  correctAnswers?: string[];
   correct_answer?: string;
+  parts?: ExercisePart[];
+  fragment?: string;
+  categorization?: CategorizationExercise;
   feedback_correct?: string;
   feedback_incorrect?: string;
   feedbackCorrect?: string;
@@ -183,10 +205,17 @@ function loadContentLenguaExercises(graph: ReturnType<typeof loadLenguaSelection
     const unit: ReadingUnit = {
       id,
       title: String(rawUnit.title),
+      subtitle: normalizeTextField(rawUnit.subtitle),
       text: String(rawUnit.text),
       difficulty: normalizeDifficulty(rawUnit.difficulty),
-      textType: rawUnit.textType === "informative" ? "informative" : "narrative",
-      source: "generated",
+      textType: normalizeTextType(rawUnit.textType ?? rawUnit.text_type),
+      source: normalizeReadingSource(rawUnit.source),
+      sourceLabel: normalizeTextField(rawUnit.sourceLabel ?? rawUnit.source_label),
+      license: normalizeTextField(rawUnit.license),
+      moduleFit: normalizeStringArray(rawUnit.moduleFit ?? rawUnit.module_fit),
+      wordCountApprox: normalizeOptionalNumber(rawUnit.wordCountApprox ?? rawUnit.word_count_approx),
+      glossary: normalizeGlossary(rawUnit.glossary),
+      image: normalizeReadingImage(rawUnit.image),
     };
 
     readingUnits.set(id, unit);
@@ -203,7 +232,14 @@ function loadContentLenguaExercises(graph: ReturnType<typeof loadLenguaSelection
       const readingUnit = exerciseUnitId ? readingUnits.get(exerciseUnitId) : undefined;
       const skillId = normalizeSkillId(rawExercise.skill, graph);
       const subskillId = normalizeSubskillId(rawExercise.subskill ?? rawExercise.skill, skillId, graph);
-      const options = normalizeContentOptions(rawExercise.options, rawExercise.correctAnswer);
+      const parts = normalizeExerciseParts(rawExercise.parts);
+      const categorization = normalizeCategorization(rawExercise.categorization);
+      const correctAnswers = normalizeCorrectAnswers(rawExercise.correctAnswers ?? rawExercise.correctAnswer ?? rawExercise.correct_answer);
+      const options = normalizeContentOptions(
+        rawExercise.options ?? flattenPartOptions(parts) ?? categorization?.categories,
+        correctAnswers,
+      );
+      const correctAnswer = correctAnswers[0] ?? parts?.[0]?.correctAnswer ?? categorization?.categories[0] ?? "";
 
       exercises.push({
         id: String(rawExercise.id),
@@ -217,8 +253,12 @@ function loadContentLenguaExercises(graph: ReturnType<typeof loadLenguaSelection
         reading_unit_id: exerciseUnitId,
         reading_unit: readingUnit,
         prompt: String(rawExercise.question ?? rawExercise.prompt ?? ""),
-        options: ensureContentOptions(options, String(rawExercise.correctAnswer ?? rawExercise.correct_answer ?? "")),
-        correct_answer: String(rawExercise.correctAnswer ?? rawExercise.correct_answer ?? ""),
+        options: ensureContentOptions(options, correctAnswer),
+        correct_answer: correctAnswer,
+        correct_answers: correctAnswers,
+        parts,
+        fragment: normalizeTextField(rawExercise.fragment),
+        categorization,
         feedback_correct: String(rawExercise.feedback_correct ?? rawExercise.feedbackCorrect ?? "Correcto."),
         feedback_incorrect: String(rawExercise.feedback_incorrect ?? rawExercise.feedbackIncorrect ?? "Incorrecto."),
         source_file: fileName,
@@ -328,8 +368,8 @@ function normalizeReadingUnits(value: unknown, sourceFile: string): Map<string, 
       throw new Error(`Invalid reading unit in ${sourceFile}: id, title and text are required`);
     }
 
-    if (source !== "generated") {
-      throw new Error(`Reading unit ${id} in ${sourceFile} must use source "generated"`);
+    if (source !== "generated" && source !== "original_interno") {
+      throw new Error(`Reading unit ${id} in ${sourceFile} must use source "generated" or "original_interno"`);
     }
 
     const normalizedUnit: ReadingUnit = {
@@ -338,7 +378,14 @@ function normalizeReadingUnits(value: unknown, sourceFile: string): Map<string, 
       text,
       difficulty: normalizeDifficulty(unit.difficulty),
       textType: normalizeTextType(unit.textType ?? unit.text_type),
-      source: "generated",
+      source,
+      subtitle: normalizeTextField(unit.subtitle),
+      sourceLabel: normalizeTextField(unit.sourceLabel ?? unit.source_label),
+      license: normalizeTextField(unit.license),
+      moduleFit: normalizeStringArray(unit.moduleFit ?? unit.module_fit),
+      wordCountApprox: normalizeOptionalNumber(unit.wordCountApprox ?? unit.word_count_approx),
+      glossary: normalizeGlossary(unit.glossary),
+      image: normalizeReadingImage(unit.image),
     };
 
     return [
@@ -349,7 +396,9 @@ function normalizeReadingUnits(value: unknown, sourceFile: string): Map<string, 
 }
 
 function normalizeTextType(value: unknown): ReadingUnit["textType"] {
-  return value === "narrative" ? "narrative" : "informative";
+  if (value === "biografia") return "biografia";
+  if (value === "narrative") return "narrative";
+  return "informative";
 }
 
 function evaluateAnswer(exercise: Exercise, answer: string): Result {
@@ -573,11 +622,16 @@ export function startPracticeSession(
   const filtered = exercises.filter(skillFilter);
   const basePool = filtered.length > 0 ? filtered : exercises;
   const startingPool = canonicalSkillId
-    ? buildSkillTrainingPool(basePool, usedExerciseIds, skillFilter)
+    ? buildSkillTrainingPool(exercises, usedExerciseIds, skillFilter)
     : basePool;
 
   const unusedExercises = startingPool.filter((exercise) => !usedExerciseIds.includes(exercise.id));
-  const selectionPool = unusedExercises.length > 0 ? unusedExercises : startingPool;
+  const skillSelectionPool = canonicalSkillId
+    ? unusedExercises.filter(skillFilter)
+    : unusedExercises;
+  const selectionPool = skillSelectionPool.length > 0
+    ? skillSelectionPool
+    : unusedExercises.length > 0 ? unusedExercises : startingPool;
   const activeUsedIds = unusedExercises.length > 0 ? usedExerciseIds : [];
   const seenSkills = options.forceNewStudent ? [] : getSeenSkills();
   const usedSkills = new Set(
@@ -634,11 +688,14 @@ function buildSkillTrainingPool(
     ...readingExercises
       .map((exercise) => exercise.readingUnitId)
       .filter((readingUnitId): readingUnitId is string => Boolean(readingUnitId))
-      .sort((left, right) => left.localeCompare(right)),
+      .sort((left, right) => (
+        countReadingUnitExercises(readingExercises, right) - countReadingUnitExercises(readingExercises, left) ||
+        left.localeCompare(right)
+      )),
   ];
 
   for (const readingUnitId of Array.from(new Set(candidateUnitIds))) {
-    const unitExercises = readingExercises
+    const unitExercises = basePool
       .filter((exercise) => exercise.readingUnitId === readingUnitId)
       .sort((left, right) => left.difficulty - right.difficulty || left.id.localeCompare(right.id));
     const hasUnused = unitExercises.some((exercise) => !usedIds.has(exercise.id));
@@ -649,6 +706,10 @@ function buildSkillTrainingPool(
   }
 
   return standaloneExercises.length > 0 ? standaloneExercises : basePool;
+}
+
+function countReadingUnitExercises(exercises: Exercise[], readingUnitId: string): number {
+  return exercises.filter((exercise) => exercise.readingUnitId === readingUnitId).length;
 }
 
 export function startReadingUnitSession(
@@ -984,8 +1045,9 @@ function normalizeContentOptions(options: unknown, correctAnswer: unknown): stri
     return options.map((o) => String(o)).filter(Boolean);
   }
 
-  if (typeof correctAnswer === "string") {
-    return [correctAnswer];
+  const answers = normalizeCorrectAnswers(correctAnswer);
+  if (answers.length > 0) {
+    return answers;
   }
 
   return [];
@@ -993,6 +1055,116 @@ function normalizeContentOptions(options: unknown, correctAnswer: unknown): stri
 
 function ensureContentOptions(options: string[], correctAnswer: string): string[] {
   return Array.from(new Set([...options, correctAnswer].filter(Boolean)));
+}
+
+function normalizeReadingSource(value: unknown): ReadingUnit["source"] {
+  return value === "original_interno" ? "original_interno" : "generated";
+}
+
+function normalizeOptionalNumber(value: unknown): number | undefined {
+  return typeof value === "number" ? value : undefined;
+}
+
+function normalizeCorrectAnswers(value: unknown): string[] {
+  if (Array.isArray(value)) {
+    return value.map((item) => String(item)).filter(Boolean);
+  }
+
+  if (typeof value === "string") {
+    return [value];
+  }
+
+  return [];
+}
+
+function normalizeExerciseParts(value: unknown): ExercisePart[] | undefined {
+  if (!Array.isArray(value)) {
+    return undefined;
+  }
+
+  const parts = value.map((part, index) => {
+    const rawPart = part as Record<string, unknown>;
+    const options = Array.isArray(rawPart.options)
+      ? rawPart.options.map((option) => String(option)).filter(Boolean)
+      : [];
+
+    return {
+      id: String(rawPart.id ?? index + 1),
+      label: normalizeTextField(rawPart.label),
+      question: String(rawPart.question ?? ""),
+      options,
+      correctAnswer: String(rawPart.correctAnswer ?? ""),
+    };
+  }).filter((part) => part.question && part.options.length > 0 && part.correctAnswer);
+
+  return parts.length > 0 ? parts : undefined;
+}
+
+function flattenPartOptions(parts: ExercisePart[] | undefined): string[] | undefined {
+  if (!parts) {
+    return undefined;
+  }
+
+  return parts.flatMap((part) => part.options);
+}
+
+function normalizeCategorization(value: unknown): CategorizationExercise | undefined {
+  if (typeof value !== "object" || value === null) {
+    return undefined;
+  }
+
+  const raw = value as Record<string, unknown>;
+  const categories = normalizeStringArray(raw.categories);
+  const items = normalizeStringArray(raw.items);
+  const answers = typeof raw.answers === "object" && raw.answers !== null
+    ? Object.fromEntries(
+      Object.entries(raw.answers as Record<string, unknown>).map(([item, category]) => [item, String(category)]),
+    )
+    : {};
+
+  if (categories.length === 0 || items.length === 0 || Object.keys(answers).length === 0) {
+    return undefined;
+  }
+
+  return { categories, items, answers };
+}
+
+function normalizeGlossary(value: unknown): ReadingUnit["glossary"] {
+  if (!Array.isArray(value)) {
+    return undefined;
+  }
+
+  const glossary = value.map((entry) => {
+    const raw = entry as Record<string, unknown>;
+    return {
+      word: String(raw.word ?? raw.palabra ?? ""),
+      definition: String(raw.definition ?? raw.definicion ?? ""),
+    };
+  }).filter((entry) => entry.word && entry.definition);
+
+  return glossary.length > 0 ? glossary : undefined;
+}
+
+function normalizeReadingImage(value: unknown): ReadingUnit["image"] {
+  if (typeof value !== "object" || value === null) {
+    return undefined;
+  }
+
+  const raw = value as Record<string, unknown>;
+  const src = normalizeTextField(raw.src);
+  const alt = normalizeTextField(raw.alt);
+
+  if (!src || !alt) {
+    return undefined;
+  }
+
+  return {
+    src,
+    alt,
+    caption: normalizeTextField(raw.caption),
+    attribution: normalizeTextField(raw.attribution),
+    sourceUrl: normalizeTextField(raw.sourceUrl ?? raw.source_url),
+  };
 }
 
 function normalizeDifficulty(value: unknown): Difficulty {
