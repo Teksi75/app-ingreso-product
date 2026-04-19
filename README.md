@@ -1,6 +1,6 @@
-# App Ingreso
+# INGENIUM - Preparación para Ingreso al Secundario
 
-Sistema de entrenamiento autónomo para estudiantes que se preparan para exámenes de ingreso.
+Plataforma educativa gamificada para preparar el ingreso al secundario. Diseñada para estudiantes de 11-13 años con enfoque en **Matemática** y **Lengua**.
 
 > **No enseña contenido. Entrena habilidades.**
 
@@ -8,95 +8,76 @@ Sistema de entrenamiento autónomo para estudiantes que se preparan para exámen
 
 ## 🎯 Propósito
 
-App Ingreso es una plataforma de práctica intensiva que ayuda a estudiantes de 11-12 años a mejorar su rendimiento en evaluaciones de ingreso mediante:
+INGENIUM es una plataforma de práctica intensiva que ayuda a estudiantes a mejorar su rendimiento en evaluaciones de ingreso mediante:
 
-- **Entrenamiento por habilidades** - Ejercicios focalizados en competencias específicas
+- **Entrenamiento por habilidades** - Ejercicios focalizados en Matemática y Lengua
 - **Práctica intensiva** - Sesiones cortas y repetitivas con feedback inmediato
 - **Simulaciones de examen** - Práctica en condiciones reales de tiempo
-- **Seguimiento del progreso** - Visualización del avance por habilidad
+- **Gamificación** - Sistema de niveles, XP, logros y rachas
+- **Seguimiento del progreso** - Visualización del avance por materia
 
 ---
 
-## ⚠️ Descargo de responsabilidad
+## ✨ Características Principales
 
-Este producto:
-- **NO** utiliza contenido oficial de exámenes
-- **NO** replica materiales de academias existentes
-- **NO** garantiza resultados específicos
-- **NO** reemplaza el estudio académico
+### 🎮 Gamificación
+- Sistema de niveles y experiencia (XP)
+- Racha diaria de estudio
+- Logros y badges desbloqueables
+- Avatar personalizable
+- Barra de progreso visual
 
-Su objetivo es maximizar la probabilidad de mejora mediante práctica sistemática.
+### 📚 Materias
+- **Matemática**: Aritmética, fracciones, geometría, proporciones
+- **Lengua**: Comprensión lectora, gramática, vocabulario, ortografía
+
+### 🖥️ Interfaz
+- **Diseño responsive**: Mobile-first, excelente en tablet y desktop
+- **Navegación**: Bottom tab bar (mobile) / Sidebar (desktop)
+- **Estilo**: Gamified Minimalist con paleta de colores moderna
+- **Animaciones**: Micro-interacciones suaves
 
 ---
 
 ## 🛠️ Stack Tecnológico
 
-- **Framework**: [Next.js](https://nextjs.org/) 14+ (App Router)
+- **Framework**: [Next.js](https://nextjs.org/) 16+ (App Router)
 - **Lenguaje**: [TypeScript](https://www.typescriptlang.org/)
-- **Estilos**: [Tailwind CSS](https://tailwindcss.com/)
-- **Almacenamiento**: JSON local (mvp)
+- **Estilos**: [Tailwind CSS](https://tailwindcss.com/) v4
+- **Componentes UI**: Custom components (BentoCard, ProgressCircle, etc.)
+- **Testing**: [Playwright](https://playwright.dev/) (E2E)
 
 ---
 
-## 📂 Estructura del Repositorio
-
-### `/src` - Código Fuente
-Implementación funcional del producto:
+## 📂 Estructura del Proyecto
 
 ```
 src/
-├── app/                    # Páginas de Next.js
-│   ├── dashboard/         # Panel principal de habilidades
-│   ├── practice/          # Pantalla de práctica de ejercicios
-│   ├── layout.tsx         # Layout raíz de la aplicación
-│   └── globals.css        # Estilos globales
-├── components/            # Componentes React reutilizables
-│   └── dashboard/         # Componentes del panel (Header, SkillList, etc.)
-├── practice/              # Lógica de negocio del sistema de práctica
-│   ├── exercise_selector.ts      # Algoritmo de selección adaptativa
-│   ├── session_runner.ts         # Gestor de sesiones de práctica
-│   ├── simulator_runner.ts       # Simulador de examen con tiempo
-│   └── exercise_selector.test.ts # Tests del selector
-└── storage/
-    └── local_progress_store.ts   # Persistencia de progreso en JSON
+├── app/                          # Páginas de Next.js
+│   ├── page.tsx                 # Dashboard (Home)
+│   ├── habilidades/
+│   │   └── page.tsx             # Grid de Matemática y Lengua
+│   ├── simulaciones/
+│   │   └── page.tsx             # Lista de simulacros
+│   ├── progreso/
+│   │   └── page.tsx             # Estadísticas y logros
+│   ├── perfil/
+│   │   └── page.tsx             # Configuración y avatar
+│   ├── layout.tsx               # Layout raíz
+│   └── globals.css              # Design System CSS
+├── components/
+│   └── ui/                      # Componentes reutilizables
+│       ├── BottomNav.tsx        # Navegación mobile
+│       ├── SidebarNav.tsx       # Navegación desktop
+│       ├── ProgressCircle.tsx   # Círculo de progreso
+│       ├── BentoCard.tsx        # Tarjetas Bento Grid
+│       ├── StreakBadge.tsx      # Badge de racha
+│       ├── XpBar.tsx            # Barra de experiencia
+│       ├── AvatarHero.tsx       # Avatar del estudiante
+│       └── Button.tsx           # Botones
+├── practice/                     # Lógica de negocio (legacy)
+└── storage/                      # Persistencia (legacy)
 ```
-
-### `/docs` - Definición del Producto
-Documentación completa del sistema:
-
-| Carpeta | Contenido |
-|---------|-----------|
-| `00_vision/` | Propósito y alcance del producto |
-| `01_research/` | Insights y análisis de usuarios |
-| `02_pedagogical_model/` | Modelo de aprendizaje aplicado |
-| `03_skill_system/` | **Sistema de habilidades** - núcleo del producto |
-| `04_exercise_engine/` | Lógica de ejercicios y selección |
-| `05_user_flow/` | Flujos de usuario y experiencia |
-| `06_simulator/` | Especificaciones del simulador de examen |
-| `07_metrics/` | Sistema de medición de progreso |
-| `08_business_rules/` | Reglas comerciales |
-| `09_legal_positioning/` | Posicionamiento legal |
-
-### `/agents` - Sistema de Agentes
-Protocolos y definiciones para validación de decisiones:
-
-- `orchestrator.md` - Flujo principal de validación
-- `definitions/` - Definición de cada agente (Product Guardian, Scope Validator, etc.)
-- `protocols/` - Protocolos de interacción
-- `prompts/` - Prompts especializados para agentes
-- `examples/` - Ejemplos de casos de uso
-
-### `/decisions` - Registro de Decisiones (ADR)
-Architecture Decision Records que documentan:
-- Qué se decidió
-- Por qué se decidió
-- Qué implica
-
-### `/roadmap` - Plan de Evolución
-Fases del desarrollo del producto desde MVP hasta escala.
-
-### `/data` - Datos de Ejemplo
-Progreso de usuario de ejemplo para desarrollo.
 
 ---
 
@@ -104,7 +85,7 @@ Progreso de usuario de ejemplo para desarrollo.
 
 ### Requisitos previos
 - Node.js 18+
-- npm o pnpm
+- npm
 
 ### Instalación
 
@@ -125,53 +106,70 @@ La aplicación estará disponible en `http://localhost:3000`
 ### Ejecutar Tests
 
 ```bash
-npm test
+# Tests E2E con Playwright
+npm run test:e2e
+
+# Verificación de tipos
+npm run typecheck
+
+# Build de producción
+npm run build
 ```
 
 ---
 
-## 📋 Flujo de Trabajo del Producto
+## 🎨 Paleta de Colores
 
-### 1. Definir o actualizar habilidades
-→ `docs/03_skill_system/skills_map.md`
-
-### 2. Diseñar ejercicios basados en habilidades
-→ `docs/04_exercise_engine/`
-
-### 3. Implementar funcionalidades
-→ `/src/practice/` para lógica de negocio
-→ `/src/components/` para UI
-
-### 4. Registrar decisiones importantes
-→ `/decisions/`
-
-### 5. Validar mediante sistema de agentes
-→ Seguir protocolo en `agents/orchestrator.md`
+- **Primary**: Turquesa (#14B8A6)
+- **Accent 1**: Naranja vibrante (#F97316)
+- **Accent 2**: Violeta (#A855F7)
+- **Background**: Claro (#F8FAFC)
+- **Success**: Verde (#10B981)
 
 ---
 
 ## ✅ Funcionalidades Implementadas
 
-### Dashboard
-- [x] Visualización de habilidades por módulo
-- [x] Indicadores de nivel y progreso
-- [x] Acceso rápido a práctica y simulador
+### Dashboard (Home)
+- [x] Progreso del día con círculo visual
+- [x] Barra de XP y nivel actual
+- [x] Habilidades recomendadas
+- [x] Desafío del día
+- [x] Próxima simulación
+- [x] Progreso semanal
+- [x] Avatar personalizable
+- [x] Reporte para padres
 
-### Sistema de Práctica
-- [x] Selector de ejercicios adaptativo con 4 reglas de prioridad
-- [x] Sesiones de 10 ejercicios con seguimiento
-- [x] Feedback inmediato por respuesta
-- [x] Adaptación automática según rendimiento
+### Habilidades
+- [x] Grid de materias (Matemática y Lengua)
+- [x] Progreso por habilidad
+- [x] Nivel y XP
+- [x] Ejercicios completados
+- [x] Precisión por materia
+- [x] Tags de temas
+- [x] Botón "Entrenar Ahora"
 
-### Simulador de Examen
-- [x] Modo examen con tiempo limitado
-- [x] Preguntas de todas las habilidades
-- [x] Resultados y análisis post-simulación
+### Simulaciones
+- [x] Lista de simulacros
+- [x] Completados vs pendientes
+- [x] Puntuaciones
+- [x] Dificultad
+- [x] Duración y cantidad de preguntas
+- [x] Botón para iniciar
 
-### Almacenamiento
-- [x] Persistencia local de progreso
-- [x] Seguimiento de nivel por habilidad
-- [x] Historial de sesiones
+### Progreso
+- [x] Estadísticas generales
+- [x] Gráfico de actividad semanal
+- [x] Progreso por materia
+- [x] Logros desbloqueados
+- [x] Reporte para padres
+
+### Perfil
+- [x] Avatar personalizable (selector)
+- [x] Información personal
+- [x] Configuración (settings)
+- [x] Código de acceso para padres
+- [x] Estadísticas de uso
 
 ---
 
@@ -182,22 +180,36 @@ npm test
 3. **El feedback debe ser inmediato y específico**
 4. **La dificultad se adapta al nivel del usuario**
 5. **La práctica debe ser constante, no extensa**
+6. **La gamificación motiva al estudiante**
 
 ---
 
 ## 📌 Estado del Proyecto
 
-**Fase**: Implementación MVP en progreso
+**Fase**: UI/UX Completo - Lista para integración de backend
 
-- ✅ Definición del sistema completada
-- ✅ Arquitectura base implementada
-- ✅ Sistema de práctica funcional
-- ✅ Dashboard operativo
-- 🔄 Contenido de ejercicios en expansión
-- ⏳ Analytics avanzados (próximamente)
+- ✅ Sistema de diseño implementado
+- ✅ 5 pantallas principales completas
+- ✅ Navegación funcional (Next.js routing)
+- ✅ Componentes UI reutilizables
+- ✅ Responsive design (mobile/desktop)
+- ✅ Gamificación visual (niveles, XP, logros)
+- 🔄 Integración con sistema de práctica (en progreso)
+- ⏳ Backend y persistencia real (próximamente)
 
 ---
 
 ## 📄 Licencia
 
 Proyecto privado - Todos los derechos reservados.
+
+---
+
+## 🤝 Contribución
+
+Para mantener el proyecto actualizado después de cambios en código:
+
+```bash
+# Actualizar knowledge graph (sin costo API)
+npx graphify update .
+```
