@@ -35,6 +35,8 @@ const MOCK_DATA = {
       currentXp: 680,
       totalXp: 1000,
       description: "Números, operaciones y lógica",
+      practiceHref: "",
+      isAvailable: false,
     },
     {
       id: "language",
@@ -44,13 +46,16 @@ const MOCK_DATA = {
       currentXp: 450,
       totalXp: 1000,
       description: "Comprensión lectora y gramática",
+      practiceHref: "/practice?skill=lengua.skill_1",
+      isAvailable: true,
     },
   ],
   dailyChallenge: {
     title: "Desafío del Día",
-    description: "Resuelve 5 ejercicios de fracciones sin errores",
+    description: "Responde 5 preguntas de comprensión lectora",
     reward: 150,
-    difficulty: "Medio",
+    difficulty: "Lengua",
+    href: "/practice?skill=lengua.skill_1",
   },
   nextSimulation: {
     title: "Simulacro #3",
@@ -140,10 +145,10 @@ export default function DashboardPage() {
                       ¡Vas muy bien! Completa tu desafío diario para llegar al 100%
                     </p>
                     <div className="flex flex-wrap gap-2 justify-center sm:justify-start">
-                      <Button variant="primary" size="md" icon={<span>⚡</span>}>
-                        Continuar
+                      <Button href="/practice" variant="primary" size="md" icon={<span>⚡</span>}>
+                        Continuar Lengua
                       </Button>
-                      <Button variant="secondary" size="md">
+                      <Button href={dailyChallenge.href} variant="secondary" size="md">
                         Ver Desafío
                       </Button>
                     </div>
@@ -228,12 +233,18 @@ export default function DashboardPage() {
                         </div>
                       </div>
                       
-                      <button className={`
+                      <Button
+                        disabled={!skill.isAvailable}
+                        fullWidth
+                        href={skill.practiceHref}
+                        size="sm"
+                        variant={index === 0 ? "secondary" : "primary"}
+                        className={`
                         w-full py-2 rounded-lg text-sm font-semibold text-white
-                        ${index === 0 ? "bg-teal-500 hover:bg-teal-600" : "bg-violet-500 hover:bg-violet-600"}
+                        ${index === 0 ? "bg-slate-200 text-slate-500 shadow-none hover:bg-slate-200" : "bg-violet-500 hover:bg-violet-600 shadow-violet-200"}
                       `}>
-                        Entrenar
-                      </button>
+                        {skill.isAvailable ? "Entrenar" : "Próximamente"}
+                      </Button>
                     </div>
                   </div>
                 </BentoCard>
@@ -264,7 +275,7 @@ export default function DashboardPage() {
                 <span className="px-2 py-1 bg-slate-100 text-slate-600 text-xs rounded">
                   {dailyChallenge.difficulty}
                 </span>
-                <Button variant="accent" size="sm">
+                <Button href={dailyChallenge.href} variant="accent" size="sm">
                   Aceptar
                 </Button>
               </div>

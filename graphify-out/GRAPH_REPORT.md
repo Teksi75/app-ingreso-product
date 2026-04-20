@@ -1,11 +1,11 @@
 # Graph Report - .  (2026-04-19)
 
 ## Corpus Check
-- 44 files · ~92,355 words
+- 45 files · ~93,119 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 236 nodes · 393 edges · 42 communities detected
+- 238 nodes · 394 edges · 43 communities detected
 - Extraction: 91% EXTRACTED · 9% INFERRED · 0% AMBIGUOUS · INFERRED: 35 edges (avg confidence: 0.8)
 - Token cost: 0 input · 0 output
 
@@ -52,6 +52,7 @@
 - [[_COMMUNITY_Community 39|Community 39]]
 - [[_COMMUNITY_Community 40|Community 40]]
 - [[_COMMUNITY_Community 41|Community 41]]
+- [[_COMMUNITY_Community 42|Community 42]]
 
 ## God Nodes (most connected - your core abstractions)
 1. `loadContentLenguaExercises()` - 20 edges
@@ -66,8 +67,6 @@
 10. `normalizeSubskillId()` - 7 edges
 
 ## Surprising Connections (you probably didn't know these)
-- `assertBioStimulusLoadsAsSkillTraining()` --calls--> `loadLenguaExercises()`  [INFERRED]
-  src\components\practice\__tests__\lengua_integration.test.ts → src\practice\session_runner.ts
 - `DashboardPage()` --calls--> `loadProgress()`  [INFERRED]
   src\app\dashboard\page.tsx → src\storage\local_progress_store.ts
 - `assertNormalizedExerciseShape()` --calls--> `loadLenguaSelectionGraph()`  [INFERRED]
@@ -76,6 +75,8 @@
   src\components\practice\__tests__\lengua_integration.test.ts → src\practice\session_runner.ts
 - `assertSelectionRespectsPrerequisitesAndMastery()` --calls--> `loadLenguaSelectionGraph()`  [INFERRED]
   src\components\practice\__tests__\lengua_integration.test.ts → src\practice\exercise_selector.ts
+- `assertBioStimulusLoadsAsSkillTraining()` --calls--> `loadLenguaExercises()`  [INFERRED]
+  src\components\practice\__tests__\lengua_integration.test.ts → src\practice\session_runner.ts
 
 ## Communities
 
@@ -84,12 +85,12 @@ Cohesion: 0.1
 Nodes (35): buildFallbackOptions(), buildGeneratedOptions(), buildHighlightOptions(), buildObjectAnswerOptions(), buildOrderingOptions(), ensureContentOptions(), ensureOptions(), flattenPartOptions() (+27 more)
 
 ### Community 1 - "Community 1"
-Cohesion: 0.11
-Nodes (29): clampDifficulty(), clampMastery(), filterImmediateRepeats(), filterUnlockedExercises(), findAlternativeSubskill(), findRelatedTarget(), getReferenceDifficulty(), hasRecurrentError() (+21 more)
+Cohesion: 0.1
+Nodes (31): clampDifficulty(), clampMastery(), filterImmediateRepeats(), filterUnlockedExercises(), findAlternativeSubskill(), findRelatedTarget(), getMasteryGap(), getMasteryLevel() (+23 more)
 
 ### Community 2 - "Community 2"
-Cohesion: 0.2
-Nodes (18): dedupeExercises(), extractSelectorExercises(), listLenguaExerciseFiles(), loadLenguaSelectionGraph(), loadLenguaSelectorExercises(), assertLoadsAllLenguaJson(), getSeenSkills(), buildSkillTrainingPool() (+10 more)
+Cohesion: 0.19
+Nodes (20): loadLenguaSelectionGraph(), createEmptyProgress(), createSessionId(), getSeenSkills(), loadProgress(), markSkillsSeen(), saveSessionResult(), updateSeenSkills() (+12 more)
 
 ### Community 3 - "Community 3"
 Cohesion: 0.23
@@ -100,20 +101,20 @@ Cohesion: 0.22
 Nodes (15): buildSkillResults(), buildSkillStats(), chanceByDifficulty(), formatPercent(), groupBySkill(), hasAvailableExercises(), loadExercises(), pickValue() (+7 more)
 
 ### Community 5 - "Community 5"
-Cohesion: 0.21
-Nodes (14): assertBioStimulusLoadsAsSkillTraining(), assertPracticeSessionsUseChoiceExercises(), assertReadingUnitSessionsShareGeneratedTexts(), assertSelectionRespectsPrerequisitesAndMastery(), assertSessionRunnerUsesCrossRelationships(), assertSkillPracticeCompletesReadingUnitBeforeFallback(), assertTextPatternExtractorDoesNotReturnSourceText(), buildExercise() (+6 more)
+Cohesion: 0.23
+Nodes (14): dedupeExercises(), extractSelectorExercises(), listLenguaExerciseFiles(), loadLenguaSelectorExercises(), assertBioStimulusLoadsAsSkillTraining(), assertLoadsAllLenguaJson(), assertPracticeSessionsUseChoiceExercises(), assertReadingUnitSessionsShareGeneratedTexts() (+6 more)
 
 ### Community 6 - "Community 6"
-Cohesion: 0.38
-Nodes (8): findMasteryNode(), getLenguaMasteryMap(), getMasteryGap(), getMasteryLevel(), loadMasteryMap(), loadRelationships(), readJsonFile(), recommendNextSubskill()
-
-### Community 7 - "Community 7"
-Cohesion: 0.47
-Nodes (8): createEmptyProgress(), createSessionId(), loadProgress(), markSkillsSeen(), saveSessionResult(), updateSeenSkills(), updateSkillStats(), writeProgress()
-
-### Community 8 - "Community 8"
 Cohesion: 0.25
 Nodes (0): 
+
+### Community 7 - "Community 7"
+Cohesion: 0.5
+Nodes (6): findMasteryNode(), getLenguaMasteryMap(), loadMasteryMap(), loadRelationships(), readJsonFile(), recommendNextSubskill()
+
+### Community 8 - "Community 8"
+Cohesion: 0.48
+Nodes (6): assertTextPatternExtractorDoesNotReturnSourceText(), analyzePlainTextShape(), estimatePdfLength(), extractTextPatterns(), inferStructuresFromShape(), inferTextTypesFromShape()
 
 ### Community 9 - "Community 9"
 Cohesion: 0.29
@@ -136,7 +137,7 @@ Cohesion: 0.67
 Nodes (0): 
 
 ### Community 14 - "Community 14"
-Cohesion: 1.0
+Cohesion: 0.67
 Nodes (0): 
 
 ### Community 15 - "Community 15"
@@ -247,20 +248,22 @@ Nodes (0):
 Cohesion: 1.0
 Nodes (0): 
 
+### Community 42 - "Community 42"
+Cohesion: 1.0
+Nodes (0): 
+
 ## Knowledge Gaps
-- **Thin community `Community 14`** (2 nodes): `RootLayout()`, `layout.tsx`
+- **Thin community `Community 15`** (2 nodes): `RootLayout()`, `layout.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 15`** (2 nodes): `PerfilPage()`, `page.tsx`
+- **Thin community `Community 16`** (2 nodes): `PerfilPage()`, `page.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 16`** (2 nodes): `Header()`, `Header.tsx`
+- **Thin community `Community 17`** (2 nodes): `Header()`, `Header.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 17`** (2 nodes): `SkillList()`, `SkillList.tsx`
+- **Thin community `Community 18`** (2 nodes): `SkillList()`, `SkillList.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 18`** (2 nodes): `SkillStatus()`, `SkillStatus.tsx`
+- **Thin community `Community 19`** (2 nodes): `SkillStatus()`, `SkillStatus.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 19`** (2 nodes): `AvatarHero()`, `AvatarHero.tsx`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 20`** (2 nodes): `Button()`, `Button.tsx`
+- **Thin community `Community 20`** (2 nodes): `AvatarHero()`, `AvatarHero.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
 - **Thin community `Community 21`** (2 nodes): `StreakBadge.tsx`, `getStreakColor()`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
@@ -304,16 +307,16 @@ Nodes (0):
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
 - **Thin community `Community 41`** (1 nodes): `dashboard-screenshot.spec.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
+- **Thin community `Community 42`** (1 nodes): `lengua-practice-links.spec.ts`
+  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `loadProgress()` connect `Community 7` to `Community 2`, `Community 11`, `Community 4`?**
-  _High betweenness centrality (0.127) - this node is a cross-community bridge._
-- **Why does `runSimulator()` connect `Community 4` to `Community 7`?**
-  _High betweenness centrality (0.089) - this node is a cross-community bridge._
-- **Why does `markSkillsSeen()` connect `Community 7` to `Community 2`?**
-  _High betweenness centrality (0.083) - this node is a cross-community bridge._
+- **Why does `loadProgress()` connect `Community 2` to `Community 11`, `Community 4`?**
+  _High betweenness centrality (0.125) - this node is a cross-community bridge._
+- **Why does `runSimulator()` connect `Community 4` to `Community 2`?**
+  _High betweenness centrality (0.088) - this node is a cross-community bridge._
 - **Are the 2 inferred relationships involving `loadContentLenguaExercises()` (e.g. with `normalizeSkillId()` and `normalizeSubskillId()`) actually correct?**
   _`loadContentLenguaExercises()` has 2 INFERRED edges - model-reasoned connections that need verification._
 - **Are the 2 inferred relationships involving `selectNextExerciseDetailed()` (e.g. with `startPracticeSession()` and `startReadingUnitSession()`) actually correct?**
@@ -322,3 +325,5 @@ _Questions this graph is uniquely positioned to answer:_
   _`loadLenguaExercises()` has 6 INFERRED edges - model-reasoned connections that need verification._
 - **Are the 7 inferred relationships involving `loadLenguaSelectionGraph()` (e.g. with `assertNormalizedExerciseShape()` and `assertSelectionRespectsPrerequisitesAndMastery()`) actually correct?**
   _`loadLenguaSelectionGraph()` has 7 INFERRED edges - model-reasoned connections that need verification._
+- **Are the 2 inferred relationships involving `normalizeExercise()` (e.g. with `normalizeSkillId()` and `normalizeSubskillId()`) actually correct?**
+  _`normalizeExercise()` has 2 INFERRED edges - model-reasoned connections that need verification._

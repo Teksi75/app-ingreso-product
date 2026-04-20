@@ -15,3 +15,4 @@ graphify-out/cache/
 
 # Temporary screenshots (disposable)
 .screenshots/
+.vercel

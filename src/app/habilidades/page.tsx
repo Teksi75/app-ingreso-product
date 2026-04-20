@@ -30,6 +30,8 @@ const HABILIDADES = [
     exercises: 156,
     accuracy: 82,
     topics: ["Aritmética", "Fracciones", "Geometría", "Proporciones", "Estadística"],
+    practiceHref: "",
+    isAvailable: false,
   },
   {
     id: "lengua",
@@ -44,6 +46,8 @@ const HABILIDADES = [
     exercises: 89,
     accuracy: 78,
     topics: ["Comprensión lectora", "Gramática", "Vocabulario", "Ortografía", "Escritura"],
+    practiceHref: "/practice?skill=lengua.skill_1",
+    isAvailable: true,
   },
 ];
 
@@ -234,19 +238,23 @@ export default function HabilidadesPage() {
                   </div>
 
                   {/* Action Button */}
-                  <button
+                  <Button
+                    disabled={!skill.isAvailable}
+                    href={skill.practiceHref}
+                    fullWidth
+                    size="md"
                     className={`
                       w-full py-3 rounded-xl font-semibold text-white
                       transition-all duration-200 active:scale-95
                       flex items-center justify-center gap-2
-                      ${colors.button}
+                      ${skill.isAvailable ? colors.button : "bg-slate-200 text-slate-500 shadow-none hover:bg-slate-200"}
                     `}
                   >
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                     </svg>
-                    Entrenar Ahora
-                  </button>
+                    {skill.isAvailable ? "Entrenar Ahora" : "Próximamente"}
+                  </Button>
                 </div>
               );
             })}
@@ -266,7 +274,7 @@ export default function HabilidadesPage() {
                     La <span className="font-semibold text-violet-600">Lengua</span> es tu área con mayor potencial de mejora. 
                     Solo necesitas 8 ejercicios más para subir al nivel 4.
                   </p>
-                  <Button variant="secondary" size="sm">
+                  <Button href="/practice?skill=lengua.skill_1" variant="secondary" size="sm">
                     Practicar Lengua
                   </Button>
                 </div>
