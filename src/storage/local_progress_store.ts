@@ -1,4 +1,4 @@
-import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
+import { existsSync, mkdirSync, readFileSync, renameSync, writeFileSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 
 export type SkillState = "weak" | "developing" | "mastered";
@@ -42,11 +42,17 @@ export function loadProgress(): StoredProgress {
     return createEmptyProgress();
   }
 
-  const raw = readFileSync(progressPath, "utf8");
-  const progress = JSON.parse(raw) as StoredProgress;
-  progress.seenSkills ??= [];
+  try {
+    const raw = readFileSync(progressPath, "utf8");
+    const progress = JSON.parse(raw) as StoredProgress;
+    progress.sessions = Array.isArray(progress.sessions) ? progress.sessions : [];
+    progress.skill_stats = progress.skill_stats ?? {};
+    progress.seenSkills ??= [];
 
-  return progress;
+    return progress;
+  } catch {
+    return createEmptyProgress();
+  }
 }
 
 export function saveSessionResult(sessionData: SessionData): StoredProgress {
@@ -121,7 +127,9 @@ function createEmptyProgress(): StoredProgress {
 
 function writeProgress(progress: StoredProgress): void {
   mkdirSync(dirname(progressPath), { recursive: true });
-  writeFileSync(progressPath, `${JSON.stringify(progress, null, 2)}\n`, "utf8");
+  const tempPath = `${progressPath}.tmp`;
+  writeFileSync(tempPath, `${JSON.stringify(progress, null, 2)}\n`, "utf8");
+  renameSync(tempPath, progressPath);
 }
 
 function createSessionId(): string {
