@@ -6,9 +6,10 @@ import {
   BentoCard,
   StreakBadge,
   XpBar,
-  AvatarHero,
   Button,
 } from "@/components/ui";
+import { ClientStudentName } from "@/components/dashboard/ClientStudentName";
+import { ClientAvatarHero } from "@/components/dashboard/ClientAvatarHero";
 
 export const dynamic = "force-dynamic";
 
@@ -163,7 +164,7 @@ export default async function DashboardPage() {
       <SidebarNav />
 
       {/* Main Content */}
-      <main className="flex-1 min-w-0 min-h-screen pb-20 lg:pb-0">
+      <main className="flex-1 min-w-0 min-h-screen pb-24 lg:pb-0">
         {/* Header Mobile */}
         <header className="lg:hidden bg-white border-b border-slate-100">
           <div className="max-w-lg mx-auto px-4 py-4">
@@ -172,7 +173,7 @@ export default async function DashboardPage() {
                 <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-teal-100 to-teal-200 flex items-center justify-center text-2xl">
                   🎓
                 </div>
-                <h1 className="text-lg font-bold text-slate-800">{student.name}</h1>
+                <h1 className="text-lg font-bold text-slate-800"><ClientStudentName fallback={student.name} /></h1>
               </div>
               <StreakBadge days={student.streak} size="md" />
             </div>
@@ -184,7 +185,7 @@ export default async function DashboardPage() {
           <div className="px-6 py-5">
             <div className="flex items-center justify-between">
               <h1 className="text-2xl font-bold text-slate-800">
-                Bienvenido de vuelta, {student.name}
+                Bienvenido de vuelta, <ClientStudentName fallback={student.name} />
               </h1>
               <StreakBadge days={student.streak} size="lg" />
             </div>
@@ -444,7 +445,7 @@ export default async function DashboardPage() {
               }
             >
               <div className="flex flex-col sm:flex-row items-center gap-5">
-                <AvatarHero name={student.name} level={student.level} rank={student.rank} energy={85} />
+                <ClientAvatarHero level={student.level} rank={student.rank} energy={85} />
 
                 <div className="flex-1 w-full sm:w-auto">
                   <div className="bg-gradient-to-r from-teal-50 to-violet-50 rounded-xl p-4 mb-3">

@@ -1,4 +1,8 @@
 import {
+  BottomNav,
+  SidebarNav,
+} from "@/components/ui";
+import {
   getLenguaMasteryMap,
   recommendNextSubskill,
   type MasteryLevel,
@@ -65,18 +69,27 @@ export default async function PracticePage({ searchParams }: PracticePageProps) 
     : exercise;
 
   return (
-    <main className="min-h-screen bg-[#f7f7f4] px-4 py-8 text-[#1d1d1b]">
-      <section className="mx-auto grid w-full max-w-6xl gap-5">
-        <PracticeQuestion
-          exercise={activeExercise}
-          exercisePool={activeExercisePool}
-          masteryMap={getLenguaMasteryMap()}
-          restartHref={restartHref}
-          saveProgress={savePracticeSessionProgress}
-          usedExerciseIds={activeUsedExerciseIds}
-        />
-      </section>
-    </main>
+    <div className="min-h-screen bg-slate-50 flex">
+      <SidebarNav />
+      <main className="flex-1 min-w-0 min-h-screen pb-36 lg:pb-0">
+        <header className="lg:hidden bg-white border-b border-slate-100">
+          <div className="max-w-lg mx-auto px-4 py-4">
+            <h1 className="text-lg font-bold text-slate-800">Entrenamiento</h1>
+          </div>
+        </header>
+        <section className="mx-auto grid w-full max-w-6xl gap-5 p-4 lg:p-6">
+          <PracticeQuestion
+            exercise={activeExercise}
+            exercisePool={activeExercisePool}
+            masteryMap={getLenguaMasteryMap()}
+            restartHref={restartHref}
+            saveProgress={savePracticeSessionProgress}
+            usedExerciseIds={activeUsedExerciseIds}
+          />
+        </section>
+      </main>
+      <BottomNav />
+    </div>
   );
 }
 

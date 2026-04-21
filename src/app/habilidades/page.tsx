@@ -132,7 +132,7 @@ export default async function HabilidadesPage() {
       <SidebarNav />
 
       {/* Main Content */}
-      <main className="flex-1 min-w-0 min-h-screen pb-20 lg:pb-0">
+      <main className="flex-1 min-w-0 min-h-screen pb-24 lg:pb-0">
         {/* Header Mobile */}
         <header className="lg:hidden bg-white border-b border-slate-100">
           <div className="max-w-lg mx-auto px-4 py-4">

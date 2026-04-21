@@ -1,6 +1,7 @@
 "use client";
 
 import { FormEvent, useRef, useState, type ChangeEvent } from "react";
+import { Button } from "@/components/ui";
 import {
   type MasteryMapNode,
   type RecommendedSubskill,
@@ -66,21 +67,26 @@ export function PracticeQuestion({
   const hasReadingStimulus = Boolean(currentExercise.reading_unit);
   const activeReadingUnit = currentExercise.reading_unit;
   const skillBanner = (
-    <aside className="rounded-[8px] border border-[#d8d0a8] bg-[#fff8d7] p-3">
-      <p className="m-0 text-[12px] font-semibold uppercase text-[#6a5d21]">
-        Habilidad en entrenamiento
-      </p>
-      <p className="m-0 mt-1 text-[18px] font-bold text-[#1d1d1b]">
+    <aside className="rounded-2xl border border-violet-100 bg-violet-50 p-4">
+      <div className="flex items-center gap-2 mb-2">
+        <div className="w-8 h-8 rounded-lg bg-violet-500 text-white flex items-center justify-center text-sm font-bold">
+          📚
+        </div>
+        <p className="text-xs font-bold uppercase tracking-wider text-violet-700">
+          Habilidad en entrenamiento
+        </p>
+      </div>
+      <p className="text-lg font-bold text-slate-800">
         {skillMetadata.title}
       </p>
-      <p className="m-0 mt-1 text-[13px] font-semibold text-[#6a5d21]">
+      <p className="text-xs font-semibold text-violet-600 mt-1">
         {skillMetadata.id}
       </p>
-      <p className="m-0 mt-1 text-[14px] leading-5 text-[#55554d]">
+      <p className="text-sm leading-5 text-slate-600 mt-2">
         {skillMetadata.description}
       </p>
-      <p className="m-0 mt-2 text-[13px] leading-5 text-[#55554d]">
-        Foco actual: {currentExercise.subskill}
+      <p className="text-sm leading-5 text-slate-500 mt-2">
+        <span className="font-semibold text-slate-700">Foco actual:</span> {currentExercise.subskill}
       </p>
     </aside>
   );
@@ -168,45 +174,42 @@ export function PracticeQuestion({
     return (
       <>
         {skillBanner}
-        <article className="grid gap-4 rounded-[8px] border border-gray-200 bg-white p-4">
+        <article className="grid gap-5 rounded-2xl border border-slate-100 bg-white p-5 lg:p-6 shadow-sm">
           <div className="grid gap-2">
-            <p className="m-0 text-sm font-medium text-gray-500">Sesión completada</p>
-            <h1 className="m-0 text-xl font-semibold">
+            <p className="text-sm font-medium text-slate-500">Sesión completada</p>
+            <h1 className="text-2xl font-bold text-slate-800">
               {nextCorrectText(correctCount, sessionQuestionCount)}
             </h1>
-            <p className="m-0 text-sm font-semibold text-[#55554d]">
-              Mastery actualizado: {isSavingProgress ? "guardando" : masteryLevel}
+            <p className="text-sm font-semibold text-slate-600">
+              Mastery actualizado: {isSavingProgress ? "guardando..." : `nivel ${masteryLevel}`}
             </p>
           </div>
           <div className="grid gap-3">
             {masteryLevel < 3 ? (
-              <a
-                className="inline-flex h-11 w-full items-center justify-center rounded-[8px] bg-[#1d1d1b] px-4 text-center text-sm font-semibold text-white"
-                href={repeatHref}
-              >
-                Repetir con variacion
-              </a>
+              <Button href={repeatHref} variant="primary" size="md" fullWidth>
+                Repetir con variación
+              </Button>
             ) : null}
-            <a
-              aria-disabled={!recommendedSubskill || isSavingProgress}
-              className="inline-flex h-11 w-full items-center justify-center rounded-[8px] border border-[#1d1d1b] px-4 text-center text-sm font-semibold text-[#1d1d1b] aria-disabled:pointer-events-none aria-disabled:opacity-50"
-              href={recommendedHref}
+            <Button
+              href={recommendedSubskill ? recommendedHref : undefined}
+              variant="outline"
+              size="md"
+              fullWidth
+              disabled={!recommendedSubskill || isSavingProgress}
             >
               Siguiente subskill recomendada
-            </a>
-            <button
-              className="inline-flex h-11 w-full items-center justify-center rounded-[8px] border border-gray-300 px-4 text-sm font-semibold text-[#1d1d1b]"
+            </Button>
+            <Button
+              variant="secondary"
+              size="md"
+              fullWidth
               onClick={() => setShowMasteryMap(true)}
-              type="button"
             >
               Ver mapa de mastery completo
-            </button>
-            <a
-              className="inline-flex h-11 w-full items-center justify-center rounded-[8px] border border-gray-300 px-4 text-center text-sm font-semibold text-[#1d1d1b]"
-              href="/dashboard"
-            >
+            </Button>
+            <Button href="/dashboard" variant="ghost" size="md" fullWidth>
               Ver avance y progreso
-            </a>
+            </Button>
           </div>
         </article>
         {showMasteryMap ? (
@@ -224,91 +227,100 @@ export function PracticeQuestion({
     <>
       {skillBanner}
       <div className={hasReadingStimulus ? "grid gap-5 lg:grid-cols-[minmax(0,1.15fr)_minmax(360px,0.85fr)] lg:items-start" : "grid gap-5"}>
-      <article ref={questionRef} className={`grid gap-4 rounded-lg border border-gray-200 bg-white p-4 ${hasReadingStimulus ? "order-2 lg:order-2" : ""}`}>
-        <p className="text-sm font-medium text-gray-500">
-          Pregunta {questionCount} de {sessionQuestionCount}
-        </p>
-        {currentExercise.text && !hasReadingStimulus ? (
-          <section className="grid gap-2 rounded border border-[#d8d0a8] bg-[#fff8d7] p-3">
-            {currentExercise.reading_unit ? (
-              <p className="m-0 text-xs font-semibold uppercase text-[#6a5d21]">
-                Texto de referencia
-              </p>
-            ) : null}
-            {currentExercise.reading_unit ? (
-              <p className="m-0 text-sm font-semibold text-[#1d1d1b]">
-                {currentExercise.reading_unit.title}
-              </p>
-            ) : null}
-            <p className="m-0 text-sm leading-6 text-[#1d1d1b]">
-              {currentExercise.text}
+        <article ref={questionRef} className={`grid gap-4 rounded-2xl border border-slate-100 bg-white p-4 lg:p-5 shadow-sm mb-6 lg:mb-0 ${hasReadingStimulus ? "order-2 lg:order-2" : ""}`}>
+          <div className="flex items-center justify-between">
+            <p className="text-sm font-medium text-slate-500">
+              Pregunta {questionCount} de {sessionQuestionCount}
             </p>
-          </section>
-        ) : null}
-
-        <div className="grid gap-2">
-          {hasReadingStimulus ? (
-            <p className="m-0 text-xs font-semibold uppercase text-[#6a5d21]">
-              Usando el texto como contexto
-            </p>
+            <div className="flex items-center gap-1.5">
+              <div className="w-2 h-2 rounded-full bg-emerald-400" />
+              <span className="text-xs font-medium text-slate-400">{currentExercise.subskill}</span>
+            </div>
+          </div>
+          {currentExercise.text && !hasReadingStimulus ? (
+            <section className="grid gap-2 rounded-xl border border-amber-100 bg-amber-50 p-3">
+              {currentExercise.reading_unit ? (
+                <p className="text-xs font-bold uppercase tracking-wider text-amber-700">
+                  Texto de referencia
+                </p>
+              ) : null}
+              {currentExercise.reading_unit ? (
+                <p className="text-sm font-bold text-slate-800">
+                  {currentExercise.reading_unit.title}
+                </p>
+              ) : null}
+              <p className="text-sm leading-6 text-slate-700">
+                {currentExercise.text}
+              </p>
+            </section>
           ) : null}
-          <h1 className="m-0 text-xl font-semibold leading-7">{currentExercise.prompt}</h1>
-        </div>
-        <form className="grid gap-3" onSubmit={handleSubmit}>
-          <ExerciseAnswerFields
-            categoryAnswers={categoryAnswers}
-            currentExercise={currentExercise}
-            handleAnswerChange={handleAnswerChange}
-            handleCategoryAnswerChange={handleCategoryAnswerChange}
-            handleMultipleAnswerChange={handleMultipleAnswerChange}
-            handlePartAnswerChange={handlePartAnswerChange}
-            hasSubmitted={hasSubmitted}
-            options={options}
-            partAnswers={partAnswers}
-            selectedAnswer={selectedAnswer}
-            selectedAnswers={selectedAnswers}
-          />
-          {hasSubmitted ? (
-            <div
-              className={`rounded border p-3 text-sm font-medium ${
-                isCorrect
-                  ? "border-green-200 bg-green-50 text-green-700"
-                  : "border-red-200 bg-red-50 text-red-700"
-              }`}
-            >
-              <p>{isCorrect ? "Correcto" : "Incorrecto"}</p>
-              <p>{isCorrect ? currentExercise.feedback_correct : currentExercise.feedback_incorrect}</p>
+
+          <div className="grid gap-2">
+            {hasReadingStimulus ? (
+              <p className="text-xs font-bold uppercase tracking-wider text-violet-600">
+                Usando el texto como contexto
+              </p>
+            ) : null}
+            <h1 className="text-lg lg:text-xl font-bold leading-7 text-slate-800">{currentExercise.prompt}</h1>
+          </div>
+          <form className="grid gap-3" onSubmit={handleSubmit}>
+            <ExerciseAnswerFields
+              categoryAnswers={categoryAnswers}
+              currentExercise={currentExercise}
+              handleAnswerChange={handleAnswerChange}
+              handleCategoryAnswerChange={handleCategoryAnswerChange}
+              handleMultipleAnswerChange={handleMultipleAnswerChange}
+              handlePartAnswerChange={handlePartAnswerChange}
+              hasSubmitted={hasSubmitted}
+              options={options}
+              partAnswers={partAnswers}
+              selectedAnswer={selectedAnswer}
+              selectedAnswers={selectedAnswers}
+            />
+            {hasSubmitted ? (
+              <div
+                className={`rounded-xl border p-4 text-sm font-medium ${
+                  isCorrect
+                    ? "border-emerald-200 bg-emerald-50 text-emerald-700"
+                    : "border-rose-200 bg-rose-50 text-rose-700"
+                }`}
+              >
+                <p className="font-bold mb-1">{isCorrect ? "¡Correcto!" : "Incorrecto"}</p>
+                <p className="leading-5">{isCorrect ? currentExercise.feedback_correct : currentExercise.feedback_incorrect}</p>
+              </div>
+            ) : null}
+            {hasSubmitted ? (
+              <Button
+                onClick={() => {
+                  void handleNext();
+                }}
+                variant="primary"
+                size="md"
+                fullWidth
+              >
+                Siguiente
+              </Button>
+            ) : (
+              <Button
+                disabled={!canSubmit}
+                variant="primary"
+                size="md"
+                fullWidth
+                type="submit"
+              >
+                Responder
+              </Button>
+            )}
+          </form>
+        </article>
+        {hasReadingStimulus && activeReadingUnit ? (
+            <div className="order-1 lg:order-1 mb-4 lg:mb-0">
+              <ReadingStimulusPanel
+                readingUnit={activeReadingUnit}
+                questionRef={questionRef}
+              />
             </div>
           ) : null}
-          {hasSubmitted ? (
-            <button
-              onClick={() => {
-                void handleNext();
-              }}
-              type="button"
-              className="w-full rounded bg-black py-2 text-center text-white"
-            >
-              Siguiente
-            </button>
-          ) : (
-            <button
-              disabled={!canSubmit}
-              type="submit"
-              className="w-full rounded bg-black py-2 text-white disabled:cursor-not-allowed disabled:opacity-40"
-            >
-              Responder
-            </button>
-          )}
-        </form>
-      </article>
-      {hasReadingStimulus && activeReadingUnit ? (
-          <div className="order-1 lg:order-1">
-            <ReadingStimulusPanel 
-              readingUnit={activeReadingUnit} 
-              questionRef={questionRef}
-            />
-          </div>
-        ) : null}
       </div>
     </>
   );
@@ -321,61 +333,82 @@ type ReadingStimulusPanelProps = {
 
 function ReadingStimulusPanel({ readingUnit, questionRef }: ReadingStimulusPanelProps) {
   const paragraphs = readingUnit.text.split(/\n{2,}/).filter(Boolean);
+  const glossaryRef = useRef<HTMLDetailsElement>(null);
 
   function scrollToQuestion() {
     questionRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
   }
 
+  function handleGlossaryToggle() {
+    if (glossaryRef.current?.open) {
+      setTimeout(() => {
+        glossaryRef.current?.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      }, 50);
+    }
+  }
+
   return (
-    <article className="grid gap-4 rounded-[8px] border border-[#d8d0a8] bg-[#fffdf0] p-4 lg:sticky lg:top-4">
+    <article className="grid gap-4 rounded-2xl border border-slate-100 bg-white p-4 lg:px-8 lg:py-6 shadow-sm lg:max-h-[calc(100vh-8rem)] lg:overflow-y-auto lg:sticky lg:top-6">
       <div className="grid gap-1">
-        <p className="m-0 text-xs font-semibold uppercase text-[#6a5d21]">Texto de práctica</p>
-        <h2 className="m-0 text-2xl font-bold leading-8 text-[#1d1d1b]">{readingUnit.title}</h2>
+        <p className="text-xs font-bold uppercase tracking-wider text-violet-600">Texto de práctica</p>
+        <h2 className="text-xl lg:text-2xl font-bold leading-8 text-slate-800">{readingUnit.title}</h2>
         {readingUnit.subtitle ? (
-          <p className="m-0 text-sm font-semibold text-[#55554d]">{readingUnit.subtitle}</p>
+          <p className="text-sm font-semibold text-slate-600">{readingUnit.subtitle}</p>
         ) : null}
         {readingUnit.sourceLabel ? (
-          <p className="m-0 text-xs leading-5 text-[#6a5d21]">{readingUnit.sourceLabel}</p>
+          <p className="text-xs leading-5 text-slate-500">{readingUnit.sourceLabel}</p>
         ) : null}
       </div>
       {readingUnit.image ? (
         <figure className="m-0 grid gap-2">
           <img
             alt={readingUnit.image.alt}
-            className="max-h-[200px] w-full rounded-[8px] object-contain object-top lg:max-h-[180px]"
+            className="max-h-[200px] w-full rounded-xl object-contain object-top lg:max-h-[180px]"
             src={readingUnit.image.src}
           />
-          <figcaption className="text-xs leading-5 text-[#55554d]">
+          <figcaption className="text-xs leading-5 text-slate-500">
             {readingUnit.image.caption}
             {readingUnit.image.attribution ? ` ${readingUnit.image.attribution}.` : null}
           </figcaption>
         </figure>
       ) : null}
-      <div className="grid max-h-[50vh] gap-3 overflow-auto pr-1 text-[15px] leading-7 text-[#1d1d1b] lg:max-h-[45vh]">
+      <div className="grid max-h-[50vh] gap-3 overflow-auto pr-1 text-[15px] leading-7 text-slate-700 lg:max-h-[45vh]">
         {paragraphs.map((paragraph) => (
           <p className="m-0" key={paragraph.slice(0, 48)}>{paragraph}</p>
         ))}
       </div>
       {readingUnit.glossary && readingUnit.glossary.length > 0 ? (
-        <details className="rounded-[8px] border border-[#d8d0a8] bg-white p-3">
-          <summary className="cursor-pointer text-sm font-semibold text-[#1d1d1b]">Glosario</summary>
-          <dl className="mt-3 grid gap-2">
+        <details ref={glossaryRef} onToggle={handleGlossaryToggle} className="group rounded-xl border border-violet-200 bg-white overflow-hidden shadow-sm">
+          <summary className="flex items-center justify-between cursor-pointer list-none px-4 py-3 bg-violet-500 hover:bg-violet-600 transition-colors shadow-sm">
+            <span className="flex items-center gap-2 text-sm font-bold text-white">
+              <svg className="w-4 h-4 text-violet-100" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
+              </svg>
+              Glosario
+            </span>
+            <svg className="w-4 h-4 text-violet-100 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+            </svg>
+          </summary>
+          <dl className="p-4 grid gap-3 bg-violet-50">
             {readingUnit.glossary.map((entry) => (
               <div className="grid gap-1" key={entry.word}>
-                <dt className="text-sm font-semibold">{entry.word}</dt>
-                <dd className="m-0 text-sm leading-5 text-[#55554d]">{entry.definition}</dd>
+                <dt className="text-sm font-bold text-violet-800">{entry.word}</dt>
+                <dd className="m-0 text-sm leading-5 text-slate-600">{entry.definition}</dd>
               </div>
             ))}
           </dl>
         </details>
       ) : null}
-      <button
+      <Button
         onClick={scrollToQuestion}
-        type="button"
-        className="inline-flex h-10 w-full items-center justify-center rounded-[8px] border border-[#1d1d1b] bg-white px-4 text-sm font-semibold text-[#1d1d1b] hover:bg-[#f7f7f4] lg:hidden"
+        variant="secondary"
+        size="sm"
+        fullWidth
+        className="lg:hidden"
       >
         Volver a la pregunta
-      </button>
+      </Button>
     </article>
   );
 }
@@ -411,12 +444,19 @@ function ExerciseAnswerFields({
     return (
       <div className="grid gap-4">
         {currentExercise.parts.map((part) => (
-          <fieldset className="grid gap-3 rounded-[8px] border border-gray-200 p-3" key={part.id}>
-            <legend className="px-1 text-sm font-semibold text-[#1d1d1b]">
+          <fieldset className="grid gap-3 rounded-xl border border-slate-200 p-3" key={part.id}>
+            <legend className="px-1 text-sm font-bold text-slate-800">
               {part.label ? `${part.label} ` : ""}{part.question}
             </legend>
             {part.options.map((option) => (
-              <label className="flex items-center gap-3 rounded-[8px] border border-gray-200 p-3 text-base font-medium" key={option}>
+              <label
+                className={`flex items-center gap-3 rounded-xl border p-3 text-base font-medium transition-colors ${
+                  partAnswers[part.id] === option
+                    ? "border-violet-300 bg-violet-50 text-violet-800"
+                    : "border-slate-200 hover:bg-slate-50 text-slate-700"
+                } ${hasSubmitted ? "cursor-default" : "cursor-pointer"}`}
+                key={option}
+              >
                 <input
                   checked={partAnswers[part.id] === option}
                   disabled={hasSubmitted}
@@ -424,6 +464,7 @@ function ExerciseAnswerFields({
                   onChange={() => handlePartAnswerChange(part.id, option)}
                   type="radio"
                   value={option}
+                  className="accent-violet-600 w-4 h-4"
                 />
                 <span>{option}</span>
               </label>
@@ -440,16 +481,16 @@ function ExerciseAnswerFields({
     return (
       <div className="grid gap-3">
         {currentExercise.fragment ? (
-          <p className="m-0 rounded-[8px] border border-[#d8d0a8] bg-[#fff8d7] p-3 text-sm leading-6">
+          <p className="rounded-xl border border-amber-100 bg-amber-50 p-3 text-sm leading-6 text-slate-700">
             {currentExercise.fragment}
           </p>
         ) : null}
         <div className="grid gap-2">
           {categorization.items.map((item) => (
-            <label className="grid gap-2 rounded-[8px] border border-gray-200 p-3 text-sm font-semibold sm:grid-cols-[1fr_220px] sm:items-center" key={item}>
+            <label className="grid gap-2 rounded-xl border border-slate-200 p-3 text-sm font-semibold sm:grid-cols-[1fr_220px] sm:items-center text-slate-700" key={item}>
               <span>{item}</span>
               <select
-                className="h-10 rounded-[8px] border border-gray-300 bg-white px-3 text-sm"
+                className="h-10 rounded-lg border border-slate-300 bg-white px-3 text-sm text-slate-700 focus:outline-none focus:ring-2 focus:ring-violet-200 focus:border-violet-400"
                 disabled={hasSubmitted}
                 onChange={(event) => handleCategoryAnswerChange(item, event.target.value)}
                 value={categoryAnswers[item] ?? ""}
@@ -472,7 +513,11 @@ function ExerciseAnswerFields({
         {options.map((option) => (
           <label
             key={option}
-            className="flex items-center gap-3 rounded-[8px] border border-gray-200 p-3 text-base font-medium"
+            className={`flex items-center gap-3 rounded-xl border p-3 text-base font-medium transition-colors ${
+              selectedAnswers.includes(option)
+                ? "border-violet-300 bg-violet-50 text-violet-800"
+                : "border-slate-200 hover:bg-slate-50 text-slate-700"
+            } ${hasSubmitted ? "cursor-default" : "cursor-pointer"}`}
           >
             <input
               checked={selectedAnswers.includes(option)}
@@ -481,6 +526,7 @@ function ExerciseAnswerFields({
               onChange={handleMultipleAnswerChange}
               type="checkbox"
               value={option}
+              className="accent-violet-600 w-4 h-4 rounded"
             />
             <span>{option}</span>
           </label>
@@ -494,7 +540,11 @@ function ExerciseAnswerFields({
       {options.map((option) => (
         <label
           key={option}
-          className="flex items-center gap-3 rounded-[8px] border border-gray-200 p-3 text-base font-medium"
+          className={`flex items-center gap-3 rounded-xl border p-3 text-base font-medium transition-colors ${
+            selectedAnswer === option
+              ? "border-violet-300 bg-violet-50 text-violet-800"
+              : "border-slate-200 hover:bg-slate-50 text-slate-700"
+          } ${hasSubmitted ? "cursor-default" : "cursor-pointer"}`}
         >
           <input
             checked={selectedAnswer === option}
@@ -503,6 +553,7 @@ function ExerciseAnswerFields({
             onChange={handleAnswerChange}
             type="radio"
             value={option}
+            className="accent-violet-600 w-4 h-4"
           />
           <span>{option}</span>
         </label>
@@ -521,33 +572,35 @@ function MasteryMapModal({ masteryMap, onClose, recommendation }: MasteryMapModa
   return (
     <div
       aria-modal="true"
-      className="fixed inset-0 z-10 grid place-items-center bg-black/40 px-4 py-6"
+      className="fixed inset-0 z-50 grid place-items-center bg-black/40 px-4 py-6"
       role="dialog"
     >
-      <section className="grid max-h-[85vh] w-full max-w-[560px] gap-4 overflow-hidden rounded-[8px] bg-white p-4">
+      <section className="grid max-h-[85vh] w-full max-w-[560px] gap-4 overflow-hidden rounded-2xl border border-slate-100 bg-white p-5 shadow-xl">
         <div className="flex items-start justify-between gap-3">
           <div>
-            <p className="m-0 text-sm font-medium text-gray-500">Lengua</p>
-            <h2 className="m-0 text-xl font-semibold">Mapa de mastery</h2>
+            <p className="text-sm font-medium text-slate-500">Lengua</p>
+            <h2 className="text-xl font-bold text-slate-800">Mapa de mastery</h2>
           </div>
-          <button
-            className="rounded-[8px] border border-gray-300 px-3 py-2 text-sm font-semibold"
+          <Button
+            variant="secondary"
+            size="sm"
             onClick={onClose}
-            type="button"
           >
             Cerrar
-          </button>
+          </Button>
         </div>
         <div className="grid gap-2 overflow-auto pr-1">
           {masteryMap.map((node) => (
             <div
-              className={`grid gap-1 rounded-[8px] border p-3 ${
-                recommendation?.id === node.id ? "border-[#1d1d1b] bg-[#f7f7f4]" : "border-gray-200"
+              className={`grid gap-1 rounded-xl border p-3 ${
+                recommendation?.id === node.id
+                  ? "border-violet-300 bg-violet-50"
+                  : "border-slate-100 hover:bg-slate-50"
               }`}
               key={node.id}
             >
-              <p className="m-0 text-sm font-semibold text-[#1d1d1b]">{node.name}</p>
-              <p className="m-0 text-xs font-medium text-[#55554d]">
+              <p className="text-sm font-bold text-slate-800">{node.name}</p>
+              <p className="text-xs font-medium text-slate-500">
                 {node.id} · mastery {node.recommended_mastery}
               </p>
             </div>

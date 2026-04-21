@@ -4,15 +4,17 @@
  * Perfil - Página de Configuración y Perfil del Usuario
  * =====================================================
  * Avatar personalizable, estadísticas generales y configuración.
+ * Solo el Nombre es obligatorio; Email, Edad y Escuela son opcionales.
  */
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   BottomNav,
   SidebarNav,
   Button,
   AvatarHero,
 } from "@/components/ui";
+import { useProfile } from "@/hooks/useProfile";
 
 const AVATAR_OPTIONS = ["🎓", "👩‍🎓", "👨‍🎓", "🧑‍🔬", "👩‍🔬", "🦸", "🦹", "🧙", "🧝", "🧛"];
 
@@ -24,14 +26,59 @@ const SETTINGS = [
 ];
 
 export default function PerfilPage() {
-  const [selectedAvatar, setSelectedAvatar] = useState("🎓");
+  const { profile, setProfile, isLoaded } = useProfile();
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    age: "",
+    school: "",
+    avatar: "🎓",
+  });
+  const [saved, setSaved] = useState(false);
   const [settings, setSettings] = useState(SETTINGS);
+
+  // Sincronizar formulario con el perfil cargado
+  useEffect(() => {
+    if (isLoaded) {
+      setForm({
+        name: profile.name === "Estudiante" ? "" : profile.name,
+        email: profile.email || "",
+        age: profile.age || "",
+        school: profile.school || "",
+        avatar: profile.avatar || "🎓",
+      });
+    }
+  }, [isLoaded, profile]);
 
   const toggleSetting = (id: string) => {
     setSettings(settings.map(s => 
       s.id === id ? { ...s, enabled: !s.enabled } : s
     ));
   };
+
+  const handleChange = (field: string, value: string) => {
+    setForm((prev) => ({ ...prev, [field]: value }));
+    setSaved(false);
+  };
+
+  const handleSave = () => {
+    const name = form.name.trim();
+    if (!name) {
+      // Si el nombre está vacío, no guardar y mostrar feedback visual
+      return;
+    }
+    setProfile({
+      name,
+      email: form.email.trim() || undefined,
+      age: form.age.trim() || undefined,
+      school: form.school.trim() || undefined,
+      avatar: form.avatar,
+    });
+    setSaved(true);
+    setTimeout(() => setSaved(false), 2000);
+  };
+
+  const isNameEmpty = form.name.trim() === "";
 
   return (
     <div className="min-h-screen bg-slate-50 flex">
@@ -44,7 +91,7 @@ export default function PerfilPage() {
             <div className="flex items-center justify-between">
               <h1 className="text-lg font-bold text-slate-800">Mi Perfil</h1>
               <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-teal-100 to-teal-200 flex items-center justify-center text-xl">
-                👤
+                {profile.avatar || "👤"}
               </div>
             </div>
           </div>
@@ -69,10 +116,11 @@ export default function PerfilPage() {
               {/* Avatar Card */}
               <div className="bg-white rounded-2xl p-6 border border-slate-100 text-center">
                 <AvatarHero
-                  name="Sofía"
+                  name={profile.name}
                   level={7}
                   rank="Estudiante Dedicada"
                   energy={85}
+                  emoji={form.avatar}
                 />
                 
                 {/* Avatar Selector */}
@@ -82,11 +130,11 @@ export default function PerfilPage() {
                     {AVATAR_OPTIONS.map((avatar) => (
                       <button
                         key={avatar}
-                        onClick={() => setSelectedAvatar(avatar)}
+                        onClick={() => handleChange("avatar", avatar)}
                         className={`
                           w-10 h-10 rounded-xl text-xl flex items-center justify-center
                           transition-all duration-200
-                          ${selectedAvatar === avatar 
+                          ${form.avatar === avatar 
                             ? "bg-teal-100 ring-2 ring-teal-500" 
                             : "bg-slate-50 hover:bg-slate-100"
                           }
@@ -127,44 +175,78 @@ export default function PerfilPage() {
             <div className="lg:col-span-2 space-y-6">
               {/* Personal Info */}
               <div className="bg-white rounded-2xl p-5 border border-slate-100">
-                <h3 className="font-bold text-slate-800 mb-4">Información Personal</h3>
+                <div className="flex items-center justify-between mb-4">
+                  <h3 className="font-bold text-slate-800">Información Personal</h3>
+                  {saved && (
+                    <span className="text-sm font-semibold text-teal-600 bg-teal-50 px-3 py-1 rounded-full">
+                      ¡Guardado!
+                    </span>
+                  )}
+                </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-sm font-medium text-slate-600 mb-1">Nombre</label>
+                    <label className="block text-sm font-medium text-slate-600 mb-1">
+                      Nombre <span className="text-red-500">*</span>
+                    </label>
                     <input
                       type="text"
-                      value="Sofía"
-                      readOnly
-                      className="w-full px-4 py-2 rounded-xl border border-slate-200 bg-slate-50 text-slate-800"
+                      value={form.name}
+                      onChange={(e) => handleChange("name", e.target.value)}
+                      placeholder="Tu nombre"
+                      className={`
+                        w-full px-4 py-2 rounded-xl border text-slate-800
+                        focus:outline-none focus:ring-2 focus:ring-teal-500
+                        ${isNameEmpty 
+                          ? "border-red-300 bg-red-50 focus:ring-red-400" 
+                          : "border-slate-200 bg-white"
+                        }
+                      `}
                     />
+                    {isNameEmpty && (
+                      <p className="text-xs text-red-500 mt-1">El nombre es obligatorio</p>
+                    )}
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-slate-600 mb-1">Email</label>
                     <input
                       type="email"
-                      value="sofia@ejemplo.com"
-                      readOnly
-                      className="w-full px-4 py-2 rounded-xl border border-slate-200 bg-slate-50 text-slate-800"
+                      value={form.email}
+                      onChange={(e) => handleChange("email", e.target.value)}
+                      placeholder="Opcional"
+                      className="w-full px-4 py-2 rounded-xl border border-slate-200 bg-white text-slate-800 focus:outline-none focus:ring-2 focus:ring-teal-500"
                     />
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-slate-600 mb-1">Edad</label>
                     <input
                       type="text"
-                      value="12 años"
-                      readOnly
-                      className="w-full px-4 py-2 rounded-xl border border-slate-200 bg-slate-50 text-slate-800"
+                      value={form.age}
+                      onChange={(e) => handleChange("age", e.target.value)}
+                      placeholder="Opcional"
+                      className="w-full px-4 py-2 rounded-xl border border-slate-200 bg-white text-slate-800 focus:outline-none focus:ring-2 focus:ring-teal-500"
                     />
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-slate-600 mb-1">Escuela</label>
                     <input
                       type="text"
-                      value="Escuela Primaria #42"
-                      readOnly
-                      className="w-full px-4 py-2 rounded-xl border border-slate-200 bg-slate-50 text-slate-800"
+                      value={form.school}
+                      onChange={(e) => handleChange("school", e.target.value)}
+                      placeholder="Opcional"
+                      className="w-full px-4 py-2 rounded-xl border border-slate-200 bg-white text-slate-800 focus:outline-none focus:ring-2 focus:ring-teal-500"
                     />
                   </div>
+                </div>
+                <div className="mt-4 flex justify-end">
+                  <Button
+                    variant="primary"
+                    size="sm"
+                    onClick={handleSave}
+                    disabled={isNameEmpty}
+                    className={isNameEmpty ? "opacity-50 cursor-not-allowed" : ""}
+                  >
+                    Guardar Cambios
+                  </Button>
                 </div>
               </div>
 

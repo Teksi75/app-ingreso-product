@@ -25,6 +25,8 @@ type AvatarHeroProps = {
   rank: string;
   /** URL de la imagen del avatar (opcional) */
   avatarUrl?: string;
+  /** Emoji personalizado del avatar (opcional) */
+  emoji?: string;
   /** Elemento decorativo/equipo actual */
   equipment?: string;
   /** Estado de ánimo/energía (0-100) */
@@ -37,6 +39,7 @@ export function AvatarHero({
   level,
   rank,
   avatarUrl,
+  emoji,
   equipment,
   energy = 100,
   className = "",
@@ -73,7 +76,7 @@ export function AvatarHero({
                   />
                 ) : (
                   <div className="text-5xl">
-                    {isEpic ? "🦸" : isAdvanced ? "⭐" : "🎓"}
+                    {emoji || (isEpic ? "🦸" : isAdvanced ? "⭐" : "🎓")}
                   </div>
                 )}
               </div>
@@ -148,11 +151,13 @@ export function MiniAvatar({
   name,
   level,
   avatarUrl,
+  emoji,
   size = "md",
 }: {
   name: string;
   level: number;
   avatarUrl?: string;
+  emoji?: string;
   size?: "sm" | "md" | "lg";
 }) {
   const sizeConfig = {
@@ -169,7 +174,7 @@ export function MiniAvatar({
         {avatarUrl ? (
           <img src={avatarUrl} alt={name} className="w-full h-full object-cover" />
         ) : (
-          <span className={config.text}>🎓</span>
+          <span className={config.text}>{emoji || "🎓"}</span>
         )}
       </div>
       {level > 0 && (

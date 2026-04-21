@@ -8,6 +8,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useProfile } from "@/hooks/useProfile";
 
 const navItems = [
   { id: "home", label: "Inicio", href: "/" },
@@ -57,6 +58,7 @@ const iconMap: Record<string, React.FC<{ className?: string }>> = {
 
 export function SidebarNav() {
   const pathname = usePathname();
+  const { profile } = useProfile();
 
   return (
     <aside className="hidden lg:flex flex-col w-64 h-screen sticky top-0 bg-white border-r border-slate-200 z-50">
@@ -103,10 +105,10 @@ export function SidebarNav() {
       <div className="p-4 border-t border-slate-100">
         <div className="flex items-center gap-3 p-3 bg-slate-50 rounded-xl">
           <div className="w-10 h-10 rounded-full bg-gradient-to-br from-teal-100 to-teal-200 flex items-center justify-center text-lg">
-            🎓
+            {profile.avatar || "🎓"}
           </div>
           <div className="flex-1 min-w-0">
-            <p className="font-semibold text-slate-800 text-sm truncate">Sofía</p>
+            <p className="font-semibold text-slate-800 text-sm truncate">{profile.name}</p>
             <p className="text-xs text-slate-500">Nivel 7</p>
           </div>
         </div>
