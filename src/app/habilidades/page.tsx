@@ -1,34 +1,66 @@
-"use client";
-
-/**
- * Habilidades / Entrenamiento - Página de Habilidades
- * ===================================================
- * Muestra todas las áreas de estudio disponibles con su progreso.
- * 
- * Solo Matemática y Lengua son las materias que se rinden en el ingreso.
- */
-
-import { useState } from "react";
+import { loadProgress } from "@/storage/local_progress_store";
 import {
   BottomNav,
   SidebarNav,
   Button,
 } from "@/components/ui";
 
+export const dynamic = "force-dynamic";
+
+function getSkillData() {
+  const progress = loadProgress();
+  const skillStats = progress.skill_stats;
+
+  const totalAttempts = progress.sessions.reduce((sum, s) => sum + s.total_attempts, 0);
+  const totalCorrect = progress.sessions.reduce((sum, s) => sum + s.total_correct, 0);
+  const globalAccuracy = totalAttempts > 0 ? Math.round((totalCorrect / totalAttempts) * 100) : 0;
+
+  const lenguaSkillIds = Object.keys(skillStats).filter(
+    (id) => id.startsWith("lengua.skill_") && !id.includes(".subskill_")
+  );
+
+  let lenguaProgress = 0;
+  let lenguaLevel = 1;
+  let lenguaAccuracy = 0;
+  let lenguaAttempts = 0;
+
+  if (lenguaSkillIds.length > 0) {
+    const totalSkillAccuracy = lenguaSkillIds.reduce((sum, id) => {
+      const stats = skillStats[id];
+      return stats.total_attempts > 0
+        ? sum + stats.total_correct / stats.total_attempts
+        : sum;
+    }, 0);
+    lenguaProgress = Math.round((totalSkillAccuracy / lenguaSkillIds.length) * 100);
+    const avgMastery =
+      lenguaSkillIds.reduce((sum, id) => sum + (skillStats[id].mastery_level ?? 1), 0) /
+      lenguaSkillIds.length;
+    lenguaLevel = Math.max(1, Math.round(avgMastery));
+
+    const totalLenguaAttempts = lenguaSkillIds.reduce((sum, id) => sum + skillStats[id].total_attempts, 0);
+    const totalLenguaCorrect = lenguaSkillIds.reduce((sum, id) => sum + skillStats[id].total_correct, 0);
+    lenguaAccuracy = totalLenguaAttempts > 0 ? Math.round((totalLenguaCorrect / totalLenguaAttempts) * 100) : 0;
+    lenguaAttempts = totalLenguaAttempts;
+  }
+
+  return {
+    totalAttempts,
+    globalAccuracy,
+    lenguaProgress,
+    lenguaLevel,
+    lenguaAccuracy,
+    lenguaAttempts,
+  };
+}
+
 // Solo Matemática y Lengua - las únicas materias del ingreso
-const HABILIDADES = [
+const HABILIDADES_BASE = [
   {
     id: "matematica",
     name: "Matemática",
     description: "Números, operaciones, geometría y lógica",
     icon: "🧮",
     color: "teal",
-    level: 5,
-    progress: 68,
-    xp: 680,
-    xpTotal: 1000,
-    exercises: 156,
-    accuracy: 82,
     topics: ["Aritmética", "Fracciones", "Geometría", "Proporciones", "Estadística"],
     practiceHref: "",
     isAvailable: false,
@@ -39,12 +71,6 @@ const HABILIDADES = [
     description: "Comprensión lectora, gramática y escritura",
     icon: "📚",
     color: "violet",
-    level: 3,
-    progress: 45,
-    xp: 450,
-    xpTotal: 1000,
-    exercises: 89,
-    accuracy: 78,
     topics: ["Comprensión lectora", "Gramática", "Vocabulario", "Ortografía", "Escritura"],
     practiceHref: "/practice?skill=lengua.skill_1",
     isAvailable: true,
@@ -69,8 +95,31 @@ const colorConfig: Record<string, { bg: string; text: string; button: string; pr
   },
 };
 
-export default function HabilidadesPage() {
-  const [selectedSkill, setSelectedSkill] = useState<string | null>(null);
+export default async function HabilidadesPage() {
+  const data = getSkillData();
+
+  const HABILIDADES = HABILIDADES_BASE.map((skill) => {
+    if (skill.id === "lengua") {
+      return {
+        ...skill,
+        level: data.lenguaLevel,
+        progress: data.lenguaProgress,
+        xp: data.lenguaAttempts * 10,
+        xpTotal: 1000,
+        exercises: data.lenguaAttempts,
+        accuracy: data.lenguaAccuracy,
+      };
+    }
+    return {
+      ...skill,
+      level: 1,
+      progress: 0,
+      xp: 0,
+      xpTotal: 1000,
+      exercises: 0,
+      accuracy: 0,
+    };
+  });
 
   const totalExercises = HABILIDADES.reduce((acc, h) => acc + h.exercises, 0);
   const averageAccuracy = Math.round(
@@ -83,7 +132,7 @@ export default function HabilidadesPage() {
       <SidebarNav />
 
       {/* Main Content */}
-      <main className="flex-1 min-w-0 min-h-screen">
+      <main className="flex-1 min-w-0 min-h-screen pb-20 lg:pb-0">
         {/* Header Mobile */}
         <header className="lg:hidden bg-white border-b border-slate-100">
           <div className="max-w-lg mx-auto px-4 py-4">
@@ -121,7 +170,7 @@ export default function HabilidadesPage() {
 
         {/* Content */}
         <div className="p-4 lg:p-6">
-          
+
           {/* Stats Overview Cards */}
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
             <div className="bg-white rounded-2xl p-4 border border-slate-100">
@@ -156,17 +205,15 @@ export default function HabilidadesPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-6">
             {HABILIDADES.map((skill) => {
               const colors = colorConfig[skill.color];
-              const isSelected = selectedSkill === skill.id;
 
               return (
                 <div
                   key={skill.id}
                   className={`
                     bg-white rounded-2xl p-5 border transition-all duration-300
-                    hover:shadow-lg hover:-translate-y-0.5 cursor-pointer
-                    ${isSelected ? `ring-2 ring-offset-2 ring-${skill.color}-500` : colors.border}
+                    hover:shadow-lg hover:-translate-y-0.5
+                    ${colors.border}
                   `}
-                  onClick={() => setSelectedSkill(skill.id)}
                 >
                   {/* Header */}
                   <div className="flex items-start justify-between mb-4">
@@ -271,8 +318,8 @@ export default function HabilidadesPage() {
                 <div className="flex-1">
                   <h3 className="font-bold text-slate-800 mb-1">¿Sabías que...?</h3>
                   <p className="text-slate-600 mb-3">
-                    La <span className="font-semibold text-violet-600">Lengua</span> es tu área con mayor potencial de mejora. 
-                    Solo necesitas 8 ejercicios más para subir al nivel 4.
+                    La <span className="font-semibold text-violet-600">Lengua</span> es tu área con mayor potencial de mejora.
+                    Practica comprensión lectora con textos reales como la biografía de Violeta Parra.
                   </p>
                   <Button href="/practice?skill=lengua.skill_1" variant="secondary" size="sm">
                     Practicar Lengua

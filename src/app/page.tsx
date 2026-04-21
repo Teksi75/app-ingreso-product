@@ -1,10 +1,4 @@
-"use client";
-
-/**
- * Dashboard / Home - Página Principal de INGENIUM
- * Layout responsive con sidebar fijo en desktop
- */
-
+import { loadProgress } from "@/storage/local_progress_store";
 import {
   BottomNav,
   SidebarNav,
@@ -16,60 +10,136 @@ import {
   Button,
 } from "@/components/ui";
 
-const MOCK_DATA = {
-  student: {
-    name: "Sofía",
-    level: 7,
-    rank: "Estudiante Dedicada",
-    streak: 12,
-    dailyProgress: 65,
-    xp: 2450,
-    xpToNextLevel: 3000,
-  },
-  skills: [
-    {
-      id: "math",
-      name: "Matemática",
-      progress: 68,
-      level: 5,
-      currentXp: 680,
-      totalXp: 1000,
-      description: "Números, operaciones y lógica",
-      practiceHref: "",
-      isAvailable: false,
+export const dynamic = "force-dynamic";
+
+function getRank(level: number): string {
+  if (level >= 15) return "Maestro";
+  if (level >= 10) return "Experto";
+  if (level >= 7) return "Estudiante Dedicado";
+  if (level >= 4) return "Aprendiz";
+  return "Principiante";
+}
+
+function calculateDashboardData() {
+  const progress = loadProgress();
+  const sessions = progress.sessions;
+  const totalAttempts = sessions.reduce((sum, s) => sum + s.total_attempts, 0);
+  const totalCorrect = sessions.reduce((sum, s) => sum + s.total_correct, 0);
+  const accuracy = totalAttempts > 0 ? Math.round((totalCorrect / totalAttempts) * 100) : 0;
+
+  const level = Math.max(1, Math.floor(totalAttempts / 20) + 1);
+  const xp = totalAttempts * 10;
+  const xpToNextLevel = level * 200;
+
+  const sessionDates = Array.from(new Set(sessions.map((s) => s.created_at.slice(0, 10))));
+  const streak = sessionDates.length;
+  const activeDays = sessionDates.length;
+
+  const today = new Date().toISOString().slice(0, 10);
+  const todayAttempts = sessions
+    .filter((s) => s.created_at.slice(0, 10) === today)
+    .reduce((sum, s) => sum + s.total_attempts, 0);
+  const dailyProgress = Math.min(100, todayAttempts * 10);
+
+  const skillStats = progress.skill_stats;
+  const lenguaSkillIds = Object.keys(skillStats).filter(
+    (id) => id.startsWith("lengua.skill_") && !id.includes(".subskill_")
+  );
+
+  let lenguaProgress = 0;
+  let lenguaLevel = 1;
+  if (lenguaSkillIds.length > 0) {
+    const totalSkillAccuracy = lenguaSkillIds.reduce((sum, id) => {
+      const stats = skillStats[id];
+      return stats.total_attempts > 0
+        ? sum + stats.total_correct / stats.total_attempts
+        : sum;
+    }, 0);
+    lenguaProgress = Math.round((totalSkillAccuracy / lenguaSkillIds.length) * 100);
+    const avgMastery =
+      lenguaSkillIds.reduce((sum, id) => sum + (skillStats[id].mastery_level ?? 1), 0) /
+      lenguaSkillIds.length;
+    lenguaLevel = Math.max(1, Math.round(avgMastery));
+  }
+
+  // Weakest skill for practice link
+  let weakestSkillHref = "/practice?skill=lengua.skill_1";
+  if (lenguaSkillIds.length > 0) {
+    const weakest = lenguaSkillIds
+      .map((id) => ({
+        id,
+        accuracy:
+          skillStats[id].total_attempts > 0
+            ? skillStats[id].total_correct / skillStats[id].total_attempts
+            : 1,
+      }))
+      .sort((a, b) => a.accuracy - b.accuracy)[0];
+    if (weakest) {
+      weakestSkillHref = `/practice?skill=${encodeURIComponent(weakest.id)}`;
+    }
+  }
+
+  return {
+    student: {
+      name: "Estudiante",
+      level,
+      rank: getRank(level),
+      streak,
+      dailyProgress,
+      xp,
+      xpToNextLevel,
     },
-    {
-      id: "language",
-      name: "Lengua",
-      progress: 45,
-      level: 3,
-      currentXp: 450,
-      totalXp: 1000,
-      description: "Comprensión lectora y gramática",
-      practiceHref: "/practice?skill=lengua.skill_1",
-      isAvailable: true,
+    skills: [
+      {
+        id: "math",
+        name: "Matemática",
+        progress: 0,
+        level: 1,
+        currentXp: 0,
+        totalXp: 1000,
+        description: "Números, operaciones y lógica",
+        practiceHref: "",
+        isAvailable: false,
+      },
+      {
+        id: "language",
+        name: "Lengua",
+        progress: lenguaProgress,
+        level: lenguaLevel,
+        currentXp: xp,
+        totalXp: 1000,
+        description: "Comprensión lectora y gramática",
+        practiceHref: weakestSkillHref,
+        isAvailable: true,
+      },
+    ],
+    dailyChallenge: {
+      title: "Desafío del Día",
+      description: "Responde preguntas de comprensión lectora",
+      reward: 150,
+      difficulty: "Lengua",
+      href: "/practice?skill=lengua.skill_1",
     },
-  ],
-  dailyChallenge: {
-    title: "Desafío del Día",
-    description: "Responde 5 preguntas de comprensión lectora",
-    reward: 150,
-    difficulty: "Lengua",
-    href: "/practice?skill=lengua.skill_1",
-  },
-  nextSimulation: {
-    title: "Simulacro #3",
-    date: "Mañana, 15:00",
-    duration: "45 minutos",
-    topics: ["Matemática", "Lengua"],
-  },
-  weeklyProgress: {
-    daysCompleted: 5,
-    totalDays: 7,
-    exercisesDone: 47,
-    averageScore: 82,
-  },
-};
+    nextSimulation: {
+      title: "Simulacro",
+      date: "Próximamente",
+      duration: "45 minutos",
+      topics: ["Lengua"],
+    },
+    weeklyProgress: {
+      daysCompleted: Math.min(7, activeDays),
+      totalDays: 7,
+      exercisesDone: totalAttempts,
+      averageScore: accuracy,
+    },
+    stats: {
+      totalAttempts,
+      totalCorrect,
+      accuracy,
+      activeDays,
+    },
+  };
+}
 
 const MathIcon = () => (
   <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
@@ -83,10 +153,9 @@ const LanguageIcon = () => (
   </svg>
 );
 
-
-
-export default function DashboardPage() {
-  const { student, skills, dailyChallenge, nextSimulation, weeklyProgress } = MOCK_DATA;
+export default async function DashboardPage() {
+  const { student, skills, dailyChallenge, nextSimulation, weeklyProgress, stats } =
+    calculateDashboardData();
 
   return (
     <div className="min-h-screen bg-slate-50 flex">
@@ -94,7 +163,7 @@ export default function DashboardPage() {
       <SidebarNav />
 
       {/* Main Content */}
-      <main className="flex-1 min-w-0 min-h-screen">
+      <main className="flex-1 min-w-0 min-h-screen pb-20 lg:pb-0">
         {/* Header Mobile */}
         <header className="lg:hidden bg-white border-b border-slate-100">
           <div className="max-w-lg mx-auto px-4 py-4">
@@ -115,7 +184,7 @@ export default function DashboardPage() {
           <div className="px-6 py-5">
             <div className="flex items-center justify-between">
               <h1 className="text-2xl font-bold text-slate-800">
-                Bienvenida de vuelta, {student.name}
+                Bienvenido de vuelta, {student.name}
               </h1>
               <StreakBadge days={student.streak} size="lg" />
             </div>
@@ -124,15 +193,14 @@ export default function DashboardPage() {
 
         {/* Content */}
         <div className="p-4 lg:p-6">
-          
           {/* TOP: Progreso + Stats */}
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-6 mb-6">
             {/* Progreso del Día */}
             <div className="lg:col-span-2">
               <div className="bg-white rounded-2xl p-5 lg:p-6 shadow-sm border border-slate-100">
                 <div className="flex flex-col sm:flex-row items-center gap-5">
-                  <ProgressCircle 
-                    progress={student.dailyProgress} 
+                  <ProgressCircle
+                    progress={student.dailyProgress}
                     size={130}
                     strokeWidth={12}
                     color="primary"
@@ -142,11 +210,13 @@ export default function DashboardPage() {
                       Progreso del Día
                     </h2>
                     <p className="text-slate-500 mb-4 text-sm lg:text-base">
-                      ¡Vas muy bien! Completa tu desafío diario para llegar al 100%
+                      {stats.totalAttempts > 0
+                        ? `Has completado ${stats.totalAttempts} ejercicios con ${stats.accuracy}% de precisión.`
+                        : "Empieza tu entrenamiento hoy para ver tu progreso."}
                     </p>
                     <div className="flex flex-wrap gap-2 justify-center sm:justify-start">
                       <Button href="/practice" variant="primary" size="md" icon={<span>⚡</span>}>
-                        Continuar Lengua
+                        {stats.totalAttempts > 0 ? "Continuar Lengua" : "Iniciar Entrenamiento"}
                       </Button>
                       <Button href={dailyChallenge.href} variant="secondary" size="md">
                         Ver Desafío
@@ -168,11 +238,11 @@ export default function DashboardPage() {
                 />
                 <div className="mt-4 pt-4 border-t border-slate-100 grid grid-cols-2 gap-3">
                   <div className="text-center p-3 bg-teal-50 rounded-xl">
-                    <div className="text-2xl font-bold text-teal-600">47</div>
+                    <div className="text-2xl font-bold text-teal-600">{stats.totalAttempts}</div>
                     <div className="text-xs text-teal-600/70 font-medium">Ejercicios</div>
                   </div>
                   <div className="text-center p-3 bg-orange-50 rounded-xl">
-                    <div className="text-2xl font-bold text-orange-600">82%</div>
+                    <div className="text-2xl font-bold text-orange-600">{stats.accuracy}%</div>
                     <div className="text-xs text-orange-600/70 font-medium">Precisión</div>
                   </div>
                 </div>
@@ -183,17 +253,18 @@ export default function DashboardPage() {
           {/* HABILIDADES */}
           <div className="mb-6">
             <div className="flex items-center justify-between mb-4">
-              <h2 className="text-lg font-bold text-slate-800">
-                Habilidades Recomendadas
-              </h2>
-              <button className="text-teal-600 text-sm font-semibold hover:text-teal-700 flex items-center gap-1">
+              <h2 className="text-lg font-bold text-slate-800">Habilidades Recomendadas</h2>
+              <a
+                href="/habilidades"
+                className="text-teal-600 text-sm font-semibold hover:text-teal-700 flex items-center gap-1"
+              >
                 Ver todas
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>
-              </button>
+              </a>
             </div>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-4">
               {skills.map((skill, index) => (
                 <BentoCard
@@ -201,25 +272,29 @@ export default function DashboardPage() {
                   accentColor={index === 0 ? "teal" : index === 1 ? "violet" : "orange"}
                 >
                   <div className="flex items-start gap-3">
-                    <div className={`
+                    <div
+                      className={`
                       w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0
                       ${index === 0 ? "bg-teal-50 text-teal-600" : "bg-violet-50 text-violet-600"}
-                    `}>
+                    `}
+                    >
                       {index === 0 ? <MathIcon /> : <LanguageIcon />}
                     </div>
-                    
+
                     <div className="flex-1 min-w-0">
                       <div className="flex items-start justify-between mb-1">
                         <h3 className="font-bold text-slate-800 text-base">{skill.name}</h3>
-                        <span className={`
+                        <span
+                          className={`
                           px-2 py-0.5 rounded-full text-xs font-bold
                           ${index === 0 ? "bg-teal-100 text-teal-700" : "bg-violet-100 text-violet-700"}
-                        `}>
+                        `}
+                        >
                           Nv. {skill.level}
                         </span>
                       </div>
                       <p className="text-sm text-slate-500 mb-2 truncate">{skill.description}</p>
-                      
+
                       <div className="mb-2">
                         <div className="flex justify-between items-center mb-1">
                           <span className="text-xs font-medium text-slate-500">Progreso</span>
@@ -232,7 +307,7 @@ export default function DashboardPage() {
                           />
                         </div>
                       </div>
-                      
+
                       <Button
                         disabled={!skill.isAvailable}
                         fullWidth
@@ -242,7 +317,8 @@ export default function DashboardPage() {
                         className={`
                         w-full py-2 rounded-lg text-sm font-semibold text-white
                         ${index === 0 ? "bg-slate-200 text-slate-500 shadow-none hover:bg-slate-200" : "bg-violet-500 hover:bg-violet-600 shadow-violet-200"}
-                      `}>
+                      `}
+                      >
                         {skill.isAvailable ? "Entrenar" : "Próximamente"}
                       </Button>
                     </div>
@@ -330,8 +406,8 @@ export default function DashboardPage() {
                       key={day}
                       className={`
                         w-8 h-8 rounded-lg flex items-center justify-center text-xs font-bold
-                        ${i < weeklyProgress.daysCompleted 
-                          ? "bg-emerald-500 text-white" 
+                        ${i < weeklyProgress.daysCompleted
+                          ? "bg-emerald-500 text-white"
                           : "bg-slate-100 text-slate-400"
                         }
                       `}
@@ -368,28 +444,23 @@ export default function DashboardPage() {
               }
             >
               <div className="flex flex-col sm:flex-row items-center gap-5">
-                <AvatarHero
-                  name={student.name}
-                  level={student.level}
-                  rank={student.rank}
-                  energy={85}
-                />
-                
+                <AvatarHero name={student.name} level={student.level} rank={student.rank} energy={85} />
+
                 <div className="flex-1 w-full sm:w-auto">
                   <div className="bg-gradient-to-r from-teal-50 to-violet-50 rounded-xl p-4 mb-3">
                     <p className="text-sm text-slate-600 mb-1">
-                      <span className="font-bold text-teal-600">¡Felicidades!</span> Has completado
+                      <span className="font-bold text-teal-600">¡Sigue así!</span> Has completado
                     </p>
                     <div className="flex items-baseline gap-1">
-                      <span className="text-3xl font-extrabold text-slate-800">47</span>
-                      <span className="text-slate-600">ejercicios esta semana</span>
+                      <span className="text-3xl font-extrabold text-slate-800">{stats.totalAttempts}</span>
+                      <span className="text-slate-600">ejercicios en total</span>
                     </div>
                   </div>
                   <div className="flex gap-2">
-                    <Button variant="secondary" size="sm" fullWidth>
+                    <Button href="/perfil" variant="secondary" size="sm" fullWidth>
                       Personalizar
                     </Button>
-                    <Button variant="ghost" size="sm">
+                    <Button href="/progreso" variant="ghost" size="sm">
                       Logros
                     </Button>
                   </div>
@@ -406,35 +477,37 @@ export default function DashboardPage() {
                   </svg>
                 </div>
                 <div className="flex-1 min-w-0">
-                  <h3 className="font-bold text-lg mb-1">Reporte para Padres</h3>
+                  <h3 className="font-bold text-lg mb-1">Reporte de Progreso</h3>
                   <p className="text-slate-300 text-sm mb-4">
-                    Accede al informe detallado de progreso y estadísticas.
+                    Estadísticas reales de entrenamiento y práctica.
                   </p>
                   <div className="grid grid-cols-3 gap-2 mb-4">
                     <div className="bg-white/5 rounded-lg p-2 text-center">
-                      <div className="text-lg font-bold text-teal-400">12</div>
+                      <div className="text-lg font-bold text-teal-400">{stats.activeDays}</div>
                       <div className="text-xs text-slate-400">Días</div>
                     </div>
                     <div className="bg-white/5 rounded-lg p-2 text-center">
-                      <div className="text-lg font-bold text-teal-400">3.2h</div>
-                      <div className="text-xs text-slate-400">Semana</div>
+                      <div className="text-lg font-bold text-teal-400">{stats.totalAttempts}</div>
+                      <div className="text-xs text-slate-400">Ejercicios</div>
                     </div>
                     <div className="bg-white/5 rounded-lg p-2 text-center">
-                      <div className="text-lg font-bold text-teal-400">82%</div>
+                      <div className="text-lg font-bold text-teal-400">{stats.accuracy}%</div>
                       <div className="text-xs text-slate-400">Precisión</div>
                     </div>
                   </div>
-                  <button className="text-sm font-semibold text-teal-400 hover:text-teal-300 flex items-center gap-1">
-                    Ver Reporte Completo
+                  <a
+                    href="/dashboard"
+                    className="text-sm font-semibold text-teal-400 hover:text-teal-300 flex items-center gap-1"
+                  >
+                    Ver Reporte Detallado
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                     </svg>
-                  </button>
+                  </a>
                 </div>
               </div>
             </div>
           </div>
-
         </div>
       </main>
 
