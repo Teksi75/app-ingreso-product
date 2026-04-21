@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "prebuild": "node scripts/build-content-manifest.js",
     "build": "next build",
     "start": "next start",
     "test:e2e": "playwright test",

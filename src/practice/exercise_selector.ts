@@ -1,5 +1,11 @@
 import { existsSync, readdirSync, readFileSync } from "node:fs";
 import { join, resolve } from "node:path";
+import {
+  staticRelationships,
+  staticMasteryMap,
+  staticExerciseEngineFiles,
+  staticExerciseEngineFileNames,
+} from "../data/static_content";
 
 export type Result = "correct" | "incorrect";
 export type Difficulty = 1 | 2 | 3;
@@ -104,19 +110,27 @@ const LEGACY_SKILL_IDS: Record<string, string> = {
 
 let cachedGraph: LenguaSelectionGraph | null = null;
 
+function isFsAvailable(baseDir: string): boolean {
+  try {
+    return existsSync(baseDir);
+  } catch {
+    return false;
+  }
+}
+
 export function listLenguaExerciseFiles(baseDir = EXERCISE_ENGINE_DIR): string[] {
-  if (!existsSync(baseDir)) {
-    return [];
+  if (isFsAvailable(baseDir)) {
+    return readdirSync(baseDir)
+      .filter((fileName) => (
+        fileName.startsWith("lengua_") &&
+        fileName.endsWith(".json") &&
+        !fileName.startsWith("lengua_textgroup_") &&
+        ![RELATIONSHIPS_FILE, MASTERY_FILE, CONTENT_INDEX_FILE].includes(fileName)
+      ))
+      .sort((left, right) => left.localeCompare(right));
   }
 
-  return readdirSync(baseDir)
-    .filter((fileName) => (
-      fileName.startsWith("lengua_") &&
-      fileName.endsWith(".json") &&
-      !fileName.startsWith("lengua_textgroup_") &&
-      ![RELATIONSHIPS_FILE, MASTERY_FILE, CONTENT_INDEX_FILE].includes(fileName)
-    ))
-    .sort((left, right) => left.localeCompare(right));
+  return staticExerciseEngineFileNames;
 }
 
 export function loadLenguaSelectionGraph(baseDir = EXERCISE_ENGINE_DIR): LenguaSelectionGraph {
@@ -124,12 +138,20 @@ export function loadLenguaSelectionGraph(baseDir = EXERCISE_ENGINE_DIR): LenguaS
     return cachedGraph;
   }
 
-  const relationshipsFile = JSON.parse(
-    readFileSync(join(baseDir, RELATIONSHIPS_FILE), "utf8"),
-  ) as { relationships?: LenguaRelationship[] };
-  const masteryFile = JSON.parse(
-    readFileSync(join(baseDir, MASTERY_FILE), "utf8"),
-  ) as { mastery_map?: MasteryNode[] };
+  let relationshipsFile: { relationships?: LenguaRelationship[] };
+  let masteryFile: { mastery_map?: MasteryNode[] };
+
+  if (isFsAvailable(baseDir)) {
+    relationshipsFile = JSON.parse(
+      readFileSync(join(baseDir, RELATIONSHIPS_FILE), "utf8"),
+    ) as { relationships?: LenguaRelationship[] };
+    masteryFile = JSON.parse(
+      readFileSync(join(baseDir, MASTERY_FILE), "utf8"),
+    ) as { mastery_map?: MasteryNode[] };
+  } else {
+    relationshipsFile = staticRelationships as { relationships?: LenguaRelationship[] };
+    masteryFile = staticMasteryMap as { mastery_map?: MasteryNode[] };
+  }
 
   const masteryMap = masteryFile.mastery_map ?? [];
   const masteryById = new Map(masteryMap.map((node) => [node.id, node]));
@@ -163,10 +185,15 @@ export function loadLenguaSelectionGraph(baseDir = EXERCISE_ENGINE_DIR): LenguaS
 export function loadLenguaSelectorExercises(baseDir = EXERCISE_ENGINE_DIR): Exercise[] {
   const graph = loadLenguaSelectionGraph(baseDir);
   const exercises: Exercise[] = [];
+  const useFs = isFsAvailable(baseDir);
 
   for (const fileName of listLenguaExerciseFiles(baseDir)) {
-    const parsed = JSON.parse(readFileSync(join(baseDir, fileName), "utf8")) as unknown;
-    exercises.push(...extractSelectorExercises(parsed, fileName, graph));
+    const parsed = useFs
+      ? JSON.parse(readFileSync(join(baseDir, fileName), "utf8")) as unknown
+      : staticExerciseEngineFiles[fileName];
+    if (parsed) {
+      exercises.push(...extractSelectorExercises(parsed, fileName, graph));
+    }
   }
 
   return dedupeExercises(exercises);

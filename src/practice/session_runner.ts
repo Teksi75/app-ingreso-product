@@ -14,6 +14,14 @@ import {
   type Result,
   type UserSkillState,
 } from "./exercise_selector.ts";
+import {
+  staticExerciseEngineFiles,
+  staticReadingUnits,
+  staticContentExercises,
+  staticExerciseEngineFileNames,
+  staticReadingUnitFileNames,
+  staticContentExerciseFileNames,
+} from "../data/static_content";
 
 export type Exercise = {
   id: string;
@@ -176,11 +184,24 @@ export function loadExercises(path: string): Exercise[] {
   return exercises;
 }
 
+function isFsAvailable(dir: string): boolean {
+  try {
+    return existsSync(dir);
+  } catch {
+    return false;
+  }
+}
+
 export function loadLenguaExercises(baseDir = EXERCISE_ENGINE_DIR): Exercise[] {
   const graph = loadLenguaSelectionGraph(baseDir);
-  const exercises = listLenguaExerciseFiles(baseDir).flatMap((fileName) => {
-    const parsed = JSON.parse(readFileSync(join(baseDir, fileName), "utf8")) as ExerciseFile | unknown[];
-    return normalizeExerciseFile(parsed, fileName, graph);
+  const useFs = isFsAvailable(baseDir);
+  const fileNames = useFs ? listLenguaExerciseFiles(baseDir) : staticExerciseEngineFileNames;
+
+  const exercises = fileNames.flatMap((fileName) => {
+    const parsed = useFs
+      ? JSON.parse(readFileSync(join(baseDir, fileName), "utf8")) as ExerciseFile | unknown[]
+      : staticExerciseEngineFiles[fileName];
+    return parsed ? normalizeExerciseFile(parsed as ExerciseFile | unknown[], fileName, graph) : [];
   });
 
   const contentExercises = loadContentLenguaExercises(graph);
@@ -190,16 +211,20 @@ export function loadLenguaExercises(baseDir = EXERCISE_ENGINE_DIR): Exercise[] {
 }
 
 function loadContentLenguaExercises(graph: ReturnType<typeof loadLenguaSelectionGraph>): Exercise[] {
-  if (!existsSync(CONTENT_LENGUA_UNITS_DIR) || !existsSync(CONTENT_LENGUA_EXERCISES_DIR)) {
-    return [];
-  }
-
+  const useFs = isFsAvailable(CONTENT_LENGUA_UNITS_DIR) && isFsAvailable(CONTENT_LENGUA_EXERCISES_DIR);
   const readingUnits = new Map<string, ReadingUnit>();
 
-  for (const fileName of readdirSync(CONTENT_LENGUA_UNITS_DIR).filter((f) => f.endsWith(".json")).sort()) {
-    const rawUnit = JSON.parse(readFileSync(join(CONTENT_LENGUA_UNITS_DIR, fileName), "utf8")) as Record<string, unknown>;
-    const id = normalizeTextField(rawUnit.id);
+  const unitFileNames = useFs
+    ? readdirSync(CONTENT_LENGUA_UNITS_DIR).filter((f) => f.endsWith(".json")).sort()
+    : staticReadingUnitFileNames;
 
+  for (const fileName of unitFileNames) {
+    const rawUnit = useFs
+      ? JSON.parse(readFileSync(join(CONTENT_LENGUA_UNITS_DIR, fileName), "utf8")) as Record<string, unknown>
+      : staticReadingUnits[fileName] as Record<string, unknown> | undefined;
+    if (!rawUnit) continue;
+
+    const id = normalizeTextField(rawUnit.id);
     if (!id) continue;
 
     const unit: ReadingUnit = {
@@ -222,9 +247,16 @@ function loadContentLenguaExercises(graph: ReturnType<typeof loadLenguaSelection
   }
 
   const exercises: Exercise[] = [];
+  const exerciseFileNames = useFs
+    ? readdirSync(CONTENT_LENGUA_EXERCISES_DIR).filter((f) => f.endsWith(".json")).sort()
+    : staticContentExerciseFileNames;
 
-  for (const fileName of readdirSync(CONTENT_LENGUA_EXERCISES_DIR).filter((f) => f.endsWith(".json")).sort()) {
-    const parsed = JSON.parse(readFileSync(join(CONTENT_LENGUA_EXERCISES_DIR, fileName), "utf8")) as ContentLenguaExerciseFile;
+  for (const fileName of exerciseFileNames) {
+    const parsed = useFs
+      ? JSON.parse(readFileSync(join(CONTENT_LENGUA_EXERCISES_DIR, fileName), "utf8")) as ContentLenguaExerciseFile
+      : staticContentExercises[fileName] as ContentLenguaExerciseFile | undefined;
+    if (!parsed) continue;
+
     const fileUnitId = normalizeTextField(parsed.readingUnitId);
 
     for (const rawExercise of parsed.exercises ?? []) {
