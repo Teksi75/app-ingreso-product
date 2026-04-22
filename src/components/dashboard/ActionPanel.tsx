@@ -17,10 +17,10 @@ type ActionPanelProps = {
 
 export function ActionPanel({ isNewStudent = false, skill }: ActionPanelProps) {
   const metadata = skill ? getSkillMetadata(skill.skill) : null;
-  const href = isNewStudent ? "/practice?newStudent=1" : "/";
+  const href = isNewStudent ? "/practice?mode=training&newStudent=1" : "/";
   const label = isNewStudent ? "Inicia tu entrenamiento" : "Ir al inicio";
   const skillHref = buildPracticeHref(skill?.skill, isNewStudent);
-  const readingStimulusHref = buildPracticeHref("lengua.skill_1", isNewStudent);
+  const readingStimulusHref = buildReadingHref(isNewStudent);
 
   return (
     <section className="flex flex-wrap items-center justify-between gap-4 rounded-lg bg-[#1d1d1b] px-5 py-[18px] text-white">
@@ -64,6 +64,7 @@ export function ActionPanel({ isNewStudent = false, skill }: ActionPanelProps) {
 
 function buildPracticeHref(skillId: string | undefined, isNewStudent: boolean): string {
   const params = new URLSearchParams();
+  params.set("mode", "training");
 
   if (skillId) {
     params.set("skill", skillId);
@@ -76,4 +77,17 @@ function buildPracticeHref(skillId: string | undefined, isNewStudent: boolean): 
   const query = params.toString();
 
   return query ? `/practice?${query}` : "/practice";
+}
+
+function buildReadingHref(isNewStudent: boolean): string {
+  const params = new URLSearchParams({
+    mode: "reading",
+    unit: "RU-LEN-BIO-001",
+  });
+
+  if (isNewStudent) {
+    params.set("newStudent", "1");
+  }
+
+  return `/practice?${params.toString()}`;
 }

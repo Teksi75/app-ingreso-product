@@ -64,7 +64,7 @@ function calculateDashboardData() {
   }
 
   // Weakest skill for practice link
-  let weakestSkillHref = "/practice?skill=lengua.skill_1";
+  let weakestSkillHref = "/practice?mode=training&skill=lengua.skill_1";
   if (lenguaSkillIds.length > 0) {
     const weakest = lenguaSkillIds
       .map((id) => ({
@@ -76,7 +76,7 @@ function calculateDashboardData() {
       }))
       .sort((a, b) => a.accuracy - b.accuracy)[0];
     if (weakest) {
-      weakestSkillHref = `/practice?skill=${encodeURIComponent(weakest.id)}`;
+      weakestSkillHref = `/practice?mode=training&skill=${encodeURIComponent(weakest.id)}`;
     }
   }
 
@@ -116,10 +116,10 @@ function calculateDashboardData() {
     ],
     dailyChallenge: {
       title: "Desafío del Día",
-      description: "Responde preguntas de comprensión lectora",
+      description: "Lee la biografía de Violeta Parra y responde preguntas de comprensión",
       reward: 150,
       difficulty: "Lengua",
-      href: "/practice?skill=lengua.skill_1",
+      href: "/practice?mode=reading&unit=RU-LEN-BIO-001",
     },
     nextSimulation: {
       title: "Simulacro",
@@ -216,7 +216,7 @@ export default async function DashboardPage() {
                         : "Empieza tu entrenamiento hoy para ver tu progreso."}
                     </p>
                     <div className="flex flex-wrap gap-2 justify-center sm:justify-start">
-                      <Button href="/practice" variant="primary" size="md" icon={<span>⚡</span>}>
+                      <Button href="/practice?mode=training" variant="primary" size="md" icon={<span>⚡</span>}>
                         {stats.totalAttempts > 0 ? "Continuar Lengua" : "Iniciar Entrenamiento"}
                       </Button>
                       <Button href={dailyChallenge.href} variant="secondary" size="md">

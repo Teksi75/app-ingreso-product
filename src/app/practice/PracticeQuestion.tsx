@@ -9,7 +9,7 @@ import {
 import { type Exercise } from "../../components/practice/session_runner";
 import { getSkillMetadata } from "../../skills/skill_metadata";
 import { type ReadingUnit } from "../../types/reading_unit";
-import { type PracticeSessionProgressInput, type PracticeSessionProgressResult } from "./page";
+import { type PracticeMode, type PracticeSessionProgressInput, type PracticeSessionProgressResult } from "./page";
 
 type PracticeQuestionProps = {
   exercise: Exercise;
@@ -17,6 +17,8 @@ type PracticeQuestionProps = {
   masteryMap: MasteryMapNode[];
   restartHref: string;
   saveProgress: (input: PracticeSessionProgressInput) => Promise<PracticeSessionProgressResult>;
+  practiceMode: PracticeMode;
+  readingUnitId?: string;
   usedExerciseIds: string[];
 };
 
@@ -28,6 +30,8 @@ export function PracticeQuestion({
   masteryMap,
   restartHref,
   saveProgress,
+  practiceMode,
+  readingUnitId,
   usedExerciseIds,
 }: PracticeQuestionProps) {
   const [currentExercise, setCurrentExercise] = useState(exercise);
@@ -166,9 +170,14 @@ export function PracticeQuestion({
   if (sessionCompleted) {
     const masteryLevel = progressResult?.masteryLevel ?? currentExercise.mastery_level;
     const recommendedSubskill = progressResult?.recommendation ?? null;
-    const repeatHref = buildPracticeHref(currentExercise.skill_id, currentExercise.subskill, usedExercises);
+    const repeatHref = buildPracticeHref(
+      currentExercise.skill_id,
+      currentExercise.subskill,
+      usedExercises,
+      { mode: practiceMode, readingUnitId },
+    );
     const recommendedHref = recommendedSubskill
-      ? buildPracticeHref(recommendedSubskill.parentSkill, recommendedSubskill.id, [])
+      ? buildPracticeHref(recommendedSubskill.parentSkill, recommendedSubskill.id, [], { mode: "training" })
       : restartHref;
 
     return (
@@ -672,11 +681,21 @@ function sameStringSet(left: string[], right: string[]): boolean {
   return Array.from(leftSet).every((item) => rightSet.has(item));
 }
 
-function buildPracticeHref(skillId: string, focus: string, usedExerciseIds: string[]): string {
+function buildPracticeHref(
+  skillId: string,
+  focus: string,
+  usedExerciseIds: string[],
+  context: { mode: PracticeMode; readingUnitId?: string },
+): string {
   const params = new URLSearchParams({
     skill: skillId,
     focus,
+    mode: context.mode,
   });
+
+  if (context.mode === "reading" && context.readingUnitId) {
+    params.set("unit", context.readingUnitId);
+  }
 
   if (usedExerciseIds.length > 0) {
     params.set("used", Array.from(new Set(usedExerciseIds)).join(","));

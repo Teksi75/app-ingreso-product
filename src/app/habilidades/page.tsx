@@ -72,7 +72,7 @@ const HABILIDADES_BASE = [
     icon: "📚",
     color: "violet",
     topics: ["Comprensión lectora", "Gramática", "Vocabulario", "Ortografía", "Escritura"],
-    practiceHref: "/practice?skill=lengua.skill_1",
+    practiceHref: "/practice?mode=training&skill=lengua.skill_1",
     isAvailable: true,
   },
 ];
@@ -321,7 +321,7 @@ export default async function HabilidadesPage() {
                     La <span className="font-semibold text-violet-600">Lengua</span> es tu área con mayor potencial de mejora.
                     Practica comprensión lectora con textos reales como la biografía de Violeta Parra.
                   </p>
-                  <Button href="/practice?skill=lengua.skill_1" variant="secondary" size="sm">
+                  <Button href="/practice?mode=reading&unit=RU-LEN-BIO-001" variant="secondary" size="sm">
                     Practicar Lengua
                   </Button>
                 </div>

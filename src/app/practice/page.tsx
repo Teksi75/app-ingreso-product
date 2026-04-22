@@ -18,11 +18,15 @@ import { PracticeQuestion } from "./PracticeQuestion";
 type PracticePageProps = {
   searchParams: Promise<{
     focus?: string | string[];
+    mode?: string | string[];
     newStudent?: string | string[];
     skill?: string | string[];
+    unit?: string | string[];
     used?: string | string[];
   }>;
 };
+
+export type PracticeMode = "training" | "reading";
 
 export type PracticeSessionProgressInput = {
   currentFocus: string;
@@ -41,17 +45,23 @@ export type PracticeSessionProgressResult = {
 export default async function PracticePage({ searchParams }: PracticePageProps) {
   const params = await searchParams;
   const focus = Array.isArray(params.focus) ? params.focus[0] : params.focus;
+  const modeParam = Array.isArray(params.mode) ? params.mode[0] : params.mode;
   const newStudent = Array.isArray(params.newStudent) ? params.newStudent[0] : params.newStudent;
   const skill = Array.isArray(params.skill) ? params.skill[0] : params.skill;
+  const unit = Array.isArray(params.unit) ? params.unit[0] : params.unit;
   const used = Array.isArray(params.used) ? params.used[0] : params.used;
   const usedExerciseIds = parseUsedExerciseIds(used);
   const forceNewStudent = isEnabledParam(newStudent);
-  const restartHref = buildRestartHref(skill, forceNewStudent);
-  const practiceSelection = startPracticeSession(
-    skill ?? null,
-    usedExerciseIds,
-    { forceNewStudent },
-  );
+  const practiceMode: PracticeMode = modeParam === "reading" || unit ? "reading" : "training";
+  const readingUnitId = unit ?? "RU-LEN-BIO-001";
+  const restartHref = buildRestartHref({ skill, forceNewStudent, mode: practiceMode, unit: readingUnitId });
+  const practiceSelection = practiceMode === "reading"
+    ? startReadingUnitSession(readingUnitId, usedExerciseIds, { forceNewStudent })
+    : startPracticeSession(
+      skill ?? null,
+      usedExerciseIds,
+      { forceNewStudent, includeReadingUnits: false },
+    );
   const exercise = practiceSelection?.exercise;
   const exercisePool = practiceSelection?.exercisePool ?? [];
   const activeUsedExerciseIds = practiceSelection?.usedExerciseIds ?? [];
@@ -84,6 +94,8 @@ export default async function PracticePage({ searchParams }: PracticePageProps) 
             masteryMap={getLenguaMasteryMap()}
             restartHref={restartHref}
             saveProgress={savePracticeSessionProgress}
+            practiceMode={practiceMode}
+            readingUnitId={practiceMode === "reading" ? readingUnitId : undefined}
             usedExerciseIds={activeUsedExerciseIds}
           />
         </section>
@@ -108,16 +120,38 @@ function isEnabledParam(value: string | undefined): boolean {
   return value === "1" || value === "true";
 }
 
-function buildRestartHref(skill: string | undefined, forceNewStudent: boolean): string {
-  if (forceNewStudent) {
-    return "/practice?newStudent=1";
-  }
+function buildRestartHref({
+  skill,
+  forceNewStudent,
+  mode,
+  unit,
+}: {
+  skill: string | undefined;
+  forceNewStudent: boolean;
+  mode: PracticeMode;
+  unit?: string;
+}): string {
+  const params = new URLSearchParams();
 
   if (skill) {
-    return `/practice?skill=${encodeURIComponent(skill)}`;
+    params.set("skill", skill);
   }
 
-  return "/practice";
+  if (mode === "reading") {
+    params.set("mode", "reading");
+    if (unit) {
+      params.set("unit", unit);
+    }
+  } else {
+    params.set("mode", "training");
+  }
+
+  if (forceNewStudent) {
+    params.set("newStudent", "1");
+  }
+
+  const query = params.toString();
+  return query ? `/practice?${query}` : "/practice";
 }
 
 async function savePracticeSessionProgress(

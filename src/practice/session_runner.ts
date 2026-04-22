@@ -151,6 +151,7 @@ export type ReadingUnitSelection = PracticeSelection & {
 
 type PracticeSessionOptions = {
   forceNewStudent?: boolean;
+  includeReadingUnits?: boolean;
 };
 
 type AnswerProvider = (exercise: Exercise, step: number) => string;
@@ -653,23 +654,27 @@ export function startPracticeSession(
 
   const filtered = exercises.filter(skillFilter);
   const basePool = filtered.length > 0 ? filtered : exercises;
-  const startingPool = canonicalSkillId
-    ? buildSkillTrainingPool(exercises, usedExerciseIds, skillFilter)
-    : basePool;
+  const includeReadingUnits = options.includeReadingUnits ?? true;
+  const standalonePool = basePool.filter((exercise) => !exercise.readingUnitId);
+  const trainingSourcePool = includeReadingUnits || standalonePool.length === 0 ? exercises : standalonePool;
+  const startingPool = canonicalSkillId && includeReadingUnits
+    ? buildSkillTrainingPool(trainingSourcePool, usedExerciseIds, skillFilter)
+    : trainingSourcePool.filter(skillFilter);
+  const activeStartingPool = startingPool.length > 0 ? startingPool : trainingSourcePool;
 
-  const unusedExercises = startingPool.filter((exercise) => !usedExerciseIds.includes(exercise.id));
+  const unusedExercises = activeStartingPool.filter((exercise) => !usedExerciseIds.includes(exercise.id));
   const skillSelectionPool = canonicalSkillId
     ? unusedExercises.filter(skillFilter)
     : unusedExercises;
   const selectionPool = skillSelectionPool.length > 0
     ? skillSelectionPool
-    : unusedExercises.length > 0 ? unusedExercises : startingPool;
+    : unusedExercises.length > 0 ? unusedExercises : activeStartingPool;
   const activeUsedIds = unusedExercises.length > 0 ? usedExerciseIds : [];
   const seenSkills = options.forceNewStudent ? [] : getSeenSkills();
   const usedSkills = new Set(
     [
       ...seenSkills,
-      ...startingPool
+      ...activeStartingPool
         .filter((exercise) => activeUsedIds.includes(exercise.id))
         .map((exercise) => exercise.skill_id),
     ],
@@ -693,7 +698,7 @@ export function startPracticeSession(
 
   return {
     exercise,
-    exercisePool: startingPool,
+    exercisePool: activeStartingPool,
     usedExerciseIds: [...activeUsedIds, exercise.id],
   };
 }
