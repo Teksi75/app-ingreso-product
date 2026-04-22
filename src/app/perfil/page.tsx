@@ -1,144 +1,168 @@
 "use client";
 
 /**
- * Perfil - Página de Configuración y Perfil del Usuario
- * =====================================================
- * Avatar personalizable, estadísticas generales y configuración.
- * Solo el Nombre es obligatorio; Email, Edad y Escuela son opcionales.
+ * Perfil - identidad local del estudiante
+ * =======================================
+ * Guarda solo alias, avatar y preferencias pedagogicas en el navegador.
+ * No captura datos privados ni crea una cuenta asociada al Instituto.
  */
 
-import { useState, useEffect } from "react";
-import {
-  BottomNav,
-  SidebarNav,
-  Button,
-  AvatarHero,
-} from "@/components/ui";
-import { useProfile } from "@/hooks/useProfile";
+import { useEffect, useMemo, useState } from "react";
+import { AvatarHero, BottomNav, Button, SidebarNav } from "@/components/ui";
+import { useProfile, type LearningGoal, type PreferredSubject } from "@/hooks/useProfile";
 
-const AVATAR_OPTIONS = ["🎓", "👩‍🎓", "👨‍🎓", "🧑‍🔬", "👩‍🔬", "🦸", "🦹", "🧙", "🧝", "🧛"];
+const AVATAR_OPTIONS = ["🎓", "👩‍🎓", "👨‍🎓", "🧑‍🔬", "👩‍🔬", "⭐", "🏆", "📚", "✏️", "🚀"];
 
-const SETTINGS = [
-  { id: "notifications", label: "Notificaciones", description: "Recibir recordatorios diarios", enabled: true },
-  { id: "sound", label: "Sonidos", description: "Efectos de sonido en la app", enabled: true },
-  { id: "darkMode", label: "Modo Oscuro", description: "Cambiar apariencia", enabled: false },
-  { id: "parentReports", label: "Reportes a Padres", description: "Enviar reportes semanales automáticamente", enabled: true },
+const LEARNING_GOALS: Array<{ id: LearningGoal; label: string; description: string }> = [
+  {
+    id: "daily_practice",
+    label: "Practicar cada dia",
+    description: "Mantener ritmo y constancia con sesiones cortas.",
+  },
+  {
+    id: "exam_training",
+    label: "Preparar el examen",
+    description: "Priorizar simulacros, dominio y control de errores.",
+  },
+  {
+    id: "strengthen_weak_skills",
+    label: "Reforzar puntos debiles",
+    description: "Concentrar el entrenamiento en habilidades con mas dificultad.",
+  },
 ];
 
+const SUBJECTS: Array<{ id: PreferredSubject; label: string }> = [
+  { id: "lengua", label: "Lengua" },
+  { id: "matematica", label: "Matematica" },
+  { id: "ambas", label: "Ambas" },
+];
+
+const SETTING_LABELS = {
+  localReminders: {
+    label: "Recordatorios locales",
+    description: "Mostrar avisos en este dispositivo cuando la app lo permita.",
+  },
+  sound: {
+    label: "Sonidos",
+    description: "Usar efectos de audio durante la practica.",
+  },
+  reducedMotion: {
+    label: "Reducir movimiento",
+    description: "Disminuir animaciones de la interfaz.",
+  },
+};
+
 export default function PerfilPage() {
-  const { profile, setProfile, isLoaded } = useProfile();
+  const { profile, setProfile, resetProfile, isLoaded } = useProfile();
   const [form, setForm] = useState({
     name: "",
-    email: "",
-    age: "",
-    school: "",
     avatar: "🎓",
+    learningGoal: "daily_practice" as LearningGoal,
+    preferredSubject: "lengua" as PreferredSubject,
   });
+  const [settings, setSettings] = useState(profile.settings);
   const [saved, setSaved] = useState(false);
-  const [settings, setSettings] = useState(SETTINGS);
 
-  // Sincronizar formulario con el perfil cargado
   useEffect(() => {
-    if (isLoaded) {
-      setForm({
-        name: profile.name === "Estudiante" ? "" : profile.name,
-        email: profile.email || "",
-        age: profile.age || "",
-        school: profile.school || "",
-        avatar: profile.avatar || "🎓",
-      });
-    }
+    if (!isLoaded) return;
+
+    setForm({
+      name: profile.name === "Estudiante" ? "" : profile.name,
+      avatar: profile.avatar || "🎓",
+      learningGoal: profile.learningGoal,
+      preferredSubject: profile.preferredSubject,
+    });
+    setSettings(profile.settings);
   }, [isLoaded, profile]);
 
-  const toggleSetting = (id: string) => {
-    setSettings(settings.map(s => 
-      s.id === id ? { ...s, enabled: !s.enabled } : s
-    ));
-  };
-
-  const handleChange = (field: string, value: string) => {
-    setForm((prev) => ({ ...prev, [field]: value }));
-    setSaved(false);
-  };
+  const memberSince = useMemo(() => {
+    return new Intl.DateTimeFormat("es-AR", { month: "long", year: "numeric" }).format(
+      new Date(profile.createdAt),
+    );
+  }, [profile.createdAt]);
 
   const handleSave = () => {
-    const name = form.name.trim();
-    if (!name) {
-      // Si el nombre está vacío, no guardar y mostrar feedback visual
-      return;
-    }
     setProfile({
-      name,
-      email: form.email.trim() || undefined,
-      age: form.age.trim() || undefined,
-      school: form.school.trim() || undefined,
+      name: form.name.trim() || "Estudiante",
       avatar: form.avatar,
+      learningGoal: form.learningGoal,
+      preferredSubject: form.preferredSubject,
+      settings,
     });
     setSaved(true);
     setTimeout(() => setSaved(false), 2000);
   };
 
-  const isNameEmpty = form.name.trim() === "";
+  const updateForm = <Key extends keyof typeof form>(field: Key, value: (typeof form)[Key]) => {
+    setForm((prev) => ({ ...prev, [field]: value }));
+    setSaved(false);
+  };
+
+  const toggleSetting = (id: keyof typeof settings) => {
+    setSettings((prev) => ({ ...prev, [id]: !prev[id] }));
+    setSaved(false);
+  };
+
+  const handleReset = () => {
+    resetProfile();
+    setSaved(false);
+  };
+
+  const displayName = form.name.trim() || "Estudiante";
 
   return (
     <div className="min-h-screen bg-slate-50 flex">
       <SidebarNav />
 
       <main className="flex-1 min-w-0 min-h-screen">
-        {/* Header Mobile */}
         <header className="lg:hidden bg-white border-b border-slate-100">
           <div className="max-w-lg mx-auto px-4 py-4">
             <div className="flex items-center justify-between">
               <h1 className="text-lg font-bold text-slate-800">Mi Perfil</h1>
               <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-teal-100 to-teal-200 flex items-center justify-center text-xl">
-                {profile.avatar || "👤"}
+                {form.avatar}
               </div>
             </div>
           </div>
         </header>
 
-        {/* Header Desktop */}
         <header className="hidden lg:block bg-white border-b border-slate-100">
           <div className="px-6 py-5">
             <div className="flex items-center justify-between">
               <h1 className="text-2xl font-bold text-slate-800">Mi Perfil</h1>
-              <Button variant="secondary" size="sm">
-                Cerrar Sesión
-              </Button>
+              <div className="rounded-full bg-emerald-50 px-3 py-1 text-sm font-semibold text-emerald-700">
+                Perfil local
+              </div>
             </div>
           </div>
         </header>
 
         <div className="p-4 lg:p-6">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-            {/* Left Column - Avatar & Info */}
             <div className="space-y-6">
-              {/* Avatar Card */}
               <div className="bg-white rounded-2xl p-6 border border-slate-100 text-center">
                 <AvatarHero
-                  name={profile.name}
-                  level={7}
-                  rank="Estudiante Dedicada"
+                  name={displayName}
+                  level={1}
+                  rank="Entrenamiento activo"
                   energy={85}
                   emoji={form.avatar}
                 />
-                
-                {/* Avatar Selector */}
+
                 <div className="mt-6">
-                  <p className="text-sm font-medium text-slate-600 mb-3">Cambiar Avatar</p>
+                  <p className="text-sm font-medium text-slate-600 mb-3">Avatar</p>
                   <div className="grid grid-cols-5 gap-2">
                     {AVATAR_OPTIONS.map((avatar) => (
                       <button
                         key={avatar}
-                        onClick={() => handleChange("avatar", avatar)}
-                        className={`
-                          w-10 h-10 rounded-xl text-xl flex items-center justify-center
-                          transition-all duration-200
-                          ${form.avatar === avatar 
-                            ? "bg-teal-100 ring-2 ring-teal-500" 
+                        type="button"
+                        onClick={() => updateForm("avatar", avatar)}
+                        className={`w-10 h-10 rounded-xl text-xl flex items-center justify-center transition-all duration-200 ${
+                          form.avatar === avatar
+                            ? "bg-teal-100 ring-2 ring-teal-500"
                             : "bg-slate-50 hover:bg-slate-100"
-                          }
-                        `}
+                        }`}
+                        aria-label={`Elegir avatar ${avatar}`}
                       >
                         {avatar}
                       </button>
@@ -147,131 +171,122 @@ export default function PerfilPage() {
                 </div>
               </div>
 
-              {/* Quick Stats */}
               <div className="bg-white rounded-2xl p-5 border border-slate-100">
-                <h3 className="font-bold text-slate-800 mb-4">Estadísticas</h3>
-                <div className="space-y-3">
-                  <div className="flex justify-between">
-                    <span className="text-slate-500">Miembro desde</span>
-                    <span className="font-semibold">Enero 2026</span>
+                <h3 className="font-bold text-slate-800 mb-4">Privacidad</h3>
+                <div className="space-y-3 text-sm text-slate-600">
+                  <div className="flex justify-between gap-4">
+                    <span>Datos personales</span>
+                    <span className="font-semibold text-emerald-700">No guardados</span>
                   </div>
-                  <div className="flex justify-between">
-                    <span className="text-slate-500">Días activa</span>
-                    <span className="font-semibold">45 días</span>
+                  <div className="flex justify-between gap-4">
+                    <span>Sincronizacion con INGENIUM</span>
+                    <span className="font-semibold text-emerald-700">Desactivada</span>
                   </div>
-                  <div className="flex justify-between">
-                    <span className="text-slate-500">Ejercicios totales</span>
-                    <span className="font-semibold">359</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-slate-500">Logros</span>
-                    <span className="font-semibold">3 de 12</span>
+                  <div className="flex justify-between gap-4">
+                    <span>Perfil creado</span>
+                    <span className="font-semibold text-slate-800 capitalize">{memberSince}</span>
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* Middle Column - Settings */}
             <div className="lg:col-span-2 space-y-6">
-              {/* Personal Info */}
               <div className="bg-white rounded-2xl p-5 border border-slate-100">
                 <div className="flex items-center justify-between mb-4">
-                  <h3 className="font-bold text-slate-800">Información Personal</h3>
+                  <h3 className="font-bold text-slate-800">Identidad local</h3>
                   {saved && (
                     <span className="text-sm font-semibold text-teal-600 bg-teal-50 px-3 py-1 rounded-full">
-                      ¡Guardado!
+                      Guardado
                     </span>
                   )}
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+
+                <div className="space-y-5">
                   <div>
-                    <label className="block text-sm font-medium text-slate-600 mb-1">
-                      Nombre <span className="text-red-500">*</span>
-                    </label>
+                    <label className="block text-sm font-medium text-slate-600 mb-1">Alias</label>
                     <input
                       type="text"
                       value={form.name}
-                      onChange={(e) => handleChange("name", e.target.value)}
-                      placeholder="Tu nombre"
-                      className={`
-                        w-full px-4 py-2 rounded-xl border text-slate-800
-                        focus:outline-none focus:ring-2 focus:ring-teal-500
-                        ${isNameEmpty 
-                          ? "border-red-300 bg-red-50 focus:ring-red-400" 
-                          : "border-slate-200 bg-white"
-                        }
-                      `}
-                    />
-                    {isNameEmpty && (
-                      <p className="text-xs text-red-500 mt-1">El nombre es obligatorio</p>
-                    )}
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-slate-600 mb-1">Email</label>
-                    <input
-                      type="email"
-                      value={form.email}
-                      onChange={(e) => handleChange("email", e.target.value)}
-                      placeholder="Opcional"
+                      onChange={(event) => updateForm("name", event.target.value)}
+                      placeholder="Estudiante"
                       className="w-full px-4 py-2 rounded-xl border border-slate-200 bg-white text-slate-800 focus:outline-none focus:ring-2 focus:ring-teal-500"
                     />
+                    <p className="text-xs text-slate-500 mt-1">
+                      Usa un apodo. No hace falta nombre real, email, edad ni escuela.
+                    </p>
                   </div>
+
                   <div>
-                    <label className="block text-sm font-medium text-slate-600 mb-1">Edad</label>
-                    <input
-                      type="text"
-                      value={form.age}
-                      onChange={(e) => handleChange("age", e.target.value)}
-                      placeholder="Opcional"
-                      className="w-full px-4 py-2 rounded-xl border border-slate-200 bg-white text-slate-800 focus:outline-none focus:ring-2 focus:ring-teal-500"
-                    />
+                    <p className="block text-sm font-medium text-slate-600 mb-2">Objetivo</p>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+                      {LEARNING_GOALS.map((goal) => (
+                        <button
+                          key={goal.id}
+                          type="button"
+                          onClick={() => updateForm("learningGoal", goal.id)}
+                          className={`rounded-xl border p-4 text-left transition-colors ${
+                            form.learningGoal === goal.id
+                              ? "border-teal-500 bg-teal-50"
+                              : "border-slate-200 bg-white hover:bg-slate-50"
+                          }`}
+                        >
+                          <span className="block font-semibold text-slate-800">{goal.label}</span>
+                          <span className="mt-1 block text-xs text-slate-500">{goal.description}</span>
+                        </button>
+                      ))}
+                    </div>
                   </div>
+
                   <div>
-                    <label className="block text-sm font-medium text-slate-600 mb-1">Escuela</label>
-                    <input
-                      type="text"
-                      value={form.school}
-                      onChange={(e) => handleChange("school", e.target.value)}
-                      placeholder="Opcional"
-                      className="w-full px-4 py-2 rounded-xl border border-slate-200 bg-white text-slate-800 focus:outline-none focus:ring-2 focus:ring-teal-500"
-                    />
+                    <p className="block text-sm font-medium text-slate-600 mb-2">Materia prioritaria</p>
+                    <div className="inline-flex rounded-xl border border-slate-200 bg-slate-50 p-1">
+                      {SUBJECTS.map((subject) => (
+                        <button
+                          key={subject.id}
+                          type="button"
+                          onClick={() => updateForm("preferredSubject", subject.id)}
+                          className={`px-4 py-2 rounded-lg text-sm font-semibold transition-colors ${
+                            form.preferredSubject === subject.id
+                              ? "bg-white text-teal-700 shadow-sm"
+                              : "text-slate-600 hover:text-slate-800"
+                          }`}
+                        >
+                          {subject.label}
+                        </button>
+                      ))}
+                    </div>
                   </div>
                 </div>
-                <div className="mt-4 flex justify-end">
-                  <Button
-                    variant="primary"
-                    size="sm"
-                    onClick={handleSave}
-                    disabled={isNameEmpty}
-                    className={isNameEmpty ? "opacity-50 cursor-not-allowed" : ""}
-                  >
-                    Guardar Cambios
+
+                <div className="mt-5 flex justify-end">
+                  <Button variant="primary" size="sm" onClick={handleSave}>
+                    Guardar perfil
                   </Button>
                 </div>
               </div>
 
-              {/* Settings */}
               <div className="bg-white rounded-2xl p-5 border border-slate-100">
-                <h3 className="font-bold text-slate-800 mb-4">Configuración</h3>
+                <h3 className="font-bold text-slate-800 mb-4">Preferencias locales</h3>
                 <div className="space-y-4">
-                  {settings.map((setting) => (
-                    <div key={setting.id} className="flex items-center justify-between">
+                  {Object.entries(SETTING_LABELS).map(([id, copy]) => (
+                    <div key={id} className="flex items-center justify-between gap-4">
                       <div>
-                        <p className="font-medium text-slate-800">{setting.label}</p>
-                        <p className="text-sm text-slate-500">{setting.description}</p>
+                        <p className="font-medium text-slate-800">{copy.label}</p>
+                        <p className="text-sm text-slate-500">{copy.description}</p>
                       </div>
                       <button
-                        onClick={() => toggleSetting(setting.id)}
-                        className={`
-                          w-12 h-6 rounded-full transition-colors relative
-                          ${setting.enabled ? "bg-teal-500" : "bg-slate-300"}
-                        `}
+                        type="button"
+                        onClick={() => toggleSetting(id as keyof typeof settings)}
+                        className={`relative h-6 w-12 rounded-full transition-colors ${
+                          settings[id as keyof typeof settings] ? "bg-teal-500" : "bg-slate-300"
+                        }`}
+                        aria-pressed={settings[id as keyof typeof settings]}
+                        aria-label={copy.label}
                       >
                         <span
-                          className={`
-                            absolute top-1 w-4 h-4 bg-white rounded-full transition-transform
-                            ${setting.enabled ? "left-7" : "left-1"}
-                          `}
+                          className={`absolute top-1 h-4 w-4 rounded-full bg-white transition-transform ${
+                            settings[id as keyof typeof settings] ? "translate-x-7" : "translate-x-1"
+                          }`}
                         />
                       </button>
                     </div>
@@ -279,34 +294,21 @@ export default function PerfilPage() {
                 </div>
               </div>
 
-              {/* Parent Access */}
-              <div className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl p-5 text-white">
-                <h3 className="font-bold text-lg mb-2">Acceso para Padres</h3>
-                <p className="text-slate-300 text-sm mb-4">
-                  Comparte el código con tus padres para que puedan ver tu progreso.
+              <div className="bg-white rounded-2xl p-5 border border-slate-100">
+                <h3 className="font-bold text-slate-800 mb-2">Gestion de datos</h3>
+                <p className="text-sm text-slate-600 mb-4">
+                  El perfil vive en este dispositivo. INGENIUM no necesita recibirlo para que la app funcione.
                 </p>
-                <div className="flex items-center gap-3">
-                  <div className="flex-1 bg-white/10 rounded-xl px-4 py-3 font-mono text-lg tracking-wider">
-                    ING-7842-SOF
-                  </div>
-                  <Button variant="secondary" size="sm">
-                    Copiar
+                <div className="flex flex-col sm:flex-row gap-3">
+                  <Button href="/progreso" variant="secondary" size="sm">
+                    Ver progreso
                   </Button>
-                </div>
-              </div>
-
-              {/* Danger Zone */}
-              <div className="bg-red-50 rounded-2xl p-5 border border-red-100">
-                <h3 className="font-bold text-red-800 mb-2">Zona de Peligro</h3>
-                <p className="text-red-600 text-sm mb-4">
-                  Estas acciones no se pueden deshacer.
-                </p>
-                <div className="flex gap-3">
-                  <button className="px-4 py-2 bg-white border border-red-200 text-red-600 rounded-lg text-sm font-semibold hover:bg-red-100 transition-colors">
-                    Borrar Progreso
-                  </button>
-                  <button className="px-4 py-2 bg-red-600 text-white rounded-lg text-sm font-semibold hover:bg-red-700 transition-colors">
-                    Eliminar Cuenta
+                  <button
+                    type="button"
+                    onClick={handleReset}
+                    className="px-4 py-2 bg-red-50 border border-red-100 text-red-700 rounded-lg text-sm font-semibold hover:bg-red-100 transition-colors"
+                  >
+                    Restablecer perfil local
                   </button>
                 </div>
               </div>
