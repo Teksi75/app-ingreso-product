@@ -126,10 +126,14 @@ function createEmptyProgress(): StoredProgress {
 }
 
 function writeProgress(progress: StoredProgress): void {
-  mkdirSync(dirname(progressPath), { recursive: true });
-  const tempPath = `${progressPath}.tmp`;
-  writeFileSync(tempPath, `${JSON.stringify(progress, null, 2)}\n`, "utf8");
-  renameSync(tempPath, progressPath);
+  try {
+    mkdirSync(dirname(progressPath), { recursive: true });
+    const tempPath = `${progressPath}.tmp`;
+    writeFileSync(tempPath, `${JSON.stringify(progress, null, 2)}\n`, "utf8");
+    renameSync(tempPath, progressPath);
+  } catch {
+    // Silently fail in environments where filesystem is read-only (e.g. Vercel serverless)
+  }
 }
 
 function createSessionId(): string {
