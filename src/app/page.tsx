@@ -470,35 +470,35 @@ export default async function DashboardPage() {
             </BentoCard>
 
             {/* Reporte para Padres */}
-            <div className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl p-5 lg:p-6 text-white">
+            <div className="rounded-2xl border border-teal-100 bg-gradient-to-br from-teal-50 via-white to-violet-50 p-5 lg:p-6 shadow-sm">
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center flex-shrink-0">
-                  <svg className="w-6 h-6 text-teal-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div className="w-12 h-12 rounded-xl bg-white border border-teal-100 text-teal-600 flex items-center justify-center flex-shrink-0 shadow-sm">
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                   </svg>
                 </div>
                 <div className="flex-1 min-w-0">
-                  <h3 className="font-bold text-lg mb-1">Reporte de Progreso</h3>
-                  <p className="text-slate-300 text-sm mb-4">
+                  <h3 className="font-bold text-lg mb-1 text-slate-800">Reporte de Progreso</h3>
+                  <p className="text-slate-600 text-sm mb-4">
                     Estadísticas reales de entrenamiento y práctica.
                   </p>
                   <div className="grid grid-cols-3 gap-2 mb-4">
-                    <div className="bg-white/5 rounded-lg p-2 text-center">
-                      <div className="text-lg font-bold text-teal-400">{stats.activeDays}</div>
-                      <div className="text-xs text-slate-400">Días</div>
+                    <div className="bg-white/80 border border-teal-100 rounded-lg p-2 text-center">
+                      <div className="text-lg font-bold text-teal-600">{stats.activeDays}</div>
+                      <div className="text-xs text-slate-500">Días</div>
                     </div>
-                    <div className="bg-white/5 rounded-lg p-2 text-center">
-                      <div className="text-lg font-bold text-teal-400">{stats.totalAttempts}</div>
-                      <div className="text-xs text-slate-400">Ejercicios</div>
+                    <div className="bg-white/80 border border-violet-100 rounded-lg p-2 text-center">
+                      <div className="text-lg font-bold text-violet-600">{stats.totalAttempts}</div>
+                      <div className="text-xs text-slate-500">Ejercicios</div>
                     </div>
-                    <div className="bg-white/5 rounded-lg p-2 text-center">
-                      <div className="text-lg font-bold text-teal-400">{stats.accuracy}%</div>
-                      <div className="text-xs text-slate-400">Precisión</div>
+                    <div className="bg-white/80 border border-orange-100 rounded-lg p-2 text-center">
+                      <div className="text-lg font-bold text-orange-600">{stats.accuracy}%</div>
+                      <div className="text-xs text-slate-500">Precisión</div>
                     </div>
                   </div>
                   <a
                     href="/dashboard"
-                    className="text-sm font-semibold text-teal-400 hover:text-teal-300 flex items-center gap-1"
+                    className="text-sm font-semibold text-teal-700 hover:text-teal-800 flex items-center gap-1"
                   >
                     Ver Reporte Detallado
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
