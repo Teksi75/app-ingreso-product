@@ -33,10 +33,8 @@ export default async function PracticePage({ searchParams }: PracticePageProps) 
   const usedExerciseIds = parseUsedExerciseIds(used);
   const forceNewStudent = isEnabledParam(newStudent);
   const practiceMode: PracticeMode = modeParam === "reading" || unit ? "reading" : "training";
-  const readingUnitId = unit ?? "RU-LEN-BIO-001";
-  const restartHref = buildRestartHref({ skill, forceNewStudent, mode: practiceMode, unit: readingUnitId });
   const practiceSelection = practiceMode === "reading"
-    ? startReadingUnitSession(readingUnitId, usedExerciseIds, { forceNewStudent, focusSubskill: focus })
+    ? startReadingUnitSession(unit ?? null, usedExerciseIds, { forceNewStudent, focusSubskill: focus })
     : startPracticeSession(
       skill ?? null,
       usedExerciseIds,
@@ -45,6 +43,17 @@ export default async function PracticePage({ searchParams }: PracticePageProps) 
   if (!practiceSelection?.exercise) {
     throw new Error("No exercise available for practice session");
   }
+
+  const resolvedReadingUnitId = practiceSelection.sessionType === "reading-based"
+    ? practiceSelection.readingUnit?.id
+    : undefined;
+
+  const restartHref = buildRestartHref({
+    skill,
+    forceNewStudent,
+    mode: practiceMode,
+    unit: resolvedReadingUnitId,
+  });
 
   const pageTitle = practiceSelection.sessionType === "reading-based"
     ? "Comprensión lectora"

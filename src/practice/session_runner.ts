@@ -184,6 +184,15 @@ export type PracticeSessionProgressInput = {
   correct: number;
   currentMastery: MasteryLevel;
   readingUnitId?: string;
+  focusResults?: PracticeSessionFocusResult[];
+};
+
+export type PracticeSessionFocusResult = {
+  focusId: string;
+  skillId: string;
+  attempts: number;
+  correct: number;
+  currentMastery: MasteryLevel;
 };
 
 export type RecommendedSubskill = {
@@ -192,6 +201,14 @@ export type RecommendedSubskill = {
   parentSkill: string;
   masteryLevel: MasteryLevel;
   recommendedMastery: MasteryLevel;
+};
+
+export type ReadingUnitCandidate = {
+  id: string;
+  title: string;
+  source: ReadingUnit["source"];
+  skillIds: string[];
+  exerciseCount: number;
 };
 
 export type PracticeSessionProgressResult = {
@@ -675,6 +692,59 @@ function getReadingUnitForPool(exercises: Exercise[]): ReadingUnit | undefined {
     : undefined;
 }
 
+function buildReadingUnitCandidates(exercises: Exercise[]): ReadingUnitCandidate[] {
+  const byUnit = new Map<string, ReadingUnitCandidate>();
+
+  for (const exercise of exercises) {
+    const readingUnit = exercise.reading_unit;
+
+    if (!readingUnit) {
+      continue;
+    }
+
+    const previous = byUnit.get(readingUnit.id);
+
+    byUnit.set(readingUnit.id, {
+      id: readingUnit.id,
+      title: readingUnit.title,
+      source: readingUnit.source,
+      exerciseCount: (previous?.exerciseCount ?? 0) + 1,
+      skillIds: Array.from(new Set([
+        ...(previous?.skillIds ?? []),
+        exercise.skill_id,
+      ])).sort((left, right) => left.localeCompare(right)),
+    });
+  }
+
+  return [...byUnit.values()];
+}
+
+function compareReadingUnitCandidates(
+  left: ReadingUnitCandidate,
+  right: ReadingUnitCandidate,
+  preferredSkillId: string | null,
+): number {
+  const leftMatches = preferredSkillId && left.skillIds.includes(preferredSkillId) ? 0 : 1;
+  const rightMatches = preferredSkillId && right.skillIds.includes(preferredSkillId) ? 0 : 1;
+  const leftSourceRank = left.source === "original_interno" ? 0 : 1;
+  const rightSourceRank = right.source === "original_interno" ? 0 : 1;
+
+  return leftMatches - rightMatches ||
+    leftSourceRank - rightSourceRank ||
+    right.exerciseCount - left.exerciseCount ||
+    left.title.localeCompare(right.title);
+}
+
+export function getReadingUnitCandidates(): ReadingUnitCandidate[] {
+  return buildReadingUnitCandidates(loadLenguaExercises())
+    .sort((left, right) => compareReadingUnitCandidates(left, right, null));
+}
+
+export function pickReadingUnitCandidate(preferredSkillId: string | null): ReadingUnitCandidate | null {
+  return [...getReadingUnitCandidates()]
+    .sort((left, right) => compareReadingUnitCandidates(left, right, preferredSkillId))[0] ?? null;
+}
+
 function createPracticeSelection(
   mode: PracticeMode,
   exercisePool: Exercise[],
@@ -762,29 +832,21 @@ export async function savePracticeSessionProgress(
 ): Promise<PracticeSessionProgressResult> {
   "use server";
 
-  const masteryLevel = calculateUpdatedMastery(input);
+  const focusResults = normalizePracticeSessionFocusResults(input);
+  const activeFocus = focusResults.find((focus) => focus.focusId === input.currentFocus) ?? focusResults[0];
+  const masteryLevel = calculateUpdatedMastery({
+    ...input,
+    attempts: activeFocus?.attempts ?? input.attempts,
+    correct: activeFocus?.correct ?? input.correct,
+    currentMastery: activeFocus?.currentMastery ?? input.currentMastery,
+  });
   const skillState = getSkillState(masteryLevel);
   const progress = saveSessionResult({
     mode: getStoredSessionMode(input.sessionType),
     total_attempts: input.attempts,
     total_correct: input.correct,
     total_errors: input.attempts - input.correct,
-    skill_results: [
-      {
-        skill_id: input.skillId,
-        attempts: input.attempts,
-        correct: input.correct,
-        state: skillState,
-        mastery_level: masteryLevel,
-      },
-      {
-        skill_id: input.currentFocus,
-        attempts: input.attempts,
-        correct: input.correct,
-        state: skillState,
-        mastery_level: masteryLevel,
-      },
-    ],
+    skill_results: buildSessionSkillResults(focusResults),
     readingUnitId: input.readingUnitId,
   });
   const snapshot = getPracticeProgressSnapshot(progress);
@@ -796,6 +858,84 @@ export async function savePracticeSessionProgress(
       masteryByFocus: snapshot.masteryByFocus,
     }),
   };
+}
+
+function normalizePracticeSessionFocusResults(
+  input: PracticeSessionProgressInput,
+): PracticeSessionFocusResult[] {
+  if (!input.focusResults || input.focusResults.length === 0) {
+    return [{
+      focusId: input.currentFocus,
+      skillId: input.skillId,
+      attempts: input.attempts,
+      correct: input.correct,
+      currentMastery: input.currentMastery,
+    }];
+  }
+
+  const byFocus = new Map<string, PracticeSessionFocusResult>();
+
+  for (const focusResult of input.focusResults) {
+    const previous = byFocus.get(focusResult.focusId);
+
+    byFocus.set(focusResult.focusId, {
+      focusId: focusResult.focusId,
+      skillId: focusResult.skillId,
+      attempts: (previous?.attempts ?? 0) + focusResult.attempts,
+      correct: (previous?.correct ?? 0) + focusResult.correct,
+      currentMastery: clampMasteryLevel(Math.max(previous?.currentMastery ?? 1, focusResult.currentMastery)),
+    });
+  }
+
+  return [...byFocus.values()];
+}
+
+function buildSessionSkillResults(
+  focusResults: PracticeSessionFocusResult[],
+): Array<{
+  skill_id: string;
+  attempts: number;
+  correct: number;
+  state: SkillState;
+  mastery_level: MasteryLevel;
+}> {
+  const bySkill = new Map<string, PracticeSessionFocusResult>();
+
+  for (const focusResult of focusResults) {
+    const previous = bySkill.get(focusResult.skillId);
+
+    bySkill.set(focusResult.skillId, {
+      focusId: focusResult.skillId,
+      skillId: focusResult.skillId,
+      attempts: (previous?.attempts ?? 0) + focusResult.attempts,
+      correct: (previous?.correct ?? 0) + focusResult.correct,
+      currentMastery: clampMasteryLevel(Math.max(previous?.currentMastery ?? 1, focusResult.currentMastery)),
+    });
+  }
+
+  const toStoredResult = (entry: PracticeSessionFocusResult) => {
+    const mastery_level = calculateUpdatedMastery({
+      sessionType: "standalone-exercises",
+      currentFocus: entry.focusId,
+      skillId: entry.skillId,
+      attempts: entry.attempts,
+      correct: entry.correct,
+      currentMastery: entry.currentMastery,
+    });
+
+    return {
+      skill_id: entry.focusId,
+      attempts: entry.attempts,
+      correct: entry.correct,
+      state: getSkillState(mastery_level),
+      mastery_level,
+    };
+  };
+
+  return [
+    ...[...bySkill.values()].map(toStoredResult),
+    ...focusResults.map(toStoredResult),
+  ];
 }
 
 function findExercise(fullExercises: Exercise[], selectorExercise: SelectorExercise): Exercise {
@@ -1050,7 +1190,7 @@ export function startReadingUnitSession(
     throw new Error("No reading unit exercises available");
   }
 
-  const selectedUnitId = readingUnitId ?? readingExercises
+  const selectedUnitId = readingUnitId ?? pickReadingUnitCandidate(null)?.id ?? readingExercises
     .map((exercise) => exercise.reading_unit_id)
     .filter((id): id is string => Boolean(id))
     .sort()[0];

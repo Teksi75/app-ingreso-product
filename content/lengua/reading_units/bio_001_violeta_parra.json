@@ -6,7 +6,7 @@
   "difficulty": 2,
   "textType": "biografia",
   "source": "original_interno",
-  "sourceLabel": "Texto original elaborado a partir de datos biográficos verificables de dominio público.",
+  "sourceLabel": "Texto original elaborado a partir de datos biograficos verificables de dominio publico.",
   "license": "CC-BY-4.0-interno",
   "moduleFit": ["modulo_1", "modulo_2"],
   "wordCountApprox": 730,
@@ -19,12 +19,5 @@
     { "word": "ambicioso", "definition": "que aspira a lograr algo grande" },
     { "word": "conversión", "definition": "cambio o transformación" },
     { "word": "reconocimiento", "definition": "acción de valorar o admitir el mérito de alguien" }
-  ],
-  "image": {
-    "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Violeta_Parra.jpg/500px-Violeta_Parra.jpg",
-    "alt": "Retrato fotográfico de Violeta Parra",
-    "caption": "Violeta Parra (1917-1967), artista chilena.",
-    "attribution": "Ariel Quiroz / CC BY 2.0",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Violeta_Parra.jpg"
-  }
+  ]
 }

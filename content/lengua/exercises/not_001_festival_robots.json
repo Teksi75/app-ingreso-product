@@ -1,0 +1,63 @@
+{
+  "readingUnitId": "RU-LEN-NOT-001",
+  "moduleFit": ["modulo_3"],
+  "exercises": [
+    {
+      "id": "M3-NOT-001",
+      "readingUnitId": "RU-LEN-NOT-001",
+      "skill": "lengua.skill_1",
+      "subskill": "lengua.skill_1.subskill_1",
+      "difficulty": 1,
+      "mastery_level": 1,
+      "type": "multiple_choice",
+      "question": "Segun el copete, para que se reunieron vecinos, estudiantes y tecnicos?",
+      "options": [
+        "Para inaugurar un nuevo dique en la region",
+        "Para reconstruir historias del antiguo Pueblo del Sauce con robots y archivos de familia",
+        "Para vender maquinas reutilizadas a otras escuelas",
+        "Para anunciar el cierre definitivo del centro cultural"
+      ],
+      "correctAnswer": "Para reconstruir historias del antiguo Pueblo del Sauce con robots y archivos de familia",
+      "feedback_correct": "Correcto: ese objetivo aparece de forma explicita en el copete.",
+      "feedback_incorrect": "Revisa el copete: resume el proposito central del festival."
+    },
+    {
+      "id": "M3-NOT-002",
+      "readingUnitId": "RU-LEN-NOT-001",
+      "skill": "lengua.skill_1",
+      "subskill": "lengua.skill_1.subskill_2",
+      "difficulty": 2,
+      "mastery_level": 1,
+      "type": "multiple_choice",
+      "question": "Por que la profesora de tecnologia sugirio construir dispositivos interactivos?",
+      "options": [
+        "Porque queria reemplazar las entrevistas por una competencia de robotica",
+        "Porque varios chicos querian compartir el material reunido sin dejarlo encerrado en vitrinas",
+        "Porque el centro cultural exigia usar maquinas en todas las muestras",
+        "Porque los abuelos del barrio se negaban a prestar fotografias"
+      ],
+      "correctAnswer": "Porque varios chicos querian compartir el material reunido sin dejarlo encerrado en vitrinas",
+      "feedback_correct": "Correcto: la sugerencia aparece como respuesta a una necesidad del proyecto.",
+      "feedback_incorrect": "Vuelve al parrafo donde se explica como nacio la propuesta."
+    },
+    {
+      "id": "M3-NOT-003",
+      "readingUnitId": "RU-LEN-NOT-001",
+      "skill": "lengua.skill_5",
+      "subskill": "lengua.skill_5.subskill_1",
+      "difficulty": 2,
+      "mastery_level": 2,
+      "type": "multiple_choice",
+      "question": "En la oracion 'en junio se abriran visitas guiadas para escuelas de la zona', la forma verbal 'se abriran' expresa:",
+      "options": [
+        "un hecho pasado ya finalizado",
+        "una orden en modo imperativo",
+        "una accion futura anunciada",
+        "una condicion imposible"
+      ],
+      "correctAnswer": "una accion futura anunciada",
+      "feedback_correct": "Correcto: el verbo esta en futuro y presenta una proyeccion de la noticia.",
+      "feedback_incorrect": "Observa la referencia temporal 'en junio' y la forma verbal usada."
+    }
+  ]
+}

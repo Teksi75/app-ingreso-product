@@ -5,6 +5,7 @@ import { Button } from "@/components/ui";
 import {
   type Exercise,
   type PracticeSelection,
+  type PracticeSessionFocusResult,
   type RecommendedSubskill,
   type MasteryNode,
   type PracticeSessionProgressInput,
@@ -20,6 +21,11 @@ type PracticeQuestionProps = {
   saveProgress: (input: PracticeSessionProgressInput) => Promise<PracticeSessionProgressResult>;
 };
 
+type AnsweredExerciseResult = {
+  exerciseId: string;
+  correct: boolean;
+};
+
 const MAX_QUESTIONS = 10;
 
 export function PracticeQuestion({
@@ -33,6 +39,7 @@ export function PracticeQuestion({
     Array.from(new Set(session.usedExerciseIds)),
   );
   const [correctCount, setCorrectCount] = useState(0);
+  const [answeredResults, setAnsweredResults] = useState<AnsweredExerciseResult[]>([]);
   const [sessionCompleted, setSessionCompleted] = useState(false);
   const [progressResult, setProgressResult] = useState<PracticeSessionProgressResult | null>(null);
   const [isSavingProgress, setIsSavingProgress] = useState(false);
@@ -127,13 +134,23 @@ export function PracticeQuestion({
 
   async function handleNext() {
     const nextCorrectCount = correctCount + (isCorrect ? 1 : 0);
+    const nextAnsweredResults = [
+      ...answeredResults.filter((result) => result.exerciseId !== currentExercise.id),
+      { exerciseId: currentExercise.id, correct: isCorrect },
+    ];
+
     setCorrectCount(nextCorrectCount);
+    setAnsweredResults(nextAnsweredResults);
 
     if (currentExerciseIndex + 1 >= sessionQuestionCount) {
       setSessionCompleted(true);
       setIsSavingProgress(true);
 
       try {
+        const focusResults = buildFocusResults(
+          session.sessionExercises.slice(0, sessionQuestionCount),
+          nextAnsweredResults,
+        );
         const result = await saveProgress({
           sessionType: session.sessionType,
           currentFocus: currentExercise.subskill,
@@ -142,6 +159,7 @@ export function PracticeQuestion({
           correct: nextCorrectCount,
           currentMastery: currentExercise.mastery_level,
           readingUnitId: currentExercise.readingUnitId ?? currentExercise.reading_unit_id ?? undefined,
+          focusResults,
         });
 
         setProgressResult(result);
@@ -705,6 +723,34 @@ function buildPracticeHref(
   }
 
   return `/practice?${params.toString()}`;
+}
+
+function buildFocusResults(
+  exercises: Exercise[],
+  answeredResults: AnsweredExerciseResult[],
+): PracticeSessionFocusResult[] {
+  const byExerciseId = new Map(answeredResults.map((result) => [result.exerciseId, result]));
+  const byFocus = new Map<string, PracticeSessionFocusResult>();
+
+  for (const exercise of exercises) {
+    const answered = byExerciseId.get(exercise.id);
+
+    if (!answered) {
+      continue;
+    }
+
+    const previous = byFocus.get(exercise.subskill);
+
+    byFocus.set(exercise.subskill, {
+      focusId: exercise.subskill,
+      skillId: exercise.skill_id,
+      attempts: (previous?.attempts ?? 0) + 1,
+      correct: (previous?.correct ?? 0) + (answered.correct ? 1 : 0),
+      currentMastery: Math.max(previous?.currentMastery ?? 1, exercise.mastery_level) as 1 | 2 | 3 | 4,
+    });
+  }
+
+  return [...byFocus.values()];
 }
 
 function getStableShuffledOptions(exercise: Exercise): string[] {

@@ -4,6 +4,7 @@ import {
   SidebarNav,
   Button,
 } from "@/components/ui";
+import { pickReadingUnitCandidate } from "@/practice/session_runner";
 
 export const dynamic = "force-dynamic";
 
@@ -97,6 +98,7 @@ const colorConfig: Record<string, { bg: string; text: string; button: string; pr
 
 export default async function HabilidadesPage() {
   const data = getSkillData();
+  const defaultReadingUnit = pickReadingUnitCandidate(null);
 
   const HABILIDADES = HABILIDADES_BASE.map((skill) => {
     if (skill.id === "lengua") {
@@ -317,11 +319,17 @@ export default async function HabilidadesPage() {
                 </div>
                 <div className="flex-1">
                   <h3 className="font-bold text-slate-800 mb-1">¿Sabías que...?</h3>
-                  <p className="text-slate-600 mb-3">
-                    La <span className="font-semibold text-violet-600">Lengua</span> es tu área con mayor potencial de mejora.
-                    Practica comprensión lectora con textos reales como la biografía de Violeta Parra.
-                  </p>
-                  <Button href="/practice?mode=reading&unit=RU-LEN-BIO-001" variant="secondary" size="sm">
+                   <p className="text-slate-600 mb-3">
+                     La <span className="font-semibold text-violet-600">Lengua</span> es tu área con mayor potencial de mejora.
+                    Practica comprensión lectora con el pack canónico de textos y actividades guiadas.
+                   </p>
+                  <Button
+                    href={defaultReadingUnit
+                      ? `/practice?mode=reading&unit=${encodeURIComponent(defaultReadingUnit.id)}`
+                      : "/practice?mode=training&skill=lengua.skill_1"}
+                    variant="secondary"
+                    size="sm"
+                  >
                     Practicar Lengua
                   </Button>
                 </div>

@@ -10,6 +10,7 @@ import {
 } from "@/components/ui";
 import { ClientStudentName } from "@/components/dashboard/ClientStudentName";
 import { ClientAvatarHero } from "@/components/dashboard/ClientAvatarHero";
+import { pickReadingUnitCandidate } from "@/practice/session_runner";
 
 export const dynamic = "force-dynamic";
 
@@ -23,6 +24,7 @@ function getRank(level: number): string {
 
 function calculateDashboardData() {
   const progress = loadProgress();
+  const defaultReadingUnit = pickReadingUnitCandidate(null);
   const sessions = progress.sessions;
   const totalAttempts = sessions.reduce((sum, s) => sum + s.total_attempts, 0);
   const totalCorrect = sessions.reduce((sum, s) => sum + s.total_correct, 0);
@@ -116,10 +118,14 @@ function calculateDashboardData() {
     ],
     dailyChallenge: {
       title: "Desafío del Día",
-      description: "Lee la biografía de Violeta Parra y responde preguntas de comprensión",
+      description: defaultReadingUnit
+        ? `Lee \"${defaultReadingUnit.title}\" y responde actividades de comprension lectora.`
+        : "Abre una lectura guiada de Lengua y responde actividades de comprension.",
       reward: 150,
       difficulty: "Lengua",
-      href: "/practice?mode=reading&unit=RU-LEN-BIO-001",
+      href: defaultReadingUnit
+        ? `/practice?mode=reading&unit=${encodeURIComponent(defaultReadingUnit.id)}`
+        : "/practice?mode=training&skill=lengua.skill_1",
     },
     nextSimulation: {
       title: "Simulacro",

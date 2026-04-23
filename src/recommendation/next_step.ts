@@ -5,7 +5,11 @@ import {
   explainWeakestSkill,
 } from "../progress/mastery_model.ts";
 import { loadProgress, type SessionMode, type StoredProgress } from "../storage/local_progress_store.ts";
-import { loadLenguaExercises } from "../practice/session_runner.ts";
+import {
+  getReadingUnitCandidates,
+  pickReadingUnitCandidate,
+  type ReadingUnitCandidate,
+} from "../practice/session_runner.ts";
 
 export type NextStepRecommendationKind =
   | "continue-reading-unit"
@@ -28,12 +32,6 @@ export type NextStepRecommendation = {
     weakestSkillId?: string | null;
     recentSessionModes: SessionMode[];
   };
-};
-
-type ReadingUnitCandidate = {
-  id: string;
-  title: string;
-  skillIds: string[];
 };
 
 export function getNextStepRecommendation(
@@ -156,7 +154,7 @@ export function getNextStepRecommendation(
     };
   }
 
-  const defaultReadingUnit = pickReadingUnit(readingUnits, null) ?? readingUnits[0];
+  const defaultReadingUnit = pickReadingUnitCandidate(null) ?? readingUnits[0];
 
   return {
     kind: "start-reading-unit",
@@ -174,29 +172,6 @@ export function getNextStepRecommendation(
   };
 }
 
-function getReadingUnitCandidates(): ReadingUnitCandidate[] {
-  const byUnit = new Map<string, ReadingUnitCandidate>();
-
-  for (const exercise of loadLenguaExercises()) {
-    const readingUnit = exercise.reading_unit;
-
-    if (!readingUnit) {
-      continue;
-    }
-
-    byUnit.set(readingUnit.id, {
-      id: readingUnit.id,
-      title: readingUnit.title,
-      skillIds: Array.from(new Set([
-        ...(byUnit.get(readingUnit.id)?.skillIds ?? []),
-        exercise.skill_id,
-      ])).sort((left, right) => left.localeCompare(right)),
-    });
-  }
-
-  return [...byUnit.values()].sort((left, right) => left.title.localeCompare(right.title));
-}
-
 function pickReadingUnit(
   readingUnits: ReadingUnitCandidate[],
   preferredSkillId: string | null,
@@ -204,8 +179,10 @@ function pickReadingUnit(
   return [...readingUnits].sort((left, right) => {
     const leftMatches = preferredSkillId && left.skillIds.includes(preferredSkillId) ? 0 : 1;
     const rightMatches = preferredSkillId && right.skillIds.includes(preferredSkillId) ? 0 : 1;
+    const leftSourceRank = left.source === "original_interno" ? 0 : 1;
+    const rightSourceRank = right.source === "original_interno" ? 0 : 1;
 
-    return leftMatches - rightMatches || left.title.localeCompare(right.title);
+    return leftMatches - rightMatches || leftSourceRank - rightSourceRank || right.exerciseCount - left.exerciseCount || left.title.localeCompare(right.title);
   })[0] ?? null;
 }
 

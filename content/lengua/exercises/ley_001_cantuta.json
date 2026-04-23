@@ -1,0 +1,63 @@
+{
+  "readingUnitId": "RU-LEN-LEY-001",
+  "moduleFit": ["modulo_4", "modulo_5"],
+  "exercises": [
+    {
+      "id": "M4-LEY-001",
+      "readingUnitId": "RU-LEN-LEY-001",
+      "skill": "lengua.skill_1",
+      "subskill": "lengua.skill_1.subskill_2",
+      "difficulty": 2,
+      "mastery_level": 1,
+      "type": "multiple_choice",
+      "question": "Por que la anciana desconocida le pidio a Sumaq que cantara desde la loma?",
+      "options": [
+        "Porque queria entretener a los viajeros que llegaban al poblado",
+        "Porque solo un yaravi fuerte podia guiar a Amaru a traves de la noche y el derrumbe",
+        "Porque deseaba comprobar si la quena de la joven estaba afinada",
+        "Porque necesitaba dormir y el canto la tranquilizaba"
+      ],
+      "correctAnswer": "Porque solo un yaravi fuerte podia guiar a Amaru a traves de la noche y el derrumbe",
+      "feedback_correct": "Correcto: la anciana relaciona el canto con el regreso seguro del mensajero.",
+      "feedback_incorrect": "Relee el tramo en que la anciana explica como puede volver Amaru."
+    },
+    {
+      "id": "M4-LEY-002",
+      "readingUnitId": "RU-LEN-LEY-001",
+      "skill": "lengua.skill_2",
+      "subskill": "lengua.skill_2.subskill_3",
+      "difficulty": 2,
+      "mastery_level": 2,
+      "type": "multiple_choice",
+      "question": "En el fragmento 'Nadie queria alarmar a los ninos, aunque todos comprendieron que se acercaba una sequia dificil', el conector 'aunque' indica una relacion de:",
+      "options": [
+        "suma de ideas equivalentes",
+        "oposicion o contraste entre dos ideas",
+        "orden cronologico estricto",
+        "explicacion de un ejemplo"
+      ],
+      "correctAnswer": "oposicion o contraste entre dos ideas",
+      "feedback_correct": "Correcto: el conector une dos ideas que se tensionan entre si.",
+      "feedback_incorrect": "Piensa si la segunda parte acompana o contrasta con la primera."
+    },
+    {
+      "id": "M4-LEY-003",
+      "readingUnitId": "RU-LEN-LEY-001",
+      "skill": "lengua.skill_6",
+      "subskill": "lengua.skill_6.subskill_1",
+      "difficulty": 2,
+      "mastery_level": 2,
+      "type": "multiple_choice",
+      "question": "Cual opcion completa correctamente esta idea del texto? 'El pueblo esperaba que Amaru pudiera ____ con ayuda del canto y ____ a tiempo con noticias y reservas'.",
+      "options": [
+        "bolver / bolber",
+        "volver / volver",
+        "bolver / volver",
+        "volver / bolver"
+      ],
+      "correctAnswer": "volver / volver",
+      "feedback_correct": "Correcto: en ambos casos corresponde escribir 'volver' con v.",
+      "feedback_incorrect": "Revisa la grafia correcta del verbo 'volver'."
+    }
+  ]
+}

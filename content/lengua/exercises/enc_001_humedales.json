@@ -1,0 +1,63 @@
+{
+  "readingUnitId": "RU-LEN-ENC-001",
+  "moduleFit": ["modulo_5"],
+  "exercises": [
+    {
+      "id": "M5-ENC-001",
+      "readingUnitId": "RU-LEN-ENC-001",
+      "skill": "lengua.skill_1",
+      "subskill": "lengua.skill_1.subskill_1",
+      "difficulty": 1,
+      "mastery_level": 1,
+      "type": "multiple_choice",
+      "question": "Segun el apartado 'Por que son importantes', cual es una funcion de los humedales?",
+      "options": [
+        "Aumentar siempre la velocidad de las crecidas",
+        "Almacenar agua y liberarla lentamente",
+        "Transformar rios en zonas secas durante el verano",
+        "Impedir por completo la presencia de aves migratorias"
+      ],
+      "correctAnswer": "Almacenar agua y liberarla lentamente",
+      "feedback_correct": "Correcto: el texto menciona esa funcion de manera directa.",
+      "feedback_incorrect": "Busca la explicacion del segundo subtitulo dedicado a su importancia."
+    },
+    {
+      "id": "M5-ENC-002",
+      "readingUnitId": "RU-LEN-ENC-001",
+      "skill": "lengua.skill_4",
+      "subskill": "lengua.skill_4.subskill_3",
+      "difficulty": 2,
+      "mastery_level": 2,
+      "type": "multiple_choice",
+      "question": "En la oracion 'Muchas aves migratorias descansan alli durante sus viajes', cual es el sujeto?",
+      "options": [
+        "descansan alli",
+        "durante sus viajes",
+        "Muchas aves migratorias",
+        "sus viajes"
+      ],
+      "correctAnswer": "Muchas aves migratorias",
+      "feedback_correct": "Correcto: ese grupo de palabras nombra quien realiza la accion.",
+      "feedback_incorrect": "Identifica quien descansa, no donde ni cuando ocurre la accion."
+    },
+    {
+      "id": "M5-ENC-003",
+      "readingUnitId": "RU-LEN-ENC-001",
+      "skill": "lengua.skill_6",
+      "subskill": "lengua.skill_6.subskill_1",
+      "difficulty": 2,
+      "mastery_level": 2,
+      "type": "multiple_choice",
+      "question": "Cual de estas palabras esta escrita correctamente y aparece en el texto?",
+      "options": [
+        "depurasion",
+        "depuracion",
+        "depurazion",
+        "deppuracion"
+      ],
+      "correctAnswer": "depuracion",
+      "feedback_correct": "Correcto: 'depuracion' se escribe con c y aparece en el articulo.",
+      "feedback_incorrect": "Vuelve al apartado sobre la importancia de los humedales y observa la grafia."
+    }
+  ]
+}

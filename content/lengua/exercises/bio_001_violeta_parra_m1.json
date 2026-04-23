@@ -11,10 +11,10 @@
       "mastery_level": 1,
       "type": "multiple_choice_multiple",
       "question": "Marca cuáles de los siguientes paratextos aparecen en el estímulo.",
-      "options": ["título", "subtítulo", "copete", "glosario", "epígrafe", "índice", "imagen", "fuente", "mapa", "infografía"],
-      "correctAnswers": ["título", "subtítulo", "glosario", "imagen", "fuente"],
-      "feedback_correct": "Correcto: el estímulo presenta título, subtítulo, fuente, glosario e imagen.",
-      "feedback_incorrect": "Revisa los elementos que acompañan al texto: arriba aparecen título, subtítulo e imagen; también hay fuente y glosario."
+      "options": ["título", "subtítulo", "copete", "glosario", "epígrafe", "índice", "fuente", "mapa", "infografía"],
+      "correctAnswers": ["título", "subtítulo", "glosario", "fuente"],
+      "feedback_correct": "Correcto: el estímulo presenta título, subtítulo, fuente y glosario.",
+      "feedback_incorrect": "Revisa los elementos que acompañan al texto: arriba aparecen título y subtítulo; también hay fuente y glosario."
     },
     {
       "id": "M1-BIO-002",
