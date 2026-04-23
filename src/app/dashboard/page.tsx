@@ -2,8 +2,11 @@ import { ActionPanel } from "../../components/dashboard/ActionPanel";
 import { Header } from "../../components/dashboard/Header";
 import { SkillList } from "../../components/dashboard/SkillList";
 import {
+  CANONICAL_LENGUA_SKILLS,
+  getNextStepRecommendation,
+} from "../../recommendation/next_step";
+import {
   getPracticeProgressSnapshot,
-  getWeakestPracticeSkillId,
   loadProgress,
   type PracticeProgressSnapshot,
   type SkillState,
@@ -25,16 +28,6 @@ type DashboardPageProps = {
   }>;
 };
 
-const canonicalDashboardSkills = [
-  "lengua.skill_1",
-  "lengua.skill_2",
-  "lengua.skill_3",
-  "lengua.skill_4",
-  "lengua.skill_5",
-  "lengua.skill_6",
-  "lengua.skill_7",
-];
-
 export default async function DashboardPage({ searchParams }: DashboardPageProps) {
   const params = await searchParams;
   const newStudent = Array.isArray(params.newStudent) ? params.newStudent[0] : params.newStudent;
@@ -42,15 +35,18 @@ export default async function DashboardPage({ searchParams }: DashboardPageProps
   const progress = isNewStudent ? null : loadProgress();
   const snapshot = progress ? getPracticeProgressSnapshot(progress) : null;
   const skills = snapshot ? getDashboardSkills(snapshot) : [];
-  const weakestSkillId = progress ? getWeakestPracticeSkillId(canonicalDashboardSkills, progress) : null;
-  const weakestSkill = weakestSkillId ? skills.find((skill) => skill.skill === weakestSkillId) ?? null : null;
+  const recommendation = getNextStepRecommendation(progress ?? {
+    sessions: [],
+    seenSkills: [],
+    skill_stats: {},
+  });
 
   return (
     <main className="min-h-screen bg-[#f7f7f4] px-4 py-8 text-[#1d1d1b]">
       <section className="mx-auto grid max-w-[840px] gap-5">
         <Header title={isNewStudent ? "Nuevo Alumno" : "Tu progreso"} />
         <SkillList skills={skills} />
-        <ActionPanel isNewStudent={isNewStudent} skill={weakestSkill} />
+        <ActionPanel isNewStudent={isNewStudent} recommendation={recommendation} />
       </section>
     </main>
   );
@@ -59,7 +55,7 @@ export default async function DashboardPage({ searchParams }: DashboardPageProps
 function getDashboardSkills(snapshot: PracticeProgressSnapshot): DashboardSkill[] {
   const skillStats = snapshot.practiceSkillStats;
 
-  return canonicalDashboardSkills.map((skill) => {
+  return [...CANONICAL_LENGUA_SKILLS].map((skill) => {
     const stats = skillStats[skill];
     const attempts = stats?.total_attempts ?? 0;
 

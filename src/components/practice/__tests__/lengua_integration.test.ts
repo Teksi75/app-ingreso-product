@@ -248,8 +248,14 @@ function assertReadingUnitSessionsShareGeneratedTexts(): void {
     startReadingUnitSession("RU-LEN-INF-001", [], { forceNewStudent: true })
   ));
 
+  assert.equal(session.mode, "reading");
+  assert.equal(session.sessionType, "reading-based");
   assert.equal(session.readingUnit.id, "RU-LEN-INF-001");
   assert.ok(session.exercisePool.length >= 2);
+  assert.deepEqual(
+    session.sessionExercises.map((exercise) => exercise.id),
+    session.exercisePool.map((exercise) => exercise.id),
+  );
   assert.ok(session.exercisePool.every((exercise) => exercise.reading_unit_id === "RU-LEN-INF-001"));
   assert.equal(session.exercise.reading_unit?.id, session.readingUnit.id);
 }
@@ -283,9 +289,11 @@ function assertBioStimulusLoadsAsSkillTraining(): void {
 function assertReadingModeDatasetRunsSequentially(): void {
   const session = startReadingSession("reading_001");
 
+  assert.equal(session.sessionType, "reading-based");
   assert.equal(session.readingUnit.id, "reading_001");
   assert.equal(session.readingUnit.source, "generated");
   assert.ok(session.exercises.length >= 2);
+  assert.equal(session.summary.exerciseCount, session.exercises.length);
   assert.deepEqual(
     session.exercises.map((exercise) => exercise.readingUnitId),
     session.exercises.map(() => "reading_001"),
@@ -306,6 +314,8 @@ function assertSkillPracticeCompletesReadingUnitBeforeFallback(): void {
       startPracticeSession("lengua.skill_1", usedExerciseIds, { forceNewStudent: true })
     ));
 
+    assert.equal(session.mode, "training");
+    assert.equal(session.sessionType, "reading-based");
     selected.push(session.exercise);
     usedExerciseIds = session.usedExerciseIds;
   }

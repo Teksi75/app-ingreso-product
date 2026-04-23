@@ -21,3 +21,14 @@ test("skills Lengua CTA opens a real practice question", async ({ page }) => {
   await expect(page.getByText(/Pregunta 1 de/)).toBeVisible();
   await expect(page.getByRole("button", { name: "Responder" })).toBeVisible();
 });
+
+test("reading practice renders text base and associated activities", async ({ page }) => {
+  await page.goto("/practice?mode=reading&unit=RU-LEN-BIO-001");
+
+  await expect(page).toHaveURL(/\/practice\?.*mode=reading.*unit=RU-LEN-BIO-001/);
+  await expect(page.getByText("Lectura y actividades")).toBeVisible();
+  await expect(page.getByText("Texto de práctica")).toBeVisible();
+  await expect(page.getByRole("heading", { name: /Violeta Parra/ })).toBeVisible();
+  await expect(page.getByText(/Pregunta 1 de/)).toBeVisible();
+  await expect(page.getByRole("button", { name: "Responder" })).toBeVisible();
+});

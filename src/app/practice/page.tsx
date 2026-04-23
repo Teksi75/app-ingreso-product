@@ -8,8 +8,6 @@ import {
   startPracticeSession,
   startReadingUnitSession,
   type PracticeMode,
-  type PracticeSessionProgressInput,
-  type PracticeSessionProgressResult,
 } from "../../components/practice/session_runner";
 import { PracticeQuestion } from "./PracticeQuestion";
 
@@ -44,13 +42,13 @@ export default async function PracticePage({ searchParams }: PracticePageProps) 
       usedExerciseIds,
       { forceNewStudent, focusSubskill: focus, includeReadingUnits: false },
     );
-  const exercise = practiceSelection?.exercise;
-  const sessionExercises = practiceSelection?.sessionExercises ?? [];
-  const activeUsedExerciseIds = practiceSelection?.usedExerciseIds ?? [];
-
-  if (!exercise) {
+  if (!practiceSelection?.exercise) {
     throw new Error("No exercise available for practice session");
   }
+
+  const pageTitle = practiceSelection.sessionType === "reading-based"
+    ? "Comprensión lectora"
+    : "Entrenamiento";
 
   return (
     <div className="min-h-screen bg-slate-50 flex">
@@ -58,19 +56,15 @@ export default async function PracticePage({ searchParams }: PracticePageProps) 
       <main className="flex-1 min-w-0 min-h-screen pb-36 lg:pb-0">
         <header className="lg:hidden bg-white border-b border-slate-100">
           <div className="max-w-lg mx-auto px-4 py-4">
-            <h1 className="text-lg font-bold text-slate-800">Entrenamiento</h1>
+            <h1 className="text-lg font-bold text-slate-800">{pageTitle}</h1>
           </div>
         </header>
         <section className="mx-auto grid w-full max-w-6xl gap-5 p-4 lg:p-6">
           <PracticeQuestion
-            exercise={exercise}
-            sessionExercises={sessionExercises}
+            session={practiceSelection}
             masteryMap={getLenguaMasteryMap()}
             restartHref={restartHref}
             saveProgress={savePracticeSessionProgress}
-            practiceMode={practiceMode}
-            readingUnitId={practiceMode === "reading" ? readingUnitId : undefined}
-            usedExerciseIds={activeUsedExerciseIds}
           />
         </section>
       </main>

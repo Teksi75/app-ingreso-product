@@ -5,6 +5,7 @@ import {
   getSeenSkills,
   markSkillsSeen,
   saveSessionResult,
+  type SessionMode,
   type SkillState,
 } from "../storage/local_progress_store.ts";
 import { type ReadingUnit } from "../types/reading_unit.ts";
@@ -149,13 +150,18 @@ type SessionResult = {
 };
 
 export type PracticeSelection = {
+  mode: PracticeMode;
+  sessionType: PracticeSessionType;
+  sessionTitle: string;
   exercise: Exercise;
   exercisePool: Exercise[];
   sessionExercises: Exercise[];
   usedExerciseIds: string[];
+  readingUnit?: ReadingUnit;
 };
 
 export type ReadingUnitSelection = PracticeSelection & {
+  sessionType: "reading-based";
   readingUnit: ReadingUnit;
 };
 
@@ -168,7 +174,10 @@ type PracticeSessionOptions = {
 
 export type PracticeMode = "training" | "reading";
 
+export type PracticeSessionType = "reading-based" | "standalone-exercises";
+
 export type PracticeSessionProgressInput = {
+  sessionType: PracticeSessionType;
   currentFocus: string;
   skillId: string;
   attempts: number;
@@ -550,6 +559,10 @@ function getSkillState(masteryLevel: MasteryLevel): SkillState {
   return "weak";
 }
 
+function getStoredSessionMode(sessionType: PracticeSessionType): SessionMode {
+  return sessionType === "reading-based" ? "reading" : "practice";
+}
+
 function calculateUpdatedMastery(input: PracticeSessionProgressInput): MasteryLevel {
   const accuracy = input.attempts > 0 ? input.correct / input.attempts : 0;
   const delta = accuracy >= 0.8 ? 1 : accuracy < 0.5 ? -1 : 0;
@@ -633,6 +646,61 @@ function buildPlannedSessionExercises(
   };
 }
 
+function buildReadingBlockSessionExercises(
+  exercises: Exercise[],
+  usedExerciseIds: string[],
+  focusSubskill?: string,
+): { sessionExercises: Exercise[]; activeUsedExerciseIds: string[] } {
+  const focusedPool = focusSubskill
+    ? exercises.filter((exercise) => exercise.subskill === focusSubskill)
+    : exercises;
+  const basePool = focusedPool.length > 0 ? focusedPool : exercises;
+  const unusedExercises = basePool.filter((exercise) => !usedExerciseIds.includes(exercise.id));
+
+  return {
+    sessionExercises: unusedExercises.length > 0 ? unusedExercises : basePool,
+    activeUsedExerciseIds: unusedExercises.length > 0 ? usedExerciseIds : [],
+  };
+}
+
+function getReadingUnitForPool(exercises: Exercise[]): ReadingUnit | undefined {
+  const readingUnit = exercises[0]?.reading_unit;
+
+  if (!readingUnit) {
+    return undefined;
+  }
+
+  return exercises.every((exercise) => exercise.reading_unit?.id === readingUnit.id)
+    ? readingUnit
+    : undefined;
+}
+
+function createPracticeSelection(
+  mode: PracticeMode,
+  exercisePool: Exercise[],
+  sessionExercises: Exercise[],
+  usedExerciseIds: string[],
+): PracticeSelection {
+  const exercise = sessionExercises[0];
+
+  if (!exercise) {
+    throw new Error("No exercise available for practice session");
+  }
+
+  const readingUnit = getReadingUnitForPool(exercisePool);
+
+  return {
+    mode,
+    sessionType: readingUnit ? "reading-based" : "standalone-exercises",
+    sessionTitle: readingUnit ? readingUnit.title : "Entrenamiento de habilidades",
+    exercise,
+    exercisePool,
+    sessionExercises,
+    usedExerciseIds,
+    readingUnit,
+  };
+}
+
 export function getLenguaMasteryMap(): MasteryNode[] {
   return loadLenguaSelectionGraph().masteryMap;
 }
@@ -697,7 +765,7 @@ export async function savePracticeSessionProgress(
   const masteryLevel = calculateUpdatedMastery(input);
   const skillState = getSkillState(masteryLevel);
   const progress = saveSessionResult({
-    mode: "practice",
+    mode: getStoredSessionMode(input.sessionType),
     total_attempts: input.attempts,
     total_correct: input.correct,
     total_errors: input.attempts - input.correct,
@@ -898,31 +966,30 @@ export function startPracticeSession(
     : trainingSourcePool.filter(skillFilter);
   const activeStartingPool = startingPool.length > 0 ? startingPool : trainingSourcePool;
 
-  const { sessionExercises, activeUsedExerciseIds } = buildPlannedSessionExercises(
+  const readingUnit = getReadingUnitForPool(activeStartingPool);
+  const { sessionExercises, activeUsedExerciseIds } = readingUnit
+    ? buildReadingBlockSessionExercises(activeStartingPool, usedExerciseIds, options.focusSubskill)
+    : buildPlannedSessionExercises(
+      activeStartingPool,
+      usedExerciseIds,
+      {
+        focusSubskill: options.focusSubskill,
+        forceNewStudent: options.forceNewStudent,
+        maxQuestions: options.maxQuestions,
+      },
+    );
+  const session = createPracticeSelection(
+    "training",
     activeStartingPool,
-    usedExerciseIds,
-    {
-      focusSubskill: options.focusSubskill,
-      forceNewStudent: options.forceNewStudent,
-      maxQuestions: options.maxQuestions,
-    },
+    sessionExercises,
+    [...activeUsedExerciseIds, sessionExercises[0]?.id].filter((value): value is string => Boolean(value)),
   );
-  const exercise = sessionExercises[0];
-
-  if (!exercise) {
-    throw new Error("No exercise available for practice session");
-  }
 
   if (!options.forceNewStudent) {
-    markSkillsSeen([exercise.skill_id]);
+    markSkillsSeen([session.exercise.skill_id]);
   }
 
-  return {
-    exercise,
-    exercisePool: activeStartingPool,
-    sessionExercises,
-    usedExerciseIds: [...activeUsedExerciseIds, exercise.id],
-  };
+  return session;
 }
 
 function buildSkillTrainingPool(
@@ -998,31 +1065,26 @@ export function startReadingUnitSession(
     throw new Error(`Reading unit ${selectedUnitId} could not be resolved`);
   }
 
-  const { sessionExercises, activeUsedExerciseIds } = buildPlannedSessionExercises(
+  const { sessionExercises, activeUsedExerciseIds } = buildReadingBlockSessionExercises(
     startingPool,
     usedExerciseIds,
-    {
-      focusSubskill: options.focusSubskill,
-      forceNewStudent: options.forceNewStudent,
-      maxQuestions: options.maxQuestions,
-    },
+    options.focusSubskill,
   );
-  const exercise = sessionExercises[0];
-
-  if (!exercise) {
-    throw new Error(`Reading unit ${selectedUnitId} has no exercises available for the current session`);
-  }
+  const session = createPracticeSelection(
+    "reading",
+    startingPool,
+    sessionExercises,
+    [...activeUsedExerciseIds, sessionExercises[0]?.id].filter((value): value is string => Boolean(value)),
+  );
 
   if (!options.forceNewStudent) {
-    markSkillsSeen([exercise.skill_id]);
+    markSkillsSeen([session.exercise.skill_id]);
   }
 
   return {
-    exercise,
-    exercisePool: startingPool,
+    ...session,
+    sessionType: "reading-based",
     readingUnit,
-    sessionExercises,
-    usedExerciseIds: [...activeUsedExerciseIds, exercise.id],
   };
 }
 

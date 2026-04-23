@@ -3,10 +3,10 @@
 import { FormEvent, useRef, useState, type ChangeEvent } from "react";
 import { Button } from "@/components/ui";
 import {
-  type RecommendedSubskill,
   type Exercise,
+  type PracticeSelection,
+  type RecommendedSubskill,
   type MasteryNode,
-  type PracticeMode,
   type PracticeSessionProgressInput,
   type PracticeSessionProgressResult,
 } from "../../components/practice/session_runner";
@@ -14,31 +14,23 @@ import { getSkillMetadata } from "../../skills/skill_metadata";
 import { type ReadingUnit } from "../../types/reading_unit";
 
 type PracticeQuestionProps = {
-  exercise: Exercise;
-  sessionExercises: Exercise[];
+  session: PracticeSelection;
   masteryMap: MasteryNode[];
   restartHref: string;
   saveProgress: (input: PracticeSessionProgressInput) => Promise<PracticeSessionProgressResult>;
-  practiceMode: PracticeMode;
-  readingUnitId?: string;
-  usedExerciseIds: string[];
 };
 
 const MAX_QUESTIONS = 10;
 
 export function PracticeQuestion({
-  exercise,
-  sessionExercises,
+  session,
   masteryMap,
   restartHref,
   saveProgress,
-  practiceMode,
-  readingUnitId,
-  usedExerciseIds,
 }: PracticeQuestionProps) {
   const [currentExerciseIndex, setCurrentExerciseIndex] = useState(0);
   const [usedExercises, setUsedExercises] = useState<string[]>(
-    Array.from(new Set([...usedExerciseIds, exercise.id])),
+    Array.from(new Set(session.usedExerciseIds)),
   );
   const [correctCount, setCorrectCount] = useState(0);
   const [sessionCompleted, setSessionCompleted] = useState(false);
@@ -51,7 +43,7 @@ export function PracticeQuestion({
   const [categoryAnswers, setCategoryAnswers] = useState<Record<string, string>>({});
   const [hasSubmitted, setHasSubmitted] = useState(false);
   const questionRef = useRef<HTMLElement>(null);
-  const currentExercise = sessionExercises[currentExerciseIndex] ?? exercise;
+  const currentExercise = session.sessionExercises[currentExerciseIndex] ?? session.exercise;
   const isCorrect = evaluateCurrentExercise(
     currentExercise,
     selectedAnswer,
@@ -66,11 +58,14 @@ export function PracticeQuestion({
     partAnswers,
     categoryAnswers,
   );
-  const sessionQuestionCount = Math.min(MAX_QUESTIONS, sessionExercises.length);
+  const sessionQuestionCount = Math.min(MAX_QUESTIONS, session.sessionExercises.length);
   const skillMetadata = getSkillMetadata(currentExercise.skill_id);
   const options = getStableShuffledOptions(currentExercise);
-  const hasReadingStimulus = Boolean(currentExercise.reading_unit);
-  const activeReadingUnit = currentExercise.reading_unit;
+  const hasReadingStimulus = session.sessionType === "reading-based" && Boolean(session.readingUnit);
+  const activeReadingUnit = session.readingUnit;
+  const sessionLabel = session.sessionType === "reading-based"
+    ? "Lectura y actividades"
+    : "Habilidad en entrenamiento";
   const skillBanner = (
     <aside className="rounded-2xl border border-violet-100 bg-violet-50 p-4">
       <div className="flex items-center gap-2 mb-2">
@@ -78,7 +73,7 @@ export function PracticeQuestion({
           📚
         </div>
         <p className="text-xs font-bold uppercase tracking-wider text-violet-700">
-          Habilidad en entrenamiento
+          {sessionLabel}
         </p>
       </div>
       <p className="text-lg font-bold text-slate-800">
@@ -140,6 +135,7 @@ export function PracticeQuestion({
 
       try {
         const result = await saveProgress({
+          sessionType: session.sessionType,
           currentFocus: currentExercise.subskill,
           skillId: currentExercise.skill_id,
           attempts: currentExerciseIndex + 1,
@@ -156,7 +152,7 @@ export function PracticeQuestion({
       return;
     }
 
-    const nextExercise = sessionExercises[currentExerciseIndex + 1];
+    const nextExercise = session.sessionExercises[currentExerciseIndex + 1];
 
     if (!nextExercise) {
       return;
@@ -174,12 +170,12 @@ export function PracticeQuestion({
   if (sessionCompleted) {
     const masteryLevel = progressResult?.masteryLevel ?? currentExercise.mastery_level;
     const recommendedSubskill = progressResult?.recommendation ?? null;
-    const repeatHref = buildPracticeHref(
-      currentExercise.skill_id,
-      currentExercise.subskill,
-      usedExercises,
-      { mode: practiceMode, readingUnitId },
-    );
+        const repeatHref = buildPracticeHref(
+          currentExercise.skill_id,
+          currentExercise.subskill,
+          usedExercises,
+          { mode: session.mode, readingUnitId: session.readingUnit?.id },
+        );
     const recommendedHref = recommendedSubskill
       ? buildPracticeHref(recommendedSubskill.parentSkill, recommendedSubskill.id, [], { mode: "training" })
       : restartHref;
@@ -193,6 +189,9 @@ export function PracticeQuestion({
             <h1 className="text-2xl font-bold text-slate-800">
               {nextCorrectText(correctCount, sessionQuestionCount)}
             </h1>
+            {session.sessionType === "reading-based" && session.readingUnit ? (
+              <p className="text-sm text-slate-500">Texto trabajado: {session.readingUnit.title}</p>
+            ) : null}
             <p className="text-sm font-semibold text-slate-600">
               Mastery actualizado: {isSavingProgress ? "guardando..." : `nivel ${masteryLevel}`}
             </p>
@@ -689,7 +688,7 @@ function buildPracticeHref(
   skillId: string,
   focus: string,
   usedExerciseIds: string[],
-  context: { mode: PracticeMode; readingUnitId?: string },
+  context: { mode: PracticeSelection["mode"]; readingUnitId?: string },
 ): string {
   const params = new URLSearchParams({
     skill: skillId,
