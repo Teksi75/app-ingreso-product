@@ -1,10 +1,17 @@
 import { existsSync, readdirSync, readFileSync } from "node:fs";
 import { join, resolve } from "node:path";
-import { getSeenSkills, markSkillsSeen } from "../storage/local_progress_store.ts";
+import {
+  getPracticeProgressSnapshot,
+  getSeenSkills,
+  markSkillsSeen,
+  saveSessionResult,
+  type SkillState,
+} from "../storage/local_progress_store.ts";
 import { type ReadingUnit } from "../types/reading_unit.ts";
 import {
   listLenguaExerciseFiles,
   loadLenguaSelectionGraph,
+  type MasteryNode,
   normalizeSkillId,
   normalizeSubskillId,
   selectNextExerciseDetailed,
@@ -14,6 +21,8 @@ import {
   type Result,
   type UserSkillState,
 } from "./exercise_selector.ts";
+
+export type { MasteryNode } from "./exercise_selector.ts";
 import {
   staticExerciseEngineFiles,
   staticReadingUnits,
@@ -142,6 +151,7 @@ type SessionResult = {
 export type PracticeSelection = {
   exercise: Exercise;
   exercisePool: Exercise[];
+  sessionExercises: Exercise[];
   usedExerciseIds: string[];
 };
 
@@ -151,12 +161,39 @@ export type ReadingUnitSelection = PracticeSelection & {
 
 type PracticeSessionOptions = {
   forceNewStudent?: boolean;
+  focusSubskill?: string;
   includeReadingUnits?: boolean;
+  maxQuestions?: number;
+};
+
+export type PracticeMode = "training" | "reading";
+
+export type PracticeSessionProgressInput = {
+  currentFocus: string;
+  skillId: string;
+  attempts: number;
+  correct: number;
+  currentMastery: MasteryLevel;
+  readingUnitId?: string;
+};
+
+export type RecommendedSubskill = {
+  id: string;
+  name: string;
+  parentSkill: string;
+  masteryLevel: MasteryLevel;
+  recommendedMastery: MasteryLevel;
+};
+
+export type PracticeSessionProgressResult = {
+  masteryLevel: MasteryLevel;
+  recommendation: RecommendedSubskill | null;
 };
 
 type AnswerProvider = (exercise: Exercise, step: number) => string;
 
 const DEFAULT_MAX_STEPS = 10;
+const DEFAULT_PRACTICE_SESSION_SIZE = 10;
 const EXERCISE_ENGINE_DIR = resolve(process.cwd(), "docs/04_exercise_engine");
 const CONTENT_LENGUA_UNITS_DIR = resolve(process.cwd(), "content/lengua/reading_units");
 const CONTENT_LENGUA_EXERCISES_DIR = resolve(process.cwd(), "content/lengua/exercises");
@@ -494,6 +531,205 @@ function computeMasteryLevel(accuracy: number, attempts: number): MasteryLevel {
   return 1;
 }
 
+function clampMasteryLevel(value: number | undefined): MasteryLevel {
+  if (value && value >= 4) return 4;
+  if (value && value >= 3) return 3;
+  if (value && value >= 2) return 2;
+  return 1;
+}
+
+function getSkillState(masteryLevel: MasteryLevel): SkillState {
+  if (masteryLevel >= 3) {
+    return "mastered";
+  }
+
+  if (masteryLevel === 2) {
+    return "developing";
+  }
+
+  return "weak";
+}
+
+function calculateUpdatedMastery(input: PracticeSessionProgressInput): MasteryLevel {
+  const accuracy = input.attempts > 0 ? input.correct / input.attempts : 0;
+  const delta = accuracy >= 0.8 ? 1 : accuracy < 0.5 ? -1 : 0;
+  return clampMasteryLevel(input.currentMastery + delta);
+}
+
+function getPracticeSelectionContext(forceNewStudent = false): {
+  seenSkills: string[];
+  masteryByFocus: Record<string, MasteryLevel>;
+} {
+  if (forceNewStudent) {
+    return {
+      seenSkills: [],
+      masteryByFocus: {},
+    };
+  }
+
+  const snapshot = getPracticeProgressSnapshot();
+
+  return {
+    seenSkills: snapshot.seenSkills,
+    masteryByFocus: Object.fromEntries(
+      Object.entries(snapshot.masteryByFocus).map(([skillId, masteryLevel]) => [
+        skillId,
+        clampMasteryLevel(masteryLevel),
+      ]),
+    ),
+  };
+}
+
+function buildPlannedSessionExercises(
+  exercises: Exercise[],
+  usedExerciseIds: string[],
+  options: {
+    focusSubskill?: string;
+    forceNewStudent?: boolean;
+    maxQuestions?: number;
+  },
+): { sessionExercises: Exercise[]; activeUsedExerciseIds: string[] } {
+  const graph = loadLenguaSelectionGraph();
+  const maxQuestions = Math.min(options.maxQuestions ?? DEFAULT_PRACTICE_SESSION_SIZE, exercises.length);
+  const focusedPool = options.focusSubskill
+    ? exercises.filter((exercise) => exercise.subskill === options.focusSubskill)
+    : exercises;
+  const basePool = focusedPool.length > 0 ? focusedPool : exercises;
+  const unusedExercises = basePool.filter((exercise) => !usedExerciseIds.includes(exercise.id));
+  const activePool = unusedExercises.length > 0 ? unusedExercises : basePool;
+  const activeUsedExerciseIds = unusedExercises.length > 0 ? usedExerciseIds : [];
+  const context = getPracticeSelectionContext(options.forceNewStudent);
+  const coveredSkills = new Set<string>(context.seenSkills);
+  const plannedUsedIds = new Set<string>(activeUsedExerciseIds);
+  const sessionExercises: Exercise[] = [];
+
+  while (sessionExercises.length < maxQuestions) {
+    const selectionPool = activePool.filter((exercise) => !plannedUsedIds.has(exercise.id));
+
+    if (selectionPool.length === 0) {
+      break;
+    }
+
+    const selection = selectNextExerciseDetailed(
+      selectionPool.map(toSelectorExercise),
+      [],
+      {
+        seenSkills: Array.from(coveredSkills),
+        hasSeenSkill: (skillId: string) => coveredSkills.has(skillId),
+        usedExerciseIds: Array.from(plannedUsedIds),
+        masteryBySkill: context.masteryByFocus,
+        selectionGraph: graph,
+      },
+    );
+    const exercise = findExercise(activePool, selection.exercise);
+    sessionExercises.push(exercise);
+    plannedUsedIds.add(exercise.id);
+    coveredSkills.add(exercise.skill_id);
+  }
+
+  return {
+    sessionExercises,
+    activeUsedExerciseIds,
+  };
+}
+
+export function getLenguaMasteryMap(): MasteryNode[] {
+  return loadLenguaSelectionGraph().masteryMap;
+}
+
+export function recommendNextPracticeSubskill({
+  currentFocus,
+  masteryByFocus,
+}: {
+  currentFocus: string;
+  masteryByFocus: Record<string, number>;
+}): RecommendedSubskill | null {
+  const graph = loadLenguaSelectionGraph();
+  const currentNode = graph.masteryById.get(currentFocus);
+  const candidates = graph.relationships
+    .filter((relationship) => relationship.skill_origen === currentFocus)
+    .map((relationship) => ({
+      relationship,
+      node: graph.masteryById.get(relationship.skill_destino),
+    }))
+    .filter((candidate): candidate is { relationship: typeof graph.relationships[number]; node: MasteryNode } => (
+      Boolean(candidate.node)
+    ))
+    .sort((left, right) => getRelationshipRank(left.relationship) - getRelationshipRank(right.relationship));
+
+  const selected = candidates.find(({ node }) => (
+    clampMasteryLevel(masteryByFocus[node.id]) < node.recommended_mastery
+  ))?.node ?? candidates[0]?.node ?? currentNode ?? null;
+
+  if (!selected) {
+    return null;
+  }
+
+  const subskill = selected.type === "subskill"
+    ? selected
+    : graph.masteryMap.find((node) => (
+      node.type === "subskill" &&
+      node.parent_skill === selected.id &&
+      clampMasteryLevel(masteryByFocus[node.id]) < node.recommended_mastery
+    )) ?? selected;
+
+  return {
+    id: subskill.id,
+    name: subskill.name,
+    parentSkill: subskill.parent_skill ?? subskill.id,
+    masteryLevel: clampMasteryLevel(masteryByFocus[subskill.id]),
+    recommendedMastery: subskill.recommended_mastery,
+  };
+}
+
+function getRelationshipRank(relationship: ReturnType<typeof loadLenguaSelectionGraph>["relationships"][number]): number {
+  const typeRank = relationship.tipo === "sequential" ? 0 : relationship.tipo === "prerequisite" ? 1 : 2;
+  const forceRank = relationship.fuerza === "alta" ? 0 : relationship.fuerza === "media" ? 1 : 2;
+
+  return typeRank * 10 + forceRank;
+}
+
+export async function savePracticeSessionProgress(
+  input: PracticeSessionProgressInput,
+): Promise<PracticeSessionProgressResult> {
+  "use server";
+
+  const masteryLevel = calculateUpdatedMastery(input);
+  const skillState = getSkillState(masteryLevel);
+  const progress = saveSessionResult({
+    mode: "practice",
+    total_attempts: input.attempts,
+    total_correct: input.correct,
+    total_errors: input.attempts - input.correct,
+    skill_results: [
+      {
+        skill_id: input.skillId,
+        attempts: input.attempts,
+        correct: input.correct,
+        state: skillState,
+        mastery_level: masteryLevel,
+      },
+      {
+        skill_id: input.currentFocus,
+        attempts: input.attempts,
+        correct: input.correct,
+        state: skillState,
+        mastery_level: masteryLevel,
+      },
+    ],
+    readingUnitId: input.readingUnitId,
+  });
+  const snapshot = getPracticeProgressSnapshot(progress);
+
+  return {
+    masteryLevel,
+    recommendation: recommendNextPracticeSubskill({
+      currentFocus: input.currentFocus,
+      masteryByFocus: snapshot.masteryByFocus,
+    }),
+  };
+}
+
 function findExercise(fullExercises: Exercise[], selectorExercise: SelectorExercise): Exercise {
   const found = fullExercises.find((exercise) => exercise.id === selectorExercise.id);
 
@@ -644,8 +880,8 @@ export function startPracticeSession(
   usedExerciseIds: string[] = [],
   options: PracticeSessionOptions = {},
 ): PracticeSelection {
-  const graph = loadLenguaSelectionGraph();
   const exercises = loadLenguaExercises();
+  const graph = loadLenguaSelectionGraph();
   const canonicalSkillId = skillId ? normalizeSkillId(skillId, graph) : null;
 
   const skillFilter = canonicalSkillId
@@ -662,35 +898,20 @@ export function startPracticeSession(
     : trainingSourcePool.filter(skillFilter);
   const activeStartingPool = startingPool.length > 0 ? startingPool : trainingSourcePool;
 
-  const unusedExercises = activeStartingPool.filter((exercise) => !usedExerciseIds.includes(exercise.id));
-  const skillSelectionPool = canonicalSkillId
-    ? unusedExercises.filter(skillFilter)
-    : unusedExercises;
-  const selectionPool = skillSelectionPool.length > 0
-    ? skillSelectionPool
-    : unusedExercises.length > 0 ? unusedExercises : activeStartingPool;
-  const activeUsedIds = unusedExercises.length > 0 ? usedExerciseIds : [];
-  const seenSkills = options.forceNewStudent ? [] : getSeenSkills();
-  const usedSkills = new Set(
-    [
-      ...seenSkills,
-      ...activeStartingPool
-        .filter((exercise) => activeUsedIds.includes(exercise.id))
-        .map((exercise) => exercise.skill_id),
-    ],
-  );
-
-  const selection = selectNextExerciseDetailed(
-    selectionPool.map(toSelectorExercise),
-    [],
+  const { sessionExercises, activeUsedExerciseIds } = buildPlannedSessionExercises(
+    activeStartingPool,
+    usedExerciseIds,
     {
-      seenSkills: Array.from(usedSkills),
-      hasSeenSkill: (currentSkillId: string) => usedSkills.has(currentSkillId),
-      usedExerciseIds: activeUsedIds,
-      selectionGraph: graph,
+      focusSubskill: options.focusSubskill,
+      forceNewStudent: options.forceNewStudent,
+      maxQuestions: options.maxQuestions,
     },
   );
-  const exercise = findExercise(exercises, selection.exercise);
+  const exercise = sessionExercises[0];
+
+  if (!exercise) {
+    throw new Error("No exercise available for practice session");
+  }
 
   if (!options.forceNewStudent) {
     markSkillsSeen([exercise.skill_id]);
@@ -699,7 +920,8 @@ export function startPracticeSession(
   return {
     exercise,
     exercisePool: activeStartingPool,
-    usedExerciseIds: [...activeUsedIds, exercise.id],
+    sessionExercises,
+    usedExerciseIds: [...activeUsedExerciseIds, exercise.id],
   };
 }
 
@@ -754,7 +976,6 @@ export function startReadingUnitSession(
   usedExerciseIds: string[] = [],
   options: PracticeSessionOptions = {},
 ): ReadingUnitSelection {
-  const graph = loadLenguaSelectionGraph();
   const exercises = loadLenguaExercises();
   const readingExercises = exercises.filter((exercise) => exercise.reading_unit);
 
@@ -771,28 +992,26 @@ export function startReadingUnitSession(
   if (startingPool.length === 0) {
     throw new Error(`Reading unit ${selectedUnitId} has no exercises`);
   }
-
-  const unusedExercises = startingPool.filter((exercise) => !usedExerciseIds.includes(exercise.id));
-  const selectionPool = unusedExercises.length > 0 ? unusedExercises : startingPool;
-  const activeUsedIds = unusedExercises.length > 0 ? usedExerciseIds : [];
   const readingUnit = startingPool[0].reading_unit;
-  const seenSkills = options.forceNewStudent ? [] : getSeenSkills();
 
   if (!readingUnit) {
     throw new Error(`Reading unit ${selectedUnitId} could not be resolved`);
   }
 
-  const selection = selectNextExerciseDetailed(
-    selectionPool.map(toSelectorExercise),
-    [],
+  const { sessionExercises, activeUsedExerciseIds } = buildPlannedSessionExercises(
+    startingPool,
+    usedExerciseIds,
     {
-      seenSkills,
-      hasSeenSkill: (currentSkillId: string) => seenSkills.includes(currentSkillId),
-      usedExerciseIds: activeUsedIds,
-      selectionGraph: graph,
+      focusSubskill: options.focusSubskill,
+      forceNewStudent: options.forceNewStudent,
+      maxQuestions: options.maxQuestions,
     },
   );
-  const exercise = findExercise(exercises, selection.exercise);
+  const exercise = sessionExercises[0];
+
+  if (!exercise) {
+    throw new Error(`Reading unit ${selectedUnitId} has no exercises available for the current session`);
+  }
 
   if (!options.forceNewStudent) {
     markSkillsSeen([exercise.skill_id]);
@@ -802,7 +1021,8 @@ export function startReadingUnitSession(
     exercise,
     exercisePool: startingPool,
     readingUnit,
-    usedExerciseIds: [...activeUsedIds, exercise.id],
+    sessionExercises,
+    usedExerciseIds: [...activeUsedExerciseIds, exercise.id],
   };
 }
 

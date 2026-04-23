@@ -3,18 +3,20 @@
 import { FormEvent, useRef, useState, type ChangeEvent } from "react";
 import { Button } from "@/components/ui";
 import {
-  type MasteryMapNode,
   type RecommendedSubskill,
-} from "../../components/practice/exercise_selector";
-import { type Exercise } from "../../components/practice/session_runner";
+  type Exercise,
+  type MasteryNode,
+  type PracticeMode,
+  type PracticeSessionProgressInput,
+  type PracticeSessionProgressResult,
+} from "../../components/practice/session_runner";
 import { getSkillMetadata } from "../../skills/skill_metadata";
 import { type ReadingUnit } from "../../types/reading_unit";
-import { type PracticeMode, type PracticeSessionProgressInput, type PracticeSessionProgressResult } from "./page";
 
 type PracticeQuestionProps = {
   exercise: Exercise;
-  exercisePool: Exercise[];
-  masteryMap: MasteryMapNode[];
+  sessionExercises: Exercise[];
+  masteryMap: MasteryNode[];
   restartHref: string;
   saveProgress: (input: PracticeSessionProgressInput) => Promise<PracticeSessionProgressResult>;
   practiceMode: PracticeMode;
@@ -26,7 +28,7 @@ const MAX_QUESTIONS = 10;
 
 export function PracticeQuestion({
   exercise,
-  exercisePool,
+  sessionExercises,
   masteryMap,
   restartHref,
   saveProgress,
@@ -34,11 +36,10 @@ export function PracticeQuestion({
   readingUnitId,
   usedExerciseIds,
 }: PracticeQuestionProps) {
-  const [currentExercise, setCurrentExercise] = useState(exercise);
+  const [currentExerciseIndex, setCurrentExerciseIndex] = useState(0);
   const [usedExercises, setUsedExercises] = useState<string[]>(
     Array.from(new Set([...usedExerciseIds, exercise.id])),
   );
-  const [questionCount, setQuestionCount] = useState(1);
   const [correctCount, setCorrectCount] = useState(0);
   const [sessionCompleted, setSessionCompleted] = useState(false);
   const [progressResult, setProgressResult] = useState<PracticeSessionProgressResult | null>(null);
@@ -50,6 +51,7 @@ export function PracticeQuestion({
   const [categoryAnswers, setCategoryAnswers] = useState<Record<string, string>>({});
   const [hasSubmitted, setHasSubmitted] = useState(false);
   const questionRef = useRef<HTMLElement>(null);
+  const currentExercise = sessionExercises[currentExerciseIndex] ?? exercise;
   const isCorrect = evaluateCurrentExercise(
     currentExercise,
     selectedAnswer,
@@ -64,8 +66,7 @@ export function PracticeQuestion({
     partAnswers,
     categoryAnswers,
   );
-  const sessionQuestionCount = Math.min(MAX_QUESTIONS, exercisePool.length);
-  const available = exercisePool.filter((item) => !usedExercises.includes(item.id));
+  const sessionQuestionCount = Math.min(MAX_QUESTIONS, sessionExercises.length);
   const skillMetadata = getSkillMetadata(currentExercise.skill_id);
   const options = getStableShuffledOptions(currentExercise);
   const hasReadingStimulus = Boolean(currentExercise.reading_unit);
@@ -133,7 +134,7 @@ export function PracticeQuestion({
     const nextCorrectCount = correctCount + (isCorrect ? 1 : 0);
     setCorrectCount(nextCorrectCount);
 
-    if (questionCount >= sessionQuestionCount || available.length === 0) {
+    if (currentExerciseIndex + 1 >= sessionQuestionCount) {
       setSessionCompleted(true);
       setIsSavingProgress(true);
 
@@ -141,7 +142,7 @@ export function PracticeQuestion({
         const result = await saveProgress({
           currentFocus: currentExercise.subskill,
           skillId: currentExercise.skill_id,
-          attempts: questionCount,
+          attempts: currentExerciseIndex + 1,
           correct: nextCorrectCount,
           currentMastery: currentExercise.mastery_level,
           readingUnitId: currentExercise.readingUnitId ?? currentExercise.reading_unit_id ?? undefined,
@@ -155,11 +156,14 @@ export function PracticeQuestion({
       return;
     }
 
-    const nextExercise = pickExercise(available);
+    const nextExercise = sessionExercises[currentExerciseIndex + 1];
 
-    setCurrentExercise(nextExercise);
+    if (!nextExercise) {
+      return;
+    }
+
+    setCurrentExerciseIndex((prev) => prev + 1);
     setUsedExercises((prev) => [...prev, nextExercise.id]);
-    setQuestionCount((prev) => prev + 1);
     setSelectedAnswer("");
     setSelectedAnswers([]);
     setPartAnswers({});
@@ -239,7 +243,7 @@ export function PracticeQuestion({
         <article ref={questionRef} className={`grid gap-4 rounded-2xl border border-slate-100 bg-white p-4 lg:p-5 shadow-sm mb-6 lg:mb-0 ${hasReadingStimulus ? "order-2 lg:order-2" : ""}`}>
           <div className="flex items-center justify-between">
             <p className="text-sm font-medium text-slate-500">
-              Pregunta {questionCount} de {sessionQuestionCount}
+              Pregunta {currentExerciseIndex + 1} de {sessionQuestionCount}
             </p>
             <div className="flex items-center gap-1.5">
               <div className="w-2 h-2 rounded-full bg-emerald-400" />
@@ -572,7 +576,7 @@ function ExerciseAnswerFields({
 }
 
 type MasteryMapModalProps = {
-  masteryMap: MasteryMapNode[];
+  masteryMap: MasteryNode[];
   onClose: () => void;
   recommendation: RecommendedSubskill | null;
 };
@@ -702,10 +706,6 @@ function buildPracticeHref(
   }
 
   return `/practice?${params.toString()}`;
-}
-
-function pickExercise(exercises: Exercise[]): Exercise {
-  return exercises[Math.floor(Math.random() * exercises.length)];
 }
 
 function getStableShuffledOptions(exercise: Exercise): string[] {

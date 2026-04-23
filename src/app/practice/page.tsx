@@ -4,15 +4,13 @@ import {
 } from "@/components/ui";
 import {
   getLenguaMasteryMap,
-  recommendNextSubskill,
-  type MasteryLevel,
-  type RecommendedSubskill,
-} from "../../components/practice/exercise_selector";
-import {
+  savePracticeSessionProgress,
   startPracticeSession,
   startReadingUnitSession,
+  type PracticeMode,
+  type PracticeSessionProgressInput,
+  type PracticeSessionProgressResult,
 } from "../../components/practice/session_runner";
-import { loadProgress, saveSessionResult, type SkillState } from "../../storage/local_progress_store";
 import { PracticeQuestion } from "./PracticeQuestion";
 
 type PracticePageProps = {
@@ -24,22 +22,6 @@ type PracticePageProps = {
     unit?: string | string[];
     used?: string | string[];
   }>;
-};
-
-export type PracticeMode = "training" | "reading";
-
-export type PracticeSessionProgressInput = {
-  currentFocus: string;
-  skillId: string;
-  attempts: number;
-  correct: number;
-  currentMastery: MasteryLevel;
-  readingUnitId?: string;
-};
-
-export type PracticeSessionProgressResult = {
-  masteryLevel: MasteryLevel;
-  recommendation: RecommendedSubskill | null;
 };
 
 export default async function PracticePage({ searchParams }: PracticePageProps) {
@@ -56,27 +38,19 @@ export default async function PracticePage({ searchParams }: PracticePageProps) 
   const readingUnitId = unit ?? "RU-LEN-BIO-001";
   const restartHref = buildRestartHref({ skill, forceNewStudent, mode: practiceMode, unit: readingUnitId });
   const practiceSelection = practiceMode === "reading"
-    ? startReadingUnitSession(readingUnitId, usedExerciseIds, { forceNewStudent })
+    ? startReadingUnitSession(readingUnitId, usedExerciseIds, { forceNewStudent, focusSubskill: focus })
     : startPracticeSession(
       skill ?? null,
       usedExerciseIds,
-      { forceNewStudent, includeReadingUnits: false },
+      { forceNewStudent, focusSubskill: focus, includeReadingUnits: false },
     );
   const exercise = practiceSelection?.exercise;
-  const exercisePool = practiceSelection?.exercisePool ?? [];
+  const sessionExercises = practiceSelection?.sessionExercises ?? [];
   const activeUsedExerciseIds = practiceSelection?.usedExerciseIds ?? [];
 
   if (!exercise) {
     throw new Error("No exercise available for practice session");
   }
-
-  const focusedExercisePool = focus
-    ? exercisePool.filter((item) => item.subskill === focus)
-    : exercisePool;
-  const activeExercisePool = focusedExercisePool.length > 0 ? focusedExercisePool : exercisePool;
-  const activeExercise = focus
-    ? activeExercisePool.find((item) => !activeUsedExerciseIds.includes(item.id)) ?? activeExercisePool[0] ?? exercise
-    : exercise;
 
   return (
     <div className="min-h-screen bg-slate-50 flex">
@@ -89,8 +63,8 @@ export default async function PracticePage({ searchParams }: PracticePageProps) 
         </header>
         <section className="mx-auto grid w-full max-w-6xl gap-5 p-4 lg:p-6">
           <PracticeQuestion
-            exercise={activeExercise}
-            exercisePool={activeExercisePool}
+            exercise={exercise}
+            sessionExercises={sessionExercises}
             masteryMap={getLenguaMasteryMap()}
             restartHref={restartHref}
             saveProgress={savePracticeSessionProgress}
@@ -152,92 +126,4 @@ function buildRestartHref({
 
   const query = params.toString();
   return query ? `/practice?${query}` : "/practice";
-}
-
-async function savePracticeSessionProgress(
-  input: PracticeSessionProgressInput,
-): Promise<PracticeSessionProgressResult> {
-  "use server";
-
-  const masteryLevel = calculateUpdatedMastery(input);
-  const skillState = getSkillState(masteryLevel);
-
-saveSessionResult({
-    mode: "practice",
-    total_attempts: input.attempts,
-    total_correct: input.correct,
-    total_errors: input.attempts - input.correct,
-    skill_results: [
-      {
-        skill_id: input.skillId,
-        attempts: input.attempts,
-        correct: input.correct,
-        state: skillState,
-        mastery_level: masteryLevel,
-      },
-      {
-        skill_id: input.currentFocus,
-        attempts: input.attempts,
-        correct: input.correct,
-        state: skillState,
-        mastery_level: masteryLevel,
-      },
-    ],
-    readingUnitId: input.readingUnitId,
-  });
-
-  const masteryByFocus = getStoredMasteryByFocus();
-  masteryByFocus[input.currentFocus] = masteryLevel;
-  masteryByFocus[input.skillId] = Math.max(masteryByFocus[input.skillId] ?? 1, masteryLevel);
-
-  return {
-    masteryLevel,
-    recommendation: recommendNextSubskill({
-      currentFocus: input.currentFocus,
-      masteryByFocus,
-    }),
-  };
-}
-
-function calculateUpdatedMastery(input: PracticeSessionProgressInput): MasteryLevel {
-  const accuracy = input.attempts > 0 ? input.correct / input.attempts : 0;
-  const delta = accuracy >= 0.8 ? 1 : accuracy < 0.5 ? -1 : 0;
-  const next = input.currentMastery + delta;
-
-  if (next >= 4) {
-    return 4;
-  }
-
-  if (next >= 3) {
-    return 3;
-  }
-
-  if (next >= 2) {
-    return 2;
-  }
-
-  return 1;
-}
-
-function getSkillState(masteryLevel: MasteryLevel): SkillState {
-  if (masteryLevel >= 3) {
-    return "mastered";
-  }
-
-  if (masteryLevel === 2) {
-    return "developing";
-  }
-
-  return "weak";
-}
-
-function getStoredMasteryByFocus(): Record<string, number> {
-  const progress = loadProgress();
-
-  return Object.fromEntries(
-    Object.entries(progress.skill_stats).map(([skillId, stats]) => [
-      skillId,
-      stats.mastery_level ?? 1,
-    ]),
-  );
 }
