@@ -1,22 +1,11 @@
 import { getSkillMetadata } from "../skills/skill_metadata";
 import {
-  getPracticeProgressSnapshot,
-  getWeakestPracticeSkillId,
-  loadProgress,
-  type SessionMode,
-  type StoredProgress,
-} from "../storage/local_progress_store.ts";
+  CANONICAL_LENGUA_SKILLS,
+  buildMasteryModel,
+  explainWeakestSkill,
+} from "../progress/mastery_model.ts";
+import { loadProgress, type SessionMode, type StoredProgress } from "../storage/local_progress_store.ts";
 import { loadLenguaExercises } from "../practice/session_runner.ts";
-
-export const CANONICAL_LENGUA_SKILLS = [
-  "lengua.skill_1",
-  "lengua.skill_2",
-  "lengua.skill_3",
-  "lengua.skill_4",
-  "lengua.skill_5",
-  "lengua.skill_6",
-  "lengua.skill_7",
-] as const;
 
 export type NextStepRecommendationKind =
   | "continue-reading-unit"
@@ -50,14 +39,17 @@ type ReadingUnitCandidate = {
 export function getNextStepRecommendation(
   progress: StoredProgress = loadProgress(),
 ): NextStepRecommendation {
-  const snapshot = getPracticeProgressSnapshot(progress);
+  const model = buildMasteryModel(progress);
   const sessions = [...(progress.sessions ?? [])].sort((left, right) => (
     left.created_at.localeCompare(right.created_at)
   ));
   const recentSessions = sessions.slice(-3);
   const latestSession = sessions.at(-1);
-  const recentSessionModes = recentSessions.map((session) => session.mode);
-  const weakestSkillId = getWeakestPracticeSkillId([...CANONICAL_LENGUA_SKILLS], progress);
+  const recentSessionModes = model.recentSessionModes.length > 0
+    ? model.recentSessionModes
+    : recentSessions.map((session) => session.mode);
+  const weakestSkill = explainWeakestSkill(model, CANONICAL_LENGUA_SKILLS);
+  const weakestSkillId = weakestSkill.skillId;
   const weakestSkillMetadata = weakestSkillId ? getSkillMetadata(weakestSkillId) : null;
   const readingUnits = getReadingUnitCandidates();
   const seenReadingUnitIds = new Set(
@@ -80,7 +72,7 @@ export function getNextStepRecommendation(
         description: "La ultima sesion de lectura todavia tiene margen de consolidacion. Conviene volver al mismo texto y reforzar la comprension.",
         ctaLabel: "Continuar lectura guiada",
         href: buildReadingHref(readingUnit.id),
-        reason: "La ultima sesion fue de lectura y quedo bajo el umbral de consolidacion.",
+        reason: "La ultima sesion fue de lectura y el modelo de mastery la considera todavia inestable.",
         readingUnitId: readingUnit.id,
         basedOn: {
           lastSessionMode: latestSession.mode,
@@ -94,14 +86,30 @@ export function getNextStepRecommendation(
   if (latestSession?.mode === "simulator" && weakestSkillId && weakestSkillMetadata) {
     return {
       kind: "review-weak-skill",
-      title: `Revisar skill debil: ${weakestSkillMetadata.title}`,
-      description: "El ultimo simulador dejo una habilidad debil. Conviene revisarla antes de volver a una evaluacion global.",
-      ctaLabel: "Reforzar skill debil",
-      href: buildPracticeHref(weakestSkillId),
-      reason: "La ultima sesion fue simulador y el progreso aun muestra una habilidad fragil.",
-      skillId: weakestSkillId,
+        title: `Revisar skill debil: ${weakestSkillMetadata.title}`,
+        description: "El ultimo simulador dejo una habilidad debil. Conviene revisarla antes de volver a una evaluacion global.",
+        ctaLabel: "Reforzar skill debil",
+        href: buildPracticeHref(weakestSkillId),
+        reason: weakestSkill.reason,
+        skillId: weakestSkillId,
+        basedOn: {
+          lastSessionMode: latestSession.mode,
+        weakestSkillId,
+        recentSessionModes,
+      },
+    };
+  }
+
+  if (model.simulatorReadiness.ready && latestSession?.mode !== "simulator") {
+    return {
+      kind: "simulator-ready",
+      title: "Listo para simulacion",
+      description: "Ya hay suficiente practica acumulada y no aparecen skills debiles dominantes. Puedes pasar a una sesion global.",
+      ctaLabel: "Ir a simulaciones",
+      href: "/simulaciones",
+      reason: model.simulatorReadiness.reason,
       basedOn: {
-        lastSessionMode: latestSession.mode,
+        lastSessionMode: latestSession?.mode,
         weakestSkillId,
         recentSessionModes,
       },
@@ -120,7 +128,7 @@ export function getNextStepRecommendation(
         href: buildReadingHref(readingUnit.id),
         reason: recentSessionModes.includes("reading")
           ? "Hace varias sesiones que no trabajas comprension lectora con texto base."
-          : "Todavia hay reading units sin trabajar en el progreso local.",
+          : "Todavia hay reading units sin trabajar y el modelo prioriza ampliar cobertura de lectura.",
         readingUnitId: readingUnit.id,
         basedOn: {
           lastSessionMode: latestSession?.mode,
@@ -131,22 +139,6 @@ export function getNextStepRecommendation(
     }
   }
 
-  if (isSimulatorReady(snapshot, progress) && latestSession?.mode !== "simulator") {
-    return {
-      kind: "simulator-ready",
-      title: "Listo para simulacion",
-      description: "Ya hay suficiente practica acumulada y no aparecen skills debiles dominantes. Puedes pasar a una sesion global.",
-      ctaLabel: "Ir a simulaciones",
-      href: "/simulaciones",
-      reason: "Las skills canonicas muestran base suficiente para una practica integrada.",
-      basedOn: {
-        lastSessionMode: latestSession?.mode,
-        weakestSkillId,
-        recentSessionModes,
-      },
-    };
-  }
-
   if (weakestSkillId && weakestSkillMetadata) {
     return {
       kind: "targeted-practice",
@@ -154,7 +146,7 @@ export function getNextStepRecommendation(
       description: weakestSkillMetadata.description,
       ctaLabel: "Entrenar skill sugerida",
       href: buildPracticeHref(weakestSkillId),
-      reason: "El progreso local muestra que esta skill sigue siendo el mejor punto de mejora.",
+      reason: weakestSkill.reason,
       skillId: weakestSkillId,
       basedOn: {
         lastSessionMode: latestSession?.mode,
@@ -215,20 +207,6 @@ function pickReadingUnit(
 
     return leftMatches - rightMatches || left.title.localeCompare(right.title);
   })[0] ?? null;
-}
-
-function isSimulatorReady(
-  snapshot: ReturnType<typeof getPracticeProgressSnapshot>,
-  progress: StoredProgress,
-): boolean {
-  const skillStats = [...CANONICAL_LENGUA_SKILLS]
-    .map((skillId) => snapshot.practiceSkillStats[skillId])
-    .filter((skill): skill is NonNullable<typeof skill> => Boolean(skill));
-
-  return progress.sessions.length >= 4 &&
-    skillStats.length >= 4 &&
-    skillStats.every((skill) => skill.last_state !== "weak") &&
-    skillStats.filter((skill) => skill.mastery_level >= 2).length >= 4;
 }
 
 function buildPracticeHref(skillId: string): string {

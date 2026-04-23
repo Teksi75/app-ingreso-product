@@ -155,3 +155,75 @@ test("dashboard recommends continuing a recent reading unit when accuracy is low
     "/practice?mode=reading&unit=RU-LEN-BIO-001",
   );
 });
+
+test("dashboard recommends simulator when mastery is sufficiently consolidated", async ({ page }) => {
+  writeFileSync(
+    progressPath,
+    `${JSON.stringify(
+      {
+        sessions: [
+          {
+            mode: "practice",
+            total_attempts: 8,
+            total_correct: 7,
+            total_errors: 1,
+            skill_results: [
+              { skill_id: "lengua.skill_1", attempts: 8, correct: 7, state: "mastered", mastery_level: 3 },
+            ],
+            id: "session_ready_1",
+            created_at: "2026-04-17T00:00:00.000Z",
+          },
+          {
+            mode: "reading",
+            total_attempts: 8,
+            total_correct: 7,
+            total_errors: 1,
+            readingUnitId: "RU-LEN-BIO-001",
+            skill_results: [
+              { skill_id: "lengua.skill_2", attempts: 8, correct: 7, state: "mastered", mastery_level: 3 },
+            ],
+            id: "session_ready_2",
+            created_at: "2026-04-17T00:10:00.000Z",
+          },
+          {
+            mode: "practice",
+            total_attempts: 8,
+            total_correct: 6,
+            total_errors: 2,
+            skill_results: [
+              { skill_id: "lengua.skill_3", attempts: 8, correct: 6, state: "developing", mastery_level: 2 },
+            ],
+            id: "session_ready_3",
+            created_at: "2026-04-17T00:20:00.000Z",
+          },
+          {
+            mode: "practice",
+            total_attempts: 8,
+            total_correct: 6,
+            total_errors: 2,
+            skill_results: [
+              { skill_id: "lengua.skill_4", attempts: 8, correct: 6, state: "developing", mastery_level: 2 },
+            ],
+            id: "session_ready_4",
+            created_at: "2026-04-17T00:30:00.000Z",
+          },
+        ],
+        skill_stats: {
+          "lengua.skill_1": { total_attempts: 8, total_correct: 7, last_state: "mastered", mastery_level: 3 },
+          "lengua.skill_2": { total_attempts: 8, total_correct: 7, last_state: "mastered", mastery_level: 3 },
+          "lengua.skill_3": { total_attempts: 8, total_correct: 6, last_state: "developing", mastery_level: 2 },
+          "lengua.skill_4": { total_attempts: 8, total_correct: 6, last_state: "developing", mastery_level: 2 },
+        },
+        seenSkills: ["lengua.skill_1", "lengua.skill_2", "lengua.skill_3", "lengua.skill_4"],
+      },
+      null,
+      2,
+    )}\n`,
+    "utf8",
+  );
+
+  await page.goto("/dashboard");
+
+  await expect(page.getByRole("heading", { name: "Listo para simulacion" })).toBeVisible();
+  await expect(page.getByRole("link", { name: "Ir a simulaciones" })).toHaveAttribute("href", "/simulaciones");
+});

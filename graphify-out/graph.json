@@ -99,7 +99,7 @@
       "source_file": "src\\app\\page.tsx",
       "source_location": "L1",
       "id": "src_app_page_tsx",
-      "community": 5,
+      "community": 9,
       "norm_label": "page.tsx"
     },
     {
@@ -108,7 +108,7 @@
       "source_file": "src\\app\\page.tsx",
       "source_location": "L16",
       "id": "page_getrank",
-      "community": 5,
+      "community": 9,
       "norm_label": "getrank()"
     },
     {
@@ -117,7 +117,7 @@
       "source_file": "src\\app\\page.tsx",
       "source_location": "L24",
       "id": "page_calculatedashboarddata",
-      "community": 5,
+      "community": 9,
       "norm_label": "calculatedashboarddata()"
     },
     {
@@ -126,7 +126,7 @@
       "source_file": "src\\app\\page.tsx",
       "source_location": "L145",
       "id": "page_mathicon",
-      "community": 5,
+      "community": 9,
       "norm_label": "mathicon()"
     },
     {
@@ -135,7 +135,7 @@
       "source_file": "src\\app\\page.tsx",
       "source_location": "L151",
       "id": "page_languageicon",
-      "community": 5,
+      "community": 9,
       "norm_label": "languageicon()"
     },
     {
@@ -144,25 +144,25 @@
       "source_file": "src\\app\\dashboard\\page.tsx",
       "source_location": "L1",
       "id": "src_app_dashboard_page_tsx",
-      "community": 3,
+      "community": 2,
       "norm_label": "page.tsx"
     },
     {
       "label": "DashboardPage()",
       "file_type": "code",
       "source_file": "src\\app\\dashboard\\page.tsx",
-      "source_location": "L31",
+      "source_location": "L28",
       "id": "page_dashboardpage",
-      "community": 3,
+      "community": 2,
       "norm_label": "dashboardpage()"
     },
     {
       "label": "getDashboardSkills()",
       "file_type": "code",
       "source_file": "src\\app\\dashboard\\page.tsx",
-      "source_location": "L55",
+      "source_location": "L52",
       "id": "page_getdashboardskills",
-      "community": 3,
+      "community": 2,
       "norm_label": "getdashboardskills()"
     },
     {
@@ -171,7 +171,7 @@
       "source_file": "src\\app\\practice\\page.tsx",
       "source_location": "L87",
       "id": "page_isenabledparam",
-      "community": 3,
+      "community": 2,
       "norm_label": "isenabledparam()"
     },
     {
@@ -180,7 +180,7 @@
       "source_file": "src\\app\\habilidades\\page.tsx",
       "source_location": "L1",
       "id": "src_app_habilidades_page_tsx",
-      "community": 5,
+      "community": 3,
       "norm_label": "page.tsx"
     },
     {
@@ -189,7 +189,7 @@
       "source_file": "src\\app\\habilidades\\page.tsx",
       "source_location": "L10",
       "id": "page_getskilldata",
-      "community": 5,
+      "community": 3,
       "norm_label": "getskilldata()"
     },
     {
@@ -279,7 +279,7 @@
       "source_file": "src\\app\\practice\\PracticeQuestion.tsx",
       "source_location": "L1",
       "id": "src_app_practice_practicequestion_tsx",
-      "community": 8,
+      "community": 7,
       "norm_label": "practicequestion.tsx"
     },
     {
@@ -288,7 +288,7 @@
       "source_file": "src\\app\\practice\\PracticeQuestion.tsx",
       "source_location": "L94",
       "id": "practicequestion_handlesubmit",
-      "community": 8,
+      "community": 7,
       "norm_label": "handlesubmit()"
     },
     {
@@ -297,7 +297,7 @@
       "source_file": "src\\app\\practice\\PracticeQuestion.tsx",
       "source_location": "L102",
       "id": "practicequestion_handleanswerchange",
-      "community": 8,
+      "community": 7,
       "norm_label": "handleanswerchange()"
     },
     {
@@ -306,7 +306,7 @@
       "source_file": "src\\app\\practice\\PracticeQuestion.tsx",
       "source_location": "L107",
       "id": "practicequestion_handlemultipleanswerchange",
-      "community": 8,
+      "community": 7,
       "norm_label": "handlemultipleanswerchange()"
     },
     {
@@ -315,7 +315,7 @@
       "source_file": "src\\app\\practice\\PracticeQuestion.tsx",
       "source_location": "L118",
       "id": "practicequestion_handlepartanswerchange",
-      "community": 8,
+      "community": 7,
       "norm_label": "handlepartanswerchange()"
     },
     {
@@ -324,7 +324,7 @@
       "source_file": "src\\app\\practice\\PracticeQuestion.tsx",
       "source_location": "L123",
       "id": "practicequestion_handlecategoryanswerchange",
-      "community": 8,
+      "community": 7,
       "norm_label": "handlecategoryanswerchange()"
     },
     {
@@ -333,7 +333,7 @@
       "source_file": "src\\app\\practice\\PracticeQuestion.tsx",
       "source_location": "L128",
       "id": "practicequestion_handlenext",
-      "community": 8,
+      "community": 7,
       "norm_label": "handlenext()"
     },
     {
@@ -342,7 +342,7 @@
       "source_file": "src\\app\\practice\\PracticeQuestion.tsx",
       "source_location": "L350",
       "id": "practicequestion_scrolltoquestion",
-      "community": 8,
+      "community": 7,
       "norm_label": "scrolltoquestion()"
     },
     {
@@ -351,7 +351,7 @@
       "source_file": "src\\app\\practice\\PracticeQuestion.tsx",
       "source_location": "L354",
       "id": "practicequestion_handleglossarytoggle",
-      "community": 8,
+      "community": 7,
       "norm_label": "handleglossarytoggle()"
     },
     {
@@ -405,7 +405,7 @@
       "source_file": "src\\components\\dashboard\\ClientAvatarHero.tsx",
       "source_location": "L1",
       "id": "src_components_dashboard_clientavatarhero_tsx",
-      "community": 6,
+      "community": 4,
       "norm_label": "clientavatarhero.tsx"
     },
     {
@@ -414,7 +414,7 @@
       "source_file": "src\\components\\dashboard\\ClientAvatarHero.tsx",
       "source_location": "L12",
       "id": "clientavatarhero_clientavatarhero",
-      "community": 6,
+      "community": 4,
       "norm_label": "clientavatarhero()"
     },
     {
@@ -423,7 +423,7 @@
       "source_file": "src\\components\\dashboard\\ClientStudentName.tsx",
       "source_location": "L1",
       "id": "src_components_dashboard_clientstudentname_tsx",
-      "community": 6,
+      "community": 4,
       "norm_label": "clientstudentname.tsx"
     },
     {
@@ -432,7 +432,7 @@
       "source_file": "src\\components\\dashboard\\ClientStudentName.tsx",
       "source_location": "L11",
       "id": "clientstudentname_clientstudentname",
-      "community": 6,
+      "community": 4,
       "norm_label": "clientstudentname()"
     },
     {
@@ -459,7 +459,7 @@
       "source_file": "src\\components\\dashboard\\SkillItem.tsx",
       "source_location": "L1",
       "id": "src_components_dashboard_skillitem_tsx",
-      "community": 3,
+      "community": 2,
       "norm_label": "skillitem.tsx"
     },
     {
@@ -468,7 +468,7 @@
       "source_file": "src\\components\\dashboard\\SkillItem.tsx",
       "source_location": "L16",
       "id": "skillitem_skillitem",
-      "community": 3,
+      "community": 2,
       "norm_label": "skillitem()"
     },
     {
@@ -531,7 +531,7 @@
       "source_file": "src\\components\\practice\\__tests__\\lengua_integration.test.ts",
       "source_location": "L1",
       "id": "src_components_practice_tests_lengua_integration_test_ts",
-      "community": 4,
+      "community": 5,
       "norm_label": "lengua_integration.test.ts"
     },
     {
@@ -540,7 +540,7 @@
       "source_file": "src\\components\\practice\\__tests__\\lengua_integration.test.ts",
       "source_location": "L33",
       "id": "lengua_integration_test_withmutedconsole",
-      "community": 4,
+      "community": 5,
       "norm_label": "withmutedconsole()"
     },
     {
@@ -549,7 +549,7 @@
       "source_file": "src\\components\\practice\\__tests__\\lengua_integration.test.ts",
       "source_location": "L44",
       "id": "lengua_integration_test_buildexercise",
-      "community": 4,
+      "community": 5,
       "norm_label": "buildexercise()"
     },
     {
@@ -558,7 +558,7 @@
       "source_file": "src\\components\\practice\\__tests__\\lengua_integration.test.ts",
       "source_location": "L66",
       "id": "lengua_integration_test_assertloadsalllenguajson",
-      "community": 2,
+      "community": 1,
       "norm_label": "assertloadsalllenguajson()"
     },
     {
@@ -576,7 +576,7 @@
       "source_file": "src\\components\\practice\\__tests__\\lengua_integration.test.ts",
       "source_location": "L134",
       "id": "lengua_integration_test_assertselectionrespectsprerequisitesandmastery",
-      "community": 4,
+      "community": 5,
       "norm_label": "assertselectionrespectsprerequisitesandmastery()"
     },
     {
@@ -585,7 +585,7 @@
       "source_file": "src\\components\\practice\\__tests__\\lengua_integration.test.ts",
       "source_location": "L175",
       "id": "lengua_integration_test_assertsessionrunnerusescrossrelationships",
-      "community": 4,
+      "community": 5,
       "norm_label": "assertsessionrunnerusescrossrelationships()"
     },
     {
@@ -594,7 +594,7 @@
       "source_file": "src\\components\\practice\\__tests__\\lengua_integration.test.ts",
       "source_location": "L205",
       "id": "lengua_integration_test_assertpracticesessionsusechoiceexercises",
-      "community": 4,
+      "community": 5,
       "norm_label": "assertpracticesessionsusechoiceexercises()"
     },
     {
@@ -603,7 +603,7 @@
       "source_file": "src\\components\\practice\\__tests__\\lengua_integration.test.ts",
       "source_location": "L226",
       "id": "lengua_integration_test_assertreadingunitsessionssharegeneratedtexts",
-      "community": 4,
+      "community": 5,
       "norm_label": "assertreadingunitsessionssharegeneratedtexts()"
     },
     {
@@ -612,7 +612,7 @@
       "source_file": "src\\components\\practice\\__tests__\\lengua_integration.test.ts",
       "source_location": "L263",
       "id": "lengua_integration_test_assertbiostimulusloadsasskilltraining",
-      "community": 4,
+      "community": 0,
       "norm_label": "assertbiostimulusloadsasskilltraining()"
     },
     {
@@ -621,7 +621,7 @@
       "source_file": "src\\components\\practice\\__tests__\\lengua_integration.test.ts",
       "source_location": "L289",
       "id": "lengua_integration_test_assertreadingmodedatasetrunssequentially",
-      "community": 4,
+      "community": 5,
       "norm_label": "assertreadingmodedatasetrunssequentially()"
     },
     {
@@ -630,7 +630,7 @@
       "source_file": "src\\components\\practice\\__tests__\\lengua_integration.test.ts",
       "source_location": "L308",
       "id": "lengua_integration_test_assertskillpracticecompletesreadingunitbeforefallback",
-      "community": 4,
+      "community": 5,
       "norm_label": "assertskillpracticecompletesreadingunitbeforefallback()"
     },
     {
@@ -639,7 +639,7 @@
       "source_file": "src\\components\\practice\\__tests__\\lengua_integration.test.ts",
       "source_location": "L329",
       "id": "lengua_integration_test_asserttextpatternextractordoesnotreturnsourcetext",
-      "community": 4,
+      "community": 5,
       "norm_label": "asserttextpatternextractordoesnotreturnsourcetext()"
     },
     {
@@ -675,7 +675,7 @@
       "source_file": "src\\components\\ui\\BottomNav.tsx",
       "source_location": "L1",
       "id": "src_components_ui_bottomnav_tsx",
-      "community": 9,
+      "community": 8,
       "norm_label": "bottomnav.tsx"
     },
     {
@@ -684,7 +684,7 @@
       "source_file": "src\\components\\ui\\BottomNav.tsx",
       "source_location": "L21",
       "id": "bottomnav_homeicon",
-      "community": 9,
+      "community": 8,
       "norm_label": "homeicon()"
     },
     {
@@ -693,7 +693,7 @@
       "source_file": "src\\components\\ui\\BottomNav.tsx",
       "source_location": "L27",
       "id": "bottomnav_skillsicon",
-      "community": 9,
+      "community": 8,
       "norm_label": "skillsicon()"
     },
     {
@@ -702,7 +702,7 @@
       "source_file": "src\\components\\ui\\BottomNav.tsx",
       "source_location": "L33",
       "id": "bottomnav_simulatoricon",
-      "community": 9,
+      "community": 8,
       "norm_label": "simulatoricon()"
     },
     {
@@ -711,7 +711,7 @@
       "source_file": "src\\components\\ui\\BottomNav.tsx",
       "source_location": "L39",
       "id": "bottomnav_progressicon",
-      "community": 9,
+      "community": 8,
       "norm_label": "progressicon()"
     },
     {
@@ -720,7 +720,7 @@
       "source_file": "src\\components\\ui\\BottomNav.tsx",
       "source_location": "L45",
       "id": "bottomnav_profileicon",
-      "community": 9,
+      "community": 8,
       "norm_label": "profileicon()"
     },
     {
@@ -729,7 +729,7 @@
       "source_file": "src\\components\\ui\\BottomNav.tsx",
       "source_location": "L59",
       "id": "bottomnav_bottomnav",
-      "community": 9,
+      "community": 8,
       "norm_label": "bottomnav()"
     },
     {
@@ -765,7 +765,7 @@
       "source_file": "src\\components\\ui\\SidebarNav.tsx",
       "source_location": "L1",
       "id": "src_components_ui_sidebarnav_tsx",
-      "community": 6,
+      "community": 4,
       "norm_label": "sidebarnav.tsx"
     },
     {
@@ -774,7 +774,7 @@
       "source_file": "src\\components\\ui\\SidebarNav.tsx",
       "source_location": "L21",
       "id": "sidebarnav_homeicon",
-      "community": 6,
+      "community": 4,
       "norm_label": "homeicon()"
     },
     {
@@ -783,7 +783,7 @@
       "source_file": "src\\components\\ui\\SidebarNav.tsx",
       "source_location": "L27",
       "id": "sidebarnav_skillsicon",
-      "community": 6,
+      "community": 4,
       "norm_label": "skillsicon()"
     },
     {
@@ -792,7 +792,7 @@
       "source_file": "src\\components\\ui\\SidebarNav.tsx",
       "source_location": "L33",
       "id": "sidebarnav_simulatoricon",
-      "community": 6,
+      "community": 4,
       "norm_label": "simulatoricon()"
     },
     {
@@ -801,7 +801,7 @@
       "source_file": "src\\components\\ui\\SidebarNav.tsx",
       "source_location": "L39",
       "id": "sidebarnav_progressicon",
-      "community": 6,
+      "community": 4,
       "norm_label": "progressicon()"
     },
     {
@@ -810,7 +810,7 @@
       "source_file": "src\\components\\ui\\SidebarNav.tsx",
       "source_location": "L45",
       "id": "sidebarnav_profileicon",
-      "community": 6,
+      "community": 4,
       "norm_label": "profileicon()"
     },
     {
@@ -819,7 +819,7 @@
       "source_file": "src\\components\\ui\\SidebarNav.tsx",
       "source_location": "L59",
       "id": "sidebarnav_sidebarnav",
-      "community": 6,
+      "community": 4,
       "norm_label": "sidebarnav()"
     },
     {
@@ -873,7 +873,7 @@
       "source_file": "src\\content_analysis\\text_pattern_extractor.ts",
       "source_location": "L1",
       "id": "src_content_analysis_text_pattern_extractor_ts",
-      "community": 4,
+      "community": 5,
       "norm_label": "text_pattern_extractor.ts"
     },
     {
@@ -882,7 +882,7 @@
       "source_file": "src\\content_analysis\\text_pattern_extractor.ts",
       "source_location": "L15",
       "id": "text_pattern_extractor_extracttextpatterns",
-      "community": 4,
+      "community": 5,
       "norm_label": "extracttextpatterns()"
     },
     {
@@ -891,7 +891,7 @@
       "source_file": "src\\content_analysis\\text_pattern_extractor.ts",
       "source_location": "L78",
       "id": "text_pattern_extractor_estimatepdflength",
-      "community": 4,
+      "community": 5,
       "norm_label": "estimatepdflength()"
     },
     {
@@ -900,7 +900,7 @@
       "source_file": "src\\content_analysis\\text_pattern_extractor.ts",
       "source_location": "L83",
       "id": "text_pattern_extractor_analyzeplaintextshape",
-      "community": 4,
+      "community": 5,
       "norm_label": "analyzeplaintextshape()"
     },
     {
@@ -909,7 +909,7 @@
       "source_file": "src\\content_analysis\\text_pattern_extractor.ts",
       "source_location": "L100",
       "id": "text_pattern_extractor_infertexttypesfromshape",
-      "community": 4,
+      "community": 5,
       "norm_label": "infertexttypesfromshape()"
     },
     {
@@ -918,7 +918,7 @@
       "source_file": "src\\content_analysis\\text_pattern_extractor.ts",
       "source_location": "L122",
       "id": "text_pattern_extractor_inferstructuresfromshape",
-      "community": 4,
+      "community": 5,
       "norm_label": "inferstructuresfromshape()"
     },
     {
@@ -936,7 +936,7 @@
       "source_file": "src\\hooks\\useProfile.ts",
       "source_location": "L1",
       "id": "src_hooks_useprofile_ts",
-      "community": 6,
+      "community": 4,
       "norm_label": "useprofile.ts"
     },
     {
@@ -945,7 +945,7 @@
       "source_file": "src\\hooks\\useProfile.ts",
       "source_location": "L44",
       "id": "useprofile_createdefaultprofile",
-      "community": 6,
+      "community": 4,
       "norm_label": "createdefaultprofile()"
     },
     {
@@ -954,7 +954,7 @@
       "source_file": "src\\hooks\\useProfile.ts",
       "source_location": "L61",
       "id": "useprofile_loadprofilefromstorage",
-      "community": 6,
+      "community": 4,
       "norm_label": "loadprofilefromstorage()"
     },
     {
@@ -963,7 +963,7 @@
       "source_file": "src\\hooks\\useProfile.ts",
       "source_location": "L92",
       "id": "useprofile_saveprofiletostorage",
-      "community": 6,
+      "community": 4,
       "norm_label": "saveprofiletostorage()"
     },
     {
@@ -972,7 +972,7 @@
       "source_file": "src\\hooks\\useProfile.ts",
       "source_location": "L97",
       "id": "useprofile_islearninggoal",
-      "community": 6,
+      "community": 4,
       "norm_label": "islearninggoal()"
     },
     {
@@ -981,7 +981,7 @@
       "source_file": "src\\hooks\\useProfile.ts",
       "source_location": "L101",
       "id": "useprofile_ispreferredsubject",
-      "community": 6,
+      "community": 4,
       "norm_label": "ispreferredsubject()"
     },
     {
@@ -990,7 +990,7 @@
       "source_file": "src\\hooks\\useProfile.ts",
       "source_location": "L105",
       "id": "useprofile_isplainobject",
-      "community": 6,
+      "community": 4,
       "norm_label": "isplainobject()"
     },
     {
@@ -999,7 +999,7 @@
       "source_file": "src\\hooks\\useProfile.ts",
       "source_location": "L109",
       "id": "useprofile_useprofile",
-      "community": 6,
+      "community": 4,
       "norm_label": "useprofile()"
     },
     {
@@ -1026,7 +1026,7 @@
       "source_file": "src\\practice\\exercise_selector.ts",
       "source_location": "L113",
       "id": "exercise_selector_isfsavailable",
-      "community": 2,
+      "community": 1,
       "norm_label": "isfsavailable()"
     },
     {
@@ -1035,7 +1035,7 @@
       "source_file": "src\\practice\\exercise_selector.ts",
       "source_location": "L121",
       "id": "exercise_selector_listlenguaexercisefiles",
-      "community": 2,
+      "community": 1,
       "norm_label": "listlenguaexercisefiles()"
     },
     {
@@ -1044,7 +1044,7 @@
       "source_file": "src\\practice\\exercise_selector.ts",
       "source_location": "L136",
       "id": "exercise_selector_loadlenguaselectiongraph",
-      "community": 2,
+      "community": 1,
       "norm_label": "loadlenguaselectiongraph()"
     },
     {
@@ -1053,7 +1053,7 @@
       "source_file": "src\\practice\\exercise_selector.ts",
       "source_location": "L185",
       "id": "exercise_selector_loadlenguaselectorexercises",
-      "community": 2,
+      "community": 1,
       "norm_label": "loadlenguaselectorexercises()"
     },
     {
@@ -1098,7 +1098,7 @@
       "source_file": "src\\practice\\exercise_selector.ts",
       "source_location": "L307",
       "id": "exercise_selector_extractselectorexercises",
-      "community": 2,
+      "community": 1,
       "norm_label": "extractselectorexercises()"
     },
     {
@@ -1305,7 +1305,7 @@
       "source_file": "src\\practice\\exercise_selector.ts",
       "source_location": "L744",
       "id": "exercise_selector_dedupeexercises",
-      "community": 2,
+      "community": 1,
       "norm_label": "dedupeexercises()"
     },
     {
@@ -1395,7 +1395,7 @@
       "source_file": "src\\practice\\reading_session.ts",
       "source_location": "L1",
       "id": "src_practice_reading_session_ts",
-      "community": 4,
+      "community": 5,
       "norm_label": "reading_session.ts"
     },
     {
@@ -1404,7 +1404,7 @@
       "source_file": "src\\practice\\reading_session.ts",
       "source_location": "L13",
       "id": "reading_session_startreadingsession",
-      "community": 4,
+      "community": 5,
       "norm_label": "startreadingsession()"
     },
     {
@@ -1413,7 +1413,7 @@
       "source_file": "src\\practice\\reading_session.ts",
       "source_location": "L26",
       "id": "reading_session_runreadingsession",
-      "community": 4,
+      "community": 5,
       "norm_label": "runreadingsession()"
     },
     {
@@ -1449,7 +1449,7 @@
       "source_file": "src\\practice\\session_runner.ts",
       "source_location": "L221",
       "id": "session_runner_loadexercises",
-      "community": 2,
+      "community": 0,
       "norm_label": "loadexercises()"
     },
     {
@@ -1467,7 +1467,7 @@
       "source_file": "src\\practice\\session_runner.ts",
       "source_location": "L242",
       "id": "session_runner_loadlenguaexercises",
-      "community": 2,
+      "community": 0,
       "norm_label": "loadlenguaexercises()"
     },
     {
@@ -1521,7 +1521,7 @@
       "source_file": "src\\practice\\session_runner.ts",
       "source_location": "L483",
       "id": "session_runner_evaluateanswer",
-      "community": 2,
+      "community": 0,
       "norm_label": "evaluateanswer()"
     },
     {
@@ -1530,7 +1530,7 @@
       "source_file": "src\\practice\\session_runner.ts",
       "source_location": "L487",
       "id": "session_runner_builduserstate",
-      "community": 2,
+      "community": 0,
       "norm_label": "builduserstate()"
     },
     {
@@ -1611,7 +1611,7 @@
       "source_file": "src\\practice\\session_runner.ts",
       "source_location": "L596",
       "id": "session_runner_buildplannedsessionexercises",
-      "community": 2,
+      "community": 0,
       "norm_label": "buildplannedsessionexercises()"
     },
     {
@@ -1620,7 +1620,7 @@
       "source_file": "src\\practice\\session_runner.ts",
       "source_location": "L649",
       "id": "session_runner_buildreadingblocksessionexercises",
-      "community": 2,
+      "community": 3,
       "norm_label": "buildreadingblocksessionexercises()"
     },
     {
@@ -1629,7 +1629,7 @@
       "source_file": "src\\practice\\session_runner.ts",
       "source_location": "L666",
       "id": "session_runner_getreadingunitforpool",
-      "community": 2,
+      "community": 3,
       "norm_label": "getreadingunitforpool()"
     },
     {
@@ -1638,7 +1638,7 @@
       "source_file": "src\\practice\\session_runner.ts",
       "source_location": "L678",
       "id": "session_runner_createpracticeselection",
-      "community": 2,
+      "community": 3,
       "norm_label": "createpracticeselection()"
     },
     {
@@ -1647,7 +1647,7 @@
       "source_file": "src\\practice\\session_runner.ts",
       "source_location": "L704",
       "id": "session_runner_getlenguamasterymap",
-      "community": 2,
+      "community": 1,
       "norm_label": "getlenguamasterymap()"
     },
     {
@@ -1683,7 +1683,7 @@
       "source_file": "src\\practice\\session_runner.ts",
       "source_location": "L801",
       "id": "session_runner_findexercise",
-      "community": 2,
+      "community": 0,
       "norm_label": "findexercise()"
     },
     {
@@ -1692,7 +1692,7 @@
       "source_file": "src\\practice\\session_runner.ts",
       "source_location": "L811",
       "id": "session_runner_runsession",
-      "community": 2,
+      "community": 0,
       "norm_label": "runsession()"
     },
     {
@@ -1701,7 +1701,7 @@
       "source_file": "src\\practice\\session_runner.ts",
       "source_location": "L927",
       "id": "session_runner_rundeterministicsession",
-      "community": 2,
+      "community": 0,
       "norm_label": "rundeterministicsession()"
     },
     {
@@ -1710,7 +1710,7 @@
       "source_file": "src\\practice\\session_runner.ts",
       "source_location": "L934",
       "id": "session_runner_runmixedsession",
-      "community": 2,
+      "community": 0,
       "norm_label": "runmixedsession()"
     },
     {
@@ -1719,7 +1719,7 @@
       "source_file": "src\\practice\\session_runner.ts",
       "source_location": "L946",
       "id": "session_runner_startpracticesession",
-      "community": 2,
+      "community": 3,
       "norm_label": "startpracticesession()"
     },
     {
@@ -1728,7 +1728,7 @@
       "source_file": "src\\practice\\session_runner.ts",
       "source_location": "L995",
       "id": "session_runner_buildskilltrainingpool",
-      "community": 2,
+      "community": 3,
       "norm_label": "buildskilltrainingpool()"
     },
     {
@@ -1746,7 +1746,7 @@
       "source_file": "src\\practice\\session_runner.ts",
       "source_location": "L1041",
       "id": "session_runner_startreadingunitsession",
-      "community": 2,
+      "community": 3,
       "norm_label": "startreadingunitsession()"
     },
     {
@@ -2025,7 +2025,7 @@
       "source_file": "src\\practice\\simulator_runner.ts",
       "source_location": "L1",
       "id": "src_practice_simulator_runner_ts",
-      "community": 7,
+      "community": 6,
       "norm_label": "simulator_runner.ts"
     },
     {
@@ -2034,7 +2034,7 @@
       "source_file": "src\\practice\\simulator_runner.ts",
       "source_location": "L57",
       "id": "simulator_runner_loadexercises",
-      "community": 7,
+      "community": 6,
       "norm_label": "loadexercises()"
     },
     {
@@ -2043,7 +2043,7 @@
       "source_file": "src\\practice\\simulator_runner.ts",
       "source_location": "L69",
       "id": "simulator_runner_selectsimulatorexercises",
-      "community": 7,
+      "community": 6,
       "norm_label": "selectsimulatorexercises()"
     },
     {
@@ -2052,7 +2052,7 @@
       "source_file": "src\\practice\\simulator_runner.ts",
       "source_location": "L92",
       "id": "simulator_runner_runsimulator",
-      "community": 7,
+      "community": 6,
       "norm_label": "runsimulator()"
     },
     {
@@ -2061,7 +2061,7 @@
       "source_file": "src\\practice\\simulator_runner.ts",
       "source_location": "L134",
       "id": "simulator_runner_simulateanswer",
-      "community": 7,
+      "community": 6,
       "norm_label": "simulateanswer()"
     },
     {
@@ -2070,7 +2070,7 @@
       "source_file": "src\\practice\\simulator_runner.ts",
       "source_location": "L145",
       "id": "simulator_runner_simulatetimeseconds",
-      "community": 7,
+      "community": 6,
       "norm_label": "simulatetimeseconds()"
     },
     {
@@ -2079,7 +2079,7 @@
       "source_file": "src\\practice\\simulator_runner.ts",
       "source_location": "L149",
       "id": "simulator_runner_printfinalresults",
-      "community": 7,
+      "community": 6,
       "norm_label": "printfinalresults()"
     },
     {
@@ -2088,7 +2088,7 @@
       "source_file": "src\\practice\\simulator_runner.ts",
       "source_location": "L181",
       "id": "simulator_runner_buildskillstats",
-      "community": 7,
+      "community": 6,
       "norm_label": "buildskillstats()"
     },
     {
@@ -2097,7 +2097,7 @@
       "source_file": "src\\practice\\simulator_runner.ts",
       "source_location": "L189",
       "id": "simulator_runner_buildskillresults",
-      "community": 7,
+      "community": 6,
       "norm_label": "buildskillresults()"
     },
     {
@@ -2106,7 +2106,7 @@
       "source_file": "src\\practice\\simulator_runner.ts",
       "source_location": "L205",
       "id": "simulator_runner_classifyskill",
-      "community": 7,
+      "community": 6,
       "norm_label": "classifyskill()"
     },
     {
@@ -2115,7 +2115,7 @@
       "source_file": "src\\practice\\simulator_runner.ts",
       "source_location": "L217",
       "id": "simulator_runner_groupbyskill",
-      "community": 7,
+      "community": 6,
       "norm_label": "groupbyskill()"
     },
     {
@@ -2124,7 +2124,7 @@
       "source_file": "src\\practice\\simulator_runner.ts",
       "source_location": "L225",
       "id": "simulator_runner_hasavailableexercises",
-      "community": 7,
+      "community": 6,
       "norm_label": "hasavailableexercises()"
     },
     {
@@ -2133,7 +2133,7 @@
       "source_file": "src\\practice\\simulator_runner.ts",
       "source_location": "L229",
       "id": "simulator_runner_chancebydifficulty",
-      "community": 7,
+      "community": 6,
       "norm_label": "chancebydifficulty()"
     },
     {
@@ -2142,7 +2142,7 @@
       "source_file": "src\\practice\\simulator_runner.ts",
       "source_location": "L241",
       "id": "simulator_runner_formatpercent",
-      "community": 7,
+      "community": 6,
       "norm_label": "formatpercent()"
     },
     {
@@ -2151,7 +2151,7 @@
       "source_file": "src\\practice\\simulator_runner.ts",
       "source_location": "L245",
       "id": "simulator_runner_shuffle",
-      "community": 7,
+      "community": 6,
       "norm_label": "shuffle()"
     },
     {
@@ -2160,7 +2160,7 @@
       "source_file": "src\\practice\\simulator_runner.ts",
       "source_location": "L256",
       "id": "simulator_runner_pickvalue",
-      "community": 7,
+      "community": 6,
       "norm_label": "pickvalue()"
     },
     {
@@ -2169,8 +2169,170 @@
       "source_file": "src\\practice\\simulator_runner.ts",
       "source_location": "L260",
       "id": "simulator_runner_randomint",
-      "community": 7,
+      "community": 6,
       "norm_label": "randomint()"
+    },
+    {
+      "label": "mastery_model.ts",
+      "file_type": "code",
+      "source_file": "src\\progress\\mastery_model.ts",
+      "source_location": "L1",
+      "id": "src_progress_mastery_model_ts",
+      "community": 2,
+      "norm_label": "mastery_model.ts"
+    },
+    {
+      "label": "buildMasteryModel()",
+      "file_type": "code",
+      "source_file": "src\\progress\\mastery_model.ts",
+      "source_location": "L72",
+      "id": "mastery_model_buildmasterymodel",
+      "community": 2,
+      "norm_label": "buildmasterymodel()"
+    },
+    {
+      "label": "buildPracticeProgressSnapshot()",
+      "file_type": "code",
+      "source_file": "src\\progress\\mastery_model.ts",
+      "source_location": "L124",
+      "id": "mastery_model_buildpracticeprogresssnapshot",
+      "community": 2,
+      "norm_label": "buildpracticeprogresssnapshot()"
+    },
+    {
+      "label": "getWeakestSkillId()",
+      "file_type": "code",
+      "source_file": "src\\progress\\mastery_model.ts",
+      "source_location": "L134",
+      "id": "mastery_model_getweakestskillid",
+      "community": 2,
+      "norm_label": "getweakestskillid()"
+    },
+    {
+      "label": "explainWeakestSkill()",
+      "file_type": "code",
+      "source_file": "src\\progress\\mastery_model.ts",
+      "source_location": "L151",
+      "id": "mastery_model_explainweakestskill",
+      "community": 2,
+      "norm_label": "explainweakestskill()"
+    },
+    {
+      "label": "interpretFocusEntries()",
+      "file_type": "code",
+      "source_file": "src\\progress\\mastery_model.ts",
+      "source_location": "L172",
+      "id": "mastery_model_interpretfocusentries",
+      "community": 2,
+      "norm_label": "interpretfocusentries()"
+    },
+    {
+      "label": "calculateMasteryScore()",
+      "file_type": "code",
+      "source_file": "src\\progress\\mastery_model.ts",
+      "source_location": "L235",
+      "id": "mastery_model_calculatemasteryscore",
+      "community": 2,
+      "norm_label": "calculatemasteryscore()"
+    },
+    {
+      "label": "scoreToMasteryLevel()",
+      "file_type": "code",
+      "source_file": "src\\progress\\mastery_model.ts",
+      "source_location": "L257",
+      "id": "mastery_model_scoretomasterylevel",
+      "community": 2,
+      "norm_label": "scoretomasterylevel()"
+    },
+    {
+      "label": "evaluateSimulatorReadiness()",
+      "file_type": "code",
+      "source_file": "src\\progress\\mastery_model.ts",
+      "source_location": "L277",
+      "id": "mastery_model_evaluatesimulatorreadiness",
+      "community": 2,
+      "norm_label": "evaluatesimulatorreadiness()"
+    },
+    {
+      "label": "buildPracticeSkillStats()",
+      "file_type": "code",
+      "source_file": "src\\progress\\mastery_model.ts",
+      "source_location": "L302",
+      "id": "mastery_model_buildpracticeskillstats",
+      "community": 2,
+      "norm_label": "buildpracticeskillstats()"
+    },
+    {
+      "label": "buildTrace()",
+      "file_type": "code",
+      "source_file": "src\\progress\\mastery_model.ts",
+      "source_location": "L318",
+      "id": "mastery_model_buildtrace",
+      "community": 2,
+      "norm_label": "buildtrace()"
+    },
+    {
+      "label": "getRecencyWeight()",
+      "file_type": "code",
+      "source_file": "src\\progress\\mastery_model.ts",
+      "source_location": "L348",
+      "id": "mastery_model_getrecencyweight",
+      "community": 2,
+      "norm_label": "getrecencyweight()"
+    },
+    {
+      "label": "masteryLevelToState()",
+      "file_type": "code",
+      "source_file": "src\\progress\\mastery_model.ts",
+      "source_location": "L366",
+      "id": "mastery_model_masteryleveltostate",
+      "community": 2,
+      "norm_label": "masteryleveltostate()"
+    },
+    {
+      "label": "getStatePriority()",
+      "file_type": "code",
+      "source_file": "src\\progress\\mastery_model.ts",
+      "source_location": "L378",
+      "id": "mastery_model_getstatepriority",
+      "community": 2,
+      "norm_label": "getstatepriority()"
+    },
+    {
+      "label": "isCanonicalSkillId()",
+      "file_type": "code",
+      "source_file": "src\\progress\\mastery_model.ts",
+      "source_location": "L390",
+      "id": "mastery_model_iscanonicalskillid",
+      "community": 2,
+      "norm_label": "iscanonicalskillid()"
+    },
+    {
+      "label": "clampMasteryLevel()",
+      "file_type": "code",
+      "source_file": "src\\progress\\mastery_model.ts",
+      "source_location": "L394",
+      "id": "mastery_model_clampmasterylevel",
+      "community": 2,
+      "norm_label": "clampmasterylevel()"
+    },
+    {
+      "label": "clampScore()",
+      "file_type": "code",
+      "source_file": "src\\progress\\mastery_model.ts",
+      "source_location": "L410",
+      "id": "mastery_model_clampscore",
+      "community": 2,
+      "norm_label": "clampscore()"
+    },
+    {
+      "label": "formatPercent()",
+      "file_type": "code",
+      "source_file": "src\\progress\\mastery_model.ts",
+      "source_location": "L422",
+      "id": "mastery_model_formatpercent",
+      "community": 2,
+      "norm_label": "formatpercent()"
     },
     {
       "label": "next_step.ts",
@@ -2178,61 +2340,52 @@
       "source_file": "src\\recommendation\\next_step.ts",
       "source_location": "L1",
       "id": "src_recommendation_next_step_ts",
-      "community": 3,
+      "community": 2,
       "norm_label": "next_step.ts"
     },
     {
       "label": "getNextStepRecommendation()",
       "file_type": "code",
       "source_file": "src\\recommendation\\next_step.ts",
-      "source_location": "L50",
+      "source_location": "L39",
       "id": "next_step_getnextsteprecommendation",
-      "community": 3,
+      "community": 2,
       "norm_label": "getnextsteprecommendation()"
     },
     {
       "label": "getReadingUnitCandidates()",
       "file_type": "code",
       "source_file": "src\\recommendation\\next_step.ts",
-      "source_location": "L185",
+      "source_location": "L177",
       "id": "next_step_getreadingunitcandidates",
-      "community": 3,
+      "community": 2,
       "norm_label": "getreadingunitcandidates()"
     },
     {
       "label": "pickReadingUnit()",
       "file_type": "code",
       "source_file": "src\\recommendation\\next_step.ts",
-      "source_location": "L208",
+      "source_location": "L200",
       "id": "next_step_pickreadingunit",
-      "community": 3,
+      "community": 2,
       "norm_label": "pickreadingunit()"
-    },
-    {
-      "label": "isSimulatorReady()",
-      "file_type": "code",
-      "source_file": "src\\recommendation\\next_step.ts",
-      "source_location": "L220",
-      "id": "next_step_issimulatorready",
-      "community": 3,
-      "norm_label": "issimulatorready()"
     },
     {
       "label": "buildPracticeHref()",
       "file_type": "code",
       "source_file": "src\\recommendation\\next_step.ts",
-      "source_location": "L234",
+      "source_location": "L212",
       "id": "next_step_buildpracticehref",
-      "community": 3,
+      "community": 2,
       "norm_label": "buildpracticehref()"
     },
     {
       "label": "buildReadingHref()",
       "file_type": "code",
       "source_file": "src\\recommendation\\next_step.ts",
-      "source_location": "L243",
+      "source_location": "L221",
       "id": "next_step_buildreadinghref",
-      "community": 3,
+      "community": 2,
       "norm_label": "buildreadinghref()"
     },
     {
@@ -2241,7 +2394,7 @@
       "source_file": "src\\skills\\skill_metadata.ts",
       "source_location": "L1",
       "id": "src_skills_skill_metadata_ts",
-      "community": 3,
+      "community": 2,
       "norm_label": "skill_metadata.ts"
     },
     {
@@ -2250,7 +2403,7 @@
       "source_file": "src\\skills\\skill_metadata.ts",
       "source_location": "L150",
       "id": "skill_metadata_getskillmetadata",
-      "community": 3,
+      "community": 2,
       "norm_label": "getskillmetadata()"
     },
     {
@@ -2259,133 +2412,106 @@
       "source_file": "src\\storage\\local_progress_store.ts",
       "source_location": "L1",
       "id": "src_storage_local_progress_store_ts",
-      "community": 5,
+      "community": 3,
       "norm_label": "local_progress_store.ts"
     },
     {
       "label": "loadProgress()",
       "file_type": "code",
       "source_file": "src\\storage\\local_progress_store.ts",
-      "source_location": "L55",
+      "source_location": "L60",
       "id": "local_progress_store_loadprogress",
-      "community": 5,
+      "community": 3,
       "norm_label": "loadprogress()"
     },
     {
       "label": "saveSessionResult()",
       "file_type": "code",
       "source_file": "src\\storage\\local_progress_store.ts",
-      "source_location": "L73",
+      "source_location": "L78",
       "id": "local_progress_store_savesessionresult",
-      "community": 5,
+      "community": 3,
       "norm_label": "savesessionresult()"
     },
     {
       "label": "updateSkillStats()",
       "file_type": "code",
       "source_file": "src\\storage\\local_progress_store.ts",
-      "source_location": "L92",
+      "source_location": "L97",
       "id": "local_progress_store_updateskillstats",
-      "community": 5,
+      "community": 3,
       "norm_label": "updateskillstats()"
     },
     {
       "label": "markSkillsSeen()",
       "file_type": "code",
       "source_file": "src\\storage\\local_progress_store.ts",
-      "source_location": "L111",
+      "source_location": "L116",
       "id": "local_progress_store_markskillsseen",
-      "community": 5,
+      "community": 3,
       "norm_label": "markskillsseen()"
     },
     {
       "label": "getSeenSkills()",
       "file_type": "code",
       "source_file": "src\\storage\\local_progress_store.ts",
-      "source_location": "L119",
+      "source_location": "L124",
       "id": "local_progress_store_getseenskills",
-      "community": 2,
+      "community": 3,
       "norm_label": "getseenskills()"
     },
     {
       "label": "getPracticeProgressSnapshot()",
       "file_type": "code",
       "source_file": "src\\storage\\local_progress_store.ts",
-      "source_location": "L123",
+      "source_location": "L128",
       "id": "local_progress_store_getpracticeprogresssnapshot",
-      "community": 3,
+      "community": 2,
       "norm_label": "getpracticeprogresssnapshot()"
     },
     {
       "label": "getWeakestPracticeSkillId()",
       "file_type": "code",
       "source_file": "src\\storage\\local_progress_store.ts",
-      "source_location": "L136",
+      "source_location": "L132",
       "id": "local_progress_store_getweakestpracticeskillid",
-      "community": 3,
+      "community": 2,
       "norm_label": "getweakestpracticeskillid()"
     },
     {
       "label": "updateSeenSkills()",
       "file_type": "code",
       "source_file": "src\\storage\\local_progress_store.ts",
-      "source_location": "L162",
+      "source_location": "L139",
       "id": "local_progress_store_updateseenskills",
-      "community": 5,
+      "community": 3,
       "norm_label": "updateseenskills()"
-    },
-    {
-      "label": "buildPracticeSkillStats()",
-      "file_type": "code",
-      "source_file": "src\\storage\\local_progress_store.ts",
-      "source_location": "L174",
-      "id": "local_progress_store_buildpracticeskillstats",
-      "community": 5,
-      "norm_label": "buildpracticeskillstats()"
-    },
-    {
-      "label": "clampMasteryLevel()",
-      "file_type": "code",
-      "source_file": "src\\storage\\local_progress_store.ts",
-      "source_location": "L206",
-      "id": "local_progress_store_clampmasterylevel",
-      "community": 5,
-      "norm_label": "clampmasterylevel()"
-    },
-    {
-      "label": "getStatePriority()",
-      "file_type": "code",
-      "source_file": "src\\storage\\local_progress_store.ts",
-      "source_location": "L222",
-      "id": "local_progress_store_getstatepriority",
-      "community": 5,
-      "norm_label": "getstatepriority()"
     },
     {
       "label": "createEmptyProgress()",
       "file_type": "code",
       "source_file": "src\\storage\\local_progress_store.ts",
-      "source_location": "L238",
+      "source_location": "L151",
       "id": "local_progress_store_createemptyprogress",
-      "community": 5,
+      "community": 3,
       "norm_label": "createemptyprogress()"
     },
     {
       "label": "writeProgress()",
       "file_type": "code",
       "source_file": "src\\storage\\local_progress_store.ts",
-      "source_location": "L246",
+      "source_location": "L159",
       "id": "local_progress_store_writeprogress",
-      "community": 5,
+      "community": 3,
       "norm_label": "writeprogress()"
     },
     {
       "label": "createSessionId()",
       "file_type": "code",
       "source_file": "src\\storage\\local_progress_store.ts",
-      "source_location": "L257",
+      "source_location": "L170",
       "id": "local_progress_store_createsessionid",
-      "community": 5,
+      "community": 3,
       "norm_label": "createsessionid()"
     },
     {
@@ -2592,7 +2718,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src\\app\\dashboard\\page.tsx",
-      "source_location": "L31",
+      "source_location": "L28",
       "weight": 1.0,
       "_src": "src_app_dashboard_page_tsx",
       "_tgt": "page_dashboardpage",
@@ -2604,7 +2730,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src\\app\\dashboard\\page.tsx",
-      "source_location": "L55",
+      "source_location": "L52",
       "weight": 1.0,
       "_src": "src_app_dashboard_page_tsx",
       "_tgt": "page_getdashboardskills",
@@ -2616,7 +2742,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src\\app\\dashboard\\page.tsx",
-      "source_location": "L72",
+      "source_location": "L67",
       "weight": 1.0,
       "_src": "src_app_dashboard_page_tsx",
       "_tgt": "page_isenabledparam",
@@ -2628,7 +2754,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src\\app\\dashboard\\page.tsx",
-      "source_location": "L34",
+      "source_location": "L31",
       "weight": 1.0,
       "_src": "page_dashboardpage",
       "_tgt": "page_isenabledparam",
@@ -2640,7 +2766,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src\\app\\dashboard\\page.tsx",
-      "source_location": "L37",
+      "source_location": "L34",
       "weight": 1.0,
       "_src": "page_dashboardpage",
       "_tgt": "page_getdashboardskills",
@@ -2665,12 +2791,12 @@
       "confidence": "INFERRED",
       "confidence_score": 0.8,
       "source_file": "src\\app\\dashboard\\page.tsx",
-      "source_location": "L43",
+      "source_location": "L33",
       "weight": 1.0,
       "_src": "page_dashboardpage",
-      "_tgt": "local_progress_store_getpracticeprogresssnapshot",
+      "_tgt": "mastery_model_buildmasterymodel",
       "source": "page_dashboardpage",
-      "target": "local_progress_store_getpracticeprogresssnapshot"
+      "target": "mastery_model_buildmasterymodel"
     },
     {
       "relation": "calls",
@@ -2683,6 +2809,18 @@
       "_tgt": "next_step_getnextsteprecommendation",
       "source": "page_dashboardpage",
       "target": "next_step_getnextsteprecommendation"
+    },
+    {
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src\\app\\dashboard\\page.tsx",
+      "source_location": "L43",
+      "weight": 1.0,
+      "_src": "page_dashboardpage",
+      "_tgt": "local_progress_store_getpracticeprogresssnapshot",
+      "source": "page_dashboardpage",
+      "target": "local_progress_store_getpracticeprogresssnapshot"
     },
     {
       "relation": "calls",
@@ -6135,8 +6273,8 @@
       "source_file": "src\\recommendation\\next_step.ts",
       "source_location": "L188",
       "weight": 1.0,
-      "_src": "next_step_getreadingunitcandidates",
-      "_tgt": "session_runner_loadlenguaexercises",
+      "_src": "session_runner_loadlenguaexercises",
+      "_tgt": "next_step_getreadingunitcandidates",
       "source": "session_runner_loadlenguaexercises",
       "target": "next_step_getreadingunitcandidates"
     },
@@ -7415,8 +7553,428 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "src\\progress\\mastery_model.ts",
+      "source_location": "L72",
+      "weight": 1.0,
+      "_src": "src_progress_mastery_model_ts",
+      "_tgt": "mastery_model_buildmasterymodel",
+      "source": "src_progress_mastery_model_ts",
+      "target": "mastery_model_buildmasterymodel",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\progress\\mastery_model.ts",
+      "source_location": "L124",
+      "weight": 1.0,
+      "_src": "src_progress_mastery_model_ts",
+      "_tgt": "mastery_model_buildpracticeprogresssnapshot",
+      "source": "src_progress_mastery_model_ts",
+      "target": "mastery_model_buildpracticeprogresssnapshot",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\progress\\mastery_model.ts",
+      "source_location": "L134",
+      "weight": 1.0,
+      "_src": "src_progress_mastery_model_ts",
+      "_tgt": "mastery_model_getweakestskillid",
+      "source": "src_progress_mastery_model_ts",
+      "target": "mastery_model_getweakestskillid",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\progress\\mastery_model.ts",
+      "source_location": "L151",
+      "weight": 1.0,
+      "_src": "src_progress_mastery_model_ts",
+      "_tgt": "mastery_model_explainweakestskill",
+      "source": "src_progress_mastery_model_ts",
+      "target": "mastery_model_explainweakestskill",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\progress\\mastery_model.ts",
+      "source_location": "L172",
+      "weight": 1.0,
+      "_src": "src_progress_mastery_model_ts",
+      "_tgt": "mastery_model_interpretfocusentries",
+      "source": "src_progress_mastery_model_ts",
+      "target": "mastery_model_interpretfocusentries",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\progress\\mastery_model.ts",
+      "source_location": "L235",
+      "weight": 1.0,
+      "_src": "src_progress_mastery_model_ts",
+      "_tgt": "mastery_model_calculatemasteryscore",
+      "source": "src_progress_mastery_model_ts",
+      "target": "mastery_model_calculatemasteryscore",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\progress\\mastery_model.ts",
+      "source_location": "L257",
+      "weight": 1.0,
+      "_src": "src_progress_mastery_model_ts",
+      "_tgt": "mastery_model_scoretomasterylevel",
+      "source": "src_progress_mastery_model_ts",
+      "target": "mastery_model_scoretomasterylevel",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\progress\\mastery_model.ts",
+      "source_location": "L277",
+      "weight": 1.0,
+      "_src": "src_progress_mastery_model_ts",
+      "_tgt": "mastery_model_evaluatesimulatorreadiness",
+      "source": "src_progress_mastery_model_ts",
+      "target": "mastery_model_evaluatesimulatorreadiness",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\progress\\mastery_model.ts",
+      "source_location": "L302",
+      "weight": 1.0,
+      "_src": "src_progress_mastery_model_ts",
+      "_tgt": "mastery_model_buildpracticeskillstats",
+      "source": "src_progress_mastery_model_ts",
+      "target": "mastery_model_buildpracticeskillstats",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\progress\\mastery_model.ts",
+      "source_location": "L318",
+      "weight": 1.0,
+      "_src": "src_progress_mastery_model_ts",
+      "_tgt": "mastery_model_buildtrace",
+      "source": "src_progress_mastery_model_ts",
+      "target": "mastery_model_buildtrace",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\progress\\mastery_model.ts",
+      "source_location": "L348",
+      "weight": 1.0,
+      "_src": "src_progress_mastery_model_ts",
+      "_tgt": "mastery_model_getrecencyweight",
+      "source": "src_progress_mastery_model_ts",
+      "target": "mastery_model_getrecencyweight",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\progress\\mastery_model.ts",
+      "source_location": "L366",
+      "weight": 1.0,
+      "_src": "src_progress_mastery_model_ts",
+      "_tgt": "mastery_model_masteryleveltostate",
+      "source": "src_progress_mastery_model_ts",
+      "target": "mastery_model_masteryleveltostate",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\progress\\mastery_model.ts",
+      "source_location": "L378",
+      "weight": 1.0,
+      "_src": "src_progress_mastery_model_ts",
+      "_tgt": "mastery_model_getstatepriority",
+      "source": "src_progress_mastery_model_ts",
+      "target": "mastery_model_getstatepriority",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\progress\\mastery_model.ts",
+      "source_location": "L390",
+      "weight": 1.0,
+      "_src": "src_progress_mastery_model_ts",
+      "_tgt": "mastery_model_iscanonicalskillid",
+      "source": "src_progress_mastery_model_ts",
+      "target": "mastery_model_iscanonicalskillid",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\progress\\mastery_model.ts",
+      "source_location": "L394",
+      "weight": 1.0,
+      "_src": "src_progress_mastery_model_ts",
+      "_tgt": "mastery_model_clampmasterylevel",
+      "source": "src_progress_mastery_model_ts",
+      "target": "mastery_model_clampmasterylevel",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\progress\\mastery_model.ts",
+      "source_location": "L410",
+      "weight": 1.0,
+      "_src": "src_progress_mastery_model_ts",
+      "_tgt": "mastery_model_clampscore",
+      "source": "src_progress_mastery_model_ts",
+      "target": "mastery_model_clampscore",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\progress\\mastery_model.ts",
+      "source_location": "L422",
+      "weight": 1.0,
+      "_src": "src_progress_mastery_model_ts",
+      "_tgt": "mastery_model_formatpercent",
+      "source": "src_progress_mastery_model_ts",
+      "target": "mastery_model_formatpercent",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\progress\\mastery_model.ts",
+      "source_location": "L90",
+      "weight": 1.0,
+      "_src": "mastery_model_buildmasterymodel",
+      "_tgt": "mastery_model_clampmasterylevel",
+      "source": "mastery_model_buildmasterymodel",
+      "target": "mastery_model_clampmasterylevel",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\progress\\mastery_model.ts",
+      "source_location": "L101",
+      "weight": 1.0,
+      "_src": "mastery_model_buildmasterymodel",
+      "_tgt": "mastery_model_interpretfocusentries",
+      "source": "mastery_model_buildmasterymodel",
+      "target": "mastery_model_interpretfocusentries",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\progress\\mastery_model.ts",
+      "source_location": "L104",
+      "weight": 1.0,
+      "_src": "mastery_model_buildmasterymodel",
+      "_tgt": "mastery_model_iscanonicalskillid",
+      "source": "mastery_model_buildmasterymodel",
+      "target": "mastery_model_iscanonicalskillid",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\progress\\mastery_model.ts",
+      "source_location": "L111",
+      "weight": 1.0,
+      "_src": "mastery_model_buildmasterymodel",
+      "_tgt": "mastery_model_evaluatesimulatorreadiness",
+      "source": "mastery_model_buildmasterymodel",
+      "target": "mastery_model_evaluatesimulatorreadiness",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\progress\\mastery_model.ts",
+      "source_location": "L115",
+      "weight": 1.0,
+      "_src": "mastery_model_buildmasterymodel",
+      "_tgt": "mastery_model_buildpracticeskillstats",
+      "source": "mastery_model_buildmasterymodel",
+      "target": "mastery_model_buildpracticeskillstats",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\progress\\mastery_model.ts",
+      "source_location": "L125",
+      "weight": 1.0,
+      "_src": "mastery_model_buildpracticeprogresssnapshot",
+      "_tgt": "mastery_model_buildmasterymodel",
+      "source": "mastery_model_buildmasterymodel",
+      "target": "mastery_model_buildpracticeprogresssnapshot",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
       "source_file": "src\\recommendation\\next_step.ts",
-      "source_location": "L50",
+      "source_location": "L42",
+      "weight": 1.0,
+      "_src": "next_step_getnextsteprecommendation",
+      "_tgt": "mastery_model_buildmasterymodel",
+      "source": "mastery_model_buildmasterymodel",
+      "target": "next_step_getnextsteprecommendation"
+    },
+    {
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src\\storage\\local_progress_store.ts",
+      "source_location": "L136",
+      "weight": 1.0,
+      "_src": "local_progress_store_getweakestpracticeskillid",
+      "_tgt": "mastery_model_buildmasterymodel",
+      "source": "mastery_model_buildmasterymodel",
+      "target": "local_progress_store_getweakestpracticeskillid"
+    },
+    {
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src\\storage\\local_progress_store.ts",
+      "source_location": "L129",
+      "weight": 1.0,
+      "_src": "local_progress_store_getpracticeprogresssnapshot",
+      "_tgt": "mastery_model_buildpracticeprogresssnapshot",
+      "source": "mastery_model_buildpracticeprogresssnapshot",
+      "target": "local_progress_store_getpracticeprogresssnapshot"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\progress\\mastery_model.ts",
+      "source_location": "L155",
+      "weight": 1.0,
+      "_src": "mastery_model_explainweakestskill",
+      "_tgt": "mastery_model_getweakestskillid",
+      "source": "mastery_model_getweakestskillid",
+      "target": "mastery_model_explainweakestskill",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src\\storage\\local_progress_store.ts",
+      "source_location": "L136",
+      "weight": 1.0,
+      "_src": "local_progress_store_getweakestpracticeskillid",
+      "_tgt": "mastery_model_getweakestskillid",
+      "source": "mastery_model_getweakestskillid",
+      "target": "local_progress_store_getweakestpracticeskillid"
+    },
+    {
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src\\recommendation\\next_step.ts",
+      "source_location": "L51",
+      "weight": 1.0,
+      "_src": "next_step_getnextsteprecommendation",
+      "_tgt": "mastery_model_explainweakestskill",
+      "source": "mastery_model_explainweakestskill",
+      "target": "next_step_getnextsteprecommendation"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\progress\\mastery_model.ts",
+      "source_location": "L195",
+      "weight": 1.0,
+      "_src": "mastery_model_interpretfocusentries",
+      "_tgt": "mastery_model_calculatemasteryscore",
+      "source": "mastery_model_interpretfocusentries",
+      "target": "mastery_model_calculatemasteryscore",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\progress\\mastery_model.ts",
+      "source_location": "L202",
+      "weight": 1.0,
+      "_src": "mastery_model_interpretfocusentries",
+      "_tgt": "mastery_model_scoretomasterylevel",
+      "source": "mastery_model_interpretfocusentries",
+      "target": "mastery_model_scoretomasterylevel",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\progress\\mastery_model.ts",
+      "source_location": "L203",
+      "weight": 1.0,
+      "_src": "mastery_model_interpretfocusentries",
+      "_tgt": "mastery_model_masteryleveltostate",
+      "source": "mastery_model_interpretfocusentries",
+      "target": "mastery_model_masteryleveltostate",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\progress\\mastery_model.ts",
+      "source_location": "L204",
+      "weight": 1.0,
+      "_src": "mastery_model_interpretfocusentries",
+      "_tgt": "mastery_model_buildtrace",
+      "source": "mastery_model_interpretfocusentries",
+      "target": "mastery_model_buildtrace",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\progress\\mastery_model.ts",
+      "source_location": "L254",
+      "weight": 1.0,
+      "_src": "mastery_model_calculatemasteryscore",
+      "_tgt": "mastery_model_clampscore",
+      "source": "mastery_model_calculatemasteryscore",
+      "target": "mastery_model_clampscore",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\progress\\mastery_model.ts",
+      "source_location": "L342",
+      "weight": 1.0,
+      "_src": "mastery_model_buildtrace",
+      "_tgt": "mastery_model_formatpercent",
+      "source": "mastery_model_buildtrace",
+      "target": "mastery_model_formatpercent",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\recommendation\\next_step.ts",
+      "source_location": "L39",
       "weight": 1.0,
       "_src": "src_recommendation_next_step_ts",
       "_tgt": "next_step_getnextsteprecommendation",
@@ -7428,7 +7986,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src\\recommendation\\next_step.ts",
-      "source_location": "L185",
+      "source_location": "L177",
       "weight": 1.0,
       "_src": "src_recommendation_next_step_ts",
       "_tgt": "next_step_getreadingunitcandidates",
@@ -7440,7 +7998,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src\\recommendation\\next_step.ts",
-      "source_location": "L208",
+      "source_location": "L200",
       "weight": 1.0,
       "_src": "src_recommendation_next_step_ts",
       "_tgt": "next_step_pickreadingunit",
@@ -7452,19 +8010,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src\\recommendation\\next_step.ts",
-      "source_location": "L220",
-      "weight": 1.0,
-      "_src": "src_recommendation_next_step_ts",
-      "_tgt": "next_step_issimulatorready",
-      "source": "src_recommendation_next_step_ts",
-      "target": "next_step_issimulatorready",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src\\recommendation\\next_step.ts",
-      "source_location": "L234",
+      "source_location": "L212",
       "weight": 1.0,
       "_src": "src_recommendation_next_step_ts",
       "_tgt": "next_step_buildpracticehref",
@@ -7476,7 +8022,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src\\recommendation\\next_step.ts",
-      "source_location": "L243",
+      "source_location": "L221",
       "weight": 1.0,
       "_src": "src_recommendation_next_step_ts",
       "_tgt": "next_step_buildreadinghref",
@@ -7488,7 +8034,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src\\recommendation\\next_step.ts",
-      "source_location": "L62",
+      "source_location": "L54",
       "weight": 1.0,
       "_src": "next_step_getnextsteprecommendation",
       "_tgt": "next_step_getreadingunitcandidates",
@@ -7500,7 +8046,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src\\recommendation\\next_step.ts",
-      "source_location": "L82",
+      "source_location": "L74",
       "weight": 1.0,
       "_src": "next_step_getnextsteprecommendation",
       "_tgt": "next_step_buildreadinghref",
@@ -7512,7 +8058,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src\\recommendation\\next_step.ts",
-      "source_location": "L100",
+      "source_location": "L92",
       "weight": 1.0,
       "_src": "next_step_getnextsteprecommendation",
       "_tgt": "next_step_buildpracticehref",
@@ -7524,7 +8070,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src\\recommendation\\next_step.ts",
-      "source_location": "L112",
+      "source_location": "L120",
       "weight": 1.0,
       "_src": "next_step_getnextsteprecommendation",
       "_tgt": "next_step_pickreadingunit",
@@ -7534,15 +8080,15 @@
     },
     {
       "relation": "calls",
-      "confidence": "EXTRACTED",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
       "source_file": "src\\recommendation\\next_step.ts",
-      "source_location": "L134",
+      "source_location": "L61",
       "weight": 1.0,
       "_src": "next_step_getnextsteprecommendation",
-      "_tgt": "next_step_issimulatorready",
+      "_tgt": "skill_metadata_getskillmetadata",
       "source": "next_step_getnextsteprecommendation",
-      "target": "next_step_issimulatorready",
-      "confidence_score": 1.0
+      "target": "skill_metadata_getskillmetadata"
     },
     {
       "relation": "calls",
@@ -7569,18 +8115,6 @@
       "target": "local_progress_store_getweakestpracticeskillid"
     },
     {
-      "relation": "calls",
-      "confidence": "INFERRED",
-      "confidence_score": 0.8,
-      "source_file": "src\\recommendation\\next_step.ts",
-      "source_location": "L61",
-      "weight": 1.0,
-      "_src": "next_step_getnextsteprecommendation",
-      "_tgt": "skill_metadata_getskillmetadata",
-      "source": "next_step_getnextsteprecommendation",
-      "target": "skill_metadata_getskillmetadata"
-    },
-    {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src\\skills\\skill_metadata.ts",
@@ -7596,7 +8130,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src\\storage\\local_progress_store.ts",
-      "source_location": "L55",
+      "source_location": "L60",
       "weight": 1.0,
       "_src": "src_storage_local_progress_store_ts",
       "_tgt": "local_progress_store_loadprogress",
@@ -7608,7 +8142,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src\\storage\\local_progress_store.ts",
-      "source_location": "L73",
+      "source_location": "L78",
       "weight": 1.0,
       "_src": "src_storage_local_progress_store_ts",
       "_tgt": "local_progress_store_savesessionresult",
@@ -7620,7 +8154,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src\\storage\\local_progress_store.ts",
-      "source_location": "L92",
+      "source_location": "L97",
       "weight": 1.0,
       "_src": "src_storage_local_progress_store_ts",
       "_tgt": "local_progress_store_updateskillstats",
@@ -7632,7 +8166,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src\\storage\\local_progress_store.ts",
-      "source_location": "L111",
+      "source_location": "L116",
       "weight": 1.0,
       "_src": "src_storage_local_progress_store_ts",
       "_tgt": "local_progress_store_markskillsseen",
@@ -7644,7 +8178,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src\\storage\\local_progress_store.ts",
-      "source_location": "L119",
+      "source_location": "L124",
       "weight": 1.0,
       "_src": "src_storage_local_progress_store_ts",
       "_tgt": "local_progress_store_getseenskills",
@@ -7656,7 +8190,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src\\storage\\local_progress_store.ts",
-      "source_location": "L123",
+      "source_location": "L128",
       "weight": 1.0,
       "_src": "src_storage_local_progress_store_ts",
       "_tgt": "local_progress_store_getpracticeprogresssnapshot",
@@ -7668,7 +8202,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src\\storage\\local_progress_store.ts",
-      "source_location": "L136",
+      "source_location": "L132",
       "weight": 1.0,
       "_src": "src_storage_local_progress_store_ts",
       "_tgt": "local_progress_store_getweakestpracticeskillid",
@@ -7680,7 +8214,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src\\storage\\local_progress_store.ts",
-      "source_location": "L162",
+      "source_location": "L139",
       "weight": 1.0,
       "_src": "src_storage_local_progress_store_ts",
       "_tgt": "local_progress_store_updateseenskills",
@@ -7692,43 +8226,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src\\storage\\local_progress_store.ts",
-      "source_location": "L174",
-      "weight": 1.0,
-      "_src": "src_storage_local_progress_store_ts",
-      "_tgt": "local_progress_store_buildpracticeskillstats",
-      "source": "src_storage_local_progress_store_ts",
-      "target": "local_progress_store_buildpracticeskillstats",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src\\storage\\local_progress_store.ts",
-      "source_location": "L206",
-      "weight": 1.0,
-      "_src": "src_storage_local_progress_store_ts",
-      "_tgt": "local_progress_store_clampmasterylevel",
-      "source": "src_storage_local_progress_store_ts",
-      "target": "local_progress_store_clampmasterylevel",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src\\storage\\local_progress_store.ts",
-      "source_location": "L222",
-      "weight": 1.0,
-      "_src": "src_storage_local_progress_store_ts",
-      "_tgt": "local_progress_store_getstatepriority",
-      "source": "src_storage_local_progress_store_ts",
-      "target": "local_progress_store_getstatepriority",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src\\storage\\local_progress_store.ts",
-      "source_location": "L238",
+      "source_location": "L151",
       "weight": 1.0,
       "_src": "src_storage_local_progress_store_ts",
       "_tgt": "local_progress_store_createemptyprogress",
@@ -7740,7 +8238,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src\\storage\\local_progress_store.ts",
-      "source_location": "L246",
+      "source_location": "L159",
       "weight": 1.0,
       "_src": "src_storage_local_progress_store_ts",
       "_tgt": "local_progress_store_writeprogress",
@@ -7752,7 +8250,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src\\storage\\local_progress_store.ts",
-      "source_location": "L257",
+      "source_location": "L170",
       "weight": 1.0,
       "_src": "src_storage_local_progress_store_ts",
       "_tgt": "local_progress_store_createsessionid",
@@ -7764,7 +8262,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src\\storage\\local_progress_store.ts",
-      "source_location": "L57",
+      "source_location": "L62",
       "weight": 1.0,
       "_src": "local_progress_store_loadprogress",
       "_tgt": "local_progress_store_createemptyprogress",
@@ -7776,7 +8274,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src\\storage\\local_progress_store.ts",
-      "source_location": "L74",
+      "source_location": "L79",
       "weight": 1.0,
       "_src": "local_progress_store_savesessionresult",
       "_tgt": "local_progress_store_loadprogress",
@@ -7788,7 +8286,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src\\storage\\local_progress_store.ts",
-      "source_location": "L112",
+      "source_location": "L117",
       "weight": 1.0,
       "_src": "local_progress_store_markskillsseen",
       "_tgt": "local_progress_store_loadprogress",
@@ -7800,7 +8298,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src\\storage\\local_progress_store.ts",
-      "source_location": "L120",
+      "source_location": "L125",
       "weight": 1.0,
       "_src": "local_progress_store_getseenskills",
       "_tgt": "local_progress_store_loadprogress",
@@ -7812,7 +8310,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src\\storage\\local_progress_store.ts",
-      "source_location": "L77",
+      "source_location": "L82",
       "weight": 1.0,
       "_src": "local_progress_store_savesessionresult",
       "_tgt": "local_progress_store_createsessionid",
@@ -7824,7 +8322,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src\\storage\\local_progress_store.ts",
-      "source_location": "L82",
+      "source_location": "L87",
       "weight": 1.0,
       "_src": "local_progress_store_savesessionresult",
       "_tgt": "local_progress_store_updateskillstats",
@@ -7836,7 +8334,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src\\storage\\local_progress_store.ts",
-      "source_location": "L83",
+      "source_location": "L88",
       "weight": 1.0,
       "_src": "local_progress_store_savesessionresult",
       "_tgt": "local_progress_store_updateseenskills",
@@ -7848,7 +8346,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src\\storage\\local_progress_store.ts",
-      "source_location": "L87",
+      "source_location": "L92",
       "weight": 1.0,
       "_src": "local_progress_store_savesessionresult",
       "_tgt": "local_progress_store_writeprogress",
@@ -7860,7 +8358,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src\\storage\\local_progress_store.ts",
-      "source_location": "L113",
+      "source_location": "L118",
       "weight": 1.0,
       "_src": "local_progress_store_markskillsseen",
       "_tgt": "local_progress_store_updateseenskills",
@@ -7872,48 +8370,12 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src\\storage\\local_progress_store.ts",
-      "source_location": "L114",
+      "source_location": "L119",
       "weight": 1.0,
       "_src": "local_progress_store_markskillsseen",
       "_tgt": "local_progress_store_writeprogress",
       "source": "local_progress_store_markskillsseen",
       "target": "local_progress_store_writeprogress",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "confidence": "EXTRACTED",
-      "source_file": "src\\storage\\local_progress_store.ts",
-      "source_location": "L132",
-      "weight": 1.0,
-      "_src": "local_progress_store_getpracticeprogresssnapshot",
-      "_tgt": "local_progress_store_buildpracticeskillstats",
-      "source": "local_progress_store_getpracticeprogresssnapshot",
-      "target": "local_progress_store_buildpracticeskillstats",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "confidence": "EXTRACTED",
-      "source_file": "src\\storage\\local_progress_store.ts",
-      "source_location": "L140",
-      "weight": 1.0,
-      "_src": "local_progress_store_getweakestpracticeskillid",
-      "_tgt": "local_progress_store_getpracticeprogresssnapshot",
-      "source": "local_progress_store_getpracticeprogresssnapshot",
-      "target": "local_progress_store_getweakestpracticeskillid",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "confidence": "EXTRACTED",
-      "source_file": "src\\storage\\local_progress_store.ts",
-      "source_location": "L189",
-      "weight": 1.0,
-      "_src": "local_progress_store_buildpracticeskillstats",
-      "_tgt": "local_progress_store_clampmasterylevel",
-      "source": "local_progress_store_buildpracticeskillstats",
-      "target": "local_progress_store_clampmasterylevel",
       "confidence_score": 1.0
     }
   ],

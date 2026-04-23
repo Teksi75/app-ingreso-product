@@ -1,5 +1,10 @@
 import { existsSync, mkdirSync, readFileSync, renameSync, writeFileSync } from "node:fs";
 import { dirname, resolve } from "node:path";
+import {
+  buildPracticeProgressSnapshot,
+  buildMasteryModel,
+  getWeakestSkillId,
+} from "../progress/mastery_model.ts";
 
 export type SkillState = "weak" | "developing" | "mastered";
 export type SessionMode = "practice" | "reading" | "simulator";
@@ -121,42 +126,14 @@ export function getSeenSkills(): string[] {
 }
 
 export function getPracticeProgressSnapshot(progress: StoredProgress = loadProgress()): PracticeProgressSnapshot {
-  return {
-    seenSkills: [...(progress.seenSkills ?? [])],
-    masteryByFocus: Object.fromEntries(
-      Object.entries(progress.skill_stats).map(([skillId, stats]) => [
-        skillId,
-        clampMasteryLevel(stats.mastery_level),
-      ]),
-    ),
-    practiceSkillStats: buildPracticeSkillStats(progress),
-  };
+  return buildPracticeProgressSnapshot(progress);
 }
 
 export function getWeakestPracticeSkillId(
   skillIds: string[],
   progress: StoredProgress = loadProgress(),
 ): string | null {
-  const snapshot = getPracticeProgressSnapshot(progress);
-
-  return [...skillIds].sort((left, right) => {
-    const leftStats = snapshot.practiceSkillStats[left];
-    const rightStats = snapshot.practiceSkillStats[right];
-    const stateDifference = getStatePriority(leftStats?.last_state) - getStatePriority(rightStats?.last_state);
-
-    if (stateDifference !== 0) {
-      return stateDifference;
-    }
-
-    const leftAccuracy = leftStats && leftStats.total_attempts > 0
-      ? leftStats.total_correct / leftStats.total_attempts
-      : 0;
-    const rightAccuracy = rightStats && rightStats.total_attempts > 0
-      ? rightStats.total_correct / rightStats.total_attempts
-      : 0;
-
-    return leftAccuracy - rightAccuracy || left.localeCompare(right);
-  })[0] ?? null;
+  return getWeakestSkillId(buildMasteryModel(progress), skillIds);
 }
 
 function updateSeenSkills(progress: StoredProgress, skillIds: string[]): StoredProgress {
@@ -169,70 +146,6 @@ function updateSeenSkills(progress: StoredProgress, skillIds: string[]): StoredP
   progress.seenSkills = [...seenSkills].sort((left, right) => left.localeCompare(right));
 
   return progress;
-}
-
-function buildPracticeSkillStats(progress: StoredProgress): Record<string, PracticeSkillProgress> {
-  const statsBySkill: Record<string, PracticeSkillProgress> = {};
-
-  for (const session of progress.sessions ?? []) {
-    if (session.mode !== "practice") {
-      continue;
-    }
-
-    for (const skillResult of session.skill_results) {
-      statsBySkill[skillResult.skill_id] ??= {
-        skill_id: skillResult.skill_id,
-        total_attempts: 0,
-        total_correct: 0,
-        practice_sessions: 0,
-        last_state: skillResult.state,
-        mastery_level: clampMasteryLevel(progress.skill_stats[skillResult.skill_id]?.mastery_level),
-      };
-
-      const stats = statsBySkill[skillResult.skill_id];
-      stats.total_attempts += skillResult.attempts;
-      stats.total_correct += skillResult.correct;
-      stats.practice_sessions += 1;
-      stats.last_state = skillResult.state;
-      stats.mastery_level = clampMasteryLevel(
-        skillResult.mastery_level ?? progress.skill_stats[skillResult.skill_id]?.mastery_level,
-      );
-    }
-  }
-
-  return statsBySkill;
-}
-
-function clampMasteryLevel(value: number | undefined): number {
-  if (value && value >= 4) {
-    return 4;
-  }
-
-  if (value && value >= 3) {
-    return 3;
-  }
-
-  if (value && value >= 2) {
-    return 2;
-  }
-
-  return 1;
-}
-
-function getStatePriority(state: SkillState | undefined): number {
-  if (state === "mastered") {
-    return 3;
-  }
-
-  if (state === "developing") {
-    return 2;
-  }
-
-  if (state === "weak") {
-    return 1;
-  }
-
-  return 0;
 }
 
 function createEmptyProgress(): StoredProgress {

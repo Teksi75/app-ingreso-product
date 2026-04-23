@@ -3,14 +3,11 @@ import { Header } from "../../components/dashboard/Header";
 import { SkillList } from "../../components/dashboard/SkillList";
 import {
   CANONICAL_LENGUA_SKILLS,
-  getNextStepRecommendation,
-} from "../../recommendation/next_step";
-import {
-  getPracticeProgressSnapshot,
-  loadProgress,
-  type PracticeProgressSnapshot,
-  type SkillState,
-} from "../../storage/local_progress_store";
+  buildMasteryModel,
+  type MasteryModel,
+} from "../../progress/mastery_model";
+import { getNextStepRecommendation } from "../../recommendation/next_step";
+import { loadProgress, type SkillState } from "../../storage/local_progress_store";
 
 export type DashboardSkillState = SkillState | "not_started";
 
@@ -33,8 +30,8 @@ export default async function DashboardPage({ searchParams }: DashboardPageProps
   const newStudent = Array.isArray(params.newStudent) ? params.newStudent[0] : params.newStudent;
   const isNewStudent = isEnabledParam(newStudent);
   const progress = isNewStudent ? null : loadProgress();
-  const snapshot = progress ? getPracticeProgressSnapshot(progress) : null;
-  const skills = snapshot ? getDashboardSkills(snapshot) : [];
+  const model = progress ? buildMasteryModel(progress) : null;
+  const skills = model ? getDashboardSkills(model) : [];
   const recommendation = getNextStepRecommendation(progress ?? {
     sessions: [],
     seenSkills: [],
@@ -52,19 +49,17 @@ export default async function DashboardPage({ searchParams }: DashboardPageProps
   );
 }
 
-function getDashboardSkills(snapshot: PracticeProgressSnapshot): DashboardSkill[] {
-  const skillStats = snapshot.practiceSkillStats;
-
+function getDashboardSkills(model: MasteryModel): DashboardSkill[] {
   return [...CANONICAL_LENGUA_SKILLS].map((skill) => {
-    const stats = skillStats[skill];
-    const attempts = stats?.total_attempts ?? 0;
+    const stats = model.skills[skill];
+    const attempts = stats?.totalAttempts ?? 0;
 
     return {
       skill,
-      accuracy: attempts > 0 && stats ? Math.round((stats.total_correct / attempts) * 100) : null,
+      accuracy: attempts > 0 && stats ? Math.round((stats.totalCorrect / attempts) * 100) : null,
       attempts,
-      practiceSessions: stats?.practice_sessions ?? 0,
-      last_state: attempts > 0 && stats ? stats.last_state : "not_started",
+      practiceSessions: stats?.practiceSessions ?? 0,
+      last_state: attempts > 0 && stats ? stats.state : "not_started",
     };
   });
 }
