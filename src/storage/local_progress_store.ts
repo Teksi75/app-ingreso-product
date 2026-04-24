@@ -19,9 +19,13 @@ export type SessionSkillResult = {
 
 export type SessionData = {
   mode: SessionMode;
+  area?: "lengua";
   total_attempts: number;
   total_correct: number;
   total_errors: number;
+  score_percentage?: number;
+  duration_seconds?: number;
+  exercise_ids?: string[];
   skill_results: SessionSkillResult[];
   readingUnitId?: string;
 };

@@ -1,4 +1,4 @@
-import { getSkillMetadata } from "../skills/skill_metadata";
+import { getSkillMetadata } from "../skills/skill_metadata.ts";
 import {
   CANONICAL_LENGUA_SKILLS,
   buildMasteryModel,

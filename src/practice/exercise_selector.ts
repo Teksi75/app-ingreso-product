@@ -5,7 +5,7 @@ import {
   staticMasteryMap,
   staticExerciseEngineFiles,
   staticExerciseEngineFileNames,
-} from "../data/static_content";
+} from "../data/static_content.ts";
 
 export type Result = "correct" | "incorrect";
 export type Difficulty = 1 | 2 | 3;

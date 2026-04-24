@@ -31,7 +31,7 @@ import {
   staticExerciseEngineFileNames,
   staticReadingUnitFileNames,
   staticContentExerciseFileNames,
-} from "../data/static_content";
+} from "../data/static_content.ts";
 
 export type Exercise = {
   id: string;

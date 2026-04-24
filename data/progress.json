@@ -278,6 +278,136 @@
       "readingUnitId": "RU-LEN-BIO-001",
       "id": "session_1776634531639_5allpl",
       "created_at": "2026-04-19T21:35:31.639Z"
+    },
+    {
+      "mode": "simulator",
+      "area": "lengua",
+      "total_attempts": 10,
+      "total_correct": 9,
+      "total_errors": 1,
+      "score_percentage": 90,
+      "duration_seconds": 154,
+      "exercise_ids": [
+        "LEN-EX-003",
+        "LEN-EX-013",
+        "LEN-EX-070",
+        "len-4-cat-002",
+        "len-5-tiempo-001",
+        "len_6_1_grafias_001",
+        "len_7_1_coma_001",
+        "LEN-EX-011",
+        "LEN-EX-073",
+        "lengua_s3_prod_007"
+      ],
+      "skill_results": [
+        {
+          "skill_id": "lengua.skill_1",
+          "attempts": 2,
+          "correct": 2,
+          "state": "mastered",
+          "mastery_level": 2
+        },
+        {
+          "skill_id": "lengua.skill_1.subskill_1",
+          "attempts": 2,
+          "correct": 2,
+          "state": "mastered",
+          "mastery_level": 2
+        },
+        {
+          "skill_id": "lengua.skill_2",
+          "attempts": 2,
+          "correct": 2,
+          "state": "mastered",
+          "mastery_level": 2
+        },
+        {
+          "skill_id": "lengua.skill_2.subskill_1",
+          "attempts": 2,
+          "correct": 2,
+          "state": "mastered",
+          "mastery_level": 2
+        },
+        {
+          "skill_id": "lengua.skill_3",
+          "attempts": 2,
+          "correct": 2,
+          "state": "mastered",
+          "mastery_level": 2
+        },
+        {
+          "skill_id": "lengua.skill_3.subskill_1",
+          "attempts": 1,
+          "correct": 1,
+          "state": "mastered",
+          "mastery_level": 1
+        },
+        {
+          "skill_id": "lengua.skill_3.subskill_2",
+          "attempts": 1,
+          "correct": 1,
+          "state": "mastered",
+          "mastery_level": 1
+        },
+        {
+          "skill_id": "lengua.skill_4",
+          "attempts": 1,
+          "correct": 0,
+          "state": "weak",
+          "mastery_level": 1
+        },
+        {
+          "skill_id": "lengua.skill_4.subskill_1",
+          "attempts": 1,
+          "correct": 0,
+          "state": "weak",
+          "mastery_level": 1
+        },
+        {
+          "skill_id": "lengua.skill_5",
+          "attempts": 1,
+          "correct": 1,
+          "state": "mastered",
+          "mastery_level": 1
+        },
+        {
+          "skill_id": "lengua.skill_5.subskill_1",
+          "attempts": 1,
+          "correct": 1,
+          "state": "mastered",
+          "mastery_level": 1
+        },
+        {
+          "skill_id": "lengua.skill_6",
+          "attempts": 1,
+          "correct": 1,
+          "state": "mastered",
+          "mastery_level": 1
+        },
+        {
+          "skill_id": "lengua.skill_6.subskill_1",
+          "attempts": 1,
+          "correct": 1,
+          "state": "mastered",
+          "mastery_level": 1
+        },
+        {
+          "skill_id": "lengua.skill_7",
+          "attempts": 1,
+          "correct": 1,
+          "state": "mastered",
+          "mastery_level": 1
+        },
+        {
+          "skill_id": "lengua.skill_7.subskill_1",
+          "attempts": 1,
+          "correct": 1,
+          "state": "mastered",
+          "mastery_level": 1
+        }
+      ],
+      "id": "session_1776999433759_ha4sex",
+      "created_at": "2026-04-24T02:57:13.759Z"
     }
   ],
   "skill_stats": {
@@ -332,22 +462,22 @@
       "last_state": "mastered"
     },
     "lengua.skill_5": {
-      "total_attempts": 10,
-      "total_correct": 9,
-      "last_state": "mastered",
-      "mastery_level": 3
-    },
-    "lengua.skill_5.subskill_1": {
-      "total_attempts": 10,
-      "total_correct": 9,
-      "last_state": "mastered",
-      "mastery_level": 3
-    },
-    "lengua.skill_3": {
-      "total_attempts": 10,
+      "total_attempts": 11,
       "total_correct": 10,
       "last_state": "mastered",
-      "mastery_level": 4
+      "mastery_level": 1
+    },
+    "lengua.skill_5.subskill_1": {
+      "total_attempts": 11,
+      "total_correct": 10,
+      "last_state": "mastered",
+      "mastery_level": 1
+    },
+    "lengua.skill_3": {
+      "total_attempts": 12,
+      "total_correct": 12,
+      "last_state": "mastered",
+      "mastery_level": 2
     },
     "lengua.skill_3.subskill_3": {
       "total_attempts": 10,
@@ -356,10 +486,10 @@
       "mastery_level": 4
     },
     "lengua.skill_1": {
-      "total_attempts": 30,
-      "total_correct": 9,
-      "last_state": "weak",
-      "mastery_level": 1
+      "total_attempts": 32,
+      "total_correct": 11,
+      "last_state": "mastered",
+      "mastery_level": 2
     },
     "lengua.skill_1.subskill_3": {
       "total_attempts": 10,
@@ -368,16 +498,16 @@
       "mastery_level": 1
     },
     "lengua.skill_4": {
-      "total_attempts": 20,
+      "total_attempts": 21,
       "total_correct": 14,
-      "last_state": "mastered",
-      "mastery_level": 3
+      "last_state": "weak",
+      "mastery_level": 1
     },
     "lengua.skill_4.subskill_1": {
-      "total_attempts": 20,
+      "total_attempts": 21,
       "total_correct": 14,
-      "last_state": "mastered",
-      "mastery_level": 3
+      "last_state": "weak",
+      "mastery_level": 1
     },
     "lengua.skill_1.subskill_2": {
       "total_attempts": 10,
@@ -386,9 +516,57 @@
       "mastery_level": 1
     },
     "lengua.skill_1.subskill_1": {
-      "total_attempts": 10,
-      "total_correct": 4,
-      "last_state": "weak",
+      "total_attempts": 12,
+      "total_correct": 6,
+      "last_state": "mastered",
+      "mastery_level": 2
+    },
+    "lengua.skill_2": {
+      "total_attempts": 2,
+      "total_correct": 2,
+      "last_state": "mastered",
+      "mastery_level": 2
+    },
+    "lengua.skill_2.subskill_1": {
+      "total_attempts": 2,
+      "total_correct": 2,
+      "last_state": "mastered",
+      "mastery_level": 2
+    },
+    "lengua.skill_3.subskill_1": {
+      "total_attempts": 1,
+      "total_correct": 1,
+      "last_state": "mastered",
+      "mastery_level": 1
+    },
+    "lengua.skill_3.subskill_2": {
+      "total_attempts": 1,
+      "total_correct": 1,
+      "last_state": "mastered",
+      "mastery_level": 1
+    },
+    "lengua.skill_6": {
+      "total_attempts": 1,
+      "total_correct": 1,
+      "last_state": "mastered",
+      "mastery_level": 1
+    },
+    "lengua.skill_6.subskill_1": {
+      "total_attempts": 1,
+      "total_correct": 1,
+      "last_state": "mastered",
+      "mastery_level": 1
+    },
+    "lengua.skill_7": {
+      "total_attempts": 1,
+      "total_correct": 1,
+      "last_state": "mastered",
+      "mastery_level": 1
+    },
+    "lengua.skill_7.subskill_1": {
+      "total_attempts": 1,
+      "total_correct": 1,
+      "last_state": "mastered",
       "mastery_level": 1
     }
   },
@@ -398,13 +576,18 @@
     "lengua.skill_1.subskill_2",
     "lengua.skill_1.subskill_3",
     "lengua.skill_2",
+    "lengua.skill_2.subskill_1",
     "lengua.skill_3",
+    "lengua.skill_3.subskill_1",
+    "lengua.skill_3.subskill_2",
     "lengua.skill_3.subskill_3",
     "lengua.skill_4",
     "lengua.skill_4.subskill_1",
     "lengua.skill_5",
     "lengua.skill_5.subskill_1",
     "lengua.skill_6",
-    "lengua.skill_7"
+    "lengua.skill_6.subskill_1",
+    "lengua.skill_7",
+    "lengua.skill_7.subskill_1"
   ]
 }
