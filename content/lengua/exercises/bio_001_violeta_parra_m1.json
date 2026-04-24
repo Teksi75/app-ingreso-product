@@ -25,7 +25,7 @@
       "mastery_level": 1,
       "type": "multiple_choice",
       "question": "El texto fue extraído de:",
-      "options": ["un diario", "una enciclopedia", "una página web", "un texto original elaborado con datos biográficos de dominio público"],
+      "options": ["una nota periodística publicada en un diario cultural", "una entrada enciclopédica copiada de una biblioteca digital", "una página web comercial dedicada a vender discos de folclore", "un texto original elaborado con datos biográficos de dominio público"],
       "correctAnswer": "un texto original elaborado con datos biográficos de dominio público",
       "feedback_correct": "Correcto: la fuente indica que el texto fue elaborado con datos biográficos verificables de dominio público.",
       "feedback_incorrect": "Lee con atención la fuente que aparece junto al estímulo."
@@ -58,7 +58,7 @@
           "id": "a",
           "label": "a)",
           "question": "¿Para qué fue escrito este texto?",
-          "options": ["Explicar las características del folclore chileno", "Enumerar las obras artísticas de Violeta Parra", "Narrar la vida de una persona destacada", "Describir las costumbres del campo chileno"],
+          "options": ["Explicar solamente las características del folclore chileno", "Enumerar sin orden las obras artísticas de Violeta Parra", "Narrar la vida de una persona destacada", "Describir las costumbres del campo chileno como tema principal"],
           "correctAnswer": "Narrar la vida de una persona destacada"
         },
         {
@@ -96,9 +96,10 @@
       "type": "multiple_choice",
       "question": "¿Cuál es el orden cronológico correcto de los acontecimientos biográficos de Violeta Parra?",
       "options": [
+        "Nacimiento → Investigación folclórica → Traslado a Santiago → Viaje a Europa → Exposición en el Louvre → Carpa de La Reina → Composición de canciones → Fallecimiento",
         "Nacimiento → Traslado a Santiago → Investigación folclórica → Viaje a Europa → Exposición en el Louvre → Carpa de La Reina → Composición de canciones → Fallecimiento",
-        "Nacimiento → Viaje a Europa → Investigación folclórica → Traslado a Santiago → Exposición en el Louvre → Composición de canciones → Carpa de La Reina → Fallecimiento",
-        "Nacimiento → Traslado a Santiago → Viaje a Europa → Investigación folclórica → Exposición en el Louvre → Carpa de La Reina → Composición de canciones → Fallecimiento"
+        "Nacimiento → Traslado a Santiago → Viaje a Europa → Investigación folclórica → Exposición en el Louvre → Carpa de La Reina → Composición de canciones → Fallecimiento",
+        "Nacimiento → Traslado a Santiago → Investigación folclórica → Exposición en el Louvre → Viaje a Europa → Carpa de La Reina → Composición de canciones → Fallecimiento"
       ],
       "correctAnswer": "Nacimiento → Traslado a Santiago → Investigación folclórica → Viaje a Europa → Exposición en el Louvre → Carpa de La Reina → Composición de canciones → Fallecimiento",
       "feedback_correct": "Correcto: la biografía avanza desde el nacimiento hacia los hechos posteriores.",
@@ -118,14 +119,14 @@
           "id": "a",
           "label": "a)",
           "question": "¿Por qué es importante la labor de Violeta Parra en la investigación folclórica?",
-          "options": ["Porque inventó nuevas canciones que nadie conocía", "Porque rescató canciones que nadie más recordaba y que se habrían perdido", "Porque tocó la guitarra en radios de Santiago", "Porque viajó a Europa con sus canciones"],
+          "options": ["Porque organizó presentaciones radiales que difundieron canciones familiares", "Porque rescató canciones que nadie más recordaba y que se habrían perdido", "Porque llevó sus investigaciones a Europa antes de trabajar en los pueblos de Chile", "Porque transformó todas las canciones recopiladas en obras visuales para museos"],
           "correctAnswer": "Porque rescató canciones que nadie más recordaba y que se habrían perdido"
         },
         {
           "id": "b",
           "label": "b)",
           "question": "¿Qué significa en el texto que las canciones \"habrían quedado en el olvido\"?",
-          "options": ["Que las canciones estaban guardadas en un museo", "Que Violeta las había escrito ella misma", "Que si Violeta no las hubiera recopilado, esas canciones se habrían perdido para siempre", "Que las canciones ya eran muy famosas"],
+          "options": ["Que las canciones estaban guardadas en archivos estatales sin publicarse", "Que Violeta prefería no interpretarlas en sus conciertos", "Que si Violeta no las hubiera recopilado, esas canciones se habrían perdido para siempre", "Que esas canciones solo podían escucharse en museos y galerías"],
           "correctAnswer": "Que si Violeta no las hubiera recopilado, esas canciones se habrían perdido para siempre"
         }
       ],
@@ -143,22 +144,22 @@
       "question": "Clasifica los sustantivos resaltados del fragmento.",
       "fragment": "Violeta recorrió campos, pueblos y comunidades rurales de Chile recogiendo canciones, refranes, historias y tradiciones que estaban en peligro de desaparecer. Viajó en carretas, a caballo y en trenes lentos, visitando lugares apartados donde los ancianos conservaban melodías que nadie más recordaba.",
       "categorization": {
-        "categories": ["sustantivo propio", "sustantivo común concreto", "sustantivo común abstracto", "sustantivo individual", "sustantivo colectivo"],
+        "categories": ["sustantivo propio", "sustantivo común concreto", "sustantivo común abstracto", "sustantivo colectivo"],
         "items": ["Chile", "campos", "pueblos", "carretas", "caballo", "trenes", "lugares", "ancianos", "historias", "tradiciones", "refranes", "canciones", "melodías", "comunidades"],
         "answers": {
           "Chile": "sustantivo propio",
           "campos": "sustantivo común concreto",
           "pueblos": "sustantivo común concreto",
           "carretas": "sustantivo común concreto",
-          "caballo": "sustantivo individual",
+          "caballo": "sustantivo común concreto",
           "trenes": "sustantivo común concreto",
           "lugares": "sustantivo común concreto",
           "ancianos": "sustantivo común concreto",
           "historias": "sustantivo común abstracto",
           "tradiciones": "sustantivo común abstracto",
-          "refranes": "sustantivo común abstracto",
-          "canciones": "sustantivo común abstracto",
-          "melodías": "sustantivo común abstracto",
+          "refranes": "sustantivo común concreto",
+          "canciones": "sustantivo común concreto",
+          "melodías": "sustantivo común concreto",
           "comunidades": "sustantivo colectivo"
         }
       },
@@ -174,7 +175,7 @@
       "mastery_level": 2,
       "type": "multiple_choice_multiple",
       "question": "Marca las afirmaciones correctas según el fragmento: \"En la bulliciosa ciudad, comenzó a presentarse en locales y radios, interpretando chilenas canciones del folclore chileno y latinoamericano. Tres de sus hermanos también se dedicaron a la música.\"",
-      "options": ["bulliciosa es un adjetivo calificativo", "chileno es un adjetivo numeral", "latinoamericano es un adjetivo gentilicio", "tres es un adjetivo calificativo", "chilenas es un adjetivo gentilicio"],
+      "options": ["bulliciosa es un adjetivo calificativo", "chileno es un adjetivo posesivo", "latinoamericano es un adjetivo gentilicio", "tres es un adjetivo indefinido", "chilenas es un adjetivo gentilicio", "bulliciosa es un adjetivo gentilicio"],
       "correctAnswers": ["bulliciosa es un adjetivo calificativo", "latinoamericano es un adjetivo gentilicio", "chilenas es un adjetivo gentilicio"],
       "feedback_correct": "Correcto: los calificativos expresan cualidades, los gentilicios indican origen y los numerales indican cantidad.",
       "feedback_incorrect": "Revisa la diferencia entre cualidad, origen y cantidad."

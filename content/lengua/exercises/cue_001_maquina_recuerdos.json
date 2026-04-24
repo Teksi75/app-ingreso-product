@@ -12,10 +12,10 @@
       "type": "multiple_choice",
       "question": "Cual opcion sintetiza mejor el conflicto principal del cuento?",
       "options": [
-        "Alma intenta vender el reloj de su abuelo para ayudar al taller",
+        "Alma intenta recuperar el reloj de su abuelo mientras Borda oculta un invento del teatro",
         "Tres personajes deben ordenar y devolver recuerdos mezclados antes de que el barrio confunda memorias ajenas con propias",
-        "El senor Borda quiere construir una maquina nueva para el teatro municipal",
-        "Teo busca aprender una cancion sin ayuda de nadie"
+        "Teo busca recuperar una cancion familiar sin aceptar que sus pruebas afectaron al barrio",
+        "El senor Borda quiere guardar la maquina para exhibirla como una curiosidad del teatro municipal"
       ],
       "correctAnswer": "Tres personajes deben ordenar y devolver recuerdos mezclados antes de que el barrio confunda memorias ajenas con propias",
       "feedback_correct": "Correcto: esa opcion resume el conflicto y su urgencia.",

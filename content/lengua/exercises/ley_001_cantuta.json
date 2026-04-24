@@ -12,10 +12,10 @@
       "type": "multiple_choice",
       "question": "Por que la anciana desconocida le pidio a Sumaq que cantara desde la loma?",
       "options": [
-        "Porque queria entretener a los viajeros que llegaban al poblado",
+        "Porque queria que el poblado celebrara la llegada de los viajeros al anochecer",
         "Porque solo un yaravi fuerte podia guiar a Amaru a traves de la noche y el derrumbe",
-        "Porque deseaba comprobar si la quena de la joven estaba afinada",
-        "Porque necesitaba dormir y el canto la tranquilizaba"
+        "Porque deseaba comprobar si la quena de Sumaq podia oirse desde el valle",
+        "Porque necesitaba reunir a los vecinos antes de decidir como repartir el agua"
       ],
       "correctAnswer": "Porque solo un yaravi fuerte podia guiar a Amaru a traves de la noche y el derrumbe",
       "feedback_correct": "Correcto: la anciana relaciona el canto con el regreso seguro del mensajero.",

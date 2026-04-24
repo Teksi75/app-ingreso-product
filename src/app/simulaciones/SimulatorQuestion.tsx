@@ -195,15 +195,38 @@ function QuestionPanel({
   selectedAnswer: string;
   totalQuestions: number;
 }) {
+  const progressPercentage = Math.round(((currentIndex + 1) / totalQuestions) * 100);
+
   return (
     <article className="grid gap-5 rounded-2xl border border-slate-100 bg-white p-5 shadow-sm lg:p-6">
-      <div className="flex flex-wrap items-center justify-between gap-3">
-        <p className="text-sm font-semibold text-slate-500">
-          Pregunta {currentIndex + 1} de {totalQuestions}
-        </p>
-        <span className="rounded-lg bg-slate-100 px-2.5 py-1 text-xs font-semibold text-slate-600">
-          {currentExercise.skill_id}
-        </span>
+      <div className="grid gap-3">
+        <div className="flex flex-wrap items-center justify-between gap-3">
+          <p className="text-sm font-semibold text-slate-500">
+            Pregunta {currentIndex + 1} de {totalQuestions}
+          </p>
+          <span className="rounded-lg bg-slate-100 px-2.5 py-1 text-xs font-semibold text-slate-600">
+            {currentExercise.skill_id}
+          </span>
+        </div>
+        <div className="grid gap-1.5">
+          <div className="flex items-center justify-between text-xs font-semibold text-slate-500">
+            <span>Progreso</span>
+            <span>{progressPercentage}% completado</span>
+          </div>
+          <div
+            aria-label={`Progreso: ${progressPercentage}% completado`}
+            aria-valuemax={100}
+            aria-valuemin={0}
+            aria-valuenow={progressPercentage}
+            className="h-2 overflow-hidden rounded-full bg-slate-100"
+            role="progressbar"
+          >
+            <div
+              className="h-full rounded-full bg-teal-500 transition-all"
+              style={{ width: `${progressPercentage}%` }}
+            />
+          </div>
+        </div>
       </div>
       <div className="grid gap-2">
         <p className="text-xs font-bold uppercase tracking-wide text-teal-600">
@@ -249,11 +272,16 @@ function ResultPanel({ result }: { result: SimulatorSaveResult }) {
   return (
     <article className="grid gap-5 rounded-2xl border border-slate-100 bg-white p-5 shadow-sm lg:p-6">
       <div className="grid gap-2">
-        <p className="text-sm font-semibold text-slate-500">Resultado final</p>
-        <h2 className="text-3xl font-bold text-slate-800">{result.scorePercentage}%</h2>
+        <h2 className="text-2xl font-bold text-slate-800">Resultado de la simulación</h2>
+        <p className="text-5xl font-bold text-teal-600">{result.scorePercentage}%</p>
         <p className="text-sm font-semibold text-slate-600">
           {result.totalCorrect} / {result.totalAttempts} correctas
         </p>
+        {result.weakSkill ? (
+          <p className="text-base font-semibold text-slate-700">
+            Tu punto más débil fue: {result.weakSkill}
+          </p>
+        ) : null}
       </div>
       <div className="grid gap-3">
         {result.skillResults.map((skillResult) => {
