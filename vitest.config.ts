@@ -3,6 +3,7 @@ import { defineConfig } from "vitest/config";
 export default defineConfig({
   test: {
     include: [
+      "src/content_analysis/**/*.test.ts",
       "src/recommendation/**/*.test.ts",
       "src/skills/**/*.test.ts",
     ],

@@ -10,16 +10,16 @@
       "difficulty": 2,
       "mastery_level": 1,
       "type": "multiple_choice",
-      "question": "Por que la anciana desconocida le pidio a Sumaq que cantara desde la loma?",
+      "question": "Por qué la anciana desconocida le pidió a Sumaq que cantara desde la loma?",
       "options": [
-        "Porque queria que el poblado celebrara la llegada de los viajeros al anochecer",
-        "Porque solo un yaravi fuerte podia guiar a Amaru a traves de la noche y el derrumbe",
-        "Porque deseaba comprobar si la quena de Sumaq podia oirse desde el valle",
-        "Porque necesitaba reunir a los vecinos antes de decidir como repartir el agua"
+        "Porque quería que el poblado celebrara la llegada de los viajeros al anochecer",
+        "Porque solo un yaravi fuerte podía guiar a Amaru a través de la noche y el derrumbe",
+        "Porque deseaba comprobar si la quena de Sumaq podía oirse desde el valle",
+        "Porque necesitaba reunir a los vecinos antes de decidir cómo repartir el agua"
       ],
-      "correctAnswer": "Porque solo un yaravi fuerte podia guiar a Amaru a traves de la noche y el derrumbe",
+      "correctAnswer": "Porque solo un yaravi fuerte podía guiar a Amaru a través de la noche y el derrumbe",
       "feedback_correct": "Correcto: la anciana relaciona el canto con el regreso seguro del mensajero.",
-      "feedback_incorrect": "Relee el tramo en que la anciana explica como puede volver Amaru."
+      "feedback_incorrect": "Relee el tramo en que la anciana explica cómo puede volver Amaru."
     },
     {
       "id": "M4-LEY-002",
@@ -29,16 +29,16 @@
       "difficulty": 2,
       "mastery_level": 2,
       "type": "multiple_choice",
-      "question": "En el fragmento 'Nadie queria alarmar a los ninos, aunque todos comprendieron que se acercaba una sequia dificil', el conector 'aunque' indica una relacion de:",
+      "question": "En el fragmento 'Nadie quería alarmar a los niños, aunque todos comprendieron que se acercaba una sequía difícil', el conector 'aunque' indica una relación de:",
       "options": [
         "suma de ideas equivalentes",
-        "oposicion o contraste entre dos ideas",
-        "orden cronologico estricto",
-        "explicacion de un ejemplo"
+        "oposición o contraste entre dos ideas",
+        "orden cronológico estricto",
+        "explicación de un ejemplo"
       ],
-      "correctAnswer": "oposicion o contraste entre dos ideas",
-      "feedback_correct": "Correcto: el conector une dos ideas que se tensionan entre si.",
-      "feedback_incorrect": "Piensa si la segunda parte acompana o contrasta con la primera."
+      "correctAnswer": "oposición o contraste entre dos ideas",
+      "feedback_correct": "Correcto: el conector une dos ideas que se tensionan entre sí.",
+      "feedback_incorrect": "Piensa si la segunda parte acompaña o contrasta con la primera."
     },
     {
       "id": "M4-LEY-003",
@@ -48,7 +48,7 @@
       "difficulty": 2,
       "mastery_level": 2,
       "type": "multiple_choice",
-      "question": "Cual opcion completa correctamente esta idea del texto? 'El pueblo esperaba que Amaru pudiera ____ con ayuda del canto y ____ a tiempo con noticias y reservas'.",
+      "question": "Cuál opción completa correctamente esta idea del texto? 'El pueblo esperaba que Amaru pudiera ____ con ayuda del canto y ____ a tiempo con noticias y reservas'.",
       "options": [
         "bolver / bolber",
         "volver / volver",
@@ -57,7 +57,7 @@
       ],
       "correctAnswer": "volver / volver",
       "feedback_correct": "Correcto: en ambos casos corresponde escribir 'volver' con v.",
-      "feedback_incorrect": "Revisa la grafia correcta del verbo 'volver'."
+      "feedback_incorrect": "Revisa la grafía correcta del verbo 'volver'."
     },
     {
       "id": "M4-LEY-004",
@@ -67,16 +67,16 @@
       "difficulty": 2,
       "mastery_level": 2,
       "type": "multiple_choice",
-      "question": "Que marcas del texto permiten reconocer que se trata de una leyenda y no de una noticia o un articulo enciclopedico?",
+      "question": "Qué marcas del texto permiten reconocer que se trata de una leyenda y no de una noticia o un artículo enciclopédico?",
       "options": [
-        "La nota de origen que refiere a tradiciones andinas y la presencia de hechos fantasticos",
+        "La nota de origen que refiere a tradiciones andinas y la presencia de hechos fantásticos",
         "Los datos de fecha, fuente y autor que aparecen al inicio",
-        "Los subtitulos que organizan la informacion en secciones tematicas",
-        "El glosario de terminos tecnicos al final del texto"
+        "Los subtítulos que organizan la información en secciones temáticas",
+        "El glosario de términos técnicos al final del texto"
       ],
-      "correctAnswer": "La nota de origen que refiere a tradiciones andinas y la presencia de hechos fantasticos",
+      "correctAnswer": "La nota de origen que refiere a tradiciones andinas y la presencia de hechos fantásticos",
       "feedback_correct": "Correcto: la leyenda se reconoce por su origen en tradiciones populares y por incluir hechos maravillosos.",
-      "feedback_incorrect": "Pensa en que elementos del texto senalan que proviene de una tradicion oral y que contiene sucesos que no ocurren en la vida cotidiana."
+      "feedback_incorrect": "Pensá en que elementos del texto señalan que proviene de una tradición oral y que contiene sucesos que no ocurren en la vida cotidiana."
     },
     {
       "id": "M4-LEY-005",
@@ -86,16 +86,16 @@
       "difficulty": 2,
       "mastery_level": 2,
       "type": "multiple_choice",
-      "question": "Que tipo de narrador cuenta esta leyenda?",
+      "question": "Qué tipo de narrador cuenta esta leyenda?",
       "options": [
-        "Un narrador en tercera persona que transmite una tradicion de generacion en generacion, sin ser personaje de la historia",
-        "Un narrador en primera persona que vivio los hechos",
+        "Un narrador en tercera persona que transmite una tradición de generación en generación, sin ser personaje de la historia",
+        "Un narrador en primera persona que vivió los hechos",
         "Un narrador en segunda persona que habla directamente con Sumaq",
         "Un narrador en primera persona que es el abuelo de Sumaq"
       ],
-      "correctAnswer": "Un narrador en tercera persona que transmite una tradicion de generacion en generacion, sin ser personaje de la historia",
-      "feedback_correct": "Correcto: el narrador cuenta la historia desde afuera, como alguien que la recibio de otros.",
-      "feedback_incorrect": "Pensa si el narrador participa en los hechos o si los relata como alguien que los conoce por tradicion."
+      "correctAnswer": "Un narrador en tercera persona que transmite una tradición de generación en generación, sin ser personaje de la historia",
+      "feedback_correct": "Correcto: el narrador cuenta la historia desde afuera, como alguien que la recibió de otros.",
+      "feedback_incorrect": "Pensá si el narrador participa en los hechos o si los relata como alguien que los conoce por tradición."
     },
     {
       "id": "M4-LEY-006",
@@ -105,16 +105,16 @@
       "difficulty": 2,
       "mastery_level": 2,
       "type": "multiple_choice",
-      "question": "En la leyenda, las acciones de Sumaq y Amaru se narran en preterito (cantaba, corria, escuchaba). Que efecto produce este tiempo verbal en el relato?",
+      "question": "En la leyenda, las acciones de Sumaq y Amaru se narran en pretérito (cantaba, corría, escuchaba). Qué efecto produce este tiempo verbal en el relato?",
       "options": [
-        "Ubica los hechos en un pasado lejano, propio de las tradiciones que se transmiten de generacion en generacion",
+        "Ubica los hechos en un pasado lejano, propio de las tradiciones que se transmiten de generación en generación",
         "Hace que la historia parezca estar ocurriendo en el momento de la lectura",
-        "Indica que los hechos sucederan en el futuro",
-        "Convierte el relato en una serie de ordenes"
+        "Indica que los hechos sucederán en el futuro",
+        "Convierte el relato en una serie de órdenes"
       ],
-      "correctAnswer": "Ubica los hechos en un pasado lejano, propio de las tradiciones que se transmiten de generacion en generacion",
-      "feedback_correct": "Correcto: el preterito situa la leyenda en un tiempo remoto, caracteristico de este tipo de relatos.",
-      "feedback_incorrect": "Pensa que sensacion produce leer 'Hace mucho tiempo...' seguido de verbos en pasado."
+      "correctAnswer": "Ubica los hechos en un pasado lejano, propio de las tradiciones que se transmiten de generación en generación",
+      "feedback_correct": "Correcto: el pretérito sitúa la leyenda en un tiempo remoto, característico de este tipo de relatos.",
+      "feedback_incorrect": "Pensá que sensación produce leer 'Hace mucho tiempo...' seguido de verbos en pasado."
     },
     {
       "id": "M4-LEY-007",
@@ -124,16 +124,16 @@
       "difficulty": 3,
       "mastery_level": 3,
       "type": "multiple_choice",
-      "question": "En la frase 'Desde alli se veian montanas azules durante el dia y brasas blancas en el cielo de la noche', cual es el tiempo y modo del verbo 'veian'?",
+      "question": "En la frase 'Desde allí se veían montañas azules durante el día y brasas blancas en el cielo de la noche', cuál es el tiempo y modo del verbo 'veían'?",
       "options": [
-        "Preterito imperfecto del indicativo",
+        "Pretérito imperfecto del indicativo",
         "Presente del indicativo",
         "Futuro del subjuntivo",
-        "Preterito perfecto simple"
+        "Pretérito perfecto simple"
       ],
-      "correctAnswer": "Preterito imperfecto del indicativo",
-      "feedback_correct": "Correcto: 'veian' es preterito imperfecto, que describe una accion habitual en el pasado.",
-      "feedback_incorrect": "El imperfecto se usa para describir situaciones que se repetian o mantenian en el pasado."
+      "correctAnswer": "Pretérito imperfecto del indicativo",
+      "feedback_correct": "Correcto: 'veían' es pretérito imperfecto, que describe una acción habitual en el pasado.",
+      "feedback_incorrect": "El imperfecto se usa para describir sitúaciones que se repetian o mantenían en el pasado."
     },
     {
       "id": "M4-LEY-008",
@@ -143,16 +143,16 @@
       "difficulty": 2,
       "mastery_level": 2,
       "type": "multiple_choice",
-      "question": "En el fragmento 'Era habil, valiente y muy observador', cual es la funcion de las comas?",
+      "question": "En el fragmento 'Era hábil, valiente y muy observador', cuál es la función de las comas?",
       "options": [
-        "Separar cualidades en una enumeracion",
+        "Separar cualidades en una enumeración",
         "Indicar el inicio de una pregunta",
-        "Cerrar una oracion",
+        "Cerrar una oración",
         "Introducir una cita textual"
       ],
-      "correctAnswer": "Separar cualidades en una enumeracion",
+      "correctAnswer": "Separar cualidades en una enumeración",
       "feedback_correct": "Correcto: las comas separan los adjetivos que describen a Amaru.",
-      "feedback_incorrect": "Las comas en este caso estan separando caracteristicas de una misma persona."
+      "feedback_incorrect": "Las comas en este caso estan separando características de una misma persona."
     },
     {
       "id": "M4-LEY-009",
@@ -162,16 +162,16 @@
       "difficulty": 3,
       "mastery_level": 3,
       "type": "multiple_choice",
-      "question": "El texto de la leyenda se organiza en parrafos. Como contribuye esa segmentacion a la claridad del relato?",
+      "question": "El texto de la leyenda se organiza en párrafos. Cómo contribuye esa segmentacion a la claridad del relato?",
       "options": [
-        "Cada parrafo agrupa una escena o un aspecto distinto de la historia, lo que permite seguir el hilo sin perderse",
-        "Los parrafos solo sirven para que el texto ocupe mas lugar en la pagina",
-        "Cada parrafo debe tener exactamente la misma cantidad de lineas para ser correcto",
-        "Los parrafos reemplazan la necesidad de usar signos de puntuacion"
+        "Cada párrafo agrupa una escena o un aspecto distinto de la historia, lo que permite seguir el hilo sin perderse",
+        "Los párrafos solo sirven para que el texto ocupe más lugar en la página",
+        "Cada párrafo debe tener exactamente la misma cantidad de lineas para ser correcto",
+        "Los párrafos reemplazan la necesidad de usar signos de puntuacion"
       ],
-      "correctAnswer": "Cada parrafo agrupa una escena o un aspecto distinto de la historia, lo que permite seguir el hilo sin perderse",
-      "feedback_correct": "Correcto: la segmentacion en parrafos organiza las escenas y facilita la lectura.",
-      "feedback_incorrect": "Pensa como se lee un texto cuando la informacion esta agrupada en bloques con pausas."
+      "correctAnswer": "Cada párrafo agrupa una escena o un aspecto distinto de la historia, lo que permite seguir el hilo sin perderse",
+      "feedback_correct": "Correcto: la segmentacion en párrafos organiza las escenas y facilita la lectura.",
+      "feedback_incorrect": "Pensá cómo se lee un texto cuando la información está agrupada en bloques con pausas."
     }
   ]
 }

@@ -10,16 +10,16 @@
       "difficulty": 1,
       "mastery_level": 1,
       "type": "multiple_choice",
-      "question": "Segun el apartado 'Por que son importantes', cual es una funcion de los humedales?",
+      "question": "Según el apartado 'Por qué son importantes', cuál es una función de los humedales?",
       "options": [
         "Aumentar siempre la velocidad de las crecidas",
         "Almacenar agua y liberarla lentamente",
-        "Transformar rios en zonas secas durante el verano",
+        "Transformar ríos en zonas secas durante el verano",
         "Impedir por completo la presencia de aves migratorias"
       ],
       "correctAnswer": "Almacenar agua y liberarla lentamente",
-      "feedback_correct": "Correcto: el texto menciona esa funcion de manera directa.",
-      "feedback_incorrect": "Busca la explicacion del segundo subtitulo dedicado a su importancia."
+      "feedback_correct": "Correcto: el texto menciona esa función de manera directa.",
+      "feedback_incorrect": "Busca la explicación del segundo subtítulo dedicado a su importancia."
     },
     {
       "id": "M5-ENC-002",
@@ -29,16 +29,16 @@
       "difficulty": 2,
       "mastery_level": 2,
       "type": "multiple_choice",
-      "question": "En la oracion 'Muchas aves migratorias descansan alli durante sus viajes', cual es el sujeto?",
+      "question": "En la oración 'Muchas aves migratorias descansan allí durante sus viajes', cuál es el sujeto?",
       "options": [
-        "descansan alli",
+        "descansan allí",
         "durante sus viajes",
         "Muchas aves migratorias",
         "sus viajes"
       ],
       "correctAnswer": "Muchas aves migratorias",
-      "feedback_correct": "Correcto: ese grupo de palabras nombra quien realiza la accion.",
-      "feedback_incorrect": "Identifica quien descansa, no donde ni cuando ocurre la accion."
+      "feedback_correct": "Correcto: ese grupo de palabras nombra quién realiza la acción.",
+      "feedback_incorrect": "Identifica quién descansa, no donde ni cuando ocurre la acción."
     },
     {
       "id": "M5-ENC-003",
@@ -48,16 +48,16 @@
       "difficulty": 2,
       "mastery_level": 2,
       "type": "multiple_choice",
-      "question": "Cual de estas palabras esta escrita correctamente y aparece en el texto?",
+      "question": "Cuál de estas palabras está escrita correctamente y aparece en el texto?",
       "options": [
         "depurasion",
-        "depuracion",
+        "depuración",
         "depurazion",
         "deppuracion"
       ],
-      "correctAnswer": "depuracion",
-      "feedback_correct": "Correcto: 'depuracion' se escribe con c y aparece en el articulo.",
-      "feedback_incorrect": "Vuelve al apartado sobre la importancia de los humedales y observa la grafia."
+      "correctAnswer": "depuración",
+      "feedback_correct": "Correcto: 'depuración' se escribe con c y tilde, y aparece en el artículo.",
+      "feedback_incorrect": "Vuelve al apartado sobre la importancia de los humedales y observa la grafía."
     },
     {
       "id": "M5-ENC-004",
@@ -67,16 +67,16 @@
       "difficulty": 2,
       "mastery_level": 2,
       "type": "multiple_choice",
-      "question": "Que tipo de paratexto son los subtitulos 'Que es un humedal', 'Donde se encuentran' y 'Por que son importantes' que acompañan al texto?",
+      "question": "Qué tipo de paratexto son los subtítulos 'Que es un humedal', 'Donde se encuentran' y 'Por qué son importantes' que acompañan al texto?",
       "options": [
-        "Son subtitulos que organizan la informacion en secciones tematicas",
-        "Son epigrafes que explican las imagenes del articulo",
-        "Son notas al pie que aclaran datos tecnicos",
-        "Son resumenes que reemplazan el contenido del texto"
+        "Son subtítulos que organizan la información en secciones temáticas",
+        "Son epígrafes que explican las imágenes del artículo",
+        "Son notas al pie que aclaran datos técnicos",
+        "Son resúmenes que reemplazan el contenido del texto"
       ],
-      "correctAnswer": "Son subtitulos que organizan la informacion en secciones tematicas",
-      "feedback_correct": "Correcto: los subtitulos dividen el articulo en secciones segun el tema que cada una desarrolla.",
-      "feedback_incorrect": "Observa como el texto esta dividido en partes, cada una con un titulo que anticipa el tema."
+      "correctAnswer": "Son subtítulos que organizan la información en secciones temáticas",
+      "feedback_correct": "Correcto: los subtítulos dividen el artículo en secciones según el tema que cada una desarrolla.",
+      "feedback_incorrect": "Observa cómo el texto está dividido en partes, cada una con un título que anticipa el tema."
     },
     {
       "id": "M5-ENC-005",
@@ -86,21 +86,21 @@
       "difficulty": 2,
       "mastery_level": 2,
       "type": "multiple_choice_multiple",
-      "question": "Marca los paratextos que aparecen en este articulo enciclopedico:",
+      "question": "Marca los paratextos que aparecen en este artículo enciclopédico:",
       "options": [
-        "Subtitulos que organizan las secciones",
+        "Subtítulos que organizan las secciones",
         "Glosario con definiciones de palabras clave",
-        "Fuente que indica el origen de la informacion",
-        "Dialogos entre personajes del texto",
-        "Indice alfabetico al final del texto"
+        "Fuente que indica el origen de la información",
+        "Diálogos entre personajes del texto",
+        "Índice alfabético al final del texto"
       ],
       "correctAnswers": [
-        "Subtitulos que organizan las secciones",
+        "Subtítulos que organizan las secciones",
         "Glosario con definiciones de palabras clave",
-        "Fuente que indica el origen de la informacion"
+        "Fuente que indica el origen de la información"
       ],
-      "feedback_correct": "Correcto: el articulo enciclopedico incluye subtitulos, glosario y fuente como paratextos informativos.",
-      "feedback_incorrect": "Busca los elementos que acompañan al texto sin ser parte del cuerpo principal: subtitulos, glosario y fuente."
+      "feedback_correct": "Correcto: el artículo enciclopédico incluye subtítulos, glosario y fuente como paratextos informativos.",
+      "feedback_incorrect": "Busca los elementos que acompañan al texto sin ser parte del cuerpo principal: subtítulos, glosario y fuente."
     },
     {
       "id": "M5-ENC-006",
@@ -110,16 +110,16 @@
       "difficulty": 2,
       "mastery_level": 2,
       "type": "multiple_choice",
-      "question": "En la frase 'Muchas aves migratorias descansan alli durante sus viajes', el verbo 'descansan' esta en:",
+      "question": "En la frase 'Muchas aves migratorias descansan allí durante sus viajes', el verbo 'descansan' está en:",
       "options": [
         "Presente",
-        "Preterito",
+        "Pretérito",
         "Futuro",
         "Condicional"
       ],
       "correctAnswer": "Presente",
-      "feedback_correct": "Correcto: 'descansan' indica una accion que ocurre habitualmente en el presente.",
-      "feedback_incorrect": "Fijate si la accion ocurre ahora o ya paso. 'Descansan' es una accion habitual."
+      "feedback_correct": "Correcto: 'descansan' indica una acción que ocurre habitualmente en el presente.",
+      "feedback_incorrect": "Fijate si la acción ocurre ahora o ya pasó. 'Descansan' es una acción habitual."
     },
     {
       "id": "M5-ENC-007",
@@ -129,16 +129,16 @@
       "difficulty": 3,
       "mastery_level": 3,
       "type": "multiple_choice",
-      "question": "En el fragmento 'Cuando las intervenciones son intensas, el equilibrio se altera', el verbo 'altera' esta en presente. Que ocurre si lo cambias a preterito?",
+      "question": "En el fragmento 'Cuando las intervenciones son intensas, el equilibrio se altera', el verbo 'altera' está en presente. Qué ocurre si lo cambias a pretérito?",
       "options": [
-        "La frase pasa a describir un hecho ya ocurrido y no una situacion general",
+        "La frase pasa a describir un hecho ya ocurrido y no una sitúación general",
         "La frase no cambia de significado",
         "La frase se vuelve incorrecta gramaticalmente",
         "La frase pasa a describir una orden"
       ],
-      "correctAnswer": "La frase pasa a describir un hecho ya ocurrido y no una situacion general",
-      "feedback_correct": "Correcto: el cambio de tiempo verbal modifica si la accion es presente habitual o pasado puntual.",
-      "feedback_incorrect": "Pensa como cambia el sentido cuando decis 'se altero' en lugar de 'se altera'."
+      "correctAnswer": "La frase pasa a describir un hecho ya ocurrido y no una sitúación general",
+      "feedback_correct": "Correcto: el cambio de tiempo verbal modifica si la acción es presente habitual o pasado puntual.",
+      "feedback_incorrect": "Pensá cómo cambia el sentido cuando decís 'se alteró' en lugar de 'se altera'."
     },
     {
       "id": "M5-ENC-008",
@@ -148,7 +148,7 @@
       "difficulty": 2,
       "mastery_level": 2,
       "type": "multiple_choice",
-      "question": "En la enumeracion 'peces, anfibios, aves e insectos', que signo se usa para separar los elementos?",
+      "question": "En la enumeración 'peces, anfibios, aves e insectos', qué signo se usa para separar los elementos?",
       "options": [
         "Coma",
         "Punto y coma",
@@ -156,8 +156,8 @@
         "Guion"
       ],
       "correctAnswer": "Coma",
-      "feedback_correct": "Correcto: la coma separa los elementos de una enumeracion simple.",
-      "feedback_incorrect": "En las enumeraciones de elementos sueltos se usa coma entre cada termino."
+      "feedback_correct": "Correcto: la coma separa los elementos de una enumeración simple.",
+      "feedback_incorrect": "En las enumeraciones de elementos sueltos se usa coma entre cada término."
     },
     {
       "id": "M5-ENC-009",
@@ -167,16 +167,16 @@
       "difficulty": 3,
       "mastery_level": 3,
       "type": "multiple_choice",
-      "question": "Por que el texto de los humedales se organiza en varias secciones con subtitulos?",
+      "question": "Por qué el texto de los humedales se organiza en varias secciones con subtítulos?",
       "options": [
-        "Porque los subtitulos ayudan a distribuir pausas y a que el lector ubique cada tema con claridad",
+        "Porque los subtítulos ayudan a distribuir pausas y a que el lector ubique cada tema con claridad",
         "Porque es obligatorio en todos los textos escolares",
         "Porque cada seccion debe tener exactamente la misma cantidad de palabras",
         "Porque reemplazan la necesidad de escribir oraciones completas"
       ],
-      "correctAnswer": "Porque los subtitulos ayudan a distribuir pausas y a que el lector ubique cada tema con claridad",
-      "feedback_correct": "Correcto: la segmentacion con subtitulos organiza la lectura y mejora la claridad.",
-      "feedback_incorrect": "Pensa en como los subtitulos guian al lector y dividen la informacion en bloques."
+      "correctAnswer": "Porque los subtítulos ayudan a distribuir pausas y a que el lector ubique cada tema con claridad",
+      "feedback_correct": "Correcto: la segmentacion con subtítulos organiza la lectura y mejora la claridad.",
+      "feedback_incorrect": "Pensá en como los subtítulos guían al lector y dividen la información en bloques."
     }
   ]
 }

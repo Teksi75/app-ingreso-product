@@ -10,16 +10,16 @@
       "difficulty": 1,
       "mastery_level": 1,
       "type": "multiple_choice",
-      "question": "Segun el copete, para que se reunieron vecinos, estudiantes y tecnicos?",
+      "question": "Según el copete, para qué se reunieron vecinos, estudiantes y técnicos?",
       "options": [
-        "Para presentar obras sobre los diques y los cambios recientes de la region",
+        "Para presentar obras sobre los diques y los cambios recientes de la región",
         "Para reconstruir historias del antiguo Pueblo del Sauce con robots y archivos de familia",
-        "Para mostrar maquinas reutilizadas sin trabajar con testimonios ni archivos familiares",
-        "Para promocionar talleres de robotica sin investigar la historia del Pueblo del Sauce"
+        "Para mostrar máquinas reutilizadas sin trabajar con testimonios ni archivos familiares",
+        "Para promocionar talleres de robótica sin investigar la historia del Pueblo del Sauce"
       ],
       "correctAnswer": "Para reconstruir historias del antiguo Pueblo del Sauce con robots y archivos de familia",
       "feedback_correct": "Correcto: ese objetivo aparece de forma explicita en el copete.",
-      "feedback_incorrect": "Revisa el copete: resume el proposito central del festival."
+      "feedback_incorrect": "Revisa el copete: resume el propósito central del festival."
     },
     {
       "id": "M3-NOT-002",
@@ -29,16 +29,16 @@
       "difficulty": 2,
       "mastery_level": 1,
       "type": "multiple_choice",
-      "question": "Por que la profesora de tecnologia sugirio construir dispositivos interactivos?",
+      "question": "Por qué la profesora de tecnología sugirió construir dispositivos interactivos?",
       "options": [
-        "Porque buscaba convertir las entrevistas familiares en una competencia escolar de robotica",
-        "Porque varios chicos querian compartir el material reunido sin dejarlo encerrado en vitrinas",
-        "Porque necesitaban una forma atractiva de vender las fotografias recuperadas en el barrio",
-        "Porque los organizadores querian reemplazar los relatos orales por carteles sin tecnologia"
+        "Porque buscaba convertir las entrevistas familiares en una competencia escolar de robótica",
+        "Porque varíos chicos querían compartir el material reunido sin dejarlo encerrado en vitrinas",
+        "Porque necesitaban una forma atractiva de vender las fotografías recuperadas en el barrio",
+        "Porque los organizadores querían reemplazar los relatos orales por carteles sin tecnología"
       ],
-      "correctAnswer": "Porque varios chicos querian compartir el material reunido sin dejarlo encerrado en vitrinas",
+      "correctAnswer": "Porque varíos chicos querían compartir el material reunido sin dejarlo encerrado en vitrinas",
       "feedback_correct": "Correcto: la sugerencia aparece como respuesta a una necesidad del proyecto.",
-      "feedback_incorrect": "Vuelve al parrafo donde se explica como nacio la propuesta."
+      "feedback_incorrect": "Vuelve al párrafo donde se explica cómo nació la propuesta."
     },
     {
       "id": "M3-NOT-003",
@@ -48,15 +48,15 @@
       "difficulty": 2,
       "mastery_level": 2,
       "type": "multiple_choice",
-      "question": "En la oracion 'en junio se abriran visitas guiadas para escuelas de la zona', la forma verbal 'se abriran' expresa:",
+      "question": "En la oración 'en junio se abriran visitas guiadas para escuelas de la zona', la forma verbal 'se abriran' expresa:",
       "options": [
         "un hecho pasado ya finalizado",
         "una orden en modo imperativo",
-        "una accion futura anunciada",
+        "una acción futura anunciada",
         "una condicion imposible"
       ],
-      "correctAnswer": "una accion futura anunciada",
-      "feedback_correct": "Correcto: el verbo esta en futuro y presenta una proyeccion de la noticia.",
+      "correctAnswer": "una acción futura anunciada",
+      "feedback_correct": "Correcto: el verbo está en futuro y presenta una proyección de la noticia.",
       "feedback_incorrect": "Observa la referencia temporal 'en junio' y la forma verbal usada."
     },
     {
@@ -67,16 +67,16 @@
       "difficulty": 1,
       "mastery_level": 1,
       "type": "multiple_choice",
-      "question": "Que funcion cumple el copete en esta noticia?",
+      "question": "Qué función cumple el copete en esta noticia?",
       "options": [
-        "Resumir la informacion principal antes de que el lector lea el cuerpo del texto",
-        "Dar la opinion del periodista sobre el festival",
-        "Enumerar los datos estadisticos del evento",
-        "Presentar un dialogo entre los protagonistas de la nota"
+        "Resumir la información principal antes de que el lector lea el cuerpo del texto",
+        "Dar la opinión del periodista sobre el festival",
+        "Enumerar los datos estadísticos del evento",
+        "Presentar un diálogo entre los protagonistas de la nota"
       ],
-      "correctAnswer": "Resumir la informacion principal antes de que el lector lea el cuerpo del texto",
+      "correctAnswer": "Resumir la información principal antes de que el lector lea el cuerpo del texto",
       "feedback_correct": "Correcto: el copete anticipa el contenido esencial de la noticia para orientar al lector.",
-      "feedback_incorrect": "Pensa en donde aparece el copete y que informacion aporta antes de empezar a leer."
+      "feedback_incorrect": "Pensá en dónde aparece el copete y que información aporta antes de empezar a leer."
     },
     {
       "id": "M3-NOT-005",
@@ -86,16 +86,16 @@
       "difficulty": 2,
       "mastery_level": 2,
       "type": "multiple_choice",
-      "question": "Desde que perspectiva esta escrita esta noticia?",
+      "question": "Desde qué perspectiva está escrita esta noticia?",
       "options": [
-        "Desde una perspectiva objetiva en tercera persona, que informa hechos sin incluir opiniones personales",
+        "Desde una perspectiva objetiva en tercera persona, que informa hechos sin incluir opiniónes personales",
         "Desde la primera persona de uno de los participantes del festival",
         "Desde una segunda persona que le habla directamente al lector",
         "Desde la primera persona del periodista que opina sobre el evento"
       ],
-      "correctAnswer": "Desde una perspectiva objetiva en tercera persona, que informa hechos sin incluir opiniones personales",
-      "feedback_correct": "Correcto: la noticia presenta hechos de manera objetiva, sin que el autor incluya su opinion.",
-      "feedback_incorrect": "Observa si el texto incluye opiniones personales o si se limita a informar hechos comprobables."
+      "correctAnswer": "Desde una perspectiva objetiva en tercera persona, que informa hechos sin incluir opiniónes personales",
+      "feedback_correct": "Correcto: la noticia presenta hechos de manera objetiva, sin que el autor incluya su opinión.",
+      "feedback_incorrect": "Observa si el texto incluye opiniónes personales o si se limita a informar hechos comprobables."
     }
   ]
 }

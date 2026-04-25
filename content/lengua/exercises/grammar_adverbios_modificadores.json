@@ -10,8 +10,8 @@
       "difficulty": 1,
       "mastery_level": 1,
       "type": "multiple_choice",
-      "question": "En el fragmento 'Siempre regresaba con novedades', ¿que palabra es un adverbio de tiempo?",
-      "fragment": "Cuando descendia al valle, siempre regresaba con novedades",
+      "question": "En el fragmento 'Siempre regresaba con novedades', ¿qué palabra es un adverbio de tiempo?",
+      "fragment": "Cuando descendía al valle, siempre regresaba con novedades",
       "options": [
         "siempre",
         "regresaba",
@@ -50,16 +50,16 @@
       "difficulty": 2,
       "mastery_level": 2,
       "type": "multiple_choice",
-      "question": "En el fragmento 'Despues aparecieron nubes livianas que avanzaban rapido', ¿qué indica el adverbio 'rapido'?",
-      "fragment": "Despues aparecieron nubes livianas que avanzaban rapido",
+      "question": "En el fragmento 'Después aparecieron nubes livianas que avanzaban rápido', ¿qué indica el adverbio 'rápido'?",
+      "fragment": "Después aparecieron nubes livianas que avanzaban rápido",
       "options": [
         "El modo en que avanzaban las nubes",
         "El lugar donde estaban las nubes",
-        "La cantidad de nubes que habia",
+        "La cantidad de nubes que había",
         "El nombre propio de las nubes"
       ],
       "correctAnswer": "El modo en que avanzaban las nubes",
-      "feedback_correct": "Correcto: 'rapido' modifica al verbo 'avanzaban' e indica de qué modo se movían las nubes.",
+      "feedback_correct": "Correcto: 'rápido' modifica al verbo 'avanzaban' e indica de qué modo se movían las nubes.",
       "feedback_incorrect": "Un adverbio de modo explica cómo ocurre la acción. En este caso, fijate cómo avanzaban las nubes."
     },
     {
@@ -70,17 +70,17 @@
       "difficulty": 2,
       "mastery_level": 2,
       "type": "multiple_choice",
-      "question": "En el fragmento 'Alli se realizo la primera edicion del Festival de Robots de la Memoria', ¿que palabra es un adverbio de lugar?",
-      "fragment": "Alli se realizo la primera edicion del Festival de Robots de la Memoria",
+      "question": "En el fragmento 'Allí se realizó la primera edición del Festival de Robots de la Memoria', ¿qué palabra es un adverbio de lugar?",
+      "fragment": "Allí se realizó la primera edición del Festival de Robots de la Memoria",
       "options": [
-        "Alli",
+        "Allí",
         "primera",
         "se",
         "del"
       ],
-      "correctAnswer": "Alli",
-      "feedback_correct": "Correcto: 'Alli' es un adverbio de lugar que indica donde se realizo el festival.",
-      "feedback_incorrect": "Busca la palabra que senala el lugar donde ocurre la accion sin ser un sustantivo ni un articulo."
+      "correctAnswer": "Allí",
+      "feedback_correct": "Correcto: 'Allí' es un adverbio de lugar que indica dónde se realizó el festival.",
+      "feedback_incorrect": "Busca la palabra que señala el lugar dónde ocurre la acción sin ser un sustantivo ni un artículo."
     },
     {
       "id": "GAM-005",
@@ -90,19 +90,19 @@
       "difficulty": 3,
       "mastery_level": 2,
       "type": "multiple_choice_multiple",
-      "question": "Marca los adverbios que aparecen en el fragmento: 'Muchas aves migratorias descansan alli durante sus viajes y algunas especies amenazadas encuentran en esos espacios una posibilidad concreta de supervivencia'.",
-      "fragment": "Muchas aves migratorias descansan alli durante sus viajes y algunas especies amenazadas encuentran en esos espacios una posibilidad concreta de supervivencia",
+      "question": "Marca los adverbios que aparecen en el fragmento: 'Muchas aves migratorias descansan allí durante sus viajes y algunas especies amenazadas encuentran en esos espacios una posibilidad concreta de supervivencia'.",
+      "fragment": "Muchas aves migratorias descansan allí durante sus viajes y algunas especies amenazadas encuentran en esos espacios una posibilidad concreta de supervivencia",
       "options": [
-        "alli",
+        "allí",
         "Muchas",
         "algunas",
         "concreta"
       ],
       "correctAnswers": [
-        "alli"
+        "allí"
       ],
-      "feedback_correct": "Correcto: 'alli' es el unico adverbio del fragmento; indica lugar.",
-      "feedback_incorrect": "Un adverbio modifica un verbo, un adjetivo u otro adverbio sin concordar en genero ni numero. Busca la palabra que indica donde descansan las aves."
+      "feedback_correct": "Correcto: 'allí' es el unico adverbio del fragmento; indica lugar.",
+      "feedback_incorrect": "Un adverbio modifica un verbo, un adjetivo u otro adverbio sin concordar en género ni número. Busca la palabra que indica dónde descansan las aves."
     },
     {
       "id": "GAM-006",

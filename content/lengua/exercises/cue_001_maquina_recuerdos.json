@@ -10,12 +10,12 @@
       "difficulty": 2,
       "mastery_level": 1,
       "type": "multiple_choice",
-      "question": "Cual opcion sintetiza mejor el conflicto principal del cuento?",
+      "question": "Cuál opción sintetiza mejor el conflicto principal del cuento?",
       "options": [
         "Alma intenta recuperar el reloj de su abuelo mientras Borda oculta un invento del teatro",
         "Tres personajes deben ordenar y devolver recuerdos mezclados antes de que el barrio confunda memorias ajenas con propias",
-        "Teo busca recuperar una cancion familiar sin aceptar que sus pruebas afectaron al barrio",
-        "El senor Borda quiere guardar la maquina para exhibirla como una curiosidad del teatro municipal"
+        "Teo busca recuperar una canción familiar sin aceptar que sus pruebas afectaron al barrio",
+        "El señor Borda quiere guardar la máquina para exhibirla como una curiosidad del teatro municipal"
       ],
       "correctAnswer": "Tres personajes deben ordenar y devolver recuerdos mezclados antes de que el barrio confunda memorias ajenas con propias",
       "feedback_correct": "Correcto: esa opcion resume el conflicto y su urgencia.",
@@ -29,7 +29,7 @@
       "difficulty": 2,
       "mastery_level": 2,
       "type": "multiple_choice",
-      "question": "Cual es el orden cronologico correcto de estos hechos?",
+      "question": "Cuál es el orden cronológico correcto de estos hechos?",
       "options": [
         "Teo confiesa su error -> Alma prueba un recuerdo ajeno -> encuentran la advertencia -> nombran las tarjetas en voz alta",
         "Alma prueba un recuerdo ajeno -> Teo confiesa su error -> encuentran la advertencia -> nombran las tarjetas en voz alta",
@@ -37,7 +37,7 @@
         "Teo confiesa su error -> encuentran la advertencia -> Alma prueba un recuerdo ajeno -> nombran las tarjetas en voz alta"
       ],
       "correctAnswer": "Alma prueba un recuerdo ajeno -> Teo confiesa su error -> encuentran la advertencia -> nombran las tarjetas en voz alta",
-      "feedback_correct": "Correcto: ese orden respeta la secuencia del cuento desde el descubrimiento hasta la solucion.",
+      "feedback_correct": "Correcto: ese orden respeta la secuencia del cuento desde el descubrimiento hasta la solución.",
       "feedback_incorrect": "Revisa el momento en que Alma comprueba el problema y cuando aparece la hoja con instrucciones."
     },
     {
@@ -48,16 +48,16 @@
       "difficulty": 2,
       "mastery_level": 2,
       "type": "multiple_choice",
-      "question": "En la enumeracion 'una escalera mojada, unas botas con barro, una risa en un patio escolar, el perfume de un kiosco viejo', la coma se usa para:",
+      "question": "En la enumeración 'una escalera mojada, unas botas con barro, una risa en un patio escolar, el perfume de un kiosco viejo', la coma se usa para:",
       "options": [
         "marcar una pregunta indirecta",
-        "separar elementos de una enumeracion",
-        "encerrar una aclaracion del narrador",
-        "indicar que la oracion quedo incompleta"
+        "separar elementos de una enumeración",
+        "encerrar una aclaración del narrador",
+        "indicar que la oración quedo incompleta"
       ],
-      "correctAnswer": "separar elementos de una enumeracion",
+      "correctAnswer": "separar elementos de una enumeración",
       "feedback_correct": "Correcto: las comas separan distintos recuerdos dentro de una lista.",
-      "feedback_incorrect": "Observa que la frase presenta varios elementos seguidos dentro de una enumeracion."
+      "feedback_incorrect": "Observa que la frase presenta varíos elementos seguidos dentro de una enumeración."
     },
     {
       "id": "M6-CUE-004",
@@ -67,16 +67,16 @@
       "difficulty": 2,
       "mastery_level": 2,
       "type": "multiple_choice",
-      "question": "Quien narra los hechos del cuento y que sabe sobre los personajes?",
+      "question": "Quién narra los hechos del cuento y que sabe sobre los personajes?",
       "options": [
-        "Un narrador en tercera persona que conoce los pensamientos y sentimientos de varios personajes",
+        "Un narrador en tercera persona que conoce los pensamientos y sentimientos de varíos personajes",
         "Un narrador en primera persona que es Alma y cuenta su propia experiencia",
         "Un narrador en segunda persona que le habla al lector",
-        "Un narrador en primera persona que es el senor Borda"
+        "Un narrador en primera persona que es el señor Borda"
       ],
-      "correctAnswer": "Un narrador en tercera persona que conoce los pensamientos y sentimientos de varios personajes",
-      "feedback_correct": "Correcto: el narrador sabe lo que sienten Alma, Teo y el senor Borda, por eso es omnisciente.",
-      "feedback_incorrect": "Pensa si el narrador cuenta solo lo que se ve desde afuera o si tambien dice lo que piensan y sienten los personajes."
+      "correctAnswer": "Un narrador en tercera persona que conoce los pensamientos y sentimientos de varíos personajes",
+      "feedback_correct": "Correcto: el narrador sabe lo que sienten Alma, Teo y el señor Borda, por eso es omnisciente.",
+      "feedback_incorrect": "Pensá si el narrador cuenta solo lo que se ve desde afuera o si también dice lo que piensan y sienten los personajes."
     }
   ]
 }

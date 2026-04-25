@@ -30,8 +30,8 @@
       "difficulty": 1,
       "mastery_level": 1,
       "type": "multiple_choice",
-      "question": "En la oracion 'El senor Borda le dijo que el reloj podia esperar', ¿que palabra es un pronombre personal?",
-      "fragment": "El senor Borda, que tenia manos delgadas y cejas siempre sorprendidas, noto enseguida la curiosidad de la chica. Le dijo que el reloj podia esperar",
+      "question": "En la oración 'El señor Borda le dijo que el reloj podía esperar', ¿qué palabra es un pronombre personal?",
+      "fragment": "El señor Borda, que tenía manos delgadas y cejas siempre sorprendidas, notó enseguida la curiosidad de la chica. Le dijo que el reloj podía esperar",
       "options": [
         "le",
         "el",
@@ -39,8 +39,8 @@
         "que"
       ],
       "correctAnswer": "le",
-      "feedback_correct": "Correcto: 'le' es un pronombre personal que reemplaza al destinatario de la accion.",
-      "feedback_incorrect": "Busca la palabra que reemplaza a la persona que recibe la accion sin nombrarla directamente."
+      "feedback_correct": "Correcto: 'le' es un pronombre personal que reemplaza al destinatario de la acción.",
+      "feedback_incorrect": "Busca la palabra que reemplaza a la persona que recibe la acción sin nombrarla directamente."
     },
     {
       "id": "GPD-003",
@@ -50,8 +50,8 @@
       "difficulty": 2,
       "mastery_level": 2,
       "type": "multiple_choice",
-      "question": "En el fragmento 'Su abuelo decia que ella tenia el oido afinado para las cosas invisibles', ¿a quien se refiere el pronombre 'ella'?",
-      "fragment": "En ese lugar vivia Sumaq, una joven que sabia escuchar el murmullo del viento. Su abuelo decia que ella tenia el oido afinado para las cosas invisibles",
+      "question": "En el fragmento 'Su abuelo decía que ella tenía el oído afinado para las cosas invisibles', ¿a quién se refiere el pronombre 'ella'?",
+      "fragment": "En ese lugar vivía Sumaq, una joven que sabía escuchar el murmullo del viento. Su abuelo decía que ella tenía el oído afinado para las cosas invisibles",
       "options": [
         "A Sumaq",
         "Al abuelo",
@@ -60,7 +60,7 @@
       ],
       "correctAnswer": "A Sumaq",
       "feedback_correct": "Correcto: 'ella' se refiere a Sumaq, la persona mencionada justo antes en el texto.",
-      "feedback_incorrect": "Busca en el texto quien es la persona mencionada antes del pronombre."
+      "feedback_incorrect": "Busca en el texto quién es la persona mencionada antes del pronombre."
     },
     {
       "id": "GPD-004",
@@ -71,7 +71,7 @@
       "mastery_level": 2,
       "type": "categorization",
       "question": "Clasifica las palabras destacadas del fragmento como pronombres personales o determinantes posesivos.",
-      "fragment": "Sus abuelos compartieron sus recuerdos y ellos mismos armaron las maquetas. La profesora les sugirio que construiran dispositivos interactivos",
+      "fragment": "Sus abuelos compartieron sus recuerdos y ellos mismos armaron las maquetas. La profesora les sugirió que construyeran dispositivos interactivos",
       "categorization": {
         "categories": ["pronombre personal", "determinante posesivo"],
         "items": ["Sus", "sus", "ellos", "les"],
@@ -82,8 +82,8 @@
           "les": "pronombre personal"
         }
       },
-      "feedback_correct": "Correcto: los determinantes posesivos acompanan al sustantivo; los pronombres personales reemplazan un nombre.",
-      "feedback_incorrect": "Fijate si la palabra acompana a un sustantivo (es determinante) o lo reemplaza (es pronombre)."
+      "feedback_correct": "Correcto: los determinantes posesivos acompañan al sustantivo; los pronombres personales reemplazan un nombre.",
+      "feedback_incorrect": "Fijate si la palabra acompaña a un sustantivo (es determinante) o lo reemplaza (es pronombre)."
     },
     {
       "id": "GPD-005",
@@ -93,7 +93,7 @@
       "difficulty": 3,
       "mastery_level": 2,
       "type": "multiple_choice_multiple",
-      "question": "Marca las palabras que funcionan como determinantes demostrativos en el fragmento: 'Esos ecosistemas cumplen funciones muy valiosas. En este lugar se encuentran muchas aves y tambien aquellas que necesitan proteccion'.",
+      "question": "Marca las palabras que funcionan como determinantes demostrativos en el fragmento: 'Esos ecosistemas cumplen funciones muy valiosas. En este lugar se encuentran muchas aves y también aquellas que necesitan protección'.",
       "options": [
         "Esos",
         "este",
@@ -117,8 +117,8 @@
       "difficulty": 3,
       "mastery_level": 3,
       "type": "multiple_choice",
-      "question": "En la oracion 'Alma le entrego el reloj y ella se sorprendio al ver la maquina', ¿cuantas palabras funcionan como pronombres personales?",
-      "fragment": "Alma le entrego el reloj y ella se sorprendio al ver la maquina",
+      "question": "En la oración 'Alma le entregó el reloj y ella se sorprendió al ver la máquina', ¿cuántas palabras funcionan como pronombres personales?",
+      "fragment": "Alma le entregó el reloj y ella se sorprendió al ver la máquina",
       "options": [
         "3 (le, ella, se)",
         "2 (le, ella)",
@@ -127,7 +127,7 @@
       ],
       "correctAnswer": "3 (le, ella, se)",
       "feedback_correct": "Correcto: 'le' es pronombre de objeto indirecto, 'ella' es pronombre sujeto y 'se' es pronombre reflexivo.",
-      "feedback_incorrect": "Contá cada palabra que reemplaza o acompana al verbo sin ser un sustantivo: 'le' reemplaza al destinatario, 'ella' al sujeto y 'se' es reflexivo."
+      "feedback_incorrect": "Contá cada palabra que reemplaza o acompaña al verbo sin ser un sustantivo: 'le' reemplaza al destinatario, 'ella' al sujeto y 'se' es reflexivo."
     }
   ]
 }

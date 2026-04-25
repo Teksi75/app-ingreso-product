@@ -10,7 +10,7 @@
       "difficulty": 1,
       "mastery_level": 1,
       "type": "multiple_choice",
-      "question": "Segun el texto, cuantas partes tiene una carta de reclamo formal?",
+      "question": "Según el texto, cuántas partes tiene una carta de reclamo formal?",
       "options": [
         "Cuatro",
         "Cinco",
@@ -19,7 +19,7 @@
       ],
       "correctAnswer": "Seis",
       "feedback_correct": "Correcto: el texto enumera seis partes (lugar y fecha, destinatario, saludo, cuerpo, pedido y despedida).",
-      "feedback_incorrect": "Relee el parrafo donde la profesora enumera las partes de la carta."
+      "feedback_incorrect": "Relee el párrafo donde la profesora enumera las partes de la carta."
     },
     {
       "id": "M3-INS-002",
@@ -29,16 +29,16 @@
       "difficulty": 2,
       "mastery_level": 2,
       "type": "multiple_choice",
-      "question": "Que datos incluyeron los estudiantes en el cuerpo de su carta modelo?",
+      "question": "Qué datos incluyeron los estudiantes en el cuerpo de su carta modelo?",
       "options": [
-        "La fecha del problema, la duracion de la falla, la ubicacion del bebedero y la consecuencia sobre los estudiantes",
+        "La fecha del problema, la duración de la falla, la ubicación del bebedero y la consecuencia sobre los estudiantes",
         "Solo el nombre del director y la fecha",
         "Una lista de todos los bebederos de la escuela",
-        "El precio de la reparacion y el nombre del tecnico"
+        "El precio de la reparación y el nombre del técnico"
       ],
-      "correctAnswer": "La fecha del problema, la duracion de la falla, la ubicacion del bebedero y la consecuencia sobre los estudiantes",
+      "correctAnswer": "La fecha del problema, la duración de la falla, la ubicación del bebedero y la consecuencia sobre los estudiantes",
       "feedback_correct": "Correcto: el texto menciona esos cuatro datos como parte del cuerpo de la carta.",
-      "feedback_incorrect": "Volve al parrafo que describe la carta modelo y fijate que datos incluye."
+      "feedback_incorrect": "Volve al párrafo que describe la carta modelo y fijate que datos incluye."
     },
     {
       "id": "M3-INS-003",
@@ -48,16 +48,16 @@
       "difficulty": 2,
       "mastery_level": 2,
       "type": "multiple_choice",
-      "question": "Por que la profesora recomienda evitar adjetivos exagerados en el cuerpo de la carta?",
+      "question": "Por qué la profesora recomienda evitar adjetivos exagerados en el cuerpo de la carta?",
       "options": [
         "Porque una carta con tono firme pero respetuoso suele recibir mejor tratamiento",
-        "Porque los adjetivos estan prohibidos en cualquier texto escolar",
+        "Porque los adjetivos estan prohibidos en cuálquier texto escolar",
         "Porque ocupan demasiado espacio en la hoja",
-        "Porque el director no entiende palabras dificiles"
+        "Porque el director no entiende palabras difíciles"
       ],
       "correctAnswer": "Porque una carta con tono firme pero respetuoso suele recibir mejor tratamiento",
       "feedback_correct": "Correcto: el texto dice que el tono respetuoso aumenta las posibilidades de respuesta.",
-      "feedback_incorrect": "Relee la parte donde la profesora explica como redactar el cuerpo de la carta."
+      "feedback_incorrect": "Relee la parte donde la profesora explica cómo redactar el cuerpo de la carta."
     },
     {
       "id": "M3-INS-004",
@@ -67,16 +67,16 @@
       "difficulty": 2,
       "mastery_level": 2,
       "type": "multiple_choice",
-      "question": "Cual de estas opciones respeta mejor el formato de un pedido concreto en una carta de reclamo?",
+      "question": "Cuál de estas opciones respeta mejor el formato de un pedido concreto en una carta de reclamo?",
       "options": [
-        "Solicitamos que se revisen las canerias del bebedero y, si es necesario, se repare la bomba de agua",
+        "Solicitamos que se revisen las cañerías del bebedero y, si es necesario, se repare la bomba de agua",
         "Queremos que arreglen todo lo que este roto en la escuela",
         "Por favor hagan algo con el agua",
         "La escuela deberia estar en mejores condiciones siempre"
       ],
-      "correctAnswer": "Solicitamos que se revisen las canerias del bebedero y, si es necesario, se repare la bomba de agua",
-      "feedback_correct": "Correcto: el pedido es concreto (revisar canerias, reparar bomba) y esta bien formulado.",
-      "feedback_incorrect": "Busca la opcion que pide una accion especifica, no algo general o vago."
+      "correctAnswer": "Solicitamos que se revisen las cañerías del bebedero y, si es necesario, se repare la bomba de agua",
+      "feedback_correct": "Correcto: el pedido es concreto (revisar cañerías, reparar bomba) y está bien formulado.",
+      "feedback_incorrect": "Busca la opcion que pide una acción especifica, no algo general o vago."
     },
     {
       "id": "M3-INS-005",
@@ -86,16 +86,16 @@
       "difficulty": 2,
       "mastery_level": 2,
       "type": "multiple_choice",
-      "question": "En la frase 'Los estudiantes notaron que el bebedero permanecia sin agua', el verbo 'notaron' esta en:",
+      "question": "En la frase 'Los estudiantes notaron que el bebedero permanecia sin agua', el verbo 'notaron' está en:",
       "options": [
-        "Preterito (pasado)",
+        "Pretérito (pasado)",
         "Presente",
         "Futuro",
         "Condicional"
       ],
-      "correctAnswer": "Preterito (pasado)",
-      "feedback_correct": "Correcto: 'notaron' es una accion ya ocurrida, por eso va en preterito.",
-      "feedback_incorrect": "Fijate si la accion ya paso o esta ocurriendo ahora."
+      "correctAnswer": "Pretérito (pasado)",
+      "feedback_correct": "Correcto: 'notaron' es una acción ya ocurrida, por eso va en pretérito.",
+      "feedback_incorrect": "Fijate si la acción ya pasó o está ocurriendo ahora."
     },
     {
       "id": "M3-INS-006",
@@ -105,16 +105,16 @@
       "difficulty": 2,
       "mastery_level": 2,
       "type": "multiple_choice",
-      "question": "Segun el texto, que tiempo verbal debe usarse para expresar el pedido en una carta de reclamo?",
+      "question": "Según el texto, que tiempo verbal debe usarse para expresar el pedido en una carta de reclamo?",
       "options": [
         "Presente",
-        "Preterito",
+        "Pretérito",
         "Futuro",
         "Imperativo solamente"
       ],
       "correctAnswer": "Presente",
-      "feedback_correct": "Correcto: el texto indica que el pedido y la situacion actual se expresan en presente.",
-      "feedback_incorrect": "Relee el parrafo donde la profesora explica la diferencia entre los tiempos verbales."
+      "feedback_correct": "Correcto: el texto indica que el pedido y la sitúación actual se expresan en presente.",
+      "feedback_incorrect": "Relee el párrafo donde la profesora explica la diferencia entre los tiempos verbales."
     },
     {
       "id": "M3-INS-007",
@@ -124,16 +124,16 @@
       "difficulty": 3,
       "mastery_level": 3,
       "type": "multiple_choice",
-      "question": "Por que es importante mantener coherencia temporal en una carta de reclamo?",
+      "question": "Por qué es importante mantener coherencia temporal en una carta de reclamo?",
       "options": [
-        "Para evitar confusiones y mostrar que quien escribe diferencia lo que ya paso de lo que espera",
+        "Para evitar confusiones y mostrar que quien escribe diferencia lo que ya pasó de lo que espera",
         "Porque todas las cartas deben escribirse en un solo tiempo verbal",
         "Para que el texto tenga mas palabras",
         "Porque el director solo lee textos en presente"
       ],
-      "correctAnswer": "Para evitar confusiones y mostrar que quien escribe diferencia lo que ya paso de lo que espera",
-      "feedback_correct": "Correcto: la coherencia temporal organiza la informacion y facilita la comprension.",
-      "feedback_incorrect": "Pensa para que sirve separar lo que ocurrio de lo que se pide."
+      "correctAnswer": "Para evitar confusiones y mostrar que quien escribe diferencia lo que ya pasó de lo que espera",
+      "feedback_correct": "Correcto: la coherencia temporal organiza la información y facilita la comprensión.",
+      "feedback_incorrect": "Pensá para qué sirve separar lo que ocurrió de lo que se pide."
     },
     {
       "id": "M3-INS-008",
@@ -143,7 +143,7 @@
       "difficulty": 3,
       "mastery_level": 3,
       "type": "multiple_choice",
-      "question": "Elige la transformacion correcta. Frase original: 'Los estudiantes redactan reclamos'. Cambia a preterito:",
+      "question": "Elige la transformacion correcta. Frase original: 'Los estudiantes redactan reclamos'. Cambia a pretérito:",
       "options": [
         "Los estudiantes redactaron reclamos",
         "Los estudiantes redactaran reclamos",
@@ -151,8 +151,8 @@
         "Los estudiantes redactando reclamos"
       ],
       "correctAnswer": "Los estudiantes redactaron reclamos",
-      "feedback_correct": "Correcto: 'redactaron' es la forma en preterito de 'redactan'.",
-      "feedback_incorrect": "El preterito indica que la accion ya ocurrio. Busca la terminacion correcta."
+      "feedback_correct": "Correcto: 'redactaron' es la forma en pretérito de 'redactan'.",
+      "feedback_incorrect": "El pretérito indica que la acción ya ocurrió. Busca la terminación correcta."
     }
   ]
 }

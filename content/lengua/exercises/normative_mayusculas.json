@@ -29,7 +29,7 @@
       "difficulty": 1,
       "mastery_level": 1,
       "type": "multiple_choice",
-      "question": "En el fragmento 'el Centro Cultural del Puerto se lleno de voces', ¿cuantas palabras llevan mayuscula porque son parte de un nombre propio?",
+      "question": "En el fragmento 'el Centro Cultural del Puerto se lleno de voces', ¿cuántas palabras llevan mayúscula porque son parte de un nombre propio?",
       "fragment": "el Centro Cultural del Puerto se lleno de voces",
       "options": [
         "4 (Centro, Cultural, del, Puerto)",
@@ -38,8 +38,8 @@
         "1 (Centro)"
       ],
       "correctAnswer": "3 (Centro, Cultural, Puerto)",
-      "feedback_correct": "Correcto: 'Centro Cultural del Puerto' es un nombre propio institucional. Las palabras significativas del nombre llevan mayuscula, no la preposicion 'del'.",
-      "feedback_incorrect": "En los nombres propios institucionales, cada palabra significativa lleva mayuscula. La preposicion 'del' se escribe con minuscula."
+      "feedback_correct": "Correcto: 'Centro Cultural del Puerto' es un nombre propio institucional. Las palabras significativas del nombre llevan mayúscula, no la preposición 'del'.",
+      "feedback_incorrect": "En los nombres propios institucionales, cada palabra significativa lleva mayúscula. La preposición 'del' se escribe con minúscula."
     },
     {
       "id": "GMA-003",
@@ -49,17 +49,17 @@
       "difficulty": 2,
       "mastery_level": 2,
       "type": "multiple_choice",
-      "question": "En la oracion 'Los Esteros del Ibera, en Corrientes, ocupan una superficie enorme', ¿por que 'Esteros' y 'Ibera' llevan mayuscula?",
+      "question": "En la oración 'Los Esteros del Ibera, en Corrientes, ocupan una superficie enorme', ¿por qué 'Esteros' y 'Ibera' llevan mayúscula?",
       "fragment": "Los Esteros del Ibera, en Corrientes, ocupan una superficie enorme",
       "options": [
-        "Porque forman parte de un nombre propio geografico",
-        "Porque son la primera palabra de la oracion",
+        "Porque forman parte de un nombre propio geográfico",
+        "Porque son la primera palabra de la oración",
         "Porque son sustantivos abstractos",
         "Porque son adjetivos calificativos"
       ],
-      "correctAnswer": "Porque forman parte de un nombre propio geografico",
-      "feedback_correct": "Correcto: 'Esteros del Ibera' es un nombre propio de lugar geografico y sus palabras significativas llevan mayuscula.",
-      "feedback_incorrect": "Los nombres de lugares geograficos como rios, lagos y regiones se escriben con mayuscula inicial porque son nombres propios."
+      "correctAnswer": "Porque forman parte de un nombre propio geográfico",
+      "feedback_correct": "Correcto: 'Esteros del Ibera' es un nombre propio de lugar geográfico y sus palabras significativas llevan mayúscula.",
+      "feedback_incorrect": "Los nombres de lugares geográficos como ríos, lagos y regiones se escriben con mayúscula inicial porque son nombres propios."
     },
     {
       "id": "GMA-004",
@@ -69,7 +69,7 @@
       "difficulty": 2,
       "mastery_level": 2,
       "type": "multiple_choice",
-      "question": "Marca la opcion donde las mayusculas estan bien usadas:",
+      "question": "Marca la opcion donde las mayúsculas estan bien usadas:",
       "options": [
         "El señor Borda encontró la máquina en el Teatro Municipal.",
         "El señor borda encontró la máquina en el teatro municipal.",
