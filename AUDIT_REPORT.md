@@ -96,6 +96,30 @@ Las mejoras propuestas fueron implementadas:
 
 ---
 
+### Segunda simulación E2E post-mejoras
+
+Se agregó una simulación pedagógica más larga en `tests/e2e/pedagogical-gradual-skill-strengthening.spec.ts`.
+
+Esta prueba recorre un caso de mejora paulatina:
+
+1. Diagnóstico inicial con dos debilidades activas (`skill_4` y `skill_5`).
+2. Navegación real desde dashboard hacia práctica focalizada de Gramática.
+3. Primera ronda fallida: la app mantiene el refuerzo y no desbloquea simulador.
+4. Segunda ronda: `skill_4` pasa de `weak` a `developing` y la UI lo comunica como habilidad en desarrollo.
+5. Tercera ronda: `skill_4` queda dominada y la recomendación rota hacia `skill_5`.
+6. Mejora gradual de `skill_5` hasta desarrollo.
+7. Consolidación transversal de skills y desbloqueo final de simulador.
+8. Verificación de la pantalla de simulación con duración estimada, cobertura y CTA.
+
+También valida que:
+
+- No reaparezcan mensajes técnicos como `accuracy ponderada` o `mastery ... score`.
+- El CTA de refuerzo esté conectado con la debilidad dominante.
+- Los textos pedagógicos acompañen el avance por estados.
+- El simulador aparezca solo cuando no quedan debilidades críticas.
+
+---
+
 ## Hallazgos por Severidad
 
 ### 🔴 Alta – Requiere atención prioritaria
