@@ -190,38 +190,30 @@ export default async function HabilidadesPage({ searchParams }: HabilidadesPageP
         {/* Content */}
         <div className="p-4 lg:p-6">
 
-          {/* Stats Overview Cards */}
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-            <div className="bg-white rounded-2xl p-4 border border-slate-100">
-              <div className="text-3xl mb-2">📊</div>
-              <p className="text-sm text-slate-500">Materias</p>
-              <p className="text-2xl font-bold text-slate-800">{HABILIDADES.length}</p>
-            </div>
-            <div className="bg-white rounded-2xl p-4 border border-slate-100">
-              <div className="text-3xl mb-2">✅</div>
-              <p className="text-sm text-slate-500">Dominadas</p>
-              <p className="text-2xl font-bold text-teal-600">
-                {HABILIDADES.filter(h => h.progress >= 70).length}
-              </p>
-            </div>
-            <div className="bg-white rounded-2xl p-4 border border-slate-100">
-              <div className="text-3xl mb-2">📈</div>
-              <p className="text-sm text-slate-500">En progreso</p>
-              <p className="text-2xl font-bold text-violet-600">
-                {HABILIDADES.filter(h => h.progress >= 30 && h.progress < 70).length}
-              </p>
-            </div>
-            <div className="bg-white rounded-2xl p-4 border border-slate-100">
-              <div className="text-3xl mb-2">🎯</div>
-              <p className="text-sm text-slate-500">Por iniciar</p>
-              <p className="text-2xl font-bold text-orange-600">
-                {HABILIDADES.filter(h => h.progress < 30).length}
-              </p>
+          {/* Tip destacado arriba */}
+          <div className="bg-gradient-to-r from-violet-50 to-purple-50 rounded-2xl p-5 border border-violet-100 mb-6">
+            <div className="flex items-start gap-4">
+              <div className="w-12 h-12 rounded-xl bg-violet-100 flex items-center justify-center text-2xl flex-shrink-0">
+                💡
+              </div>
+              <div className="flex-1">
+                <h3 className="font-bold text-slate-800 mb-1">Tip:</h3>
+                <p className="text-slate-600 mb-3">
+                  <span className="font-semibold text-violet-600">Lengua</span> es donde más podés mejorar ahora.
+                </p>
+                <Button
+                  href={withProgressCode(recommendationHref, progressCode)}
+                  variant="secondary"
+                  size="sm"
+                >
+                  Practicar
+                </Button>
+              </div>
             </div>
           </div>
 
-          {/* Skills Grid - Solo 2 materias */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-6">
+          {/* Habilidades tipo juego */}
+          <div className="space-y-6">
             {HABILIDADES.map((skill) => {
               const colors = colorConfig[skill.color];
 
@@ -234,11 +226,11 @@ export default async function HabilidadesPage({ searchParams }: HabilidadesPageP
                     ${colors.border}
                   `}
                 >
-                  {/* Header */}
+                  {/* Header con nivel */}
                   <div className="flex items-start justify-between mb-4">
                     <div className="flex items-center gap-3">
                       <div className={`
-                        w-14 h-14 rounded-2xl flex items-center justify-center text-3xl
+                        w-12 h-12 rounded-xl flex items-center justify-center text-2xl
                         ${colors.bg}
                       `}>
                         {skill.icon}
@@ -252,104 +244,70 @@ export default async function HabilidadesPage({ searchParams }: HabilidadesPageP
                       px-3 py-1 rounded-full text-sm font-bold
                       ${colors.bg} ${colors.text}
                     `}>
-                      {skill.isAvailable ? `Nv. ${skill.level}` : "Próximamente"}
+                      {skill.isAvailable ? `Nivel: ${skill.level}` : "Próximamente"}
                     </div>
                   </div>
 
-                  {/* Progress Section */}
-                  <div className="mb-4">
-                    <div className="flex justify-between items-center mb-2">
-                      <span className="text-sm font-medium text-slate-500">Progreso</span>
-                      <span className="text-sm font-bold text-slate-700">{skill.progress}%</span>
-                    </div>
-                    <div className="h-3 bg-slate-100 rounded-full overflow-hidden">
-                      <div
-                        className={`h-full ${colors.progress} rounded-full transition-all duration-500`}
-                        style={{ width: `${skill.progress}%` }}
-                      />
-                    </div>
-                    <div className="flex justify-between mt-1">
-                      <span className="text-xs text-slate-400">{skill.xp} XP</span>
-                      <span className="text-xs text-slate-400">{skill.xpTotal} XP</span>
-                    </div>
-                  </div>
+                  {skill.isAvailable ? (
+                    <>
+                      {/* Fortalezas y debilidades */}
+                      <div className="space-y-3 mb-4">
+                        <div className="flex items-center gap-2 text-sm">
+                          <span className="text-emerald-500">🟢</span>
+                          <span className="text-slate-600 font-medium">Fuerte →</span>
+                          <span className="text-slate-700">Uso de verbos</span>
+                        </div>
+                        <div className="flex items-center gap-2 text-sm">
+                          <span className="text-amber-500">🟡</span>
+                          <span className="text-slate-600 font-medium">Medio →</span>
+                          <span className="text-slate-700">Comprensión</span>
+                        </div>
+                        <div className="flex items-center gap-2 text-sm">
+                          <span className="text-rose-500">🔴</span>
+                          <span className="text-slate-600 font-medium">Débil →</span>
+                          <span className="text-slate-700">Gramática</span>
+                        </div>
+                      </div>
 
-                  {/* Stats Row */}
-                  <div className="flex gap-4 mb-4">
-                    <div className="flex-1 bg-slate-50 rounded-xl p-2 text-center">
-                      <p className="text-lg font-bold text-slate-800">{skill.exercises}</p>
-                      <p className="text-xs text-slate-500">Ejercicios</p>
-                    </div>
-                    <div className="flex-1 bg-slate-50 rounded-xl p-2 text-center">
-                      <p className="text-lg font-bold text-slate-800">{skill.accuracy}%</p>
-                      <p className="text-xs text-slate-500">Precisión</p>
-                    </div>
-                  </div>
+                      {/* Barra de progreso simple */}
+                      <div className="mb-4">
+                        <div className="flex justify-between items-center mb-1">
+                          <span className="text-xs font-medium text-slate-500">Progreso</span>
+                          <span className="text-xs font-bold text-slate-700">{skill.progress}%</span>
+                        </div>
+                        <div className="h-2 bg-slate-100 rounded-full overflow-hidden">
+                          <div
+                            className={`h-full ${colors.progress} rounded-full transition-all duration-500`}
+                            style={{ width: `${skill.progress}%` }}
+                          />
+                        </div>
+                      </div>
 
-                  {/* Topics Tags */}
-                  <div className="flex flex-wrap gap-1.5 mb-4">
-                    {skill.topics.slice(0, 3).map((topic) => (
-                      <span
-                        key={topic}
-                        className={`px-2 py-0.5 rounded-md text-xs ${colors.bg} ${colors.text}`}
+                      <Button
+                        href={withProgressCode(skill.practiceHref, progressCode)}
+                        fullWidth
+                        size="md"
+                        className={`
+                          w-full py-3 rounded-xl font-semibold text-white
+                          transition-all duration-200 active:scale-95
+                          ${colors.button}
+                        `}
                       >
-                        {topic}
-                      </span>
-                    ))}
-                    {skill.topics.length > 3 && (
-                      <span className="px-2 py-0.5 rounded-md text-xs bg-slate-100 text-slate-500">
-                        +{skill.topics.length - 3}
-                      </span>
-                    )}
-                  </div>
-
-                  {/* Action Button */}
-                  <Button
-                    disabled={!skill.isAvailable}
-                    href={withProgressCode(skill.practiceHref, progressCode)}
-                    fullWidth
-                    size="md"
-                    className={`
-                      w-full py-3 rounded-xl font-semibold text-white
-                      transition-all duration-200 active:scale-95
-                      flex items-center justify-center gap-2
-                      ${skill.isAvailable ? colors.button : "bg-slate-200 text-slate-500 shadow-none hover:bg-slate-200"}
-                    `}
-                  >
-                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                    </svg>
-                    {skill.isAvailable ? "Entrenar Ahora" : "Próximamente"}
-                  </Button>
+                        <span className="flex items-center justify-center gap-2">
+                          <span>⚡</span>
+                          Practicar ahora
+                        </span>
+                      </Button>
+                    </>
+                  ) : (
+                    <div className="bg-slate-50 rounded-xl p-4 text-center">
+                      <p className="text-slate-500 text-sm mb-2">🚧 Matemática</p>
+                      <p className="text-slate-400 text-xs">Disponible en breve</p>
+                    </div>
+                  )}
                 </div>
               );
             })}
-          </div>
-
-          {/* Recommendation Section */}
-          <div className="mt-8">
-            <h2 className="text-lg font-bold text-slate-800 mb-4">Recomendaciones</h2>
-            <div className="bg-gradient-to-r from-violet-50 to-purple-50 rounded-2xl p-5 border border-violet-100">
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-xl bg-violet-100 flex items-center justify-center text-2xl flex-shrink-0">
-                  💡
-                </div>
-                <div className="flex-1">
-                  <h3 className="font-bold text-slate-800 mb-1">¿Sabías que...?</h3>
-                   <p className="text-slate-600 mb-3">
-                     La <span className="font-semibold text-violet-600">Lengua</span> es tu área con mayor potencial de mejora.
-                    Practica comprensión lectora con el pack canónico de textos y actividades guiadas.
-                  </p>
-                  <Button
-                    href={withProgressCode(recommendationHref, progressCode)}
-                    variant="secondary"
-                    size="sm"
-                  >
-                    Practicar Lengua
-                  </Button>
-                </div>
-              </div>
-            </div>
           </div>
 
         </div>

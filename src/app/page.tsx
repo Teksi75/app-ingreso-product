@@ -142,6 +142,7 @@ function calculateDashboardData(progress: StoredProgress) {
       };
     }),
     recentSessionsCount: sessions.length,
+    simulatorReady,
   };
 }
 
@@ -172,7 +173,7 @@ export default async function DashboardPage({ searchParams }: HomePageProps) {
   const progressCode = explicitCode ? studentCode : undefined;
   const newStudent = Array.isArray(params.newStudent) ? params.newStudent[0] : params.newStudent;
   const progress = isEnabledParam(newStudent) ? createEmptyProgress() : await loadProgressAsync(studentCode);
-  const { student, skills, dailyChallenge, nextSimulation, weeklyProgress, stats, weakestSkillHref, skillProgress, recentSessionsCount } =
+  const { student, skills, dailyChallenge, nextSimulation, weeklyProgress, stats, weakestSkillHref, skillProgress, recentSessionsCount, simulatorReady } =
     calculateDashboardData(progress);
   const hasPracticeHistory = stats.totalAttempts > 0;
 
@@ -217,138 +218,126 @@ export default async function DashboardPage({ searchParams }: HomePageProps) {
 
         {/* Content */}
         <div className="p-4 lg:p-6">
-          {/* TOP: Progreso + Stats */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-6 mb-6">
-            {/* Progreso del Día */}
-            <div className="lg:col-span-2">
-              <div className="bg-white rounded-2xl p-5 lg:p-6 shadow-sm border border-slate-100">
-                <div className="flex flex-col sm:flex-row items-center gap-5">
-                  <ProgressCircle
-                    progress={student.dailyProgress}
-                    size={130}
-                    strokeWidth={12}
-                    color="primary"
-                  />
-                  <div className="flex-1 text-center sm:text-left min-w-0">
-                    <h2 className="text-xl lg:text-2xl font-bold text-slate-800 mb-2">
-                      Progreso del Día
-                    </h2>
-                    <p className="text-slate-500 mb-4 text-sm lg:text-base">
-                      {stats.totalAttempts > 0
-                        ? `Has completado ${stats.totalAttempts} ejercicios con ${stats.accuracy}% de precisión.`
-                        : "Empieza tu entrenamiento hoy para ver tu progreso."}
-                    </p>
-                    <div className="flex flex-wrap gap-2 justify-center sm:justify-start">
-                      <Button href={withProgressCode(weakestSkillHref, progressCode)} variant="primary" size="md" icon={<span>⚡</span>}>
-                        {stats.totalAttempts > 0 ? "Continuar Lengua" : "Iniciar Entrenamiento"}
-                      </Button>
-                      <Button href={withProgressCode(dailyChallenge.href, progressCode)} variant="secondary" size="md">
-                        Ver Desafío
-                      </Button>
-                    </div>
-                  </div>
+          {/* TU MISIÓN DE HOY - Bloque principal */}
+          <div className="mb-6">
+            <div className="bg-gradient-to-br from-teal-500 to-teal-600 rounded-2xl p-6 text-white shadow-lg">
+              <div className="flex items-start gap-4 mb-4">
+                <div className="text-3xl">🎯</div>
+                <div className="flex-1">
+                  <h2 className="text-xl lg:text-2xl font-bold mb-2">Tu misión de hoy</h2>
+                  <p className="text-teal-100 text-sm lg:text-base">
+                    Tenés que mejorar en:
+                  </p>
                 </div>
               </div>
-            </div>
-
-            {/* XP y Stats */}
-            <div>
-              <div className="bg-white rounded-2xl p-5 shadow-sm border border-slate-100">
-                <XpBar
-                  level={student.level}
-                  currentXp={student.xp}
-                  xpToNextLevel={student.xpToNextLevel}
-                  rank={student.rank}
-                />
-                <div className="mt-4 pt-4 border-t border-slate-100 grid grid-cols-2 gap-3">
-                  <div className="text-center p-3 bg-teal-50 rounded-xl">
-                    <div className="text-2xl font-bold text-teal-600">{stats.totalAttempts}</div>
-                    <div className="text-xs text-teal-600/70 font-medium">Ejercicios</div>
+              
+              <div className="bg-white/10 rounded-xl p-4 mb-4">
+                <div className="flex items-center gap-3 mb-2">
+                  <span className="text-2xl">👉</span>
+                  <div>
+                    <h3 className="font-bold text-lg">{dailyChallenge.title}</h3>
+                    <p className="text-teal-100 text-sm">{dailyChallenge.description}</p>
                   </div>
-                  <div className="text-center p-3 bg-orange-50 rounded-xl">
-                    <div className="text-2xl font-bold text-orange-600">{stats.accuracy}%</div>
-                    <div className="text-xs text-orange-600/70 font-medium">Precisión</div>
-                  </div>
+                </div>
+                <p className="text-teal-200 text-xs mt-2">
+                  {dailyChallenge.reason}
+                </p>
+              </div>
+              
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+                <Button 
+                  href={withProgressCode(dailyChallenge.href, progressCode)} 
+                  variant="secondary" 
+                  size="lg"
+                  className="flex-1 bg-white text-teal-600 hover:bg-teal-50 font-bold"
+                >
+                  <span className="flex items-center justify-center gap-2">
+                    <span>⚡</span>
+                    Practicar ahora
+                  </span>
+                </Button>
+                <div className="text-center sm:text-right">
+                  <span className="bg-white/20 px-3 py-1 rounded-full text-sm font-semibold">
+                    +{dailyChallenge.reward} XP
+                  </span>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* HABILIDADES */}
-          <div className="mb-6">
-            <div className="flex items-center justify-between mb-4">
-              <h2 className="text-lg font-bold text-slate-800">Habilidades Recomendadas</h2>
-              <a
-                href={withProgressCode("/habilidades", progressCode)}
-                className="text-teal-600 text-sm font-semibold hover:text-teal-700 flex items-center gap-1"
-              >
-                Ver todas
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
-              </a>
+          {/* Resumen rápido de progreso */}
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+            <div className="bg-white rounded-xl p-4 border border-slate-100 text-center">
+              <div className="text-2xl font-bold text-teal-600">{stats.totalAttempts}</div>
+              <div className="text-xs text-slate-500">Ejercicios</div>
+            </div>
+            <div className="bg-white rounded-xl p-4 border border-slate-100 text-center">
+              <div className="text-2xl font-bold text-orange-600">{stats.accuracy}%</div>
+              <div className="text-xs text-slate-500">Precisión</div>
+              {stats.accuracy < 70 && stats.totalAttempts > 0 && (
+                <div className="text-xs text-orange-500 mt-1">🔻 Te falta poco para el 70%</div>
+              )}
+            </div>
+            <div className="bg-white rounded-xl p-4 border border-slate-100 text-center">
+              <div className="text-2xl font-bold text-violet-600">{student.streak}</div>
+              <div className="text-xs text-slate-500">Días activos</div>
+            </div>
+            <div className="bg-white rounded-xl p-4 border border-slate-100 text-center">
+              <div className="text-2xl font-bold text-emerald-600">{student.level}</div>
+              <div className="text-xs text-slate-500">Nivel</div>
+            </div>
+          </div>
+
+          {/* Habilidades - Versión simplificada */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-6">
+            {/* Fortalezas */}
+            <div className="bg-white rounded-xl p-4 border border-emerald-100">
+              <h3 className="font-bold text-slate-800 mb-3 flex items-center gap-2">
+                <span className="text-emerald-500">💪</span> Vas bien:
+              </h3>
+              <div className="space-y-2">
+                {skillProgress.filter(s => s.masteryLevel >= 3).length > 0 ? (
+                  skillProgress.filter(s => s.masteryLevel >= 3).slice(0, 3).map((skill) => {
+                    const meta = getSkillMetadata(skill.skillId);
+                    return (
+                      <div key={skill.skillId} className="flex items-center gap-2 text-sm">
+                        <span className="text-emerald-500">✔</span>
+                        <span className="text-slate-700">{meta.title}</span>
+                      </div>
+                    );
+                  })
+                ) : (
+                  <div className="flex items-center gap-2 text-sm text-slate-500">
+                    <span>🌱</span>
+                    <span>¡Empezá a practicar para ver tus fortalezas!</span>
+                  </div>
+                )}
+              </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-4">
-              {skills.map((skill, index) => (
-                <BentoCard
-                  key={skill.id}
-                  accentColor={index === 0 ? "teal" : index === 1 ? "violet" : "orange"}
-                >
-                  <div className="flex items-start gap-3">
-                    <div
-                      className={`
-                      w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0
-                      ${index === 0 ? "bg-teal-50 text-teal-600" : "bg-violet-50 text-violet-600"}
-                    `}
-                    >
-                      {index === 0 ? <MathIcon /> : <LanguageIcon />}
-                    </div>
-
-                    <div className="flex-1 min-w-0">
-                      <div className="flex items-start justify-between mb-1">
-                        <h3 className="font-bold text-slate-800 text-base">{skill.name}</h3>
-                        <span
-                          className={`
-                          px-2 py-0.5 rounded-full text-xs font-bold
-                          ${index === 0 ? "bg-teal-100 text-teal-700" : "bg-violet-100 text-violet-700"}
-                        `}
-                        >
-                          {skill.isAvailable ? `Nv. ${skill.level}` : "Próximamente"}
-                        </span>
+            {/* Áreas de mejora */}
+            <div className="bg-white rounded-xl p-4 border border-amber-100">
+              <h3 className="font-bold text-slate-800 mb-3 flex items-center gap-2">
+                <span className="text-amber-500">⚠️</span> Tenés que mejorar:
+              </h3>
+              <div className="space-y-2">
+                {skillProgress.filter(s => s.masteryLevel <= 2).length > 0 ? (
+                  skillProgress.filter(s => s.masteryLevel <= 2).slice(0, 3).map((skill) => {
+                    const meta = getSkillMetadata(skill.skillId);
+                    return (
+                      <div key={skill.skillId} className="flex items-center gap-2 text-sm">
+                        <span className="text-amber-500">→</span>
+                        <span className="text-slate-700">{meta.title}</span>
                       </div>
-                      <p className="text-sm text-slate-500 mb-2 truncate">{skill.description}</p>
-
-                      <div className="mb-2">
-                        <div className="flex justify-between items-center mb-1">
-                          <span className="text-xs font-medium text-slate-500">Progreso</span>
-                          <span className="text-xs font-bold text-slate-700">{skill.progress}%</span>
-                        </div>
-                        <div className="h-1.5 bg-slate-100 rounded-full overflow-hidden">
-                          <div
-                            className={`h-full rounded-full ${index === 0 ? "bg-teal-500" : "bg-violet-500"}`}
-                            style={{ width: `${skill.progress}%` }}
-                          />
-                        </div>
-                      </div>
-
-                      <Button
-                        disabled={!skill.isAvailable}
-                        fullWidth
-                        href={withProgressCode(skill.practiceHref, progressCode)}
-                        size="sm"
-                        variant={index === 0 ? "secondary" : "primary"}
-                        className={`
-                        w-full py-2 rounded-lg text-sm font-semibold text-white
-                        ${index === 0 ? "bg-slate-200 text-slate-500 shadow-none hover:bg-slate-200" : "bg-violet-500 hover:bg-violet-600 shadow-violet-200"}
-                      `}
-                      >
-                        {skill.isAvailable ? "Entrenar" : "Próximamente"}
-                      </Button>
-                    </div>
+                    );
+                  })
+                ) : (
+                  <div className="flex items-center gap-2 text-sm text-slate-500">
+                    <span>🎯</span>
+                    <span>Todo bien por ahora, seguí practicando</span>
                   </div>
-                </BentoCard>
-              ))}
+                )}
+              </div>
             </div>
           </div>
 
@@ -382,41 +371,57 @@ export default async function DashboardPage({ searchParams }: HomePageProps) {
               </div>
             </BentoCard>
 
-            {/* Simulación */}
+            {/* Simulación - Versión con urgencia */}
             <BentoCard
-              title="Próxima Simulación"
-              subtitle={nextSimulation.date}
-              accentColor="violet"
+              title={simulatorReady ? "Simulación lista" : "Simulación bloqueada"}
+              subtitle={simulatorReady ? "Podés empezar ahora" : "Tenés que practicar más"}
+              accentColor={simulatorReady ? "emerald" : "orange"}
               icon={
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               }
             >
-              <div className="space-y-2">
-                <div className="flex items-center gap-2 text-sm text-slate-600">
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                  {nextSimulation.duration}
-                </div>
-                <div className="flex flex-wrap gap-1">
-                  {nextSimulation.topics.map((topic) => (
-                    <span key={topic} className="px-2 py-0.5 bg-violet-50 text-violet-600 text-xs rounded">
-                      {topic}
-                    </span>
-                  ))}
-                </div>
-                <Button href={withProgressCode(nextSimulation.href, progressCode)} variant="secondary" size="sm" fullWidth className="mt-2">
-                  Ver detalles
+              <div className="space-y-3">
+                {simulatorReady ? (
+                  <div className="bg-emerald-50 rounded-lg p-3 border border-emerald-100">
+                    <div className="flex items-center gap-2 text-emerald-700 text-sm font-semibold">
+                      <span>✅</span>
+                      <span>¡Listo para simular!</span>
+                    </div>
+                    <p className="text-emerald-600 text-xs mt-1">10 preguntas • 15 min</p>
+                  </div>
+                ) : (
+                  <div className="bg-amber-50 rounded-lg p-3 border border-amber-100">
+                    <div className="flex items-center gap-2 text-amber-700 text-sm font-semibold">
+                      <span>🔒</span>
+                      <span>Te faltan habilidades para desbloquearla</span>
+                    </div>
+                    <p className="text-amber-600 text-xs mt-1">Practicá más para acceder al simulador</p>
+                  </div>
+                )}
+                <Button 
+                  href={withProgressCode(nextSimulation.href, progressCode)} 
+                  variant={simulatorReady ? "primary" : "secondary"} 
+                  size="sm" 
+                  fullWidth
+                  disabled={!simulatorReady}
+                >
+                  {simulatorReady ? "Empezar simulación" : "Ver qué me falta"}
                 </Button>
               </div>
             </BentoCard>
 
-            {/* Progreso Semanal */}
+            {/* Progreso Semanal con contexto */}
             <BentoCard
-              title="Progreso Semanal"
-              subtitle={`${weeklyProgress.daysCompleted} de ${weeklyProgress.totalDays} días`}
+              title="Tu ritmo semanal"
+              subtitle={
+                weeklyProgress.daysCompleted >= 5 
+                  ? "Buen ritmo 👍" 
+                  : weeklyProgress.daysCompleted >= 3 
+                    ? "Podés mejorar" 
+                    : "Te faltan días de práctica"
+              }
               accentColor="emerald"
               icon={
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -455,104 +460,46 @@ export default async function DashboardPage({ searchParams }: HomePageProps) {
             </BentoCard>
           </div>
 
-          {/* BOTTOM: Avatar + Reporte */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6">
-            {/* Avatar */}
-            <BentoCard
-              title="Tu Avatar"
-              subtitle="Personaliza tu héroe de aprendizaje"
-              accentColor="teal"
-              icon={
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                </svg>
-              }
-            >
-              <div className="flex flex-col sm:flex-row items-center gap-5">
-                <ClientAvatarHero level={student.level} rank={student.rank} energy={85} />
-
-                <div className="flex-1 w-full sm:w-auto">
-                  <div className="bg-gradient-to-r from-teal-50 to-violet-50 rounded-xl p-4 mb-3">
-                    <p className="text-sm text-slate-600 mb-1">
-                      <span className="font-bold text-teal-600">¡Sigue así!</span> Has completado
-                    </p>
-                    <div className="flex items-baseline gap-1">
-                      <span className="text-3xl font-extrabold text-slate-800">{stats.totalAttempts}</span>
-                      <span className="text-slate-600">ejercicios en total</span>
-                    </div>
-                  </div>
-                  <div className="flex gap-2">
-                    <Button href={withProgressCode("/perfil", progressCode)} variant="secondary" size="sm" fullWidth>
-                      Personalizar
-                    </Button>
-                    <Button href={withProgressCode("/progreso", progressCode)} variant="ghost" size="sm">
-                      Logros
-                    </Button>
-                  </div>
-                </div>
+          {/* Avatar compacto en esquina */}
+          <div className="flex justify-between items-start mb-6">
+            <div className="flex-1">
+              <Button 
+                href={withProgressCode("/perfil", progressCode)} 
+                variant="ghost" 
+                size="sm"
+                className="text-slate-500 hover:text-teal-600"
+              >
+                <span className="flex items-center gap-2">
+                  <span>👤</span>
+                  Personalizar perfil
+                </span>
+              </Button>
+            </div>
+            
+            <div className="bg-gradient-to-br from-teal-50 to-violet-50 rounded-xl p-3 border border-teal-100 flex items-center gap-3">
+              <div className="text-2xl">
+                <ClientAvatarBadge />
               </div>
-            </BentoCard>
-
-            {/* Reporte de Progreso */}
-            <div className="rounded-2xl border border-teal-100 bg-gradient-to-br from-teal-50 via-white to-violet-50 p-5 lg:p-6 shadow-sm">
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-xl bg-white border border-teal-100 text-teal-600 flex items-center justify-center flex-shrink-0 shadow-sm">
-                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                  </svg>
-                </div>
-                <div className="flex-1 min-w-0">
-                  <h3 className="font-bold text-lg mb-1 text-slate-800">Reporte de Progreso</h3>
-                  <p className="text-slate-600 text-sm mb-4">
-                    Estadísticas reales de entrenamiento y práctica. Sin datos personales ni predicciones.
-                  </p>
-                  <div className="grid grid-cols-3 gap-2 mb-4">
-                    <div className="bg-white/80 border border-teal-100 rounded-lg p-2 text-center">
-                      <div className="text-lg font-bold text-teal-600">{stats.activeDays}</div>
-                      <div className="text-xs text-slate-500">Días</div>
-                    </div>
-                    <div className="bg-white/80 border border-violet-100 rounded-lg p-2 text-center">
-                      <div className="text-lg font-bold text-violet-600">{stats.totalAttempts}</div>
-                      <div className="text-xs text-slate-500">Ejercicios</div>
-                    </div>
-                    <div className="bg-white/80 border border-orange-100 rounded-lg p-2 text-center">
-                      <div className="text-lg font-bold text-orange-600">{stats.accuracy}%</div>
-                      <div className="text-xs text-slate-500">Precisión</div>
-                    </div>
-                  </div>
-                  {recentSessionsCount > 0 ? (
-                    <div className="mb-4">
-                      <p className="text-xs font-semibold text-slate-500 mb-2">Progreso por habilidad</p>
-                      <div className="grid gap-2">
-                        {skillProgress.filter((s) => s.totalAttempts > 0).map((s) => {
-                          const meta = getSkillMetadata(s.skillId);
-                          const pct = Math.round((s.masteryLevel / 4) * 100);
-                          return (
-                            <div className="flex items-center gap-2" key={s.skillId}>
-                              <span className="text-xs font-medium text-slate-600 w-32 truncate">{meta.title}</span>
-                              <div className="flex-1 h-1.5 bg-slate-100 rounded-full overflow-hidden">
-                                <div
-                                  className={`h-full rounded-full ${
-                                    s.masteryLevel >= 3 ? "bg-emerald-400" : s.masteryLevel === 2 ? "bg-amber-400" : "bg-rose-400"
-                                  }`}
-                                  style={{ width: `${pct}%` }}
-                                />
-                              </div>
-                              <span className="text-xs font-bold text-slate-500 w-6 text-right">Nv.{s.masteryLevel}</span>
-                            </div>
-                          );
-                        })}
-                      </div>
-                    </div>
-                  ) : null}
-                  <p className="text-xs text-slate-400">
-                    {recentSessionsCount > 0
-                      ? `Basado en ${recentSessionsCount} sesión${recentSessionsCount !== 1 ? "es" : ""} de práctica, lectura y simulador.`
-                      : "Sin sesiones registradas todavía."}
-                  </p>
-                </div>
+              <div>
+                <div className="text-sm font-bold text-slate-800">Nv. {student.level}</div>
+                <div className="text-xs text-slate-500">{student.rank}</div>
               </div>
             </div>
+          </div>
+
+          {/* Enlace a reporte completo */}
+          <div className="mt-6 text-center">
+            <Button 
+              href={withProgressCode("/progreso", progressCode)} 
+              variant="ghost" 
+              size="sm"
+              className="text-slate-500 hover:text-teal-600"
+            >
+              <span className="flex items-center gap-2">
+                <span>📊</span>
+                Ver reporte completo
+              </span>
+            </Button>
           </div>
         </div>
       </main>

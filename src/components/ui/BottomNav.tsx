@@ -13,8 +13,8 @@ import { withProgressCode } from "@/app/progress_code_href";
 
 const navItems = [
   { id: "home", label: "Inicio", href: "/" },
-  { id: "skills", label: "Habilidades", href: "/habilidades" },
-  { id: "simulator", label: "Simulaciones", href: "/simulaciones" },
+  { id: "practice", label: "Practicar", href: "/practice" },
+  { id: "simulator", label: "Simulador", href: "/simulaciones" },
   { id: "progress", label: "Progreso", href: "/progreso" },
   { id: "profile", label: "Perfil", href: "/perfil" },
 ];
@@ -29,6 +29,12 @@ const HomeIcon = ({ className }: { className?: string }) => (
 const SkillsIcon = ({ className }: { className?: string }) => (
   <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
     <path strokeLinecap="round" strokeLinejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+  </svg>
+);
+
+const PracticeIcon = ({ className }: { className?: string }) => (
+  <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+    <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
   </svg>
 );
 
@@ -52,7 +58,7 @@ const ProfileIcon = ({ className }: { className?: string }) => (
 
 const iconMap: Record<string, React.FC<{ className?: string }>> = {
   home: HomeIcon,
-  skills: SkillsIcon,
+  practice: PracticeIcon,
   simulator: SimulatorIcon,
   progress: ProgressIcon,
   profile: ProfileIcon,
