@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Organización de la App</title>
+<style>
+  :root {
+    --bg: #0B1120;
+    --surface: rgba(30, 41, 59, 0.75);
+    --text: #F8FAFC;
+    --muted: #94A3B8;
+    --sky: #38BDF8;
+    --emerald: #34D399;
+    --violet: #A78BFA;
+    --amber: #FBBF24;
+    --rose: #FB7185;
+    --border: rgba(148, 163, 184, 0.15);
+    --radius: 24px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body {
+    width: 100%; height: 100%;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    overflow: hidden;
+  }
+
+  .slides-container {
+    width: 100%; height: 100%;
+    position: relative;
+  }
+
+  .slide {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 5vh 6vw;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(60px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+
+  .slide.active {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateX(0);
+  }
+
+  .slide.prev {
+    transform: translateX(-60px);
+  }
+  .slide.next {
+    transform: translateX(60px);
+  }
+
+  .card {
+    background: var(--surface);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 48px 56px;
+    max-width: 900px;
+    width: 100%;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+    text-align: center;
+  }
+
+  h1 { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 12px; letter-spacing: -0.5px; }
+  h2 { font-size: clamp(1.4rem, 3vw, 2rem); margin-bottom: 16px; }
+  p, li { font-size: clamp(1rem, 1.6vw, 1.2rem); line-height: 1.6; color: var(--muted); }
+  ul { list-style: none; padding: 0; }
+  li { margin: 10px 0; }
+
+  .accent-sky { color: var(--sky); }
+  .accent-emerald { color: var(--emerald); }
+  .accent-violet { color: var(--violet); }
+  .accent-amber { color: var(--amber); }
+  .accent-rose { color: var(--rose); }
+
+  .badge {
+    display: inline-block;
+    padding: 6px 16px;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid var(--border);
+  }
+
+  .flow {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin: 24px 0;
+  }
+
+  .flow-item {
+    padding: 10px 18px;
+    border-radius: 12px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid var(--border);
+    font-weight: 600;
+    font-size: 0.95rem;
+  }
+
+  .arrow {
+    color: var(--muted);
+    font-size: 1.4rem;
+    align-self: center;
+  }
+
+  .rule-box {
+    background: rgba(167, 139, 250, 0.08);
+    border: 1px solid rgba(167, 139, 250, 0.25);
+    border-radius: 16px;
+    padding: 24px 28px;
+    margin-top: 18px;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-size: 1.1rem;
+    color: var(--violet);
+  }
+
+  .hint {
+    position: absolute;
+    bottom: 18px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--muted);
+    font-size: 0.8rem;
+    opacity: 0.7;
+  }
+
+  .progress {
+    position: absolute;
+    bottom: 48px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+  }
+
+  .dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.15);
+    cursor: pointer;
+    transition: background 0.3s, transform 0.3s;
+  }
+
+  .dot.active {
+    background: var(--sky);
+    transform: scale(1.3);
+  }
+
+  .nav-hit {
+    position: absolute;
+    top: 0; bottom: 0; width: 15vw;
+    cursor: pointer;
+    z-index: 10;
+  }
+  .nav-hit.left { left: 0; }
+  .nav-hit.right { right: 0; }
+
+  @media (max-width: 640px) {
+    .card { padding: 32px 24px; }
+    .flow { gap: 8px; }
+    .flow-item { font-size: 0.85rem; padding: 8px 12px; }
+    .arrow { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="slides-container" id="slides">
+
+  <!-- Slide 1: Portada -->
+  <div class="slide active">
+    <div class="card">
+      <div class="badge accent-sky">Producto Educativo</div>
+      <h1 class="accent-sky">Organización de la App</h1>
+      <p style="margin-top:8px;">Cómo está pensada la experiencia del alumno y qué objetivo cumple cada área.</p>
+    </div>
+  </div>
+
+  <!-- Slide 2: Visión General -->
+  <div class="slide">
+    <div class="card">
+      <div class="badge">Flujo del alumno</div>
+      <h2>Visión General</h2>
+      <div class="flow">
+        <div class="flow-item accent-sky">Inicio</div>
+        <span class="arrow">→</span>
+        <div class="flow-item accent-violet">Habilidades</div>
+        <span class="arrow">→</span>
+        <div class="flow-item accent-emerald">Práctica</div>
+        <span class="arrow">→</span>
+        <div class="flow-item accent-amber">Simulaciones</div>
+        <span class="arrow">→</span>
+        <div class="flow-item accent-rose">Progreso</div>
+      </div>
+      <p>Un ciclo continuo: decidir, entrenar, evaluar y leer la evolución.</p>
+    </div>
+  </div>
+
+  <!-- Slide 3: Inicio -->
+  <div class="slide">
+    <div class="card">
+      <div class="badge accent-sky">Área 1</div>
+      <h2 class="accent-sky">Inicio</h2>
+      <p><strong>Tablero de decisión rápida.</strong></p>
+      <ul>
+        <li>Continuar práctica</li>
+        <li>Tomar desafío diario</li>
+        <li>Ver progreso básico</li>
+      </ul>
+      <p style="margin-top:12px;">No es una landing ni una explicación larga. Le dice al alumno <strong>qué hacer ahora</strong>.</p>
+    </div>
+  </div>
+
+  <!-- Slide 4: Habilidades -->
+  <div class="slide">
+    <div class="card">
+      <div class="badge accent-violet">Área 2</div>
+      <h2 class="accent-violet">Habilidades</h2>
+      <p><strong>Mapa de entrenamiento.</strong></p>
+      <ul>
+        <li>Áreas disponibles y progreso</li>
+        <li>Precisión por skill</li>
+        <li>Acceso a práctica focalizada</li>
+      </ul>
+      <p style="margin-top:12px;">Su objetivo es responder: <strong>“¿qué habilidad tengo que entrenar?”</strong></p>
+    </div>
+  </div>
+
+  <!-- Slide 5: Práctica / Entrenamiento -->
+  <div class="slide">
+    <div class="card">
+      <div class="badge accent-emerald">Área 3</div>
+      <h2 class="accent-emerald">Práctica / Entrenamiento</h2>
+      <p><strong>Núcleo pedagógico de la app.</strong></p>
+      <ul>
+        <li>Responde ejercicios por skill/subskill</li>
+        <li>Recibe feedback inmediato</li>
+        <li>El sistema ajusta el progreso</li>
+      </ul>
+      <p style="margin-top:12px;">Es donde se <strong>aprende por práctica</strong>.</p>
+    </div>
+  </div>
+
+  <!-- Slide 6: Simulaciones -->
+  <div class="slide">
+    <div class="card">
+      <div class="badge accent-amber">Área 4</div>
+      <h2 class="accent-amber">Simulaciones</h2>
+      <p><strong>Evaluación periódica.</strong></p>
+      <ul>
+        <li>Mide desempeño global</li>
+        <li>Detecta debilidades</li>
+        <li>Alimenta la próxima práctica</li>
+      </ul>
+      <p style="margin-top:12px;">No debería enseñar ni ayudar durante la resolución.</p>
+    </div>
+  </div>
+
+  <!-- Slide 7: Progreso -->
+  <div class="slide">
+    <div class="card">
+      <div class="badge accent-rose">Área 5</div>
+      <h2 class="accent-rose">Progreso</h2>
+      <p><strong>Lectura de evolución.</strong></p>
+      <ul>
+        <li>Precisión y constancia</li>
+        <li>Habilidades débiles y fuertes</li>
+        <li>Resultados de simulaciones</li>
+      </ul>
+      <p style="margin-top:12px;">Para el <strong>alumno</strong> y el <strong>adulto responsable</strong>.</p>
+    </div>
+  </div>
+
+  <!-- Slide 8: Perfil -->
+  <div class="slide">
+    <div class="card">
+      <div class="badge" style="color:var(--muted)">Área 6</div>
+      <h2>Perfil</h2>
+      <p><strong>Configuración local del alumno.</strong></p>
+      <ul>
+        <li>Alias y avatar</li>
+        <li>Objetivo de uso</li>
+        <li>Preferencias</li>
+      </ul>
+      <p style="margin-top:12px;">No es parte pedagógica central, pero <strong>personaliza la experiencia</strong> y mantiene baja fricción.</p>
+    </div>
+  </div>
+
+  <!-- Slide 9: Regla Madre -->
+  <div class="slide">
+    <div class="card">
+      <div class="badge accent-violet">Regla Madre</div>
+      <h2 class="accent-violet">La unidad organizativa</h2>
+      <p>La app no se organiza por “textos”, “módulos” o “clases”.</p>
+      <div class="rule-box">
+        skill_id + subskill + intento evaluable
+      </div>
+      <p style="margin-top:18px;">En Lengua, los textos son <strong>estímulos</strong> para evaluar habilidades, no el eje visible de navegación.</p>
+    </div>
+  </div>
+
+  <!-- Slide 10: Resumen -->
+  <div class="slide">
+    <div class="card">
+      <div class="badge accent-sky">Resumen</div>
+      <h2>Una app organizada por habilidades</h2>
+      <div class="flow">
+        <div class="flow-item accent-sky">Decidir</div>
+        <div class="flow-item accent-violet">Elegir skill</div>
+        <div class="flow-item accent-emerald">Practicar</div>
+        <div class="flow-item accent-amber">Evaluar</div>
+        <div class="flow-item accent-rose">Revisar</div>
+      </div>
+      <p>Cada área tiene un objetivo claro. El alumno siempre sabe qué hacer y por qué.</p>
+    </div>
+  </div>
+
+</div>
+
+<div class="nav-hit left" id="navLeft"></div>
+<div class="nav-hit right" id="navRight"></div>
+
+<div class="progress" id="progress"></div>
+<div class="hint">Usa las flechas del teclado, los bordes o desliza para navegar</div>
+
+<script>
+  const slides = document.querySelectorAll('.slide');
+  const progress = document.getElementById('progress');
+  let current = 0;
+
+  function createDots() {
+    slides.forEach((_, i) => {
+      const d = document.createElement('div');
+      d.className = 'dot' + (i === 0 ? ' active' : '');
+      d.addEventListener('click', () => goTo(i));
+      progress.appendChild(d);
+    });
+  }
+
+  function updateDots() {
+    progress.querySelectorAll('.dot').forEach((d, i) => {
+      d.classList.toggle('active', i === current);
+    });
+  }
+
+  function goTo(index) {
+    if (index < 0 || index >= slides.length || index === current) return;
+    const goingForward = index > current;
+
+    // 1. La slide actual pierde active y se mueve al lado contrario
+    slides[current].classList.remove('active');
+    slides[current].classList.add(goingForward ? 'prev' : 'next');
+
+    // 2. La nueva slide se posiciona fuera de pantalla del lado correcto
+    slides[index].classList.remove('prev', 'next', 'active');
+    slides[index].classList.add(goingForward ? 'next' : 'prev');
+
+    // 3. Forzar reflow para que el navegador aplique la posición inicial
+    void slides[index].offsetWidth;
+
+    // 4. Traer la nueva slide al centro
+    slides[index].classList.remove('prev', 'next');
+    slides[index].classList.add('active');
+
+    // 5. Limpiar las demás slides
+    slides.forEach((s, i) => {
+      if (i !== current && i !== index) {
+        s.classList.remove('active', 'prev', 'next');
+      }
+    });
+
+    current = index;
+    updateDots();
+  }
+
+  function next() { goTo(current + 1); }
+  function prev() { goTo(current - 1); }
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === ' ') next();
+    if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') prev();
+  });
+
+  document.getElementById('navLeft').addEventListener('click', prev);
+  document.getElementById('navRight').addEventListener('click', next);
+
+  let touchStartX = 0;
+  document.addEventListener('touchstart', e => { touchStartX = e.changedTouches[0].screenX; });
+  document.addEventListener('touchend', e => {
+    const dx = e.changedTouches[0].screenX - touchStartX;
+    if (dx < -40) next();
+    if (dx > 40) prev();
+  });
+
+  createDots();
+</script>
+</body>
+</html>

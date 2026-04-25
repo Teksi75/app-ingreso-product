@@ -4,10 +4,12 @@ import {
   buildSimulatorSkillResults,
   evaluateSimulatorSession,
   selectSimulatorExercises,
+  selectSimulatorSession,
   createSimulatorSession,
   startSimulatorSession,
   type SimulatorQuestionResult,
 } from "./simulator_runner.ts";
+import { type ReadingUnit } from "../types/reading_unit.ts";
 
 function main(): void {
   const session = startSimulatorSession();
@@ -18,6 +20,10 @@ function main(): void {
   assert.ok(aliasSession.exercises.length <= 2);
   assert.ok(session.exercises.length > 0);
   assert.ok(session.exercises.length <= 10);
+  assert.ok(session.blocks.some((block) => block.type === "reading_unit"));
+  assert.ok(session.blocks[0]?.type === "reading_unit");
+  assert.ok(session.blocks[0]?.readingUnit?.text.length);
+  assert.ok(session.exercises.some((exercise) => Boolean(exercise.reading_unit_id)));
   assert.equal(new Set(session.exercises.map((exercise) => exercise.id)).size, session.exercises.length);
   assert.ok(session.exercises.every((exercise) => exercise.options.length >= 2));
   assert.ok(session.exercises.every((exercise) => exercise.correct_answer.length > 0));
@@ -34,6 +40,21 @@ function main(): void {
   ], { maxQuestions: 3 });
 
   assert.deepEqual(selected.map((exercise) => exercise.id), ["a1", "b1"]);
+
+  const mixed = selectSimulatorSession([
+    buildReadingExercise("r1", "RU-1", "Lectura 1", "lengua.skill_1", "lengua.skill_1.subskill_1"),
+    buildReadingExercise("r2", "RU-1", "Lectura 1", "lengua.skill_2", "lengua.skill_2.subskill_1"),
+    buildReadingExercise("r3", "RU-1", "Lectura 1", "lengua.skill_3", "lengua.skill_3.subskill_1"),
+    buildReadingExercise("r4", "RU-1", "Lectura 1", "lengua.skill_4", "lengua.skill_4.subskill_1"),
+    buildExercise("s1", "lengua.skill_5", "lengua.skill_5.subskill_1", "multiple_choice"),
+    buildExercise("s2", "lengua.skill_6", "lengua.skill_6.subskill_1", "multiple_choice"),
+  ], { maxQuestions: 6 });
+
+  assert.deepEqual(mixed.blocks.map((block) => block.type), ["reading_unit", "standalone"]);
+  assert.equal(mixed.blocks[0]?.exerciseIds.length, 4);
+  assert.equal(mixed.blocks[0]?.readingUnit?.id, "RU-1");
+  assert.ok(mixed.exercises.slice(0, 4).every((exercise) => exercise.block_id === "reading:RU-1"));
+  assert.ok(mixed.exercises.slice(4).every((exercise) => exercise.block_id === "standalone"));
 
   const answers = Object.fromEntries(
     session.exercises.map((exercise, index) => [
@@ -89,6 +110,30 @@ function buildExercise(
     feedback_correct: "ok",
     feedback_incorrect: "bad",
     related_skills: [],
+  };
+}
+
+function buildReadingExercise(
+  id: string,
+  readingUnitId: string,
+  title: string,
+  skillId: string,
+  subskill: string,
+): Exercise {
+  const readingUnit: ReadingUnit = {
+    id: readingUnitId,
+    title,
+    text: "Texto base de lectura para evaluar comprension.",
+    difficulty: 2,
+    textType: "informative",
+    source: "original_interno",
+  };
+
+  return {
+    ...buildExercise(id, skillId, subskill, "multiple_choice"),
+    readingUnitId,
+    reading_unit_id: readingUnitId,
+    reading_unit: readingUnit,
   };
 }
 

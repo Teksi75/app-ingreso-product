@@ -105,6 +105,14 @@ function buildSimulatorSession(): SimulatorSession {
 
   return {
     mode: "simulator",
+    blocks: [
+      {
+        id: "standalone",
+        type: "standalone",
+        title: "Ejercicios sueltos",
+        exerciseIds: exercises.map((exercise) => exercise.id),
+      },
+    ],
     exercises,
     totalQuestions: exercises.length,
   };
@@ -123,6 +131,7 @@ function buildSimulatorExercise(
     prompt: id,
     options: ["correct", "wrong"],
     correct_answer: "correct",
+    block_id: "standalone",
   };
 }
 

@@ -5,14 +5,32 @@ import {
   type StoredProgress,
 } from "../storage/local_progress_store.ts";
 import { loadLenguaExercises, type Exercise } from "./session_runner.ts";
+import { type ReadingUnit } from "../types/reading_unit.ts";
 
 export type SimulatorExercise = Pick<
   Exercise,
   "id" | "skill_id" | "subskill" | "difficulty" | "prompt" | "options" | "correct_answer"
+> & {
+  block_id: string;
+  reading_unit_id?: string;
+};
+
+export type SimulatorReadingUnit = Pick<
+  ReadingUnit,
+  "id" | "title" | "subtitle" | "text" | "sourceLabel"
 >;
+
+export type SimulatorBlock = {
+  id: string;
+  type: "reading_unit" | "standalone";
+  title: string;
+  exerciseIds: string[];
+  readingUnit?: SimulatorReadingUnit;
+};
 
 export type SimulatorSession = {
   mode: "simulator";
+  blocks: SimulatorBlock[];
   exercises: SimulatorExercise[];
   totalQuestions: number;
 };
@@ -55,32 +73,104 @@ export type SimulatorSessionProgressResult = SimulatorEvaluation & {
 };
 
 const DEFAULT_SIMULATOR_LENGTH = 10;
+const READING_BLOCK_TARGET_SIZE = 4;
+const SECOND_READING_BLOCK_MIN_LENGTH = 14;
 
 export function startSimulatorSession(options: SimulatorSessionOptions = {}): SimulatorSession {
   const exercises = loadLenguaExercises();
-  const selectedExercises = selectSimulatorExercises(exercises, options);
+  const selectedSession = selectSimulatorSession(exercises, options);
 
-  if (selectedExercises.length === 0) {
+  if (selectedSession.exercises.length === 0) {
     throw new Error("No simulator-compatible exercises available");
   }
 
   return {
     mode: "simulator",
-    exercises: selectedExercises,
-    totalQuestions: selectedExercises.length,
+    blocks: selectedSession.blocks,
+    exercises: selectedSession.exercises,
+    totalQuestions: selectedSession.exercises.length,
   };
 }
 
 export const createSimulatorSession = startSimulatorSession;
 
+export function selectSimulatorSession(
+  exercises: Exercise[],
+  options: SimulatorSessionOptions = {},
+): Pick<SimulatorSession, "blocks" | "exercises"> {
+  const maxQuestions = Math.max(1, options.maxQuestions ?? DEFAULT_SIMULATOR_LENGTH);
+  const readingBlocks = buildReadingBlocks(exercises, maxQuestions);
+  const selectedBlocks: SimulatorBlock[] = [];
+  const selectedExercises: SimulatorExercise[] = [];
+  const selectedIds = new Set<string>();
+
+  const primaryReadingBlock = readingBlocks[0];
+  if (primaryReadingBlock) {
+    selectedBlocks.push(primaryReadingBlock.block);
+    selectedExercises.push(...primaryReadingBlock.exercises);
+    primaryReadingBlock.exercises.forEach((exercise) => selectedIds.add(exercise.id));
+  }
+
+  const shouldUseSecondReadingBlock = maxQuestions >= SECOND_READING_BLOCK_MIN_LENGTH && readingBlocks.length > 1;
+  const secondReadingBlock = shouldUseSecondReadingBlock ? readingBlocks[1] : null;
+  const remainingForStandalone = Math.max(
+    0,
+    maxQuestions - selectedExercises.length - (secondReadingBlock?.exercises.length ?? 0),
+  );
+  const standaloneExercises = selectStandaloneSimulatorExercises(
+    exercises,
+    selectedIds,
+    remainingForStandalone,
+  );
+
+  if (standaloneExercises.length > 0) {
+    selectedBlocks.push(createStandaloneBlock(standaloneExercises));
+    selectedExercises.push(...standaloneExercises);
+    standaloneExercises.forEach((exercise) => selectedIds.add(exercise.id));
+  }
+
+  if (secondReadingBlock && selectedExercises.length + secondReadingBlock.exercises.length <= maxQuestions) {
+    selectedBlocks.push(secondReadingBlock.block);
+    selectedExercises.push(...secondReadingBlock.exercises);
+    secondReadingBlock.exercises.forEach((exercise) => selectedIds.add(exercise.id));
+  }
+
+  if (selectedExercises.length < maxQuestions) {
+    const fillerExercises = selectStandaloneSimulatorExercises(
+      exercises,
+      selectedIds,
+      maxQuestions - selectedExercises.length,
+    );
+
+    if (fillerExercises.length > 0) {
+      const lastStandaloneBlock = selectedBlocks.findLast((block) => block.type === "standalone");
+
+      if (lastStandaloneBlock) {
+        lastStandaloneBlock.exerciseIds.push(...fillerExercises.map((exercise) => exercise.id));
+      } else {
+        selectedBlocks.push(createStandaloneBlock(fillerExercises));
+      }
+
+      selectedExercises.push(...fillerExercises);
+    }
+  }
+
+  return {
+    blocks: selectedBlocks,
+    exercises: selectedExercises.slice(0, maxQuestions),
+  };
+}
+
 export function selectSimulatorExercises(
   exercises: Exercise[],
   options: SimulatorSessionOptions = {},
+  excludedExerciseIds: Set<string> = new Set(),
 ): SimulatorExercise[] {
   const maxQuestions = Math.max(1, options.maxQuestions ?? DEFAULT_SIMULATOR_LENGTH);
   const bySkill = groupBySkill(
     exercises
       .filter(isSimulatorCompatibleExercise)
+      .filter((exercise) => !excludedExerciseIds.has(exercise.id))
       .sort(compareExercisesForSimulator),
   );
   const selected: SimulatorExercise[] = [];
@@ -208,7 +298,7 @@ function isSimulatorCompatibleExercise(exercise: Exercise): boolean {
     exercise.options.includes(exercise.correct_answer);
 }
 
-function toSimulatorExercise(exercise: Exercise): SimulatorExercise {
+function toSimulatorExercise(exercise: Exercise, blockId = "standalone"): SimulatorExercise {
   return {
     id: exercise.id,
     skill_id: exercise.skill_id,
@@ -217,6 +307,103 @@ function toSimulatorExercise(exercise: Exercise): SimulatorExercise {
     prompt: exercise.prompt,
     options: exercise.options,
     correct_answer: exercise.correct_answer,
+    block_id: blockId,
+    reading_unit_id: exercise.reading_unit_id,
+  };
+}
+
+function buildReadingBlocks(
+  exercises: Exercise[],
+  maxQuestions: number,
+): Array<{ block: SimulatorBlock; exercises: SimulatorExercise[] }> {
+  const blocks: Array<{ block: SimulatorBlock; exercises: SimulatorExercise[] }> = [];
+
+  for (const unitExercises of Object.values(groupByReadingUnit(exercises.filter(isSimulatorCompatibleReadingExercise)))) {
+    const readingUnit = unitExercises[0]?.reading_unit;
+
+    if (!readingUnit) {
+      continue;
+    }
+
+    const blockId = `reading:${readingUnit.id}`;
+    const selectedExercises = unitExercises
+      .sort(compareExercisesForSimulator)
+      .slice(0, Math.min(maxQuestions, READING_BLOCK_TARGET_SIZE))
+      .map((exercise) => toSimulatorExercise(exercise, blockId));
+
+    if (selectedExercises.length === 0) {
+      continue;
+    }
+
+    blocks.push({
+      block: {
+        id: blockId,
+        type: "reading_unit",
+        title: readingUnit.title,
+        exerciseIds: selectedExercises.map((exercise) => exercise.id),
+        readingUnit: {
+          id: readingUnit.id,
+          title: readingUnit.title,
+          subtitle: readingUnit.subtitle,
+          text: readingUnit.text,
+          sourceLabel: readingUnit.sourceLabel,
+        },
+      },
+      exercises: selectedExercises,
+    });
+  }
+
+  return blocks.sort(compareReadingBlocks);
+}
+
+function isSimulatorCompatibleReadingExercise(exercise: Exercise): boolean {
+  return isSimulatorCompatibleExercise(exercise) && Boolean(exercise.reading_unit);
+}
+
+function groupByReadingUnit(exercises: Exercise[]): Record<string, Exercise[]> {
+  return exercises.reduce<Record<string, Exercise[]>>((groups, exercise) => {
+    const readingUnitId = exercise.reading_unit?.id ?? exercise.reading_unit_id;
+
+    if (!readingUnitId) {
+      return groups;
+    }
+
+    groups[readingUnitId] ??= [];
+    groups[readingUnitId].push(exercise);
+    return groups;
+  }, {});
+}
+
+function compareReadingBlocks(
+  left: { block: SimulatorBlock; exercises: SimulatorExercise[] },
+  right: { block: SimulatorBlock; exercises: SimulatorExercise[] },
+): number {
+  return right.exercises.length - left.exercises.length ||
+    left.block.title.localeCompare(right.block.title);
+}
+
+function selectStandaloneSimulatorExercises(
+  exercises: Exercise[],
+  excludedExerciseIds: Set<string>,
+  maxQuestions: number,
+): SimulatorExercise[] {
+  if (maxQuestions <= 0) {
+    return [];
+  }
+
+  return selectSimulatorExercises(
+    exercises.filter((exercise) => !exercise.reading_unit),
+    { maxQuestions },
+    excludedExerciseIds,
+  );
+}
+
+function createStandaloneBlock(exercises: SimulatorExercise[]): SimulatorBlock {
+  return {
+    id: "standalone",
+    type: "standalone",
+    title: "Ejercicios sueltos",
+    exerciseIds: exercises.map((exercise) => exercise.id),
   };
 }
 

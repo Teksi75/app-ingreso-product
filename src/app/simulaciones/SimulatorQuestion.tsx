@@ -10,6 +10,7 @@ import {
 
 export type PublicSimulatorExercise = {
   id: string;
+  block_id: string;
   skill_id: string;
   subskill: string;
   difficulty: 1 | 2 | 3;
@@ -17,8 +18,23 @@ export type PublicSimulatorExercise = {
   options: string[];
 };
 
+export type PublicSimulatorBlock = {
+  id: string;
+  type: "reading_unit" | "standalone";
+  title: string;
+  exerciseIds: string[];
+  readingUnit?: {
+    id: string;
+    title: string;
+    subtitle?: string;
+    text: string;
+    sourceLabel?: string;
+  };
+};
+
 export type PublicSimulatorSession = {
   mode: "simulator";
+  blocks: PublicSimulatorBlock[];
   totalQuestions: number;
   exercises: PublicSimulatorExercise[];
 };
@@ -55,19 +71,37 @@ export function SimulatorQuestion({ session, saveProgress }: SimulatorQuestionPr
   const [currentIndex, setCurrentIndex] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState("");
   const [answers, setAnswers] = useState<SimulatorAnswerInput[]>([]);
+  const [introducedBlockIds, setIntroducedBlockIds] = useState<string[]>([]);
   const [questionStartedAt, setQuestionStartedAt] = useState<number | null>(null);
   const [result, setResult] = useState<SimulatorSaveResult | null>(null);
   const [isSaving, setIsSaving] = useState(false);
   const currentExercise = session.exercises[currentIndex];
+  const currentBlock = currentExercise
+    ? session.blocks.find((block) => block.id === currentExercise.block_id) ?? null
+    : null;
+  const shouldShowReadingIntro = stage === "running" &&
+    currentBlock?.type === "reading_unit" &&
+    !introducedBlockIds.includes(currentBlock.id);
   const totalQuestions = session.totalQuestions;
   const canGoNext = Boolean(selectedAnswer) && !isSaving;
 
   function startSimulation() {
+    const firstExercise = session.exercises[0];
+    const firstBlock = firstExercise
+      ? session.blocks.find((block) => block.id === firstExercise.block_id) ?? null
+      : null;
+
     setStage("running");
     setCurrentIndex(0);
     setAnswers([]);
+    setIntroducedBlockIds([]);
     setResult(null);
     setSelectedAnswer("");
+    setQuestionStartedAt(firstBlock?.type === "reading_unit" ? null : Date.now());
+  }
+
+  function startBlockQuestions(blockId: string) {
+    setIntroducedBlockIds((previous) => Array.from(new Set([...previous, blockId])));
     setQuestionStartedAt(Date.now());
   }
 
@@ -103,7 +137,16 @@ export function SimulatorQuestion({ session, saveProgress }: SimulatorQuestionPr
 
     setCurrentIndex((previous) => previous + 1);
     setSelectedAnswer("");
-    setQuestionStartedAt(Date.now());
+    const nextExercise = session.exercises[currentIndex + 1];
+    const nextBlock = nextExercise
+      ? session.blocks.find((block) => block.id === nextExercise.block_id) ?? null
+      : null;
+
+    setQuestionStartedAt(
+      nextBlock?.type === "reading_unit" && !introducedBlockIds.includes(nextBlock.id)
+        ? null
+        : Date.now(),
+    );
   }
 
   return (
@@ -125,9 +168,16 @@ export function SimulatorQuestion({ session, saveProgress }: SimulatorQuestionPr
           {stage === "start" ? (
             <StartPanel questionCount={totalQuestions} onStart={startSimulation} />
           ) : null}
-          {stage === "running" && currentExercise ? (
+          {shouldShowReadingIntro && currentBlock?.readingUnit ? (
+            <ReadingBlockIntro
+              block={currentBlock}
+              onStart={() => startBlockQuestions(currentBlock.id)}
+            />
+          ) : null}
+          {stage === "running" && currentExercise && !shouldShowReadingIntro ? (
             <QuestionPanel
               canGoNext={canGoNext}
+              currentBlock={currentBlock}
               currentExercise={currentExercise}
               currentIndex={currentIndex}
               isSaving={isSaving}
@@ -176,8 +226,53 @@ function StartPanel({
   );
 }
 
+function ReadingBlockIntro({
+  block,
+  onStart,
+}: {
+  block: PublicSimulatorBlock;
+  onStart: () => void;
+}) {
+  const readingUnit = block.readingUnit;
+
+  if (!readingUnit) {
+    return null;
+  }
+
+  return (
+    <article className="grid gap-5 rounded-2xl border border-slate-100 bg-white p-5 shadow-sm lg:p-6">
+      <div className="grid gap-2">
+        <p className="text-sm font-semibold uppercase tracking-wide text-teal-600">
+          Bloque de comprensión lectora
+        </p>
+        <h2 className="text-2xl font-bold text-slate-800">{readingUnit.title}</h2>
+        {readingUnit.subtitle ? (
+          <p className="text-base font-semibold text-slate-600">{readingUnit.subtitle}</p>
+        ) : null}
+        <p className="text-sm text-slate-500">
+          Lee el texto completo antes de responder las {block.exerciseIds.length} preguntas de este bloque.
+        </p>
+      </div>
+      <div className="max-h-[58vh] overflow-y-auto rounded-xl border border-slate-100 bg-slate-50 p-4">
+        <div className="whitespace-pre-line text-base leading-7 text-slate-800">
+          {readingUnit.text}
+        </div>
+      </div>
+      {readingUnit.sourceLabel ? (
+        <p className="text-xs font-medium text-slate-500">{readingUnit.sourceLabel}</p>
+      ) : null}
+      <div className="flex justify-end">
+        <Button onClick={onStart} variant="primary">
+          Comenzar preguntas
+        </Button>
+      </div>
+    </article>
+  );
+}
+
 function QuestionPanel({
   canGoNext,
+  currentBlock,
   currentExercise,
   currentIndex,
   isSaving,
@@ -187,6 +282,7 @@ function QuestionPanel({
   totalQuestions,
 }: {
   canGoNext: boolean;
+  currentBlock: PublicSimulatorBlock | null;
   currentExercise: PublicSimulatorExercise;
   currentIndex: number;
   isSaving: boolean;
@@ -229,6 +325,11 @@ function QuestionPanel({
         </div>
       </div>
       <div className="grid gap-2">
+        {currentBlock?.type === "reading_unit" ? (
+          <p className="text-sm font-semibold text-slate-500">
+            Texto leído: {currentBlock.title}
+          </p>
+        ) : null}
         <p className="text-xs font-bold uppercase tracking-wide text-teal-600">
           {currentExercise.subskill}
         </p>

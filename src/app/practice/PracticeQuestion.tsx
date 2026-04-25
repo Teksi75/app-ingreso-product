@@ -302,6 +302,7 @@ export function PracticeQuestion({
               handleMultipleAnswerChange={handleMultipleAnswerChange}
               handlePartAnswerChange={handlePartAnswerChange}
               hasSubmitted={hasSubmitted}
+              isCorrect={isCorrect}
               options={options}
               partAnswers={partAnswers}
               selectedAnswer={selectedAnswer}
@@ -317,6 +318,9 @@ export function PracticeQuestion({
               >
                 <p className="font-bold mb-1">{isCorrect ? "¡Correcto!" : "Incorrecto"}</p>
                 <p className="leading-5">{isCorrect ? currentExercise.feedback_correct : currentExercise.feedback_incorrect}</p>
+                {!isCorrect ? (
+                  <CorrectAnswerSummary exercise={currentExercise} />
+                ) : null}
               </div>
             ) : null}
             {hasSubmitted ? (
@@ -451,6 +455,7 @@ type ExerciseAnswerFieldsProps = {
   handleMultipleAnswerChange: (event: ChangeEvent<HTMLInputElement>) => void;
   handlePartAnswerChange: (partId: string, value: string) => void;
   hasSubmitted: boolean;
+  isCorrect: boolean;
   options: string[];
   partAnswers: Record<string, string>;
   selectedAnswer: string;
@@ -465,6 +470,7 @@ function ExerciseAnswerFields({
   handleMultipleAnswerChange,
   handlePartAnswerChange,
   hasSubmitted,
+  isCorrect,
   options,
   partAnswers,
   selectedAnswer,
@@ -478,27 +484,33 @@ function ExerciseAnswerFields({
             <legend className="px-1 text-sm font-bold text-slate-800">
               {part.label ? `${part.label} ` : ""}{part.question}
             </legend>
-            {part.options.map((option) => (
-              <label
-                className={`flex items-center gap-3 rounded-xl border p-3 text-base font-medium transition-colors ${
-                  partAnswers[part.id] === option
-                    ? "border-violet-300 bg-violet-50 text-violet-800"
-                    : "border-slate-200 hover:bg-slate-50 text-slate-700"
-                } ${hasSubmitted ? "cursor-default" : "cursor-pointer"}`}
-                key={option}
-              >
-                <input
-                  checked={partAnswers[part.id] === option}
-                  disabled={hasSubmitted}
-                  name={`answer-${currentExercise.id}-${part.id}`}
-                  onChange={() => handlePartAnswerChange(part.id, option)}
-                  type="radio"
-                  value={option}
-                  className="accent-violet-600 w-4 h-4"
-                />
-                <span>{option}</span>
-              </label>
-            ))}
+            {part.options.map((option) => {
+              const isSelected = partAnswers[part.id] === option;
+              const isCorrectOption = part.correctAnswer === option;
+
+              return (
+                <label
+                  className={`flex items-center gap-3 rounded-xl border p-3 text-base font-medium transition-colors ${getAnswerOptionClass({
+                    hasSubmitted,
+                    isCorrect,
+                    isCorrectOption,
+                    isSelected,
+                  })} ${hasSubmitted ? "cursor-default" : "cursor-pointer"}`}
+                  key={option}
+                >
+                  <input
+                    checked={isSelected}
+                    disabled={hasSubmitted}
+                    name={`answer-${currentExercise.id}-${part.id}`}
+                    onChange={() => handlePartAnswerChange(part.id, option)}
+                    type="radio"
+                    value={option}
+                    className="accent-violet-600 w-4 h-4"
+                  />
+                  <span>{option}</span>
+                </label>
+              );
+            })}
           </fieldset>
         ))}
       </div>
@@ -516,80 +528,192 @@ function ExerciseAnswerFields({
           </p>
         ) : null}
         <div className="grid gap-2">
-          {categorization.items.map((item) => (
-            <label className="grid gap-2 rounded-xl border border-slate-200 p-3 text-sm font-semibold sm:grid-cols-[1fr_220px] sm:items-center text-slate-700" key={item}>
-              <span>{item}</span>
-              <select
-                className="h-10 rounded-lg border border-slate-300 bg-white px-3 text-sm text-slate-700 focus:outline-none focus:ring-2 focus:ring-violet-200 focus:border-violet-400"
-                disabled={hasSubmitted}
-                onChange={(event) => handleCategoryAnswerChange(item, event.target.value)}
-                value={categoryAnswers[item] ?? ""}
+          {categorization.items.map((item) => {
+            const selectedCategory = categoryAnswers[item] ?? "";
+            const correctCategory = categorization.answers[item];
+            const isSelectedIncorrect = hasSubmitted && !isCorrect && selectedCategory !== correctCategory;
+            const isSelectedCorrect = hasSubmitted && !isCorrect && selectedCategory === correctCategory;
+
+            return (
+              <label
+                className={`grid gap-2 rounded-xl border p-3 text-sm font-semibold sm:grid-cols-[1fr_220px] sm:items-center ${
+                  isSelectedIncorrect
+                    ? "border-rose-200 bg-rose-50 text-rose-800"
+                    : isSelectedCorrect
+                      ? "border-emerald-200 bg-emerald-50 text-emerald-800"
+                    : "border-slate-200 text-slate-700"
+                }`}
+                key={item}
               >
-                <option value="">Elegir categoría</option>
-                {categorization.categories.map((category) => (
-                  <option key={category} value={category}>{category}</option>
-                ))}
-              </select>
-            </label>
-          ))}
+                <span>{item}</span>
+                <div className="grid gap-2">
+                  <select
+                    className={`h-10 rounded-lg border bg-white px-3 text-sm focus:outline-none focus:ring-2 ${
+                      isSelectedIncorrect
+                        ? "border-rose-300 text-rose-800 focus:border-rose-400 focus:ring-rose-100"
+                        : isSelectedCorrect
+                          ? "border-emerald-300 text-emerald-800 focus:border-emerald-400 focus:ring-emerald-100"
+                        : "border-slate-300 text-slate-700 focus:border-violet-400 focus:ring-violet-200"
+                    }`}
+                    disabled={hasSubmitted}
+                    onChange={(event) => handleCategoryAnswerChange(item, event.target.value)}
+                    value={selectedCategory}
+                  >
+                    <option value="">Elegir categoría</option>
+                    {categorization.categories.map((category) => (
+                      <option key={category} value={category}>{category}</option>
+                    ))}
+                  </select>
+                  {hasSubmitted && !isCorrect ? (
+                    <p className="rounded-lg border border-emerald-200 bg-emerald-50 px-3 py-2 text-xs font-bold text-emerald-800">
+                      Correcta: {correctCategory}
+                    </p>
+                  ) : null}
+                </div>
+              </label>
+            );
+          })}
         </div>
       </div>
     );
   }
 
   if (currentExercise.type === "multiple_choice_multiple") {
+    const correctAnswers = new Set(currentExercise.correct_answers ?? [currentExercise.correct_answer]);
+
     return (
       <>
-        {options.map((option) => (
-          <label
-            key={option}
-            className={`flex items-center gap-3 rounded-xl border p-3 text-base font-medium transition-colors ${
-              selectedAnswers.includes(option)
-                ? "border-violet-300 bg-violet-50 text-violet-800"
-                : "border-slate-200 hover:bg-slate-50 text-slate-700"
-            } ${hasSubmitted ? "cursor-default" : "cursor-pointer"}`}
-          >
-            <input
-              checked={selectedAnswers.includes(option)}
-              disabled={hasSubmitted}
-              name="answer"
-              onChange={handleMultipleAnswerChange}
-              type="checkbox"
-              value={option}
-              className="accent-violet-600 w-4 h-4 rounded"
-            />
-            <span>{option}</span>
-          </label>
-        ))}
+        {options.map((option) => {
+          const isSelected = selectedAnswers.includes(option);
+          const isCorrectOption = correctAnswers.has(option);
+
+          return (
+            <label
+              key={option}
+              className={`flex items-center gap-3 rounded-xl border p-3 text-base font-medium transition-colors ${getAnswerOptionClass({
+                hasSubmitted,
+                isCorrect,
+                isCorrectOption,
+                isSelected,
+              })} ${hasSubmitted ? "cursor-default" : "cursor-pointer"}`}
+            >
+              <input
+                checked={isSelected}
+                disabled={hasSubmitted}
+                name="answer"
+                onChange={handleMultipleAnswerChange}
+                type="checkbox"
+                value={option}
+                className="accent-violet-600 w-4 h-4 rounded"
+              />
+              <span>{option}</span>
+            </label>
+          );
+        })}
       </>
     );
   }
 
   return (
     <>
-      {options.map((option) => (
-        <label
-          key={option}
-          className={`flex items-center gap-3 rounded-xl border p-3 text-base font-medium transition-colors ${
-            selectedAnswer === option
-              ? "border-violet-300 bg-violet-50 text-violet-800"
-              : "border-slate-200 hover:bg-slate-50 text-slate-700"
-          } ${hasSubmitted ? "cursor-default" : "cursor-pointer"}`}
-        >
-          <input
-            checked={selectedAnswer === option}
-            disabled={hasSubmitted}
-            name="answer"
-            onChange={handleAnswerChange}
-            type="radio"
-            value={option}
-            className="accent-violet-600 w-4 h-4"
-          />
-          <span>{option}</span>
-        </label>
-      ))}
+      {options.map((option) => {
+        const isSelected = selectedAnswer === option;
+        const isCorrectOption = currentExercise.correct_answer === option;
+
+        return (
+          <label
+            key={option}
+            className={`flex items-center gap-3 rounded-xl border p-3 text-base font-medium transition-colors ${getAnswerOptionClass({
+              hasSubmitted,
+              isCorrect,
+              isCorrectOption,
+              isSelected,
+            })} ${hasSubmitted ? "cursor-default" : "cursor-pointer"}`}
+          >
+            <input
+              checked={isSelected}
+              disabled={hasSubmitted}
+              name="answer"
+              onChange={handleAnswerChange}
+              type="radio"
+              value={option}
+              className="accent-violet-600 w-4 h-4"
+            />
+            <span>{option}</span>
+          </label>
+        );
+      })}
     </>
   );
+}
+
+function CorrectAnswerSummary({ exercise }: { exercise: Exercise }) {
+  const lines = getCorrectAnswerLines(exercise);
+
+  if (lines.length === 0) {
+    return null;
+  }
+
+  return (
+    <div className="mt-3 rounded-lg border border-rose-200 bg-white/70 p-3 text-rose-800">
+      <p className="text-xs font-bold uppercase tracking-wider">
+        {lines.length === 1 ? "Respuesta correcta" : "Respuestas correctas"}
+      </p>
+      <ul className="mt-2 grid gap-1.5">
+        {lines.map((line) => (
+          <li className="leading-5" key={line}>{line}</li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+function getCorrectAnswerLines(exercise: Exercise): string[] {
+  if (exercise.parts && exercise.parts.length > 0) {
+    return exercise.parts.map((part) => (
+      `${part.label ? `${part.label} ` : ""}${part.question}: ${part.correctAnswer}`
+    ));
+  }
+
+  if (exercise.categorization) {
+    return exercise.categorization.items.map((item) => (
+      `${item}: ${exercise.categorization?.answers[item]}`
+    ));
+  }
+
+  if (exercise.type === "multiple_choice_multiple") {
+    return exercise.correct_answers ?? [exercise.correct_answer];
+  }
+
+  return [exercise.correct_answer];
+}
+
+function getAnswerOptionClass({
+  hasSubmitted,
+  isCorrect,
+  isCorrectOption,
+  isSelected,
+}: {
+  hasSubmitted: boolean;
+  isCorrect: boolean;
+  isCorrectOption: boolean;
+  isSelected: boolean;
+}): string {
+  if (!hasSubmitted) {
+    return isSelected
+      ? "border-violet-300 bg-violet-50 text-violet-800"
+      : "border-slate-200 hover:bg-slate-50 text-slate-700";
+  }
+
+  if (isCorrectOption) {
+    return "border-emerald-300 bg-emerald-50 text-emerald-800";
+  }
+
+  if (!isCorrect && isSelected) {
+    return "border-rose-300 bg-rose-50 text-rose-800";
+  }
+
+  return "border-slate-200 text-slate-600";
 }
 
 type MasteryMapModalProps = {

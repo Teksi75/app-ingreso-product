@@ -50,9 +50,11 @@ export default function SimulacionesPage() {
 function toPublicSimulatorSession(session: SimulatorSession): PublicSimulatorSession {
   return {
     mode: session.mode,
+    blocks: session.blocks,
     totalQuestions: session.totalQuestions,
     exercises: session.exercises.map((exercise) => ({
       id: exercise.id,
+      block_id: exercise.block_id,
       skill_id: exercise.skill_id,
       subskill: exercise.subskill,
       difficulty: exercise.difficulty,
