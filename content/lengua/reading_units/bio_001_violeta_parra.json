@@ -6,7 +6,7 @@
   "difficulty": 2,
   "textType": "biografia",
   "source": "original_interno",
-  "sourceLabel": "Texto original elaborado a partir de datos biograficos verificables de dominio publico.",
+  "sourceLabel": "Texto original elaborado a partir de datos biográficos verificables de dominio público.",
   "license": "CC-BY-4.0-interno",
   "moduleFit": ["modulo_1", "modulo_2"],
   "wordCountApprox": 730,
