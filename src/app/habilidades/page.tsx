@@ -6,6 +6,7 @@ import {
 } from "@/components/ui";
 import { pickReadingUnitCandidate } from "@/practice/session_runner";
 import { canonicalIdToSlug, readingUnitIdToSlug } from "@/skills/skill_slugs";
+import { resolveStudentCode } from "@/app/student_identity";
 
 export const dynamic = "force-dynamic";
 
@@ -96,8 +97,17 @@ const colorConfig: Record<string, { bg: string; text: string; button: string; pr
   },
 };
 
-export default async function HabilidadesPage() {
-  const progress = await loadProgressAsync();
+type HabilidadesPageProps = {
+  searchParams: Promise<{
+    code?: string | string[];
+    student?: string | string[];
+  }>;
+};
+
+export default async function HabilidadesPage({ searchParams }: HabilidadesPageProps) {
+  const params = await searchParams;
+  const studentCode = await resolveStudentCode(getParam(params.code) ?? getParam(params.student));
+  const progress = await loadProgressAsync(studentCode);
   const data = getSkillData(progress);
   const defaultReadingUnit = pickReadingUnitCandidate(null);
 
@@ -236,7 +246,7 @@ export default async function HabilidadesPage() {
                       px-3 py-1 rounded-full text-sm font-bold
                       ${colors.bg} ${colors.text}
                     `}>
-                      Nv. {skill.level}
+                      {skill.isAvailable ? `Nv. ${skill.level}` : "Próximamente"}
                     </div>
                   </div>
 
@@ -347,4 +357,8 @@ export default async function HabilidadesPage() {
       </div>
     </div>
   );
+}
+
+function getParam(value: string | string[] | undefined): string | undefined {
+  return Array.isArray(value) ? value[0] : value;
 }

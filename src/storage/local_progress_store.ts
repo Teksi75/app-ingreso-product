@@ -1,4 +1,4 @@
-import { existsSync, mkdirSync, readFileSync, renameSync, writeFileSync } from "node:fs";
+import { existsSync, mkdirSync, readFileSync, renameSync, unlinkSync, writeFileSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 import { Redis } from "@upstash/redis";
 import {
@@ -60,15 +60,20 @@ export type PracticeProgressSnapshot = {
   practiceSkillStats: Record<string, PracticeSkillProgress>;
 };
 
-const progressPath = resolve(process.cwd(), "data/progress.json");
-const redisProgressKey = process.env.PROGRESS_REDIS_KEY ?? "progress:default";
-let memoryProgress: StoredProgress | null = null;
+const defaultProgressCode = "default";
+const redisProgressKeyPrefix = process.env.PROGRESS_REDIS_KEY ?? "progress";
+let memoryProgressByCode = new Map<string, StoredProgress>();
 let redisClient: Redis | null | undefined;
 
-export function loadProgress(): StoredProgress {
-  if (memoryProgress) {
-    return cloneProgress(memoryProgress);
+export function loadProgress(studentCode?: string): StoredProgress {
+  const code = normalizeProgressCode(studentCode);
+  const cachedProgress = memoryProgressByCode.get(code);
+
+  if (cachedProgress) {
+    return cloneProgress(cachedProgress);
   }
+
+  const progressPath = getProgressPath(code);
 
   if (!existsSync(progressPath)) {
     return createEmptyProgress();
@@ -87,33 +92,37 @@ export function loadProgress(): StoredProgress {
   }
 }
 
-export async function loadProgressAsync(): Promise<StoredProgress> {
+export async function loadProgressAsync(studentCode?: string): Promise<StoredProgress> {
+  const code = normalizeProgressCode(studentCode);
   const redis = getRedisClient();
 
   if (!redis) {
-    return loadProgress();
+    return loadProgress(code);
   }
 
   try {
-    const progress = await redis.get<StoredProgress>(redisProgressKey);
+    const progress = await redis.get<StoredProgress>(getRedisProgressKey(code));
     return normalizeProgress(progress ?? createEmptyProgress());
   } catch {
-    return cloneProgress(memoryProgress ?? createEmptyProgress());
+    return cloneProgress(memoryProgressByCode.get(code) ?? createEmptyProgress());
   }
 }
 
-export function saveSessionResult(sessionData: SessionData): StoredProgress {
-  const progress = loadProgress();
+export function saveSessionResult(sessionData: SessionData, studentCode?: string): StoredProgress {
+  const progress = loadProgress(studentCode);
   const updated = appendSessionResult(progress, sessionData);
-  writeProgress(updated);
+  writeProgress(updated, studentCode);
 
   return updated;
 }
 
-export async function saveSessionResultAsync(sessionData: SessionData): Promise<StoredProgress> {
-  const progress = await loadProgressAsync();
+export async function saveSessionResultAsync(
+  sessionData: SessionData,
+  studentCode?: string,
+): Promise<StoredProgress> {
+  const progress = await loadProgressAsync(studentCode);
   const updated = appendSessionResult(progress, sessionData);
-  await writeProgressAsync(updated);
+  await writeProgressAsync(updated, studentCode);
 
   return updated;
 }
@@ -154,28 +163,28 @@ export function updateSkillStats(progress: StoredProgress, sessionData: SessionD
   return progress;
 }
 
-export function markSkillsSeen(skillIds: string[]): StoredProgress {
-  const progress = loadProgress();
+export function markSkillsSeen(skillIds: string[], studentCode?: string): StoredProgress {
+  const progress = loadProgress(studentCode);
   updateSeenSkills(progress, skillIds);
-  writeProgress(progress);
+  writeProgress(progress, studentCode);
 
   return progress;
 }
 
-export async function markSkillsSeenAsync(skillIds: string[]): Promise<StoredProgress> {
-  const progress = await loadProgressAsync();
+export async function markSkillsSeenAsync(skillIds: string[], studentCode?: string): Promise<StoredProgress> {
+  const progress = await loadProgressAsync(studentCode);
   updateSeenSkills(progress, skillIds);
-  await writeProgressAsync(progress);
+  await writeProgressAsync(progress, studentCode);
 
   return progress;
 }
 
-export function getSeenSkills(): string[] {
-  return loadProgress().seenSkills ?? [];
+export function getSeenSkills(studentCode?: string): string[] {
+  return loadProgress(studentCode).seenSkills ?? [];
 }
 
-export async function getSeenSkillsAsync(): Promise<string[]> {
-  return (await loadProgressAsync()).seenSkills ?? [];
+export async function getSeenSkillsAsync(studentCode?: string): Promise<string[]> {
+  return (await loadProgressAsync(studentCode)).seenSkills ?? [];
 }
 
 export function getPracticeProgressSnapshot(progress: StoredProgress = loadProgress()): PracticeProgressSnapshot {
@@ -187,6 +196,33 @@ export function getWeakestPracticeSkillId(
   progress: StoredProgress = loadProgress(),
 ): string | null {
   return getWeakestSkillId(buildMasteryModel(progress), skillIds);
+}
+
+export async function resetProgress(studentCode?: string): Promise<void> {
+  const code = normalizeProgressCode(studentCode);
+  memoryProgressByCode.delete(code);
+
+  const redis = getRedisClient();
+
+  if (redis) {
+    try {
+      await redis.del(getRedisProgressKey(code));
+      return;
+    } catch {
+      memoryProgressByCode.set(code, createEmptyProgress());
+      return;
+    }
+  }
+
+  const progressPath = getProgressPath(code);
+
+  if (existsSync(progressPath)) {
+    try {
+      unlinkSync(progressPath);
+    } catch {
+      memoryProgressByCode.set(code, createEmptyProgress());
+    }
+  }
 }
 
 function updateSeenSkills(progress: StoredProgress, skillIds: string[]): StoredProgress {
@@ -221,29 +257,33 @@ function cloneProgress(progress: StoredProgress): StoredProgress {
   return JSON.parse(JSON.stringify(progress)) as StoredProgress;
 }
 
-function writeProgress(progress: StoredProgress): void {
+function writeProgress(progress: StoredProgress, studentCode?: string): void {
+  const code = normalizeProgressCode(studentCode);
+  const progressPath = getProgressPath(code);
+
   try {
     mkdirSync(dirname(progressPath), { recursive: true });
     const tempPath = `${progressPath}.tmp`;
     writeFileSync(tempPath, `${JSON.stringify(progress, null, 2)}\n`, "utf8");
     renameSync(tempPath, progressPath);
   } catch {
-    memoryProgress = cloneProgress(progress);
+    memoryProgressByCode.set(code, cloneProgress(progress));
   }
 }
 
-async function writeProgressAsync(progress: StoredProgress): Promise<void> {
+async function writeProgressAsync(progress: StoredProgress, studentCode?: string): Promise<void> {
+  const code = normalizeProgressCode(studentCode);
   const redis = getRedisClient();
 
   if (!redis) {
-    writeProgress(progress);
+    writeProgress(progress, code);
     return;
   }
 
   try {
-    await redis.set(redisProgressKey, progress);
+    await redis.set(getRedisProgressKey(code), progress);
   } catch {
-    memoryProgress = cloneProgress(progress);
+    memoryProgressByCode.set(code, cloneProgress(progress));
   }
 }
 
@@ -266,4 +306,25 @@ function getRedisClient(): Redis | null {
 
 function createSessionId(): string {
   return `session_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`;
+}
+
+function getProgressPath(studentCode: string): string {
+  if (studentCode === defaultProgressCode) {
+    return resolve(process.cwd(), "data/progress.json");
+  }
+
+  return resolve(process.cwd(), `data/progress_${studentCode}.json`);
+}
+
+function getRedisProgressKey(studentCode: string): string {
+  return `${redisProgressKeyPrefix}:${studentCode}`;
+}
+
+function normalizeProgressCode(studentCode?: string): string {
+  if (!studentCode) {
+    return defaultProgressCode;
+  }
+
+  const normalized = studentCode.trim().toLowerCase();
+  return /^[a-z0-9_-]{4,64}$/.test(normalized) ? normalized : defaultProgressCode;
 }

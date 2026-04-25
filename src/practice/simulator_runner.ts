@@ -260,19 +260,23 @@ export function saveSimulatorSessionProgress(
 export async function saveSimulatorSessionProgressAsync(
   session: SimulatorSession,
   answers: Record<string, string> | SimulatorAnswer[],
+  studentCode?: string,
 ): Promise<SimulatorSessionProgressResult> {
   const evaluation = evaluateSimulatorSession(session, answers);
-  const progress = await saveSessionResultAsync({
-    mode: "simulator",
-    area: evaluation.area,
-    total_attempts: evaluation.total_attempts,
-    total_correct: evaluation.total_correct,
-    total_errors: evaluation.total_errors,
-    score_percentage: evaluation.score_percentage,
-    duration_seconds: evaluation.duration_seconds,
-    exercise_ids: evaluation.exercise_ids,
-    skill_results: evaluation.skill_results,
-  });
+  const progress = await saveSessionResultAsync(
+    {
+      mode: "simulator",
+      area: evaluation.area,
+      total_attempts: evaluation.total_attempts,
+      total_correct: evaluation.total_correct,
+      total_errors: evaluation.total_errors,
+      score_percentage: evaluation.score_percentage,
+      duration_seconds: evaluation.duration_seconds,
+      exercise_ids: evaluation.exercise_ids,
+      skill_results: evaluation.skill_results,
+    },
+    studentCode,
+  );
 
   return {
     ...evaluation,

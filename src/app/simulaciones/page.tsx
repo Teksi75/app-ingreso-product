@@ -6,16 +6,26 @@ import {
 } from "../../practice/simulator_runner";
 import { getNextStepRecommendation } from "../../recommendation/next_step";
 import { SimulatorQuestion, type PublicSimulatorSession, type SimulatorSaveResult } from "./SimulatorQuestion";
+import { resolveStudentCode } from "../student_identity";
 
 export const dynamic = "force-dynamic";
 
-export default function SimulacionesPage() {
+type SimulacionesPageProps = {
+  searchParams: Promise<{
+    code?: string | string[];
+    student?: string | string[];
+  }>;
+};
+
+export default async function SimulacionesPage({ searchParams }: SimulacionesPageProps) {
+  const params = await searchParams;
+  const studentCode = await resolveStudentCode(getParam(params.code) ?? getParam(params.student));
   const session = createSimulatorSession();
 
   async function saveProgress(answers: SimulatorAnswer[]): Promise<SimulatorSaveResult> {
     "use server";
 
-    const result = await saveSimulatorSessionProgressAsync(session, answers);
+    const result = await saveSimulatorSessionProgressAsync(session, answers, studentCode);
     const skillResults = result.skill_results
       .filter((skillResult) => /^lengua\.skill_\d+$/.test(skillResult.skill_id))
       .map((skillResult) => ({
@@ -78,4 +88,8 @@ function getOptionRank(value: string): number {
   }
 
   return hash;
+}
+
+function getParam(value: string | string[] | undefined): string | undefined {
+  return Array.isArray(value) ? value[0] : value;
 }

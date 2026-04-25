@@ -18,6 +18,7 @@ import { getNextStepRecommendation } from "@/recommendation/next_step";
 import { getWeakestPracticeSkillId } from "@/storage/local_progress_store";
 import { canonicalIdToSlug } from "@/skills/skill_slugs";
 import { getSkillMetadata } from "@/skills/skill_metadata";
+import { resolveStudentCode } from "@/app/student_identity";
 
 export const dynamic = "force-dynamic";
 
@@ -156,14 +157,18 @@ const LanguageIcon = () => (
 
 type HomePageProps = {
   searchParams: Promise<{
+    code?: string | string[];
     newStudent?: string | string[];
+    student?: string | string[];
   }>;
 };
 
 export default async function DashboardPage({ searchParams }: HomePageProps) {
   const params = await searchParams;
+  const explicitCode = getParam(params.code) ?? getParam(params.student);
+  const studentCode = await resolveStudentCode(explicitCode);
   const newStudent = Array.isArray(params.newStudent) ? params.newStudent[0] : params.newStudent;
-  const progress = isEnabledParam(newStudent) ? createEmptyProgress() : await loadProgressAsync();
+  const progress = isEnabledParam(newStudent) ? createEmptyProgress() : await loadProgressAsync(studentCode);
   const { student, skills, dailyChallenge, nextSimulation, weeklyProgress, stats, weakestSkillHref, skillProgress, recentSessionsCount } =
     calculateDashboardData(progress);
   const hasPracticeHistory = stats.totalAttempts > 0;
@@ -306,7 +311,7 @@ export default async function DashboardPage({ searchParams }: HomePageProps) {
                           ${index === 0 ? "bg-teal-100 text-teal-700" : "bg-violet-100 text-violet-700"}
                         `}
                         >
-                          Nv. {skill.level}
+                          {skill.isAvailable ? `Nv. ${skill.level}` : "Próximamente"}
                         </span>
                       </div>
                       <p className="text-sm text-slate-500 mb-2 truncate">{skill.description}</p>
@@ -567,4 +572,8 @@ function createEmptyProgress(): StoredProgress {
 
 function isEnabledParam(value: string | undefined): boolean {
   return value === "1" || value === "true";
+}
+
+function getParam(value: string | string[] | undefined): string | undefined {
+  return Array.isArray(value) ? value[0] : value;
 }

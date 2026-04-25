@@ -9,16 +9,21 @@ import {
   startPracticeSessionAsync,
   startReadingUnitSessionAsync,
   type PracticeMode,
+  type PracticeSessionProgressInput,
+  type PracticeSessionProgressResult,
 } from "../../components/practice/session_runner";
 import { slugToCanonicalId, slugToReadingUnitId } from "../../skills/skill_slugs";
 import { PracticeQuestion } from "./PracticeQuestion";
+import { resolveStudentCode } from "../student_identity";
 
 type PracticePageProps = {
   searchParams: Promise<{
+    code?: string | string[];
     focus?: string | string[];
     mode?: string | string[];
     newStudent?: string | string[];
     skill?: string | string[];
+    student?: string | string[];
     unit?: string | string[];
     used?: string | string[];
   }>;
@@ -26,6 +31,7 @@ type PracticePageProps = {
 
 export default async function PracticePage({ searchParams }: PracticePageProps) {
   const params = await searchParams;
+  const studentCode = await resolveStudentCode(getParam(params.code) ?? getParam(params.student));
   const focus = Array.isArray(params.focus) ? params.focus[0] : params.focus;
   const modeParam = Array.isArray(params.mode) ? params.mode[0] : params.mode;
   const newStudent = Array.isArray(params.newStudent) ? params.newStudent[0] : params.newStudent;
@@ -38,11 +44,11 @@ export default async function PracticePage({ searchParams }: PracticePageProps) 
   const forceNewStudent = isEnabledParam(newStudent);
   const practiceMode: PracticeMode = modeParam === "reading" || unit ? "reading" : "training";
   const practiceSelection = practiceMode === "reading"
-    ? await startReadingUnitSessionAsync(unit ?? null, usedExerciseIds, { forceNewStudent, focusSubskill: focus })
+    ? await startReadingUnitSessionAsync(unit ?? null, usedExerciseIds, { forceNewStudent, focusSubskill: focus, studentCode })
     : await startPracticeSessionAsync(
       skill ?? null,
       usedExerciseIds,
-      { forceNewStudent, focusSubskill: focus, includeReadingUnits: false },
+      { forceNewStudent, focusSubskill: focus, includeReadingUnits: false, studentCode },
     );
   if (!practiceSelection?.exercise) {
     return <PracticeUnavailable />;
@@ -63,6 +69,12 @@ export default async function PracticePage({ searchParams }: PracticePageProps) 
     ? "Comprensión lectora"
     : "Entrenamiento";
 
+  async function saveProgress(input: PracticeSessionProgressInput): Promise<PracticeSessionProgressResult> {
+    "use server";
+
+    return savePracticeSessionProgress(input, studentCode);
+  }
+
   return (
     <div className="min-h-screen bg-slate-50 flex">
       <SidebarNav />
@@ -77,7 +89,7 @@ export default async function PracticePage({ searchParams }: PracticePageProps) 
             session={practiceSelection}
             masteryMap={getLenguaMasteryMap()}
             restartHref={restartHref}
-            saveProgress={savePracticeSessionProgress}
+            saveProgress={saveProgress}
           />
         </section>
       </main>
@@ -129,6 +141,10 @@ function parseUsedExerciseIds(value: string | undefined): string[] {
 
 function isEnabledParam(value: string | undefined): boolean {
   return value === "1" || value === "true";
+}
+
+function getParam(value: string | string[] | undefined): string | undefined {
+  return Array.isArray(value) ? value[0] : value;
 }
 
 function resolveSkillId(rawSkill: string | undefined): string | null {

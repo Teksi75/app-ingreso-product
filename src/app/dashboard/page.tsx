@@ -2,13 +2,15 @@ import { ActionPanel } from "../../components/dashboard/ActionPanel";
 import { Header } from "../../components/dashboard/Header";
 import { SkillList } from "../../components/dashboard/SkillList";
 import Link from "next/link";
+import { redirect } from "next/navigation";
 import {
   CANONICAL_LENGUA_SKILLS,
   buildMasteryModel,
   type MasteryModel,
 } from "../../progress/mastery_model";
 import { getNextStepRecommendation } from "../../recommendation/next_step";
-import { loadProgressAsync, type SkillState, type StoredProgress } from "../../storage/local_progress_store";
+import { loadProgressAsync, resetProgress, type SkillState, type StoredProgress } from "../../storage/local_progress_store";
+import { resolveStudentCode } from "../student_identity";
 
 export type DashboardSkillState = SkillState | "not_started";
 
@@ -22,24 +24,50 @@ type DashboardSkill = {
 
 type DashboardPageProps = {
   searchParams: Promise<{
+    code?: string | string[];
     newStudent?: string | string[];
+    student?: string | string[];
   }>;
 };
 
 export default async function DashboardPage({ searchParams }: DashboardPageProps) {
   const params = await searchParams;
-  const newStudent = Array.isArray(params.newStudent) ? params.newStudent[0] : params.newStudent;
+  const studentCode = await resolveStudentCode(getParam(params.code) ?? getParam(params.student));
+  const newStudent = getParam(params.newStudent);
   const isNewStudent = isEnabledParam(newStudent);
-  const progress = isNewStudent ? createEmptyProgress() : await loadProgressAsync();
+  const progress = isNewStudent ? createEmptyProgress() : await loadProgressAsync(studentCode);
   const model = buildMasteryModel(progress);
   const skills = getDashboardSkills(model);
   const hasSessionHistory = progress.sessions.length > 0;
   const recommendation = getNextStepRecommendation(progress);
 
+  async function resetCurrentStudentProgress() {
+    "use server";
+
+    await resetProgress(studentCode);
+    redirect("/dashboard");
+  }
+
   return (
     <main className="min-h-screen bg-[#f7f7f4] px-4 py-8 text-[#1d1d1b]">
       <section className="mx-auto grid max-w-[840px] gap-5">
         <Header title={isNewStudent ? "Nuevo Alumno" : "Tu progreso"} />
+        <section className="rounded-lg border border-[#deded8] bg-white px-5 py-4">
+          <p className="mt-0 mb-1.5 text-[13px] font-bold text-[#5f625b]">
+            Código de progreso
+          </p>
+          <div className="flex flex-wrap items-center justify-between gap-4">
+            <p className="m-0 font-mono text-[18px] font-bold tracking-wide text-[#1d1d1b]">
+              {studentCode}
+            </p>
+            <Link
+              href={`/reporte?code=${encodeURIComponent(studentCode)}`}
+              className="inline-flex min-h-[38px] items-center justify-center rounded-lg border border-[#deded8] px-3 text-sm font-bold text-[#1d1d1b]"
+            >
+              Ver reporte familiar
+            </Link>
+          </div>
+        </section>
         {!hasSessionHistory && (
           <section className="rounded-lg border border-[#deded8] bg-white px-5 py-4">
             <p className="mt-0 mb-1.5 text-[13px] font-bold text-[#5f625b]">
@@ -59,6 +87,16 @@ export default async function DashboardPage({ searchParams }: DashboardPageProps
           </section>
         )}
         <SkillList skills={skills} />
+        {hasSessionHistory && (
+          <form action={resetCurrentStudentProgress}>
+            <button
+              className="inline-flex min-h-[42px] cursor-pointer items-center justify-center rounded-lg border border-[#deded8] bg-white px-4 font-bold text-[#8a2d2d]"
+              type="submit"
+            >
+              Empezar de cero
+            </button>
+          </form>
+        )}
         <ActionPanel isNewStudent={isNewStudent} recommendation={recommendation} />
       </section>
     </main>
@@ -82,6 +120,10 @@ function getDashboardSkills(model: MasteryModel): DashboardSkill[] {
 
 function isEnabledParam(value: string | undefined): boolean {
   return value === "1" || value === "true";
+}
+
+function getParam(value: string | string[] | undefined): string | undefined {
+  return Array.isArray(value) ? value[0] : value;
 }
 
 function createEmptyProgress(): StoredProgress {

@@ -176,6 +176,7 @@ type PracticeSessionOptions = {
   maxQuestions?: number;
   persistSeenSkills?: boolean;
   progress?: StoredProgress;
+  studentCode?: string;
 };
 
 export type PracticeMode = "training" | "reading";
@@ -836,6 +837,7 @@ function getRelationshipRank(relationship: ReturnType<typeof loadLenguaSelection
 
 export async function savePracticeSessionProgress(
   input: PracticeSessionProgressInput,
+  studentCode?: string,
 ): Promise<PracticeSessionProgressResult> {
   "use server";
 
@@ -848,14 +850,17 @@ export async function savePracticeSessionProgress(
     currentMastery: activeFocus?.currentMastery ?? input.currentMastery,
   });
   const skillState = getSkillState(masteryLevel);
-  const progress = await saveSessionResultAsync({
-    mode: getStoredSessionMode(input.sessionType),
-    total_attempts: input.attempts,
-    total_correct: input.correct,
-    total_errors: input.attempts - input.correct,
-    skill_results: buildSessionSkillResults(focusResults),
-    readingUnitId: input.readingUnitId,
-  });
+  const progress = await saveSessionResultAsync(
+    {
+      mode: getStoredSessionMode(input.sessionType),
+      total_attempts: input.attempts,
+      total_correct: input.correct,
+      total_errors: input.attempts - input.correct,
+      skill_results: buildSessionSkillResults(focusResults),
+      readingUnitId: input.readingUnitId,
+    },
+    studentCode,
+  );
   const snapshot = getPracticeProgressSnapshot(progress);
 
   return {
@@ -1145,7 +1150,7 @@ export async function startPracticeSessionAsync(
   usedExerciseIds: string[] = [],
   options: PracticeSessionOptions = {},
 ): Promise<PracticeSelection> {
-  const progress = options.forceNewStudent ? undefined : await loadProgressAsync();
+  const progress = options.forceNewStudent ? undefined : await loadProgressAsync(options.studentCode);
   const session = startPracticeSession(skillId, usedExerciseIds, {
     ...options,
     persistSeenSkills: false,
@@ -1153,7 +1158,7 @@ export async function startPracticeSessionAsync(
   });
 
   if (!options.forceNewStudent) {
-    await markSkillsSeenAsync([session.exercise.skill_id]);
+    await markSkillsSeenAsync([session.exercise.skill_id], options.studentCode);
   }
 
   return session;
@@ -1260,7 +1265,7 @@ export async function startReadingUnitSessionAsync(
   usedExerciseIds: string[] = [],
   options: PracticeSessionOptions = {},
 ): Promise<ReadingUnitSelection> {
-  const progress = options.forceNewStudent ? undefined : await loadProgressAsync();
+  const progress = options.forceNewStudent ? undefined : await loadProgressAsync(options.studentCode);
   const session = startReadingUnitSession(readingUnitId, usedExerciseIds, {
     ...options,
     persistSeenSkills: false,
@@ -1268,7 +1273,7 @@ export async function startReadingUnitSessionAsync(
   });
 
   if (!options.forceNewStudent) {
-    await markSkillsSeenAsync([session.exercise.skill_id]);
+    await markSkillsSeenAsync([session.exercise.skill_id], options.studentCode);
   }
 
   return session;
