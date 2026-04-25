@@ -45,7 +45,7 @@ INGENIUM es una plataforma de práctica intensiva que ayuda a estudiantes a mejo
 - **Lenguaje**: [TypeScript](https://www.typescriptlang.org/)
 - **Estilos**: [Tailwind CSS](https://tailwindcss.com/) v4
 - **Componentes UI**: Custom components (BentoCard, ProgressCircle, etc.)
-- **Testing**: [Playwright](https://playwright.dev/) (E2E)
+- **Testing**: [Vitest](https://vitest.dev/) (unitario) + [Playwright](https://playwright.dev/) (E2E)
 
 ---
 
@@ -54,11 +54,17 @@ INGENIUM es una plataforma de práctica intensiva que ayuda a estudiantes a mejo
 ```
 src/
 ├── app/                          # Páginas de Next.js
-│   ├── page.tsx                 # Dashboard (Home)
+│   ├── page.tsx                 # Home gamificada con recomendación canónica
+│   ├── dashboard/
+│   │   └── page.tsx             # Progreso por skill + siguiente paso
+│   ├── practice/
+│   │   ├── page.tsx             # Sesiones de práctica/lectura
+│   │   └── PracticeQuestion.tsx # UI de pregunta y cierre de sesión
 │   ├── habilidades/
 │   │   └── page.tsx             # Grid de Matemática y Lengua
 │   ├── simulaciones/
-│   │   └── page.tsx             # Lista de simulacros
+│   │   ├── page.tsx             # Simulador de Lengua
+│   │   └── SimulatorQuestion.tsx
 │   ├── progreso/
 │   │   └── page.tsx             # Estadísticas y logros
 │   ├── perfil/
@@ -75,8 +81,13 @@ src/
 │       ├── XpBar.tsx            # Barra de experiencia
 │       ├── AvatarHero.tsx       # Avatar del estudiante
 │       └── Button.tsx           # Botones
-├── practice/                     # Lógica de negocio (legacy)
-└── storage/                      # Persistencia (legacy)
+├── practice/                     # Runtime canónico de práctica, lectura y simulador
+├── progress/                     # Modelo de mastery/progreso
+├── recommendation/               # Siguiente paso recomendado
+├── skills/                       # Metadata y slugs públicos
+├── storage/                      # Persistencia local
+content/lengua/                  # Reading units y ejercicios canónicos
+docs/04_exercise_engine/         # Corpus histórico y manifest de contenido
 ```
 
 ---
@@ -106,6 +117,9 @@ La aplicación estará disponible en `http://localhost:3000`
 ### Ejecutar Tests
 
 ```bash
+# Tests unitarios de dominio
+npm run test:unit
+
 # Tests E2E con Playwright
 npm run test:e2e
 
@@ -134,8 +148,8 @@ npm run build
 - [x] Progreso del día con círculo visual
 - [x] Barra de XP y nivel actual
 - [x] Habilidades recomendadas
-- [x] Desafío del día
-- [x] Próxima simulación
+- [x] Siguiente paso recomendado desde `getNextStepRecommendation()`
+- [x] Próxima simulación según `model.simulatorReadiness`
 - [x] Progreso semanal
 - [x] Avatar personalizable
 - [x] Reporte para padres
@@ -150,12 +164,18 @@ npm run build
 - [x] Botón "Entrenar Ahora"
 
 ### Simulaciones
-- [x] Lista de simulacros
-- [x] Completados vs pendientes
-- [x] Puntuaciones
-- [x] Dificultad
-- [x] Duración y cantidad de preguntas
-- [x] Botón para iniciar
+- [x] Simulador de Lengua con bloques de lectura y ejercicios standalone
+- [x] Persistencia de resultado en progreso local
+- [x] Impacto en mastery con peso de simulador
+- [x] Recomendación canónica posterior a la simulación
+
+### Motor de práctica y recomendación
+- [x] Sesiones standalone por skill/subskill
+- [x] Sesiones reading-based con texto base canónico
+- [x] Cierre de lectura con excerpt, comprensión lectora y glosario
+- [x] Modelo de mastery trazable por skill/subskill
+- [x] Slugs públicos en URLs con compatibilidad para IDs técnicos legacy
+- [x] Tests unitarios para recomendación de siguiente paso
 
 ### Progreso
 - [x] Estadísticas generales
@@ -186,16 +206,17 @@ npm run build
 
 ## 📌 Estado del Proyecto
 
-**Fase**: UI/UX Completo - Lista para integración de backend
+**Fase**: MVP funcional de Lengua con práctica, lectura, simulador, progreso y recomendación canónica.
 
-- ✅ Sistema de diseño implementado
-- ✅ 5 pantallas principales completas
-- ✅ Navegación funcional (Next.js routing)
-- ✅ Componentes UI reutilizables
-- ✅ Responsive design (mobile/desktop)
-- ✅ Gamificación visual (niveles, XP, logros)
-- 🔄 Integración con sistema de práctica (en progreso)
-- ⏳ Backend y persistencia real (próximamente)
+- ✅ Sistema de diseño y navegación implementados
+- ✅ Runtime de práctica y lectura consolidado en `session_runner`
+- ✅ Simulador conectado a progreso/mastery/recomendación
+- ✅ Modelo de mastery canónico en `progress/mastery_model.ts`
+- ✅ Recomendación de siguiente paso en `recommendation/next_step.ts`
+- ✅ Slugs públicos para skills y reading units, con retrocompatibilidad
+- ✅ Skill 3 ampliada con ejercicios `multiple_choice` compatibles con simulador
+- 🔄 Próximo foco: tests de slugs, verificación de skill 3 en simulador y expansión de reading units
+- ⏳ Backend, cuentas, pagos y Matemática quedan fuera del corto plazo
 
 ---
 
@@ -211,5 +232,5 @@ Para mantener el proyecto actualizado después de cambios en código:
 
 ```bash
 # Actualizar knowledge graph (sin costo API)
-npx graphify update .
+graphify update .
 ```

@@ -1,12 +1,12 @@
 # Graph Report - C:\Users\pablo\OneDrive\Desarrollo\app-ingreso-product  (2026-04-25)
 
 ## Corpus Check
-- 59 files · ~235,024 words
+- 60 files · ~237,236 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 329 nodes · 570 edges · 45 communities detected
-- Extraction: 85% EXTRACTED · 15% INFERRED · 0% AMBIGUOUS · INFERRED: 85 edges (avg confidence: 0.8)
+- 338 nodes · 591 edges · 46 communities detected
+- Extraction: 85% EXTRACTED · 15% INFERRED · 0% AMBIGUOUS · INFERRED: 91 edges (avg confidence: 0.8)
 - Token cost: 0 input · 0 output
 
 ## Community Hubs (Navigation)
@@ -55,6 +55,7 @@
 - [[_COMMUNITY_Community 42|Community 42]]
 - [[_COMMUNITY_Community 43|Community 43]]
 - [[_COMMUNITY_Community 44|Community 44]]
+- [[_COMMUNITY_Community 45|Community 45]]
 
 ## God Nodes (most connected - your core abstractions)
 1. `loadContentLenguaExercises()` - 21 edges
@@ -71,14 +72,14 @@
 ## Surprising Connections (you probably didn't know these)
 - `calculateDashboardData()` --calls--> `loadProgress()`  [INFERRED]
   C:\Users\pablo\OneDrive\Desarrollo\app-ingreso-product\src\app\page.tsx → src\storage\local_progress_store.ts
+- `calculateDashboardData()` --calls--> `buildMasteryModel()`  [INFERRED]
+  C:\Users\pablo\OneDrive\Desarrollo\app-ingreso-product\src\app\page.tsx → src\progress\mastery_model.ts
+- `calculateDashboardData()` --calls--> `getWeakestPracticeSkillId()`  [INFERRED]
+  C:\Users\pablo\OneDrive\Desarrollo\app-ingreso-product\src\app\page.tsx → src\storage\local_progress_store.ts
 - `DashboardPage()` --calls--> `loadProgress()`  [INFERRED]
   src\app\dashboard\page.tsx → src\storage\local_progress_store.ts
 - `DashboardPage()` --calls--> `buildMasteryModel()`  [INFERRED]
   src\app\dashboard\page.tsx → src\progress\mastery_model.ts
-- `DashboardPage()` --calls--> `getNextStepRecommendation()`  [INFERRED]
-  src\app\dashboard\page.tsx → src\recommendation\next_step.ts
-- `DashboardPage()` --calls--> `getWeakestPracticeSkillId()`  [INFERRED]
-  src\app\dashboard\page.tsx → src\storage\local_progress_store.ts
 
 ## Communities
 
@@ -91,67 +92,67 @@ Cohesion: 0.1
 Nodes (31): clampDifficulty(), clampMastery(), filterImmediateRepeats(), filterUnlockedExercises(), findAlternativeSubskill(), findRelatedTarget(), getMasteryGap(), getMasteryLevel() (+23 more)
 
 ### Community 2 - "Community 2"
-Cohesion: 0.09
-Nodes (28): assertCanonicalTextPackLoads(), getWeakestPracticeSkillId(), buildMasteryModel(), buildPracticeProgressSnapshot(), buildPracticeSkillStats(), buildTrace(), calculateMasteryScore(), clampMasteryLevel() (+20 more)
+Cohesion: 0.1
+Nodes (35): dedupeExercises(), extractSelectorExercises(), isFsAvailable(), listLenguaExerciseFiles(), loadLenguaSelectionGraph(), loadLenguaSelectorExercises(), assertBioStimulusLoadsAsSkillTraining(), assertLoadsAllLenguaJson() (+27 more)
 
 ### Community 3 - "Community 3"
 Cohesion: 0.1
 Nodes (28): addFocusResult(), buildReadingBlocks(), buildSimulatorSkillResults(), calculateScorePercentage(), chanceByDifficulty(), createStandaloneBlock(), evaluateSimulatorSession(), groupByReadingUnit() (+20 more)
 
 ### Community 4 - "Community 4"
-Cohesion: 0.14
-Nodes (24): dedupeExercises(), extractSelectorExercises(), isFsAvailable(), listLenguaExerciseFiles(), loadLenguaSelectionGraph(), loadLenguaSelectorExercises(), assertBioStimulusLoadsAsSkillTraining(), assertLoadsAllLenguaJson() (+16 more)
+Cohesion: 0.13
+Nodes (17): assertCanonicalTextPackLoads(), buildPracticeHref(), buildReadingHref(), getNextStepRecommendation(), pickReadingUnit(), calculateDashboardData(), getRank(), buildReadingUnitCandidates() (+9 more)
 
 ### Community 5 - "Community 5"
-Cohesion: 0.14
-Nodes (19): assertReadingModeDatasetRunsSequentially(), getPracticeProgressSnapshot(), getSeenSkills(), buildRestartHref(), DashboardPage(), getDashboardSkills(), isEnabledParam(), parseUsedExerciseIds() (+11 more)
-
-### Community 6 - "Community 6"
 Cohesion: 0.13
 Nodes (9): ClientAvatarHero(), ClientStudentName(), SidebarNav(), createDefaultProfile(), isLearningGoal(), isPlainObject(), isPreferredSubject(), loadProfileFromStorage() (+1 more)
+
+### Community 6 - "Community 6"
+Cohesion: 0.19
+Nodes (16): getWeakestPracticeSkillId(), buildMasteryModel(), buildPracticeProgressSnapshot(), buildPracticeSkillStats(), buildTrace(), calculateMasteryScore(), clampMasteryLevel(), clampScore() (+8 more)
 
 ### Community 7 - "Community 7"
 Cohesion: 0.22
 Nodes (14): createEmptyProgress(), createSessionId(), loadProgress(), markSkillsSeen(), saveSessionResult(), updateSeenSkills(), updateSkillStats(), writeProgress() (+6 more)
 
 ### Community 8 - "Community 8"
+Cohesion: 0.24
+Nodes (11): getPracticeProgressSnapshot(), buildRestartHref(), DashboardPage(), getDashboardSkills(), isEnabledParam(), parseUsedExerciseIds(), PracticePage(), resolveReadingUnitId() (+3 more)
+
+### Community 9 - "Community 9"
 Cohesion: 0.22
 Nodes (0): 
 
-### Community 9 - "Community 9"
+### Community 10 - "Community 10"
 Cohesion: 0.29
 Nodes (0): 
 
-### Community 10 - "Community 10"
+### Community 11 - "Community 11"
 Cohesion: 0.48
 Nodes (6): assertTextPatternExtractorDoesNotReturnSourceText(), analyzePlainTextShape(), estimatePdfLength(), extractTextPatterns(), inferStructuresFromShape(), inferTextTypesFromShape()
-
-### Community 11 - "Community 11"
-Cohesion: 0.4
-Nodes (0): 
 
 ### Community 12 - "Community 12"
 Cohesion: 0.4
 Nodes (0): 
 
 ### Community 13 - "Community 13"
+Cohesion: 0.4
+Nodes (0): 
+
+### Community 14 - "Community 14"
 Cohesion: 0.83
 Nodes (3): generate(), listJsonFiles(), readJson()
 
-### Community 14 - "Community 14"
+### Community 15 - "Community 15"
 Cohesion: 0.5
 Nodes (0): 
 
-### Community 15 - "Community 15"
+### Community 16 - "Community 16"
 Cohesion: 1.0
 Nodes (2): ActionPanel(), withNewStudentParam()
 
-### Community 16 - "Community 16"
-Cohesion: 0.67
-Nodes (0): 
-
 ### Community 17 - "Community 17"
-Cohesion: 1.0
+Cohesion: 0.67
 Nodes (0): 
 
 ### Community 18 - "Community 18"
@@ -262,73 +263,77 @@ Nodes (0):
 Cohesion: 1.0
 Nodes (0): 
 
+### Community 45 - "Community 45"
+Cohesion: 1.0
+Nodes (0): 
+
 ## Knowledge Gaps
-- **Thin community `Community 17`** (2 nodes): `RootLayout()`, `layout.tsx`
+- **Thin community `Community 18`** (2 nodes): `RootLayout()`, `layout.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 18`** (2 nodes): `Header()`, `Header.tsx`
+- **Thin community `Community 19`** (2 nodes): `Header()`, `Header.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 19`** (2 nodes): `SkillList()`, `SkillList.tsx`
+- **Thin community `Community 20`** (2 nodes): `SkillList()`, `SkillList.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 20`** (2 nodes): `SkillStatus()`, `SkillStatus.tsx`
+- **Thin community `Community 21`** (2 nodes): `SkillStatus()`, `SkillStatus.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 21`** (2 nodes): `AvatarHero()`, `AvatarHero.tsx`
+- **Thin community `Community 22`** (2 nodes): `AvatarHero()`, `AvatarHero.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 22`** (2 nodes): `StreakBadge.tsx`, `getStreakColor()`
+- **Thin community `Community 23`** (2 nodes): `StreakBadge.tsx`, `getStreakColor()`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 23`** (2 nodes): `XpBar.tsx`, `XpBar()`
+- **Thin community `Community 24`** (2 nodes): `XpBar.tsx`, `XpBar()`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 24`** (1 nodes): `next-env.d.ts`
+- **Thin community `Community 25`** (1 nodes): `next-env.d.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 25`** (1 nodes): `next.config.js`
+- **Thin community `Community 26`** (1 nodes): `next.config.js`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 26`** (1 nodes): `playwright.config.ts`
+- **Thin community `Community 27`** (1 nodes): `playwright.config.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 27`** (1 nodes): `postcss.config.mjs`
+- **Thin community `Community 28`** (1 nodes): `postcss.config.mjs`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 28`** (1 nodes): `vitest.config.ts`
+- **Thin community `Community 29`** (1 nodes): `vitest.config.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 29`** (1 nodes): `page.tsx`
+- **Thin community `Community 30`** (1 nodes): `page.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 30`** (1 nodes): `exercise_selector.ts`
+- **Thin community `Community 31`** (1 nodes): `exercise_selector.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 31`** (1 nodes): `session_runner.ts`
+- **Thin community `Community 32`** (1 nodes): `session_runner.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 32`** (1 nodes): `BentoCard.tsx`
+- **Thin community `Community 33`** (1 nodes): `BentoCard.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 33`** (1 nodes): `Button.tsx`
+- **Thin community `Community 34`** (1 nodes): `Button.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 34`** (1 nodes): `index.ts`
+- **Thin community `Community 35`** (1 nodes): `index.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 35`** (1 nodes): `ProgressCircle.tsx`
+- **Thin community `Community 36`** (1 nodes): `ProgressCircle.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 36`** (1 nodes): `SkillCard.tsx`
+- **Thin community `Community 37`** (1 nodes): `SkillCard.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 37`** (1 nodes): `static_content.ts`
+- **Thin community `Community 38`** (1 nodes): `static_content.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 38`** (1 nodes): `reading_session_runner.ts`
+- **Thin community `Community 39`** (1 nodes): `reading_session_runner.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 39`** (1 nodes): `reading_unit.ts`
+- **Thin community `Community 40`** (1 nodes): `reading_unit.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 40`** (1 nodes): `all-pages.spec.ts`
+- **Thin community `Community 41`** (1 nodes): `all-pages.spec.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 41`** (1 nodes): `dashboard-progress.spec.ts`
+- **Thin community `Community 42`** (1 nodes): `dashboard-progress.spec.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 42`** (1 nodes): `dashboard-responsive.spec.ts`
+- **Thin community `Community 43`** (1 nodes): `dashboard-responsive.spec.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 43`** (1 nodes): `dashboard-screenshot.spec.ts`
+- **Thin community `Community 44`** (1 nodes): `dashboard-screenshot.spec.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 44`** (1 nodes): `lengua-practice-links.spec.ts`
+- **Thin community `Community 45`** (1 nodes): `lengua-practice-links.spec.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `getNextStepRecommendation()` connect `Community 2` to `Community 5`, `Community 7`?**
-  _High betweenness centrality (0.070) - this node is a cross-community bridge._
-- **Why does `loadLenguaExercises()` connect `Community 4` to `Community 0`, `Community 1`, `Community 2`, `Community 3`, `Community 5`?**
-  _High betweenness centrality (0.052) - this node is a cross-community bridge._
-- **Why does `buildMasteryModel()` connect `Community 2` to `Community 0`, `Community 5`, `Community 7`?**
-  _High betweenness centrality (0.048) - this node is a cross-community bridge._
+- **Why does `getNextStepRecommendation()` connect `Community 4` to `Community 8`, `Community 6`, `Community 7`?**
+  _High betweenness centrality (0.076) - this node is a cross-community bridge._
+- **Why does `loadLenguaExercises()` connect `Community 2` to `Community 0`, `Community 1`, `Community 3`, `Community 4`?**
+  _High betweenness centrality (0.051) - this node is a cross-community bridge._
+- **Why does `pickReadingUnitCandidate()` connect `Community 4` to `Community 0`, `Community 2`?**
+  _High betweenness centrality (0.049) - this node is a cross-community bridge._
 - **Are the 2 inferred relationships involving `loadContentLenguaExercises()` (e.g. with `normalizeSkillId()` and `normalizeSubskillId()`) actually correct?**
   _`loadContentLenguaExercises()` has 2 INFERRED edges - model-reasoned connections that need verification._
 - **Are the 3 inferred relationships involving `selectNextExerciseDetailed()` (e.g. with `buildPlannedSessionExercises()` and `startPracticeSession()`) actually correct?**

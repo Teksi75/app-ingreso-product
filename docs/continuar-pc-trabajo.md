@@ -1,6 +1,6 @@
 # Continuar el proyecto en la PC del trabajo
 
-Guia para retomar el proyecto en la otra PC, donde ya se venia trabajando hasta las 16.
+Guia para retomar el proyecto en otra PC.
 
 ## 1. Abrir el proyecto
 
@@ -30,7 +30,7 @@ Ejecutar siempre que cambie `package.json` o `package-lock.json`:
 npm install
 ```
 
-Esto instala tambien `@playwright/test`, que quedo agregado como dependencia de desarrollo para testing automatico.
+Esto instala tambien `@playwright/test` y `vitest`, que se usan para validacion E2E y unitaria.
 
 ## 3. Instalar Chromium para Playwright
 
@@ -50,7 +50,13 @@ Solo hace falta repetirlo si Playwright avisa que falta el browser, si se borro 
 
 ## 4. Verificar que el proyecto esta sano
 
-Primero TypeScript:
+Primero tests unitarios de dominio:
+
+```powershell
+npm run test:unit
+```
+
+Despues TypeScript. El comando genera primero tipos de rutas de Next:
 
 ```powershell
 npm run typecheck
@@ -68,11 +74,14 @@ Despues prueba automatica en Chromium:
 npm run test:e2e
 ```
 
-La prueba actual valida que el dashboard muestre datos utiles:
+Las pruebas actuales validan, entre otros puntos:
 
 - `Practicas`: cantidad de sesiones de practica registradas para la habilidad.
 - `Respuestas`: cantidad real de preguntas respondidas.
 - `Precision`: porcentaje calculado con respuestas correctas / respuestas totales.
+- Recomendacion de siguiente paso en dashboard.
+- URLs publicas con slugs para habilidades/lecturas.
+- Compatibilidad con URLs legacy que usan IDs tecnicos.
 
 ## 5. Levantar la app
 
@@ -97,21 +106,29 @@ Pantallas importantes:
 
 Ultimos cambios relevantes:
 
-- Despues de completar las 10 preguntas, la pantalla final muestra un boton `Ver avance y progreso`.
-- Ese boton lleva al dashboard.
-- El dashboard ya no usa una columna ambigua de `Intentos`.
-- Ahora muestra `Practicas` y `Respuestas`.
-- Se agrego Playwright para pruebas automaticas con Chromium.
-- Se agrego una prueba E2E en `tests/e2e/dashboard-progress.spec.ts`.
-- Se agrego configuracion en `playwright.config.ts`.
+- Homepage, dashboard y simulador usan `buildMasteryModel()` y `getNextStepRecommendation()` como fuente canonica.
+- El simulador guarda progreso con `mode: "simulator"` y devuelve recomendacion posterior.
+- Las sesiones reading-based cierran con resumen de texto, comprension lectora y glosario.
+- Las URLs nuevas usan slugs publicos (`comprension-global-del-texto`, `violeta-parra-la-voz-que-pintaba-canciones`) y aceptan IDs tecnicos legacy.
+- Skill 3 sumo ejercicios `multiple_choice` compatibles con simulador.
+- Se agrego Vitest y tests unitarios para `next_step`.
 
 ## 7. Archivos que conviene revisar si algo falla
 
 - `src/app/practice/PracticeQuestion.tsx`: pantalla de practica y final de sesion.
+- `src/app/practice/page.tsx`: resolucion de slugs/IDs y apertura de sesiones.
 - `src/app/dashboard/page.tsx`: calculo de metricas del dashboard.
+- `src/app/page.tsx`: home gamificada y recomendacion principal.
+- `src/app/simulaciones/page.tsx`: guardado de simulador y recomendacion posterior.
+- `src/recommendation/next_step.ts`: contrato canonico de siguiente paso.
+- `src/progress/mastery_model.ts`: interpretacion canonica de progreso.
+- `src/skills/skill_slugs.ts`: slugs publicos y compatibilidad con IDs legacy.
 - `src/components/dashboard/SkillItem.tsx`: render de `Precision`, `Practicas` y `Respuestas`.
 - `playwright.config.ts`: configuracion de Playwright.
+- `vitest.config.ts`: configuracion de Vitest.
 - `tests/e2e/dashboard-progress.spec.ts`: prueba automatica del dashboard.
+- `tests/e2e/lengua-practice-links.spec.ts`: pruebas de links de practica/lectura.
+- `src/recommendation/__tests__/next_step.test.ts`: tests unitarios de recomendacion.
 - `data/progress.json`: datos locales de progreso.
 
 ## 8. Cuidado con data/progress.json
@@ -152,8 +169,9 @@ Para retomar rapido en la PC del trabajo:
 cd C:\Users\pablo\OneDrive\Desarrollo\app-ingreso-product
 npm install
 npm run test:e2e:install
+npm run test:unit
 npm run typecheck
+npm run build
 npm run test:e2e
 npm run dev
 ```
-

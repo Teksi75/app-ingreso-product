@@ -1,71 +1,84 @@
 # Product Roadmap - App Ingreso
 
-## Fase 1 - Fundamentos (Definición del sistema)
+Estado actualizado: 2026-04-25.
 
-Objetivo: construir la base conceptual del producto (sin código).
+## Estado actual
 
-- Definición del sistema de habilidades (skills_map (canónico))
-- Modelo pedagógico (entrenamiento vs enseñanza)
-- Tipos de ejercicios por habilidad
-- Definición de errores frecuentes por habilidad
-- Diseño del sistema de feedback inmediato
-- Definición de niveles de dominio (inicial / progreso / dominado)
+El producto ya supero la etapa de UI estática. Hoy tiene un MVP funcional de Lengua:
 
-Resultado esperado:
-→ Sistema claro que permita mapear cualquier ejercicio a una habilidad
+- práctica standalone por skill/subskill;
+- sesiones reading-based con texto base canónico;
+- simulador de Lengua con bloques de lectura y ejercicios standalone;
+- progreso local persistido;
+- modelo de mastery por skill/subskill;
+- recomendación canónica de siguiente paso;
+- URLs públicas con slugs y compatibilidad con IDs técnicos legacy;
+- tests unitarios de recomendación y E2E de flujos principales.
 
----
-
-## Fase 2 - MVP (Primer sistema funcional)
-
-Objetivo: construir un producto usable sin lógica compleja.
-
-- Motor de ejercicios simple (sin adaptatividad)
-- Ejercicios estáticos organizados por habilidad
-- Diagnóstico inicial básico (no adaptativo)
-- Sistema de respuesta + feedback inmediato
-- Primer simulador (sin personalización)
-- Registro básico de resultados (local o simple backend)
-
-Resultado esperado:
-→ Usuario puede practicar y hacer un simulador completo
+Matemática, backend, cuentas, pagos y persistencia remota siguen fuera del corto plazo.
 
 ---
 
-## Fase 3 - Iteración (Inteligencia del sistema)
+## Fase A - Estabilización técnica y trazabilidad
 
-Objetivo: mejorar el producto a nivel de aprendizaje real.
+Objetivo: mantener el estado verde y la documentación/grafo alineados con el código.
 
-- Sistema adaptativo (repetición según errores)
-- Identificación de debilidades por habilidad
-- Métricas de progreso por habilidad
-- Mejora del feedback (explicaciones + guía)
-- Ajuste dinámico de dificultad
-- Mejora de UX para reducir fricción
+- Ejecutar antes de cerrar cambios: `npm run test:unit`, `npm run typecheck`, `npm run build`, `npm run test:e2e`.
+- Actualizar `graphify-out/` después de cambios relevantes.
+- Mantener `README.md`, `docs/continuar-pc-trabajo.md` y `docs/analysis/*` sincronizados.
+- Agregar tests unitarios para `skill_slugs.ts`.
 
 Resultado esperado:
-→ Sistema que detecta y corrige debilidades automáticamente
+→ El proyecto queda retomable desde cualquier PC sin reconstruir contexto.
 
 ---
 
-## Fase 4 - Escalado (Producto sólido y comercial)
+## Fase B - Cierre de navegación pública
 
-Objetivo: optimizar, expandir y preparar para crecimiento.
+Objetivo: que la experiencia no exponga IDs técnicos y que las URLs sean estables.
 
-- Optimización del rendimiento
-- Ampliación del banco de ejercicios
-- Nuevas habilidades (según datos reales)
-- Dashboard para padres (uso + progreso)
-- Ajustes comerciales (pricing, acceso, etc.)
-- Mejora continua basada en métricas
+- Mantener links nuevos con slugs para skills y reading units.
+- Mantener soporte legacy para `lengua.skill_*` y `RU-LEN-*`.
+- Cubrir slugs con unit tests y E2E.
+- Evaluar si los slugs de reading units deben fijarse manualmente en vez de derivarse del título.
 
 Resultado esperado:
-→ Producto robusto, escalable y vendible
+→ Navegación pública clara, testeada y compatible hacia atrás.
 
 ---
 
-## Expansión futura
+## Fase C - Cobertura pedagógica y simulador
 
-- Incorporación de módulo de Matemática
-- Definición de habilidades específicas (cálculo, resolución de problemas, etc.)
-- Adaptación del motor de ejercicios a lógica matemática
+Objetivo: reducir sesgos de contenido y asegurar que todas las skills canónicas entren al simulador.
+
+- Verificar por test que `lengua.skill_3` puede aparecer en sesiones de simulador.
+- Ampliar reading units para cubrir mejor skill 3, skill 5 y skill 7.
+- Crear una reading unit nueva que cruce escritura clara + uso de verbos.
+- Regenerar `src/data/static_content.ts` con `npm run build` o `npm run prebuild`.
+- Auditar dificultad, glosario y feedback de nuevos contenidos.
+
+Resultado esperado:
+→ Simulador y práctica reflejan mejor el mapa de skills, no solo comprensión global.
+
+---
+
+## Fase D - Reporte para padres
+
+Objetivo: convertir el bloque de reporte en una vista útil sin introducir datos sensibles.
+
+- Métricas agregadas: días activos, ejercicios, precisión global.
+- Progreso por skill con labels legibles.
+- Siguiente paso recomendado en lenguaje general.
+- Evitar claims de mejora garantizada o referencias oficiales.
+
+Resultado esperado:
+→ Vista de seguimiento simple y prudente para adultos responsables.
+
+---
+
+## Futuro
+
+- Backend y persistencia real.
+- Cuentas/autenticación.
+- Pagos o acceso comercial.
+- Módulo de Matemática.
