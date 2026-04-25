@@ -7,7 +7,9 @@
  */
 
 import Link from "next/link";
+import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
+import { withProgressCode } from "@/app/progress_code_href";
 
 const navItems = [
   { id: "home", label: "Inicio", href: "/" },
@@ -58,6 +60,7 @@ const iconMap: Record<string, React.FC<{ className?: string }>> = {
 
 export function BottomNav() {
   const pathname = usePathname();
+  const progressCode = useProgressCodeFromLocation(pathname);
 
   return (
     <nav
@@ -72,7 +75,7 @@ export function BottomNav() {
           return (
             <Link
               key={item.id}
-              href={item.href}
+              href={withProgressCode(item.href, progressCode)}
               className={`
                 flex flex-col items-center justify-center gap-1 
                 min-w-[3.5rem] min-h-[3.5rem] rounded-xl
@@ -106,4 +109,15 @@ export function BottomNav() {
       </div>
     </nav>
   );
+}
+
+function useProgressCodeFromLocation(pathname: string): string | null {
+  const [progressCode, setProgressCode] = useState<string | null>(null);
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    setProgressCode(params.get("code") ?? params.get("student"));
+  }, [pathname]);
+
+  return progressCode;
 }

@@ -8,6 +8,7 @@ import {
 } from "@/components/ui";
 import { type NextStepRecommendation } from "../../recommendation/next_step";
 import { getSkillMetadata } from "../../skills/skill_metadata";
+import { withProgressCode } from "../progress_code_href";
 
 export type PublicSimulatorExercise = {
   id: string;
@@ -61,13 +62,14 @@ export type SimulatorSaveResult = {
 };
 
 type SimulatorQuestionProps = {
+  progressCode?: string;
   session: PublicSimulatorSession;
   saveProgress: (answers: SimulatorAnswerInput[]) => Promise<SimulatorSaveResult>;
 };
 
 type SimulatorStage = "start" | "running" | "finished";
 
-export function SimulatorQuestion({ session, saveProgress }: SimulatorQuestionProps) {
+export function SimulatorQuestion({ progressCode, session, saveProgress }: SimulatorQuestionProps) {
   const [stage, setStage] = useState<SimulatorStage>("start");
   const [currentIndex, setCurrentIndex] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState("");
@@ -191,7 +193,7 @@ export function SimulatorQuestion({ session, saveProgress }: SimulatorQuestionPr
             />
           ) : null}
           {stage === "finished" && result ? (
-            <ResultPanel result={result} />
+            <ResultPanel progressCode={progressCode} result={result} />
           ) : null}
         </section>
       </main>
@@ -372,7 +374,7 @@ function QuestionPanel({
   );
 }
 
-function ResultPanel({ result }: { result: SimulatorSaveResult }) {
+function ResultPanel({ progressCode, result }: { progressCode?: string; result: SimulatorSaveResult }) {
   const recommendation = result.recommendation;
 
   return (
@@ -414,7 +416,7 @@ function ResultPanel({ result }: { result: SimulatorSaveResult }) {
           <p className="text-sm font-semibold text-amber-700">Siguiente paso recomendado</p>
           <p className="font-bold text-slate-800">{recommendation.title}</p>
           <p className="text-sm leading-5 text-slate-600">{recommendation.reason}</p>
-          <Button href={recommendation.href} variant="primary" size="md">
+          <Button href={withProgressCode(recommendation.href, progressCode)} variant="primary" size="md">
             {recommendation.ctaLabel}
           </Button>
         </div>

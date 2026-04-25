@@ -14,11 +14,13 @@ import {
 import { getSkillMetadata } from "../../skills/skill_metadata";
 import { canonicalIdToSlug, readingUnitIdToSlug } from "../../skills/skill_slugs";
 import { type ReadingUnit } from "../../types/reading_unit";
+import { withProgressCode } from "../progress_code_href";
 
 type PracticeQuestionProps = {
   session: PracticeSelection;
   masteryMap: MasteryNode[];
   restartHref: string;
+  progressCode?: string;
   saveProgress: (input: PracticeSessionProgressInput) => Promise<PracticeSessionProgressResult>;
 };
 
@@ -32,6 +34,7 @@ const MAX_QUESTIONS = 10;
 export function PracticeQuestion({
   session,
   masteryMap,
+  progressCode,
   restartHref,
   saveProgress,
 }: PracticeQuestionProps) {
@@ -192,9 +195,10 @@ export function PracticeQuestion({
           currentExercise.subskill,
           usedExercises,
           { mode: session.mode, readingUnitId: session.readingUnit?.id },
+          progressCode,
         );
     const recommendedHref = recommendedSubskill
-      ? buildPracticeHref(recommendedSubskill.parentSkill, recommendedSubskill.id, [], { mode: "training" })
+      ? buildPracticeHref(recommendedSubskill.parentSkill, recommendedSubskill.id, [], { mode: "training" }, progressCode)
       : restartHref;
     const readingUnit = session.readingUnit;
     const isReadingSession = session.sessionType === "reading-based" && Boolean(readingUnit);
@@ -262,7 +266,7 @@ export function PracticeQuestion({
             >
               Ver mapa de dominio completo
             </Button>
-            <Button href="/dashboard" variant="ghost" size="md" fullWidth>
+            <Button href={withProgressCode("/dashboard", progressCode)} variant="ghost" size="md" fullWidth>
               Ver avance y progreso
             </Button>
           </div>
@@ -860,6 +864,7 @@ function buildPracticeHref(
   focus: string,
   usedExerciseIds: string[],
   context: { mode: PracticeSelection["mode"]; readingUnitId?: string },
+  progressCode?: string,
 ): string {
   const params = new URLSearchParams({
     skill: canonicalIdToSlug(skillId),
@@ -875,7 +880,7 @@ function buildPracticeHref(
     params.set("used", Array.from(new Set(usedExerciseIds)).join(","));
   }
 
-  return `/practice?${params.toString()}`;
+  return withProgressCode(`/practice?${params.toString()}`, progressCode);
 }
 
 function buildFocusResults(

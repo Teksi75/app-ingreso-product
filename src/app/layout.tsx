@@ -42,7 +42,7 @@ type RootLayoutProps = {
 
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <html lang="es" className="scroll-smooth">
+    <html lang="es" className="scroll-smooth" data-scroll-behavior="smooth">
       <head>
         {/* Preconnect para fuentes de Google */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />

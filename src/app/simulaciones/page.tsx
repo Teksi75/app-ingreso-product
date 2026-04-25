@@ -19,7 +19,9 @@ type SimulacionesPageProps = {
 
 export default async function SimulacionesPage({ searchParams }: SimulacionesPageProps) {
   const params = await searchParams;
-  const studentCode = await resolveStudentCode(getParam(params.code) ?? getParam(params.student));
+  const explicitCode = getParam(params.code) ?? getParam(params.student);
+  const studentCode = await resolveStudentCode(explicitCode);
+  const progressCode = explicitCode ? studentCode : undefined;
   const session = createSimulatorSession();
 
   async function saveProgress(answers: SimulatorAnswer[]): Promise<SimulatorSaveResult> {
@@ -48,6 +50,7 @@ export default async function SimulacionesPage({ searchParams }: SimulacionesPag
 
   return (
     <SimulatorQuestion
+      progressCode={progressCode}
       session={toPublicSimulatorSession(session)}
       saveProgress={saveProgress}
     />

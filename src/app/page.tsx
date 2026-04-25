@@ -10,6 +10,7 @@ import {
 } from "@/components/ui";
 import { ClientStudentName } from "@/components/dashboard/ClientStudentName";
 import { ClientAvatarHero } from "@/components/dashboard/ClientAvatarHero";
+import { ClientAvatarBadge } from "@/components/dashboard/ClientAvatarBadge";
 import {
   CANONICAL_LENGUA_SKILLS,
   buildMasteryModel,
@@ -19,6 +20,7 @@ import { getWeakestPracticeSkillId } from "@/storage/local_progress_store";
 import { canonicalIdToSlug } from "@/skills/skill_slugs";
 import { getSkillMetadata } from "@/skills/skill_metadata";
 import { resolveStudentCode } from "@/app/student_identity";
+import { withProgressCode } from "@/app/progress_code_href";
 
 export const dynamic = "force-dynamic";
 
@@ -167,6 +169,7 @@ export default async function DashboardPage({ searchParams }: HomePageProps) {
   const params = await searchParams;
   const explicitCode = getParam(params.code) ?? getParam(params.student);
   const studentCode = await resolveStudentCode(explicitCode);
+  const progressCode = explicitCode ? studentCode : undefined;
   const newStudent = Array.isArray(params.newStudent) ? params.newStudent[0] : params.newStudent;
   const progress = isEnabledParam(newStudent) ? createEmptyProgress() : await loadProgressAsync(studentCode);
   const { student, skills, dailyChallenge, nextSimulation, weeklyProgress, stats, weakestSkillHref, skillProgress, recentSessionsCount } =
@@ -186,7 +189,7 @@ export default async function DashboardPage({ searchParams }: HomePageProps) {
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-3">
                 <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-teal-100 to-teal-200 flex items-center justify-center text-2xl">
-                  🎓
+                  <ClientAvatarBadge />
                 </div>
                 <div>
                   <p className="m-0 text-xs font-semibold text-slate-500">
@@ -236,10 +239,10 @@ export default async function DashboardPage({ searchParams }: HomePageProps) {
                         : "Empieza tu entrenamiento hoy para ver tu progreso."}
                     </p>
                     <div className="flex flex-wrap gap-2 justify-center sm:justify-start">
-                      <Button href={weakestSkillHref} variant="primary" size="md" icon={<span>⚡</span>}>
+                      <Button href={withProgressCode(weakestSkillHref, progressCode)} variant="primary" size="md" icon={<span>⚡</span>}>
                         {stats.totalAttempts > 0 ? "Continuar Lengua" : "Iniciar Entrenamiento"}
                       </Button>
-                      <Button href={dailyChallenge.href} variant="secondary" size="md">
+                      <Button href={withProgressCode(dailyChallenge.href, progressCode)} variant="secondary" size="md">
                         Ver Desafío
                       </Button>
                     </div>
@@ -276,7 +279,7 @@ export default async function DashboardPage({ searchParams }: HomePageProps) {
             <div className="flex items-center justify-between mb-4">
               <h2 className="text-lg font-bold text-slate-800">Habilidades Recomendadas</h2>
               <a
-                href="/habilidades"
+                href={withProgressCode("/habilidades", progressCode)}
                 className="text-teal-600 text-sm font-semibold hover:text-teal-700 flex items-center gap-1"
               >
                 Ver todas
@@ -332,7 +335,7 @@ export default async function DashboardPage({ searchParams }: HomePageProps) {
                       <Button
                         disabled={!skill.isAvailable}
                         fullWidth
-                        href={skill.practiceHref}
+                        href={withProgressCode(skill.practiceHref, progressCode)}
                         size="sm"
                         variant={index === 0 ? "secondary" : "primary"}
                         className={`
@@ -373,7 +376,7 @@ export default async function DashboardPage({ searchParams }: HomePageProps) {
                 <span className="px-2 py-1 bg-slate-100 text-slate-600 text-xs rounded">
                   {dailyChallenge.difficulty}
                 </span>
-                <Button href={dailyChallenge.href} variant="accent" size="sm">
+                <Button href={withProgressCode(dailyChallenge.href, progressCode)} variant="accent" size="sm">
                   {dailyChallenge.ctaLabel}
                 </Button>
               </div>
@@ -404,7 +407,7 @@ export default async function DashboardPage({ searchParams }: HomePageProps) {
                     </span>
                   ))}
                 </div>
-                <Button href={nextSimulation.href} variant="secondary" size="sm" fullWidth className="mt-2">
+                <Button href={withProgressCode(nextSimulation.href, progressCode)} variant="secondary" size="sm" fullWidth className="mt-2">
                   Ver detalles
                 </Button>
               </div>
@@ -479,10 +482,10 @@ export default async function DashboardPage({ searchParams }: HomePageProps) {
                     </div>
                   </div>
                   <div className="flex gap-2">
-                    <Button href="/perfil" variant="secondary" size="sm" fullWidth>
+                    <Button href={withProgressCode("/perfil", progressCode)} variant="secondary" size="sm" fullWidth>
                       Personalizar
                     </Button>
-                    <Button href="/progreso" variant="ghost" size="sm">
+                    <Button href={withProgressCode("/progreso", progressCode)} variant="ghost" size="sm">
                       Logros
                     </Button>
                   </div>

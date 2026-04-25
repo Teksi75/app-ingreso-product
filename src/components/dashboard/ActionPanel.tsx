@@ -1,13 +1,15 @@
 import Link from "next/link";
 import { type NextStepRecommendation } from "../../recommendation/next_step";
+import { withProgressCode } from "../../app/progress_code_href";
 
 type ActionPanelProps = {
   isNewStudent?: boolean;
+  progressCode?: string;
   recommendation: NextStepRecommendation;
 };
 
-export function ActionPanel({ isNewStudent = false, recommendation }: ActionPanelProps) {
-  const href = withNewStudentParam(recommendation.href, isNewStudent);
+export function ActionPanel({ isNewStudent = false, progressCode, recommendation }: ActionPanelProps) {
+  const href = withProgressCode(withNewStudentParam(recommendation.href, isNewStudent), progressCode);
 
   return (
     <section className="flex flex-wrap items-center justify-between gap-4 rounded-lg bg-[#1d1d1b] px-5 py-[18px] text-white">

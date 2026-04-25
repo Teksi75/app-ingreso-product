@@ -9,7 +9,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\middleware.ts",
       "source_location": "L1",
       "id": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_middleware_ts",
-      "community": 15,
+      "community": 9,
       "norm_label": "middleware.ts"
     },
     {
@@ -18,7 +18,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\middleware.ts",
       "source_location": "L5",
       "id": "middleware_middleware",
-      "community": 15,
+      "community": 9,
       "norm_label": "middleware()"
     },
     {
@@ -27,7 +27,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\middleware.ts",
       "source_location": "L28",
       "id": "middleware_createprogresscode",
-      "community": 15,
+      "community": 9,
       "norm_label": "createprogresscode()"
     },
     {
@@ -36,7 +36,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\middleware.ts",
       "source_location": "L33",
       "id": "middleware_normalizeprogresscode",
-      "community": 15,
+      "community": 9,
       "norm_label": "normalizeprogresscode()"
     },
     {
@@ -45,16 +45,16 @@
       "source_file": "next-env.d.ts",
       "source_location": "L1",
       "id": "next_env_d_ts",
-      "community": 25,
+      "community": 24,
       "norm_label": "next-env.d.ts"
     },
     {
       "label": "next.config.js",
       "file_type": "code",
-      "source_file": "next.config.js",
+      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\next.config.js",
       "source_location": "L1",
-      "id": "next_config_js",
-      "community": 26,
+      "id": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_next_config_js",
+      "community": 25,
       "norm_label": "next.config.js"
     },
     {
@@ -63,7 +63,7 @@
       "source_file": "playwright.config.ts",
       "source_location": "L1",
       "id": "playwright_config_ts",
-      "community": 27,
+      "community": 26,
       "norm_label": "playwright.config.ts"
     },
     {
@@ -72,7 +72,7 @@
       "source_file": "postcss.config.mjs",
       "source_location": "L1",
       "id": "postcss_config_mjs",
-      "community": 28,
+      "community": 27,
       "norm_label": "postcss.config.mjs"
     },
     {
@@ -81,7 +81,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\vitest.config.ts",
       "source_location": "L1",
       "id": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_vitest_config_ts",
-      "community": 29,
+      "community": 28,
       "norm_label": "vitest.config.ts"
     },
     {
@@ -123,19 +123,19 @@
     {
       "label": "layout.tsx",
       "file_type": "code",
-      "source_file": "src\\app\\layout.tsx",
+      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\app\\layout.tsx",
       "source_location": "L1",
-      "id": "src_app_layout_tsx",
-      "community": 18,
+      "id": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_app_layout_tsx",
+      "community": 17,
       "norm_label": "layout.tsx"
     },
     {
       "label": "RootLayout()",
       "file_type": "code",
-      "source_file": "src\\app\\layout.tsx",
+      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\app\\layout.tsx",
       "source_location": "L43",
       "id": "layout_rootlayout",
-      "community": 18,
+      "community": 17,
       "norm_label": "rootlayout()"
     },
     {
@@ -144,44 +144,62 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\app\\page.tsx",
       "source_location": "L1",
       "id": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_app_page_tsx",
-      "community": 1,
+      "community": 4,
       "norm_label": "page.tsx"
     },
     {
       "label": "getRank()",
       "file_type": "code",
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\app\\page.tsx",
-      "source_location": "L25",
+      "source_location": "L27",
       "id": "page_getrank",
-      "community": 1,
+      "community": 4,
       "norm_label": "getrank()"
     },
     {
       "label": "calculateDashboardData()",
       "file_type": "code",
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\app\\page.tsx",
-      "source_location": "L33",
+      "source_location": "L35",
       "id": "page_calculatedashboarddata",
-      "community": 1,
+      "community": 4,
       "norm_label": "calculatedashboarddata()"
     },
     {
       "label": "MathIcon()",
       "file_type": "code",
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\app\\page.tsx",
-      "source_location": "L146",
+      "source_location": "L148",
       "id": "page_mathicon",
-      "community": 1,
+      "community": 4,
       "norm_label": "mathicon()"
     },
     {
       "label": "LanguageIcon()",
       "file_type": "code",
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\app\\page.tsx",
-      "source_location": "L152",
+      "source_location": "L154",
       "id": "page_languageicon",
-      "community": 1,
+      "community": 4,
       "norm_label": "languageicon()"
+    },
+    {
+      "label": "progress_code_href.ts",
+      "file_type": "code",
+      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\app\\progress_code_href.ts",
+      "source_location": "L1",
+      "id": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_app_progress_code_href_ts",
+      "community": 6,
+      "norm_label": "progress_code_href.ts"
+    },
+    {
+      "label": "withProgressCode()",
+      "file_type": "code",
+      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\app\\progress_code_href.ts",
+      "source_location": "L1",
+      "id": "progress_code_href_withprogresscode",
+      "community": 6,
+      "norm_label": "withprogresscode()"
     },
     {
       "label": "progress_summary.ts",
@@ -189,7 +207,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\app\\progress_summary.ts",
       "source_location": "L1",
       "id": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_app_progress_summary_ts",
-      "community": 11,
+      "community": 5,
       "norm_label": "progress_summary.ts"
     },
     {
@@ -198,7 +216,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\app\\progress_summary.ts",
       "source_location": "L35",
       "id": "progress_summary_buildprogresssummary",
-      "community": 11,
+      "community": 5,
       "norm_label": "buildprogresssummary()"
     },
     {
@@ -207,7 +225,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\app\\progress_summary.ts",
       "source_location": "L74",
       "id": "progress_summary_formatduration",
-      "community": 11,
+      "community": 5,
       "norm_label": "formatduration()"
     },
     {
@@ -216,7 +234,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\app\\progress_summary.ts",
       "source_location": "L91",
       "id": "progress_summary_buildweeklydata",
-      "community": 11,
+      "community": 5,
       "norm_label": "buildweeklydata()"
     },
     {
@@ -225,7 +243,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\app\\progress_summary.ts",
       "source_location": "L113",
       "id": "progress_summary_getdaylabel",
-      "community": 11,
+      "community": 5,
       "norm_label": "getdaylabel()"
     },
     {
@@ -277,7 +295,7 @@
       "label": "DashboardPage()",
       "file_type": "code",
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\app\\dashboard\\page.tsx",
-      "source_location": "L33",
+      "source_location": "L34",
       "id": "page_dashboardpage",
       "community": 6,
       "norm_label": "dashboardpage()"
@@ -286,7 +304,7 @@
       "label": "getParam()",
       "file_type": "code",
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\app\\simulaciones\\page.tsx",
-      "source_location": "L93",
+      "source_location": "L96",
       "id": "page_getparam",
       "community": 6,
       "norm_label": "getparam()"
@@ -295,7 +313,7 @@
       "label": "createEmptyProgress()",
       "file_type": "code",
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\app\\dashboard\\page.tsx",
-      "source_location": "L129",
+      "source_location": "L132",
       "id": "page_createemptyprogress",
       "community": 6,
       "norm_label": "createemptyprogress()"
@@ -304,7 +322,7 @@
       "label": "withNewStudentParam()",
       "file_type": "code",
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\app\\dashboard\\page.tsx",
-      "source_location": "L137",
+      "source_location": "L140",
       "id": "page_withnewstudentparam",
       "community": 6,
       "norm_label": "withnewstudentparam()"
@@ -315,31 +333,31 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\app\\habilidades\\page.tsx",
       "source_location": "L1",
       "id": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_app_habilidades_page_tsx",
-      "community": 5,
+      "community": 3,
       "norm_label": "page.tsx"
     },
     {
       "label": "getSkillData()",
       "file_type": "code",
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\app\\habilidades\\page.tsx",
-      "source_location": "L13",
+      "source_location": "L14",
       "id": "page_getskilldata",
-      "community": 5,
+      "community": 3,
       "norm_label": "getskilldata()"
     },
     {
       "label": "page.tsx",
       "file_type": "code",
-      "source_file": "src\\app\\perfil\\page.tsx",
+      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\app\\perfil\\page.tsx",
       "source_location": "L1",
-      "id": "src_app_perfil_page_tsx",
+      "id": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_app_perfil_page_tsx",
       "community": 12,
       "norm_label": "page.tsx"
     },
     {
       "label": "handleSave()",
       "file_type": "code",
-      "source_file": "src\\app\\perfil\\page.tsx",
+      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\app\\perfil\\page.tsx",
       "source_location": "L84",
       "id": "page_handlesave",
       "community": 12,
@@ -348,7 +366,7 @@
     {
       "label": "updateForm()",
       "file_type": "code",
-      "source_file": "src\\app\\perfil\\page.tsx",
+      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\app\\perfil\\page.tsx",
       "source_location": "L96",
       "id": "page_updateform",
       "community": 12,
@@ -357,7 +375,7 @@
     {
       "label": "toggleSetting()",
       "file_type": "code",
-      "source_file": "src\\app\\perfil\\page.tsx",
+      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\app\\perfil\\page.tsx",
       "source_location": "L101",
       "id": "page_togglesetting",
       "community": 12,
@@ -366,7 +384,7 @@
     {
       "label": "handleReset()",
       "file_type": "code",
-      "source_file": "src\\app\\perfil\\page.tsx",
+      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\app\\perfil\\page.tsx",
       "source_location": "L106",
       "id": "page_handlereset",
       "community": 12,
@@ -385,43 +403,16 @@
       "label": "PracticePage()",
       "file_type": "code",
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\app\\practice\\page.tsx",
-      "source_location": "L32",
+      "source_location": "L33",
       "id": "page_practicepage",
       "community": 6,
       "norm_label": "practicepage()"
     },
     {
-      "label": "PracticeUnavailable()",
-      "file_type": "code",
-      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\app\\practice\\page.tsx",
-      "source_location": "L101",
-      "id": "page_practiceunavailable",
-      "community": 6,
-      "norm_label": "practiceunavailable()"
-    },
-    {
-      "label": "resolveSkillId()",
-      "file_type": "code",
-      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\app\\practice\\page.tsx",
-      "source_location": "L150",
-      "id": "page_resolveskillid",
-      "community": 6,
-      "norm_label": "resolveskillid()"
-    },
-    {
-      "label": "resolveReadingUnitId()",
-      "file_type": "code",
-      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\app\\practice\\page.tsx",
-      "source_location": "L163",
-      "id": "page_resolvereadingunitid",
-      "community": 6,
-      "norm_label": "resolvereadingunitid()"
-    },
-    {
       "label": "buildRestartHref()",
       "file_type": "code",
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\app\\practice\\page.tsx",
-      "source_location": "L176",
+      "source_location": "L181",
       "id": "page_buildrestarthref",
       "community": 6,
       "norm_label": "buildrestarthref()"
@@ -432,79 +423,79 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\app\\practice\\PracticeQuestion.tsx",
       "source_location": "L1",
       "id": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_app_practice_practicequestion_tsx",
-      "community": 8,
+      "community": 10,
       "norm_label": "practicequestion.tsx"
     },
     {
       "label": "handleSubmit()",
       "file_type": "code",
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\app\\practice\\PracticeQuestion.tsx",
-      "source_location": "L100",
+      "source_location": "L103",
       "id": "practicequestion_handlesubmit",
-      "community": 8,
+      "community": 10,
       "norm_label": "handlesubmit()"
     },
     {
       "label": "handleAnswerChange()",
       "file_type": "code",
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\app\\practice\\PracticeQuestion.tsx",
-      "source_location": "L108",
+      "source_location": "L111",
       "id": "practicequestion_handleanswerchange",
-      "community": 8,
+      "community": 10,
       "norm_label": "handleanswerchange()"
     },
     {
       "label": "handleMultipleAnswerChange()",
       "file_type": "code",
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\app\\practice\\PracticeQuestion.tsx",
-      "source_location": "L113",
+      "source_location": "L116",
       "id": "practicequestion_handlemultipleanswerchange",
-      "community": 8,
+      "community": 10,
       "norm_label": "handlemultipleanswerchange()"
     },
     {
       "label": "handlePartAnswerChange()",
       "file_type": "code",
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\app\\practice\\PracticeQuestion.tsx",
-      "source_location": "L124",
+      "source_location": "L127",
       "id": "practicequestion_handlepartanswerchange",
-      "community": 8,
+      "community": 10,
       "norm_label": "handlepartanswerchange()"
     },
     {
       "label": "handleCategoryAnswerChange()",
       "file_type": "code",
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\app\\practice\\PracticeQuestion.tsx",
-      "source_location": "L129",
+      "source_location": "L132",
       "id": "practicequestion_handlecategoryanswerchange",
-      "community": 8,
+      "community": 10,
       "norm_label": "handlecategoryanswerchange()"
     },
     {
       "label": "handleNext()",
       "file_type": "code",
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\app\\practice\\PracticeQuestion.tsx",
-      "source_location": "L134",
+      "source_location": "L137",
       "id": "practicequestion_handlenext",
-      "community": 8,
+      "community": 10,
       "norm_label": "handlenext()"
     },
     {
       "label": "scrollToQuestion()",
       "file_type": "code",
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\app\\practice\\PracticeQuestion.tsx",
-      "source_location": "L397",
+      "source_location": "L401",
       "id": "practicequestion_scrolltoquestion",
-      "community": 8,
+      "community": 10,
       "norm_label": "scrolltoquestion()"
     },
     {
       "label": "handleGlossaryToggle()",
       "file_type": "code",
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\app\\practice\\PracticeQuestion.tsx",
-      "source_location": "L401",
+      "source_location": "L405",
       "id": "practicequestion_handleglossarytoggle",
-      "community": 8,
+      "community": 10,
       "norm_label": "handleglossarytoggle()"
     },
     {
@@ -513,7 +504,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\app\\progreso\\page.tsx",
       "source_location": "L1",
       "id": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_app_progreso_page_tsx",
-      "community": 30,
+      "community": 29,
       "norm_label": "page.tsx"
     },
     {
@@ -522,7 +513,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\app\\reporte\\page.tsx",
       "source_location": "L1",
       "id": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_app_reporte_page_tsx",
-      "community": 31,
+      "community": 30,
       "norm_label": "page.tsx"
     },
     {
@@ -531,7 +522,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\app\\reporte\\datos\\route.ts",
       "source_location": "L1",
       "id": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_app_reporte_datos_route_ts",
-      "community": 2,
+      "community": 9,
       "norm_label": "route.ts"
     },
     {
@@ -540,7 +531,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\app\\reporte\\datos\\route.ts",
       "source_location": "L8",
       "id": "route_get",
-      "community": 2,
+      "community": 9,
       "norm_label": "get()"
     },
     {
@@ -562,28 +553,10 @@
       "norm_label": "simulacionespage()"
     },
     {
-      "label": "toPublicSimulatorSession()",
-      "file_type": "code",
-      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\app\\simulaciones\\page.tsx",
-      "source_location": "L57",
-      "id": "page_topublicsimulatorsession",
-      "community": 6,
-      "norm_label": "topublicsimulatorsession()"
-    },
-    {
-      "label": "getStableShuffledOptions()",
-      "file_type": "code",
-      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\app\\simulaciones\\page.tsx",
-      "source_location": "L74",
-      "id": "page_getstableshuffledoptions",
-      "community": 6,
-      "norm_label": "getstableshuffledoptions()"
-    },
-    {
       "label": "getOptionRank()",
       "file_type": "code",
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\app\\simulaciones\\page.tsx",
-      "source_location": "L83",
+      "source_location": "L86",
       "id": "page_getoptionrank",
       "community": 6,
       "norm_label": "getoptionrank()"
@@ -601,7 +574,7 @@
       "label": "startSimulation()",
       "file_type": "code",
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\app\\simulaciones\\SimulatorQuestion.tsx",
-      "source_location": "L89",
+      "source_location": "L91",
       "id": "simulatorquestion_startsimulation",
       "community": 14,
       "norm_label": "startsimulation()"
@@ -610,7 +583,7 @@
       "label": "startBlockQuestions()",
       "file_type": "code",
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\app\\simulaciones\\SimulatorQuestion.tsx",
-      "source_location": "L104",
+      "source_location": "L106",
       "id": "simulatorquestion_startblockquestions",
       "community": 14,
       "norm_label": "startblockquestions()"
@@ -619,7 +592,7 @@
       "label": "goNext()",
       "file_type": "code",
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\app\\simulaciones\\SimulatorQuestion.tsx",
-      "source_location": "L109",
+      "source_location": "L111",
       "id": "simulatorquestion_gonext",
       "community": 14,
       "norm_label": "gonext()"
@@ -627,17 +600,17 @@
     {
       "label": "ActionPanel.tsx",
       "file_type": "code",
-      "source_file": "src\\components\\dashboard\\ActionPanel.tsx",
+      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\components\\dashboard\\ActionPanel.tsx",
       "source_location": "L1",
-      "id": "src_components_dashboard_actionpanel_tsx",
+      "id": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_components_dashboard_actionpanel_tsx",
       "community": 6,
       "norm_label": "actionpanel.tsx"
     },
     {
       "label": "ActionPanel()",
       "file_type": "code",
-      "source_file": "src\\components\\dashboard\\ActionPanel.tsx",
-      "source_location": "L9",
+      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\components\\dashboard\\ActionPanel.tsx",
+      "source_location": "L11",
       "id": "actionpanel_actionpanel",
       "community": 6,
       "norm_label": "actionpanel()"
@@ -645,11 +618,29 @@
     {
       "label": "withNewStudentParam()",
       "file_type": "code",
-      "source_file": "src\\components\\dashboard\\ActionPanel.tsx",
-      "source_location": "L36",
+      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\components\\dashboard\\ActionPanel.tsx",
+      "source_location": "L38",
       "id": "actionpanel_withnewstudentparam",
       "community": 6,
       "norm_label": "withnewstudentparam()"
+    },
+    {
+      "label": "ClientAvatarBadge.tsx",
+      "file_type": "code",
+      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\components\\dashboard\\ClientAvatarBadge.tsx",
+      "source_location": "L1",
+      "id": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_components_dashboard_clientavatarbadge_tsx",
+      "community": 7,
+      "norm_label": "clientavatarbadge.tsx"
+    },
+    {
+      "label": "ClientAvatarBadge()",
+      "file_type": "code",
+      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\components\\dashboard\\ClientAvatarBadge.tsx",
+      "source_location": "L5",
+      "id": "clientavatarbadge_clientavatarbadge",
+      "community": 7,
+      "norm_label": "clientavatarbadge()"
     },
     {
       "label": "ClientAvatarHero.tsx",
@@ -693,7 +684,7 @@
       "source_file": "src\\components\\dashboard\\Header.tsx",
       "source_location": "L1",
       "id": "src_components_dashboard_header_tsx",
-      "community": 19,
+      "community": 18,
       "norm_label": "header.tsx"
     },
     {
@@ -702,7 +693,7 @@
       "source_file": "src\\components\\dashboard\\Header.tsx",
       "source_location": "L5",
       "id": "header_header",
-      "community": 19,
+      "community": 18,
       "norm_label": "header()"
     },
     {
@@ -711,7 +702,7 @@
       "source_file": "src\\components\\dashboard\\SkillItem.tsx",
       "source_location": "L1",
       "id": "src_components_dashboard_skillitem_tsx",
-      "community": 1,
+      "community": 4,
       "norm_label": "skillitem.tsx"
     },
     {
@@ -720,7 +711,7 @@
       "source_file": "src\\components\\dashboard\\SkillItem.tsx",
       "source_location": "L16",
       "id": "skillitem_skillitem",
-      "community": 1,
+      "community": 4,
       "norm_label": "skillitem()"
     },
     {
@@ -729,7 +720,7 @@
       "source_file": "src\\components\\dashboard\\SkillList.tsx",
       "source_location": "L1",
       "id": "src_components_dashboard_skilllist_tsx",
-      "community": 20,
+      "community": 19,
       "norm_label": "skilllist.tsx"
     },
     {
@@ -738,7 +729,7 @@
       "source_file": "src\\components\\dashboard\\SkillList.tsx",
       "source_location": "L16",
       "id": "skilllist_skilllist",
-      "community": 20,
+      "community": 19,
       "norm_label": "skilllist()"
     },
     {
@@ -747,7 +738,7 @@
       "source_file": "src\\components\\dashboard\\SkillStatus.tsx",
       "source_location": "L1",
       "id": "src_components_dashboard_skillstatus_tsx",
-      "community": 21,
+      "community": 20,
       "norm_label": "skillstatus.tsx"
     },
     {
@@ -756,7 +747,7 @@
       "source_file": "src\\components\\dashboard\\SkillStatus.tsx",
       "source_location": "L28",
       "id": "skillstatus_skillstatus",
-      "community": 21,
+      "community": 20,
       "norm_label": "skillstatus()"
     },
     {
@@ -765,7 +756,7 @@
       "source_file": "src\\components\\practice\\exercise_selector.ts",
       "source_location": "L1",
       "id": "src_components_practice_exercise_selector_ts",
-      "community": 32,
+      "community": 31,
       "norm_label": "exercise_selector.ts"
     },
     {
@@ -774,7 +765,7 @@
       "source_file": "src\\components\\practice\\session_runner.ts",
       "source_location": "L1",
       "id": "src_components_practice_session_runner_ts",
-      "community": 33,
+      "community": 32,
       "norm_label": "session_runner.ts"
     },
     {
@@ -783,7 +774,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\components\\practice\\__tests__\\lengua_integration.test.ts",
       "source_location": "L1",
       "id": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_components_practice_tests_lengua_integration_test_ts",
-      "community": 4,
+      "community": 8,
       "norm_label": "lengua_integration.test.ts"
     },
     {
@@ -792,7 +783,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\components\\practice\\__tests__\\lengua_integration.test.ts",
       "source_location": "L34",
       "id": "lengua_integration_test_withmutedconsole",
-      "community": 4,
+      "community": 8,
       "norm_label": "withmutedconsole()"
     },
     {
@@ -801,7 +792,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\components\\practice\\__tests__\\lengua_integration.test.ts",
       "source_location": "L45",
       "id": "lengua_integration_test_buildexercise",
-      "community": 4,
+      "community": 8,
       "norm_label": "buildexercise()"
     },
     {
@@ -810,7 +801,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\components\\practice\\__tests__\\lengua_integration.test.ts",
       "source_location": "L67",
       "id": "lengua_integration_test_assertloadsalllenguajson",
-      "community": 4,
+      "community": 1,
       "norm_label": "assertloadsalllenguajson()"
     },
     {
@@ -819,7 +810,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\components\\practice\\__tests__\\lengua_integration.test.ts",
       "source_location": "L95",
       "id": "lengua_integration_test_assertnormalizedexerciseshape",
-      "community": 2,
+      "community": 1,
       "norm_label": "assertnormalizedexerciseshape()"
     },
     {
@@ -828,7 +819,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\components\\practice\\__tests__\\lengua_integration.test.ts",
       "source_location": "L132",
       "id": "lengua_integration_test_assertselectionrespectsprerequisitesandmastery",
-      "community": 4,
+      "community": 8,
       "norm_label": "assertselectionrespectsprerequisitesandmastery()"
     },
     {
@@ -837,7 +828,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\components\\practice\\__tests__\\lengua_integration.test.ts",
       "source_location": "L173",
       "id": "lengua_integration_test_assertsessionrunnerusescrossrelationships",
-      "community": 4,
+      "community": 8,
       "norm_label": "assertsessionrunnerusescrossrelationships()"
     },
     {
@@ -846,7 +837,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\components\\practice\\__tests__\\lengua_integration.test.ts",
       "source_location": "L200",
       "id": "lengua_integration_test_assertpracticesessionsusechoiceexercises",
-      "community": 4,
+      "community": 8,
       "norm_label": "assertpracticesessionsusechoiceexercises()"
     },
     {
@@ -855,7 +846,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\components\\practice\\__tests__\\lengua_integration.test.ts",
       "source_location": "L221",
       "id": "lengua_integration_test_assertreadingunitsessionssharebasetexts",
-      "community": 4,
+      "community": 8,
       "norm_label": "assertreadingunitsessionssharebasetexts()"
     },
     {
@@ -864,7 +855,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\components\\practice\\__tests__\\lengua_integration.test.ts",
       "source_location": "L255",
       "id": "lengua_integration_test_assertbiostimulusloadsasskilltraining",
-      "community": 4,
+      "community": 8,
       "norm_label": "assertbiostimulusloadsasskilltraining()"
     },
     {
@@ -882,7 +873,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\components\\practice\\__tests__\\lengua_integration.test.ts",
       "source_location": "L302",
       "id": "lengua_integration_test_assertreadingmodedatasetrunssequentially",
-      "community": 4,
+      "community": 8,
       "norm_label": "assertreadingmodedatasetrunssequentially()"
     },
     {
@@ -891,7 +882,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\components\\practice\\__tests__\\lengua_integration.test.ts",
       "source_location": "L319",
       "id": "lengua_integration_test_assertskillpracticecompletesreadingunitbeforefallback",
-      "community": 4,
+      "community": 8,
       "norm_label": "assertskillpracticecompletesreadingunitbeforefallback()"
     },
     {
@@ -900,7 +891,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\components\\practice\\__tests__\\lengua_integration.test.ts",
       "source_location": "L340",
       "id": "lengua_integration_test_asserttextpatternextractordoesnotreturnsourcetext",
-      "community": 9,
+      "community": 8,
       "norm_label": "asserttextpatternextractordoesnotreturnsourcetext()"
     },
     {
@@ -909,7 +900,7 @@
       "source_file": "src\\components\\ui\\AvatarHero.tsx",
       "source_location": "L1",
       "id": "src_components_ui_avatarhero_tsx",
-      "community": 22,
+      "community": 21,
       "norm_label": "avatarhero.tsx"
     },
     {
@@ -918,7 +909,7 @@
       "source_file": "src\\components\\ui\\AvatarHero.tsx",
       "source_location": "L37",
       "id": "avatarhero_avatarhero",
-      "community": 22,
+      "community": 21,
       "norm_label": "avatarhero()"
     },
     {
@@ -927,71 +918,62 @@
       "source_file": "src\\components\\ui\\BentoCard.tsx",
       "source_location": "L1",
       "id": "src_components_ui_bentocard_tsx",
-      "community": 34,
+      "community": 33,
       "norm_label": "bentocard.tsx"
     },
     {
       "label": "BottomNav.tsx",
       "file_type": "code",
-      "source_file": "src\\components\\ui\\BottomNav.tsx",
+      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\components\\ui\\BottomNav.tsx",
       "source_location": "L1",
-      "id": "src_components_ui_bottomnav_tsx",
-      "community": 10,
+      "id": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_components_ui_bottomnav_tsx",
+      "community": 11,
       "norm_label": "bottomnav.tsx"
     },
     {
       "label": "HomeIcon()",
       "file_type": "code",
-      "source_file": "src\\components\\ui\\BottomNav.tsx",
-      "source_location": "L21",
+      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\components\\ui\\BottomNav.tsx",
+      "source_location": "L23",
       "id": "bottomnav_homeicon",
-      "community": 10,
+      "community": 11,
       "norm_label": "homeicon()"
     },
     {
       "label": "SkillsIcon()",
       "file_type": "code",
-      "source_file": "src\\components\\ui\\BottomNav.tsx",
-      "source_location": "L27",
+      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\components\\ui\\BottomNav.tsx",
+      "source_location": "L29",
       "id": "bottomnav_skillsicon",
-      "community": 10,
+      "community": 11,
       "norm_label": "skillsicon()"
     },
     {
       "label": "SimulatorIcon()",
       "file_type": "code",
-      "source_file": "src\\components\\ui\\BottomNav.tsx",
-      "source_location": "L33",
+      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\components\\ui\\BottomNav.tsx",
+      "source_location": "L35",
       "id": "bottomnav_simulatoricon",
-      "community": 10,
+      "community": 11,
       "norm_label": "simulatoricon()"
     },
     {
       "label": "ProgressIcon()",
       "file_type": "code",
-      "source_file": "src\\components\\ui\\BottomNav.tsx",
-      "source_location": "L39",
+      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\components\\ui\\BottomNav.tsx",
+      "source_location": "L41",
       "id": "bottomnav_progressicon",
-      "community": 10,
+      "community": 11,
       "norm_label": "progressicon()"
     },
     {
       "label": "ProfileIcon()",
       "file_type": "code",
-      "source_file": "src\\components\\ui\\BottomNav.tsx",
-      "source_location": "L45",
+      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\components\\ui\\BottomNav.tsx",
+      "source_location": "L47",
       "id": "bottomnav_profileicon",
-      "community": 10,
+      "community": 11,
       "norm_label": "profileicon()"
-    },
-    {
-      "label": "BottomNav()",
-      "file_type": "code",
-      "source_file": "src\\components\\ui\\BottomNav.tsx",
-      "source_location": "L59",
-      "id": "bottomnav_bottomnav",
-      "community": 10,
-      "norm_label": "bottomnav()"
     },
     {
       "label": "Button.tsx",
@@ -999,7 +981,7 @@
       "source_file": "src\\components\\ui\\Button.tsx",
       "source_location": "L1",
       "id": "src_components_ui_button_tsx",
-      "community": 35,
+      "community": 34,
       "norm_label": "button.tsx"
     },
     {
@@ -1008,7 +990,7 @@
       "source_file": "src\\components\\ui\\index.ts",
       "source_location": "L1",
       "id": "src_components_ui_index_ts",
-      "community": 36,
+      "community": 35,
       "norm_label": "index.ts"
     },
     {
@@ -1017,23 +999,23 @@
       "source_file": "src\\components\\ui\\ProgressCircle.tsx",
       "source_location": "L1",
       "id": "src_components_ui_progresscircle_tsx",
-      "community": 37,
+      "community": 36,
       "norm_label": "progresscircle.tsx"
     },
     {
       "label": "SidebarNav.tsx",
       "file_type": "code",
-      "source_file": "src\\components\\ui\\SidebarNav.tsx",
+      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\components\\ui\\SidebarNav.tsx",
       "source_location": "L1",
-      "id": "src_components_ui_sidebarnav_tsx",
+      "id": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_components_ui_sidebarnav_tsx",
       "community": 7,
       "norm_label": "sidebarnav.tsx"
     },
     {
       "label": "HomeIcon()",
       "file_type": "code",
-      "source_file": "src\\components\\ui\\SidebarNav.tsx",
-      "source_location": "L21",
+      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\components\\ui\\SidebarNav.tsx",
+      "source_location": "L23",
       "id": "sidebarnav_homeicon",
       "community": 7,
       "norm_label": "homeicon()"
@@ -1041,8 +1023,8 @@
     {
       "label": "SkillsIcon()",
       "file_type": "code",
-      "source_file": "src\\components\\ui\\SidebarNav.tsx",
-      "source_location": "L27",
+      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\components\\ui\\SidebarNav.tsx",
+      "source_location": "L29",
       "id": "sidebarnav_skillsicon",
       "community": 7,
       "norm_label": "skillsicon()"
@@ -1050,8 +1032,8 @@
     {
       "label": "SimulatorIcon()",
       "file_type": "code",
-      "source_file": "src\\components\\ui\\SidebarNav.tsx",
-      "source_location": "L33",
+      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\components\\ui\\SidebarNav.tsx",
+      "source_location": "L35",
       "id": "sidebarnav_simulatoricon",
       "community": 7,
       "norm_label": "simulatoricon()"
@@ -1059,8 +1041,8 @@
     {
       "label": "ProgressIcon()",
       "file_type": "code",
-      "source_file": "src\\components\\ui\\SidebarNav.tsx",
-      "source_location": "L39",
+      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\components\\ui\\SidebarNav.tsx",
+      "source_location": "L41",
       "id": "sidebarnav_progressicon",
       "community": 7,
       "norm_label": "progressicon()"
@@ -1068,8 +1050,8 @@
     {
       "label": "ProfileIcon()",
       "file_type": "code",
-      "source_file": "src\\components\\ui\\SidebarNav.tsx",
-      "source_location": "L45",
+      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\components\\ui\\SidebarNav.tsx",
+      "source_location": "L47",
       "id": "sidebarnav_profileicon",
       "community": 7,
       "norm_label": "profileicon()"
@@ -1077,11 +1059,20 @@
     {
       "label": "SidebarNav()",
       "file_type": "code",
-      "source_file": "src\\components\\ui\\SidebarNav.tsx",
-      "source_location": "L59",
+      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\components\\ui\\SidebarNav.tsx",
+      "source_location": "L61",
       "id": "sidebarnav_sidebarnav",
       "community": 7,
       "norm_label": "sidebarnav()"
+    },
+    {
+      "label": "useProgressCodeFromLocation()",
+      "file_type": "code",
+      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\components\\ui\\SidebarNav.tsx",
+      "source_location": "L123",
+      "id": "sidebarnav_useprogresscodefromlocation",
+      "community": 7,
+      "norm_label": "useprogresscodefromlocation()"
     },
     {
       "label": "SkillCard.tsx",
@@ -1089,7 +1080,7 @@
       "source_file": "src\\components\\ui\\SkillCard.tsx",
       "source_location": "L1",
       "id": "src_components_ui_skillcard_tsx",
-      "community": 38,
+      "community": 37,
       "norm_label": "skillcard.tsx"
     },
     {
@@ -1098,7 +1089,7 @@
       "source_file": "src\\components\\ui\\StreakBadge.tsx",
       "source_location": "L1",
       "id": "src_components_ui_streakbadge_tsx",
-      "community": 23,
+      "community": 22,
       "norm_label": "streakbadge.tsx"
     },
     {
@@ -1107,7 +1098,7 @@
       "source_file": "src\\components\\ui\\StreakBadge.tsx",
       "source_location": "L62",
       "id": "streakbadge_getstreakcolor",
-      "community": 23,
+      "community": 22,
       "norm_label": "getstreakcolor()"
     },
     {
@@ -1116,7 +1107,7 @@
       "source_file": "src\\components\\ui\\XpBar.tsx",
       "source_location": "L1",
       "id": "src_components_ui_xpbar_tsx",
-      "community": 24,
+      "community": 23,
       "norm_label": "xpbar.tsx"
     },
     {
@@ -1125,7 +1116,7 @@
       "source_file": "src\\components\\ui\\XpBar.tsx",
       "source_location": "L31",
       "id": "xpbar_xpbar",
-      "community": 24,
+      "community": 23,
       "norm_label": "xpbar()"
     },
     {
@@ -1134,7 +1125,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\content_analysis\\content_quality.test.ts",
       "source_location": "L1",
       "id": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_content_analysis_content_quality_test_ts",
-      "community": 16,
+      "community": 15,
       "norm_label": "content_quality.test.ts"
     },
     {
@@ -1143,7 +1134,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\content_analysis\\content_quality.test.ts",
       "source_location": "L47",
       "id": "content_quality_test_listjsonfiles",
-      "community": 16,
+      "community": 15,
       "norm_label": "listjsonfiles()"
     },
     {
@@ -1152,7 +1143,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\content_analysis\\content_quality.test.ts",
       "source_location": "L55",
       "id": "content_quality_test_collectstrings",
-      "community": 16,
+      "community": 15,
       "norm_label": "collectstrings()"
     },
     {
@@ -1161,7 +1152,7 @@
       "source_file": "src\\content_analysis\\text_pattern_extractor.ts",
       "source_location": "L1",
       "id": "src_content_analysis_text_pattern_extractor_ts",
-      "community": 9,
+      "community": 8,
       "norm_label": "text_pattern_extractor.ts"
     },
     {
@@ -1170,7 +1161,7 @@
       "source_file": "src\\content_analysis\\text_pattern_extractor.ts",
       "source_location": "L15",
       "id": "text_pattern_extractor_extracttextpatterns",
-      "community": 9,
+      "community": 8,
       "norm_label": "extracttextpatterns()"
     },
     {
@@ -1179,7 +1170,7 @@
       "source_file": "src\\content_analysis\\text_pattern_extractor.ts",
       "source_location": "L78",
       "id": "text_pattern_extractor_estimatepdflength",
-      "community": 9,
+      "community": 8,
       "norm_label": "estimatepdflength()"
     },
     {
@@ -1188,7 +1179,7 @@
       "source_file": "src\\content_analysis\\text_pattern_extractor.ts",
       "source_location": "L83",
       "id": "text_pattern_extractor_analyzeplaintextshape",
-      "community": 9,
+      "community": 8,
       "norm_label": "analyzeplaintextshape()"
     },
     {
@@ -1197,7 +1188,7 @@
       "source_file": "src\\content_analysis\\text_pattern_extractor.ts",
       "source_location": "L100",
       "id": "text_pattern_extractor_infertexttypesfromshape",
-      "community": 9,
+      "community": 8,
       "norm_label": "infertexttypesfromshape()"
     },
     {
@@ -1206,7 +1197,7 @@
       "source_file": "src\\content_analysis\\text_pattern_extractor.ts",
       "source_location": "L122",
       "id": "text_pattern_extractor_inferstructuresfromshape",
-      "community": 9,
+      "community": 8,
       "norm_label": "inferstructuresfromshape()"
     },
     {
@@ -1221,17 +1212,17 @@
     {
       "label": "useProfile.ts",
       "file_type": "code",
-      "source_file": "src\\hooks\\useProfile.ts",
+      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\hooks\\useProfile.ts",
       "source_location": "L1",
-      "id": "src_hooks_useprofile_ts",
+      "id": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_hooks_useprofile_ts",
       "community": 7,
       "norm_label": "useprofile.ts"
     },
     {
       "label": "createDefaultProfile()",
       "file_type": "code",
-      "source_file": "src\\hooks\\useProfile.ts",
-      "source_location": "L44",
+      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\hooks\\useProfile.ts",
+      "source_location": "L45",
       "id": "useprofile_createdefaultprofile",
       "community": 7,
       "norm_label": "createdefaultprofile()"
@@ -1239,8 +1230,8 @@
     {
       "label": "loadProfileFromStorage()",
       "file_type": "code",
-      "source_file": "src\\hooks\\useProfile.ts",
-      "source_location": "L61",
+      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\hooks\\useProfile.ts",
+      "source_location": "L62",
       "id": "useprofile_loadprofilefromstorage",
       "community": 7,
       "norm_label": "loadprofilefromstorage()"
@@ -1248,8 +1239,8 @@
     {
       "label": "saveProfileToStorage()",
       "file_type": "code",
-      "source_file": "src\\hooks\\useProfile.ts",
-      "source_location": "L92",
+      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\hooks\\useProfile.ts",
+      "source_location": "L93",
       "id": "useprofile_saveprofiletostorage",
       "community": 7,
       "norm_label": "saveprofiletostorage()"
@@ -1257,8 +1248,8 @@
     {
       "label": "isLearningGoal()",
       "file_type": "code",
-      "source_file": "src\\hooks\\useProfile.ts",
-      "source_location": "L97",
+      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\hooks\\useProfile.ts",
+      "source_location": "L101",
       "id": "useprofile_islearninggoal",
       "community": 7,
       "norm_label": "islearninggoal()"
@@ -1266,8 +1257,8 @@
     {
       "label": "isPreferredSubject()",
       "file_type": "code",
-      "source_file": "src\\hooks\\useProfile.ts",
-      "source_location": "L101",
+      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\hooks\\useProfile.ts",
+      "source_location": "L105",
       "id": "useprofile_ispreferredsubject",
       "community": 7,
       "norm_label": "ispreferredsubject()"
@@ -1275,8 +1266,8 @@
     {
       "label": "isPlainObject()",
       "file_type": "code",
-      "source_file": "src\\hooks\\useProfile.ts",
-      "source_location": "L105",
+      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\hooks\\useProfile.ts",
+      "source_location": "L109",
       "id": "useprofile_isplainobject",
       "community": 7,
       "norm_label": "isplainobject()"
@@ -1284,8 +1275,8 @@
     {
       "label": "useProfile()",
       "file_type": "code",
-      "source_file": "src\\hooks\\useProfile.ts",
-      "source_location": "L109",
+      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\hooks\\useProfile.ts",
+      "source_location": "L113",
       "id": "useprofile_useprofile",
       "community": 7,
       "norm_label": "useprofile()"
@@ -1296,7 +1287,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\practice\\exercise_selector.test.ts",
       "source_location": "L1",
       "id": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_practice_exercise_selector_test_ts",
-      "community": 39,
+      "community": 38,
       "norm_label": "exercise_selector.test.ts"
     },
     {
@@ -1305,7 +1296,7 @@
       "source_file": "src\\practice\\exercise_selector.ts",
       "source_location": "L1",
       "id": "src_practice_exercise_selector_ts",
-      "community": 2,
+      "community": 1,
       "norm_label": "exercise_selector.ts"
     },
     {
@@ -1314,7 +1305,7 @@
       "source_file": "src\\practice\\exercise_selector.ts",
       "source_location": "L113",
       "id": "exercise_selector_isfsavailable",
-      "community": 4,
+      "community": 1,
       "norm_label": "isfsavailable()"
     },
     {
@@ -1323,7 +1314,7 @@
       "source_file": "src\\practice\\exercise_selector.ts",
       "source_location": "L121",
       "id": "exercise_selector_listlenguaexercisefiles",
-      "community": 4,
+      "community": 1,
       "norm_label": "listlenguaexercisefiles()"
     },
     {
@@ -1332,7 +1323,7 @@
       "source_file": "src\\practice\\exercise_selector.ts",
       "source_location": "L136",
       "id": "exercise_selector_loadlenguaselectiongraph",
-      "community": 4,
+      "community": 0,
       "norm_label": "loadlenguaselectiongraph()"
     },
     {
@@ -1341,7 +1332,7 @@
       "source_file": "src\\practice\\exercise_selector.ts",
       "source_location": "L185",
       "id": "exercise_selector_loadlenguaselectorexercises",
-      "community": 4,
+      "community": 1,
       "norm_label": "loadlenguaselectorexercises()"
     },
     {
@@ -1350,7 +1341,7 @@
       "source_file": "src\\practice\\exercise_selector.ts",
       "source_location": "L202",
       "id": "exercise_selector_normalizeskillid",
-      "community": 2,
+      "community": 1,
       "norm_label": "normalizeskillid()"
     },
     {
@@ -1359,7 +1350,7 @@
       "source_file": "src\\practice\\exercise_selector.ts",
       "source_location": "L231",
       "id": "exercise_selector_normalizesubskillid",
-      "community": 2,
+      "community": 1,
       "norm_label": "normalizesubskillid()"
     },
     {
@@ -1368,7 +1359,7 @@
       "source_file": "src\\practice\\exercise_selector.ts",
       "source_location": "L258",
       "id": "exercise_selector_selectnextexercisedetailed",
-      "community": 2,
+      "community": 1,
       "norm_label": "selectnextexercisedetailed()"
     },
     {
@@ -1377,7 +1368,7 @@
       "source_file": "src\\practice\\exercise_selector.ts",
       "source_location": "L299",
       "id": "exercise_selector_selectnextexercise",
-      "community": 2,
+      "community": 1,
       "norm_label": "selectnextexercise()"
     },
     {
@@ -1386,7 +1377,7 @@
       "source_file": "src\\practice\\exercise_selector.ts",
       "source_location": "L307",
       "id": "exercise_selector_extractselectorexercises",
-      "community": 4,
+      "community": 1,
       "norm_label": "extractselectorexercises()"
     },
     {
@@ -1395,7 +1386,7 @@
       "source_file": "src\\practice\\exercise_selector.ts",
       "source_location": "L349",
       "id": "exercise_selector_normalizeselectorexercise",
-      "community": 2,
+      "community": 1,
       "norm_label": "normalizeselectorexercise()"
     },
     {
@@ -1404,7 +1395,7 @@
       "source_file": "src\\practice\\exercise_selector.ts",
       "source_location": "L378",
       "id": "exercise_selector_resolveruletarget",
-      "community": 2,
+      "community": 1,
       "norm_label": "resolveruletarget()"
     },
     {
@@ -1413,7 +1404,7 @@
       "source_file": "src\\practice\\exercise_selector.ts",
       "source_location": "L461",
       "id": "exercise_selector_filterunlockedexercises",
-      "community": 2,
+      "community": 1,
       "norm_label": "filterunlockedexercises()"
     },
     {
@@ -1422,7 +1413,7 @@
       "source_file": "src\\practice\\exercise_selector.ts",
       "source_location": "L471",
       "id": "exercise_selector_isexerciseunlocked",
-      "community": 2,
+      "community": 1,
       "norm_label": "isexerciseunlocked()"
     },
     {
@@ -1431,7 +1422,7 @@
       "source_file": "src\\practice\\exercise_selector.ts",
       "source_location": "L489",
       "id": "exercise_selector_pickrelatedcandidate",
-      "community": 2,
+      "community": 1,
       "norm_label": "pickrelatedcandidate()"
     },
     {
@@ -1440,7 +1431,7 @@
       "source_file": "src\\practice\\exercise_selector.ts",
       "source_location": "L499",
       "id": "exercise_selector_findrelatedtarget",
-      "community": 2,
+      "community": 1,
       "norm_label": "findrelatedtarget()"
     },
     {
@@ -1449,7 +1440,7 @@
       "source_file": "src\\practice\\exercise_selector.ts",
       "source_location": "L533",
       "id": "exercise_selector_picklowestmasterygap",
-      "community": 2,
+      "community": 1,
       "norm_label": "picklowestmasterygap()"
     },
     {
@@ -1458,7 +1449,7 @@
       "source_file": "src\\practice\\exercise_selector.ts",
       "source_location": "L551",
       "id": "exercise_selector_pickcurrentstate",
-      "community": 2,
+      "community": 1,
       "norm_label": "pickcurrentstate()"
     },
     {
@@ -1467,7 +1458,7 @@
       "source_file": "src\\practice\\exercise_selector.ts",
       "source_location": "L559",
       "id": "exercise_selector_hasrecurrenterror",
-      "community": 2,
+      "community": 1,
       "norm_label": "hasrecurrenterror()"
     },
     {
@@ -1476,7 +1467,7 @@
       "source_file": "src\\practice\\exercise_selector.ts",
       "source_location": "L564",
       "id": "exercise_selector_isatrecommendedmastery",
-      "community": 2,
+      "community": 9,
       "norm_label": "isatrecommendedmastery()"
     },
     {
@@ -1485,7 +1476,7 @@
       "source_file": "src\\practice\\exercise_selector.ts",
       "source_location": "L574",
       "id": "exercise_selector_getmasterygap",
-      "community": 2,
+      "community": 9,
       "norm_label": "getmasterygap()"
     },
     {
@@ -1494,7 +1485,7 @@
       "source_file": "src\\practice\\exercise_selector.ts",
       "source_location": "L585",
       "id": "exercise_selector_getmasterylevel",
-      "community": 2,
+      "community": 9,
       "norm_label": "getmasterylevel()"
     },
     {
@@ -1503,7 +1494,7 @@
       "source_file": "src\\practice\\exercise_selector.ts",
       "source_location": "L610",
       "id": "exercise_selector_accuracytomastery",
-      "community": 2,
+      "community": 1,
       "norm_label": "accuracytomastery()"
     },
     {
@@ -1512,7 +1503,7 @@
       "source_file": "src\\practice\\exercise_selector.ts",
       "source_location": "L617",
       "id": "exercise_selector_filterimmediaterepeats",
-      "community": 2,
+      "community": 1,
       "norm_label": "filterimmediaterepeats()"
     },
     {
@@ -1521,7 +1512,7 @@
       "source_file": "src\\practice\\exercise_selector.ts",
       "source_location": "L623",
       "id": "exercise_selector_findalternativesubskill",
-      "community": 2,
+      "community": 1,
       "norm_label": "findalternativesubskill()"
     },
     {
@@ -1530,7 +1521,7 @@
       "source_file": "src\\practice\\exercise_selector.ts",
       "source_location": "L639",
       "id": "exercise_selector_getreferencedifficulty",
-      "community": 2,
+      "community": 1,
       "norm_label": "getreferencedifficulty()"
     },
     {
@@ -1539,7 +1530,7 @@
       "source_file": "src\\practice\\exercise_selector.ts",
       "source_location": "L652",
       "id": "exercise_selector_pickstrictcandidate",
-      "community": 2,
+      "community": 1,
       "norm_label": "pickstrictcandidate()"
     },
     {
@@ -1548,7 +1539,7 @@
       "source_file": "src\\practice\\exercise_selector.ts",
       "source_location": "L684",
       "id": "exercise_selector_pickfallbackcandidate",
-      "community": 2,
+      "community": 1,
       "norm_label": "pickfallbackcandidate()"
     },
     {
@@ -1557,7 +1548,7 @@
       "source_file": "src\\practice\\exercise_selector.ts",
       "source_location": "L706",
       "id": "exercise_selector_pickunseenskillexercise",
-      "community": 2,
+      "community": 1,
       "norm_label": "pickunseenskillexercise()"
     },
     {
@@ -1566,7 +1557,7 @@
       "source_file": "src\\practice\\exercise_selector.ts",
       "source_location": "L730",
       "id": "exercise_selector_matchesstate",
-      "community": 2,
+      "community": 1,
       "norm_label": "matchesstate()"
     },
     {
@@ -1575,7 +1566,7 @@
       "source_file": "src\\practice\\exercise_selector.ts",
       "source_location": "L734",
       "id": "exercise_selector_matchesnode",
-      "community": 2,
+      "community": 1,
       "norm_label": "matchesnode()"
     },
     {
@@ -1584,7 +1575,7 @@
       "source_file": "src\\practice\\exercise_selector.ts",
       "source_location": "L738",
       "id": "exercise_selector_relationweight",
-      "community": 2,
+      "community": 1,
       "norm_label": "relationweight()"
     },
     {
@@ -1593,7 +1584,7 @@
       "source_file": "src\\practice\\exercise_selector.ts",
       "source_location": "L744",
       "id": "exercise_selector_dedupeexercises",
-      "community": 4,
+      "community": 1,
       "norm_label": "dedupeexercises()"
     },
     {
@@ -1602,7 +1593,7 @@
       "source_file": "src\\practice\\exercise_selector.ts",
       "source_location": "L748",
       "id": "exercise_selector_pickdeterministic",
-      "community": 2,
+      "community": 1,
       "norm_label": "pickdeterministic()"
     },
     {
@@ -1611,7 +1602,7 @@
       "source_file": "src\\practice\\exercise_selector.ts",
       "source_location": "L752",
       "id": "exercise_selector_normalizedifficulty",
-      "community": 2,
+      "community": 1,
       "norm_label": "normalizedifficulty()"
     },
     {
@@ -1620,7 +1611,7 @@
       "source_file": "src\\practice\\exercise_selector.ts",
       "source_location": "L763",
       "id": "exercise_selector_normalizemasterylevel",
-      "community": 2,
+      "community": 1,
       "norm_label": "normalizemasterylevel()"
     },
     {
@@ -1629,7 +1620,7 @@
       "source_file": "src\\practice\\exercise_selector.ts",
       "source_location": "L771",
       "id": "exercise_selector_clampdifficulty",
-      "community": 2,
+      "community": 1,
       "norm_label": "clampdifficulty()"
     },
     {
@@ -1638,7 +1629,7 @@
       "source_file": "src\\practice\\exercise_selector.ts",
       "source_location": "L777",
       "id": "exercise_selector_clampmastery",
-      "community": 2,
+      "community": 1,
       "norm_label": "clampmastery()"
     },
     {
@@ -1647,7 +1638,7 @@
       "source_file": "src\\practice\\exercise_selector.ts",
       "source_location": "L784",
       "id": "exercise_selector_resolveknownsubskill",
-      "community": 2,
+      "community": 1,
       "norm_label": "resolveknownsubskill()"
     },
     {
@@ -1656,7 +1647,7 @@
       "source_file": "src\\practice\\exercise_selector.ts",
       "source_location": "L820",
       "id": "exercise_selector_normalizetext",
-      "community": 2,
+      "community": 1,
       "norm_label": "normalizetext()"
     },
     {
@@ -1665,7 +1656,7 @@
       "source_file": "src\\practice\\exercise_selector.ts",
       "source_location": "L828",
       "id": "exercise_selector_logselection",
-      "community": 2,
+      "community": 1,
       "norm_label": "logselection()"
     },
     {
@@ -1674,7 +1665,7 @@
       "source_file": "src\\practice\\exercise_selector.ts",
       "source_location": "L839",
       "id": "exercise_selector_testselector",
-      "community": 2,
+      "community": 1,
       "norm_label": "testselector()"
     },
     {
@@ -1683,7 +1674,7 @@
       "source_file": "src\\practice\\reading_session.ts",
       "source_location": "L1",
       "id": "src_practice_reading_session_ts",
-      "community": 4,
+      "community": 8,
       "norm_label": "reading_session.ts"
     },
     {
@@ -1692,7 +1683,7 @@
       "source_file": "src\\practice\\reading_session.ts",
       "source_location": "L13",
       "id": "reading_session_startreadingsession",
-      "community": 4,
+      "community": 8,
       "norm_label": "startreadingsession()"
     },
     {
@@ -1701,7 +1692,7 @@
       "source_file": "src\\practice\\reading_session.ts",
       "source_location": "L26",
       "id": "reading_session_runreadingsession",
-      "community": 4,
+      "community": 8,
       "norm_label": "runreadingsession()"
     },
     {
@@ -1710,7 +1701,7 @@
       "source_file": "src\\practice\\reading_session_runner.ts",
       "source_location": "L1",
       "id": "src_practice_reading_session_runner_ts",
-      "community": 40,
+      "community": 39,
       "norm_label": "reading_session_runner.ts"
     },
     {
@@ -1719,7 +1710,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\practice\\session_progress.test.ts",
       "source_location": "L1",
       "id": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_practice_session_progress_test_ts",
-      "community": 0,
+      "community": 3,
       "norm_label": "session_progress.test.ts"
     },
     {
@@ -1764,7 +1755,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\practice\\session_runner.ts",
       "source_location": "L266",
       "id": "session_runner_loadlenguaexercises",
-      "community": 4,
+      "community": 0,
       "norm_label": "loadlenguaexercises()"
     },
     {
@@ -1863,7 +1854,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\practice\\session_runner.ts",
       "source_location": "L567",
       "id": "session_runner_clampmasterylevel",
-      "community": 0,
+      "community": 9,
       "norm_label": "clampmasterylevel()"
     },
     {
@@ -1872,7 +1863,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\practice\\session_runner.ts",
       "source_location": "L574",
       "id": "session_runner_getskillstate",
-      "community": 0,
+      "community": 9,
       "norm_label": "getskillstate()"
     },
     {
@@ -1881,7 +1872,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\practice\\session_runner.ts",
       "source_location": "L586",
       "id": "session_runner_getstoredsessionmode",
-      "community": 0,
+      "community": 9,
       "norm_label": "getstoredsessionmode()"
     },
     {
@@ -1890,7 +1881,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\practice\\session_runner.ts",
       "source_location": "L590",
       "id": "session_runner_calculateupdatedmastery",
-      "community": 0,
+      "community": 9,
       "norm_label": "calculateupdatedmastery()"
     },
     {
@@ -1899,7 +1890,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\practice\\session_runner.ts",
       "source_location": "L596",
       "id": "session_runner_getpracticeselectioncontext",
-      "community": 0,
+      "community": 6,
       "norm_label": "getpracticeselectioncontext()"
     },
     {
@@ -1917,7 +1908,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\practice\\session_runner.ts",
       "source_location": "L674",
       "id": "session_runner_buildreadingblocksessionexercises",
-      "community": 4,
+      "community": 0,
       "norm_label": "buildreadingblocksessionexercises()"
     },
     {
@@ -1926,7 +1917,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\practice\\session_runner.ts",
       "source_location": "L691",
       "id": "session_runner_getreadingunitforpool",
-      "community": 4,
+      "community": 0,
       "norm_label": "getreadingunitforpool()"
     },
     {
@@ -1971,7 +1962,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\practice\\session_runner.ts",
       "source_location": "L756",
       "id": "session_runner_createpracticeselection",
-      "community": 4,
+      "community": 0,
       "norm_label": "createpracticeselection()"
     },
     {
@@ -1980,7 +1971,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\practice\\session_runner.ts",
       "source_location": "L782",
       "id": "session_runner_getlenguamasterymap",
-      "community": 4,
+      "community": 0,
       "norm_label": "getlenguamasterymap()"
     },
     {
@@ -1989,7 +1980,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\practice\\session_runner.ts",
       "source_location": "L786",
       "id": "session_runner_recommendnextpracticesubskill",
-      "community": 0,
+      "community": 9,
       "norm_label": "recommendnextpracticesubskill()"
     },
     {
@@ -2007,7 +1998,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\practice\\session_runner.ts",
       "source_location": "L838",
       "id": "session_runner_savepracticesessionprogress",
-      "community": 0,
+      "community": 9,
       "norm_label": "savepracticesessionprogress()"
     },
     {
@@ -2016,7 +2007,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\practice\\session_runner.ts",
       "source_location": "L875",
       "id": "session_runner_normalizepracticesessionfocusresults",
-      "community": 0,
+      "community": 9,
       "norm_label": "normalizepracticesessionfocusresults()"
     },
     {
@@ -2025,7 +2016,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\practice\\session_runner.ts",
       "source_location": "L905",
       "id": "session_runner_buildsessionskillresults",
-      "community": 0,
+      "community": 9,
       "norm_label": "buildsessionskillresults()"
     },
     {
@@ -2070,7 +2061,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\practice\\session_runner.ts",
       "source_location": "L1098",
       "id": "session_runner_startpracticesession",
-      "community": 4,
+      "community": 0,
       "norm_label": "startpracticesession()"
     },
     {
@@ -2079,7 +2070,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\practice\\session_runner.ts",
       "source_location": "L1148",
       "id": "session_runner_startpracticesessionasync",
-      "community": 5,
+      "community": 3,
       "norm_label": "startpracticesessionasync()"
     },
     {
@@ -2088,7 +2079,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\practice\\session_runner.ts",
       "source_location": "L1167",
       "id": "session_runner_buildskilltrainingpool",
-      "community": 4,
+      "community": 0,
       "norm_label": "buildskilltrainingpool()"
     },
     {
@@ -2106,7 +2097,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\practice\\session_runner.ts",
       "source_location": "L1213",
       "id": "session_runner_startreadingunitsession",
-      "community": 4,
+      "community": 0,
       "norm_label": "startreadingunitsession()"
     },
     {
@@ -2115,7 +2106,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\practice\\session_runner.ts",
       "source_location": "L1263",
       "id": "session_runner_startreadingunitsessionasync",
-      "community": 5,
+      "community": 3,
       "norm_label": "startreadingunitsessionasync()"
     },
     {
@@ -2394,7 +2385,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\practice\\simulator_progress.test.ts",
       "source_location": "L1",
       "id": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_practice_simulator_progress_test_ts",
-      "community": 1,
+      "community": 4,
       "norm_label": "simulator_progress.test.ts"
     },
     {
@@ -2403,7 +2394,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\practice\\simulator_progress.test.ts",
       "source_location": "L101",
       "id": "simulator_progress_test_buildsimulatorsession",
-      "community": 1,
+      "community": 4,
       "norm_label": "buildsimulatorsession()"
     },
     {
@@ -2412,7 +2403,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\practice\\simulator_progress.test.ts",
       "source_location": "L124",
       "id": "simulator_progress_test_buildsimulatorexercise",
-      "community": 1,
+      "community": 4,
       "norm_label": "buildsimulatorexercise()"
     },
     {
@@ -2421,7 +2412,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\practice\\simulator_runner.test.ts",
       "source_location": "L1",
       "id": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_practice_simulator_runner_test_ts",
-      "community": 3,
+      "community": 2,
       "norm_label": "simulator_runner.test.ts"
     },
     {
@@ -2430,7 +2421,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\practice\\simulator_runner.test.ts",
       "source_location": "L101",
       "id": "simulator_runner_test_buildexercise",
-      "community": 3,
+      "community": 2,
       "norm_label": "buildexercise()"
     },
     {
@@ -2439,7 +2430,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\practice\\simulator_runner.test.ts",
       "source_location": "L123",
       "id": "simulator_runner_test_buildreadingexercise",
-      "community": 3,
+      "community": 2,
       "norm_label": "buildreadingexercise()"
     },
     {
@@ -2448,7 +2439,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\practice\\simulator_runner.test.ts",
       "source_location": "L147",
       "id": "simulator_runner_test_firstwrongoption",
-      "community": 3,
+      "community": 2,
       "norm_label": "firstwrongoption()"
     },
     {
@@ -2457,7 +2448,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\practice\\simulator_runner.test.ts",
       "source_location": "L151",
       "id": "simulator_runner_test_buildquestionresult",
-      "community": 3,
+      "community": 2,
       "norm_label": "buildquestionresult()"
     },
     {
@@ -2466,7 +2457,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\practice\\simulator_runner.ts",
       "source_location": "L1",
       "id": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_practice_simulator_runner_ts",
-      "community": 3,
+      "community": 2,
       "norm_label": "simulator_runner.ts"
     },
     {
@@ -2475,7 +2466,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\practice\\simulator_runner.ts",
       "source_location": "L80",
       "id": "simulator_runner_startsimulatorsession",
-      "community": 3,
+      "community": 2,
       "norm_label": "startsimulatorsession()"
     },
     {
@@ -2484,7 +2475,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\practice\\simulator_runner.ts",
       "source_location": "L98",
       "id": "simulator_runner_selectsimulatorsession",
-      "community": 3,
+      "community": 2,
       "norm_label": "selectsimulatorsession()"
     },
     {
@@ -2493,7 +2484,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\practice\\simulator_runner.ts",
       "source_location": "L165",
       "id": "simulator_runner_selectsimulatorexercises",
-      "community": 3,
+      "community": 2,
       "norm_label": "selectsimulatorexercises()"
     },
     {
@@ -2502,7 +2493,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\practice\\simulator_runner.ts",
       "source_location": "L200",
       "id": "simulator_runner_evaluatesimulatorsession",
-      "community": 3,
+      "community": 2,
       "norm_label": "evaluatesimulatorsession()"
     },
     {
@@ -2520,7 +2511,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\practice\\simulator_runner.ts",
       "source_location": "L260",
       "id": "simulator_runner_savesimulatorsessionprogressasync",
-      "community": 3,
+      "community": 2,
       "norm_label": "savesimulatorsessionprogressasync()"
     },
     {
@@ -2529,7 +2520,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\practice\\simulator_runner.ts",
       "source_location": "L287",
       "id": "simulator_runner_buildsimulatorskillresults",
-      "community": 3,
+      "community": 2,
       "norm_label": "buildsimulatorskillresults()"
     },
     {
@@ -2547,7 +2538,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\practice\\simulator_runner.ts",
       "source_location": "L322",
       "id": "simulator_runner_issimulatorcompatibleexercise",
-      "community": 3,
+      "community": 2,
       "norm_label": "issimulatorcompatibleexercise()"
     },
     {
@@ -2556,7 +2547,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\practice\\simulator_runner.ts",
       "source_location": "L329",
       "id": "simulator_runner_tosimulatorexercise",
-      "community": 3,
+      "community": 2,
       "norm_label": "tosimulatorexercise()"
     },
     {
@@ -2565,7 +2556,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\practice\\simulator_runner.ts",
       "source_location": "L343",
       "id": "simulator_runner_buildreadingblocks",
-      "community": 3,
+      "community": 2,
       "norm_label": "buildreadingblocks()"
     },
     {
@@ -2574,7 +2565,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\practice\\simulator_runner.ts",
       "source_location": "L387",
       "id": "simulator_runner_issimulatorcompatiblereadingexercise",
-      "community": 3,
+      "community": 2,
       "norm_label": "issimulatorcompatiblereadingexercise()"
     },
     {
@@ -2583,7 +2574,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\practice\\simulator_runner.ts",
       "source_location": "L391",
       "id": "simulator_runner_groupbyreadingunit",
-      "community": 3,
+      "community": 2,
       "norm_label": "groupbyreadingunit()"
     },
     {
@@ -2592,7 +2583,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\practice\\simulator_runner.ts",
       "source_location": "L405",
       "id": "simulator_runner_comparereadingblocks",
-      "community": 3,
+      "community": 2,
       "norm_label": "comparereadingblocks()"
     },
     {
@@ -2601,7 +2592,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\practice\\simulator_runner.ts",
       "source_location": "L413",
       "id": "simulator_runner_selectstandalonesimulatorexercises",
-      "community": 3,
+      "community": 2,
       "norm_label": "selectstandalonesimulatorexercises()"
     },
     {
@@ -2610,7 +2601,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\practice\\simulator_runner.ts",
       "source_location": "L429",
       "id": "simulator_runner_createstandaloneblock",
-      "community": 3,
+      "community": 2,
       "norm_label": "createstandaloneblock()"
     },
     {
@@ -2619,7 +2610,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\practice\\simulator_runner.ts",
       "source_location": "L438",
       "id": "simulator_runner_groupbyskill",
-      "community": 3,
+      "community": 2,
       "norm_label": "groupbyskill()"
     },
     {
@@ -2628,7 +2619,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\practice\\simulator_runner.ts",
       "source_location": "L446",
       "id": "simulator_runner_hasavailableexercises",
-      "community": 3,
+      "community": 2,
       "norm_label": "hasavailableexercises()"
     },
     {
@@ -2637,7 +2628,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\practice\\simulator_runner.ts",
       "source_location": "L450",
       "id": "simulator_runner_takenextunusedexercise",
-      "community": 3,
+      "community": 2,
       "norm_label": "takenextunusedexercise()"
     },
     {
@@ -2646,7 +2637,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\practice\\simulator_runner.ts",
       "source_location": "L462",
       "id": "simulator_runner_compareexercisesforsimulator",
-      "community": 3,
+      "community": 2,
       "norm_label": "compareexercisesforsimulator()"
     },
     {
@@ -2655,7 +2646,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\practice\\simulator_runner.ts",
       "source_location": "L469",
       "id": "simulator_runner_normalizeanswers",
-      "community": 3,
+      "community": 2,
       "norm_label": "normalizeanswers()"
     },
     {
@@ -2664,7 +2655,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\practice\\simulator_runner.ts",
       "source_location": "L492",
       "id": "simulator_runner_addfocusresult",
-      "community": 3,
+      "community": 2,
       "norm_label": "addfocusresult()"
     },
     {
@@ -2673,7 +2664,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\practice\\simulator_runner.ts",
       "source_location": "L504",
       "id": "simulator_runner_calculatescorepercentage",
-      "community": 3,
+      "community": 2,
       "norm_label": "calculatescorepercentage()"
     },
     {
@@ -2682,7 +2673,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\practice\\simulator_runner.ts",
       "source_location": "L508",
       "id": "simulator_runner_sumdurationseconds",
-      "community": 3,
+      "community": 2,
       "norm_label": "sumdurationseconds()"
     },
     {
@@ -2691,7 +2682,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\practice\\simulator_runner.ts",
       "source_location": "L520",
       "id": "simulator_runner_classifyskill",
-      "community": 3,
+      "community": 2,
       "norm_label": "classifyskill()"
     },
     {
@@ -2700,7 +2691,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\practice\\simulator_runner.ts",
       "source_location": "L532",
       "id": "simulator_runner_accuracytomasterylevel",
-      "community": 3,
+      "community": 2,
       "norm_label": "accuracytomasterylevel()"
     },
     {
@@ -2709,7 +2700,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\practice\\simulator_runner.ts",
       "source_location": "L548",
       "id": "simulator_runner_simulateanswer",
-      "community": 3,
+      "community": 2,
       "norm_label": "simulateanswer()"
     },
     {
@@ -2718,7 +2709,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\practice\\simulator_runner.ts",
       "source_location": "L558",
       "id": "simulator_runner_simulatetimeseconds",
-      "community": 3,
+      "community": 2,
       "norm_label": "simulatetimeseconds()"
     },
     {
@@ -2727,7 +2718,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\practice\\simulator_runner.ts",
       "source_location": "L562",
       "id": "simulator_runner_chancebydifficulty",
-      "community": 3,
+      "community": 2,
       "norm_label": "chancebydifficulty()"
     },
     {
@@ -2736,7 +2727,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\practice\\simulator_runner.ts",
       "source_location": "L574",
       "id": "simulator_runner_pickvalue",
-      "community": 3,
+      "community": 2,
       "norm_label": "pickvalue()"
     },
     {
@@ -2745,7 +2736,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\practice\\simulator_runner.ts",
       "source_location": "L578",
       "id": "simulator_runner_randomint",
-      "community": 3,
+      "community": 2,
       "norm_label": "randomint()"
     },
     {
@@ -2754,7 +2745,7 @@
       "source_file": "src\\progress\\mastery_model.ts",
       "source_location": "L1",
       "id": "src_progress_mastery_model_ts",
-      "community": 1,
+      "community": 5,
       "norm_label": "mastery_model.ts"
     },
     {
@@ -2763,7 +2754,7 @@
       "source_file": "src\\progress\\mastery_model.ts",
       "source_location": "L72",
       "id": "mastery_model_buildmasterymodel",
-      "community": 1,
+      "community": 5,
       "norm_label": "buildmasterymodel()"
     },
     {
@@ -2772,7 +2763,7 @@
       "source_file": "src\\progress\\mastery_model.ts",
       "source_location": "L124",
       "id": "mastery_model_buildpracticeprogresssnapshot",
-      "community": 1,
+      "community": 5,
       "norm_label": "buildpracticeprogresssnapshot()"
     },
     {
@@ -2781,7 +2772,7 @@
       "source_file": "src\\progress\\mastery_model.ts",
       "source_location": "L134",
       "id": "mastery_model_getweakestskillid",
-      "community": 1,
+      "community": 5,
       "norm_label": "getweakestskillid()"
     },
     {
@@ -2790,7 +2781,7 @@
       "source_file": "src\\progress\\mastery_model.ts",
       "source_location": "L151",
       "id": "mastery_model_explainweakestskill",
-      "community": 1,
+      "community": 5,
       "norm_label": "explainweakestskill()"
     },
     {
@@ -2799,7 +2790,7 @@
       "source_file": "src\\progress\\mastery_model.ts",
       "source_location": "L172",
       "id": "mastery_model_interpretfocusentries",
-      "community": 1,
+      "community": 5,
       "norm_label": "interpretfocusentries()"
     },
     {
@@ -2808,7 +2799,7 @@
       "source_file": "src\\progress\\mastery_model.ts",
       "source_location": "L235",
       "id": "mastery_model_calculatemasteryscore",
-      "community": 1,
+      "community": 5,
       "norm_label": "calculatemasteryscore()"
     },
     {
@@ -2817,7 +2808,7 @@
       "source_file": "src\\progress\\mastery_model.ts",
       "source_location": "L257",
       "id": "mastery_model_scoretomasterylevel",
-      "community": 1,
+      "community": 5,
       "norm_label": "scoretomasterylevel()"
     },
     {
@@ -2826,7 +2817,7 @@
       "source_file": "src\\progress\\mastery_model.ts",
       "source_location": "L277",
       "id": "mastery_model_evaluatesimulatorreadiness",
-      "community": 1,
+      "community": 5,
       "norm_label": "evaluatesimulatorreadiness()"
     },
     {
@@ -2835,7 +2826,7 @@
       "source_file": "src\\progress\\mastery_model.ts",
       "source_location": "L302",
       "id": "mastery_model_buildpracticeskillstats",
-      "community": 1,
+      "community": 5,
       "norm_label": "buildpracticeskillstats()"
     },
     {
@@ -2844,7 +2835,7 @@
       "source_file": "src\\progress\\mastery_model.ts",
       "source_location": "L318",
       "id": "mastery_model_buildtrace",
-      "community": 1,
+      "community": 5,
       "norm_label": "buildtrace()"
     },
     {
@@ -2853,7 +2844,7 @@
       "source_file": "src\\progress\\mastery_model.ts",
       "source_location": "L348",
       "id": "mastery_model_getrecencyweight",
-      "community": 1,
+      "community": 5,
       "norm_label": "getrecencyweight()"
     },
     {
@@ -2862,7 +2853,7 @@
       "source_file": "src\\progress\\mastery_model.ts",
       "source_location": "L366",
       "id": "mastery_model_masteryleveltostate",
-      "community": 1,
+      "community": 5,
       "norm_label": "masteryleveltostate()"
     },
     {
@@ -2871,7 +2862,7 @@
       "source_file": "src\\progress\\mastery_model.ts",
       "source_location": "L378",
       "id": "mastery_model_getstatepriority",
-      "community": 1,
+      "community": 5,
       "norm_label": "getstatepriority()"
     },
     {
@@ -2880,7 +2871,7 @@
       "source_file": "src\\progress\\mastery_model.ts",
       "source_location": "L390",
       "id": "mastery_model_iscanonicalskillid",
-      "community": 1,
+      "community": 5,
       "norm_label": "iscanonicalskillid()"
     },
     {
@@ -2889,7 +2880,7 @@
       "source_file": "src\\progress\\mastery_model.ts",
       "source_location": "L394",
       "id": "mastery_model_clampmasterylevel",
-      "community": 1,
+      "community": 5,
       "norm_label": "clampmasterylevel()"
     },
     {
@@ -2898,7 +2889,7 @@
       "source_file": "src\\progress\\mastery_model.ts",
       "source_location": "L410",
       "id": "mastery_model_clampscore",
-      "community": 1,
+      "community": 5,
       "norm_label": "clampscore()"
     },
     {
@@ -2907,7 +2898,7 @@
       "source_file": "src\\progress\\mastery_model.ts",
       "source_location": "L422",
       "id": "mastery_model_formatpercent",
-      "community": 1,
+      "community": 5,
       "norm_label": "formatpercent()"
     },
     {
@@ -2916,7 +2907,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\recommendation\\next_step.ts",
       "source_location": "L1",
       "id": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_recommendation_next_step_ts",
-      "community": 1,
+      "community": 4,
       "norm_label": "next_step.ts"
     },
     {
@@ -2925,7 +2916,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\recommendation\\next_step.ts",
       "source_location": "L38",
       "id": "next_step_getnextsteprecommendation",
-      "community": 1,
+      "community": 4,
       "norm_label": "getnextsteprecommendation()"
     },
     {
@@ -2934,7 +2925,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\recommendation\\next_step.ts",
       "source_location": "L176",
       "id": "next_step_pickreadingunit",
-      "community": 1,
+      "community": 4,
       "norm_label": "pickreadingunit()"
     },
     {
@@ -2943,7 +2934,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\recommendation\\next_step.ts",
       "source_location": "L190",
       "id": "next_step_buildpracticehref",
-      "community": 1,
+      "community": 4,
       "norm_label": "buildpracticehref()"
     },
     {
@@ -2952,7 +2943,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\recommendation\\next_step.ts",
       "source_location": "L199",
       "id": "next_step_buildreadinghref",
-      "community": 1,
+      "community": 4,
       "norm_label": "buildreadinghref()"
     },
     {
@@ -2961,7 +2952,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\recommendation\\__tests__\\next_step.test.ts",
       "source_location": "L1",
       "id": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_recommendation_tests_next_step_test_ts",
-      "community": 17,
+      "community": 16,
       "norm_label": "next_step.test.ts"
     },
     {
@@ -2970,7 +2961,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\recommendation\\__tests__\\next_step.test.ts",
       "source_location": "L7",
       "id": "next_step_test_progresswithsessions",
-      "community": 17,
+      "community": 16,
       "norm_label": "progresswithsessions()"
     },
     {
@@ -2979,7 +2970,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\recommendation\\__tests__\\next_step.test.ts",
       "source_location": "L40",
       "id": "next_step_test_skillresult",
-      "community": 17,
+      "community": 16,
       "norm_label": "skillresult()"
     },
     {
@@ -2988,7 +2979,7 @@
       "source_file": "src\\skills\\skill_metadata.ts",
       "source_location": "L1",
       "id": "src_skills_skill_metadata_ts",
-      "community": 1,
+      "community": 4,
       "norm_label": "skill_metadata.ts"
     },
     {
@@ -2997,7 +2988,7 @@
       "source_file": "src\\skills\\skill_metadata.ts",
       "source_location": "L295",
       "id": "skill_metadata_getskillmetadata",
-      "community": 1,
+      "community": 4,
       "norm_label": "getskillmetadata()"
     },
     {
@@ -3006,7 +2997,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\skills\\skill_slugs.ts",
       "source_location": "L1",
       "id": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_skills_skill_slugs_ts",
-      "community": 1,
+      "community": 4,
       "norm_label": "skill_slugs.ts"
     },
     {
@@ -3015,7 +3006,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\skills\\skill_slugs.ts",
       "source_location": "L3",
       "id": "skill_slugs_slugify",
-      "community": 1,
+      "community": 4,
       "norm_label": "slugify()"
     },
     {
@@ -3024,7 +3015,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\skills\\skill_slugs.ts",
       "source_location": "L26",
       "id": "skill_slugs_canonicalidtoslug",
-      "community": 1,
+      "community": 4,
       "norm_label": "canonicalidtoslug()"
     },
     {
@@ -3033,7 +3024,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\skills\\skill_slugs.ts",
       "source_location": "L39",
       "id": "skill_slugs_slugtocanonicalid",
-      "community": 1,
+      "community": 4,
       "norm_label": "slugtocanonicalid()"
     },
     {
@@ -3042,7 +3033,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\skills\\skill_slugs.ts",
       "source_location": "L70",
       "id": "skill_slugs_readingunitidtoslug",
-      "community": 1,
+      "community": 4,
       "norm_label": "readingunitidtoslug()"
     },
     {
@@ -3051,7 +3042,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\skills\\skill_slugs.ts",
       "source_location": "L74",
       "id": "skill_slugs_slugtoreadingunitid",
-      "community": 1,
+      "community": 4,
       "norm_label": "slugtoreadingunitid()"
     },
     {
@@ -3060,7 +3051,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\skills\\__tests__\\skill_slugs.test.ts",
       "source_location": "L1",
       "id": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_skills_tests_skill_slugs_test_ts",
-      "community": 41,
+      "community": 40,
       "norm_label": "skill_slugs.test.ts"
     },
     {
@@ -3069,7 +3060,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\storage\\local_progress_store.ts",
       "source_location": "L1",
       "id": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_storage_local_progress_store_ts",
-      "community": 5,
+      "community": 3,
       "norm_label": "local_progress_store.ts"
     },
     {
@@ -3078,7 +3069,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\storage\\local_progress_store.ts",
       "source_location": "L68",
       "id": "local_progress_store_loadprogress",
-      "community": 5,
+      "community": 3,
       "norm_label": "loadprogress()"
     },
     {
@@ -3087,7 +3078,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\storage\\local_progress_store.ts",
       "source_location": "L95",
       "id": "local_progress_store_loadprogressasync",
-      "community": 5,
+      "community": 3,
       "norm_label": "loadprogressasync()"
     },
     {
@@ -3096,7 +3087,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\storage\\local_progress_store.ts",
       "source_location": "L111",
       "id": "local_progress_store_savesessionresult",
-      "community": 5,
+      "community": 3,
       "norm_label": "savesessionresult()"
     },
     {
@@ -3105,7 +3096,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\storage\\local_progress_store.ts",
       "source_location": "L119",
       "id": "local_progress_store_savesessionresultasync",
-      "community": 5,
+      "community": 3,
       "norm_label": "savesessionresultasync()"
     },
     {
@@ -3114,7 +3105,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\storage\\local_progress_store.ts",
       "source_location": "L130",
       "id": "local_progress_store_appendsessionresult",
-      "community": 5,
+      "community": 3,
       "norm_label": "appendsessionresult()"
     },
     {
@@ -3123,7 +3114,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\storage\\local_progress_store.ts",
       "source_location": "L147",
       "id": "local_progress_store_updateskillstats",
-      "community": 5,
+      "community": 3,
       "norm_label": "updateskillstats()"
     },
     {
@@ -3132,7 +3123,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\storage\\local_progress_store.ts",
       "source_location": "L166",
       "id": "local_progress_store_markskillsseen",
-      "community": 5,
+      "community": 3,
       "norm_label": "markskillsseen()"
     },
     {
@@ -3141,7 +3132,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\storage\\local_progress_store.ts",
       "source_location": "L174",
       "id": "local_progress_store_markskillsseenasync",
-      "community": 5,
+      "community": 3,
       "norm_label": "markskillsseenasync()"
     },
     {
@@ -3150,7 +3141,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\storage\\local_progress_store.ts",
       "source_location": "L182",
       "id": "local_progress_store_getseenskills",
-      "community": 4,
+      "community": 0,
       "norm_label": "getseenskills()"
     },
     {
@@ -3159,7 +3150,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\storage\\local_progress_store.ts",
       "source_location": "L186",
       "id": "local_progress_store_getseenskillsasync",
-      "community": 5,
+      "community": 3,
       "norm_label": "getseenskillsasync()"
     },
     {
@@ -3168,7 +3159,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\storage\\local_progress_store.ts",
       "source_location": "L190",
       "id": "local_progress_store_getpracticeprogresssnapshot",
-      "community": 0,
+      "community": 6,
       "norm_label": "getpracticeprogresssnapshot()"
     },
     {
@@ -3177,7 +3168,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\storage\\local_progress_store.ts",
       "source_location": "L194",
       "id": "local_progress_store_getweakestpracticeskillid",
-      "community": 1,
+      "community": 5,
       "norm_label": "getweakestpracticeskillid()"
     },
     {
@@ -3186,7 +3177,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\storage\\local_progress_store.ts",
       "source_location": "L201",
       "id": "local_progress_store_resetprogress",
-      "community": 5,
+      "community": 3,
       "norm_label": "resetprogress()"
     },
     {
@@ -3195,7 +3186,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\storage\\local_progress_store.ts",
       "source_location": "L228",
       "id": "local_progress_store_updateseenskills",
-      "community": 5,
+      "community": 3,
       "norm_label": "updateseenskills()"
     },
     {
@@ -3204,7 +3195,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\storage\\local_progress_store.ts",
       "source_location": "L240",
       "id": "local_progress_store_createemptyprogress",
-      "community": 5,
+      "community": 3,
       "norm_label": "createemptyprogress()"
     },
     {
@@ -3213,7 +3204,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\storage\\local_progress_store.ts",
       "source_location": "L248",
       "id": "local_progress_store_normalizeprogress",
-      "community": 5,
+      "community": 3,
       "norm_label": "normalizeprogress()"
     },
     {
@@ -3222,7 +3213,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\storage\\local_progress_store.ts",
       "source_location": "L256",
       "id": "local_progress_store_cloneprogress",
-      "community": 5,
+      "community": 3,
       "norm_label": "cloneprogress()"
     },
     {
@@ -3231,7 +3222,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\storage\\local_progress_store.ts",
       "source_location": "L260",
       "id": "local_progress_store_writeprogress",
-      "community": 5,
+      "community": 3,
       "norm_label": "writeprogress()"
     },
     {
@@ -3240,7 +3231,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\storage\\local_progress_store.ts",
       "source_location": "L274",
       "id": "local_progress_store_writeprogressasync",
-      "community": 5,
+      "community": 3,
       "norm_label": "writeprogressasync()"
     },
     {
@@ -3249,7 +3240,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\storage\\local_progress_store.ts",
       "source_location": "L290",
       "id": "local_progress_store_getredisclient",
-      "community": 5,
+      "community": 3,
       "norm_label": "getredisclient()"
     },
     {
@@ -3258,7 +3249,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\storage\\local_progress_store.ts",
       "source_location": "L307",
       "id": "local_progress_store_createsessionid",
-      "community": 5,
+      "community": 3,
       "norm_label": "createsessionid()"
     },
     {
@@ -3267,7 +3258,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\storage\\local_progress_store.ts",
       "source_location": "L311",
       "id": "local_progress_store_getprogresspath",
-      "community": 5,
+      "community": 3,
       "norm_label": "getprogresspath()"
     },
     {
@@ -3276,7 +3267,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\storage\\local_progress_store.ts",
       "source_location": "L319",
       "id": "local_progress_store_getredisprogresskey",
-      "community": 5,
+      "community": 3,
       "norm_label": "getredisprogresskey()"
     },
     {
@@ -3285,7 +3276,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\storage\\local_progress_store.ts",
       "source_location": "L323",
       "id": "local_progress_store_normalizeprogresscode",
-      "community": 5,
+      "community": 3,
       "norm_label": "normalizeprogresscode()"
     },
     {
@@ -3294,7 +3285,7 @@
       "source_file": "src\\types\\reading_unit.ts",
       "source_location": "L1",
       "id": "src_types_reading_unit_ts",
-      "community": 42,
+      "community": 41,
       "norm_label": "reading_unit.ts"
     },
     {
@@ -3303,7 +3294,7 @@
       "source_file": "tests\\e2e\\all-pages.spec.ts",
       "source_location": "L1",
       "id": "tests_e2e_all_pages_spec_ts",
-      "community": 43,
+      "community": 42,
       "norm_label": "all-pages.spec.ts"
     },
     {
@@ -3312,7 +3303,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\tests\\e2e\\dashboard-progress.spec.ts",
       "source_location": "L1",
       "id": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_tests_e2e_dashboard_progress_spec_ts",
-      "community": 44,
+      "community": 43,
       "norm_label": "dashboard-progress.spec.ts"
     },
     {
@@ -3321,7 +3312,7 @@
       "source_file": "tests\\e2e\\dashboard-responsive.spec.ts",
       "source_location": "L1",
       "id": "tests_e2e_dashboard_responsive_spec_ts",
-      "community": 45,
+      "community": 44,
       "norm_label": "dashboard-responsive.spec.ts"
     },
     {
@@ -3330,7 +3321,7 @@
       "source_file": "tests\\e2e\\dashboard-screenshot.spec.ts",
       "source_location": "L1",
       "id": "tests_e2e_dashboard_screenshot_spec_ts",
-      "community": 46,
+      "community": 45,
       "norm_label": "dashboard-screenshot.spec.ts"
     },
     {
@@ -3339,7 +3330,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\tests\\e2e\\first-experience.spec.ts",
       "source_location": "L1",
       "id": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_tests_e2e_first_experience_spec_ts",
-      "community": 47,
+      "community": 46,
       "norm_label": "first-experience.spec.ts"
     },
     {
@@ -3348,8 +3339,17 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\tests\\e2e\\lengua-practice-links.spec.ts",
       "source_location": "L1",
       "id": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_tests_e2e_lengua_practice_links_spec_ts",
-      "community": 48,
+      "community": 47,
       "norm_label": "lengua-practice-links.spec.ts"
+    },
+    {
+      "label": "student-profile-and-code.spec.ts",
+      "file_type": "code",
+      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\tests\\e2e\\student-profile-and-code.spec.ts",
+      "source_location": "L1",
+      "id": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_tests_e2e_student_profile_and_code_spec_ts",
+      "community": 48,
+      "norm_label": "student-profile-and-code.spec.ts"
     }
   ],
   "links": [
@@ -3488,12 +3488,12 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "src\\app\\layout.tsx",
+      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\app\\layout.tsx",
       "source_location": "L43",
       "weight": 1.0,
-      "_src": "src_app_layout_tsx",
+      "_src": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_app_layout_tsx",
       "_tgt": "layout_rootlayout",
-      "source": "src_app_layout_tsx",
+      "source": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_app_layout_tsx",
       "target": "layout_rootlayout",
       "confidence_score": 1.0
     },
@@ -3501,7 +3501,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\app\\page.tsx",
-      "source_location": "L25",
+      "source_location": "L27",
       "weight": 1.0,
       "_src": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_app_page_tsx",
       "_tgt": "page_getrank",
@@ -3513,7 +3513,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\app\\page.tsx",
-      "source_location": "L33",
+      "source_location": "L35",
       "weight": 1.0,
       "_src": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_app_page_tsx",
       "_tgt": "page_calculatedashboarddata",
@@ -3525,7 +3525,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\app\\page.tsx",
-      "source_location": "L146",
+      "source_location": "L148",
       "weight": 1.0,
       "_src": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_app_page_tsx",
       "_tgt": "page_mathicon",
@@ -3537,7 +3537,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\app\\page.tsx",
-      "source_location": "L152",
+      "source_location": "L154",
       "weight": 1.0,
       "_src": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_app_page_tsx",
       "_tgt": "page_languageicon",
@@ -3549,7 +3549,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\app\\page.tsx",
-      "source_location": "L74",
+      "source_location": "L76",
       "weight": 1.0,
       "_src": "page_calculatedashboarddata",
       "_tgt": "page_getrank",
@@ -3628,6 +3628,42 @@
       "_tgt": "session_runner_pickreadingunitcandidate",
       "source": "page_calculatedashboarddata",
       "target": "session_runner_pickreadingunitcandidate"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\app\\progress_code_href.ts",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_src": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_app_progress_code_href_ts",
+      "_tgt": "progress_code_href_withprogresscode",
+      "source": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_app_progress_code_href_ts",
+      "target": "progress_code_href_withprogresscode",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\app\\practice\\page.tsx",
+      "source_location": "L214",
+      "weight": 1.0,
+      "_src": "page_buildrestarthref",
+      "_tgt": "progress_code_href_withprogresscode",
+      "source": "progress_code_href_withprogresscode",
+      "target": "page_buildrestarthref"
+    },
+    {
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\components\\dashboard\\ActionPanel.tsx",
+      "source_location": "L12",
+      "weight": 1.0,
+      "_src": "actionpanel_actionpanel",
+      "_tgt": "progress_code_href_withprogresscode",
+      "source": "progress_code_href_withprogresscode",
+      "target": "actionpanel_actionpanel"
     },
     {
       "relation": "contains",
@@ -3825,7 +3861,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\app\\dashboard\\page.tsx",
-      "source_location": "L33",
+      "source_location": "L34",
       "weight": 1.0,
       "_src": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_app_dashboard_page_tsx",
       "_tgt": "page_dashboardpage",
@@ -3837,7 +3873,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\app\\dashboard\\page.tsx",
-      "source_location": "L125",
+      "source_location": "L128",
       "weight": 1.0,
       "_src": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_app_dashboard_page_tsx",
       "_tgt": "page_getparam",
@@ -3849,7 +3885,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\app\\dashboard\\page.tsx",
-      "source_location": "L129",
+      "source_location": "L132",
       "weight": 1.0,
       "_src": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_app_dashboard_page_tsx",
       "_tgt": "page_createemptyprogress",
@@ -3861,7 +3897,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\app\\dashboard\\page.tsx",
-      "source_location": "L137",
+      "source_location": "L140",
       "weight": 1.0,
       "_src": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_app_dashboard_page_tsx",
       "_tgt": "page_withnewstudentparam",
@@ -3873,7 +3909,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\app\\dashboard\\page.tsx",
-      "source_location": "L35",
+      "source_location": "L36",
       "weight": 1.0,
       "_src": "page_dashboardpage",
       "_tgt": "page_getparam",
@@ -3885,12 +3921,24 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\app\\dashboard\\page.tsx",
-      "source_location": "L38",
+      "source_location": "L41",
       "weight": 1.0,
       "_src": "page_dashboardpage",
       "_tgt": "page_createemptyprogress",
       "source": "page_dashboardpage",
       "target": "page_createemptyprogress",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\app\\dashboard\\page.tsx",
+      "source_location": "L84",
+      "weight": 1.0,
+      "_src": "page_dashboardpage",
+      "_tgt": "page_withnewstudentparam",
+      "source": "page_dashboardpage",
+      "target": "page_withnewstudentparam",
       "confidence_score": 1.0
     },
     {
@@ -3992,32 +4040,8 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\app\\practice\\page.tsx",
-      "source_location": "L146",
-      "weight": 1.0,
-      "_src": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_app_practice_page_tsx",
-      "_tgt": "page_getparam",
-      "source": "page_getparam",
-      "target": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_app_practice_page_tsx",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "confidence": "EXTRACTED",
-      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\app\\practice\\page.tsx",
-      "source_location": "L34",
-      "weight": 1.0,
-      "_src": "page_practicepage",
-      "_tgt": "page_getparam",
-      "source": "page_getparam",
-      "target": "page_practicepage",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\app\\simulaciones\\page.tsx",
-      "source_location": "L93",
+      "source_location": "L96",
       "weight": 1.0,
       "_src": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_app_simulaciones_page_tsx",
       "_tgt": "page_getparam",
@@ -4038,10 +4062,22 @@
       "confidence_score": 1.0
     },
     {
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\app\\practice\\page.tsx",
+      "source_location": "L35",
+      "weight": 1.0,
+      "_src": "page_practicepage",
+      "_tgt": "page_getparam",
+      "source": "page_getparam",
+      "target": "page_practicepage"
+    },
+    {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\app\\habilidades\\page.tsx",
-      "source_location": "L13",
+      "source_location": "L14",
       "weight": 1.0,
       "_src": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_app_habilidades_page_tsx",
       "_tgt": "page_getskilldata",
@@ -4064,48 +4100,48 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "src\\app\\perfil\\page.tsx",
+      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\app\\perfil\\page.tsx",
       "source_location": "L84",
       "weight": 1.0,
-      "_src": "src_app_perfil_page_tsx",
+      "_src": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_app_perfil_page_tsx",
       "_tgt": "page_handlesave",
-      "source": "src_app_perfil_page_tsx",
+      "source": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_app_perfil_page_tsx",
       "target": "page_handlesave",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "src\\app\\perfil\\page.tsx",
+      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\app\\perfil\\page.tsx",
       "source_location": "L96",
       "weight": 1.0,
-      "_src": "src_app_perfil_page_tsx",
+      "_src": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_app_perfil_page_tsx",
       "_tgt": "page_updateform",
-      "source": "src_app_perfil_page_tsx",
+      "source": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_app_perfil_page_tsx",
       "target": "page_updateform",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "src\\app\\perfil\\page.tsx",
+      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\app\\perfil\\page.tsx",
       "source_location": "L101",
       "weight": 1.0,
-      "_src": "src_app_perfil_page_tsx",
+      "_src": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_app_perfil_page_tsx",
       "_tgt": "page_togglesetting",
-      "source": "src_app_perfil_page_tsx",
+      "source": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_app_perfil_page_tsx",
       "target": "page_togglesetting",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "src\\app\\perfil\\page.tsx",
+      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\app\\perfil\\page.tsx",
       "source_location": "L106",
       "weight": 1.0,
-      "_src": "src_app_perfil_page_tsx",
+      "_src": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_app_perfil_page_tsx",
       "_tgt": "page_handlereset",
-      "source": "src_app_perfil_page_tsx",
+      "source": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_app_perfil_page_tsx",
       "target": "page_handlereset",
       "confidence_score": 1.0
     },
@@ -4113,7 +4149,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\app\\practice\\page.tsx",
-      "source_location": "L32",
+      "source_location": "L33",
       "weight": 1.0,
       "_src": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_app_practice_page_tsx",
       "_tgt": "page_practicepage",
@@ -4125,43 +4161,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\app\\practice\\page.tsx",
-      "source_location": "L101",
-      "weight": 1.0,
-      "_src": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_app_practice_page_tsx",
-      "_tgt": "page_practiceunavailable",
-      "source": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_app_practice_page_tsx",
-      "target": "page_practiceunavailable",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\app\\practice\\page.tsx",
-      "source_location": "L150",
-      "weight": 1.0,
-      "_src": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_app_practice_page_tsx",
-      "_tgt": "page_resolveskillid",
-      "source": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_app_practice_page_tsx",
-      "target": "page_resolveskillid",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\app\\practice\\page.tsx",
-      "source_location": "L163",
-      "weight": 1.0,
-      "_src": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_app_practice_page_tsx",
-      "_tgt": "page_resolvereadingunitid",
-      "source": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_app_practice_page_tsx",
-      "target": "page_resolvereadingunitid",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\app\\practice\\page.tsx",
-      "source_location": "L176",
+      "source_location": "L181",
       "weight": 1.0,
       "_src": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_app_practice_page_tsx",
       "_tgt": "page_buildrestarthref",
@@ -4173,31 +4173,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\app\\practice\\page.tsx",
-      "source_location": "L41",
-      "weight": 1.0,
-      "_src": "page_practicepage",
-      "_tgt": "page_resolveskillid",
-      "source": "page_practicepage",
-      "target": "page_resolveskillid",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "confidence": "EXTRACTED",
-      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\app\\practice\\page.tsx",
-      "source_location": "L42",
-      "weight": 1.0,
-      "_src": "page_practicepage",
-      "_tgt": "page_resolvereadingunitid",
-      "source": "page_practicepage",
-      "target": "page_resolvereadingunitid",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "confidence": "EXTRACTED",
-      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\app\\practice\\page.tsx",
-      "source_location": "L61",
+      "source_location": "L64",
       "weight": 1.0,
       "_src": "page_practicepage",
       "_tgt": "page_buildrestarthref",
@@ -4254,34 +4230,10 @@
       "target": "session_runner_startpracticesession"
     },
     {
-      "relation": "calls",
-      "confidence": "INFERRED",
-      "confidence_score": 0.8,
-      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\app\\practice\\page.tsx",
-      "source_location": "L108",
-      "weight": 1.0,
-      "_src": "page_resolveskillid",
-      "_tgt": "skill_slugs_slugtocanonicalid",
-      "source": "page_resolveskillid",
-      "target": "skill_slugs_slugtocanonicalid"
-    },
-    {
-      "relation": "calls",
-      "confidence": "INFERRED",
-      "confidence_score": 0.8,
-      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\app\\practice\\page.tsx",
-      "source_location": "L121",
-      "weight": 1.0,
-      "_src": "page_resolvereadingunitid",
-      "_tgt": "skill_slugs_slugtoreadingunitid",
-      "source": "page_resolvereadingunitid",
-      "target": "skill_slugs_slugtoreadingunitid"
-    },
-    {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\app\\practice\\PracticeQuestion.tsx",
-      "source_location": "L100",
+      "source_location": "L103",
       "weight": 1.0,
       "_src": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_app_practice_practicequestion_tsx",
       "_tgt": "practicequestion_handlesubmit",
@@ -4293,7 +4245,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\app\\practice\\PracticeQuestion.tsx",
-      "source_location": "L108",
+      "source_location": "L111",
       "weight": 1.0,
       "_src": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_app_practice_practicequestion_tsx",
       "_tgt": "practicequestion_handleanswerchange",
@@ -4305,7 +4257,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\app\\practice\\PracticeQuestion.tsx",
-      "source_location": "L113",
+      "source_location": "L116",
       "weight": 1.0,
       "_src": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_app_practice_practicequestion_tsx",
       "_tgt": "practicequestion_handlemultipleanswerchange",
@@ -4317,7 +4269,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\app\\practice\\PracticeQuestion.tsx",
-      "source_location": "L124",
+      "source_location": "L127",
       "weight": 1.0,
       "_src": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_app_practice_practicequestion_tsx",
       "_tgt": "practicequestion_handlepartanswerchange",
@@ -4329,7 +4281,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\app\\practice\\PracticeQuestion.tsx",
-      "source_location": "L129",
+      "source_location": "L132",
       "weight": 1.0,
       "_src": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_app_practice_practicequestion_tsx",
       "_tgt": "practicequestion_handlecategoryanswerchange",
@@ -4341,7 +4293,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\app\\practice\\PracticeQuestion.tsx",
-      "source_location": "L134",
+      "source_location": "L137",
       "weight": 1.0,
       "_src": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_app_practice_practicequestion_tsx",
       "_tgt": "practicequestion_handlenext",
@@ -4353,7 +4305,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\app\\practice\\PracticeQuestion.tsx",
-      "source_location": "L397",
+      "source_location": "L401",
       "weight": 1.0,
       "_src": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_app_practice_practicequestion_tsx",
       "_tgt": "practicequestion_scrolltoquestion",
@@ -4365,7 +4317,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\app\\practice\\PracticeQuestion.tsx",
-      "source_location": "L401",
+      "source_location": "L405",
       "weight": 1.0,
       "_src": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_app_practice_practicequestion_tsx",
       "_tgt": "practicequestion_handleglossarytoggle",
@@ -4629,31 +4581,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\app\\simulaciones\\page.tsx",
-      "source_location": "L57",
-      "weight": 1.0,
-      "_src": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_app_simulaciones_page_tsx",
-      "_tgt": "page_topublicsimulatorsession",
-      "source": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_app_simulaciones_page_tsx",
-      "target": "page_topublicsimulatorsession",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\app\\simulaciones\\page.tsx",
-      "source_location": "L74",
-      "weight": 1.0,
-      "_src": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_app_simulaciones_page_tsx",
-      "_tgt": "page_getstableshuffledoptions",
-      "source": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_app_simulaciones_page_tsx",
-      "target": "page_getstableshuffledoptions",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\app\\simulaciones\\page.tsx",
-      "source_location": "L83",
+      "source_location": "L86",
       "weight": 1.0,
       "_src": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_app_simulaciones_page_tsx",
       "_tgt": "page_getoptionrank",
@@ -4665,7 +4593,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\app\\simulaciones\\SimulatorQuestion.tsx",
-      "source_location": "L89",
+      "source_location": "L91",
       "weight": 1.0,
       "_src": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_app_simulaciones_simulatorquestion_tsx",
       "_tgt": "simulatorquestion_startsimulation",
@@ -4677,7 +4605,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\app\\simulaciones\\SimulatorQuestion.tsx",
-      "source_location": "L104",
+      "source_location": "L106",
       "weight": 1.0,
       "_src": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_app_simulaciones_simulatorquestion_tsx",
       "_tgt": "simulatorquestion_startblockquestions",
@@ -4689,7 +4617,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\app\\simulaciones\\SimulatorQuestion.tsx",
-      "source_location": "L109",
+      "source_location": "L111",
       "weight": 1.0,
       "_src": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_app_simulaciones_simulatorquestion_tsx",
       "_tgt": "simulatorquestion_gonext",
@@ -4700,38 +4628,62 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "src\\components\\dashboard\\ActionPanel.tsx",
-      "source_location": "L9",
+      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\components\\dashboard\\ActionPanel.tsx",
+      "source_location": "L11",
       "weight": 1.0,
-      "_src": "src_components_dashboard_actionpanel_tsx",
+      "_src": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_components_dashboard_actionpanel_tsx",
       "_tgt": "actionpanel_actionpanel",
-      "source": "src_components_dashboard_actionpanel_tsx",
+      "source": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_components_dashboard_actionpanel_tsx",
       "target": "actionpanel_actionpanel",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "src\\components\\dashboard\\ActionPanel.tsx",
-      "source_location": "L36",
+      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\components\\dashboard\\ActionPanel.tsx",
+      "source_location": "L38",
       "weight": 1.0,
-      "_src": "src_components_dashboard_actionpanel_tsx",
+      "_src": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_components_dashboard_actionpanel_tsx",
       "_tgt": "actionpanel_withnewstudentparam",
-      "source": "src_components_dashboard_actionpanel_tsx",
+      "source": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_components_dashboard_actionpanel_tsx",
       "target": "actionpanel_withnewstudentparam",
       "confidence_score": 1.0
     },
     {
       "relation": "calls",
       "confidence": "EXTRACTED",
-      "source_file": "src\\components\\dashboard\\ActionPanel.tsx",
-      "source_location": "L10",
+      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\components\\dashboard\\ActionPanel.tsx",
+      "source_location": "L12",
       "weight": 1.0,
       "_src": "actionpanel_actionpanel",
       "_tgt": "actionpanel_withnewstudentparam",
       "source": "actionpanel_actionpanel",
       "target": "actionpanel_withnewstudentparam",
       "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\components\\dashboard\\ClientAvatarBadge.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "_src": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_components_dashboard_clientavatarbadge_tsx",
+      "_tgt": "clientavatarbadge_clientavatarbadge",
+      "source": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_components_dashboard_clientavatarbadge_tsx",
+      "target": "clientavatarbadge_clientavatarbadge",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\components\\dashboard\\ClientAvatarBadge.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "_src": "clientavatarbadge_clientavatarbadge",
+      "_tgt": "useprofile_useprofile",
+      "source": "clientavatarbadge_clientavatarbadge",
+      "target": "useprofile_useprofile"
     },
     {
       "relation": "contains",
@@ -5252,145 +5204,157 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "src\\components\\ui\\BottomNav.tsx",
-      "source_location": "L21",
+      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\components\\ui\\BottomNav.tsx",
+      "source_location": "L23",
       "weight": 1.0,
-      "_src": "src_components_ui_bottomnav_tsx",
+      "_src": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_components_ui_bottomnav_tsx",
       "_tgt": "bottomnav_homeicon",
-      "source": "src_components_ui_bottomnav_tsx",
+      "source": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_components_ui_bottomnav_tsx",
       "target": "bottomnav_homeicon",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "src\\components\\ui\\BottomNav.tsx",
-      "source_location": "L27",
+      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\components\\ui\\BottomNav.tsx",
+      "source_location": "L29",
       "weight": 1.0,
-      "_src": "src_components_ui_bottomnav_tsx",
+      "_src": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_components_ui_bottomnav_tsx",
       "_tgt": "bottomnav_skillsicon",
-      "source": "src_components_ui_bottomnav_tsx",
+      "source": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_components_ui_bottomnav_tsx",
       "target": "bottomnav_skillsicon",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "src\\components\\ui\\BottomNav.tsx",
-      "source_location": "L33",
+      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\components\\ui\\BottomNav.tsx",
+      "source_location": "L35",
       "weight": 1.0,
-      "_src": "src_components_ui_bottomnav_tsx",
+      "_src": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_components_ui_bottomnav_tsx",
       "_tgt": "bottomnav_simulatoricon",
-      "source": "src_components_ui_bottomnav_tsx",
+      "source": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_components_ui_bottomnav_tsx",
       "target": "bottomnav_simulatoricon",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "src\\components\\ui\\BottomNav.tsx",
-      "source_location": "L39",
+      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\components\\ui\\BottomNav.tsx",
+      "source_location": "L41",
       "weight": 1.0,
-      "_src": "src_components_ui_bottomnav_tsx",
+      "_src": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_components_ui_bottomnav_tsx",
       "_tgt": "bottomnav_progressicon",
-      "source": "src_components_ui_bottomnav_tsx",
+      "source": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_components_ui_bottomnav_tsx",
       "target": "bottomnav_progressicon",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "src\\components\\ui\\BottomNav.tsx",
-      "source_location": "L45",
+      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\components\\ui\\BottomNav.tsx",
+      "source_location": "L47",
       "weight": 1.0,
-      "_src": "src_components_ui_bottomnav_tsx",
+      "_src": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_components_ui_bottomnav_tsx",
       "_tgt": "bottomnav_profileicon",
-      "source": "src_components_ui_bottomnav_tsx",
+      "source": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_components_ui_bottomnav_tsx",
       "target": "bottomnav_profileicon",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "src\\components\\ui\\BottomNav.tsx",
-      "source_location": "L59",
+      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\components\\ui\\SidebarNav.tsx",
+      "source_location": "L23",
       "weight": 1.0,
-      "_src": "src_components_ui_bottomnav_tsx",
-      "_tgt": "bottomnav_bottomnav",
-      "source": "src_components_ui_bottomnav_tsx",
-      "target": "bottomnav_bottomnav",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src\\components\\ui\\SidebarNav.tsx",
-      "source_location": "L21",
-      "weight": 1.0,
-      "_src": "src_components_ui_sidebarnav_tsx",
+      "_src": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_components_ui_sidebarnav_tsx",
       "_tgt": "sidebarnav_homeicon",
-      "source": "src_components_ui_sidebarnav_tsx",
+      "source": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_components_ui_sidebarnav_tsx",
       "target": "sidebarnav_homeicon",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "src\\components\\ui\\SidebarNav.tsx",
-      "source_location": "L27",
+      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\components\\ui\\SidebarNav.tsx",
+      "source_location": "L29",
       "weight": 1.0,
-      "_src": "src_components_ui_sidebarnav_tsx",
+      "_src": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_components_ui_sidebarnav_tsx",
       "_tgt": "sidebarnav_skillsicon",
-      "source": "src_components_ui_sidebarnav_tsx",
+      "source": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_components_ui_sidebarnav_tsx",
       "target": "sidebarnav_skillsicon",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "src\\components\\ui\\SidebarNav.tsx",
-      "source_location": "L33",
+      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\components\\ui\\SidebarNav.tsx",
+      "source_location": "L35",
       "weight": 1.0,
-      "_src": "src_components_ui_sidebarnav_tsx",
+      "_src": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_components_ui_sidebarnav_tsx",
       "_tgt": "sidebarnav_simulatoricon",
-      "source": "src_components_ui_sidebarnav_tsx",
+      "source": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_components_ui_sidebarnav_tsx",
       "target": "sidebarnav_simulatoricon",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "src\\components\\ui\\SidebarNav.tsx",
-      "source_location": "L39",
+      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\components\\ui\\SidebarNav.tsx",
+      "source_location": "L41",
       "weight": 1.0,
-      "_src": "src_components_ui_sidebarnav_tsx",
+      "_src": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_components_ui_sidebarnav_tsx",
       "_tgt": "sidebarnav_progressicon",
-      "source": "src_components_ui_sidebarnav_tsx",
+      "source": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_components_ui_sidebarnav_tsx",
       "target": "sidebarnav_progressicon",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "src\\components\\ui\\SidebarNav.tsx",
-      "source_location": "L45",
+      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\components\\ui\\SidebarNav.tsx",
+      "source_location": "L47",
       "weight": 1.0,
-      "_src": "src_components_ui_sidebarnav_tsx",
+      "_src": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_components_ui_sidebarnav_tsx",
       "_tgt": "sidebarnav_profileicon",
-      "source": "src_components_ui_sidebarnav_tsx",
+      "source": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_components_ui_sidebarnav_tsx",
       "target": "sidebarnav_profileicon",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "src\\components\\ui\\SidebarNav.tsx",
-      "source_location": "L59",
+      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\components\\ui\\SidebarNav.tsx",
+      "source_location": "L61",
       "weight": 1.0,
-      "_src": "src_components_ui_sidebarnav_tsx",
+      "_src": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_components_ui_sidebarnav_tsx",
       "_tgt": "sidebarnav_sidebarnav",
-      "source": "src_components_ui_sidebarnav_tsx",
+      "source": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_components_ui_sidebarnav_tsx",
       "target": "sidebarnav_sidebarnav",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\components\\ui\\SidebarNav.tsx",
+      "source_location": "L123",
+      "weight": 1.0,
+      "_src": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_components_ui_sidebarnav_tsx",
+      "_tgt": "sidebarnav_useprogresscodefromlocation",
+      "source": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_components_ui_sidebarnav_tsx",
+      "target": "sidebarnav_useprogresscodefromlocation",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\components\\ui\\SidebarNav.tsx",
+      "source_location": "L63",
+      "weight": 1.0,
+      "_src": "sidebarnav_sidebarnav",
+      "_tgt": "sidebarnav_useprogresscodefromlocation",
+      "source": "sidebarnav_sidebarnav",
+      "target": "sidebarnav_useprogresscodefromlocation",
       "confidence_score": 1.0
     },
     {
@@ -5576,92 +5540,92 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "src\\hooks\\useProfile.ts",
-      "source_location": "L44",
+      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\hooks\\useProfile.ts",
+      "source_location": "L45",
       "weight": 1.0,
-      "_src": "src_hooks_useprofile_ts",
+      "_src": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_hooks_useprofile_ts",
       "_tgt": "useprofile_createdefaultprofile",
-      "source": "src_hooks_useprofile_ts",
+      "source": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_hooks_useprofile_ts",
       "target": "useprofile_createdefaultprofile",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "src\\hooks\\useProfile.ts",
-      "source_location": "L61",
+      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\hooks\\useProfile.ts",
+      "source_location": "L62",
       "weight": 1.0,
-      "_src": "src_hooks_useprofile_ts",
+      "_src": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_hooks_useprofile_ts",
       "_tgt": "useprofile_loadprofilefromstorage",
-      "source": "src_hooks_useprofile_ts",
+      "source": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_hooks_useprofile_ts",
       "target": "useprofile_loadprofilefromstorage",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "src\\hooks\\useProfile.ts",
-      "source_location": "L92",
+      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\hooks\\useProfile.ts",
+      "source_location": "L93",
       "weight": 1.0,
-      "_src": "src_hooks_useprofile_ts",
+      "_src": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_hooks_useprofile_ts",
       "_tgt": "useprofile_saveprofiletostorage",
-      "source": "src_hooks_useprofile_ts",
+      "source": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_hooks_useprofile_ts",
       "target": "useprofile_saveprofiletostorage",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "src\\hooks\\useProfile.ts",
-      "source_location": "L97",
+      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\hooks\\useProfile.ts",
+      "source_location": "L101",
       "weight": 1.0,
-      "_src": "src_hooks_useprofile_ts",
+      "_src": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_hooks_useprofile_ts",
       "_tgt": "useprofile_islearninggoal",
-      "source": "src_hooks_useprofile_ts",
+      "source": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_hooks_useprofile_ts",
       "target": "useprofile_islearninggoal",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "src\\hooks\\useProfile.ts",
-      "source_location": "L101",
+      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\hooks\\useProfile.ts",
+      "source_location": "L105",
       "weight": 1.0,
-      "_src": "src_hooks_useprofile_ts",
+      "_src": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_hooks_useprofile_ts",
       "_tgt": "useprofile_ispreferredsubject",
-      "source": "src_hooks_useprofile_ts",
+      "source": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_hooks_useprofile_ts",
       "target": "useprofile_ispreferredsubject",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "src\\hooks\\useProfile.ts",
-      "source_location": "L105",
+      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\hooks\\useProfile.ts",
+      "source_location": "L109",
       "weight": 1.0,
-      "_src": "src_hooks_useprofile_ts",
+      "_src": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_hooks_useprofile_ts",
       "_tgt": "useprofile_isplainobject",
-      "source": "src_hooks_useprofile_ts",
+      "source": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_hooks_useprofile_ts",
       "target": "useprofile_isplainobject",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "src\\hooks\\useProfile.ts",
-      "source_location": "L109",
+      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\hooks\\useProfile.ts",
+      "source_location": "L113",
       "weight": 1.0,
-      "_src": "src_hooks_useprofile_ts",
+      "_src": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_hooks_useprofile_ts",
       "_tgt": "useprofile_useprofile",
-      "source": "src_hooks_useprofile_ts",
+      "source": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_hooks_useprofile_ts",
       "target": "useprofile_useprofile",
       "confidence_score": 1.0
     },
     {
       "relation": "calls",
       "confidence": "EXTRACTED",
-      "source_file": "src\\hooks\\useProfile.ts",
-      "source_location": "L63",
+      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\hooks\\useProfile.ts",
+      "source_location": "L64",
       "weight": 1.0,
       "_src": "useprofile_loadprofilefromstorage",
       "_tgt": "useprofile_createdefaultprofile",
@@ -5672,8 +5636,8 @@
     {
       "relation": "calls",
       "confidence": "EXTRACTED",
-      "source_file": "src\\hooks\\useProfile.ts",
-      "source_location": "L110",
+      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\hooks\\useProfile.ts",
+      "source_location": "L114",
       "weight": 1.0,
       "_src": "useprofile_useprofile",
       "_tgt": "useprofile_createdefaultprofile",
@@ -5684,8 +5648,8 @@
     {
       "relation": "calls",
       "confidence": "EXTRACTED",
-      "source_file": "src\\hooks\\useProfile.ts",
-      "source_location": "L78",
+      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\hooks\\useProfile.ts",
+      "source_location": "L79",
       "weight": 1.0,
       "_src": "useprofile_loadprofilefromstorage",
       "_tgt": "useprofile_islearninggoal",
@@ -5696,8 +5660,8 @@
     {
       "relation": "calls",
       "confidence": "EXTRACTED",
-      "source_file": "src\\hooks\\useProfile.ts",
-      "source_location": "L79",
+      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\hooks\\useProfile.ts",
+      "source_location": "L80",
       "weight": 1.0,
       "_src": "useprofile_loadprofilefromstorage",
       "_tgt": "useprofile_ispreferredsubject",
@@ -5708,8 +5672,8 @@
     {
       "relation": "calls",
       "confidence": "EXTRACTED",
-      "source_file": "src\\hooks\\useProfile.ts",
-      "source_location": "L82",
+      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\hooks\\useProfile.ts",
+      "source_location": "L83",
       "weight": 1.0,
       "_src": "useprofile_loadprofilefromstorage",
       "_tgt": "useprofile_isplainobject",

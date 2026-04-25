@@ -15,6 +15,7 @@ import {
 import { slugToCanonicalId, slugToReadingUnitId } from "../../skills/skill_slugs";
 import { PracticeQuestion } from "./PracticeQuestion";
 import { resolveStudentCode } from "../student_identity";
+import { withProgressCode } from "../progress_code_href";
 
 type PracticePageProps = {
   searchParams: Promise<{
@@ -31,7 +32,9 @@ type PracticePageProps = {
 
 export default async function PracticePage({ searchParams }: PracticePageProps) {
   const params = await searchParams;
-  const studentCode = await resolveStudentCode(getParam(params.code) ?? getParam(params.student));
+  const explicitCode = getParam(params.code) ?? getParam(params.student);
+  const studentCode = await resolveStudentCode(explicitCode);
+  const progressCode = explicitCode ? studentCode : undefined;
   const focus = Array.isArray(params.focus) ? params.focus[0] : params.focus;
   const modeParam = Array.isArray(params.mode) ? params.mode[0] : params.mode;
   const newStudent = Array.isArray(params.newStudent) ? params.newStudent[0] : params.newStudent;
@@ -51,7 +54,7 @@ export default async function PracticePage({ searchParams }: PracticePageProps) 
       { forceNewStudent, focusSubskill: focus, includeReadingUnits: false, studentCode },
     );
   if (!practiceSelection?.exercise) {
-    return <PracticeUnavailable />;
+    return <PracticeUnavailable progressCode={progressCode} />;
   }
 
   const resolvedReadingUnitId = practiceSelection.sessionType === "reading-based"
@@ -59,6 +62,7 @@ export default async function PracticePage({ searchParams }: PracticePageProps) 
     : undefined;
 
   const restartHref = buildRestartHref({
+    progressCode,
     skill: skill ?? undefined,
     forceNewStudent,
     mode: practiceMode,
@@ -88,6 +92,7 @@ export default async function PracticePage({ searchParams }: PracticePageProps) 
           <PracticeQuestion
             session={practiceSelection}
             masteryMap={getLenguaMasteryMap()}
+            progressCode={progressCode}
             restartHref={restartHref}
             saveProgress={saveProgress}
           />
@@ -98,7 +103,7 @@ export default async function PracticePage({ searchParams }: PracticePageProps) 
   );
 }
 
-function PracticeUnavailable() {
+function PracticeUnavailable({ progressCode }: { progressCode?: string }) {
   return (
     <div className="min-h-screen bg-slate-50 flex">
       <SidebarNav />
@@ -113,10 +118,10 @@ function PracticeUnavailable() {
               Puede faltar contenido o haber un problema temporal de carga. Volvé al tablero o revisá las habilidades disponibles para elegir otra práctica.
             </p>
             <div className="mt-5 flex flex-wrap gap-3">
-              <Button href="/dashboard" variant="primary" size="md">
+              <Button href={withProgressCode("/dashboard", progressCode)} variant="primary" size="md">
                 Ir al tablero
               </Button>
-              <Button href="/habilidades" variant="secondary" size="md">
+              <Button href={withProgressCode("/habilidades", progressCode)} variant="secondary" size="md">
                 Ver habilidades
               </Button>
             </div>
@@ -174,11 +179,13 @@ function resolveReadingUnitId(rawUnit: string | undefined): string | null {
 }
 
 function buildRestartHref({
+  progressCode,
   skill,
   forceNewStudent,
   mode,
   unit,
 }: {
+  progressCode?: string;
   skill: string | undefined;
   forceNewStudent: boolean;
   mode: PracticeMode;
@@ -204,5 +211,5 @@ function buildRestartHref({
   }
 
   const query = params.toString();
-  return query ? `/practice?${query}` : "/practice";
+  return withProgressCode(query ? `/practice?${query}` : "/practice", progressCode);
 }

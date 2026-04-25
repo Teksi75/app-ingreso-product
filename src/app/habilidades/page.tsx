@@ -7,6 +7,7 @@ import {
 import { pickReadingUnitCandidate } from "@/practice/session_runner";
 import { canonicalIdToSlug, readingUnitIdToSlug } from "@/skills/skill_slugs";
 import { resolveStudentCode } from "@/app/student_identity";
+import { withProgressCode } from "@/app/progress_code_href";
 
 export const dynamic = "force-dynamic";
 
@@ -106,10 +107,15 @@ type HabilidadesPageProps = {
 
 export default async function HabilidadesPage({ searchParams }: HabilidadesPageProps) {
   const params = await searchParams;
-  const studentCode = await resolveStudentCode(getParam(params.code) ?? getParam(params.student));
+  const explicitCode = getParam(params.code) ?? getParam(params.student);
+  const studentCode = await resolveStudentCode(explicitCode);
+  const progressCode = explicitCode ? studentCode : undefined;
   const progress = await loadProgressAsync(studentCode);
   const data = getSkillData(progress);
   const defaultReadingUnit = pickReadingUnitCandidate(null);
+  const recommendationHref = defaultReadingUnit
+    ? `/practice?mode=reading&unit=${encodeURIComponent(readingUnitIdToSlug(defaultReadingUnit.id))}`
+    : `/practice?mode=training&skill=${canonicalIdToSlug("lengua.skill_1")}`;
 
   const HABILIDADES = HABILIDADES_BASE.map((skill) => {
     if (skill.id === "lengua") {
@@ -300,7 +306,7 @@ export default async function HabilidadesPage({ searchParams }: HabilidadesPageP
                   {/* Action Button */}
                   <Button
                     disabled={!skill.isAvailable}
-                    href={skill.practiceHref}
+                    href={withProgressCode(skill.practiceHref, progressCode)}
                     fullWidth
                     size="md"
                     className={`
@@ -333,11 +339,9 @@ export default async function HabilidadesPage({ searchParams }: HabilidadesPageP
                    <p className="text-slate-600 mb-3">
                      La <span className="font-semibold text-violet-600">Lengua</span> es tu área con mayor potencial de mejora.
                     Practica comprensión lectora con el pack canónico de textos y actividades guiadas.
-                   </p>
+                  </p>
                   <Button
-                    href={defaultReadingUnit
-                      ? `/practice?mode=reading&unit=${encodeURIComponent(readingUnitIdToSlug(defaultReadingUnit.id))}`
-                      : `/practice?mode=training&skill=${canonicalIdToSlug("lengua.skill_1")}`}
+                    href={withProgressCode(recommendationHref, progressCode)}
                     variant="secondary"
                     size="sm"
                   >

@@ -7,8 +7,10 @@
  */
 
 import Link from "next/link";
+import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import { useProfile } from "@/hooks/useProfile";
+import { withProgressCode } from "@/app/progress_code_href";
 
 const navItems = [
   { id: "home", label: "Inicio", href: "/" },
@@ -58,6 +60,7 @@ const iconMap: Record<string, React.FC<{ className?: string }>> = {
 
 export function SidebarNav() {
   const pathname = usePathname();
+  const progressCode = useProgressCodeFromLocation(pathname);
   const { profile } = useProfile();
 
   return (
@@ -84,7 +87,7 @@ export function SidebarNav() {
           return (
             <Link
               key={item.id}
-              href={item.href}
+              href={withProgressCode(item.href, progressCode)}
               className={`
                 w-full flex items-center gap-3 px-4 py-3 rounded-xl
                 font-semibold text-sm transition-all duration-200
@@ -115,4 +118,15 @@ export function SidebarNav() {
       </div>
     </aside>
   );
+}
+
+function useProgressCodeFromLocation(pathname: string): string | null {
+  const [progressCode, setProgressCode] = useState<string | null>(null);
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    setProgressCode(params.get("code") ?? params.get("student"));
+  }, [pathname]);
+
+  return progressCode;
 }

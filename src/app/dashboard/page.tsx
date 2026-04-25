@@ -11,6 +11,7 @@ import {
 import { getNextStepRecommendation } from "../../recommendation/next_step";
 import { loadProgressAsync, resetProgress, type SkillState, type StoredProgress } from "../../storage/local_progress_store";
 import { resolveStudentCode } from "../student_identity";
+import { withProgressCode } from "../progress_code_href";
 
 export type DashboardSkillState = SkillState | "not_started";
 
@@ -32,7 +33,9 @@ type DashboardPageProps = {
 
 export default async function DashboardPage({ searchParams }: DashboardPageProps) {
   const params = await searchParams;
-  const studentCode = await resolveStudentCode(getParam(params.code) ?? getParam(params.student));
+  const explicitCode = getParam(params.code) ?? getParam(params.student);
+  const studentCode = await resolveStudentCode(explicitCode);
+  const progressCode = explicitCode ? studentCode : undefined;
   const newStudent = getParam(params.newStudent);
   const isNewStudent = isEnabledParam(newStudent);
   const progress = isNewStudent ? createEmptyProgress() : await loadProgressAsync(studentCode);
@@ -78,7 +81,7 @@ export default async function DashboardPage({ searchParams }: DashboardPageProps
                 Empezá con una actividad guiada para que el tablero pueda mostrar progreso real.
               </p>
               <Link
-                href={withNewStudentParam(recommendation.href, isNewStudent)}
+                href={withProgressCode(withNewStudentParam(recommendation.href, isNewStudent), progressCode)}
                 className="inline-flex min-h-[42px] items-center justify-center rounded-lg bg-[#1d1d1b] px-4 font-bold text-white"
               >
                 {recommendation.ctaLabel}
@@ -97,7 +100,7 @@ export default async function DashboardPage({ searchParams }: DashboardPageProps
             </button>
           </form>
         )}
-        <ActionPanel isNewStudent={isNewStudent} recommendation={recommendation} />
+        <ActionPanel isNewStudent={isNewStudent} progressCode={progressCode} recommendation={recommendation} />
       </section>
     </main>
   );

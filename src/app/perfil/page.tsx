@@ -110,6 +110,24 @@ export default function PerfilPage() {
 
   const displayName = form.name.trim() || "Estudiante";
 
+  if (!isLoaded) {
+    return (
+      <div className="min-h-screen bg-slate-50 flex">
+        <SidebarNav />
+        <main className="flex-1 min-w-0 min-h-screen">
+          <section className="mx-auto grid max-w-3xl gap-4 p-4 lg:p-6">
+            <div className="rounded-2xl border border-slate-100 bg-white p-6 shadow-sm">
+              <p className="m-0 text-sm font-semibold text-slate-600">Cargando perfil local...</p>
+            </div>
+          </section>
+        </main>
+        <div className="lg:hidden">
+          <BottomNav />
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen bg-slate-50 flex">
       <SidebarNav />
@@ -156,6 +174,9 @@ export default function PerfilPage() {
                       <button
                         key={avatar}
                         type="button"
+                        aria-pressed={form.avatar === avatar}
+                        data-avatar={avatar}
+                        data-testid={`avatar-option-${AVATAR_OPTIONS.indexOf(avatar)}`}
                         onClick={() => updateForm("avatar", avatar)}
                         className={`w-10 h-10 rounded-xl text-xl flex items-center justify-center transition-all duration-200 ${
                           form.avatar === avatar

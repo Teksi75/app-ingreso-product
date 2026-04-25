@@ -32,6 +32,7 @@ export type UserProfile = {
 };
 
 const STORAGE_KEY = "teksti75_profile";
+const PROFILE_UPDATED_EVENT = "teksti75_profile_updated";
 const DEFAULT_AVATAR = "🎓";
 const DEFAULT_NAME = "Estudiante";
 
@@ -92,6 +93,9 @@ function loadProfileFromStorage(): UserProfile {
 function saveProfileToStorage(profile: UserProfile): void {
   if (typeof window === "undefined") return;
   localStorage.setItem(STORAGE_KEY, JSON.stringify(profile));
+  window.setTimeout(() => {
+    window.dispatchEvent(new CustomEvent(PROFILE_UPDATED_EVENT, { detail: profile }));
+  }, 0);
 }
 
 function isLearningGoal(value: unknown): value is LearningGoal {
@@ -113,6 +117,30 @@ export function useProfile() {
   useEffect(() => {
     setProfileState(loadProfileFromStorage());
     setIsLoaded(true);
+
+    function handleProfileUpdated(event: Event) {
+      const nextProfile = event instanceof CustomEvent
+        ? event.detail
+        : loadProfileFromStorage();
+
+      if (isPlainObject(nextProfile)) {
+        setProfileState(loadProfileFromStorage());
+      }
+    }
+
+    function handleStorage(event: StorageEvent) {
+      if (event.key === STORAGE_KEY) {
+        setProfileState(loadProfileFromStorage());
+      }
+    }
+
+    window.addEventListener(PROFILE_UPDATED_EVENT, handleProfileUpdated);
+    window.addEventListener("storage", handleStorage);
+
+    return () => {
+      window.removeEventListener(PROFILE_UPDATED_EVENT, handleProfileUpdated);
+      window.removeEventListener("storage", handleStorage);
+    };
   }, []);
 
   const setProfile = useCallback((updater: Partial<UserProfile> | ((prev: UserProfile) => UserProfile)) => {
