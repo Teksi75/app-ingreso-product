@@ -1,9 +1,8 @@
+import { describe, it } from "vitest";
 import { testSelector } from "./exercise_selector.ts";
 
-try {
-  testSelector();
-  console.log("exercise selector validated");
-} catch (error) {
-  console.error(error);
-  process.exit(1);
-}
+describe("exercise selector", () => {
+  it("passes the built-in selector smoke test", () => {
+    testSelector();
+  });
+});

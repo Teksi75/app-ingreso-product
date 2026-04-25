@@ -1,4 +1,4 @@
-import assert from "node:assert/strict";
+import { describe, expect, it } from "vitest";
 import { loadLenguaExercises, type Exercise } from "./session_runner.ts";
 import {
   buildSimulatorSkillResults,
@@ -11,36 +11,41 @@ import {
 } from "./simulator_runner.ts";
 import { type ReadingUnit } from "../types/reading_unit.ts";
 
-function main(): void {
+describe("simulator runner", () => {
+  it("starts simulator sessions with valid reading and standalone blocks", () => {
   const session = startSimulatorSession();
   const aliasSession = createSimulatorSession({ maxQuestions: 2 });
 
-  assert.equal(session.mode, "simulator");
-  assert.equal(aliasSession.mode, "simulator");
-  assert.ok(aliasSession.exercises.length <= 2);
-  assert.ok(session.exercises.length > 0);
-  assert.ok(session.exercises.length <= 10);
-  assert.ok(session.blocks.some((block) => block.type === "reading_unit"));
-  assert.ok(session.blocks[0]?.type === "reading_unit");
-  assert.ok(session.blocks[0]?.readingUnit?.text.length);
-  assert.ok(session.exercises.some((exercise) => Boolean(exercise.reading_unit_id)));
-  assert.equal(new Set(session.exercises.map((exercise) => exercise.id)).size, session.exercises.length);
-  assert.ok(session.exercises.every((exercise) => exercise.options.length >= 2));
-  assert.ok(session.exercises.every((exercise) => exercise.correct_answer.length > 0));
-  assert.ok(session.exercises.every((exercise) => exercise.options.includes(exercise.correct_answer)));
+  expect(session.mode).toBe("simulator");
+  expect(aliasSession.mode).toBe("simulator");
+  expect(aliasSession.exercises.length).toBeLessThanOrEqual(2);
+  expect(session.exercises.length).toBeGreaterThan(0);
+  expect(session.exercises.length).toBeLessThanOrEqual(10);
+  expect(session.blocks.some((block) => block.type === "reading_unit")).toBe(true);
+  expect(session.blocks[0]?.type).toBe("reading_unit");
+  expect(session.blocks[0]?.readingUnit?.text.length).toBeGreaterThan(0);
+  expect(session.exercises.some((exercise) => Boolean(exercise.reading_unit_id))).toBe(true);
+  expect(new Set(session.exercises.map((exercise) => exercise.id)).size).toBe(session.exercises.length);
+  expect(session.exercises.every((exercise) => exercise.options.length >= 2)).toBe(true);
+  expect(session.exercises.every((exercise) => exercise.correct_answer.length > 0)).toBe(true);
+  expect(session.exercises.every((exercise) => exercise.options.includes(exercise.correct_answer))).toBe(true);
 
   const canonicalExercises = loadLenguaExercises();
   const canonicalIds = new Set(canonicalExercises.map((exercise) => exercise.id));
-  assert.ok(session.exercises.every((exercise) => canonicalIds.has(exercise.id)));
+  expect(session.exercises.every((exercise) => canonicalIds.has(exercise.id))).toBe(true);
+  });
 
+  it("selects compatible simulator exercises by skill", () => {
   const selected = selectSimulatorExercises([
     buildExercise("a1", "lengua.skill_1", "lengua.skill_1.subskill_1", "multiple_choice"),
     buildExercise("a2", "lengua.skill_1", "lengua.skill_1.subskill_2", "multiple_choice_multiple"),
     buildExercise("b1", "lengua.skill_2", "lengua.skill_2.subskill_1", "multiple_choice"),
   ], { maxQuestions: 3 });
 
-  assert.deepEqual(selected.map((exercise) => exercise.id), ["a1", "b1"]);
+  expect(selected.map((exercise) => exercise.id)).toEqual(["a1", "b1"]);
+  });
 
+  it("groups reading-unit exercises before standalone simulator exercises", () => {
   const mixed = selectSimulatorSession([
     buildReadingExercise("r1", "RU-1", "Lectura 1", "lengua.skill_1", "lengua.skill_1.subskill_1"),
     buildReadingExercise("r2", "RU-1", "Lectura 1", "lengua.skill_2", "lengua.skill_2.subskill_1"),
@@ -50,12 +55,15 @@ function main(): void {
     buildExercise("s2", "lengua.skill_6", "lengua.skill_6.subskill_1", "multiple_choice"),
   ], { maxQuestions: 6 });
 
-  assert.deepEqual(mixed.blocks.map((block) => block.type), ["reading_unit", "standalone"]);
-  assert.equal(mixed.blocks[0]?.exerciseIds.length, 4);
-  assert.equal(mixed.blocks[0]?.readingUnit?.id, "RU-1");
-  assert.ok(mixed.exercises.slice(0, 4).every((exercise) => exercise.block_id === "reading:RU-1"));
-  assert.ok(mixed.exercises.slice(4).every((exercise) => exercise.block_id === "standalone"));
+  expect(mixed.blocks.map((block) => block.type)).toEqual(["reading_unit", "standalone"]);
+  expect(mixed.blocks[0]?.exerciseIds.length).toBe(4);
+  expect(mixed.blocks[0]?.readingUnit?.id).toBe("RU-1");
+  expect(mixed.exercises.slice(0, 4).every((exercise) => exercise.block_id === "reading:RU-1")).toBe(true);
+  expect(mixed.exercises.slice(4).every((exercise) => exercise.block_id === "standalone")).toBe(true);
+  });
 
+  it("evaluates simulator answers and builds skill results", () => {
+  const session = startSimulatorSession();
   const answers = Object.fromEntries(
     session.exercises.map((exercise, index) => [
       exercise.id,
@@ -64,17 +72,17 @@ function main(): void {
   );
   const evaluation = evaluateSimulatorSession(session, answers);
 
-  assert.equal(evaluation.mode, "simulator");
-  assert.equal(evaluation.area, "lengua");
-  assert.equal(evaluation.total_attempts, session.exercises.length);
-  assert.equal(evaluation.total_correct, 1);
-  assert.equal(evaluation.total_errors, session.exercises.length - 1);
-  assert.equal(evaluation.score_percentage, Math.round((1 / session.exercises.length) * 100));
-  assert.deepEqual(evaluation.exercise_ids, session.exercises.map((exercise) => exercise.id));
-  assert.ok(evaluation.skill_results.length > 0);
-  assert.ok(evaluation.skill_results.every((result) => result.attempts > 0));
-  assert.ok(evaluation.skill_results.every((result) => result.correct <= result.attempts));
-  assert.ok(evaluation.skill_results.every((result) => ["weak", "developing", "mastered"].includes(result.state)));
+  expect(evaluation.mode).toBe("simulator");
+  expect(evaluation.area).toBe("lengua");
+  expect(evaluation.total_attempts).toBe(session.exercises.length);
+  expect(evaluation.total_correct).toBe(1);
+  expect(evaluation.total_errors).toBe(session.exercises.length - 1);
+  expect(evaluation.score_percentage).toBe(Math.round((1 / session.exercises.length) * 100));
+  expect(evaluation.exercise_ids).toEqual(session.exercises.map((exercise) => exercise.id));
+  expect(evaluation.skill_results.length).toBeGreaterThan(0);
+  expect(evaluation.skill_results.every((result) => result.attempts > 0)).toBe(true);
+  expect(evaluation.skill_results.every((result) => result.correct <= result.attempts)).toBe(true);
+  expect(evaluation.skill_results.every((result) => ["weak", "developing", "mastered"].includes(result.state))).toBe(true);
 
   const weakResults = buildSimulatorSkillResults([
     buildQuestionResult("x1", "lengua.skill_1", "lengua.skill_1.subskill_1", "incorrect"),
@@ -85,11 +93,10 @@ function main(): void {
   const skillOne = weakResults.find((result) => result.skill_id === "lengua.skill_1");
   const skillTwo = weakResults.find((result) => result.skill_id === "lengua.skill_2");
 
-  assert.equal(skillOne?.state, "developing");
-  assert.equal(skillTwo?.state, "mastered");
-
-  console.log("simulator runner validated");
-}
+  expect(skillOne?.state).toBe("developing");
+  expect(skillTwo?.state).toBe("mastered");
+  });
+});
 
 function buildExercise(
   id: string,
@@ -156,5 +163,3 @@ function buildQuestionResult(
     correct_answer: "correct",
   };
 }
-
-main();

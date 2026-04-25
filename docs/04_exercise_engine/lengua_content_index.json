@@ -74,7 +74,7 @@
     {
       "file": "lengua_subskills_skill_3_production.json",
       "kind": "subskill_production_set",
-      "exercise_count": 18,
+      "exercise_count": 24,
       "skills": [
         "lengua.skill_3"
       ]
@@ -98,5 +98,5 @@
       ]
     }
   ],
-  "total_exercise_count": 237
+  "total_exercise_count": 243
 }
