@@ -58,6 +58,25 @@
       "correctAnswer": "separar elementos de una enumeracion",
       "feedback_correct": "Correcto: las comas separan distintos recuerdos dentro de una lista.",
       "feedback_incorrect": "Observa que la frase presenta varios elementos seguidos dentro de una enumeracion."
+    },
+    {
+      "id": "M6-CUE-004",
+      "readingUnitId": "RU-LEN-CUE-001",
+      "skill": "lengua.skill_2",
+      "subskill": "lengua.skill_2.subskill_5",
+      "difficulty": 2,
+      "mastery_level": 2,
+      "type": "multiple_choice",
+      "question": "Quien narra los hechos del cuento y que sabe sobre los personajes?",
+      "options": [
+        "Un narrador en tercera persona que conoce los pensamientos y sentimientos de varios personajes",
+        "Un narrador en primera persona que es Alma y cuenta su propia experiencia",
+        "Un narrador en segunda persona que le habla al lector",
+        "Un narrador en primera persona que es el senor Borda"
+      ],
+      "correctAnswer": "Un narrador en tercera persona que conoce los pensamientos y sentimientos de varios personajes",
+      "feedback_correct": "Correcto: el narrador sabe lo que sienten Alma, Teo y el senor Borda, por eso es omnisciente.",
+      "feedback_incorrect": "Pensa si el narrador cuenta solo lo que se ve desde afuera o si tambien dice lo que piensan y sienten los personajes."
     }
   ]
 }

@@ -58,6 +58,49 @@
       "correctAnswer": "depuracion",
       "feedback_correct": "Correcto: 'depuracion' se escribe con c y aparece en el articulo.",
       "feedback_incorrect": "Vuelve al apartado sobre la importancia de los humedales y observa la grafia."
+    },
+    {
+      "id": "M5-ENC-004",
+      "readingUnitId": "RU-LEN-ENC-001",
+      "skill": "lengua.skill_2",
+      "subskill": "lengua.skill_2.subskill_4",
+      "difficulty": 2,
+      "mastery_level": 2,
+      "type": "multiple_choice",
+      "question": "Que tipo de paratexto son los subtitulos 'Que es un humedal', 'Donde se encuentran' y 'Por que son importantes' que acompañan al texto?",
+      "options": [
+        "Son subtitulos que organizan la informacion en secciones tematicas",
+        "Son epigrafes que explican las imagenes del articulo",
+        "Son notas al pie que aclaran datos tecnicos",
+        "Son resumenes que reemplazan el contenido del texto"
+      ],
+      "correctAnswer": "Son subtitulos que organizan la informacion en secciones tematicas",
+      "feedback_correct": "Correcto: los subtitulos dividen el articulo en secciones segun el tema que cada una desarrolla.",
+      "feedback_incorrect": "Observa como el texto esta dividido en partes, cada una con un titulo que anticipa el tema."
+    },
+    {
+      "id": "M5-ENC-005",
+      "readingUnitId": "RU-LEN-ENC-001",
+      "skill": "lengua.skill_2",
+      "subskill": "lengua.skill_2.subskill_4",
+      "difficulty": 2,
+      "mastery_level": 2,
+      "type": "multiple_choice_multiple",
+      "question": "Marca los paratextos que aparecen en este articulo enciclopedico:",
+      "options": [
+        "Subtitulos que organizan las secciones",
+        "Glosario con definiciones de palabras clave",
+        "Fuente que indica el origen de la informacion",
+        "Dialogos entre personajes del texto",
+        "Indice alfabetico al final del texto"
+      ],
+      "correctAnswers": [
+        "Subtitulos que organizan las secciones",
+        "Glosario con definiciones de palabras clave",
+        "Fuente que indica el origen de la informacion"
+      ],
+      "feedback_correct": "Correcto: el articulo enciclopedico incluye subtitulos, glosario y fuente como paratextos informativos.",
+      "feedback_incorrect": "Busca los elementos que acompañan al texto sin ser parte del cuerpo principal: subtitulos, glosario y fuente."
     }
   ]
 }

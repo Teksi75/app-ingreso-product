@@ -207,6 +207,44 @@
       ],
       "feedback_correct": "Correcto: en el primer caso la coma separa elementos de una lista; en el segundo intercala una aclaración.",
       "feedback_incorrect": "La coma de enumeración separa elementos; la coma de aclaración encierra información agregada."
+    },
+    {
+      "id": "M1-BIO-011",
+      "readingUnitId": "RU-LEN-BIO-001",
+      "skill": "lengua.skill_2",
+      "subskill": "lengua.skill_2.subskill_4",
+      "difficulty": 1,
+      "mastery_level": 1,
+      "type": "multiple_choice",
+      "question": "¿Cuál de los siguientes paratextos permite identificar directamente que el texto es una biografía y no un cuento o una noticia?",
+      "options": [
+        "El subtítulo 'Biografía de una artista chilena'",
+        "Las fechas que aparecen dentro del cuerpo del texto",
+        "Los verbos en pasado que se usan en los párrafos",
+        "La cantidad de párrafos que tiene el texto"
+      ],
+      "correctAnswer": "El subtítulo 'Biografía de una artista chilena'",
+      "feedback_correct": "Correcto: el subtítulo aclara de forma directa el tipo de texto y el personaje sobre el que trata.",
+      "feedback_incorrect": "Revisá qué elemento aparece antes del cuerpo del texto y dice explícitamente de qué tipo de texto se trata."
+    },
+    {
+      "id": "M1-BIO-012",
+      "readingUnitId": "RU-LEN-BIO-001",
+      "skill": "lengua.skill_2",
+      "subskill": "lengua.skill_2.subskill_5",
+      "difficulty": 1,
+      "mastery_level": 1,
+      "type": "multiple_choice",
+      "question": "¿Desde qué perspectiva está narrada esta biografía?",
+      "options": [
+        "Desde una tercera persona que relata la vida de Violeta Parra sin ser parte de la historia",
+        "Desde la primera persona, porque Violeta cuenta su propia vida",
+        "Desde la segunda persona, porque el texto le habla al lector",
+        "Desde la primera persona de un familiar cercano de Violeta"
+      ],
+      "correctAnswer": "Desde una tercera persona que relata la vida de Violeta Parra sin ser parte de la historia",
+      "feedback_correct": "Correcto: la biografía está narrada en tercera persona por alguien externo a la historia.",
+      "feedback_incorrect": "Pensá quién cuenta los hechos: ¿Violeta habla de sí misma o alguien más cuenta su vida?"
     }
   ]
 }

@@ -160,3 +160,817 @@
  GET /simulaciones 200 in 187ms (next.js: 9ms, application-code: 178ms)
  GET /simulaciones 200 in 117ms (next.js: 9ms, application-code: 107ms)
  GET /simulaciones 200 in 58ms (next.js: 5ms, application-code: 53ms)
+ GET /habilidades 200 in 262ms (next.js: 185ms, application-code: 77ms)
+{
+  ruleApplied: 'E',
+  selectedExerciseId: 'LEN-EX-001',
+  skill: 'lengua.skill_1',
+  subskill: 'lengua.skill_1.subskill_3',
+  difficulty: 1,
+  masteryLevel: 1
+}
+{
+  ruleApplied: 'E',
+  selectedExerciseId: 'LEN-EX-007',
+  skill: 'lengua.skill_1',
+  subskill: 'lengua.skill_1.subskill_2',
+  difficulty: 1,
+  masteryLevel: 1
+}
+{
+  ruleApplied: 'E',
+  selectedExerciseId: 'LEN-EX-009',
+  skill: 'lengua.skill_1',
+  subskill: 'lengua.skill_1.subskill_4',
+  difficulty: 1,
+  masteryLevel: 1
+}
+{
+  ruleApplied: 'E',
+  selectedExerciseId: 'LEN-EX-027',
+  skill: 'lengua.skill_1',
+  subskill: 'lengua.skill_1.subskill_2',
+  difficulty: 1,
+  masteryLevel: 1
+}
+{
+  ruleApplied: 'E',
+  selectedExerciseId: 'LEN-EX-028',
+  skill: 'lengua.skill_1',
+  subskill: 'lengua.skill_1.subskill_2',
+  difficulty: 1,
+  masteryLevel: 1
+}
+{
+  ruleApplied: 'E',
+  selectedExerciseId: 'LEN-EX-031',
+  skill: 'lengua.skill_1',
+  subskill: 'lengua.skill_1.subskill_2',
+  difficulty: 1,
+  masteryLevel: 1
+}
+{
+  ruleApplied: 'E',
+  selectedExerciseId: 'LEN-EX-033',
+  skill: 'lengua.skill_1',
+  subskill: 'lengua.skill_1.subskill_2',
+  difficulty: 1,
+  masteryLevel: 1
+}
+{
+  ruleApplied: 'E',
+  selectedExerciseId: 'LEN-EX-035',
+  skill: 'lengua.skill_1',
+  subskill: 'lengua.skill_1.subskill_2',
+  difficulty: 1,
+  masteryLevel: 1
+}
+{
+  ruleApplied: 'E',
+  selectedExerciseId: 'LEN-EX-037',
+  skill: 'lengua.skill_1',
+  subskill: 'lengua.skill_1.subskill_3',
+  difficulty: 1,
+  masteryLevel: 1
+}
+{
+  ruleApplied: 'E',
+  selectedExerciseId: 'LEN-EX-057',
+  skill: 'lengua.skill_1',
+  subskill: 'lengua.skill_1.subskill_2',
+  difficulty: 1,
+  masteryLevel: 1
+}
+ GET /practice?mode=training&skill=lengua.skill_1 200 in 288ms (next.js: 198ms, application-code: 90ms)
+✓ Compiled in 178ms
+✓ Compiled in 161ms
+{
+  ruleApplied: 'E',
+  selectedExerciseId: 'LEN-EX-001',
+  skill: 'lengua.skill_1',
+  subskill: 'lengua.skill_1.subskill_3',
+  difficulty: 1,
+  masteryLevel: 1
+}
+{
+  ruleApplied: 'E',
+  selectedExerciseId: 'LEN-EX-007',
+  skill: 'lengua.skill_1',
+  subskill: 'lengua.skill_1.subskill_2',
+  difficulty: 1,
+  masteryLevel: 1
+}
+{
+  ruleApplied: 'E',
+  selectedExerciseId: 'LEN-EX-009',
+  skill: 'lengua.skill_1',
+  subskill: 'lengua.skill_1.subskill_4',
+  difficulty: 1,
+  masteryLevel: 1
+}
+{
+  ruleApplied: 'E',
+  selectedExerciseId: 'LEN-EX-027',
+  skill: 'lengua.skill_1',
+  subskill: 'lengua.skill_1.subskill_2',
+  difficulty: 1,
+  masteryLevel: 1
+}
+{
+  ruleApplied: 'E',
+  selectedExerciseId: 'LEN-EX-028',
+  skill: 'lengua.skill_1',
+  subskill: 'lengua.skill_1.subskill_2',
+  difficulty: 1,
+  masteryLevel: 1
+}
+{
+  ruleApplied: 'E',
+  selectedExerciseId: 'LEN-EX-031',
+  skill: 'lengua.skill_1',
+  subskill: 'lengua.skill_1.subskill_2',
+  difficulty: 1,
+  masteryLevel: 1
+}
+{
+  ruleApplied: 'E',
+  selectedExerciseId: 'LEN-EX-033',
+  skill: 'lengua.skill_1',
+  subskill: 'lengua.skill_1.subskill_2',
+  difficulty: 1,
+  masteryLevel: 1
+}
+{
+  ruleApplied: 'E',
+  selectedExerciseId: 'LEN-EX-035',
+  skill: 'lengua.skill_1',
+  subskill: 'lengua.skill_1.subskill_2',
+  difficulty: 1,
+  masteryLevel: 1
+}
+{
+  ruleApplied: 'E',
+  selectedExerciseId: 'LEN-EX-037',
+  skill: 'lengua.skill_1',
+  subskill: 'lengua.skill_1.subskill_3',
+  difficulty: 1,
+  masteryLevel: 1
+}
+{
+  ruleApplied: 'E',
+  selectedExerciseId: 'LEN-EX-057',
+  skill: 'lengua.skill_1',
+  subskill: 'lengua.skill_1.subskill_2',
+  difficulty: 1,
+  masteryLevel: 1
+}
+{
+  ruleApplied: 'E',
+  selectedExerciseId: 'LEN-EX-001',
+  skill: 'lengua.skill_1',
+  subskill: 'lengua.skill_1.subskill_3',
+  difficulty: 1,
+  masteryLevel: 1
+}
+{
+  ruleApplied: 'E',
+  selectedExerciseId: 'LEN-EX-007',
+  skill: 'lengua.skill_1',
+  subskill: 'lengua.skill_1.subskill_2',
+  difficulty: 1,
+  masteryLevel: 1
+}
+{
+  ruleApplied: 'E',
+  selectedExerciseId: 'LEN-EX-009',
+  skill: 'lengua.skill_1',
+  subskill: 'lengua.skill_1.subskill_4',
+  difficulty: 1,
+  masteryLevel: 1
+}
+{
+  ruleApplied: 'E',
+  selectedExerciseId: 'LEN-EX-027',
+  skill: 'lengua.skill_1',
+  subskill: 'lengua.skill_1.subskill_2',
+  difficulty: 1,
+  masteryLevel: 1
+}
+{
+  ruleApplied: 'E',
+  selectedExerciseId: 'LEN-EX-028',
+  skill: 'lengua.skill_1',
+  subskill: 'lengua.skill_1.subskill_2',
+  difficulty: 1,
+  masteryLevel: 1
+}
+{
+  ruleApplied: 'E',
+  selectedExerciseId: 'LEN-EX-031',
+  skill: 'lengua.skill_1',
+  subskill: 'lengua.skill_1.subskill_2',
+  difficulty: 1,
+  masteryLevel: 1
+}
+{
+  ruleApplied: 'E',
+  selectedExerciseId: 'LEN-EX-033',
+  skill: 'lengua.skill_1',
+  subskill: 'lengua.skill_1.subskill_2',
+  difficulty: 1,
+  masteryLevel: 1
+}
+{
+  ruleApplied: 'E',
+  selectedExerciseId: 'LEN-EX-035',
+  skill: 'lengua.skill_1',
+  subskill: 'lengua.skill_1.subskill_2',
+  difficulty: 1,
+  masteryLevel: 1
+}
+{
+  ruleApplied: 'E',
+  selectedExerciseId: 'LEN-EX-037',
+  skill: 'lengua.skill_1',
+  subskill: 'lengua.skill_1.subskill_3',
+  difficulty: 1,
+  masteryLevel: 1
+}
+{
+  ruleApplied: 'E',
+  selectedExerciseId: 'LEN-EX-057',
+  skill: 'lengua.skill_1',
+  subskill: 'lengua.skill_1.subskill_2',
+  difficulty: 1,
+  masteryLevel: 1
+}
+{
+  ruleApplied: 'E',
+  selectedExerciseId: 'LEN-EX-001',
+  skill: 'lengua.skill_1',
+  subskill: 'lengua.skill_1.subskill_3',
+  difficulty: 1,
+  masteryLevel: 1
+}
+{
+  ruleApplied: 'E',
+  selectedExerciseId: 'LEN-EX-007',
+  skill: 'lengua.skill_1',
+  subskill: 'lengua.skill_1.subskill_2',
+  difficulty: 1,
+  masteryLevel: 1
+}
+{
+  ruleApplied: 'E',
+  selectedExerciseId: 'LEN-EX-009',
+  skill: 'lengua.skill_1',
+  subskill: 'lengua.skill_1.subskill_4',
+  difficulty: 1,
+  masteryLevel: 1
+}
+{
+  ruleApplied: 'E',
+  selectedExerciseId: 'LEN-EX-027',
+  skill: 'lengua.skill_1',
+  subskill: 'lengua.skill_1.subskill_2',
+  difficulty: 1,
+  masteryLevel: 1
+}
+{
+  ruleApplied: 'E',
+  selectedExerciseId: 'LEN-EX-028',
+  skill: 'lengua.skill_1',
+  subskill: 'lengua.skill_1.subskill_2',
+  difficulty: 1,
+  masteryLevel: 1
+}
+{
+  ruleApplied: 'E',
+  selectedExerciseId: 'LEN-EX-031',
+  skill: 'lengua.skill_1',
+  subskill: 'lengua.skill_1.subskill_2',
+  difficulty: 1,
+  masteryLevel: 1
+}
+{
+  ruleApplied: 'E',
+  selectedExerciseId: 'LEN-EX-033',
+  skill: 'lengua.skill_1',
+  subskill: 'lengua.skill_1.subskill_2',
+  difficulty: 1,
+  masteryLevel: 1
+}
+{
+  ruleApplied: 'E',
+  selectedExerciseId: 'LEN-EX-035',
+  skill: 'lengua.skill_1',
+  subskill: 'lengua.skill_1.subskill_2',
+  difficulty: 1,
+  masteryLevel: 1
+}
+{
+  ruleApplied: 'E',
+  selectedExerciseId: 'LEN-EX-037',
+  skill: 'lengua.skill_1',
+  subskill: 'lengua.skill_1.subskill_3',
+  difficulty: 1,
+  masteryLevel: 1
+}
+{
+  ruleApplied: 'E',
+  selectedExerciseId: 'LEN-EX-057',
+  skill: 'lengua.skill_1',
+  subskill: 'lengua.skill_1.subskill_2',
+  difficulty: 1,
+  masteryLevel: 1
+}
+{
+  ruleApplied: 'E',
+  selectedExerciseId: 'LEN-EX-001',
+  skill: 'lengua.skill_1',
+  subskill: 'lengua.skill_1.subskill_3',
+  difficulty: 1,
+  masteryLevel: 1
+}
+{
+  ruleApplied: 'E',
+  selectedExerciseId: 'LEN-EX-007',
+  skill: 'lengua.skill_1',
+  subskill: 'lengua.skill_1.subskill_2',
+  difficulty: 1,
+  masteryLevel: 1
+}
+{
+  ruleApplied: 'E',
+  selectedExerciseId: 'LEN-EX-009',
+  skill: 'lengua.skill_1',
+  subskill: 'lengua.skill_1.subskill_4',
+  difficulty: 1,
+  masteryLevel: 1
+}
+{
+  ruleApplied: 'E',
+  selectedExerciseId: 'LEN-EX-027',
+  skill: 'lengua.skill_1',
+  subskill: 'lengua.skill_1.subskill_2',
+  difficulty: 1,
+  masteryLevel: 1
+}
+{
+  ruleApplied: 'E',
+  selectedExerciseId: 'LEN-EX-028',
+  skill: 'lengua.skill_1',
+  subskill: 'lengua.skill_1.subskill_2',
+  difficulty: 1,
+  masteryLevel: 1
+}
+{
+  ruleApplied: 'E',
+  selectedExerciseId: 'LEN-EX-031',
+  skill: 'lengua.skill_1',
+  subskill: 'lengua.skill_1.subskill_2',
+  difficulty: 1,
+  masteryLevel: 1
+}
+{
+  ruleApplied: 'E',
+  selectedExerciseId: 'LEN-EX-033',
+  skill: 'lengua.skill_1',
+  subskill: 'lengua.skill_1.subskill_2',
+  difficulty: 1,
+  masteryLevel: 1
+}
+{
+  ruleApplied: 'E',
+  selectedExerciseId: 'LEN-EX-035',
+  skill: 'lengua.skill_1',
+  subskill: 'lengua.skill_1.subskill_2',
+  difficulty: 1,
+  masteryLevel: 1
+}
+{
+  ruleApplied: 'E',
+  selectedExerciseId: 'LEN-EX-037',
+  skill: 'lengua.skill_1',
+  subskill: 'lengua.skill_1.subskill_3',
+  difficulty: 1,
+  masteryLevel: 1
+}
+{
+  ruleApplied: 'E',
+  selectedExerciseId: 'LEN-EX-057',
+  skill: 'lengua.skill_1',
+  subskill: 'lengua.skill_1.subskill_2',
+  difficulty: 1,
+  masteryLevel: 1
+}
+{
+  ruleApplied: 'E',
+  selectedExerciseId: 'LEN-EX-001',
+  skill: 'lengua.skill_1',
+  subskill: 'lengua.skill_1.subskill_3',
+  difficulty: 1,
+  masteryLevel: 1
+}
+{
+  ruleApplied: 'E',
+  selectedExerciseId: 'LEN-EX-007',
+  skill: 'lengua.skill_1',
+  subskill: 'lengua.skill_1.subskill_2',
+  difficulty: 1,
+  masteryLevel: 1
+}
+{
+  ruleApplied: 'E',
+  selectedExerciseId: 'LEN-EX-009',
+  skill: 'lengua.skill_1',
+  subskill: 'lengua.skill_1.subskill_4',
+  difficulty: 1,
+  masteryLevel: 1
+}
+{
+  ruleApplied: 'E',
+  selectedExerciseId: 'LEN-EX-027',
+  skill: 'lengua.skill_1',
+  subskill: 'lengua.skill_1.subskill_2',
+  difficulty: 1,
+  masteryLevel: 1
+}
+{
+  ruleApplied: 'E',
+  selectedExerciseId: 'LEN-EX-028',
+  skill: 'lengua.skill_1',
+  subskill: 'lengua.skill_1.subskill_2',
+  difficulty: 1,
+  masteryLevel: 1
+}
+{
+  ruleApplied: 'E',
+  selectedExerciseId: 'LEN-EX-031',
+  skill: 'lengua.skill_1',
+  subskill: 'lengua.skill_1.subskill_2',
+  difficulty: 1,
+  masteryLevel: 1
+}
+{
+  ruleApplied: 'E',
+  selectedExerciseId: 'LEN-EX-033',
+  skill: 'lengua.skill_1',
+  subskill: 'lengua.skill_1.subskill_2',
+  difficulty: 1,
+  masteryLevel: 1
+}
+{
+  ruleApplied: 'E',
+  selectedExerciseId: 'LEN-EX-035',
+  skill: 'lengua.skill_1',
+  subskill: 'lengua.skill_1.subskill_2',
+  difficulty: 1,
+  masteryLevel: 1
+}
+{
+  ruleApplied: 'E',
+  selectedExerciseId: 'LEN-EX-037',
+  skill: 'lengua.skill_1',
+  subskill: 'lengua.skill_1.subskill_3',
+  difficulty: 1,
+  masteryLevel: 1
+}
+{
+  ruleApplied: 'E',
+  selectedExerciseId: 'LEN-EX-057',
+  skill: 'lengua.skill_1',
+  subskill: 'lengua.skill_1.subskill_2',
+  difficulty: 1,
+  masteryLevel: 1
+}
+{
+  ruleApplied: 'E',
+  selectedExerciseId: 'LEN-EX-001',
+  skill: 'lengua.skill_1',
+  subskill: 'lengua.skill_1.subskill_3',
+  difficulty: 1,
+  masteryLevel: 1
+}
+{
+  ruleApplied: 'E',
+  selectedExerciseId: 'LEN-EX-007',
+  skill: 'lengua.skill_1',
+  subskill: 'lengua.skill_1.subskill_2',
+  difficulty: 1,
+  masteryLevel: 1
+}
+{
+  ruleApplied: 'E',
+  selectedExerciseId: 'LEN-EX-009',
+  skill: 'lengua.skill_1',
+  subskill: 'lengua.skill_1.subskill_4',
+  difficulty: 1,
+  masteryLevel: 1
+}
+{
+  ruleApplied: 'E',
+  selectedExerciseId: 'LEN-EX-027',
+  skill: 'lengua.skill_1',
+  subskill: 'lengua.skill_1.subskill_2',
+  difficulty: 1,
+  masteryLevel: 1
+}
+{
+  ruleApplied: 'E',
+  selectedExerciseId: 'LEN-EX-028',
+  skill: 'lengua.skill_1',
+  subskill: 'lengua.skill_1.subskill_2',
+  difficulty: 1,
+  masteryLevel: 1
+}
+{
+  ruleApplied: 'E',
+  selectedExerciseId: 'LEN-EX-031',
+  skill: 'lengua.skill_1',
+  subskill: 'lengua.skill_1.subskill_2',
+  difficulty: 1,
+  masteryLevel: 1
+}
+{
+  ruleApplied: 'E',
+  selectedExerciseId: 'LEN-EX-033',
+  skill: 'lengua.skill_1',
+  subskill: 'lengua.skill_1.subskill_2',
+  difficulty: 1,
+  masteryLevel: 1
+}
+{
+  ruleApplied: 'E',
+  selectedExerciseId: 'LEN-EX-035',
+  skill: 'lengua.skill_1',
+  subskill: 'lengua.skill_1.subskill_2',
+  difficulty: 1,
+  masteryLevel: 1
+}
+{
+  ruleApplied: 'E',
+  selectedExerciseId: 'LEN-EX-037',
+  skill: 'lengua.skill_1',
+  subskill: 'lengua.skill_1.subskill_3',
+  difficulty: 1,
+  masteryLevel: 1
+}
+{
+  ruleApplied: 'E',
+  selectedExerciseId: 'LEN-EX-057',
+  skill: 'lengua.skill_1',
+  subskill: 'lengua.skill_1.subskill_2',
+  difficulty: 1,
+  masteryLevel: 1
+}
+ GET /practice?mode=training&skill=lengua.skill_1 200 in 2.3s (next.js: 331ms, application-code: 1923ms)
+ GET /practice?mode=training&skill=lengua.skill_1 200 in 1916ms (next.js: 16ms, application-code: 1901ms)
+{
+  ruleApplied: 'E',
+  selectedExerciseId: 'LEN-EX-001',
+  skill: 'lengua.skill_1',
+  subskill: 'lengua.skill_1.subskill_3',
+  difficulty: 1,
+  masteryLevel: 1
+}
+{
+  ruleApplied: 'E',
+  selectedExerciseId: 'LEN-EX-007',
+  skill: 'lengua.skill_1',
+  subskill: 'lengua.skill_1.subskill_2',
+  difficulty: 1,
+  masteryLevel: 1
+}
+{
+  ruleApplied: 'E',
+  selectedExerciseId: 'LEN-EX-009',
+  skill: 'lengua.skill_1',
+  subskill: 'lengua.skill_1.subskill_4',
+  difficulty: 1,
+  masteryLevel: 1
+}
+{
+  ruleApplied: 'E',
+  selectedExerciseId: 'LEN-EX-027',
+  skill: 'lengua.skill_1',
+  subskill: 'lengua.skill_1.subskill_2',
+  difficulty: 1,
+  masteryLevel: 1
+}
+{
+  ruleApplied: 'E',
+  selectedExerciseId: 'LEN-EX-028',
+  skill: 'lengua.skill_1',
+  subskill: 'lengua.skill_1.subskill_2',
+  difficulty: 1,
+  masteryLevel: 1
+}
+{
+  ruleApplied: 'E',
+  selectedExerciseId: 'LEN-EX-031',
+  skill: 'lengua.skill_1',
+  subskill: 'lengua.skill_1.subskill_2',
+  difficulty: 1,
+  masteryLevel: 1
+}
+{
+  ruleApplied: 'E',
+  selectedExerciseId: 'LEN-EX-033',
+  skill: 'lengua.skill_1',
+  subskill: 'lengua.skill_1.subskill_2',
+  difficulty: 1,
+  masteryLevel: 1
+}
+{
+  ruleApplied: 'E',
+  selectedExerciseId: 'LEN-EX-035',
+  skill: 'lengua.skill_1',
+  subskill: 'lengua.skill_1.subskill_2',
+  difficulty: 1,
+  masteryLevel: 1
+}
+{
+  ruleApplied: 'E',
+  selectedExerciseId: 'LEN-EX-037',
+  skill: 'lengua.skill_1',
+  subskill: 'lengua.skill_1.subskill_3',
+  difficulty: 1,
+  masteryLevel: 1
+}
+{
+  ruleApplied: 'E',
+  selectedExerciseId: 'LEN-EX-057',
+  skill: 'lengua.skill_1',
+  subskill: 'lengua.skill_1.subskill_2',
+  difficulty: 1,
+  masteryLevel: 1
+}
+{
+  ruleApplied: 'E',
+  selectedExerciseId: 'LEN-EX-001',
+  skill: 'lengua.skill_1',
+  subskill: 'lengua.skill_1.subskill_3',
+  difficulty: 1,
+  masteryLevel: 1
+}
+{
+  ruleApplied: 'E',
+  selectedExerciseId: 'LEN-EX-007',
+  skill: 'lengua.skill_1',
+  subskill: 'lengua.skill_1.subskill_2',
+  difficulty: 1,
+  masteryLevel: 1
+}
+{
+  ruleApplied: 'E',
+  selectedExerciseId: 'LEN-EX-009',
+  skill: 'lengua.skill_1',
+  subskill: 'lengua.skill_1.subskill_4',
+  difficulty: 1,
+  masteryLevel: 1
+}
+{
+  ruleApplied: 'E',
+  selectedExerciseId: 'LEN-EX-027',
+  skill: 'lengua.skill_1',
+  subskill: 'lengua.skill_1.subskill_2',
+  difficulty: 1,
+  masteryLevel: 1
+}
+{
+  ruleApplied: 'E',
+  selectedExerciseId: 'LEN-EX-028',
+  skill: 'lengua.skill_1',
+  subskill: 'lengua.skill_1.subskill_2',
+  difficulty: 1,
+  masteryLevel: 1
+}
+{
+  ruleApplied: 'E',
+  selectedExerciseId: 'LEN-EX-031',
+  skill: 'lengua.skill_1',
+  subskill: 'lengua.skill_1.subskill_2',
+  difficulty: 1,
+  masteryLevel: 1
+}
+{
+  ruleApplied: 'E',
+  selectedExerciseId: 'LEN-EX-033',
+  skill: 'lengua.skill_1',
+  subskill: 'lengua.skill_1.subskill_2',
+  difficulty: 1,
+  masteryLevel: 1
+}
+{
+  ruleApplied: 'E',
+  selectedExerciseId: 'LEN-EX-035',
+  skill: 'lengua.skill_1',
+  subskill: 'lengua.skill_1.subskill_2',
+  difficulty: 1,
+  masteryLevel: 1
+}
+{
+  ruleApplied: 'E',
+  selectedExerciseId: 'LEN-EX-037',
+  skill: 'lengua.skill_1',
+  subskill: 'lengua.skill_1.subskill_3',
+  difficulty: 1,
+  masteryLevel: 1
+}
+{
+  ruleApplied: 'E',
+  selectedExerciseId: 'LEN-EX-057',
+  skill: 'lengua.skill_1',
+  subskill: 'lengua.skill_1.subskill_2',
+  difficulty: 1,
+  masteryLevel: 1
+}
+ GET /practice?mode=training&skill=lengua.skill_1 200 in 2.3s (next.js: 19ms, application-code: 2.3s)
+ GET /practice?mode=training&skill=lengua.skill_1 200 in 2.3s (next.js: 131ms, application-code: 2.2s)
+ GET /practice?mode=training&skill=lengua.skill_1 200 in 2.3s (next.js: 230ms, application-code: 2.1s)
+ GET /practice?mode=training&skill=lengua.skill_1 200 in 2.3s (next.js: 737ms, application-code: 1548ms)
+{
+  ruleApplied: 'E',
+  selectedExerciseId: 'LEN-EX-001',
+  skill: 'lengua.skill_1',
+  subskill: 'lengua.skill_1.subskill_3',
+  difficulty: 1,
+  masteryLevel: 1
+}
+{
+  ruleApplied: 'E',
+  selectedExerciseId: 'LEN-EX-007',
+  skill: 'lengua.skill_1',
+  subskill: 'lengua.skill_1.subskill_2',
+  difficulty: 1,
+  masteryLevel: 1
+}
+{
+  ruleApplied: 'E',
+  selectedExerciseId: 'LEN-EX-009',
+  skill: 'lengua.skill_1',
+  subskill: 'lengua.skill_1.subskill_4',
+  difficulty: 1,
+  masteryLevel: 1
+}
+{
+  ruleApplied: 'E',
+  selectedExerciseId: 'LEN-EX-027',
+  skill: 'lengua.skill_1',
+  subskill: 'lengua.skill_1.subskill_2',
+  difficulty: 1,
+  masteryLevel: 1
+}
+{
+  ruleApplied: 'E',
+  selectedExerciseId: 'LEN-EX-028',
+  skill: 'lengua.skill_1',
+  subskill: 'lengua.skill_1.subskill_2',
+  difficulty: 1,
+  masteryLevel: 1
+}
+{
+  ruleApplied: 'E',
+  selectedExerciseId: 'LEN-EX-031',
+  skill: 'lengua.skill_1',
+  subskill: 'lengua.skill_1.subskill_2',
+  difficulty: 1,
+  masteryLevel: 1
+}
+{
+  ruleApplied: 'E',
+  selectedExerciseId: 'LEN-EX-033',
+  skill: 'lengua.skill_1',
+  subskill: 'lengua.skill_1.subskill_2',
+  difficulty: 1,
+  masteryLevel: 1
+}
+{
+  ruleApplied: 'E',
+  selectedExerciseId: 'LEN-EX-035',
+  skill: 'lengua.skill_1',
+  subskill: 'lengua.skill_1.subskill_2',
+  difficulty: 1,
+  masteryLevel: 1
+}
+{
+  ruleApplied: 'E',
+  selectedExerciseId: 'LEN-EX-037',
+  skill: 'lengua.skill_1',
+  subskill: 'lengua.skill_1.subskill_3',
+  difficulty: 1,
+  masteryLevel: 1
+}
+{
+  ruleApplied: 'E',
+  selectedExerciseId: 'LEN-EX-057',
+  skill: 'lengua.skill_1',
+  subskill: 'lengua.skill_1.subskill_2',
+  difficulty: 1,
+  masteryLevel: 1
+}
+ GET /practice?mode=training&skill=lengua.skill_1 200 in 1537ms (next.js: 161ms, application-code: 1375ms)
+ GET /practice?mode=training&skill=lengua.skill_1 200 in 918ms (next.js: 52ms, application-code: 866ms)
+ GET /practice?mode=training&skill=lengua.skill_1 200 in 668ms (next.js: 85ms, application-code: 583ms)
+✓ Compiled in 105ms

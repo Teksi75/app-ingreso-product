@@ -1,0 +1,128 @@
+{
+  "readingUnitId": "RU-LEN-CUE-001",
+  "moduleFit": ["modulo_1", "modulo_4", "modulo_6"],
+  "exercises": [
+    {
+      "id": "GAM-001",
+      "readingUnitId": "RU-LEN-CUE-001",
+      "skill": "lengua.skill_4",
+      "subskill": "lengua.skill_4.subskill_5",
+      "difficulty": 1,
+      "mastery_level": 1,
+      "type": "multiple_choice",
+      "question": "En el fragmento 'Siempre regresaba con novedades', ¿que palabra es un adverbio de tiempo?",
+      "fragment": "Cuando descendia al valle, siempre regresaba con novedades",
+      "options": [
+        "siempre",
+        "regresaba",
+        "valle",
+        "novedades"
+      ],
+      "correctAnswer": "siempre",
+      "feedback_correct": "Correcto: 'siempre' es un adverbio de tiempo que indica cuándo sucede la acción.",
+      "feedback_incorrect": "Buscá la palabra que indica cuándo ocurre la acción y no es ni verbo ni sustantivo."
+    },
+    {
+      "id": "GAM-002",
+      "readingUnitId": "RU-LEN-BIO-001",
+      "skill": "lengua.skill_4",
+      "subskill": "lengua.skill_4.subskill_5",
+      "difficulty": 1,
+      "mastery_level": 1,
+      "type": "multiple_choice",
+      "question": "En el fragmento 'Pronto, sus hermanos Hilda, Roberto y Eduardo también se dedicaron a la música', ¿cuál de estas palabras es un adverbio de tiempo?",
+      "fragment": "Pronto, sus hermanos Hilda, Roberto y Eduardo también se dedicaron a la música",
+      "options": [
+        "Pronto",
+        "hermanos",
+        "música",
+        "conjunto"
+      ],
+      "correctAnswer": "Pronto",
+      "feedback_correct": "Correcto: 'Pronto' es un adverbio de tiempo porque indica cuándo ocurrió la acción.",
+      "feedback_incorrect": "Buscá la palabra que indica cuándo sucede la acción, no quiénes participan ni qué hacen."
+    },
+    {
+      "id": "GAM-003",
+      "readingUnitId": "RU-LEN-LEY-001",
+      "skill": "lengua.skill_4",
+      "subskill": "lengua.skill_4.subskill_5",
+      "difficulty": 2,
+      "mastery_level": 2,
+      "type": "multiple_choice",
+      "question": "En el fragmento 'Despues aparecieron nubes livianas que avanzaban rapido', ¿qué indica el adverbio 'rapido'?",
+      "fragment": "Despues aparecieron nubes livianas que avanzaban rapido",
+      "options": [
+        "El modo en que avanzaban las nubes",
+        "El lugar donde estaban las nubes",
+        "La cantidad de nubes que habia",
+        "El nombre propio de las nubes"
+      ],
+      "correctAnswer": "El modo en que avanzaban las nubes",
+      "feedback_correct": "Correcto: 'rapido' modifica al verbo 'avanzaban' e indica de qué modo se movían las nubes.",
+      "feedback_incorrect": "Un adverbio de modo explica cómo ocurre la acción. En este caso, fijate cómo avanzaban las nubes."
+    },
+    {
+      "id": "GAM-004",
+      "readingUnitId": "RU-LEN-NOT-001",
+      "skill": "lengua.skill_4",
+      "subskill": "lengua.skill_4.subskill_5",
+      "difficulty": 2,
+      "mastery_level": 2,
+      "type": "multiple_choice",
+      "question": "En el fragmento 'Alli se realizo la primera edicion del Festival de Robots de la Memoria', ¿que palabra es un adverbio de lugar?",
+      "fragment": "Alli se realizo la primera edicion del Festival de Robots de la Memoria",
+      "options": [
+        "Alli",
+        "primera",
+        "se",
+        "del"
+      ],
+      "correctAnswer": "Alli",
+      "feedback_correct": "Correcto: 'Alli' es un adverbio de lugar que indica donde se realizo el festival.",
+      "feedback_incorrect": "Busca la palabra que senala el lugar donde ocurre la accion sin ser un sustantivo ni un articulo."
+    },
+    {
+      "id": "GAM-005",
+      "readingUnitId": "RU-LEN-ENC-001",
+      "skill": "lengua.skill_4",
+      "subskill": "lengua.skill_4.subskill_5",
+      "difficulty": 3,
+      "mastery_level": 2,
+      "type": "multiple_choice_multiple",
+      "question": "Marca los adverbios que aparecen en el fragmento: 'Muchas aves migratorias descansan alli durante sus viajes y algunas especies amenazadas encuentran en esos espacios una posibilidad concreta de supervivencia'.",
+      "fragment": "Muchas aves migratorias descansan alli durante sus viajes y algunas especies amenazadas encuentran en esos espacios una posibilidad concreta de supervivencia",
+      "options": [
+        "alli",
+        "Muchas",
+        "algunas",
+        "concreta"
+      ],
+      "correctAnswers": [
+        "alli"
+      ],
+      "feedback_correct": "Correcto: 'alli' es el unico adverbio del fragmento; indica lugar.",
+      "feedback_incorrect": "Un adverbio modifica un verbo, un adjetivo u otro adverbio sin concordar en genero ni numero. Busca la palabra que indica donde descansan las aves."
+    },
+    {
+      "id": "GAM-006",
+      "readingUnitId": "RU-LEN-BIO-001",
+      "skill": "lengua.skill_4",
+      "subskill": "lengua.skill_4.subskill_5",
+      "difficulty": 3,
+      "mastery_level": 3,
+      "type": "multiple_choice",
+      "question": "Si cambiamos el adverbio 'también' por 'nunca' en la oración 'Sus hermanos también se dedicaron a la música', ¿cómo se modifica el significado?",
+      "fragment": "Sus hermanos también se dedicaron a la música",
+      "options": [
+        "Pasa de afirmar que los hermanos hicieron lo mismo a negar que lo hicieran",
+        "El significado no cambia porque los dos son adverbios",
+        "Pasa de indicar tiempo a indicar lugar",
+        "Se agrega una duda sobre si los hermanos se dedicaron a la música"
+      ],
+      "correctAnswer": "Pasa de afirmar que los hermanos hicieron lo mismo a negar que lo hicieran",
+      "feedback_correct": "Correcto: 'también' es un adverbio de afirmación que suma información, mientras que 'nunca' es de negación y la contradice.",
+      "feedback_incorrect": "Pensá en qué tipo de información aporta 'también' (afirmación, adición) y qué tipo aporta 'nunca' (negación)."
+    }
+  ]
+}

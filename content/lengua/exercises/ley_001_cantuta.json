@@ -58,6 +58,44 @@
       "correctAnswer": "volver / volver",
       "feedback_correct": "Correcto: en ambos casos corresponde escribir 'volver' con v.",
       "feedback_incorrect": "Revisa la grafia correcta del verbo 'volver'."
+    },
+    {
+      "id": "M4-LEY-004",
+      "readingUnitId": "RU-LEN-LEY-001",
+      "skill": "lengua.skill_2",
+      "subskill": "lengua.skill_2.subskill_4",
+      "difficulty": 2,
+      "mastery_level": 2,
+      "type": "multiple_choice",
+      "question": "Que marcas del texto permiten reconocer que se trata de una leyenda y no de una noticia o un articulo enciclopedico?",
+      "options": [
+        "La nota de origen que refiere a tradiciones andinas y la presencia de hechos fantasticos",
+        "Los datos de fecha, fuente y autor que aparecen al inicio",
+        "Los subtitulos que organizan la informacion en secciones tematicas",
+        "El glosario de terminos tecnicos al final del texto"
+      ],
+      "correctAnswer": "La nota de origen que refiere a tradiciones andinas y la presencia de hechos fantasticos",
+      "feedback_correct": "Correcto: la leyenda se reconoce por su origen en tradiciones populares y por incluir hechos maravillosos.",
+      "feedback_incorrect": "Pensa en que elementos del texto senalan que proviene de una tradicion oral y que contiene sucesos que no ocurren en la vida cotidiana."
+    },
+    {
+      "id": "M4-LEY-005",
+      "readingUnitId": "RU-LEN-LEY-001",
+      "skill": "lengua.skill_2",
+      "subskill": "lengua.skill_2.subskill_5",
+      "difficulty": 2,
+      "mastery_level": 2,
+      "type": "multiple_choice",
+      "question": "Que tipo de narrador cuenta esta leyenda?",
+      "options": [
+        "Un narrador en tercera persona que transmite una tradicion de generacion en generacion, sin ser personaje de la historia",
+        "Un narrador en primera persona que vivio los hechos",
+        "Un narrador en segunda persona que habla directamente con Sumaq",
+        "Un narrador en primera persona que es el abuelo de Sumaq"
+      ],
+      "correctAnswer": "Un narrador en tercera persona que transmite una tradicion de generacion en generacion, sin ser personaje de la historia",
+      "feedback_correct": "Correcto: el narrador cuenta la historia desde afuera, como alguien que la recibio de otros.",
+      "feedback_incorrect": "Pensa si el narrador participa en los hechos o si los relata como alguien que los conoce por tradicion."
     }
   ]
 }

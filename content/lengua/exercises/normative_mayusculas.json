@@ -1,0 +1,108 @@
+{
+  "readingUnitId": "RU-LEN-BIO-001",
+  "moduleFit": ["modulo_1", "modulo_6"],
+  "exercises": [
+    {
+      "id": "GMA-001",
+      "readingUnitId": "RU-LEN-BIO-001",
+      "skill": "lengua.skill_6",
+      "subskill": "lengua.skill_6.subskill_5",
+      "difficulty": 1,
+      "mastery_level": 1,
+      "type": "multiple_choice",
+      "question": "¿Cuál de estas palabras debe escribirse con mayúscula inicial?",
+      "options": [
+        "Chile",
+        "cantaba",
+        "campos",
+        "canciones"
+      ],
+      "correctAnswer": "Chile",
+      "feedback_correct": "Correcto: 'Chile' es un nombre propio de país y se escribe con mayúscula inicial.",
+      "feedback_incorrect": "Pensá en cuál de estas palabras nombra algo único y particular, como un país."
+    },
+    {
+      "id": "GMA-002",
+      "readingUnitId": "RU-LEN-NOT-001",
+      "skill": "lengua.skill_6",
+      "subskill": "lengua.skill_6.subskill_5",
+      "difficulty": 1,
+      "mastery_level": 1,
+      "type": "multiple_choice",
+      "question": "En el fragmento 'el Centro Cultural del Puerto se lleno de voces', ¿cuantas palabras llevan mayuscula porque son parte de un nombre propio?",
+      "fragment": "el Centro Cultural del Puerto se lleno de voces",
+      "options": [
+        "4 (Centro, Cultural, del, Puerto)",
+        "3 (Centro, Cultural, Puerto)",
+        "2 (Centro, Puerto)",
+        "1 (Centro)"
+      ],
+      "correctAnswer": "3 (Centro, Cultural, Puerto)",
+      "feedback_correct": "Correcto: 'Centro Cultural del Puerto' es un nombre propio institucional. Las palabras significativas del nombre llevan mayuscula, no la preposicion 'del'.",
+      "feedback_incorrect": "En los nombres propios institucionales, cada palabra significativa lleva mayuscula. La preposicion 'del' se escribe con minuscula."
+    },
+    {
+      "id": "GMA-003",
+      "readingUnitId": "RU-LEN-LEY-001",
+      "skill": "lengua.skill_6",
+      "subskill": "lengua.skill_6.subskill_5",
+      "difficulty": 2,
+      "mastery_level": 2,
+      "type": "multiple_choice",
+      "question": "En la oracion 'Los Esteros del Ibera, en Corrientes, ocupan una superficie enorme', ¿por que 'Esteros' y 'Ibera' llevan mayuscula?",
+      "fragment": "Los Esteros del Ibera, en Corrientes, ocupan una superficie enorme",
+      "options": [
+        "Porque forman parte de un nombre propio geografico",
+        "Porque son la primera palabra de la oracion",
+        "Porque son sustantivos abstractos",
+        "Porque son adjetivos calificativos"
+      ],
+      "correctAnswer": "Porque forman parte de un nombre propio geografico",
+      "feedback_correct": "Correcto: 'Esteros del Ibera' es un nombre propio de lugar geografico y sus palabras significativas llevan mayuscula.",
+      "feedback_incorrect": "Los nombres de lugares geograficos como rios, lagos y regiones se escriben con mayuscula inicial porque son nombres propios."
+    },
+    {
+      "id": "GMA-004",
+      "readingUnitId": "RU-LEN-CUE-001",
+      "skill": "lengua.skill_6",
+      "subskill": "lengua.skill_6.subskill_5",
+      "difficulty": 2,
+      "mastery_level": 2,
+      "type": "multiple_choice",
+      "question": "Marca la opcion donde las mayusculas estan bien usadas:",
+      "options": [
+        "El señor Borda encontró la máquina en el Teatro Municipal.",
+        "El señor borda encontró la máquina en el teatro municipal.",
+        "El señor Borda encontró la máquina en el teatro Municipal.",
+        "el Señor borda Encontró la máquina en el Teatro municipal."
+      ],
+      "correctAnswer": "El señor Borda encontró la máquina en el Teatro Municipal.",
+      "feedback_correct": "Correcto: 'Borda' es apellido y 'Teatro Municipal' es nombre de institución; 'señor' es una palabra común y va en minúscula.",
+      "feedback_incorrect": "Revisá: los nombres propios de personas e instituciones llevan mayúscula; palabras comunes como 'señor' van en minúscula."
+    },
+    {
+      "id": "GMA-005",
+      "readingUnitId": "RU-LEN-BIO-001",
+      "skill": "lengua.skill_6",
+      "subskill": "lengua.skill_6.subskill_5",
+      "difficulty": 2,
+      "mastery_level": 3,
+      "type": "multiple_choice_multiple",
+      "question": "En el fragmento 'En 1964 se convirtió en la primera artista latinoamericana en exponer individualmente en el Museo del Louvre', marca las palabras que llevan mayúscula porque son nombres propios:",
+      "fragment": "En 1964 se convirtió en la primera artista latinoamericana en exponer individualmente en el Museo del Louvre",
+      "options": [
+        "Museo",
+        "del",
+        "Louvre",
+        "artista",
+        "latinoamericana"
+      ],
+      "correctAnswers": [
+        "Museo",
+        "Louvre"
+      ],
+      "feedback_correct": "Correcto: 'Museo' y 'Louvre' son palabras significativas del nombre propio 'Museo del Louvre'; 'del' se escribe con minúscula.",
+      "feedback_incorrect": "En los nombres de instituciones, las palabras significativas llevan mayúscula, pero las preposiciones y artículos que las unen van en minúscula."
+    }
+  ]
+}

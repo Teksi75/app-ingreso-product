@@ -1,0 +1,133 @@
+{
+  "readingUnitId": "RU-LEN-BIO-001",
+  "moduleFit": ["modulo_1", "modulo_4", "modulo_6"],
+  "exercises": [
+    {
+      "id": "GPD-001",
+      "readingUnitId": "RU-LEN-BIO-001",
+      "skill": "lengua.skill_4",
+      "subskill": "lengua.skill_4.subskill_4",
+      "difficulty": 1,
+      "mastery_level": 1,
+      "type": "multiple_choice",
+      "question": "En el fragmento 'Sus hermanos Hilda, Roberto y Eduardo también se dedicaron a la música', ¿qué tipo de palabra es 'Sus'?",
+      "fragment": "Sus hermanos Hilda, Roberto y Eduardo también se dedicaron a la música, y juntos formaron el conjunto Los Parra",
+      "options": [
+        "Un determinante posesivo que indica de quién son los hermanos",
+        "Un pronombre personal que reemplaza un nombre",
+        "Un adjetivo calificativo que describe una cualidad",
+        "Un sustantivo que nombra personas"
+      ],
+      "correctAnswer": "Un determinante posesivo que indica de quién son los hermanos",
+      "feedback_correct": "Correcto: 'Sus' acompaña al sustantivo 'hermanos' e indica posesión.",
+      "feedback_incorrect": "Observá si la palabra está reemplazando un nombre o acompañándolo para indicar de quién es."
+    },
+    {
+      "id": "GPD-002",
+      "readingUnitId": "RU-LEN-CUE-001",
+      "skill": "lengua.skill_4",
+      "subskill": "lengua.skill_4.subskill_4",
+      "difficulty": 1,
+      "mastery_level": 1,
+      "type": "multiple_choice",
+      "question": "En la oracion 'El senor Borda le dijo que el reloj podia esperar', ¿que palabra es un pronombre personal?",
+      "fragment": "El senor Borda, que tenia manos delgadas y cejas siempre sorprendidas, noto enseguida la curiosidad de la chica. Le dijo que el reloj podia esperar",
+      "options": [
+        "le",
+        "el",
+        "la",
+        "que"
+      ],
+      "correctAnswer": "le",
+      "feedback_correct": "Correcto: 'le' es un pronombre personal que reemplaza al destinatario de la accion.",
+      "feedback_incorrect": "Busca la palabra que reemplaza a la persona que recibe la accion sin nombrarla directamente."
+    },
+    {
+      "id": "GPD-003",
+      "readingUnitId": "RU-LEN-LEY-001",
+      "skill": "lengua.skill_4",
+      "subskill": "lengua.skill_4.subskill_4",
+      "difficulty": 2,
+      "mastery_level": 2,
+      "type": "multiple_choice",
+      "question": "En el fragmento 'Su abuelo decia que ella tenia el oido afinado para las cosas invisibles', ¿a quien se refiere el pronombre 'ella'?",
+      "fragment": "En ese lugar vivia Sumaq, una joven que sabia escuchar el murmullo del viento. Su abuelo decia que ella tenia el oido afinado para las cosas invisibles",
+      "options": [
+        "A Sumaq",
+        "Al abuelo",
+        "A una persona externa al texto",
+        "Al narrador"
+      ],
+      "correctAnswer": "A Sumaq",
+      "feedback_correct": "Correcto: 'ella' se refiere a Sumaq, la persona mencionada justo antes en el texto.",
+      "feedback_incorrect": "Busca en el texto quien es la persona mencionada antes del pronombre."
+    },
+    {
+      "id": "GPD-004",
+      "readingUnitId": "RU-LEN-NOT-001",
+      "skill": "lengua.skill_4",
+      "subskill": "lengua.skill_4.subskill_4",
+      "difficulty": 2,
+      "mastery_level": 2,
+      "type": "categorization",
+      "question": "Clasifica las palabras destacadas del fragmento como pronombres personales o determinantes posesivos.",
+      "fragment": "Sus abuelos compartieron sus recuerdos y ellos mismos armaron las maquetas. La profesora les sugirio que construiran dispositivos interactivos",
+      "categorization": {
+        "categories": ["pronombre personal", "determinante posesivo"],
+        "items": ["Sus", "sus", "ellos", "les"],
+        "answers": {
+          "Sus": "determinante posesivo",
+          "sus": "determinante posesivo",
+          "ellos": "pronombre personal",
+          "les": "pronombre personal"
+        }
+      },
+      "feedback_correct": "Correcto: los determinantes posesivos acompanan al sustantivo; los pronombres personales reemplazan un nombre.",
+      "feedback_incorrect": "Fijate si la palabra acompana a un sustantivo (es determinante) o lo reemplaza (es pronombre)."
+    },
+    {
+      "id": "GPD-005",
+      "readingUnitId": "RU-LEN-ENC-001",
+      "skill": "lengua.skill_4",
+      "subskill": "lengua.skill_4.subskill_4",
+      "difficulty": 3,
+      "mastery_level": 2,
+      "type": "multiple_choice_multiple",
+      "question": "Marca las palabras que funcionan como determinantes demostrativos en el fragmento: 'Esos ecosistemas cumplen funciones muy valiosas. En este lugar se encuentran muchas aves y tambien aquellas que necesitan proteccion'.",
+      "options": [
+        "Esos",
+        "este",
+        "aquellas",
+        "muchas",
+        "valiosas"
+      ],
+      "correctAnswers": [
+        "Esos",
+        "este",
+        "aquellas"
+      ],
+      "feedback_correct": "Correcto: 'Esos', 'este' y 'aquellas' son determinantes demostrativos que indican cercanía o lejanía.",
+      "feedback_incorrect": "Los determinantes demostrativos señalan la distancia entre lo nombrado y quien habla: este, ese, aquel y sus variantes."
+    },
+    {
+      "id": "GPD-006",
+      "readingUnitId": "RU-LEN-CUE-001",
+      "skill": "lengua.skill_4",
+      "subskill": "lengua.skill_4.subskill_4",
+      "difficulty": 3,
+      "mastery_level": 3,
+      "type": "multiple_choice",
+      "question": "En la oracion 'Alma le entrego el reloj y ella se sorprendio al ver la maquina', ¿cuantas palabras funcionan como pronombres personales?",
+      "fragment": "Alma le entrego el reloj y ella se sorprendio al ver la maquina",
+      "options": [
+        "3 (le, ella, se)",
+        "2 (le, ella)",
+        "1 (ella)",
+        "4 (le, ella, se, la)"
+      ],
+      "correctAnswer": "3 (le, ella, se)",
+      "feedback_correct": "Correcto: 'le' es pronombre de objeto indirecto, 'ella' es pronombre sujeto y 'se' es pronombre reflexivo.",
+      "feedback_incorrect": "Contá cada palabra que reemplaza o acompana al verbo sin ser un sustantivo: 'le' reemplaza al destinatario, 'ella' al sujeto y 'se' es reflexivo."
+    }
+  ]
+}

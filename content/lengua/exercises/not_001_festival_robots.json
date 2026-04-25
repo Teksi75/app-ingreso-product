@@ -58,6 +58,44 @@
       "correctAnswer": "una accion futura anunciada",
       "feedback_correct": "Correcto: el verbo esta en futuro y presenta una proyeccion de la noticia.",
       "feedback_incorrect": "Observa la referencia temporal 'en junio' y la forma verbal usada."
+    },
+    {
+      "id": "M3-NOT-004",
+      "readingUnitId": "RU-LEN-NOT-001",
+      "skill": "lengua.skill_2",
+      "subskill": "lengua.skill_2.subskill_4",
+      "difficulty": 1,
+      "mastery_level": 1,
+      "type": "multiple_choice",
+      "question": "Que funcion cumple el copete en esta noticia?",
+      "options": [
+        "Resumir la informacion principal antes de que el lector lea el cuerpo del texto",
+        "Dar la opinion del periodista sobre el festival",
+        "Enumerar los datos estadisticos del evento",
+        "Presentar un dialogo entre los protagonistas de la nota"
+      ],
+      "correctAnswer": "Resumir la informacion principal antes de que el lector lea el cuerpo del texto",
+      "feedback_correct": "Correcto: el copete anticipa el contenido esencial de la noticia para orientar al lector.",
+      "feedback_incorrect": "Pensa en donde aparece el copete y que informacion aporta antes de empezar a leer."
+    },
+    {
+      "id": "M3-NOT-005",
+      "readingUnitId": "RU-LEN-NOT-001",
+      "skill": "lengua.skill_2",
+      "subskill": "lengua.skill_2.subskill_5",
+      "difficulty": 2,
+      "mastery_level": 2,
+      "type": "multiple_choice",
+      "question": "Desde que perspectiva esta escrita esta noticia?",
+      "options": [
+        "Desde una perspectiva objetiva en tercera persona, que informa hechos sin incluir opiniones personales",
+        "Desde la primera persona de uno de los participantes del festival",
+        "Desde una segunda persona que le habla directamente al lector",
+        "Desde la primera persona del periodista que opina sobre el evento"
+      ],
+      "correctAnswer": "Desde una perspectiva objetiva en tercera persona, que informa hechos sin incluir opiniones personales",
+      "feedback_correct": "Correcto: la noticia presenta hechos de manera objetiva, sin que el autor incluya su opinion.",
+      "feedback_incorrect": "Observa si el texto incluye opiniones personales o si se limita a informar hechos comprobables."
     }
   ]
 }
