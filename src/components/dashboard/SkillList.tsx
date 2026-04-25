@@ -5,7 +5,7 @@ type DashboardSkill = {
   skill: string;
   accuracy: number | null;
   attempts: number;
-  practiceSessions: number;
+  sessions: number;
   last_state: DashboardSkillState;
 };
 

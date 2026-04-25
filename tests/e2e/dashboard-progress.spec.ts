@@ -81,7 +81,7 @@ test("dashboard separates practice count from answered questions", async ({ page
     name: "Comprensión global del texto",
   });
 
-  await expect(skillRow.getByText("Prácticas")).toBeVisible();
+  await expect(skillRow.getByText("Sesiones")).toBeVisible();
   await expect(skillRow.getByText("2", { exact: true })).toBeVisible();
   await expect(skillRow.getByText("Respuestas")).toBeVisible();
   await expect(skillRow.getByText("20", { exact: true })).toBeVisible();
@@ -150,6 +150,7 @@ test("dashboard recommends continuing a recent reading unit when accuracy is low
   await page.goto("/dashboard");
 
   await expect(page.getByRole("heading", { name: /Continuar lectura: Violeta Parra/i })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Habilidades en desarrollo" })).toBeVisible();
   await expect(page.getByRole("link", { name: "Continuar lectura guiada" })).toHaveAttribute(
     "href",
     "/practice?mode=reading&unit=violeta-parra",

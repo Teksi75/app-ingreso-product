@@ -73,14 +73,16 @@ test("reinforces weak skills before advancing to exam readiness", async ({ page 
   await expect(page.getByRole("article", { name: "Gramática en contexto" }).getByText("Debil")).toBeVisible();
   await expect(page.getByText("Clases de palabras", { exact: true })).toBeVisible();
   await expect(page.getByText(/Subskill ·/).first()).toBeVisible();
+  await expect(page.getByText("Esta habilidad necesita práctica constante").first()).toBeVisible();
+  await expect(page.getByText(/accuracy ponderada|mastery 1 con score/)).not.toBeVisible();
   await expect(page.getByText("Listo para simulacion")).not.toBeVisible();
   await expect(page.getByRole("heading", { name: "Practica focalizada: Gramática en contexto" })).toBeVisible();
-  await expect(page.getByRole("link", { name: "Entrenar skill sugerida" })).toHaveAttribute(
+  await expect(page.getByRole("link", { name: "Reforzar habilidad" })).toHaveAttribute(
     "href",
     /\/practice\?mode=training&skill=gramatica-en-contexto&code=qa_adaptive_weakness/,
   );
 
-  await page.getByRole("link", { name: "Entrenar skill sugerida" }).click();
+  await page.locator('a[href*="skill=gramatica-en-contexto"][href*="code=qa_adaptive_weakness"]').click();
   await expect(page).toHaveURL(/\/practice\?mode=training&skill=gramatica-en-contexto&code=qa_adaptive_weakness/);
   await expect(page.getByText("Habilidad en entrenamiento")).toBeVisible();
   await expect(page.getByText("Gramática en contexto")).toBeVisible();
@@ -133,7 +135,7 @@ test("reinforces weak skills before advancing to exam readiness", async ({ page 
   await expect(page.getByRole("article", { name: "Uso de verbos" }).getByText("Debil")).toBeVisible();
   await expect(page.getByText("Tiempo y modo verbal", { exact: true })).toBeVisible();
   await expect(page.getByRole("heading", { name: "Practica focalizada: Uso de verbos" })).toBeVisible();
-  await expect(page.getByRole("link", { name: "Entrenar skill sugerida" })).toHaveAttribute(
+  await expect(page.getByRole("link", { name: "Reforzar habilidad" })).toHaveAttribute(
     "href",
     /\/practice\?mode=training&skill=uso-de-verbos&code=qa_adaptive_weakness/,
   );

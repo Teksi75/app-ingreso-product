@@ -1,6 +1,7 @@
 import { test } from "@playwright/test";
 
 test("capture all pages", async ({ page }) => {
+  test.setTimeout(90_000);
   const pages = [
     { url: "http://localhost:3000/", name: "dashboard" },
     { url: "http://localhost:3000/habilidades", name: "habilidades" },
@@ -12,11 +13,9 @@ test("capture all pages", async ({ page }) => {
   for (const { url, name } of pages) {
     await page.goto(url);
     await page.waitForLoadState("networkidle");
-    await page.waitForTimeout(500);
 
     // Desktop
     await page.setViewportSize({ width: 1440, height: 900 });
-    await page.waitForTimeout(300);
     await page.screenshot({
       path: `.screenshots/screenshot-${name}-desktop.png`,
       fullPage: true,
@@ -24,7 +23,6 @@ test("capture all pages", async ({ page }) => {
 
     // Mobile
     await page.setViewportSize({ width: 375, height: 812 });
-    await page.waitForTimeout(300);
     await page.screenshot({
       path: `.screenshots/screenshot-${name}-mobile.png`,
       fullPage: true,

@@ -5,7 +5,7 @@ type DashboardSkill = {
   skill: string;
   accuracy: number | null;
   attempts: number;
-  practiceSessions: number;
+  sessions: number;
   last_state: DashboardSkillState;
 };
 
@@ -38,8 +38,8 @@ export function SkillItem({ skill }: SkillItemProps) {
           </dd>
         </div>
         <div className="min-w-[72px]">
-          <dt className="m-0 text-xs text-[#666961]">Prácticas</dt>
-          <dd className="mt-0.5 mb-0 text-lg font-bold">{skill.practiceSessions}</dd>
+          <dt className="m-0 text-xs text-[#666961]">Sesiones</dt>
+          <dd className="mt-0.5 mb-0 text-lg font-bold">{skill.sessions}</dd>
         </div>
         <div className="min-w-[84px]">
           <dt className="m-0 text-xs text-[#666961]">Respuestas</dt>

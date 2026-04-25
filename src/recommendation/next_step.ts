@@ -50,6 +50,8 @@ export function getNextStepRecommendation(
   const weakestSkill = explainWeakestSkill(model, CANONICAL_LENGUA_SKILLS);
   const weakestSkillId = weakestSkill.skillId;
   const weakestSkillMetadata = weakestSkillId ? getSkillMetadata(weakestSkillId) : null;
+  const weakestSkillSummary = weakestSkillId ? model.skills[weakestSkillId] : null;
+  const weakSkillCount = Object.values(model.skills).filter((skill) => skill.state === "weak").length;
   const readingUnits = getReadingUnitCandidates();
   const seenReadingUnitIds = new Set(
     sessions
@@ -107,6 +109,28 @@ export function getNextStepRecommendation(
       ctaLabel: "Ir a simulaciones",
       href: "/simulaciones",
       reason: model.simulatorReadiness.reason,
+      basedOn: {
+        lastSessionMode: latestSession?.mode,
+        weakestSkillId,
+        recentSessionModes,
+      },
+    };
+  }
+
+  if (
+    weakestSkillId &&
+    weakestSkillMetadata &&
+    weakestSkillSummary?.state === "weak" &&
+    (weakSkillCount >= 2 || weakestSkillSummary.masteryScore < 30)
+  ) {
+    return {
+      kind: "targeted-practice",
+      title: `Practica focalizada: ${weakestSkillMetadata.title}`,
+      description: weakestSkillMetadata.description,
+      ctaLabel: "Reforzar habilidad",
+      href: buildPracticeHref(weakestSkillId),
+      reason: "Hay debilidades activas que conviene reforzar antes de sumar contenido nuevo.",
+      skillId: weakestSkillId,
       basedOn: {
         lastSessionMode: latestSession?.mode,
         weakestSkillId,

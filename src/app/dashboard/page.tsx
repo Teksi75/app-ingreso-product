@@ -20,7 +20,7 @@ type DashboardSkill = {
   skill: string;
   accuracy: number | null;
   attempts: number;
-  practiceSessions: number;
+  sessions: number;
   last_state: DashboardSkillState;
 };
 
@@ -54,7 +54,7 @@ export default async function DashboardPage({ searchParams }: DashboardPageProps
   }
 
   return (
-    <main className="min-h-screen bg-[#f7f7f4] px-4 py-8 text-[#1d1d1b]">
+    <main className="min-h-screen bg-[#f7f7f4] px-4 pt-8 pb-28 text-[#1d1d1b] lg:pb-8">
       <section className="mx-auto grid max-w-[840px] gap-5">
         <Header title={isNewStudent ? "Nuevo Alumno" : "Tu progreso"} />
         <section className="rounded-lg border border-[#deded8] bg-white px-5 py-4">
@@ -74,6 +74,12 @@ export default async function DashboardPage({ searchParams }: DashboardPageProps
           </div>
         </section>
         {!hasSessionHistory && (
+          <WelcomePanel
+            href={withProgressCode(withNewStudentParam(recommendation.href, isNewStudent), progressCode)}
+            ctaLabel={recommendation.ctaLabel}
+          />
+        )}
+        {!hasSessionHistory && (
           <section className="rounded-lg border border-[#deded8] bg-white px-5 py-4">
             <p className="mt-0 mb-1.5 text-[13px] font-bold text-[#5f625b]">
               Todavía no hay sesiones registradas
@@ -91,7 +97,11 @@ export default async function DashboardPage({ searchParams }: DashboardPageProps
             </div>
           </section>
         )}
-        <SkillList skills={skills} />
+        {hasSessionHistory ? (
+          <SkillList skills={skills} />
+        ) : (
+          <UndiscoveredSkillsSummary totalSkills={skills.length} />
+        )}
         {hasSessionHistory ? <ImprovementPanel points={improvementPoints} /> : null}
         {hasSessionHistory && (
           <form action={resetCurrentStudentProgress}>
@@ -109,6 +119,41 @@ export default async function DashboardPage({ searchParams }: DashboardPageProps
   );
 }
 
+function WelcomePanel({ href, ctaLabel }: { href: string; ctaLabel: string }) {
+  return (
+    <section className="rounded-lg border border-[#deded8] bg-white px-5 py-5">
+      <p className="mt-0 mb-1.5 text-[13px] font-bold uppercase tracking-wide text-[#5f625b]">
+        Primer paso
+      </p>
+      <h2 className="m-0 text-[22px] leading-tight font-bold text-[#1d1d1b]">
+        Bienvenido a INGENIUM
+      </h2>
+      <p className="mt-2 mb-4 max-w-[620px] text-[15px] leading-6 text-[#383832]">
+        Vamos a prepararte para el ingreso paso a paso. Empezá con una lectura guiada y el sistema se encargará de encontrar qué necesitás reforzar.
+      </p>
+      <Link
+        href={href}
+        className="inline-flex min-h-[42px] items-center justify-center rounded-lg bg-[#1d1d1b] px-4 font-bold text-white"
+      >
+        {ctaLabel}
+      </Link>
+    </section>
+  );
+}
+
+function UndiscoveredSkillsSummary({ totalSkills }: { totalSkills: number }) {
+  return (
+    <section className="rounded-lg border border-dashed border-[#deded8] bg-white px-5 py-4">
+      <p className="mt-0 mb-1 text-[13px] font-bold text-[#5f625b]">
+        Próximas habilidades a descubrir
+      </p>
+      <p className="m-0 text-[15px] leading-6 text-[#383832]">
+        0 de {totalSkills} habilidades registradas. Después de la primera actividad vas a ver precisión, sesiones y puntos a mejorar.
+      </p>
+    </section>
+  );
+}
+
 type ImprovementPoint = {
   id: string;
   title: string;
@@ -121,6 +166,7 @@ type ImprovementPoint = {
 
 function ImprovementPanel({ points }: { points: ImprovementPoint[] }) {
   const hasWeaknesses = points.some((point) => point.state === "weak");
+  const hasDevelopingOnly = !hasWeaknesses && points.some((point) => point.state === "developing");
 
   return (
     <section className="grid gap-3 rounded-lg border border-[#deded8] bg-white px-5 py-4">
@@ -129,7 +175,11 @@ function ImprovementPanel({ points }: { points: ImprovementPoint[] }) {
           Puntos a mejorar
         </p>
         <h2 className="m-0 text-[20px] leading-tight font-bold text-[#1d1d1b]">
-          {hasWeaknesses ? "Debilidades detectadas" : "Sin debilidades críticas"}
+          {hasWeaknesses
+            ? "Debilidades detectadas"
+            : hasDevelopingOnly
+              ? "Habilidades en desarrollo"
+              : "Sin debilidades críticas"}
         </h2>
       </div>
       {points.length > 0 ? (
@@ -176,7 +226,12 @@ function getImprovementPoints(model: MasteryModel): ImprovementPoint[] {
       state: summary.state,
       attempts: summary.totalAttempts,
       accuracy: Math.round(summary.recentAccuracy * 100),
-      reason: summary.trace[0] ?? "Conviene reforzar esta habilidad antes de avanzar.",
+      reason: getHumanReadableImprovementReason({
+        accuracy: Math.round(summary.recentAccuracy * 100),
+        kind: "skill",
+        state: summary.state,
+        title: getSkillMetadata(summary.focusId).title,
+      }),
       kind: "skill",
     }));
   const subskillPoints = Object.values(model.subskills)
@@ -187,7 +242,12 @@ function getImprovementPoints(model: MasteryModel): ImprovementPoint[] {
       state: summary.state,
       attempts: summary.totalAttempts,
       accuracy: Math.round(summary.recentAccuracy * 100),
-      reason: summary.trace[0] ?? "Conviene reforzar esta subskill antes de avanzar.",
+      reason: getHumanReadableImprovementReason({
+        accuracy: Math.round(summary.recentAccuracy * 100),
+        kind: "subskill",
+        state: summary.state,
+        title: getSkillMetadata(summary.focusId).title,
+      }),
       kind: "subskill",
     }));
 
@@ -198,6 +258,36 @@ function getImprovementPoints(model: MasteryModel): ImprovementPoint[] {
       left.title.localeCompare(right.title)
     ))
     .slice(0, 5);
+}
+
+function getHumanReadableImprovementReason({
+  accuracy,
+  kind,
+  state,
+  title,
+}: {
+  accuracy: number;
+  kind: ImprovementPoint["kind"];
+  state: SkillState;
+  title: string;
+}): string {
+  if (kind === "subskill") {
+    return `Este tema específico (${title}) necesita más atención antes de avanzar.`;
+  }
+
+  if (state === "weak" && accuracy < 30) {
+    return "Esta habilidad necesita práctica constante. Intentá resolver una serie corta y revisar los errores al final.";
+  }
+
+  if (state === "weak") {
+    return "Vas por buen camino, pero todavía conviene reforzar esta habilidad para consolidarla.";
+  }
+
+  if (state === "developing") {
+    return "Ya tenés una base sólida. Una lectura guiada o una práctica breve puede ayudarte a pasar al siguiente nivel.";
+  }
+
+  return "Mantené esta habilidad activa con práctica distribuida antes del examen.";
 }
 
 function getImprovementPriority(state: SkillState): number {
@@ -221,7 +311,7 @@ function getDashboardSkills(model: MasteryModel): DashboardSkill[] {
       skill,
       accuracy: attempts > 0 && stats ? Math.round((stats.totalCorrect / attempts) * 100) : null,
       attempts,
-      practiceSessions: stats?.practiceSessions ?? 0,
+      sessions: (stats?.practiceSessions ?? 0) + (stats?.readingSessions ?? 0) + (stats?.simulatorSessions ?? 0),
       last_state: attempts > 0 && stats ? stats.state : "not_started",
     };
   });

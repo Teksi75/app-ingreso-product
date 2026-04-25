@@ -25,7 +25,8 @@ test("dashboard shows contextual empty state and recommendation", async ({ page 
     "href",
     /\/practice\?mode=reading&unit=/,
   );
-  await expect(page.getByRole("article", { name: "Comprensión global del texto" })).toBeVisible();
+  await expect(page.getByText("Próximas habilidades a descubrir")).toBeVisible();
+  await expect(page.getByText("0 de 7 habilidades registradas")).toBeVisible();
 });
 
 test("practice without query params renders a question", async ({ page }) => {

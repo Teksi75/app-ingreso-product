@@ -46,9 +46,9 @@ export function Button({
   // Configuración de variantes
   const variantClasses = {
     primary: `
-      bg-teal-500 text-white
-      hover:bg-teal-600
-      active:bg-teal-700
+      bg-teal-700 text-white
+      hover:bg-teal-800
+      active:bg-teal-900
       shadow-md shadow-teal-200
       hover:shadow-lg hover:shadow-teal-200
     `,
@@ -170,7 +170,7 @@ export function IconButton({
   };
 
   const variantClasses = {
-    primary: "bg-teal-500 text-white hover:bg-teal-600",
+    primary: "bg-teal-700 text-white hover:bg-teal-800",
     secondary: "bg-white text-slate-700 border border-slate-200 hover:bg-slate-50",
     ghost: "text-slate-600 hover:bg-slate-100",
   };

@@ -211,6 +211,13 @@ function StartPanel({
   questionCount: number;
   onStart: () => void;
 }) {
+  const details = [
+    { label: "Duración estimada", value: "15 min" },
+    { label: "Preguntas", value: `${questionCount} de Lengua` },
+    { label: "Cobertura", value: "7 habilidades" },
+    { label: "Después", value: "score y refuerzo" },
+  ];
+
   return (
     <article className="grid gap-5 rounded-2xl border border-slate-100 bg-white p-5 shadow-sm lg:p-6">
       <div className="grid gap-2">
@@ -220,6 +227,17 @@ function StartPanel({
           La sesión toma {questionCount} preguntas canónicas y guarda el resultado al finalizar.
         </p>
       </div>
+      <div className="grid gap-3 rounded-xl border border-teal-100 bg-teal-50 p-4 sm:grid-cols-2 lg:grid-cols-4">
+        {details.map((detail) => (
+          <div className="rounded-lg bg-white/75 p-3" key={detail.label}>
+            <p className="m-0 text-xs font-bold uppercase tracking-wide text-teal-700">{detail.label}</p>
+            <p className="m-0 mt-1 text-sm font-bold text-slate-800">{detail.value}</p>
+          </div>
+        ))}
+      </div>
+      <p className="m-0 rounded-xl border border-amber-100 bg-amber-50 p-3 text-sm leading-6 text-slate-700">
+        Consejo: hacelo cuando estés descansado. Al terminar vas a ver qué habilidades ya están firmes y cuáles conviene reforzar antes del examen.
+      </p>
       <div>
         <Button onClick={onStart} size="lg" variant="primary">
           Iniciar simulación
