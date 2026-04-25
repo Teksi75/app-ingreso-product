@@ -115,7 +115,7 @@
       "label": "getRank()",
       "file_type": "code",
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\app\\page.tsx",
-      "source_location": "L23",
+      "source_location": "L24",
       "id": "page_getrank",
       "community": 4,
       "norm_label": "getrank()"
@@ -124,7 +124,7 @@
       "label": "calculateDashboardData()",
       "file_type": "code",
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\app\\page.tsx",
-      "source_location": "L31",
+      "source_location": "L32",
       "id": "page_calculatedashboarddata",
       "community": 4,
       "norm_label": "calculatedashboarddata()"
@@ -133,7 +133,7 @@
       "label": "MathIcon()",
       "file_type": "code",
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\app\\page.tsx",
-      "source_location": "L135",
+      "source_location": "L146",
       "id": "page_mathicon",
       "community": 4,
       "norm_label": "mathicon()"
@@ -142,7 +142,7 @@
       "label": "LanguageIcon()",
       "file_type": "code",
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\app\\page.tsx",
-      "source_location": "L141",
+      "source_location": "L152",
       "id": "page_languageicon",
       "community": 4,
       "norm_label": "languageicon()"
@@ -2884,6 +2884,15 @@
       "norm_label": "slugtoreadingunitid()"
     },
     {
+      "label": "skill_slugs.test.ts",
+      "file_type": "code",
+      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\skills\\__tests__\\skill_slugs.test.ts",
+      "source_location": "L1",
+      "id": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_skills_tests_skill_slugs_test_ts",
+      "community": 40,
+      "norm_label": "skill_slugs.test.ts"
+    },
+    {
       "label": "local_progress_store.ts",
       "file_type": "code",
       "source_file": "src\\storage\\local_progress_store.ts",
@@ -2997,7 +3006,7 @@
       "source_file": "src\\types\\reading_unit.ts",
       "source_location": "L1",
       "id": "src_types_reading_unit_ts",
-      "community": 40,
+      "community": 41,
       "norm_label": "reading_unit.ts"
     },
     {
@@ -3006,7 +3015,7 @@
       "source_file": "tests\\e2e\\all-pages.spec.ts",
       "source_location": "L1",
       "id": "tests_e2e_all_pages_spec_ts",
-      "community": 41,
+      "community": 42,
       "norm_label": "all-pages.spec.ts"
     },
     {
@@ -3015,7 +3024,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\tests\\e2e\\dashboard-progress.spec.ts",
       "source_location": "L1",
       "id": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_tests_e2e_dashboard_progress_spec_ts",
-      "community": 42,
+      "community": 43,
       "norm_label": "dashboard-progress.spec.ts"
     },
     {
@@ -3024,7 +3033,7 @@
       "source_file": "tests\\e2e\\dashboard-responsive.spec.ts",
       "source_location": "L1",
       "id": "tests_e2e_dashboard_responsive_spec_ts",
-      "community": 43,
+      "community": 44,
       "norm_label": "dashboard-responsive.spec.ts"
     },
     {
@@ -3033,7 +3042,7 @@
       "source_file": "tests\\e2e\\dashboard-screenshot.spec.ts",
       "source_location": "L1",
       "id": "tests_e2e_dashboard_screenshot_spec_ts",
-      "community": 44,
+      "community": 45,
       "norm_label": "dashboard-screenshot.spec.ts"
     },
     {
@@ -3042,7 +3051,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\tests\\e2e\\lengua-practice-links.spec.ts",
       "source_location": "L1",
       "id": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_tests_e2e_lengua_practice_links_spec_ts",
-      "community": 45,
+      "community": 46,
       "norm_label": "lengua-practice-links.spec.ts"
     }
   ],
@@ -3123,7 +3132,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\app\\page.tsx",
-      "source_location": "L23",
+      "source_location": "L24",
       "weight": 1.0,
       "_src": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_app_page_tsx",
       "_tgt": "page_getrank",
@@ -3135,7 +3144,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\app\\page.tsx",
-      "source_location": "L31",
+      "source_location": "L32",
       "weight": 1.0,
       "_src": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_app_page_tsx",
       "_tgt": "page_calculatedashboarddata",
@@ -3147,7 +3156,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\app\\page.tsx",
-      "source_location": "L135",
+      "source_location": "L146",
       "weight": 1.0,
       "_src": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_app_page_tsx",
       "_tgt": "page_mathicon",
@@ -3159,7 +3168,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\app\\page.tsx",
-      "source_location": "L141",
+      "source_location": "L152",
       "weight": 1.0,
       "_src": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_app_page_tsx",
       "_tgt": "page_languageicon",
@@ -3171,7 +3180,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\app\\page.tsx",
-      "source_location": "L73",
+      "source_location": "L74",
       "weight": 1.0,
       "_src": "page_calculatedashboarddata",
       "_tgt": "page_getrank",

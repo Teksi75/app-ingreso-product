@@ -1,11 +1,11 @@
 # Graph Report - C:\Users\pablo\OneDrive\Desarrollo\app-ingreso-product  (2026-04-25)
 
 ## Corpus Check
-- 60 files · ~237,236 words
+- 61 files · ~239,512 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 338 nodes · 591 edges · 46 communities detected
+- 339 nodes · 591 edges · 47 communities detected
 - Extraction: 85% EXTRACTED · 15% INFERRED · 0% AMBIGUOUS · INFERRED: 91 edges (avg confidence: 0.8)
 - Token cost: 0 input · 0 output
 
@@ -56,6 +56,7 @@
 - [[_COMMUNITY_Community 43|Community 43]]
 - [[_COMMUNITY_Community 44|Community 44]]
 - [[_COMMUNITY_Community 45|Community 45]]
+- [[_COMMUNITY_Community 46|Community 46]]
 
 ## God Nodes (most connected - your core abstractions)
 1. `loadContentLenguaExercises()` - 21 edges
@@ -267,6 +268,10 @@ Nodes (0):
 Cohesion: 1.0
 Nodes (0): 
 
+### Community 46 - "Community 46"
+Cohesion: 1.0
+Nodes (0): 
+
 ## Knowledge Gaps
 - **Thin community `Community 18`** (2 nodes): `RootLayout()`, `layout.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
@@ -312,24 +317,26 @@ Nodes (0):
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
 - **Thin community `Community 39`** (1 nodes): `reading_session_runner.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 40`** (1 nodes): `reading_unit.ts`
+- **Thin community `Community 40`** (1 nodes): `skill_slugs.test.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 41`** (1 nodes): `all-pages.spec.ts`
+- **Thin community `Community 41`** (1 nodes): `reading_unit.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 42`** (1 nodes): `dashboard-progress.spec.ts`
+- **Thin community `Community 42`** (1 nodes): `all-pages.spec.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 43`** (1 nodes): `dashboard-responsive.spec.ts`
+- **Thin community `Community 43`** (1 nodes): `dashboard-progress.spec.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 44`** (1 nodes): `dashboard-screenshot.spec.ts`
+- **Thin community `Community 44`** (1 nodes): `dashboard-responsive.spec.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 45`** (1 nodes): `lengua-practice-links.spec.ts`
+- **Thin community `Community 45`** (1 nodes): `dashboard-screenshot.spec.ts`
+  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
+- **Thin community `Community 46`** (1 nodes): `lengua-practice-links.spec.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `getNextStepRecommendation()` connect `Community 4` to `Community 8`, `Community 6`, `Community 7`?**
-  _High betweenness centrality (0.076) - this node is a cross-community bridge._
+  _High betweenness centrality (0.075) - this node is a cross-community bridge._
 - **Why does `loadLenguaExercises()` connect `Community 2` to `Community 0`, `Community 1`, `Community 3`, `Community 4`?**
   _High betweenness centrality (0.051) - this node is a cross-community bridge._
 - **Why does `pickReadingUnitCandidate()` connect `Community 4` to `Community 0`, `Community 2`?**
