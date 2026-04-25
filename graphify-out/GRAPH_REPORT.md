@@ -1,11 +1,11 @@
 # Graph Report - C:\Users\pablo\OneDrive\Desarrollo\app-ingreso-product  (2026-04-25)
 
 ## Corpus Check
-- 71 files · ~246,042 words
+- 72 files · ~248,624 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 372 nodes · 677 edges · 49 communities detected
+- 378 nodes · 685 edges · 51 communities detected
 - Extraction: 83% EXTRACTED · 17% INFERRED · 0% AMBIGUOUS · INFERRED: 117 edges (avg confidence: 0.8)
 - Token cost: 0 input · 0 output
 
@@ -59,6 +59,8 @@
 - [[_COMMUNITY_Community 46|Community 46]]
 - [[_COMMUNITY_Community 47|Community 47]]
 - [[_COMMUNITY_Community 48|Community 48]]
+- [[_COMMUNITY_Community 49|Community 49]]
+- [[_COMMUNITY_Community 50|Community 50]]
 
 ## God Nodes (most connected - your core abstractions)
 1. `GET()` - 23 edges
@@ -75,91 +77,91 @@
 ## Surprising Connections (you probably didn't know these)
 - `GET()` --calls--> `slugToReadingUnitId()`  [INFERRED]
   C:\Users\pablo\OneDrive\Desarrollo\app-ingreso-product\src\app\reporte\datos\route.ts → C:\Users\pablo\OneDrive\Desarrollo\app-ingreso-product\src\skills\skill_slugs.ts
-- `assertBioStimulusLoadsAsSkillTraining()` --calls--> `loadLenguaExercises()`  [INFERRED]
-  C:\Users\pablo\OneDrive\Desarrollo\app-ingreso-product\src\components\practice\__tests__\lengua_integration.test.ts → C:\Users\pablo\OneDrive\Desarrollo\app-ingreso-product\src\practice\session_runner.ts
-- `calculateDashboardData()` --calls--> `buildMasteryModel()`  [INFERRED]
-  C:\Users\pablo\OneDrive\Desarrollo\app-ingreso-product\src\app\page.tsx → src\progress\mastery_model.ts
-- `calculateDashboardData()` --calls--> `getWeakestPracticeSkillId()`  [INFERRED]
-  C:\Users\pablo\OneDrive\Desarrollo\app-ingreso-product\src\app\page.tsx → C:\Users\pablo\OneDrive\Desarrollo\app-ingreso-product\src\storage\local_progress_store.ts
+- `loadLenguaSelectionGraph()` --calls--> `getLenguaMasteryMap()`  [INFERRED]
+  src\practice\exercise_selector.ts → C:\Users\pablo\OneDrive\Desarrollo\app-ingreso-product\src\practice\session_runner.ts
 - `calculateDashboardData()` --calls--> `loadProgress()`  [INFERRED]
   C:\Users\pablo\OneDrive\Desarrollo\app-ingreso-product\src\app\page.tsx → C:\Users\pablo\OneDrive\Desarrollo\app-ingreso-product\src\storage\local_progress_store.ts
+- `calculateDashboardData()` --calls--> `pickReadingUnitCandidate()`  [INFERRED]
+  C:\Users\pablo\OneDrive\Desarrollo\app-ingreso-product\src\app\page.tsx → C:\Users\pablo\OneDrive\Desarrollo\app-ingreso-product\src\practice\session_runner.ts
+- `withProgressCode()` --calls--> `buildRestartHref()`  [INFERRED]
+  C:\Users\pablo\OneDrive\Desarrollo\app-ingreso-product\src\app\progress_code_href.ts → C:\Users\pablo\OneDrive\Desarrollo\app-ingreso-product\src\app\practice\page.tsx
 
 ## Communities
 
 ### Community 0 - "Community 0"
 Cohesion: 0.07
-Nodes (54): loadLenguaSelectionGraph(), getSeenSkills(), buildFallbackOptions(), buildGeneratedOptions(), buildHighlightOptions(), buildObjectAnswerOptions(), buildOrderingOptions(), buildPlannedSessionExercises() (+46 more)
+Nodes (46): getSeenSkills(), buildFallbackOptions(), buildGeneratedOptions(), buildHighlightOptions(), buildObjectAnswerOptions(), buildOrderingOptions(), buildPlannedSessionExercises(), buildUserState() (+38 more)
 
 ### Community 1 - "Community 1"
-Cohesion: 0.1
-Nodes (34): clampDifficulty(), clampMastery(), dedupeExercises(), extractSelectorExercises(), filterImmediateRepeats(), filterUnlockedExercises(), findAlternativeSubskill(), findRelatedTarget() (+26 more)
+Cohesion: 0.07
+Nodes (33): getPracticeProgressSnapshot(), getWeakestPracticeSkillId(), buildMasteryModel(), buildPracticeProgressSnapshot(), buildPracticeSkillStats(), buildTrace(), calculateMasteryScore(), clampMasteryLevel() (+25 more)
 
 ### Community 2 - "Community 2"
+Cohesion: 0.1
+Nodes (35): clampDifficulty(), clampMastery(), dedupeExercises(), extractSelectorExercises(), filterImmediateRepeats(), filterUnlockedExercises(), findAlternativeSubskill(), findRelatedTarget() (+27 more)
+
+### Community 3 - "Community 3"
 Cohesion: 0.09
 Nodes (27): addFocusResult(), buildReadingBlocks(), buildSimulatorSkillResults(), calculateScorePercentage(), chanceByDifficulty(), createStandaloneBlock(), evaluateSimulatorSession(), groupByReadingUnit() (+19 more)
 
-### Community 3 - "Community 3"
-Cohesion: 0.18
-Nodes (26): appendSessionResult(), cloneProgress(), createEmptyProgress(), createSessionId(), getProgressPath(), getRedisClient(), getRedisProgressKey(), getSeenSkillsAsync() (+18 more)
-
 ### Community 4 - "Community 4"
-Cohesion: 0.11
-Nodes (18): assertCanonicalTextPackLoads(), buildPracticeHref(), buildReadingHref(), getNextStepRecommendation(), pickReadingUnit(), calculateDashboardData(), getRank(), buildReadingUnitCandidates() (+10 more)
+Cohesion: 0.2
+Nodes (23): appendSessionResult(), cloneProgress(), createEmptyProgress(), createSessionId(), getProgressPath(), getRedisClient(), getRedisProgressKey(), getSeenSkillsAsync() (+15 more)
 
 ### Community 5 - "Community 5"
-Cohesion: 0.14
-Nodes (18): getWeakestPracticeSkillId(), buildMasteryModel(), buildPracticeProgressSnapshot(), buildPracticeSkillStats(), buildTrace(), calculateMasteryScore(), clampMasteryLevel(), clampScore() (+10 more)
-
-### Community 6 - "Community 6"
-Cohesion: 0.14
-Nodes (15): ActionPanel(), withNewStudentParam(), getPracticeProgressSnapshot(), buildRestartHref(), createEmptyProgress(), DashboardPage(), getParam(), PracticePage() (+7 more)
-
-### Community 7 - "Community 7"
 Cohesion: 0.12
 Nodes (11): ClientAvatarBadge(), ClientAvatarHero(), ClientStudentName(), SidebarNav(), useProgressCodeFromLocation(), createDefaultProfile(), isLearningGoal(), isPlainObject() (+3 more)
 
-### Community 8 - "Community 8"
-Cohesion: 0.16
-Nodes (17): assertBioStimulusLoadsAsSkillTraining(), assertPracticeSessionsUseChoiceExercises(), assertReadingModeDatasetRunsSequentially(), assertReadingUnitSessionsShareBaseTexts(), assertSelectionRespectsPrerequisitesAndMastery(), assertSessionRunnerUsesCrossRelationships(), assertSkillPracticeCompletesReadingUnitBeforeFallback(), assertTextPatternExtractorDoesNotReturnSourceText() (+9 more)
+### Community 6 - "Community 6"
+Cohesion: 0.18
+Nodes (16): assertBioStimulusLoadsAsSkillTraining(), assertCanonicalTextPackLoads(), assertPracticeSessionsUseChoiceExercises(), assertReadingModeDatasetRunsSequentially(), assertReadingUnitSessionsShareBaseTexts(), assertSelectionRespectsPrerequisitesAndMastery(), assertSessionRunnerUsesCrossRelationships(), assertSkillPracticeCompletesReadingUnitBeforeFallback() (+8 more)
 
-### Community 9 - "Community 9"
+### Community 7 - "Community 7"
+Cohesion: 0.18
+Nodes (11): ActionPanel(), withNewStudentParam(), createEmptyProgress(), DashboardPage(), getParam(), SimulacionesPage(), withNewStudentParam(), withProgressCode() (+3 more)
+
+### Community 8 - "Community 8"
 Cohesion: 0.18
 Nodes (15): getMasteryGap(), getMasteryLevel(), isAtRecommendedMastery(), createProgressCode(), middleware(), normalizeProgressCode(), GET(), buildSessionSkillResults() (+7 more)
+
+### Community 9 - "Community 9"
+Cohesion: 0.24
+Nodes (12): markSkillsSeenAsync(), buildRestartHref(), PracticePage(), buildReadingBlockSessionExercises(), buildSkillTrainingPool(), createPracticeSelection(), getReadingUnitForPool(), pickReadingUnitCandidate() (+4 more)
 
 ### Community 10 - "Community 10"
 Cohesion: 0.22
 Nodes (0): 
 
 ### Community 11 - "Community 11"
+Cohesion: 0.48
+Nodes (6): assertTextPatternExtractorDoesNotReturnSourceText(), analyzePlainTextShape(), estimatePdfLength(), extractTextPatterns(), inferStructuresFromShape(), inferTextTypesFromShape()
+
+### Community 12 - "Community 12"
 Cohesion: 0.33
 Nodes (0): 
 
-### Community 12 - "Community 12"
+### Community 13 - "Community 13"
+Cohesion: 0.53
+Nodes (5): baseConsolidatedSessions(), buildSkillStats(), result(), session(), writeProgress()
+
+### Community 14 - "Community 14"
 Cohesion: 0.4
 Nodes (0): 
 
-### Community 13 - "Community 13"
+### Community 15 - "Community 15"
 Cohesion: 0.83
 Nodes (3): generate(), listJsonFiles(), readJson()
 
-### Community 14 - "Community 14"
+### Community 16 - "Community 16"
 Cohesion: 0.5
 Nodes (0): 
 
-### Community 15 - "Community 15"
-Cohesion: 0.67
-Nodes (0): 
-
-### Community 16 - "Community 16"
-Cohesion: 0.67
-Nodes (0): 
-
 ### Community 17 - "Community 17"
-Cohesion: 1.0
+Cohesion: 0.67
 Nodes (0): 
 
 ### Community 18 - "Community 18"
-Cohesion: 1.0
+Cohesion: 0.67
 Nodes (0): 
 
 ### Community 19 - "Community 19"
@@ -282,81 +284,89 @@ Nodes (0):
 Cohesion: 1.0
 Nodes (0): 
 
+### Community 49 - "Community 49"
+Cohesion: 1.0
+Nodes (0): 
+
+### Community 50 - "Community 50"
+Cohesion: 1.0
+Nodes (0): 
+
 ## Knowledge Gaps
-- **Thin community `Community 17`** (2 nodes): `layout.tsx`, `RootLayout()`
+- **Thin community `Community 19`** (2 nodes): `layout.tsx`, `RootLayout()`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 18`** (2 nodes): `Header()`, `Header.tsx`
+- **Thin community `Community 20`** (2 nodes): `Header()`, `Header.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 19`** (2 nodes): `SkillList()`, `SkillList.tsx`
+- **Thin community `Community 21`** (2 nodes): `SkillList()`, `SkillList.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 20`** (2 nodes): `SkillStatus()`, `SkillStatus.tsx`
+- **Thin community `Community 22`** (2 nodes): `SkillStatus()`, `SkillStatus.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 21`** (2 nodes): `AvatarHero()`, `AvatarHero.tsx`
+- **Thin community `Community 23`** (2 nodes): `AvatarHero()`, `AvatarHero.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 22`** (2 nodes): `StreakBadge.tsx`, `getStreakColor()`
+- **Thin community `Community 24`** (2 nodes): `StreakBadge.tsx`, `getStreakColor()`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 23`** (2 nodes): `XpBar.tsx`, `XpBar()`
+- **Thin community `Community 25`** (2 nodes): `XpBar.tsx`, `XpBar()`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 24`** (1 nodes): `next-env.d.ts`
+- **Thin community `Community 26`** (1 nodes): `next-env.d.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 25`** (1 nodes): `next.config.js`
+- **Thin community `Community 27`** (1 nodes): `next.config.js`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 26`** (1 nodes): `playwright.config.ts`
+- **Thin community `Community 28`** (1 nodes): `playwright.config.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 27`** (1 nodes): `postcss.config.mjs`
+- **Thin community `Community 29`** (1 nodes): `postcss.config.mjs`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 28`** (1 nodes): `vitest.config.ts`
+- **Thin community `Community 30`** (1 nodes): `vitest.config.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 29`** (1 nodes): `page.tsx`
+- **Thin community `Community 31`** (1 nodes): `page.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 30`** (1 nodes): `page.tsx`
+- **Thin community `Community 32`** (1 nodes): `page.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 31`** (1 nodes): `exercise_selector.ts`
+- **Thin community `Community 33`** (1 nodes): `exercise_selector.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 32`** (1 nodes): `session_runner.ts`
+- **Thin community `Community 34`** (1 nodes): `session_runner.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 33`** (1 nodes): `BentoCard.tsx`
+- **Thin community `Community 35`** (1 nodes): `BentoCard.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 34`** (1 nodes): `Button.tsx`
+- **Thin community `Community 36`** (1 nodes): `Button.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 35`** (1 nodes): `index.ts`
+- **Thin community `Community 37`** (1 nodes): `index.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 36`** (1 nodes): `ProgressCircle.tsx`
+- **Thin community `Community 38`** (1 nodes): `ProgressCircle.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 37`** (1 nodes): `SkillCard.tsx`
+- **Thin community `Community 39`** (1 nodes): `SkillCard.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 38`** (1 nodes): `exercise_selector.test.ts`
+- **Thin community `Community 40`** (1 nodes): `exercise_selector.test.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 39`** (1 nodes): `reading_session_runner.ts`
+- **Thin community `Community 41`** (1 nodes): `reading_session_runner.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 40`** (1 nodes): `skill_slugs.test.ts`
+- **Thin community `Community 42`** (1 nodes): `skill_slugs.test.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 41`** (1 nodes): `reading_unit.ts`
+- **Thin community `Community 43`** (1 nodes): `reading_unit.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 42`** (1 nodes): `all-pages.spec.ts`
+- **Thin community `Community 44`** (1 nodes): `all-pages.spec.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 43`** (1 nodes): `dashboard-progress.spec.ts`
+- **Thin community `Community 45`** (1 nodes): `dashboard-progress.spec.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 44`** (1 nodes): `dashboard-responsive.spec.ts`
+- **Thin community `Community 46`** (1 nodes): `dashboard-responsive.spec.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 45`** (1 nodes): `dashboard-screenshot.spec.ts`
+- **Thin community `Community 47`** (1 nodes): `dashboard-screenshot.spec.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 46`** (1 nodes): `first-experience.spec.ts`
+- **Thin community `Community 48`** (1 nodes): `first-experience.spec.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 47`** (1 nodes): `lengua-practice-links.spec.ts`
+- **Thin community `Community 49`** (1 nodes): `lengua-practice-links.spec.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 48`** (1 nodes): `student-profile-and-code.spec.ts`
+- **Thin community `Community 50`** (1 nodes): `student-profile-and-code.spec.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `GET()` connect `Community 9` to `Community 0`, `Community 1`, `Community 2`, `Community 3`, `Community 4`, `Community 5`, `Community 6`, `Community 8`?**
-  _High betweenness centrality (0.128) - this node is a cross-community bridge._
-- **Why does `buildMasteryModel()` connect `Community 5` to `Community 9`, `Community 4`, `Community 6`?**
-  _High betweenness centrality (0.060) - this node is a cross-community bridge._
-- **Why does `loadLenguaExercises()` connect `Community 0` to `Community 8`, `Community 1`, `Community 2`, `Community 4`?**
-  _High betweenness centrality (0.040) - this node is a cross-community bridge._
+- **Why does `GET()` connect `Community 8` to `Community 0`, `Community 1`, `Community 2`, `Community 3`, `Community 4`, `Community 6`, `Community 7`?**
+  _High betweenness centrality (0.124) - this node is a cross-community bridge._
+- **Why does `buildMasteryModel()` connect `Community 1` to `Community 8`, `Community 7`?**
+  _High betweenness centrality (0.058) - this node is a cross-community bridge._
+- **Why does `loadLenguaExercises()` connect `Community 6` to `Community 0`, `Community 9`, `Community 2`, `Community 3`?**
+  _High betweenness centrality (0.039) - this node is a cross-community bridge._
 - **Are the 22 inferred relationships involving `GET()` (e.g. with `middleware()` and `resolveStudentIdentity()`) actually correct?**
   _`GET()` has 22 INFERRED edges - model-reasoned connections that need verification._
 - **Are the 3 inferred relationships involving `loadContentLenguaExercises()` (e.g. with `GET()` and `normalizeSkillId()`) actually correct?**
