@@ -5,6 +5,7 @@ import {
   Button,
 } from "@/components/ui";
 import { pickReadingUnitCandidate } from "@/practice/session_runner";
+import { canonicalIdToSlug, readingUnitIdToSlug } from "@/skills/skill_slugs";
 
 export const dynamic = "force-dynamic";
 
@@ -73,7 +74,7 @@ const HABILIDADES_BASE = [
     icon: "📚",
     color: "violet",
     topics: ["Comprensión lectora", "Gramática", "Vocabulario", "Ortografía", "Escritura"],
-    practiceHref: "/practice?mode=training&skill=lengua.skill_1",
+    practiceHref: `/practice?mode=training&skill=${canonicalIdToSlug("lengua.skill_1")}`,
     isAvailable: true,
   },
 ];
@@ -325,8 +326,8 @@ export default async function HabilidadesPage() {
                    </p>
                   <Button
                     href={defaultReadingUnit
-                      ? `/practice?mode=reading&unit=${encodeURIComponent(defaultReadingUnit.id)}`
-                      : "/practice?mode=training&skill=lengua.skill_1"}
+                      ? `/practice?mode=reading&unit=${encodeURIComponent(readingUnitIdToSlug(defaultReadingUnit.id))}`
+                      : `/practice?mode=training&skill=${canonicalIdToSlug("lengua.skill_1")}`}
                     variant="secondary"
                     size="sm"
                   >

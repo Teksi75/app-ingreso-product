@@ -16,6 +16,7 @@ import {
 } from "@/progress/mastery_model";
 import { getNextStepRecommendation } from "@/recommendation/next_step";
 import { getWeakestPracticeSkillId } from "@/storage/local_progress_store";
+import { canonicalIdToSlug } from "@/skills/skill_slugs";
 
 export const dynamic = "force-dynamic";
 
@@ -61,8 +62,8 @@ function calculateDashboardData() {
     : 1;
   const weakestSkillId = getWeakestPracticeSkillId([...CANONICAL_LENGUA_SKILLS], progress);
   const weakestSkillHref = weakestSkillId
-    ? `/practice?mode=training&skill=${encodeURIComponent(weakestSkillId)}`
-    : "/practice?mode=training&skill=lengua.skill_1";
+    ? `/practice?mode=training&skill=${encodeURIComponent(canonicalIdToSlug(weakestSkillId))}`
+    : `/practice?mode=training&skill=${encodeURIComponent(canonicalIdToSlug("lengua.skill_1"))}`;
   const simulatorReady = model.simulatorReadiness.ready;
 
   return {

@@ -9,6 +9,7 @@ import {
   startReadingUnitSession,
   type PracticeMode,
 } from "../../components/practice/session_runner";
+import { slugToCanonicalId, slugToReadingUnitId } from "../../skills/skill_slugs";
 import { PracticeQuestion } from "./PracticeQuestion";
 
 type PracticePageProps = {
@@ -27,9 +28,11 @@ export default async function PracticePage({ searchParams }: PracticePageProps) 
   const focus = Array.isArray(params.focus) ? params.focus[0] : params.focus;
   const modeParam = Array.isArray(params.mode) ? params.mode[0] : params.mode;
   const newStudent = Array.isArray(params.newStudent) ? params.newStudent[0] : params.newStudent;
-  const skill = Array.isArray(params.skill) ? params.skill[0] : params.skill;
-  const unit = Array.isArray(params.unit) ? params.unit[0] : params.unit;
+  const skillParam = Array.isArray(params.skill) ? params.skill[0] : params.skill;
+  const unitParam = Array.isArray(params.unit) ? params.unit[0] : params.unit;
   const used = Array.isArray(params.used) ? params.used[0] : params.used;
+  const skill = resolveSkillId(skillParam);
+  const unit = resolveReadingUnitId(unitParam);
   const usedExerciseIds = parseUsedExerciseIds(used);
   const forceNewStudent = isEnabledParam(newStudent);
   const practiceMode: PracticeMode = modeParam === "reading" || unit ? "reading" : "training";
@@ -49,7 +52,7 @@ export default async function PracticePage({ searchParams }: PracticePageProps) 
     : undefined;
 
   const restartHref = buildRestartHref({
-    skill,
+    skill: skill ?? undefined,
     forceNewStudent,
     mode: practiceMode,
     unit: resolvedReadingUnitId,
@@ -95,6 +98,32 @@ function parseUsedExerciseIds(value: string | undefined): string[] {
 
 function isEnabledParam(value: string | undefined): boolean {
   return value === "1" || value === "true";
+}
+
+function resolveSkillId(rawSkill: string | undefined): string | null {
+  if (!rawSkill) {
+    return null;
+  }
+
+  const canonical = slugToCanonicalId(rawSkill);
+  if (canonical) {
+    return canonical;
+  }
+
+  return null;
+}
+
+function resolveReadingUnitId(rawUnit: string | undefined): string | null {
+  if (!rawUnit) {
+    return null;
+  }
+
+  const canonical = slugToReadingUnitId(rawUnit);
+  if (canonical) {
+    return canonical;
+  }
+
+  return null;
 }
 
 function buildRestartHref({

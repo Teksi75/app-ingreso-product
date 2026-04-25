@@ -9,7 +9,7 @@
       "graphify-out/GRAPH_REPORT.md"
     ],
     "graph_report_date": "2026-04-16",
-    "exercise_count": 18,
+    "exercise_count": 24,
     "allowed_types": [
       "multiple_choice",
       "completion",
@@ -271,6 +271,108 @@
       "answer": { "concordancia": ["a"], "secuencia": ["b"], "puntuacion": ["c"], "ortografia": ["d"] },
       "feedback": { "correct": "Cada revision queda asociada a su foco de mejora.", "incorrect": "Relaciona cada version con el ajuste que hace visible." },
       "metadata": { "difficulty": 4, "mastery_target": 4, "combines_skills": ["lengua.skill_2.subskill_1", "lengua.skill_4.subskill_2", "lengua.skill_6.subskill_3", "lengua.skill_7.subskill_1", "lengua.skill_3.subskill_3"], "graph_refs": ["Community 3", "Community 7", "Community 10", "Community 14"] }
+    },
+    {
+      "id": "lengua_s3_mc_019",
+      "type": "multiple_choice",
+      "skill": "lengua.skill_3",
+      "subskill": "lengua.skill_3.subskill_1",
+      "difficulty": 1,
+      "mastery_level": 1,
+      "prompt": "Elige la opcion que respeta el formato de un aviso escolar breve.",
+      "options": [
+        { "id": "a", "text": "El jueves 15 no hay clases por reunion de personal docente.", "correct": true },
+        { "id": "b", "text": "Aviso importante para todos los estudiantes y sus familias sobre lo que va a pasar el jueves.", "correct": false },
+        { "id": "c", "text": "Jueves. No hay. Clases. Reunion.", "correct": false }
+      ],
+      "answer": "a",
+      "feedback": { "correct": "La opcion informa fecha, motivo y publico en una sola oracion.", "incorrect": "Busca la opcion que da la informacion completa sin rodeos ni fragmentacion." },
+      "metadata": { "difficulty": 1, "mastery_target": 1, "combines_skills": ["lengua.skill_3.subskill_1", "lengua.skill_7.subskill_3"], "graph_refs": ["Community 3", "Community 14"] }
+    },
+    {
+      "id": "lengua_s3_mc_020",
+      "type": "multiple_choice",
+      "skill": "lengua.skill_3",
+      "subskill": "lengua.skill_3.subskill_1",
+      "difficulty": 2,
+      "mastery_level": 2,
+      "prompt": "Elige la respuesta que cumple con el formato pedido: una oracion que informe lugar, dia y actividad.",
+      "options": [
+        { "id": "a", "text": "El taller de lectura sera el viernes en la biblioteca del primer piso.", "correct": true },
+        { "id": "b", "text": "Viernes. Biblioteca. Taller de lectura.", "correct": false },
+        { "id": "c", "text": "Hay un taller y es en la biblioteca y es el viernes y es de lectura.", "correct": false }
+      ],
+      "answer": "a",
+      "feedback": { "correct": "La opcion integra los tres datos en una oracion bien construida.", "incorrect": "Elige la opcion que reune lugar, dia y actividad en una sola oracion fluida." },
+      "metadata": { "difficulty": 2, "mastery_target": 2, "combines_skills": ["lengua.skill_3.subskill_1", "lengua.skill_7.subskill_3"], "graph_refs": ["Community 3", "Community 14"] }
+    },
+    {
+      "id": "lengua_s3_mc_021",
+      "type": "multiple_choice",
+      "skill": "lengua.skill_3",
+      "subskill": "lengua.skill_3.subskill_2",
+      "difficulty": 2,
+      "mastery_level": 2,
+      "prompt": "Selecciona la informacion que SI debe incluirse en una respuesta a un aviso de cambio de horario.",
+      "options": [
+        { "id": "a", "text": "Confirmar que se recibio el aviso y preguntar si hay tarea extra.", "correct": true },
+        { "id": "b", "text": "Contar que el sabado fuiste al cine con tu familia.", "correct": false },
+        { "id": "c", "text": "Describir el color de las paredes del aula nueva.", "correct": false }
+      ],
+      "answer": "a",
+      "feedback": { "correct": "La informacion relevante confirma recepcion y consulta lo necesario.", "incorrect": "Elige la opcion que se relaciona directamente con el aviso recibido." },
+      "metadata": { "difficulty": 2, "mastery_target": 2, "combines_skills": ["lengua.skill_1.subskill_1", "lengua.skill_3.subskill_2"], "graph_refs": ["Community 3", "Community 7"] }
+    },
+    {
+      "id": "lengua_s3_mc_022",
+      "type": "multiple_choice",
+      "skill": "lengua.skill_3",
+      "subskill": "lengua.skill_3.subskill_2",
+      "difficulty": 3,
+      "mastery_level": 3,
+      "prompt": "Elige el conjunto de datos necesarios para responder a un pedido de justificacion de ausencia.",
+      "options": [
+        { "id": "a", "text": "Fecha de la ausencia y motivo breve.", "correct": true },
+        { "id": "b", "text": "Lista completa de materias del año y nombres de todos los profesores.", "correct": false },
+        { "id": "c", "text": "Solo la firma de un adulto sin explicacion.", "correct": false }
+      ],
+      "answer": "a",
+      "feedback": { "correct": "Fecha y motivo son los datos minimos necesarios para justificar.", "incorrect": "Pensa que datos son indispensables para que el docente entienda la situacion." },
+      "metadata": { "difficulty": 3, "mastery_target": 3, "combines_skills": ["lengua.skill_1.subskill_1", "lengua.skill_3.subskill_2"], "graph_refs": ["Community 3", "Community 7"] }
+    },
+    {
+      "id": "lengua_s3_mc_023",
+      "type": "multiple_choice",
+      "skill": "lengua.skill_3",
+      "subskill": "lengua.skill_3.subskill_3",
+      "difficulty": 2,
+      "mastery_level": 2,
+      "prompt": "Elige la version que expresa la misma idea con mayor claridad.",
+      "options": [
+        { "id": "a", "text": "Trae autorizacion firmada para la salida del viernes.", "correct": true },
+        { "id": "b", "text": "Para lo del viernes, tipo la salida esa, hay que traer algo firmado.", "correct": false },
+        { "id": "c", "text": "Se necesita una cosa firmada para la actividad del dia ese.", "correct": false }
+      ],
+      "answer": "a",
+      "feedback": { "correct": "La oracion es directa, concreta y no deja dudas.", "incorrect": "Elige la opcion que dice exactamente que, cuando y para que sin palabras vagas." },
+      "metadata": { "difficulty": 2, "mastery_target": 2, "combines_skills": ["lengua.skill_3.subskill_3", "lengua.skill_7.subskill_3"], "graph_refs": ["Community 3", "Community 10"] }
+    },
+    {
+      "id": "lengua_s3_mc_024",
+      "type": "multiple_choice",
+      "skill": "lengua.skill_3",
+      "subskill": "lengua.skill_3.subskill_3",
+      "difficulty": 3,
+      "mastery_level": 3,
+      "prompt": "Elige la revision que elimina la ambiguedad.",
+      "options": [
+        { "id": "a", "text": "Le pedi el cuaderno a Martina para copiar la tarea.", "correct": true },
+        { "id": "b", "text": "Le pedi el cuaderno a Martina para copiarla.", "correct": false },
+        { "id": "c", "text": "El cuaderno de Martina lo pedi para copiar.", "correct": false }
+      ],
+      "answer": "a",
+      "feedback": { "correct": "La oracion deja claro que se copia la tarea, no a Martina.", "incorrect": "Busca la opcion donde no haya duda sobre que se copia." },
+      "metadata": { "difficulty": 3, "mastery_target": 3, "combines_skills": ["lengua.skill_3.subskill_3", "lengua.skill_4.subskill_4", "lengua.skill_7.subskill_2"], "graph_refs": ["Community 3", "Community 10", "Community 14"] }
     }
   ]
 }

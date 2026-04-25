@@ -152,7 +152,7 @@ test("dashboard recommends continuing a recent reading unit when accuracy is low
   await expect(page.getByRole("heading", { name: /Continuar lectura: Violeta Parra/i })).toBeVisible();
   await expect(page.getByRole("link", { name: "Continuar lectura guiada" })).toHaveAttribute(
     "href",
-    "/practice?mode=reading&unit=RU-LEN-BIO-001",
+    "/practice?mode=reading&unit=violeta-parra-la-voz-que-pintaba-canciones",
   );
 });
 

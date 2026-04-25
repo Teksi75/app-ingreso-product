@@ -12,6 +12,7 @@ import {
   type PracticeSessionProgressResult,
 } from "../../components/practice/session_runner";
 import { getSkillMetadata } from "../../skills/skill_metadata";
+import { canonicalIdToSlug, readingUnitIdToSlug } from "../../skills/skill_slugs";
 import { type ReadingUnit } from "../../types/reading_unit";
 
 type PracticeQuestionProps = {
@@ -861,13 +862,13 @@ function buildPracticeHref(
   context: { mode: PracticeSelection["mode"]; readingUnitId?: string },
 ): string {
   const params = new URLSearchParams({
-    skill: skillId,
+    skill: canonicalIdToSlug(skillId),
     focus,
     mode: context.mode,
   });
 
   if (context.mode === "reading" && context.readingUnitId) {
-    params.set("unit", context.readingUnitId);
+    params.set("unit", readingUnitIdToSlug(context.readingUnitId));
   }
 
   if (usedExerciseIds.length > 0) {

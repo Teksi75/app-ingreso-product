@@ -1,4 +1,5 @@
 import { getSkillMetadata } from "../skills/skill_metadata.ts";
+import { canonicalIdToSlug, readingUnitIdToSlug } from "../skills/skill_slugs.ts";
 import {
   CANONICAL_LENGUA_SKILLS,
   buildMasteryModel,
@@ -189,7 +190,7 @@ function pickReadingUnit(
 function buildPracticeHref(skillId: string): string {
   const params = new URLSearchParams({
     mode: "training",
-    skill: skillId,
+    skill: canonicalIdToSlug(skillId),
   });
 
   return `/practice?${params.toString()}`;
@@ -198,7 +199,7 @@ function buildPracticeHref(skillId: string): string {
 function buildReadingHref(readingUnitId: string): string {
   const params = new URLSearchParams({
     mode: "reading",
-    unit: readingUnitId,
+    unit: readingUnitIdToSlug(readingUnitId),
   });
 
   return `/practice?${params.toString()}`;
