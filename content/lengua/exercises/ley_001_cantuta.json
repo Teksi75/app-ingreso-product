@@ -96,6 +96,82 @@
       "correctAnswer": "Un narrador en tercera persona que transmite una tradicion de generacion en generacion, sin ser personaje de la historia",
       "feedback_correct": "Correcto: el narrador cuenta la historia desde afuera, como alguien que la recibio de otros.",
       "feedback_incorrect": "Pensa si el narrador participa en los hechos o si los relata como alguien que los conoce por tradicion."
+    },
+    {
+      "id": "M4-LEY-006",
+      "readingUnitId": "RU-LEN-LEY-001",
+      "skill": "lengua.skill_5",
+      "subskill": "lengua.skill_5.subskill_3",
+      "difficulty": 2,
+      "mastery_level": 2,
+      "type": "multiple_choice",
+      "question": "En la leyenda, las acciones de Sumaq y Amaru se narran en preterito (cantaba, corria, escuchaba). Que efecto produce este tiempo verbal en el relato?",
+      "options": [
+        "Ubica los hechos en un pasado lejano, propio de las tradiciones que se transmiten de generacion en generacion",
+        "Hace que la historia parezca estar ocurriendo en el momento de la lectura",
+        "Indica que los hechos sucederan en el futuro",
+        "Convierte el relato en una serie de ordenes"
+      ],
+      "correctAnswer": "Ubica los hechos en un pasado lejano, propio de las tradiciones que se transmiten de generacion en generacion",
+      "feedback_correct": "Correcto: el preterito situa la leyenda en un tiempo remoto, caracteristico de este tipo de relatos.",
+      "feedback_incorrect": "Pensa que sensacion produce leer 'Hace mucho tiempo...' seguido de verbos en pasado."
+    },
+    {
+      "id": "M4-LEY-007",
+      "readingUnitId": "RU-LEN-LEY-001",
+      "skill": "lengua.skill_5",
+      "subskill": "lengua.skill_5.subskill_1",
+      "difficulty": 3,
+      "mastery_level": 3,
+      "type": "multiple_choice",
+      "question": "En la frase 'Desde alli se veian montanas azules durante el dia y brasas blancas en el cielo de la noche', cual es el tiempo y modo del verbo 'veian'?",
+      "options": [
+        "Preterito imperfecto del indicativo",
+        "Presente del indicativo",
+        "Futuro del subjuntivo",
+        "Preterito perfecto simple"
+      ],
+      "correctAnswer": "Preterito imperfecto del indicativo",
+      "feedback_correct": "Correcto: 'veian' es preterito imperfecto, que describe una accion habitual en el pasado.",
+      "feedback_incorrect": "El imperfecto se usa para describir situaciones que se repetian o mantenian en el pasado."
+    },
+    {
+      "id": "M4-LEY-008",
+      "readingUnitId": "RU-LEN-LEY-001",
+      "skill": "lengua.skill_7",
+      "subskill": "lengua.skill_7.subskill_1",
+      "difficulty": 2,
+      "mastery_level": 2,
+      "type": "multiple_choice",
+      "question": "En el fragmento 'Era habil, valiente y muy observador', cual es la funcion de las comas?",
+      "options": [
+        "Separar cualidades en una enumeracion",
+        "Indicar el inicio de una pregunta",
+        "Cerrar una oracion",
+        "Introducir una cita textual"
+      ],
+      "correctAnswer": "Separar cualidades en una enumeracion",
+      "feedback_correct": "Correcto: las comas separan los adjetivos que describen a Amaru.",
+      "feedback_incorrect": "Las comas en este caso estan separando caracteristicas de una misma persona."
+    },
+    {
+      "id": "M4-LEY-009",
+      "readingUnitId": "RU-LEN-LEY-001",
+      "skill": "lengua.skill_7",
+      "subskill": "lengua.skill_7.subskill_3",
+      "difficulty": 3,
+      "mastery_level": 3,
+      "type": "multiple_choice",
+      "question": "El texto de la leyenda se organiza en parrafos. Como contribuye esa segmentacion a la claridad del relato?",
+      "options": [
+        "Cada parrafo agrupa una escena o un aspecto distinto de la historia, lo que permite seguir el hilo sin perderse",
+        "Los parrafos solo sirven para que el texto ocupe mas lugar en la pagina",
+        "Cada parrafo debe tener exactamente la misma cantidad de lineas para ser correcto",
+        "Los parrafos reemplazan la necesidad de usar signos de puntuacion"
+      ],
+      "correctAnswer": "Cada parrafo agrupa una escena o un aspecto distinto de la historia, lo que permite seguir el hilo sin perderse",
+      "feedback_correct": "Correcto: la segmentacion en parrafos organiza las escenas y facilita la lectura.",
+      "feedback_incorrect": "Pensa como se lee un texto cuando la informacion esta agrupada en bloques con pausas."
     }
   ]
 }

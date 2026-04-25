@@ -17,6 +17,7 @@ import {
 import { getNextStepRecommendation } from "@/recommendation/next_step";
 import { getWeakestPracticeSkillId } from "@/storage/local_progress_store";
 import { canonicalIdToSlug } from "@/skills/skill_slugs";
+import { getSkillMetadata } from "@/skills/skill_metadata";
 
 export const dynamic = "force-dynamic";
 
@@ -129,6 +130,16 @@ function calculateDashboardData() {
       activeDays,
     },
     weakestSkillHref,
+    skillProgress: CANONICAL_LENGUA_SKILLS.map((skillId) => {
+      const summary = model.skills[skillId];
+      return {
+        skillId,
+        masteryLevel: summary?.masteryLevel ?? 1,
+        totalAttempts: summary?.totalAttempts ?? 0,
+        state: summary?.state ?? "weak",
+      };
+    }),
+    recentSessionsCount: sessions.length,
   };
 }
 
@@ -145,7 +156,7 @@ const LanguageIcon = () => (
 );
 
 export default async function DashboardPage() {
-  const { student, skills, dailyChallenge, nextSimulation, weeklyProgress, stats, weakestSkillHref } =
+  const { student, skills, dailyChallenge, nextSimulation, weeklyProgress, stats, weakestSkillHref, skillProgress, recentSessionsCount } =
     calculateDashboardData();
 
   return (
@@ -460,7 +471,7 @@ export default async function DashboardPage() {
               </div>
             </BentoCard>
 
-            {/* Reporte para Padres */}
+            {/* Reporte de Progreso */}
             <div className="rounded-2xl border border-teal-100 bg-gradient-to-br from-teal-50 via-white to-violet-50 p-5 lg:p-6 shadow-sm">
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 rounded-xl bg-white border border-teal-100 text-teal-600 flex items-center justify-center flex-shrink-0 shadow-sm">
@@ -471,7 +482,7 @@ export default async function DashboardPage() {
                 <div className="flex-1 min-w-0">
                   <h3 className="font-bold text-lg mb-1 text-slate-800">Reporte de Progreso</h3>
                   <p className="text-slate-600 text-sm mb-4">
-                    Estadísticas reales de entrenamiento y práctica.
+                    Estadísticas reales de entrenamiento y práctica. Sin datos personales ni predicciones.
                   </p>
                   <div className="grid grid-cols-3 gap-2 mb-4">
                     <div className="bg-white/80 border border-teal-100 rounded-lg p-2 text-center">
@@ -487,15 +498,36 @@ export default async function DashboardPage() {
                       <div className="text-xs text-slate-500">Precisión</div>
                     </div>
                   </div>
-                  <a
-                    href="/dashboard"
-                    className="text-sm font-semibold text-teal-700 hover:text-teal-800 flex items-center gap-1"
-                  >
-                    Ver Reporte Detallado
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
-                  </a>
+                  {recentSessionsCount > 0 ? (
+                    <div className="mb-4">
+                      <p className="text-xs font-semibold text-slate-500 mb-2">Progreso por habilidad</p>
+                      <div className="grid gap-2">
+                        {skillProgress.filter((s) => s.totalAttempts > 0).map((s) => {
+                          const meta = getSkillMetadata(s.skillId);
+                          const pct = Math.round((s.masteryLevel / 4) * 100);
+                          return (
+                            <div className="flex items-center gap-2" key={s.skillId}>
+                              <span className="text-xs font-medium text-slate-600 w-32 truncate">{meta.title}</span>
+                              <div className="flex-1 h-1.5 bg-slate-100 rounded-full overflow-hidden">
+                                <div
+                                  className={`h-full rounded-full ${
+                                    s.masteryLevel >= 3 ? "bg-emerald-400" : s.masteryLevel === 2 ? "bg-amber-400" : "bg-rose-400"
+                                  }`}
+                                  style={{ width: `${pct}%` }}
+                                />
+                              </div>
+                              <span className="text-xs font-bold text-slate-500 w-6 text-right">Nv.{s.masteryLevel}</span>
+                            </div>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  ) : null}
+                  <p className="text-xs text-slate-400">
+                    {recentSessionsCount > 0
+                      ? `Basado en ${recentSessionsCount} sesión${recentSessionsCount !== 1 ? "es" : ""} de práctica, lectura y simulador.`
+                      : "Sin sesiones registradas todavía."}
+                  </p>
                 </div>
               </div>
             </div>

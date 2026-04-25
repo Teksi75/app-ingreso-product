@@ -101,6 +101,82 @@
       ],
       "feedback_correct": "Correcto: el articulo enciclopedico incluye subtitulos, glosario y fuente como paratextos informativos.",
       "feedback_incorrect": "Busca los elementos que acompañan al texto sin ser parte del cuerpo principal: subtitulos, glosario y fuente."
+    },
+    {
+      "id": "M5-ENC-006",
+      "readingUnitId": "RU-LEN-ENC-001",
+      "skill": "lengua.skill_5",
+      "subskill": "lengua.skill_5.subskill_1",
+      "difficulty": 2,
+      "mastery_level": 2,
+      "type": "multiple_choice",
+      "question": "En la frase 'Muchas aves migratorias descansan alli durante sus viajes', el verbo 'descansan' esta en:",
+      "options": [
+        "Presente",
+        "Preterito",
+        "Futuro",
+        "Condicional"
+      ],
+      "correctAnswer": "Presente",
+      "feedback_correct": "Correcto: 'descansan' indica una accion que ocurre habitualmente en el presente.",
+      "feedback_incorrect": "Fijate si la accion ocurre ahora o ya paso. 'Descansan' es una accion habitual."
+    },
+    {
+      "id": "M5-ENC-007",
+      "readingUnitId": "RU-LEN-ENC-001",
+      "skill": "lengua.skill_5",
+      "subskill": "lengua.skill_5.subskill_3",
+      "difficulty": 3,
+      "mastery_level": 3,
+      "type": "multiple_choice",
+      "question": "En el fragmento 'Cuando las intervenciones son intensas, el equilibrio se altera', el verbo 'altera' esta en presente. Que ocurre si lo cambias a preterito?",
+      "options": [
+        "La frase pasa a describir un hecho ya ocurrido y no una situacion general",
+        "La frase no cambia de significado",
+        "La frase se vuelve incorrecta gramaticalmente",
+        "La frase pasa a describir una orden"
+      ],
+      "correctAnswer": "La frase pasa a describir un hecho ya ocurrido y no una situacion general",
+      "feedback_correct": "Correcto: el cambio de tiempo verbal modifica si la accion es presente habitual o pasado puntual.",
+      "feedback_incorrect": "Pensa como cambia el sentido cuando decis 'se altero' en lugar de 'se altera'."
+    },
+    {
+      "id": "M5-ENC-008",
+      "readingUnitId": "RU-LEN-ENC-001",
+      "skill": "lengua.skill_7",
+      "subskill": "lengua.skill_7.subskill_1",
+      "difficulty": 2,
+      "mastery_level": 2,
+      "type": "multiple_choice",
+      "question": "En la enumeracion 'peces, anfibios, aves e insectos', que signo se usa para separar los elementos?",
+      "options": [
+        "Coma",
+        "Punto y coma",
+        "Dos puntos",
+        "Guion"
+      ],
+      "correctAnswer": "Coma",
+      "feedback_correct": "Correcto: la coma separa los elementos de una enumeracion simple.",
+      "feedback_incorrect": "En las enumeraciones de elementos sueltos se usa coma entre cada termino."
+    },
+    {
+      "id": "M5-ENC-009",
+      "readingUnitId": "RU-LEN-ENC-001",
+      "skill": "lengua.skill_7",
+      "subskill": "lengua.skill_7.subskill_3",
+      "difficulty": 3,
+      "mastery_level": 3,
+      "type": "multiple_choice",
+      "question": "Por que el texto de los humedales se organiza en varias secciones con subtitulos?",
+      "options": [
+        "Porque los subtitulos ayudan a distribuir pausas y a que el lector ubique cada tema con claridad",
+        "Porque es obligatorio en todos los textos escolares",
+        "Porque cada seccion debe tener exactamente la misma cantidad de palabras",
+        "Porque reemplazan la necesidad de escribir oraciones completas"
+      ],
+      "correctAnswer": "Porque los subtitulos ayudan a distribuir pausas y a que el lector ubique cada tema con claridad",
+      "feedback_correct": "Correcto: la segmentacion con subtitulos organiza la lectura y mejora la claridad.",
+      "feedback_incorrect": "Pensa en como los subtitulos guian al lector y dividen la informacion en bloques."
     }
   ]
 }
