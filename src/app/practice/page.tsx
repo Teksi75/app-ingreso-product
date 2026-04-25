@@ -6,8 +6,8 @@ import {
 import {
   getLenguaMasteryMap,
   savePracticeSessionProgress,
-  startPracticeSession,
-  startReadingUnitSession,
+  startPracticeSessionAsync,
+  startReadingUnitSessionAsync,
   type PracticeMode,
 } from "../../components/practice/session_runner";
 import { slugToCanonicalId, slugToReadingUnitId } from "../../skills/skill_slugs";
@@ -38,8 +38,8 @@ export default async function PracticePage({ searchParams }: PracticePageProps) 
   const forceNewStudent = isEnabledParam(newStudent);
   const practiceMode: PracticeMode = modeParam === "reading" || unit ? "reading" : "training";
   const practiceSelection = practiceMode === "reading"
-    ? startReadingUnitSession(unit ?? null, usedExerciseIds, { forceNewStudent, focusSubskill: focus })
-    : startPracticeSession(
+    ? await startReadingUnitSessionAsync(unit ?? null, usedExerciseIds, { forceNewStudent, focusSubskill: focus })
+    : await startPracticeSessionAsync(
       skill ?? null,
       usedExerciseIds,
       { forceNewStudent, focusSubskill: focus, includeReadingUnits: false },

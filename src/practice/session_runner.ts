@@ -3,10 +3,14 @@ import { join, resolve } from "node:path";
 import {
   getPracticeProgressSnapshot,
   getSeenSkills,
+  loadProgressAsync,
   markSkillsSeen,
+  markSkillsSeenAsync,
+  saveSessionResultAsync,
   saveSessionResult,
   type SessionMode,
   type SkillState,
+  type StoredProgress,
 } from "../storage/local_progress_store.ts";
 import { type ReadingUnit } from "../types/reading_unit.ts";
 import {
@@ -170,6 +174,8 @@ type PracticeSessionOptions = {
   focusSubskill?: string;
   includeReadingUnits?: boolean;
   maxQuestions?: number;
+  persistSeenSkills?: boolean;
+  progress?: StoredProgress;
 };
 
 export type PracticeMode = "training" | "reading";
@@ -586,7 +592,7 @@ function calculateUpdatedMastery(input: PracticeSessionProgressInput): MasteryLe
   return clampMasteryLevel(input.currentMastery + delta);
 }
 
-function getPracticeSelectionContext(forceNewStudent = false): {
+function getPracticeSelectionContext(forceNewStudent = false, progress?: StoredProgress): {
   seenSkills: string[];
   masteryByFocus: Record<string, MasteryLevel>;
 } {
@@ -597,7 +603,7 @@ function getPracticeSelectionContext(forceNewStudent = false): {
     };
   }
 
-  const snapshot = getPracticeProgressSnapshot();
+  const snapshot = getPracticeProgressSnapshot(progress);
 
   return {
     seenSkills: snapshot.seenSkills,
@@ -617,6 +623,7 @@ function buildPlannedSessionExercises(
     focusSubskill?: string;
     forceNewStudent?: boolean;
     maxQuestions?: number;
+    progress?: StoredProgress;
   },
 ): { sessionExercises: Exercise[]; activeUsedExerciseIds: string[] } {
   const graph = loadLenguaSelectionGraph();
@@ -628,7 +635,7 @@ function buildPlannedSessionExercises(
   const unusedExercises = basePool.filter((exercise) => !usedExerciseIds.includes(exercise.id));
   const activePool = unusedExercises.length > 0 ? unusedExercises : basePool;
   const activeUsedExerciseIds = unusedExercises.length > 0 ? usedExerciseIds : [];
-  const context = getPracticeSelectionContext(options.forceNewStudent);
+  const context = getPracticeSelectionContext(options.forceNewStudent, options.progress);
   const coveredSkills = new Set<string>(context.seenSkills);
   const plannedUsedIds = new Set<string>(activeUsedExerciseIds);
   const sessionExercises: Exercise[] = [];
@@ -841,7 +848,7 @@ export async function savePracticeSessionProgress(
     currentMastery: activeFocus?.currentMastery ?? input.currentMastery,
   });
   const skillState = getSkillState(masteryLevel);
-  const progress = saveSessionResult({
+  const progress = await saveSessionResultAsync({
     mode: getStoredSessionMode(input.sessionType),
     total_attempts: input.attempts,
     total_correct: input.correct,
@@ -1116,6 +1123,7 @@ export function startPracticeSession(
         focusSubskill: options.focusSubskill,
         forceNewStudent: options.forceNewStudent,
         maxQuestions: options.maxQuestions,
+        progress: options.progress,
       },
     );
   const session = createPracticeSelection(
@@ -1125,8 +1133,27 @@ export function startPracticeSession(
     [...activeUsedExerciseIds, sessionExercises[0]?.id].filter((value): value is string => Boolean(value)),
   );
 
-  if (!options.forceNewStudent) {
+  if (!options.forceNewStudent && options.persistSeenSkills !== false) {
     markSkillsSeen([session.exercise.skill_id]);
+  }
+
+  return session;
+}
+
+export async function startPracticeSessionAsync(
+  skillId: string | null,
+  usedExerciseIds: string[] = [],
+  options: PracticeSessionOptions = {},
+): Promise<PracticeSelection> {
+  const progress = options.forceNewStudent ? undefined : await loadProgressAsync();
+  const session = startPracticeSession(skillId, usedExerciseIds, {
+    ...options,
+    persistSeenSkills: false,
+    progress,
+  });
+
+  if (!options.forceNewStudent) {
+    await markSkillsSeenAsync([session.exercise.skill_id]);
   }
 
   return session;
@@ -1217,7 +1244,7 @@ export function startReadingUnitSession(
     [...activeUsedExerciseIds, sessionExercises[0]?.id].filter((value): value is string => Boolean(value)),
   );
 
-  if (!options.forceNewStudent) {
+  if (!options.forceNewStudent && options.persistSeenSkills !== false) {
     markSkillsSeen([session.exercise.skill_id]);
   }
 
@@ -1226,6 +1253,25 @@ export function startReadingUnitSession(
     sessionType: "reading-based",
     readingUnit,
   };
+}
+
+export async function startReadingUnitSessionAsync(
+  readingUnitId: string | null,
+  usedExerciseIds: string[] = [],
+  options: PracticeSessionOptions = {},
+): Promise<ReadingUnitSelection> {
+  const progress = options.forceNewStudent ? undefined : await loadProgressAsync();
+  const session = startReadingUnitSession(readingUnitId, usedExerciseIds, {
+    ...options,
+    persistSeenSkills: false,
+    progress,
+  });
+
+  if (!options.forceNewStudent) {
+    await markSkillsSeenAsync([session.exercise.skill_id]);
+  }
+
+  return session;
 }
 
 function normalizeOptions(rawOptions: unknown, answer: unknown): string[] {

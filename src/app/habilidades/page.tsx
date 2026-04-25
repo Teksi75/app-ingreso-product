@@ -1,4 +1,4 @@
-import { loadProgress } from "@/storage/local_progress_store";
+import { loadProgressAsync, type StoredProgress } from "@/storage/local_progress_store";
 import {
   BottomNav,
   SidebarNav,
@@ -9,8 +9,7 @@ import { canonicalIdToSlug, readingUnitIdToSlug } from "@/skills/skill_slugs";
 
 export const dynamic = "force-dynamic";
 
-function getSkillData() {
-  const progress = loadProgress();
+function getSkillData(progress: StoredProgress) {
   const skillStats = progress.skill_stats;
 
   const totalAttempts = progress.sessions.reduce((sum, s) => sum + s.total_attempts, 0);
@@ -98,7 +97,8 @@ const colorConfig: Record<string, { bg: string; text: string; button: string; pr
 };
 
 export default async function HabilidadesPage() {
-  const data = getSkillData();
+  const progress = await loadProgressAsync();
+  const data = getSkillData(progress);
   const defaultReadingUnit = pickReadingUnitCandidate(null);
 
   const HABILIDADES = HABILIDADES_BASE.map((skill) => {

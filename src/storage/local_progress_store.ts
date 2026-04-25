@@ -1,5 +1,6 @@
 import { existsSync, mkdirSync, readFileSync, renameSync, writeFileSync } from "node:fs";
 import { dirname, resolve } from "node:path";
+import { Redis } from "@upstash/redis";
 import {
   buildPracticeProgressSnapshot,
   buildMasteryModel,
@@ -60,8 +61,15 @@ export type PracticeProgressSnapshot = {
 };
 
 const progressPath = resolve(process.cwd(), "data/progress.json");
+const redisProgressKey = process.env.PROGRESS_REDIS_KEY ?? "progress:default";
+let memoryProgress: StoredProgress | null = null;
+let redisClient: Redis | null | undefined;
 
 export function loadProgress(): StoredProgress {
+  if (memoryProgress) {
+    return cloneProgress(memoryProgress);
+  }
+
   if (!existsSync(progressPath)) {
     return createEmptyProgress();
   }
@@ -73,14 +81,44 @@ export function loadProgress(): StoredProgress {
     progress.skill_stats = progress.skill_stats ?? {};
     progress.seenSkills ??= [];
 
-    return progress;
+    return normalizeProgress(progress);
   } catch {
     return createEmptyProgress();
   }
 }
 
+export async function loadProgressAsync(): Promise<StoredProgress> {
+  const redis = getRedisClient();
+
+  if (!redis) {
+    return loadProgress();
+  }
+
+  try {
+    const progress = await redis.get<StoredProgress>(redisProgressKey);
+    return normalizeProgress(progress ?? createEmptyProgress());
+  } catch {
+    return cloneProgress(memoryProgress ?? createEmptyProgress());
+  }
+}
+
 export function saveSessionResult(sessionData: SessionData): StoredProgress {
   const progress = loadProgress();
+  const updated = appendSessionResult(progress, sessionData);
+  writeProgress(updated);
+
+  return updated;
+}
+
+export async function saveSessionResultAsync(sessionData: SessionData): Promise<StoredProgress> {
+  const progress = await loadProgressAsync();
+  const updated = appendSessionResult(progress, sessionData);
+  await writeProgressAsync(updated);
+
+  return updated;
+}
+
+function appendSessionResult(progress: StoredProgress, sessionData: SessionData): StoredProgress {
   const session = {
     ...sessionData,
     id: createSessionId(),
@@ -93,7 +131,6 @@ export function saveSessionResult(sessionData: SessionData): StoredProgress {
     progress,
     sessionData.skill_results.map((skillResult) => skillResult.skill_id),
   );
-  writeProgress(progress);
 
   return progress;
 }
@@ -125,8 +162,20 @@ export function markSkillsSeen(skillIds: string[]): StoredProgress {
   return progress;
 }
 
+export async function markSkillsSeenAsync(skillIds: string[]): Promise<StoredProgress> {
+  const progress = await loadProgressAsync();
+  updateSeenSkills(progress, skillIds);
+  await writeProgressAsync(progress);
+
+  return progress;
+}
+
 export function getSeenSkills(): string[] {
   return loadProgress().seenSkills ?? [];
+}
+
+export async function getSeenSkillsAsync(): Promise<string[]> {
+  return (await loadProgressAsync()).seenSkills ?? [];
 }
 
 export function getPracticeProgressSnapshot(progress: StoredProgress = loadProgress()): PracticeProgressSnapshot {
@@ -160,6 +209,18 @@ function createEmptyProgress(): StoredProgress {
   };
 }
 
+function normalizeProgress(progress: StoredProgress): StoredProgress {
+  progress.sessions = Array.isArray(progress.sessions) ? progress.sessions : [];
+  progress.skill_stats = progress.skill_stats ?? {};
+  progress.seenSkills ??= [];
+
+  return progress;
+}
+
+function cloneProgress(progress: StoredProgress): StoredProgress {
+  return JSON.parse(JSON.stringify(progress)) as StoredProgress;
+}
+
 function writeProgress(progress: StoredProgress): void {
   try {
     mkdirSync(dirname(progressPath), { recursive: true });
@@ -167,8 +228,40 @@ function writeProgress(progress: StoredProgress): void {
     writeFileSync(tempPath, `${JSON.stringify(progress, null, 2)}\n`, "utf8");
     renameSync(tempPath, progressPath);
   } catch {
-    // Silently fail in environments where filesystem is read-only (e.g. Vercel serverless)
+    memoryProgress = cloneProgress(progress);
   }
+}
+
+async function writeProgressAsync(progress: StoredProgress): Promise<void> {
+  const redis = getRedisClient();
+
+  if (!redis) {
+    writeProgress(progress);
+    return;
+  }
+
+  try {
+    await redis.set(redisProgressKey, progress);
+  } catch {
+    memoryProgress = cloneProgress(progress);
+  }
+}
+
+function getRedisClient(): Redis | null {
+  if (redisClient !== undefined) {
+    return redisClient;
+  }
+
+  const url = process.env.KV_REST_API_URL ?? process.env.UPSTASH_REDIS_REST_URL;
+  const token = process.env.KV_REST_API_TOKEN ?? process.env.UPSTASH_REDIS_REST_TOKEN;
+
+  if (!url || !token) {
+    redisClient = null;
+    return redisClient;
+  }
+
+  redisClient = new Redis({ url, token });
+  return redisClient;
 }
 
 function createSessionId(): string {

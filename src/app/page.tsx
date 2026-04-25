@@ -1,4 +1,4 @@
-import { loadProgress, type StoredProgress } from "@/storage/local_progress_store";
+import { loadProgressAsync, type StoredProgress } from "@/storage/local_progress_store";
 import {
   BottomNav,
   SidebarNav,
@@ -29,7 +29,7 @@ function getRank(level: number): string {
   return "Principiante";
 }
 
-function calculateDashboardData(progress: StoredProgress = loadProgress()) {
+function calculateDashboardData(progress: StoredProgress) {
   const model = buildMasteryModel(progress);
   const recommendation = getNextStepRecommendation(progress);
   const sessions = progress.sessions;
@@ -163,7 +163,7 @@ type HomePageProps = {
 export default async function DashboardPage({ searchParams }: HomePageProps) {
   const params = await searchParams;
   const newStudent = Array.isArray(params.newStudent) ? params.newStudent[0] : params.newStudent;
-  const progress = isEnabledParam(newStudent) ? createEmptyProgress() : loadProgress();
+  const progress = isEnabledParam(newStudent) ? createEmptyProgress() : await loadProgressAsync();
   const { student, skills, dailyChallenge, nextSimulation, weeklyProgress, stats, weakestSkillHref, skillProgress, recentSessionsCount } =
     calculateDashboardData(progress);
   const hasPracticeHistory = stats.totalAttempts > 0;

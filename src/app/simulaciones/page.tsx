@@ -1,6 +1,6 @@
 import {
   createSimulatorSession,
-  saveSimulatorSessionProgress,
+  saveSimulatorSessionProgressAsync,
   type SimulatorAnswer,
   type SimulatorSession,
 } from "../../practice/simulator_runner";
@@ -15,7 +15,7 @@ export default function SimulacionesPage() {
   async function saveProgress(answers: SimulatorAnswer[]): Promise<SimulatorSaveResult> {
     "use server";
 
-    const result = saveSimulatorSessionProgress(session, answers);
+    const result = await saveSimulatorSessionProgressAsync(session, answers);
     const skillResults = result.skill_results
       .filter((skillResult) => /^lengua\.skill_\d+$/.test(skillResult.skill_id))
       .map((skillResult) => ({

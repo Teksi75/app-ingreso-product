@@ -8,7 +8,7 @@ import {
   type MasteryModel,
 } from "../../progress/mastery_model";
 import { getNextStepRecommendation } from "../../recommendation/next_step";
-import { loadProgress, type SkillState, type StoredProgress } from "../../storage/local_progress_store";
+import { loadProgressAsync, type SkillState, type StoredProgress } from "../../storage/local_progress_store";
 
 export type DashboardSkillState = SkillState | "not_started";
 
@@ -30,7 +30,7 @@ export default async function DashboardPage({ searchParams }: DashboardPageProps
   const params = await searchParams;
   const newStudent = Array.isArray(params.newStudent) ? params.newStudent[0] : params.newStudent;
   const isNewStudent = isEnabledParam(newStudent);
-  const progress = isNewStudent ? createEmptyProgress() : loadProgress();
+  const progress = isNewStudent ? createEmptyProgress() : await loadProgressAsync();
   const model = buildMasteryModel(progress);
   const skills = getDashboardSkills(model);
   const hasSessionHistory = progress.sessions.length > 0;
