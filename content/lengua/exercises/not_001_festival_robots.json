@@ -10,16 +10,16 @@
       "difficulty": 1,
       "mastery_level": 1,
       "type": "multiple_choice",
-      "question": "Según el copete, para qué se reunieron vecinos, estudiantes y técnicos?",
+      "question": "Según el copete, para qué se reunieron vecinos, estudiantes y docentes?",
       "options": [
-        "Para presentar obras sobre los diques y los cambios recientes de la región",
-        "Para reconstruir historias del antiguo Pueblo del Sauce con robots y archivos de familia",
-        "Para mostrar máquinas reutilizadas sin trabajar con testimonios ni archivos familiares",
-        "Para promocionar talleres de robótica sin investigar la historia del Pueblo del Sauce"
+        "Para presentar una obra de teatro basada en testimonios y fotografías del viejo Potrerillos",
+        "Para organizar una competencia de robótica sobre los diques de Mendoza",
+        "Para mostrar objetos antiguos sin trabajar con testimonios ni recuerdos familiares",
+        "Para promocionar talleres de música sin investigar la historia de Potrerillos"
       ],
-      "correctAnswer": "Para reconstruir historias del antiguo Pueblo del Sauce con robots y archivos de familia",
+      "correctAnswer": "Para presentar una obra de teatro basada en testimonios y fotografías del viejo Potrerillos",
       "feedback_correct": "Correcto: ese objetivo aparece de forma explicita en el copete.",
-      "feedback_incorrect": "Revisa el copete: resume el propósito central del festival."
+      "feedback_incorrect": "Revisa el copete: resume el propósito central de la obra."
     },
     {
       "id": "M3-NOT-002",
@@ -29,14 +29,14 @@
       "difficulty": 2,
       "mastery_level": 1,
       "type": "multiple_choice",
-      "question": "Por qué la profesora de tecnología sugirió construir dispositivos interactivos?",
+      "question": "Por qué la profesora de Lengua sugirió escribir escenas breves?",
       "options": [
-        "Porque buscaba convertir las entrevistas familiares en una competencia escolar de robótica",
-        "Porque varíos chicos querían compartir el material reunido sin dejarlo encerrado en vitrinas",
-        "Porque necesitaban una forma atractiva de vender las fotografías recuperadas en el barrio",
-        "Porque los organizadores querían reemplazar los relatos orales por carteles sin tecnología"
+        "Porque buscaba convertir las entrevistas familiares en una competencia escolar",
+        "Porque varios chicos querían compartir el material reunido sin convertirlo solo en una exposición de objetos",
+        "Porque necesitaban una forma atractiva de vender las fotografías recuperadas",
+        "Porque los organizadores querían reemplazar los relatos orales por carteles sin actuación"
       ],
-      "correctAnswer": "Porque varíos chicos querían compartir el material reunido sin dejarlo encerrado en vitrinas",
+      "correctAnswer": "Porque varios chicos querían compartir el material reunido sin convertirlo solo en una exposición de objetos",
       "feedback_correct": "Correcto: la sugerencia aparece como respuesta a una necesidad del proyecto.",
       "feedback_incorrect": "Vuelve al párrafo donde se explica cómo nació la propuesta."
     },
@@ -48,7 +48,7 @@
       "difficulty": 2,
       "mastery_level": 2,
       "type": "multiple_choice",
-      "question": "En la oración 'en junio se abriran visitas guiadas para escuelas de la zona', la forma verbal 'se abriran' expresa:",
+      "question": "En la oración 'en junio se abrirán funciones para escuelas de Luján de Cuyo', la forma verbal 'se abrirán' expresa:",
       "options": [
         "un hecho pasado ya finalizado",
         "una orden en modo imperativo",
@@ -70,7 +70,7 @@
       "question": "Qué función cumple el copete en esta noticia?",
       "options": [
         "Resumir la información principal antes de que el lector lea el cuerpo del texto",
-        "Dar la opinión del periodista sobre el festival",
+        "Dar la opinión del periodista sobre la obra",
         "Enumerar los datos estadísticos del evento",
         "Presentar un diálogo entre los protagonistas de la nota"
       ],
@@ -89,7 +89,7 @@
       "question": "Desde qué perspectiva está escrita esta noticia?",
       "options": [
         "Desde una perspectiva objetiva en tercera persona, que informa hechos sin incluir opiniónes personales",
-        "Desde la primera persona de uno de los participantes del festival",
+        "Desde la primera persona de uno de los participantes de la obra",
         "Desde una segunda persona que le habla directamente al lector",
         "Desde la primera persona del periodista que opina sobre el evento"
       ],

@@ -59,10 +59,21 @@ describe("slugToCanonicalId", () => {
 });
 
 describe("readingUnitIdToSlug", () => {
-  it("returns a slug for known reading units", () => {
-    const slug = readingUnitIdToSlug("RU-LEN-BIO-001");
-    expect(slug).toMatch(/^violeta-parra/);
-    expect(slug).not.toBe("RU-LEN-BIO-001");
+  it("returns stable fixed slugs for known reading units", () => {
+    const expectations: Record<string, string> = {
+      "RU-LEN-BIO-001": "violeta-parra",
+      "RU-LEN-CUE-001": "maquina-recuerdos-perdidos",
+      "RU-LEN-ENC-001": "humedales-argentina",
+      "RU-LEN-INS-001": "carta-reclamo-formal",
+      "RU-LEN-LEY-001": "yaravi-flor-cantuta",
+      "RU-LEN-NOT-001": "obra-teatro-potrerillos",
+      "RU-LEN-INF-001": "vivero-escuela",
+      "RU-LEN-NAR-001": "radio-taller",
+    };
+
+    for (const [id, expectedSlug] of Object.entries(expectations)) {
+      expect(readingUnitIdToSlug(id)).toBe(expectedSlug);
+    }
   });
 
   it("returns the input unchanged for unknown reading unit IDs", () => {
@@ -71,9 +82,23 @@ describe("readingUnitIdToSlug", () => {
 });
 
 describe("slugToReadingUnitId", () => {
-  it("round-trips reading unit slugs back to IDs", () => {
-    const slug = readingUnitIdToSlug("RU-LEN-BIO-001");
-    expect(slugToReadingUnitId(slug)).toBe("RU-LEN-BIO-001");
+  it("round-trips all reading unit slugs back to IDs", () => {
+    const allIds = [
+      "RU-LEN-BIO-001",
+      "RU-LEN-CUE-001",
+      "RU-LEN-ENC-001",
+      "RU-LEN-INS-001",
+      "RU-LEN-LEY-001",
+      "RU-LEN-NOT-001",
+      "RU-LEN-INF-001",
+      "RU-LEN-NAR-001",
+    ];
+
+    for (const id of allIds) {
+      const slug = readingUnitIdToSlug(id);
+      expect(slug).not.toBe(id);
+      expect(slugToReadingUnitId(slug)).toBe(id);
+    }
   });
 
   it("accepts raw reading unit IDs (backward compatibility)", () => {
@@ -81,27 +106,13 @@ describe("slugToReadingUnitId", () => {
     expect(slugToReadingUnitId("RU-LEN-NOT-001")).toBe("RU-LEN-NOT-001");
   });
 
+  it("accepts legacy reading unit slugs (backward compatibility)", () => {
+    expect(slugToReadingUnitId("festival-robots-memoria")).toBe("RU-LEN-NOT-001");
+  });
+
   it("returns null for invalid reading unit slugs", () => {
     expect(slugToReadingUnitId("")).toBeNull();
     expect(slugToReadingUnitId("texto-inexistente")).toBeNull();
-  });
-
-  it("produces consistent slugs for all known reading units", () => {
-    const knownIds = [
-      "RU-LEN-BIO-001",
-      "RU-LEN-CUE-001",
-      "RU-LEN-ENC-001",
-      "RU-LEN-LEY-001",
-      "RU-LEN-NOT-001",
-      "RU-LEN-INF-001",
-      "RU-LEN-NAR-001",
-    ];
-
-    for (const id of knownIds) {
-      const slug = readingUnitIdToSlug(id);
-      expect(typeof slug).toBe("string");
-      expect(slug.length).toBeGreaterThan(0);
-    }
   });
 });
 

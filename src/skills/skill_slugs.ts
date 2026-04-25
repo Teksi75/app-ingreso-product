@@ -1,4 +1,3 @@
-import { staticReadingUnits } from "../data/static_content";
 import { getSkillMetadata } from "./skill_metadata";
 
 function slugify(text: string): string {
@@ -49,39 +48,36 @@ export function slugToCanonicalId(slug: string): string | null {
   return null;
 }
 
-let readingSlugsBuilt = false;
-const readingToSlug = new Map<string, string>();
-const slugToReading = new Map<string, string>();
+const READING_UNIT_SLUGS: Record<string, string> = {
+  "RU-LEN-BIO-001": "violeta-parra",
+  "RU-LEN-CUE-001": "maquina-recuerdos-perdidos",
+  "RU-LEN-ENC-001": "humedales-argentina",
+  "RU-LEN-INS-001": "carta-reclamo-formal",
+  "RU-LEN-LEY-001": "yaravi-flor-cantuta",
+  "RU-LEN-NOT-001": "obra-teatro-potrerillos",
+  "RU-LEN-INF-001": "vivero-escuela",
+  "RU-LEN-NAR-001": "radio-taller",
+};
 
-function ensureReadingSlugs(): void {
-  if (readingSlugsBuilt) {
-    return;
-  }
+const READING_UNIT_SLUG_REVERSE: Record<string, string> = Object.fromEntries(
+  Object.entries(READING_UNIT_SLUGS).map(([id, slug]) => [slug, id]),
+);
 
-  for (const rawUnit of Object.values(staticReadingUnits)) {
-    const unit = rawUnit as { id?: string; title?: string };
-    if (!unit?.id || !unit?.title) {
-      continue;
-    }
-
-    const slug = slugify(unit.title);
-    readingToSlug.set(unit.id, slug);
-    slugToReading.set(slug, unit.id);
-  }
-
-  readingSlugsBuilt = true;
-}
+const READING_UNIT_SLUG_ALIASES: Record<string, string> = {
+  "festival-robots-memoria": "RU-LEN-NOT-001",
+};
 
 export function readingUnitIdToSlug(id: string): string {
-  ensureReadingSlugs();
-  return readingToSlug.get(id) ?? id;
+  return READING_UNIT_SLUGS[id] ?? id;
 }
 
 export function slugToReadingUnitId(slug: string): string | null {
-  ensureReadingSlugs();
+  if (READING_UNIT_SLUG_REVERSE[slug]) {
+    return READING_UNIT_SLUG_REVERSE[slug];
+  }
 
-  if (slugToReading.has(slug)) {
-    return slugToReading.get(slug) ?? null;
+  if (READING_UNIT_SLUG_ALIASES[slug]) {
+    return READING_UNIT_SLUG_ALIASES[slug];
   }
 
   if (/^RU-LEN-[A-Z]+-\d{3}$/.test(slug)) {

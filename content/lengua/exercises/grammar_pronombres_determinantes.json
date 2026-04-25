@@ -71,7 +71,7 @@
       "mastery_level": 2,
       "type": "categorization",
       "question": "Clasifica las palabras destacadas del fragmento como pronombres personales o determinantes posesivos.",
-      "fragment": "Sus abuelos compartieron sus recuerdos y ellos mismos armaron las maquetas. La profesora les sugirió que construyeran dispositivos interactivos",
+      "fragment": "Sus abuelos compartieron sus recuerdos y ellos mismos escribieron escenas. La profesora les sugirió que prepararan una obra colectiva",
       "categorization": {
         "categories": ["pronombre personal", "determinante posesivo"],
         "items": ["Sus", "sus", "ellos", "les"],

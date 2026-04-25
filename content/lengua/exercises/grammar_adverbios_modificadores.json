@@ -70,16 +70,16 @@
       "difficulty": 2,
       "mastery_level": 2,
       "type": "multiple_choice",
-      "question": "En el fragmento 'Allí se realizó la primera edición del Festival de Robots de la Memoria', ¿qué palabra es un adverbio de lugar?",
-      "fragment": "Allí se realizó la primera edición del Festival de Robots de la Memoria",
+      "question": "En el fragmento 'Allí se estrenó la obra teatral Bajo el agua, la memoria', ¿qué palabra es un adverbio de lugar?",
+      "fragment": "Allí se estrenó la obra teatral Bajo el agua, la memoria",
       "options": [
         "Allí",
-        "primera",
+        "obra",
         "se",
-        "del"
+        "la"
       ],
       "correctAnswer": "Allí",
-      "feedback_correct": "Correcto: 'Allí' es un adverbio de lugar que indica dónde se realizó el festival.",
+      "feedback_correct": "Correcto: 'Allí' es un adverbio de lugar que indica dónde se estrenó la obra.",
       "feedback_incorrect": "Busca la palabra que señala el lugar dónde ocurre la acción sin ser un sustantivo ni un artículo."
     },
     {
