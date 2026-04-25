@@ -1,4 +1,4 @@
-import { loadProgress } from "@/storage/local_progress_store";
+import { loadProgress, type StoredProgress } from "@/storage/local_progress_store";
 import {
   BottomNav,
   SidebarNav,
@@ -29,8 +29,7 @@ function getRank(level: number): string {
   return "Principiante";
 }
 
-function calculateDashboardData() {
-  const progress = loadProgress();
+function calculateDashboardData(progress: StoredProgress = loadProgress()) {
   const model = buildMasteryModel(progress);
   const recommendation = getNextStepRecommendation(progress);
   const sessions = progress.sessions;
@@ -155,9 +154,19 @@ const LanguageIcon = () => (
   </svg>
 );
 
-export default async function DashboardPage() {
+type HomePageProps = {
+  searchParams: Promise<{
+    newStudent?: string | string[];
+  }>;
+};
+
+export default async function DashboardPage({ searchParams }: HomePageProps) {
+  const params = await searchParams;
+  const newStudent = Array.isArray(params.newStudent) ? params.newStudent[0] : params.newStudent;
+  const progress = isEnabledParam(newStudent) ? createEmptyProgress() : loadProgress();
   const { student, skills, dailyChallenge, nextSimulation, weeklyProgress, stats, weakestSkillHref, skillProgress, recentSessionsCount } =
-    calculateDashboardData();
+    calculateDashboardData(progress);
+  const hasPracticeHistory = stats.totalAttempts > 0;
 
   return (
     <div className="min-h-screen bg-slate-50 flex">
@@ -174,7 +183,12 @@ export default async function DashboardPage() {
                 <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-teal-100 to-teal-200 flex items-center justify-center text-2xl">
                   🎓
                 </div>
-                <h1 className="text-lg font-bold text-slate-800"><ClientStudentName fallback={student.name} /></h1>
+                <div>
+                  <p className="m-0 text-xs font-semibold text-slate-500">
+                    {hasPracticeHistory ? "Tu entrenamiento" : "Primera práctica"}
+                  </p>
+                  <h1 className="m-0 text-lg font-bold text-slate-800"><ClientStudentName fallback={student.name} /></h1>
+                </div>
               </div>
               <StreakBadge days={student.streak} size="md" />
             </div>
@@ -186,7 +200,7 @@ export default async function DashboardPage() {
           <div className="px-6 py-5">
             <div className="flex items-center justify-between">
               <h1 className="text-2xl font-bold text-slate-800">
-                Bienvenido de vuelta, <ClientStudentName fallback={student.name} />
+                {hasPracticeHistory ? "Bienvenido de vuelta" : "¡Empecemos!"}, <ClientStudentName fallback={student.name} />
               </h1>
               <StreakBadge days={student.streak} size="lg" />
             </div>
@@ -541,4 +555,16 @@ export default async function DashboardPage() {
       </div>
     </div>
   );
+}
+
+function createEmptyProgress(): StoredProgress {
+  return {
+    sessions: [],
+    seenSkills: [],
+    skill_stats: {},
+  };
+}
+
+function isEnabledParam(value: string | undefined): boolean {
+  return value === "1" || value === "true";
 }

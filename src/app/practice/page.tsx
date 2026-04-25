@@ -1,5 +1,6 @@
 import {
   BottomNav,
+  Button,
   SidebarNav,
 } from "@/components/ui";
 import {
@@ -44,7 +45,7 @@ export default async function PracticePage({ searchParams }: PracticePageProps) 
       { forceNewStudent, focusSubskill: focus, includeReadingUnits: false },
     );
   if (!practiceSelection?.exercise) {
-    throw new Error("No exercise available for practice session");
+    return <PracticeUnavailable />;
   }
 
   const resolvedReadingUnitId = practiceSelection.sessionType === "reading-based"
@@ -78,6 +79,36 @@ export default async function PracticePage({ searchParams }: PracticePageProps) 
             restartHref={restartHref}
             saveProgress={savePracticeSessionProgress}
           />
+        </section>
+      </main>
+      <BottomNav />
+    </div>
+  );
+}
+
+function PracticeUnavailable() {
+  return (
+    <div className="min-h-screen bg-slate-50 flex">
+      <SidebarNav />
+      <main className="flex-1 min-w-0 min-h-screen pb-36 lg:pb-0">
+        <section className="mx-auto grid w-full max-w-3xl gap-5 p-4 lg:p-6">
+          <div className="rounded-2xl border border-slate-100 bg-white p-6 shadow-sm">
+            <p className="m-0 text-sm font-semibold text-teal-700">Práctica no disponible</p>
+            <h1 className="mt-2 mb-3 text-2xl font-bold text-slate-800">
+              No encontramos ejercicios para iniciar esta sesión
+            </h1>
+            <p className="m-0 max-w-2xl text-base leading-7 text-slate-600">
+              Puede faltar contenido o haber un problema temporal de carga. Volvé al tablero o revisá las habilidades disponibles para elegir otra práctica.
+            </p>
+            <div className="mt-5 flex flex-wrap gap-3">
+              <Button href="/dashboard" variant="primary" size="md">
+                Ir al tablero
+              </Button>
+              <Button href="/habilidades" variant="secondary" size="md">
+                Ver habilidades
+              </Button>
+            </div>
+          </div>
         </section>
       </main>
       <BottomNav />
