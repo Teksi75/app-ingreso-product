@@ -1,12 +1,12 @@
 "use client";
 
-import Link from "next/link";
 import { useState } from "react";
 import {
   BottomNav,
   Button,
   SidebarNav,
 } from "@/components/ui";
+import { type NextStepRecommendation } from "../../recommendation/next_step";
 import { getSkillMetadata } from "../../skills/skill_metadata";
 
 export type PublicSimulatorExercise = {
@@ -57,7 +57,7 @@ export type SimulatorSaveResult = {
     state: "weak" | "developing" | "mastered";
     masteryLevel: number;
   }>;
-  weakSkill: string | null;
+  recommendation: NextStepRecommendation | null;
 };
 
 type SimulatorQuestionProps = {
@@ -373,7 +373,7 @@ function QuestionPanel({
 }
 
 function ResultPanel({ result }: { result: SimulatorSaveResult }) {
-  const weakSkillMetadata = result.weakSkill ? getSkillMetadata(result.weakSkill) : null;
+  const recommendation = result.recommendation;
 
   return (
     <article className="grid gap-5 rounded-2xl border border-slate-100 bg-white p-5 shadow-sm lg:p-6">
@@ -383,9 +383,9 @@ function ResultPanel({ result }: { result: SimulatorSaveResult }) {
         <p className="text-sm font-semibold text-slate-600">
           {result.totalCorrect} / {result.totalAttempts} correctas
         </p>
-        {result.weakSkill ? (
+        {recommendation ? (
           <p className="text-base font-semibold text-slate-700">
-            Tu punto más débil fue: {weakSkillMetadata?.title}
+            {recommendation.description}
           </p>
         ) : null}
       </div>
@@ -409,16 +409,14 @@ function ResultPanel({ result }: { result: SimulatorSaveResult }) {
           );
         })}
       </div>
-      {result.weakSkill ? (
+      {recommendation ? (
         <div className="grid gap-3 rounded-xl border border-amber-100 bg-amber-50 p-4">
-          <p className="text-sm font-semibold text-amber-700">Habilidad a reforzar</p>
-          <p className="font-bold text-slate-800">{weakSkillMetadata?.title}</p>
-          <Link
-            className="inline-flex min-h-11 items-center justify-center rounded-xl bg-teal-500 px-5 py-3 text-base font-semibold text-white shadow-md shadow-teal-200 transition-colors hover:bg-teal-600"
-            href={`/practice?skill=${result.weakSkill}`}
-          >
-            Practicar esta habilidad
-          </Link>
+          <p className="text-sm font-semibold text-amber-700">Siguiente paso recomendado</p>
+          <p className="font-bold text-slate-800">{recommendation.title}</p>
+          <p className="text-sm leading-5 text-slate-600">{recommendation.reason}</p>
+          <Button href={recommendation.href} variant="primary" size="md">
+            {recommendation.ctaLabel}
+          </Button>
         </div>
       ) : null}
     </article>

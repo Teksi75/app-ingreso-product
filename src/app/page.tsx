@@ -10,7 +10,12 @@ import {
 } from "@/components/ui";
 import { ClientStudentName } from "@/components/dashboard/ClientStudentName";
 import { ClientAvatarHero } from "@/components/dashboard/ClientAvatarHero";
-import { pickReadingUnitCandidate } from "@/practice/session_runner";
+import {
+  CANONICAL_LENGUA_SKILLS,
+  buildMasteryModel,
+} from "@/progress/mastery_model";
+import { getNextStepRecommendation } from "@/recommendation/next_step";
+import { getWeakestPracticeSkillId } from "@/storage/local_progress_store";
 
 export const dynamic = "force-dynamic";
 
@@ -24,7 +29,8 @@ function getRank(level: number): string {
 
 function calculateDashboardData() {
   const progress = loadProgress();
-  const defaultReadingUnit = pickReadingUnitCandidate(null);
+  const model = buildMasteryModel(progress);
+  const recommendation = getNextStepRecommendation(progress);
   const sessions = progress.sessions;
   const totalAttempts = sessions.reduce((sum, s) => sum + s.total_attempts, 0);
   const totalCorrect = sessions.reduce((sum, s) => sum + s.total_correct, 0);
@@ -44,43 +50,20 @@ function calculateDashboardData() {
     .reduce((sum, s) => sum + s.total_attempts, 0);
   const dailyProgress = Math.min(100, todayAttempts * 10);
 
-  const skillStats = progress.skill_stats;
-  const lenguaSkillIds = Object.keys(skillStats).filter(
-    (id) => id.startsWith("lengua.skill_") && !id.includes(".subskill_")
-  );
-
-  let lenguaProgress = 0;
-  let lenguaLevel = 1;
-  if (lenguaSkillIds.length > 0) {
-    const totalSkillAccuracy = lenguaSkillIds.reduce((sum, id) => {
-      const stats = skillStats[id];
-      return stats.total_attempts > 0
-        ? sum + stats.total_correct / stats.total_attempts
-        : sum;
-    }, 0);
-    lenguaProgress = Math.round((totalSkillAccuracy / lenguaSkillIds.length) * 100);
-    const avgMastery =
-      lenguaSkillIds.reduce((sum, id) => sum + (skillStats[id].mastery_level ?? 1), 0) /
-      lenguaSkillIds.length;
-    lenguaLevel = Math.max(1, Math.round(avgMastery));
-  }
-
-  // Weakest skill for practice link
-  let weakestSkillHref = "/practice?mode=training&skill=lengua.skill_1";
-  if (lenguaSkillIds.length > 0) {
-    const weakest = lenguaSkillIds
-      .map((id) => ({
-        id,
-        accuracy:
-          skillStats[id].total_attempts > 0
-            ? skillStats[id].total_correct / skillStats[id].total_attempts
-            : 1,
-      }))
-      .sort((a, b) => a.accuracy - b.accuracy)[0];
-    if (weakest) {
-      weakestSkillHref = `/practice?mode=training&skill=${encodeURIComponent(weakest.id)}`;
-    }
-  }
+  const lenguaSkillSummaries = CANONICAL_LENGUA_SKILLS
+    .map((skillId) => model.skills[skillId])
+    .filter((skill) => Boolean(skill));
+  const lenguaProgress = lenguaSkillSummaries.length > 0
+    ? Math.round(lenguaSkillSummaries.reduce((sum, skill) => sum + skill.masteryScore, 0) / lenguaSkillSummaries.length)
+    : 0;
+  const lenguaLevel = lenguaSkillSummaries.length > 0
+    ? Math.max(1, Math.round(lenguaSkillSummaries.reduce((sum, skill) => sum + skill.masteryLevel, 0) / lenguaSkillSummaries.length))
+    : 1;
+  const weakestSkillId = getWeakestPracticeSkillId([...CANONICAL_LENGUA_SKILLS], progress);
+  const weakestSkillHref = weakestSkillId
+    ? `/practice?mode=training&skill=${encodeURIComponent(weakestSkillId)}`
+    : "/practice?mode=training&skill=lengua.skill_1";
+  const simulatorReady = model.simulatorReadiness.ready;
 
   return {
     student: {
@@ -117,21 +100,20 @@ function calculateDashboardData() {
       },
     ],
     dailyChallenge: {
-      title: "Desafío del Día",
-      description: defaultReadingUnit
-        ? `Lee \"${defaultReadingUnit.title}\" y responde actividades de comprension lectora.`
-        : "Abre una lectura guiada de Lengua y responde actividades de comprension.",
+      title: recommendation.title,
+      description: recommendation.description,
+      reason: recommendation.reason,
+      ctaLabel: recommendation.ctaLabel,
       reward: 150,
-      difficulty: "Lengua",
-      href: defaultReadingUnit
-        ? `/practice?mode=reading&unit=${encodeURIComponent(defaultReadingUnit.id)}`
-        : "/practice?mode=training&skill=lengua.skill_1",
+      difficulty: recommendation.kind === "simulator-ready" ? "Simulador" : "Lengua",
+      href: recommendation.href,
     },
     nextSimulation: {
       title: "Simulacro",
-      date: "Próximamente",
-      duration: "45 minutos",
+      date: simulatorReady ? "Listo para iniciar" : "En preparación",
+      duration: model.simulatorReadiness.reason,
       topics: ["Lengua"],
+      href: "/simulaciones",
     },
     weeklyProgress: {
       daysCompleted: Math.min(7, activeDays),
@@ -145,6 +127,7 @@ function calculateDashboardData() {
       accuracy,
       activeDays,
     },
+    weakestSkillHref,
   };
 }
 
@@ -161,7 +144,7 @@ const LanguageIcon = () => (
 );
 
 export default async function DashboardPage() {
-  const { student, skills, dailyChallenge, nextSimulation, weeklyProgress, stats } =
+  const { student, skills, dailyChallenge, nextSimulation, weeklyProgress, stats, weakestSkillHref } =
     calculateDashboardData();
 
   return (
@@ -222,7 +205,7 @@ export default async function DashboardPage() {
                         : "Empieza tu entrenamiento hoy para ver tu progreso."}
                     </p>
                     <div className="flex flex-wrap gap-2 justify-center sm:justify-start">
-                      <Button href="/practice?mode=training" variant="primary" size="md" icon={<span>⚡</span>}>
+                      <Button href={weakestSkillHref} variant="primary" size="md" icon={<span>⚡</span>}>
                         {stats.totalAttempts > 0 ? "Continuar Lengua" : "Iniciar Entrenamiento"}
                       </Button>
                       <Button href={dailyChallenge.href} variant="secondary" size="md">
@@ -340,7 +323,7 @@ export default async function DashboardPage() {
             {/* Desafío */}
             <BentoCard
               title={dailyChallenge.title}
-              subtitle="Completa este desafío para ganar bonus"
+              subtitle="Siguiente paso recomendado"
               accentColor="orange"
               icon={
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -354,12 +337,13 @@ export default async function DashboardPage() {
               }
             >
               <p className="text-slate-600 mb-3 text-sm">{dailyChallenge.description}</p>
+              <p className="mb-3 text-xs font-medium leading-5 text-slate-500">{dailyChallenge.reason}</p>
               <div className="flex items-center gap-2">
                 <span className="px-2 py-1 bg-slate-100 text-slate-600 text-xs rounded">
                   {dailyChallenge.difficulty}
                 </span>
                 <Button href={dailyChallenge.href} variant="accent" size="sm">
-                  Aceptar
+                  {dailyChallenge.ctaLabel}
                 </Button>
               </div>
             </BentoCard>
@@ -389,7 +373,7 @@ export default async function DashboardPage() {
                     </span>
                   ))}
                 </div>
-                <Button variant="secondary" size="sm" fullWidth className="mt-2">
+                <Button href={nextSimulation.href} variant="secondary" size="sm" fullWidth className="mt-2">
                   Ver detalles
                 </Button>
               </div>

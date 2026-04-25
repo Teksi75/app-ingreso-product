@@ -4,6 +4,7 @@ import {
   type SimulatorAnswer,
   type SimulatorSession,
 } from "../../practice/simulator_runner";
+import { getNextStepRecommendation } from "../../recommendation/next_step";
 import { SimulatorQuestion, type PublicSimulatorSession, type SimulatorSaveResult } from "./SimulatorQuestion";
 
 export const dynamic = "force-dynamic";
@@ -24,18 +25,14 @@ export default function SimulacionesPage() {
         state: skillResult.state,
         masteryLevel: skillResult.mastery_level ?? 1,
       }));
-    const weakSkill = [...skillResults].sort((left, right) => (
-      getStateRank(left.state) - getStateRank(right.state) ||
-      (left.correct / left.attempts) - (right.correct / right.attempts) ||
-      left.skillId.localeCompare(right.skillId)
-    ))[0]?.skillId ?? null;
+    const recommendation = getNextStepRecommendation(result.progress);
 
     return {
       scorePercentage: result.score_percentage,
       totalCorrect: result.total_correct,
       totalAttempts: result.total_attempts,
       skillResults,
-      weakSkill,
+      recommendation,
     };
   }
 
@@ -81,16 +78,4 @@ function getOptionRank(value: string): number {
   }
 
   return hash;
-}
-
-function getStateRank(state: SimulatorSaveResult["skillResults"][number]["state"]): number {
-  if (state === "weak") {
-    return 0;
-  }
-
-  if (state === "developing") {
-    return 1;
-  }
-
-  return 2;
 }

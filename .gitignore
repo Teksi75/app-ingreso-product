@@ -10,6 +10,8 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
+.next-dev.log
+.next-dev.err.log
 content_sources/lengua/manual_extracts/
 graphify-out/cache/
 

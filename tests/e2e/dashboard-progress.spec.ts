@@ -78,7 +78,7 @@ test("dashboard separates practice count from answered questions", async ({ page
   await page.goto("/dashboard");
 
   const skillRow = page.getByRole("article", {
-    name: "Comprensión e inferencia textual",
+    name: "Comprensión global del texto",
   });
 
   await expect(skillRow.getByText("Prácticas")).toBeVisible();

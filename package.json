@@ -10,7 +10,8 @@
     "test:e2e": "playwright test",
     "test:e2e:headed": "playwright test --headed",
     "test:e2e:install": "playwright install chromium",
-    "typecheck": "tsc --noEmit"
+    "test:unit": "vitest run --pool=threads",
+    "typecheck": "next typegen && tsc --noEmit"
   },
   "dependencies": {
     "next": "^16.2.3",
@@ -24,6 +25,7 @@
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "tailwindcss": "^4.2.2",
-    "typescript": "^5.9.3"
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.15"
   }
 }

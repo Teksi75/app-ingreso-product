@@ -195,6 +195,14 @@ export function PracticeQuestion({
     const recommendedHref = recommendedSubskill
       ? buildPracticeHref(recommendedSubskill.parentSkill, recommendedSubskill.id, [], { mode: "training" })
       : restartHref;
+    const readingUnit = session.readingUnit;
+    const isReadingSession = session.sessionType === "reading-based" && Boolean(readingUnit);
+    const readingExcerpt = isReadingSession && readingUnit
+      ? readingUnit.text.slice(0, 150).replace(/\s+\S*$/, "")
+      : null;
+    const readingComprehension = isReadingSession && readingUnit
+      ? computeReadingComprehension(session.sessionExercises, answeredResults, readingUnit.id)
+      : null;
 
     return (
       <>
@@ -205,8 +213,26 @@ export function PracticeQuestion({
             <h1 className="text-2xl font-bold text-slate-800">
               {nextCorrectText(correctCount, sessionQuestionCount)}
             </h1>
-            {session.sessionType === "reading-based" && session.readingUnit ? (
-              <p className="text-sm text-slate-500">Texto trabajado: {session.readingUnit.title}</p>
+            {isReadingSession && readingUnit ? (
+              <div className="grid gap-2 rounded-xl border border-violet-100 bg-violet-50 p-4 mt-1">
+                <p className="text-sm font-bold text-violet-800">Texto trabajado: {readingUnit.title}</p>
+                {readingExcerpt ? (
+                  <p className="text-sm leading-6 text-slate-700 italic">
+                    &ldquo;{readingExcerpt}&hellip;&rdquo;
+                  </p>
+                ) : null}
+                {readingComprehension ? (
+                  <p className="text-sm font-medium text-violet-700">
+                    Comprensión lectora: {readingComprehension.correct} / {readingComprehension.total} correctas
+                    {readingComprehension.total > 0 ? ` (${Math.round((readingComprehension.correct / readingComprehension.total) * 100)}%)` : null}
+                  </p>
+                ) : null}
+                {readingUnit.glossary && readingUnit.glossary.length > 0 ? (
+                  <p className="text-xs text-slate-500">
+                    Glosario disponible con {readingUnit.glossary.length} término{readingUnit.glossary.length !== 1 ? "s" : ""} para consultar durante la lectura.
+                  </p>
+                ) : null}
+              </div>
             ) : null}
             <p className="text-sm font-semibold text-slate-600">
               Dominio actualizado: {isSavingProgress ? "guardando..." : `nivel ${masteryLevel}`}
@@ -877,6 +903,25 @@ function buildFocusResults(
   }
 
   return [...byFocus.values()];
+}
+
+function computeReadingComprehension(
+  exercises: Exercise[],
+  answeredResults: AnsweredExerciseResult[],
+  readingUnitId: string,
+): { correct: number; total: number } | null {
+  const byExerciseId = new Map(answeredResults.map((result) => [result.exerciseId, result]));
+  const readingExercises = exercises.filter(
+    (exercise) => exercise.readingUnitId === readingUnitId || exercise.reading_unit_id === readingUnitId,
+  );
+
+  if (readingExercises.length === 0) {
+    return null;
+  }
+
+  const correct = readingExercises.filter((exercise) => byExerciseId.get(exercise.id)?.correct).length;
+
+  return { correct, total: readingExercises.length };
 }
 
 function getStableShuffledOptions(exercise: Exercise): string[] {
