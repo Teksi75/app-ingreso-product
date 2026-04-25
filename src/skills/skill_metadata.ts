@@ -7,38 +7,183 @@ export type SkillMetadata = {
 const skillMetadata: Record<string, SkillMetadata> = {
   "lengua.skill_1": {
     id: "lengua.skill_1",
-    title: "Comprensión e inferencia textual",
-    description: "Entrena entender ideas, datos e inferencias en textos breves.",
+    title: "Comprensión global del texto",
+    description: "Entrena entender ideas, datos importantes y sentido general en textos breves.",
   },
   "lengua.skill_2": {
     id: "lengua.skill_2",
-    title: "Estructura y secuencia discursiva",
+    title: "Organización de ideas",
     description: "Entrena ordenar información y reconocer cómo avanza un texto.",
   },
   "lengua.skill_3": {
     id: "lengua.skill_3",
-    title: "Producción escrita funcional",
+    title: "Escritura clara y breve",
     description: "Entrena escribir respuestas breves con propósito, foco y claridad.",
   },
   "lengua.skill_4": {
     id: "lengua.skill_4",
-    title: "Morfosintaxis aplicada",
+    title: "Gramática en contexto",
     description: "Entrena clases de palabras y relaciones gramaticales en contexto.",
   },
   "lengua.skill_5": {
     id: "lengua.skill_5",
-    title: "Gestión verbal en contexto",
+    title: "Uso de verbos",
     description: "Entrena reconocer y usar tiempos y modos verbales con coherencia.",
   },
   "lengua.skill_6": {
     id: "lengua.skill_6",
-    title: "Norma ortográfica y tildación",
+    title: "Ortografía y tildes",
     description: "Entrena acentuación, ortografía y uso correcto de grafías.",
   },
   "lengua.skill_7": {
     id: "lengua.skill_7",
-    title: "Puntuación para sentido",
+    title: "Puntuación y sentido",
     description: "Entrena usar signos de puntuación para ordenar y precisar el sentido.",
+  },
+  "lengua.skill_1.subskill_1": {
+    id: "lengua.skill_1.subskill_1",
+    title: "Información explícita",
+    description: "Entrena localizar datos que aparecen directamente en el texto.",
+  },
+  "lengua.skill_1.subskill_2": {
+    id: "lengua.skill_1.subskill_2",
+    title: "Inferencia",
+    description: "Entrena deducir causas, consecuencias o motivos a partir de pistas del texto.",
+  },
+  "lengua.skill_1.subskill_3": {
+    id: "lengua.skill_1.subskill_3",
+    title: "Idea principal",
+    description: "Entrena reconocer el sentido global o núcleo de un texto.",
+  },
+  "lengua.skill_1.subskill_4": {
+    id: "lengua.skill_1.subskill_4",
+    title: "Vocabulario en contexto",
+    description: "Entrena inferir significados y acepciones por pistas del texto.",
+  },
+  "lengua.skill_1.subskill_5": {
+    id: "lengua.skill_1.subskill_5",
+    title: "Sinónimos y antónimos",
+    description: "Entrena reconocer relaciones de significado sin cambiar el sentido.",
+  },
+  "lengua.skill_2.subskill_1": {
+    id: "lengua.skill_2.subskill_1",
+    title: "Orden lógico",
+    description: "Entrena ordenar hechos, pasos o ideas con continuidad.",
+  },
+  "lengua.skill_2.subskill_2": {
+    id: "lengua.skill_2.subskill_2",
+    title: "Coherencia",
+    description: "Entrena detectar ideas que rompen el hilo del texto.",
+  },
+  "lengua.skill_2.subskill_3": {
+    id: "lengua.skill_2.subskill_3",
+    title: "Conectores",
+    description: "Entrena elegir enlaces adecuados entre partes del texto.",
+  },
+  "lengua.skill_2.subskill_4": {
+    id: "lengua.skill_2.subskill_4",
+    title: "Tipos de texto y paratextos",
+    description: "Entrena reconocer biografía, noticia, leyenda, artículo enciclopédico y cuento por sus marcas.",
+  },
+  "lengua.skill_2.subskill_5": {
+    id: "lengua.skill_2.subskill_5",
+    title: "Narrador y punto de vista",
+    description: "Entrena identificar quién cuenta y desde qué perspectiva se organiza una narración.",
+  },
+  "lengua.skill_3.subskill_1": {
+    id: "lengua.skill_3.subskill_1",
+    title: "Formato de respuesta",
+    description: "Entrena escribir con la extensión y estructura pedidas.",
+  },
+  "lengua.skill_3.subskill_2": {
+    id: "lengua.skill_3.subskill_2",
+    title: "Datos relevantes",
+    description: "Entrena elegir la información necesaria y descartar relleno.",
+  },
+  "lengua.skill_3.subskill_3": {
+    id: "lengua.skill_3.subskill_3",
+    title: "Claridad y foco",
+    description: "Entrena revisar una respuesta para que sea precisa y fácil de entender.",
+  },
+  "lengua.skill_4.subskill_1": {
+    id: "lengua.skill_4.subskill_1",
+    title: "Clases de palabras",
+    description: "Entrena reconocer categorías gramaticales en contexto.",
+  },
+  "lengua.skill_4.subskill_2": {
+    id: "lengua.skill_4.subskill_2",
+    title: "Concordancia",
+    description: "Entrena ajustar género, número y persona dentro de la oración.",
+  },
+  "lengua.skill_4.subskill_3": {
+    id: "lengua.skill_4.subskill_3",
+    title: "Función sintáctica",
+    description: "Entrena identificar núcleos y relaciones básicas dentro de la oración.",
+  },
+  "lengua.skill_4.subskill_4": {
+    id: "lengua.skill_4.subskill_4",
+    title: "Pronombres y determinantes",
+    description: "Entrena reconocer pronombres personales, posesivos y demostrativos, y su referencia.",
+  },
+  "lengua.skill_4.subskill_5": {
+    id: "lengua.skill_4.subskill_5",
+    title: "Adverbios y modificadores",
+    description: "Entrena identificar adverbios y cómo modifican el sentido de la oración.",
+  },
+  "lengua.skill_5.subskill_1": {
+    id: "lengua.skill_5.subskill_1",
+    title: "Tiempo y modo verbal",
+    description: "Entrena reconocer el valor temporal y modal de los verbos.",
+  },
+  "lengua.skill_5.subskill_2": {
+    id: "lengua.skill_5.subskill_2",
+    title: "Transformación verbal",
+    description: "Entrena cambiar formas verbales sin perder sentido.",
+  },
+  "lengua.skill_5.subskill_3": {
+    id: "lengua.skill_5.subskill_3",
+    title: "Continuidad temporal",
+    description: "Entrena sostener la secuencia de acciones de un relato.",
+  },
+  "lengua.skill_6.subskill_1": {
+    id: "lengua.skill_6.subskill_1",
+    title: "Grafías frecuentes",
+    description: "Entrena elegir letras correctas en palabras de confusión habitual.",
+  },
+  "lengua.skill_6.subskill_2": {
+    id: "lengua.skill_6.subskill_2",
+    title: "Acentuación",
+    description: "Entrena aplicar tildes por regla y por sentido.",
+  },
+  "lengua.skill_6.subskill_3": {
+    id: "lengua.skill_6.subskill_3",
+    title: "Corrección ortográfica",
+    description: "Entrena corregir frases con distintos errores de escritura.",
+  },
+  "lengua.skill_6.subskill_4": {
+    id: "lengua.skill_6.subskill_4",
+    title: "Diptongo, hiato y triptongo",
+    description: "Entrena reconocer y separar vocales en una o varias sílabas.",
+  },
+  "lengua.skill_6.subskill_5": {
+    id: "lengua.skill_6.subskill_5",
+    title: "Mayúsculas",
+    description: "Entrena usar mayúsculas en nombres propios, inicio de oración y marcas textuales.",
+  },
+  "lengua.skill_7.subskill_1": {
+    id: "lengua.skill_7.subskill_1",
+    title: "Uso de coma",
+    description: "Entrena separar enumeraciones e inserciones breves.",
+  },
+  "lengua.skill_7.subskill_2": {
+    id: "lengua.skill_7.subskill_2",
+    title: "Puntuación para desambiguar",
+    description: "Entrena usar signos para fijar o cambiar una interpretación.",
+  },
+  "lengua.skill_7.subskill_3": {
+    id: "lengua.skill_7.subskill_3",
+    title: "Segmentación de oraciones",
+    description: "Entrena distribuir pausas para mejorar claridad y sentido.",
   },
   "LEN-COMP-001": {
     id: "LEN-COMP-001",

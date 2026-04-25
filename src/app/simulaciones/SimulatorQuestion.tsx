@@ -7,6 +7,7 @@ import {
   Button,
   SidebarNav,
 } from "@/components/ui";
+import { getSkillMetadata } from "../../skills/skill_metadata";
 
 export type PublicSimulatorExercise = {
   id: string;
@@ -292,6 +293,8 @@ function QuestionPanel({
   totalQuestions: number;
 }) {
   const progressPercentage = Math.round(((currentIndex + 1) / totalQuestions) * 100);
+  const skillMetadata = getSkillMetadata(currentExercise.skill_id);
+  const subskillMetadata = getSkillMetadata(currentExercise.subskill);
 
   return (
     <article className="grid gap-5 rounded-2xl border border-slate-100 bg-white p-5 shadow-sm lg:p-6">
@@ -301,7 +304,7 @@ function QuestionPanel({
             Pregunta {currentIndex + 1} de {totalQuestions}
           </p>
           <span className="rounded-lg bg-slate-100 px-2.5 py-1 text-xs font-semibold text-slate-600">
-            {currentExercise.skill_id}
+            {skillMetadata.title}
           </span>
         </div>
         <div className="grid gap-1.5">
@@ -331,7 +334,7 @@ function QuestionPanel({
           </p>
         ) : null}
         <p className="text-xs font-bold uppercase tracking-wide text-teal-600">
-          {currentExercise.subskill}
+          {subskillMetadata.title}
         </p>
         <h2 className="text-xl font-bold leading-8 text-slate-800">
           {currentExercise.prompt}
@@ -370,6 +373,8 @@ function QuestionPanel({
 }
 
 function ResultPanel({ result }: { result: SimulatorSaveResult }) {
+  const weakSkillMetadata = result.weakSkill ? getSkillMetadata(result.weakSkill) : null;
+
   return (
     <article className="grid gap-5 rounded-2xl border border-slate-100 bg-white p-5 shadow-sm lg:p-6">
       <div className="grid gap-2">
@@ -380,18 +385,19 @@ function ResultPanel({ result }: { result: SimulatorSaveResult }) {
         </p>
         {result.weakSkill ? (
           <p className="text-base font-semibold text-slate-700">
-            Tu punto más débil fue: {result.weakSkill}
+            Tu punto más débil fue: {weakSkillMetadata?.title}
           </p>
         ) : null}
       </div>
       <div className="grid gap-3">
         {result.skillResults.map((skillResult) => {
           const accuracy = Math.round((skillResult.correct / skillResult.attempts) * 100);
+          const skillMetadata = getSkillMetadata(skillResult.skillId);
 
           return (
             <div className="rounded-xl border border-slate-100 p-4" key={skillResult.skillId}>
               <div className="flex flex-wrap items-center justify-between gap-2">
-                <p className="font-bold text-slate-800">{skillResult.skillId}</p>
+                <p className="font-bold text-slate-800">{skillMetadata.title}</p>
                 <span className="rounded-lg bg-slate-100 px-2.5 py-1 text-xs font-semibold text-slate-600">
                   {formatState(skillResult.state)}
                 </span>
@@ -405,8 +411,8 @@ function ResultPanel({ result }: { result: SimulatorSaveResult }) {
       </div>
       {result.weakSkill ? (
         <div className="grid gap-3 rounded-xl border border-amber-100 bg-amber-50 p-4">
-          <p className="text-sm font-semibold text-amber-700">Skill más débil</p>
-          <p className="font-bold text-slate-800">{result.weakSkill}</p>
+          <p className="text-sm font-semibold text-amber-700">Habilidad a reforzar</p>
+          <p className="font-bold text-slate-800">{weakSkillMetadata?.title}</p>
           <Link
             className="inline-flex min-h-11 items-center justify-center rounded-xl bg-teal-500 px-5 py-3 text-base font-semibold text-white shadow-md shadow-teal-200 transition-colors hover:bg-teal-600"
             href={`/practice?skill=${result.weakSkill}`}

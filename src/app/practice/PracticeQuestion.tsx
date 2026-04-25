@@ -67,6 +67,7 @@ export function PracticeQuestion({
   );
   const sessionQuestionCount = Math.min(MAX_QUESTIONS, session.sessionExercises.length);
   const skillMetadata = getSkillMetadata(currentExercise.skill_id);
+  const subskillMetadata = getSkillMetadata(currentExercise.subskill);
   const options = getStableShuffledOptions(currentExercise);
   const hasReadingStimulus = session.sessionType === "reading-based" && Boolean(session.readingUnit);
   const activeReadingUnit = session.readingUnit;
@@ -86,14 +87,11 @@ export function PracticeQuestion({
       <p className="text-lg font-bold text-slate-800">
         {skillMetadata.title}
       </p>
-      <p className="text-xs font-semibold text-violet-600 mt-1">
-        {skillMetadata.id}
-      </p>
       <p className="text-sm leading-5 text-slate-600 mt-2">
         {skillMetadata.description}
       </p>
       <p className="text-sm leading-5 text-slate-500 mt-2">
-        <span className="font-semibold text-slate-700">Foco actual:</span> {currentExercise.subskill}
+        <span className="font-semibold text-slate-700">Foco actual:</span> {subskillMetadata.title}
       </p>
     </aside>
   );
@@ -211,7 +209,7 @@ export function PracticeQuestion({
               <p className="text-sm text-slate-500">Texto trabajado: {session.readingUnit.title}</p>
             ) : null}
             <p className="text-sm font-semibold text-slate-600">
-              Mastery actualizado: {isSavingProgress ? "guardando..." : `nivel ${masteryLevel}`}
+              Dominio actualizado: {isSavingProgress ? "guardando..." : `nivel ${masteryLevel}`}
             </p>
           </div>
           <div className="grid gap-3">
@@ -227,7 +225,7 @@ export function PracticeQuestion({
               fullWidth
               disabled={!recommendedSubskill || isSavingProgress}
             >
-              Siguiente subskill recomendada
+              Siguiente foco recomendado
             </Button>
             <Button
               variant="secondary"
@@ -235,7 +233,7 @@ export function PracticeQuestion({
               fullWidth
               onClick={() => setShowMasteryMap(true)}
             >
-              Ver mapa de mastery completo
+              Ver mapa de dominio completo
             </Button>
             <Button href="/dashboard" variant="ghost" size="md" fullWidth>
               Ver avance y progreso
@@ -264,7 +262,7 @@ export function PracticeQuestion({
             </p>
             <div className="flex items-center gap-1.5">
               <div className="w-2 h-2 rounded-full bg-emerald-400" />
-              <span className="text-xs font-medium text-slate-400">{currentExercise.subskill}</span>
+              <span className="text-xs font-medium text-slate-400">{subskillMetadata.title}</span>
             </div>
           </div>
           {currentExercise.text && !hasReadingStimulus ? (
@@ -733,7 +731,7 @@ function MasteryMapModal({ masteryMap, onClose, recommendation }: MasteryMapModa
         <div className="flex items-start justify-between gap-3">
           <div>
             <p className="text-sm font-medium text-slate-500">Lengua</p>
-            <h2 className="text-xl font-bold text-slate-800">Mapa de mastery</h2>
+            <h2 className="text-xl font-bold text-slate-800">Mapa de dominio</h2>
           </div>
           <Button
             variant="secondary"
@@ -744,21 +742,25 @@ function MasteryMapModal({ masteryMap, onClose, recommendation }: MasteryMapModa
           </Button>
         </div>
         <div className="grid gap-2 overflow-auto pr-1">
-          {masteryMap.map((node) => (
-            <div
-              className={`grid gap-1 rounded-xl border p-3 ${
-                recommendation?.id === node.id
-                  ? "border-violet-300 bg-violet-50"
-                  : "border-slate-100 hover:bg-slate-50"
-              }`}
-              key={node.id}
-            >
-              <p className="text-sm font-bold text-slate-800">{node.name}</p>
-              <p className="text-xs font-medium text-slate-500">
-                {node.id} · mastery {node.recommended_mastery}
-              </p>
-            </div>
-          ))}
+          {masteryMap.map((node) => {
+            const metadata = getSkillMetadata(node.id);
+
+            return (
+              <div
+                className={`grid gap-1 rounded-xl border p-3 ${
+                  recommendation?.id === node.id
+                    ? "border-violet-300 bg-violet-50"
+                    : "border-slate-100 hover:bg-slate-50"
+                }`}
+                key={node.id}
+              >
+                <p className="text-sm font-bold text-slate-800">{metadata.title}</p>
+                <p className="text-xs font-medium text-slate-500">
+                  Nivel sugerido {node.recommended_mastery}
+                </p>
+              </div>
+            );
+          })}
         </div>
       </section>
     </div>

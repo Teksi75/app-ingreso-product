@@ -25,7 +25,9 @@
       "subskills": [
         "lengua.skill_1.subskill_1",
         "lengua.skill_1.subskill_2",
-        "lengua.skill_1.subskill_3"
+        "lengua.skill_1.subskill_3",
+        "lengua.skill_1.subskill_4",
+        "lengua.skill_1.subskill_5"
       ],
       "graph_refs": [
         "Community 8",
@@ -40,7 +42,9 @@
       "subskills": [
         "lengua.skill_2.subskill_1",
         "lengua.skill_2.subskill_2",
-        "lengua.skill_2.subskill_3"
+        "lengua.skill_2.subskill_3",
+        "lengua.skill_2.subskill_4",
+        "lengua.skill_2.subskill_5"
       ],
       "graph_refs": [
         "Community 10",
@@ -66,7 +70,9 @@
       "subskills": [
         "lengua.skill_4.subskill_1",
         "lengua.skill_4.subskill_2",
-        "lengua.skill_4.subskill_3"
+        "lengua.skill_4.subskill_3",
+        "lengua.skill_4.subskill_4",
+        "lengua.skill_4.subskill_5"
       ],
       "graph_refs": [
         "Community 8",
@@ -91,7 +97,9 @@
       "subskills": [
         "lengua.skill_6.subskill_1",
         "lengua.skill_6.subskill_2",
-        "lengua.skill_6.subskill_3"
+        "lengua.skill_6.subskill_3",
+        "lengua.skill_6.subskill_4",
+        "lengua.skill_6.subskill_5"
       ],
       "graph_refs": [
         "Community 8",
@@ -116,15 +124,24 @@
   "relationships": [
     { "skill_origen": "lengua.skill_1.subskill_1", "skill_destino": "lengua.skill_1.subskill_2", "tipo": "sequential", "fuerza": "alta", "graph_refs": ["Community 8", "Community 9"] },
     { "skill_origen": "lengua.skill_1.subskill_2", "skill_destino": "lengua.skill_1.subskill_3", "tipo": "sequential", "fuerza": "alta", "graph_refs": ["Community 8", "Community 10"] },
+    { "skill_origen": "lengua.skill_1.subskill_2", "skill_destino": "lengua.skill_1.subskill_4", "tipo": "reinforcement", "fuerza": "alta", "graph_refs": ["Community 9", "Community 13"] },
+    { "skill_origen": "lengua.skill_1.subskill_4", "skill_destino": "lengua.skill_1.subskill_5", "tipo": "sequential", "fuerza": "media", "graph_refs": ["Community 9", "Community 11"] },
     { "skill_origen": "lengua.skill_1", "skill_destino": "lengua.skill_2", "tipo": "prerequisite", "fuerza": "alta", "graph_refs": ["Community 10", "Community 14"] },
     { "skill_origen": "lengua.skill_1.subskill_3", "skill_destino": "lengua.skill_3.subskill_2", "tipo": "prerequisite", "fuerza": "alta", "graph_refs": ["Community 3", "Community 10"] },
+    { "skill_origen": "lengua.skill_1.subskill_3", "skill_destino": "lengua.skill_2.subskill_4", "tipo": "prerequisite", "fuerza": "media", "graph_refs": ["Community 9", "Community 13"] },
     { "skill_origen": "lengua.skill_2.subskill_1", "skill_destino": "lengua.skill_2.subskill_3", "tipo": "sequential", "fuerza": "alta", "graph_refs": ["Community 14"] },
     { "skill_origen": "lengua.skill_2.subskill_2", "skill_destino": "lengua.skill_3.subskill_3", "tipo": "reinforcement", "fuerza": "alta", "graph_refs": ["Community 10", "Community 14"] },
     { "skill_origen": "lengua.skill_2.subskill_3", "skill_destino": "lengua.skill_3.subskill_1", "tipo": "prerequisite", "fuerza": "media", "graph_refs": ["Community 14"] },
+    { "skill_origen": "lengua.skill_2.subskill_4", "skill_destino": "lengua.skill_2.subskill_5", "tipo": "sequential", "fuerza": "media", "graph_refs": ["Community 9", "Community 14"] },
+    { "skill_origen": "lengua.skill_2.subskill_5", "skill_destino": "lengua.skill_2.subskill_2", "tipo": "reinforcement", "fuerza": "media", "graph_refs": ["Community 11", "Community 14"] },
     { "skill_origen": "lengua.skill_3.subskill_2", "skill_destino": "lengua.skill_3.subskill_1", "tipo": "sequential", "fuerza": "alta", "graph_refs": ["Community 3", "Community 7"] },
     { "skill_origen": "lengua.skill_3.subskill_1", "skill_destino": "lengua.skill_3.subskill_3", "tipo": "sequential", "fuerza": "alta", "graph_refs": ["Community 3", "Community 7"] },
     { "skill_origen": "lengua.skill_4.subskill_1", "skill_destino": "lengua.skill_4.subskill_3", "tipo": "sequential", "fuerza": "media", "graph_refs": ["Community 8", "Community 9"] },
+    { "skill_origen": "lengua.skill_4.subskill_1", "skill_destino": "lengua.skill_4.subskill_4", "tipo": "sequential", "fuerza": "media", "graph_refs": ["Community 9", "Community 11"] },
+    { "skill_origen": "lengua.skill_4.subskill_1", "skill_destino": "lengua.skill_4.subskill_5", "tipo": "sequential", "fuerza": "media", "graph_refs": ["Community 10", "Community 11"] },
     { "skill_origen": "lengua.skill_4.subskill_2", "skill_destino": "lengua.skill_3.subskill_3", "tipo": "reinforcement", "fuerza": "alta", "graph_refs": ["Community 8", "Community 10"] },
+    { "skill_origen": "lengua.skill_4.subskill_4", "skill_destino": "lengua.skill_4.subskill_2", "tipo": "reinforcement", "fuerza": "alta", "graph_refs": ["Community 9", "Community 14"] },
+    { "skill_origen": "lengua.skill_4.subskill_5", "skill_destino": "lengua.skill_5.subskill_3", "tipo": "reinforcement", "fuerza": "media", "graph_refs": ["Community 10", "Community 12"] },
     { "skill_origen": "lengua.skill_4", "skill_destino": "lengua.skill_5", "tipo": "prerequisite", "fuerza": "media", "graph_refs": ["Community 9", "Community 12"] },
     { "skill_origen": "lengua.skill_5.subskill_1", "skill_destino": "lengua.skill_5.subskill_2", "tipo": "sequential", "fuerza": "alta", "graph_refs": ["Community 12"] },
     { "skill_origen": "lengua.skill_5.subskill_2", "skill_destino": "lengua.skill_5.subskill_3", "tipo": "sequential", "fuerza": "alta", "graph_refs": ["Community 12", "Community 14"] },
@@ -132,7 +149,9 @@
     { "skill_origen": "lengua.skill_5.subskill_3", "skill_destino": "lengua.skill_3.subskill_1", "tipo": "reinforcement", "fuerza": "media", "graph_refs": ["Community 12", "Community 14"] },
     { "skill_origen": "lengua.skill_6.subskill_1", "skill_destino": "lengua.skill_6.subskill_3", "tipo": "sequential", "fuerza": "media", "graph_refs": ["Community 10"] },
     { "skill_origen": "lengua.skill_6.subskill_2", "skill_destino": "lengua.skill_6.subskill_3", "tipo": "sequential", "fuerza": "alta", "graph_refs": ["Community 8", "Community 10", "Community 12"] },
+    { "skill_origen": "lengua.skill_6.subskill_2", "skill_destino": "lengua.skill_6.subskill_4", "tipo": "reinforcement", "fuerza": "alta", "graph_refs": ["Community 10", "Community 12", "Community 13"] },
     { "skill_origen": "lengua.skill_6.subskill_3", "skill_destino": "lengua.skill_3.subskill_3", "tipo": "reinforcement", "fuerza": "media", "graph_refs": ["Community 3", "Community 10"] },
+    { "skill_origen": "lengua.skill_6.subskill_5", "skill_destino": "lengua.skill_7.subskill_3", "tipo": "reinforcement", "fuerza": "media", "graph_refs": ["Community 9", "Community 11"] },
     { "skill_origen": "lengua.skill_7.subskill_1", "skill_destino": "lengua.skill_7.subskill_3", "tipo": "sequential", "fuerza": "media", "graph_refs": ["Community 8", "Community 10"] },
     { "skill_origen": "lengua.skill_7.subskill_2", "skill_destino": "lengua.skill_1.subskill_2", "tipo": "reinforcement", "fuerza": "media", "graph_refs": ["Community 8", "Community 14"] },
     { "skill_origen": "lengua.skill_7.subskill_3", "skill_destino": "lengua.skill_3.subskill_3", "tipo": "reinforcement", "fuerza": "alta", "graph_refs": ["Community 3", "Community 10", "Community 14"] },

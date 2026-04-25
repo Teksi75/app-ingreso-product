@@ -80,7 +80,7 @@ function assertLoadsAllLenguaJson(): void {
   ).length;
   assert.equal(engineExerciseCount, contentIndex.total_exercise_count);
   assert.ok(fullExercises.length >= contentIndex.total_exercise_count);
-  assert.equal(contentReadingExerciseCount, 13);
+  assert.equal(contentReadingExerciseCount, 22);
   assert.equal(selectorExercises.length, contentIndex.total_exercise_count);
   assert.equal(new Set(fullExercises.map((exercise) => exercise.id)).size, fullExercises.length);
 
@@ -98,13 +98,13 @@ function assertNormalizedExerciseShape(): void {
   const exercises = loadLenguaExercises(engineDir);
   const canonicalSkills = new Set(contentIndex.canonical_skills);
 
-  assert.equal(graph.relationships.length, 27);
-  assert.equal(graph.masteryMap.length, 28);
+  assert.equal(graph.relationships.length, 38);
+  assert.equal(graph.masteryMap.length, 36);
 
   for (const exercise of exercises) {
     assert.match(exercise.id, /\S/);
     assert.ok(canonicalSkills.has(exercise.skill_id), exercise.id);
-    assert.match(exercise.subskill, /^lengua\.skill_[1-7]\.subskill_[1-3]$/);
+    assert.match(exercise.subskill, /^lengua\.skill_[1-7]\.subskill_[1-5]$/);
     assert.ok([1, 2, 3].includes(exercise.difficulty), exercise.id);
     assert.ok([1, 2, 3, 4].includes(exercise.mastery_level), exercise.id);
     assert.match(exercise.type, /\S/);

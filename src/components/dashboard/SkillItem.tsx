@@ -24,7 +24,6 @@ export function SkillItem({ skill }: SkillItemProps) {
       <div className="grid gap-2">
         <div className="grid gap-1">
           <strong className="text-base leading-tight">{metadata.title}</strong>
-          <span className="text-xs font-semibold text-[#666961]">{metadata.id}</span>
           <p className="m-0 max-w-[460px] text-sm leading-5 text-[#55554d]">
             {metadata.description}
           </p>

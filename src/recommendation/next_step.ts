@@ -84,9 +84,9 @@ export function getNextStepRecommendation(
   if (latestSession?.mode === "simulator" && weakestSkillId && weakestSkillMetadata) {
     return {
       kind: "review-weak-skill",
-        title: `Revisar skill debil: ${weakestSkillMetadata.title}`,
+        title: `Revisar habilidad a reforzar: ${weakestSkillMetadata.title}`,
         description: "El ultimo simulador dejo una habilidad debil. Conviene revisarla antes de volver a una evaluacion global.",
-        ctaLabel: "Reforzar skill debil",
+        ctaLabel: "Reforzar habilidad",
         href: buildPracticeHref(weakestSkillId),
         reason: weakestSkill.reason,
         skillId: weakestSkillId,
@@ -102,7 +102,7 @@ export function getNextStepRecommendation(
     return {
       kind: "simulator-ready",
       title: "Listo para simulacion",
-      description: "Ya hay suficiente practica acumulada y no aparecen skills debiles dominantes. Puedes pasar a una sesion global.",
+      description: "Ya hay suficiente practica acumulada y no aparecen habilidades debiles dominantes. Puedes pasar a una sesion global.",
       ctaLabel: "Ir a simulaciones",
       href: "/simulaciones",
       reason: model.simulatorReadiness.reason,

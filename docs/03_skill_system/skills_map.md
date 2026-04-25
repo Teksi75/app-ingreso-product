@@ -55,6 +55,12 @@
 - **síntesis de idea global**
   - descripción operativa: seleccionar el enunciado que represente el núcleo del texto.
   - tipo de ejercicio asociado: `multiple_choice`, `categorization`.
+- **vocabulario en contexto**
+  - descripción operativa: inferir significado y acepción de palabras o expresiones por cotexto.
+  - tipo de ejercicio asociado: `multiple_choice`, `completion`.
+- **sinonimia y antonimia contextual**
+  - descripción operativa: reconocer equivalencias, oposiciones y cambios de intensidad sin perder sentido.
+  - tipo de ejercicio asociado: `multiple_choice`, `categorization`.
 
 ### Estructura y secuencia discursiva
 - **ordenamiento cronológico y lógico**
@@ -66,6 +72,12 @@
 - **conexión entre segmentos**
   - descripción operativa: elegir enlace adecuado entre partes del texto.
   - tipo de ejercicio asociado: `completion`, `multiple_choice`.
+- **clases textuales y paratextos**
+  - descripción operativa: reconocer biografía, noticia, leyenda, artículo enciclopédico y cuento por propósito, organización y marcas paratextuales.
+  - tipo de ejercicio asociado: `multiple_choice`, `categorization`.
+- **narrador y punto de vista**
+  - descripción operativa: identificar quién cuenta, desde qué perspectiva y cómo eso organiza la narración.
+  - tipo de ejercicio asociado: `multiple_choice`, `highlight_selection`.
 
 ### Producción escrita funcional
 - **redacción con restricción de formato**
@@ -88,6 +100,12 @@
 - **función sintáctica básica**
   - descripción operativa: identificar núcleo y relaciones dentro de la oración.
   - tipo de ejercicio asociado: `categorization`, `multiple_choice`.
+- **pronombres y determinantes**
+  - descripción operativa: reconocer pronombres personales, posesivos y demostrativos, y su referencia en contexto.
+  - tipo de ejercicio asociado: `multiple_choice`, `categorization`.
+- **adverbios y modificadores**
+  - descripción operativa: identificar adverbios de tiempo, lugar, modo, cantidad, afirmación, negación y duda, y su efecto en la oración.
+  - tipo de ejercicio asociado: `multiple_choice`, `categorization`.
 
 ### Gestión verbal en contexto
 - **reconocimiento de tiempo y modo**
@@ -109,6 +127,12 @@
   - tipo de ejercicio asociado: `completion`, `multiple_choice`.
 - **edición ortográfica integral**
   - descripción operativa: corregir bloques breves con más de un tipo de error.
+  - tipo de ejercicio asociado: `completion`, `highlight_selection`.
+- **concurrencia vocálica**
+  - descripción operativa: reconocer y separar diptongo, hiato y triptongo.
+  - tipo de ejercicio asociado: `multiple_choice`, `completion`.
+- **mayúsculas y marcas gráficas**
+  - descripción operativa: aplicar mayúsculas en nombres propios, inicio de oración y usos textuales básicos.
   - tipo de ejercicio asociado: `completion`, `highlight_selection`.
 
 ### Puntuación para sentido
