@@ -341,36 +341,8 @@ export default async function DashboardPage({ searchParams }: HomePageProps) {
             </div>
           </div>
 
-          {/* MIDDLE GRID */}
-          <div className="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-4 lg:gap-6 mb-6">
-            {/* Desafío */}
-            <BentoCard
-              title={dailyChallenge.title}
-              subtitle="Siguiente paso recomendado"
-              accentColor="orange"
-              icon={
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                </svg>
-              }
-              action={
-                <span className="px-2 py-0.5 bg-orange-100 text-orange-700 text-xs font-bold rounded-full">
-                  +{dailyChallenge.reward} XP
-                </span>
-              }
-            >
-              <p className="text-slate-600 mb-3 text-sm">{dailyChallenge.description}</p>
-              <p className="mb-3 text-xs font-medium leading-5 text-slate-500">{dailyChallenge.reason}</p>
-              <div className="flex items-center gap-2">
-                <span className="px-2 py-1 bg-slate-100 text-slate-600 text-xs rounded">
-                  {dailyChallenge.difficulty}
-                </span>
-                <Button href={withProgressCode(dailyChallenge.href, progressCode)} variant="accent" size="sm">
-                  {dailyChallenge.ctaLabel}
-                </Button>
-              </div>
-            </BentoCard>
-
+          {/* MIDDLE GRID - Simulación + Progreso Semanal */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-6 mb-6">
             {/* Simulación - Versión con urgencia */}
             <BentoCard
               title={simulatorReady ? "Simulación lista" : "Simulación bloqueada"}
