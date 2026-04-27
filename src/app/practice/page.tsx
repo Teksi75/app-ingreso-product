@@ -11,7 +11,7 @@ import {
   type PracticeMode,
   type PracticeSessionProgressInput,
   type PracticeSessionProgressResult,
-} from "../../components/practice/session_runner";
+} from "../../practice/session_runner";
 import { slugToCanonicalId, slugToReadingUnitId } from "../../skills/skill_slugs";
 import { PracticeQuestion } from "./PracticeQuestion";
 import { resolveStudentCode } from "../student_identity";

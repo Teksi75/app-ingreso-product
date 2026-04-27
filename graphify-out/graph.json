@@ -393,16 +393,16 @@
     {
       "label": "page.tsx",
       "file_type": "code",
-      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\app\\practice\\page.tsx",
+      "source_file": "src\\app\\practice\\page.tsx",
       "source_location": "L1",
-      "id": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_app_practice_page_tsx",
+      "id": "src_app_practice_page_tsx",
       "community": 8,
       "norm_label": "page.tsx"
     },
     {
       "label": "PracticePage()",
       "file_type": "code",
-      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\app\\practice\\page.tsx",
+      "source_file": "src\\app\\practice\\page.tsx",
       "source_location": "L33",
       "id": "page_practicepage",
       "community": 8,
@@ -411,7 +411,7 @@
     {
       "label": "buildRestartHref()",
       "file_type": "code",
-      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\app\\practice\\page.tsx",
+      "source_file": "src\\app\\practice\\page.tsx",
       "source_location": "L181",
       "id": "page_buildrestarthref",
       "community": 8,
@@ -420,16 +420,16 @@
     {
       "label": "PracticeQuestion.tsx",
       "file_type": "code",
-      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\app\\practice\\PracticeQuestion.tsx",
+      "source_file": "src\\app\\practice\\PracticeQuestion.tsx",
       "source_location": "L1",
-      "id": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_app_practice_practicequestion_tsx",
+      "id": "src_app_practice_practicequestion_tsx",
       "community": 9,
       "norm_label": "practicequestion.tsx"
     },
     {
       "label": "handleSubmit()",
       "file_type": "code",
-      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\app\\practice\\PracticeQuestion.tsx",
+      "source_file": "src\\app\\practice\\PracticeQuestion.tsx",
       "source_location": "L103",
       "id": "practicequestion_handlesubmit",
       "community": 9,
@@ -438,7 +438,7 @@
     {
       "label": "handleAnswerChange()",
       "file_type": "code",
-      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\app\\practice\\PracticeQuestion.tsx",
+      "source_file": "src\\app\\practice\\PracticeQuestion.tsx",
       "source_location": "L111",
       "id": "practicequestion_handleanswerchange",
       "community": 9,
@@ -447,7 +447,7 @@
     {
       "label": "handleMultipleAnswerChange()",
       "file_type": "code",
-      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\app\\practice\\PracticeQuestion.tsx",
+      "source_file": "src\\app\\practice\\PracticeQuestion.tsx",
       "source_location": "L116",
       "id": "practicequestion_handlemultipleanswerchange",
       "community": 9,
@@ -456,7 +456,7 @@
     {
       "label": "handlePartAnswerChange()",
       "file_type": "code",
-      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\app\\practice\\PracticeQuestion.tsx",
+      "source_file": "src\\app\\practice\\PracticeQuestion.tsx",
       "source_location": "L127",
       "id": "practicequestion_handlepartanswerchange",
       "community": 9,
@@ -465,7 +465,7 @@
     {
       "label": "handleCategoryAnswerChange()",
       "file_type": "code",
-      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\app\\practice\\PracticeQuestion.tsx",
+      "source_file": "src\\app\\practice\\PracticeQuestion.tsx",
       "source_location": "L132",
       "id": "practicequestion_handlecategoryanswerchange",
       "community": 9,
@@ -474,7 +474,7 @@
     {
       "label": "handleNext()",
       "file_type": "code",
-      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\app\\practice\\PracticeQuestion.tsx",
+      "source_file": "src\\app\\practice\\PracticeQuestion.tsx",
       "source_location": "L137",
       "id": "practicequestion_handlenext",
       "community": 9,
@@ -483,7 +483,7 @@
     {
       "label": "scrollToQuestion()",
       "file_type": "code",
-      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\app\\practice\\PracticeQuestion.tsx",
+      "source_file": "src\\app\\practice\\PracticeQuestion.tsx",
       "source_location": "L401",
       "id": "practicequestion_scrolltoquestion",
       "community": 9,
@@ -492,7 +492,7 @@
     {
       "label": "handleGlossaryToggle()",
       "file_type": "code",
-      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\app\\practice\\PracticeQuestion.tsx",
+      "source_file": "src\\app\\practice\\PracticeQuestion.tsx",
       "source_location": "L405",
       "id": "practicequestion_handleglossarytoggle",
       "community": 9,
@@ -760,36 +760,18 @@
       "norm_label": "skillstatus()"
     },
     {
-      "label": "exercise_selector.ts",
-      "file_type": "code",
-      "source_file": "src\\components\\practice\\exercise_selector.ts",
-      "source_location": "L1",
-      "id": "src_components_practice_exercise_selector_ts",
-      "community": 35,
-      "norm_label": "exercise_selector.ts"
-    },
-    {
-      "label": "session_runner.ts",
-      "file_type": "code",
-      "source_file": "src\\components\\practice\\session_runner.ts",
-      "source_location": "L1",
-      "id": "src_components_practice_session_runner_ts",
-      "community": 36,
-      "norm_label": "session_runner.ts"
-    },
-    {
       "label": "lengua_integration.test.ts",
       "file_type": "code",
-      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\components\\practice\\__tests__\\lengua_integration.test.ts",
+      "source_file": "src\\components\\practice\\__tests__\\lengua_integration.test.ts",
       "source_location": "L1",
-      "id": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_components_practice_tests_lengua_integration_test_ts",
+      "id": "src_components_practice_tests_lengua_integration_test_ts",
       "community": 2,
       "norm_label": "lengua_integration.test.ts"
     },
     {
       "label": "withMutedConsole()",
       "file_type": "code",
-      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\components\\practice\\__tests__\\lengua_integration.test.ts",
+      "source_file": "src\\components\\practice\\__tests__\\lengua_integration.test.ts",
       "source_location": "L34",
       "id": "lengua_integration_test_withmutedconsole",
       "community": 2,
@@ -798,7 +780,7 @@
     {
       "label": "buildExercise()",
       "file_type": "code",
-      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\components\\practice\\__tests__\\lengua_integration.test.ts",
+      "source_file": "src\\components\\practice\\__tests__\\lengua_integration.test.ts",
       "source_location": "L45",
       "id": "lengua_integration_test_buildexercise",
       "community": 2,
@@ -807,7 +789,7 @@
     {
       "label": "assertLoadsAllLenguaJson()",
       "file_type": "code",
-      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\components\\practice\\__tests__\\lengua_integration.test.ts",
+      "source_file": "src\\components\\practice\\__tests__\\lengua_integration.test.ts",
       "source_location": "L67",
       "id": "lengua_integration_test_assertloadsalllenguajson",
       "community": 2,
@@ -816,7 +798,7 @@
     {
       "label": "assertNormalizedExerciseShape()",
       "file_type": "code",
-      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\components\\practice\\__tests__\\lengua_integration.test.ts",
+      "source_file": "src\\components\\practice\\__tests__\\lengua_integration.test.ts",
       "source_location": "L95",
       "id": "lengua_integration_test_assertnormalizedexerciseshape",
       "community": 1,
@@ -825,7 +807,7 @@
     {
       "label": "assertSelectionRespectsPrerequisitesAndMastery()",
       "file_type": "code",
-      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\components\\practice\\__tests__\\lengua_integration.test.ts",
+      "source_file": "src\\components\\practice\\__tests__\\lengua_integration.test.ts",
       "source_location": "L132",
       "id": "lengua_integration_test_assertselectionrespectsprerequisitesandmastery",
       "community": 2,
@@ -834,7 +816,7 @@
     {
       "label": "assertSessionRunnerUsesCrossRelationships()",
       "file_type": "code",
-      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\components\\practice\\__tests__\\lengua_integration.test.ts",
+      "source_file": "src\\components\\practice\\__tests__\\lengua_integration.test.ts",
       "source_location": "L173",
       "id": "lengua_integration_test_assertsessionrunnerusescrossrelationships",
       "community": 2,
@@ -843,7 +825,7 @@
     {
       "label": "assertPracticeSessionsUseChoiceExercises()",
       "file_type": "code",
-      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\components\\practice\\__tests__\\lengua_integration.test.ts",
+      "source_file": "src\\components\\practice\\__tests__\\lengua_integration.test.ts",
       "source_location": "L200",
       "id": "lengua_integration_test_assertpracticesessionsusechoiceexercises",
       "community": 2,
@@ -852,7 +834,7 @@
     {
       "label": "assertReadingUnitSessionsShareBaseTexts()",
       "file_type": "code",
-      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\components\\practice\\__tests__\\lengua_integration.test.ts",
+      "source_file": "src\\components\\practice\\__tests__\\lengua_integration.test.ts",
       "source_location": "L221",
       "id": "lengua_integration_test_assertreadingunitsessionssharebasetexts",
       "community": 2,
@@ -861,7 +843,7 @@
     {
       "label": "assertBioStimulusLoadsAsSkillTraining()",
       "file_type": "code",
-      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\components\\practice\\__tests__\\lengua_integration.test.ts",
+      "source_file": "src\\components\\practice\\__tests__\\lengua_integration.test.ts",
       "source_location": "L255",
       "id": "lengua_integration_test_assertbiostimulusloadsasskilltraining",
       "community": 2,
@@ -870,7 +852,7 @@
     {
       "label": "assertCanonicalTextPackLoads()",
       "file_type": "code",
-      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\components\\practice\\__tests__\\lengua_integration.test.ts",
+      "source_file": "src\\components\\practice\\__tests__\\lengua_integration.test.ts",
       "source_location": "L280",
       "id": "lengua_integration_test_assertcanonicaltextpackloads",
       "community": 5,
@@ -879,7 +861,7 @@
     {
       "label": "assertReadingModeDatasetRunsSequentially()",
       "file_type": "code",
-      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\components\\practice\\__tests__\\lengua_integration.test.ts",
+      "source_file": "src\\components\\practice\\__tests__\\lengua_integration.test.ts",
       "source_location": "L302",
       "id": "lengua_integration_test_assertreadingmodedatasetrunssequentially",
       "community": 2,
@@ -888,7 +870,7 @@
     {
       "label": "assertSkillPracticeCompletesReadingUnitBeforeFallback()",
       "file_type": "code",
-      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\components\\practice\\__tests__\\lengua_integration.test.ts",
+      "source_file": "src\\components\\practice\\__tests__\\lengua_integration.test.ts",
       "source_location": "L319",
       "id": "lengua_integration_test_assertskillpracticecompletesreadingunitbeforefallback",
       "community": 2,
@@ -897,7 +879,7 @@
     {
       "label": "assertTextPatternExtractorDoesNotReturnSourceText()",
       "file_type": "code",
-      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\components\\practice\\__tests__\\lengua_integration.test.ts",
+      "source_file": "src\\components\\practice\\__tests__\\lengua_integration.test.ts",
       "source_location": "L340",
       "id": "lengua_integration_test_asserttextpatternextractordoesnotreturnsourcetext",
       "community": 13,
@@ -927,7 +909,7 @@
       "source_file": "src\\components\\ui\\BentoCard.tsx",
       "source_location": "L1",
       "id": "src_components_ui_bentocard_tsx",
-      "community": 37,
+      "community": 35,
       "norm_label": "bentocard.tsx"
     },
     {
@@ -1017,7 +999,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\components\\ui\\Button.tsx",
       "source_location": "L1",
       "id": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_components_ui_button_tsx",
-      "community": 38,
+      "community": 36,
       "norm_label": "button.tsx"
     },
     {
@@ -1026,7 +1008,7 @@
       "source_file": "src\\components\\ui\\index.ts",
       "source_location": "L1",
       "id": "src_components_ui_index_ts",
-      "community": 39,
+      "community": 37,
       "norm_label": "index.ts"
     },
     {
@@ -1035,7 +1017,7 @@
       "source_file": "src\\components\\ui\\ProgressCircle.tsx",
       "source_location": "L1",
       "id": "src_components_ui_progresscircle_tsx",
-      "community": 40,
+      "community": 38,
       "norm_label": "progresscircle.tsx"
     },
     {
@@ -1116,7 +1098,7 @@
       "source_file": "src\\components\\ui\\SkillCard.tsx",
       "source_location": "L1",
       "id": "src_components_ui_skillcard_tsx",
-      "community": 41,
+      "community": 39,
       "norm_label": "skillcard.tsx"
     },
     {
@@ -1323,7 +1305,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\practice\\exercise_selector.test.ts",
       "source_location": "L1",
       "id": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_practice_exercise_selector_test_ts",
-      "community": 42,
+      "community": 40,
       "norm_label": "exercise_selector.test.ts"
     },
     {
@@ -1730,15 +1712,6 @@
       "id": "reading_session_runreadingsession",
       "community": 2,
       "norm_label": "runreadingsession()"
-    },
-    {
-      "label": "reading_session_runner.ts",
-      "file_type": "code",
-      "source_file": "src\\practice\\reading_session_runner.ts",
-      "source_location": "L1",
-      "id": "src_practice_reading_session_runner_ts",
-      "community": 43,
-      "norm_label": "reading_session_runner.ts"
     },
     {
       "label": "session_progress.test.ts",
@@ -3087,7 +3060,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\skills\\__tests__\\skill_slugs.test.ts",
       "source_location": "L1",
       "id": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_skills_tests_skill_slugs_test_ts",
-      "community": 44,
+      "community": 41,
       "norm_label": "skill_slugs.test.ts"
     },
     {
@@ -3321,7 +3294,7 @@
       "source_file": "src\\types\\reading_unit.ts",
       "source_location": "L1",
       "id": "src_types_reading_unit_ts",
-      "community": 45,
+      "community": 42,
       "norm_label": "reading_unit.ts"
     },
     {
@@ -3384,7 +3357,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\tests\\e2e\\all-pages.spec.ts",
       "source_location": "L1",
       "id": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_tests_e2e_all_pages_spec_ts",
-      "community": 46,
+      "community": 43,
       "norm_label": "all-pages.spec.ts"
     },
     {
@@ -3447,7 +3420,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\tests\\e2e\\dashboard-progress.spec.ts",
       "source_location": "L1",
       "id": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_tests_e2e_dashboard_progress_spec_ts",
-      "community": 47,
+      "community": 44,
       "norm_label": "dashboard-progress.spec.ts"
     },
     {
@@ -3456,7 +3429,7 @@
       "source_file": "tests\\e2e\\dashboard-responsive.spec.ts",
       "source_location": "L1",
       "id": "tests_e2e_dashboard_responsive_spec_ts",
-      "community": 48,
+      "community": 45,
       "norm_label": "dashboard-responsive.spec.ts"
     },
     {
@@ -3465,7 +3438,7 @@
       "source_file": "tests\\e2e\\dashboard-screenshot.spec.ts",
       "source_location": "L1",
       "id": "tests_e2e_dashboard_screenshot_spec_ts",
-      "community": 49,
+      "community": 46,
       "norm_label": "dashboard-screenshot.spec.ts"
     },
     {
@@ -3474,7 +3447,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\tests\\e2e\\first-experience.spec.ts",
       "source_location": "L1",
       "id": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_tests_e2e_first_experience_spec_ts",
-      "community": 50,
+      "community": 47,
       "norm_label": "first-experience.spec.ts"
     },
     {
@@ -3483,7 +3456,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\tests\\e2e\\lengua-practice-links.spec.ts",
       "source_location": "L1",
       "id": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_tests_e2e_lengua_practice_links_spec_ts",
-      "community": 51,
+      "community": 48,
       "norm_label": "lengua-practice-links.spec.ts"
     },
     {
@@ -3573,7 +3546,7 @@
       "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\tests\\e2e\\student-profile-and-code.spec.ts",
       "source_location": "L1",
       "id": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_tests_e2e_student_profile_and_code_spec_ts",
-      "community": 52,
+      "community": 49,
       "norm_label": "student-profile-and-code.spec.ts"
     }
   ],
@@ -4217,31 +4190,31 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\app\\practice\\page.tsx",
+      "source_file": "src\\app\\practice\\page.tsx",
       "source_location": "L33",
       "weight": 1.0,
-      "_src": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_app_practice_page_tsx",
+      "_src": "src_app_practice_page_tsx",
       "_tgt": "page_practicepage",
-      "source": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_app_practice_page_tsx",
+      "source": "src_app_practice_page_tsx",
       "target": "page_practicepage",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\app\\practice\\page.tsx",
+      "source_file": "src\\app\\practice\\page.tsx",
       "source_location": "L181",
       "weight": 1.0,
-      "_src": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_app_practice_page_tsx",
+      "_src": "src_app_practice_page_tsx",
       "_tgt": "page_buildrestarthref",
-      "source": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_app_practice_page_tsx",
+      "source": "src_app_practice_page_tsx",
       "target": "page_buildrestarthref",
       "confidence_score": 1.0
     },
     {
       "relation": "calls",
       "confidence": "EXTRACTED",
-      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\app\\practice\\page.tsx",
+      "source_file": "src\\app\\practice\\page.tsx",
       "source_location": "L64",
       "weight": 1.0,
       "_src": "page_practicepage",
@@ -4313,96 +4286,96 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\app\\practice\\PracticeQuestion.tsx",
+      "source_file": "src\\app\\practice\\PracticeQuestion.tsx",
       "source_location": "L103",
       "weight": 1.0,
-      "_src": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_app_practice_practicequestion_tsx",
+      "_src": "src_app_practice_practicequestion_tsx",
       "_tgt": "practicequestion_handlesubmit",
-      "source": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_app_practice_practicequestion_tsx",
+      "source": "src_app_practice_practicequestion_tsx",
       "target": "practicequestion_handlesubmit",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\app\\practice\\PracticeQuestion.tsx",
+      "source_file": "src\\app\\practice\\PracticeQuestion.tsx",
       "source_location": "L111",
       "weight": 1.0,
-      "_src": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_app_practice_practicequestion_tsx",
+      "_src": "src_app_practice_practicequestion_tsx",
       "_tgt": "practicequestion_handleanswerchange",
-      "source": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_app_practice_practicequestion_tsx",
+      "source": "src_app_practice_practicequestion_tsx",
       "target": "practicequestion_handleanswerchange",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\app\\practice\\PracticeQuestion.tsx",
+      "source_file": "src\\app\\practice\\PracticeQuestion.tsx",
       "source_location": "L116",
       "weight": 1.0,
-      "_src": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_app_practice_practicequestion_tsx",
+      "_src": "src_app_practice_practicequestion_tsx",
       "_tgt": "practicequestion_handlemultipleanswerchange",
-      "source": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_app_practice_practicequestion_tsx",
+      "source": "src_app_practice_practicequestion_tsx",
       "target": "practicequestion_handlemultipleanswerchange",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\app\\practice\\PracticeQuestion.tsx",
+      "source_file": "src\\app\\practice\\PracticeQuestion.tsx",
       "source_location": "L127",
       "weight": 1.0,
-      "_src": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_app_practice_practicequestion_tsx",
+      "_src": "src_app_practice_practicequestion_tsx",
       "_tgt": "practicequestion_handlepartanswerchange",
-      "source": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_app_practice_practicequestion_tsx",
+      "source": "src_app_practice_practicequestion_tsx",
       "target": "practicequestion_handlepartanswerchange",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\app\\practice\\PracticeQuestion.tsx",
+      "source_file": "src\\app\\practice\\PracticeQuestion.tsx",
       "source_location": "L132",
       "weight": 1.0,
-      "_src": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_app_practice_practicequestion_tsx",
+      "_src": "src_app_practice_practicequestion_tsx",
       "_tgt": "practicequestion_handlecategoryanswerchange",
-      "source": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_app_practice_practicequestion_tsx",
+      "source": "src_app_practice_practicequestion_tsx",
       "target": "practicequestion_handlecategoryanswerchange",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\app\\practice\\PracticeQuestion.tsx",
+      "source_file": "src\\app\\practice\\PracticeQuestion.tsx",
       "source_location": "L137",
       "weight": 1.0,
-      "_src": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_app_practice_practicequestion_tsx",
+      "_src": "src_app_practice_practicequestion_tsx",
       "_tgt": "practicequestion_handlenext",
-      "source": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_app_practice_practicequestion_tsx",
+      "source": "src_app_practice_practicequestion_tsx",
       "target": "practicequestion_handlenext",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\app\\practice\\PracticeQuestion.tsx",
+      "source_file": "src\\app\\practice\\PracticeQuestion.tsx",
       "source_location": "L401",
       "weight": 1.0,
-      "_src": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_app_practice_practicequestion_tsx",
+      "_src": "src_app_practice_practicequestion_tsx",
       "_tgt": "practicequestion_scrolltoquestion",
-      "source": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_app_practice_practicequestion_tsx",
+      "source": "src_app_practice_practicequestion_tsx",
       "target": "practicequestion_scrolltoquestion",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\app\\practice\\PracticeQuestion.tsx",
+      "source_file": "src\\app\\practice\\PracticeQuestion.tsx",
       "source_location": "L405",
       "weight": 1.0,
-      "_src": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_app_practice_practicequestion_tsx",
+      "_src": "src_app_practice_practicequestion_tsx",
       "_tgt": "practicequestion_handleglossarytoggle",
-      "source": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_app_practice_practicequestion_tsx",
+      "source": "src_app_practice_practicequestion_tsx",
       "target": "practicequestion_handleglossarytoggle",
       "confidence_score": 1.0
     },
@@ -4901,163 +4874,163 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\components\\practice\\__tests__\\lengua_integration.test.ts",
+      "source_file": "src\\components\\practice\\__tests__\\lengua_integration.test.ts",
       "source_location": "L34",
       "weight": 1.0,
-      "_src": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_components_practice_tests_lengua_integration_test_ts",
+      "_src": "src_components_practice_tests_lengua_integration_test_ts",
       "_tgt": "lengua_integration_test_withmutedconsole",
-      "source": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_components_practice_tests_lengua_integration_test_ts",
+      "source": "src_components_practice_tests_lengua_integration_test_ts",
       "target": "lengua_integration_test_withmutedconsole",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\components\\practice\\__tests__\\lengua_integration.test.ts",
+      "source_file": "src\\components\\practice\\__tests__\\lengua_integration.test.ts",
       "source_location": "L45",
       "weight": 1.0,
-      "_src": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_components_practice_tests_lengua_integration_test_ts",
+      "_src": "src_components_practice_tests_lengua_integration_test_ts",
       "_tgt": "lengua_integration_test_buildexercise",
-      "source": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_components_practice_tests_lengua_integration_test_ts",
+      "source": "src_components_practice_tests_lengua_integration_test_ts",
       "target": "lengua_integration_test_buildexercise",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\components\\practice\\__tests__\\lengua_integration.test.ts",
+      "source_file": "src\\components\\practice\\__tests__\\lengua_integration.test.ts",
       "source_location": "L67",
       "weight": 1.0,
-      "_src": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_components_practice_tests_lengua_integration_test_ts",
+      "_src": "src_components_practice_tests_lengua_integration_test_ts",
       "_tgt": "lengua_integration_test_assertloadsalllenguajson",
-      "source": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_components_practice_tests_lengua_integration_test_ts",
+      "source": "src_components_practice_tests_lengua_integration_test_ts",
       "target": "lengua_integration_test_assertloadsalllenguajson",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\components\\practice\\__tests__\\lengua_integration.test.ts",
+      "source_file": "src\\components\\practice\\__tests__\\lengua_integration.test.ts",
       "source_location": "L95",
       "weight": 1.0,
-      "_src": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_components_practice_tests_lengua_integration_test_ts",
+      "_src": "src_components_practice_tests_lengua_integration_test_ts",
       "_tgt": "lengua_integration_test_assertnormalizedexerciseshape",
-      "source": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_components_practice_tests_lengua_integration_test_ts",
+      "source": "src_components_practice_tests_lengua_integration_test_ts",
       "target": "lengua_integration_test_assertnormalizedexerciseshape",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\components\\practice\\__tests__\\lengua_integration.test.ts",
+      "source_file": "src\\components\\practice\\__tests__\\lengua_integration.test.ts",
       "source_location": "L132",
       "weight": 1.0,
-      "_src": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_components_practice_tests_lengua_integration_test_ts",
+      "_src": "src_components_practice_tests_lengua_integration_test_ts",
       "_tgt": "lengua_integration_test_assertselectionrespectsprerequisitesandmastery",
-      "source": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_components_practice_tests_lengua_integration_test_ts",
+      "source": "src_components_practice_tests_lengua_integration_test_ts",
       "target": "lengua_integration_test_assertselectionrespectsprerequisitesandmastery",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\components\\practice\\__tests__\\lengua_integration.test.ts",
+      "source_file": "src\\components\\practice\\__tests__\\lengua_integration.test.ts",
       "source_location": "L173",
       "weight": 1.0,
-      "_src": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_components_practice_tests_lengua_integration_test_ts",
+      "_src": "src_components_practice_tests_lengua_integration_test_ts",
       "_tgt": "lengua_integration_test_assertsessionrunnerusescrossrelationships",
-      "source": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_components_practice_tests_lengua_integration_test_ts",
+      "source": "src_components_practice_tests_lengua_integration_test_ts",
       "target": "lengua_integration_test_assertsessionrunnerusescrossrelationships",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\components\\practice\\__tests__\\lengua_integration.test.ts",
+      "source_file": "src\\components\\practice\\__tests__\\lengua_integration.test.ts",
       "source_location": "L200",
       "weight": 1.0,
-      "_src": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_components_practice_tests_lengua_integration_test_ts",
+      "_src": "src_components_practice_tests_lengua_integration_test_ts",
       "_tgt": "lengua_integration_test_assertpracticesessionsusechoiceexercises",
-      "source": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_components_practice_tests_lengua_integration_test_ts",
+      "source": "src_components_practice_tests_lengua_integration_test_ts",
       "target": "lengua_integration_test_assertpracticesessionsusechoiceexercises",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\components\\practice\\__tests__\\lengua_integration.test.ts",
+      "source_file": "src\\components\\practice\\__tests__\\lengua_integration.test.ts",
       "source_location": "L221",
       "weight": 1.0,
-      "_src": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_components_practice_tests_lengua_integration_test_ts",
+      "_src": "src_components_practice_tests_lengua_integration_test_ts",
       "_tgt": "lengua_integration_test_assertreadingunitsessionssharebasetexts",
-      "source": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_components_practice_tests_lengua_integration_test_ts",
+      "source": "src_components_practice_tests_lengua_integration_test_ts",
       "target": "lengua_integration_test_assertreadingunitsessionssharebasetexts",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\components\\practice\\__tests__\\lengua_integration.test.ts",
+      "source_file": "src\\components\\practice\\__tests__\\lengua_integration.test.ts",
       "source_location": "L255",
       "weight": 1.0,
-      "_src": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_components_practice_tests_lengua_integration_test_ts",
+      "_src": "src_components_practice_tests_lengua_integration_test_ts",
       "_tgt": "lengua_integration_test_assertbiostimulusloadsasskilltraining",
-      "source": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_components_practice_tests_lengua_integration_test_ts",
+      "source": "src_components_practice_tests_lengua_integration_test_ts",
       "target": "lengua_integration_test_assertbiostimulusloadsasskilltraining",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\components\\practice\\__tests__\\lengua_integration.test.ts",
+      "source_file": "src\\components\\practice\\__tests__\\lengua_integration.test.ts",
       "source_location": "L280",
       "weight": 1.0,
-      "_src": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_components_practice_tests_lengua_integration_test_ts",
+      "_src": "src_components_practice_tests_lengua_integration_test_ts",
       "_tgt": "lengua_integration_test_assertcanonicaltextpackloads",
-      "source": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_components_practice_tests_lengua_integration_test_ts",
+      "source": "src_components_practice_tests_lengua_integration_test_ts",
       "target": "lengua_integration_test_assertcanonicaltextpackloads",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\components\\practice\\__tests__\\lengua_integration.test.ts",
+      "source_file": "src\\components\\practice\\__tests__\\lengua_integration.test.ts",
       "source_location": "L302",
       "weight": 1.0,
-      "_src": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_components_practice_tests_lengua_integration_test_ts",
+      "_src": "src_components_practice_tests_lengua_integration_test_ts",
       "_tgt": "lengua_integration_test_assertreadingmodedatasetrunssequentially",
-      "source": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_components_practice_tests_lengua_integration_test_ts",
+      "source": "src_components_practice_tests_lengua_integration_test_ts",
       "target": "lengua_integration_test_assertreadingmodedatasetrunssequentially",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\components\\practice\\__tests__\\lengua_integration.test.ts",
+      "source_file": "src\\components\\practice\\__tests__\\lengua_integration.test.ts",
       "source_location": "L319",
       "weight": 1.0,
-      "_src": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_components_practice_tests_lengua_integration_test_ts",
+      "_src": "src_components_practice_tests_lengua_integration_test_ts",
       "_tgt": "lengua_integration_test_assertskillpracticecompletesreadingunitbeforefallback",
-      "source": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_components_practice_tests_lengua_integration_test_ts",
+      "source": "src_components_practice_tests_lengua_integration_test_ts",
       "target": "lengua_integration_test_assertskillpracticecompletesreadingunitbeforefallback",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\components\\practice\\__tests__\\lengua_integration.test.ts",
+      "source_file": "src\\components\\practice\\__tests__\\lengua_integration.test.ts",
       "source_location": "L340",
       "weight": 1.0,
-      "_src": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_components_practice_tests_lengua_integration_test_ts",
+      "_src": "src_components_practice_tests_lengua_integration_test_ts",
       "_tgt": "lengua_integration_test_asserttextpatternextractordoesnotreturnsourcetext",
-      "source": "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_components_practice_tests_lengua_integration_test_ts",
+      "source": "src_components_practice_tests_lengua_integration_test_ts",
       "target": "lengua_integration_test_asserttextpatternextractordoesnotreturnsourcetext",
       "confidence_score": 1.0
     },
     {
       "relation": "calls",
       "confidence": "EXTRACTED",
-      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\components\\practice\\__tests__\\lengua_integration.test.ts",
+      "source_file": "src\\components\\practice\\__tests__\\lengua_integration.test.ts",
       "source_location": "L140",
       "weight": 1.0,
       "_src": "lengua_integration_test_assertselectionrespectsprerequisitesandmastery",
@@ -5069,7 +5042,7 @@
     {
       "relation": "calls",
       "confidence": "EXTRACTED",
-      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\components\\practice\\__tests__\\lengua_integration.test.ts",
+      "source_file": "src\\components\\practice\\__tests__\\lengua_integration.test.ts",
       "source_location": "L180",
       "weight": 1.0,
       "_src": "lengua_integration_test_assertsessionrunnerusescrossrelationships",
@@ -5081,7 +5054,7 @@
     {
       "relation": "calls",
       "confidence": "EXTRACTED",
-      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\components\\practice\\__tests__\\lengua_integration.test.ts",
+      "source_file": "src\\components\\practice\\__tests__\\lengua_integration.test.ts",
       "source_location": "L202",
       "weight": 1.0,
       "_src": "lengua_integration_test_assertpracticesessionsusechoiceexercises",
@@ -5093,7 +5066,7 @@
     {
       "relation": "calls",
       "confidence": "EXTRACTED",
-      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\components\\practice\\__tests__\\lengua_integration.test.ts",
+      "source_file": "src\\components\\practice\\__tests__\\lengua_integration.test.ts",
       "source_location": "L242",
       "weight": 1.0,
       "_src": "lengua_integration_test_assertreadingunitsessionssharebasetexts",
@@ -5105,7 +5078,7 @@
     {
       "relation": "calls",
       "confidence": "EXTRACTED",
-      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\components\\practice\\__tests__\\lengua_integration.test.ts",
+      "source_file": "src\\components\\practice\\__tests__\\lengua_integration.test.ts",
       "source_location": "L324",
       "weight": 1.0,
       "_src": "lengua_integration_test_assertskillpracticecompletesreadingunitbeforefallback",
@@ -5117,7 +5090,7 @@
     {
       "relation": "calls",
       "confidence": "EXTRACTED",
-      "source_file": "C:\\Users\\pablo\\OneDrive\\Desarrollo\\app-ingreso-product\\src\\components\\practice\\__tests__\\lengua_integration.test.ts",
+      "source_file": "src\\components\\practice\\__tests__\\lengua_integration.test.ts",
       "source_location": "L175",
       "weight": 1.0,
       "_src": "lengua_integration_test_assertsessionrunnerusescrossrelationships",

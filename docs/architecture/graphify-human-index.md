@@ -9,8 +9,8 @@ Objetivo:
 - Separar lectura humana de salida generada, evitando editar archivos que `graphify update .` puede regenerar.
 
 Fuente usada:
-- `graphify-out/GRAPH_REPORT.md`, generado el 2026-04-26.
-- `graphify-out/graph.json`, generado el 2026-04-26.
+- `graphify-out/GRAPH_REPORT.md`, generado el 2026-04-27.
+- `graphify-out/graph.json`, generado el 2026-04-27.
 - `graphify-out/wiki/`, generado el 2026-04-16, usado solo como apoyo cuando coincide semanticamente.
 
 ## Como usar este archivo
@@ -50,7 +50,7 @@ Para una IA:
 | UI de pregunta de simulador | Community 18 | Interaccion dentro de simulaciones |
 | Calidad de contenido | Community 19 | Tests de strings y contenido generado |
 | Tests de recomendacion de siguiente paso | Community 20 | Reglas de recomendacion aisladas |
-| Comunidades finas o ruido estructural | Community 21-52 | Componentes aislados, configs y specs sueltas |
+| Comunidades finas o ruido estructural | Community 21-49 | Componentes aislados, configs y specs sueltas |
 
 ## Comunidades principales
 
@@ -426,11 +426,11 @@ Estas comunidades son finas segun Graphify. No son inutiles, pero tienen poco va
 | Community 27 | Barra de XP | `src/components/ui/XpBar.tsx` |
 | Community 33 | Pagina de progreso | `src/app/progreso/page.tsx` |
 | Community 34 | Pagina de reporte | `src/app/reporte/page.tsx` |
-| Community 37 | Bento card UI | `src/components/ui/BentoCard.tsx` |
-| Community 38 | Button UI | `src/components/ui/Button.tsx` |
-| Community 39 | Barrel UI | `src/components/ui/index.ts` |
-| Community 40 | Progress circle UI | `src/components/ui/ProgressCircle.tsx` |
-| Community 41 | Skill card UI | `src/components/ui/SkillCard.tsx` |
+| Community 35 | Bento card UI | `src/components/ui/BentoCard.tsx` |
+| Community 36 | Button UI | `src/components/ui/Button.tsx` |
+| Community 37 | Barrel UI | `src/components/ui/index.ts` |
+| Community 38 | Progress circle UI | `src/components/ui/ProgressCircle.tsx` |
+| Community 39 | Skill card UI | `src/components/ui/SkillCard.tsx` |
 
 ## Configuracion y archivos aislados
 
@@ -444,28 +444,25 @@ Estas comunidades son finas segun Graphify. No son inutiles, pero tienen poco va
 
 ## Duplicados o zonas a revisar
 
-Estas comunidades sugieren posibles restos, wrappers o duplicaciones que conviene revisar antes de editar:
+Estas comunidades sugieren posibles restos o zonas aisladas que conviene revisar antes de editar:
 
 | Graphify ID | Observacion | Archivo |
 | --- | --- | --- |
-| Community 35 | `exercise_selector.ts` aparece aislado bajo `src/components/practice`, mientras el selector central esta en `src/practice/exercise_selector.ts` | `src/components/practice/exercise_selector.ts` |
-| Community 36 | `session_runner.ts` aparece aislado bajo `src/components/practice`, mientras el runner central esta en `src/practice/session_runner.ts` | `src/components/practice/session_runner.ts` |
-| Community 42 | Test aislado del selector | `src/practice/exercise_selector.test.ts` |
-| Community 43 | Runner de lectura aislado | `src/practice/reading_session_runner.ts` |
-| Community 44 | Test aislado de slugs | `src/skills/__tests__/skill_slugs.test.ts` |
-| Community 45 | Tipo aislado de unidad de lectura | `src/types/reading_unit.ts` |
+| Community 40 | Test aislado del selector | `src/practice/exercise_selector.test.ts` |
+| Community 41 | Test aislado de slugs | `src/skills/__tests__/skill_slugs.test.ts` |
+| Community 42 | Tipo aislado de unidad de lectura | `src/types/reading_unit.ts` |
 
 ## Specs E2E aisladas
 
 | Graphify ID | Archivo |
 | --- | --- |
-| Community 46 | `tests/e2e/all-pages.spec.ts` |
-| Community 47 | `tests/e2e/dashboard-progress.spec.ts` |
-| Community 48 | `tests/e2e/dashboard-responsive.spec.ts` |
-| Community 49 | `tests/e2e/dashboard-screenshot.spec.ts` |
-| Community 50 | `tests/e2e/first-experience.spec.ts` |
-| Community 51 | `tests/e2e/lengua-practice-links.spec.ts` |
-| Community 52 | `tests/e2e/student-profile-and-code.spec.ts` |
+| Community 43 | `tests/e2e/all-pages.spec.ts` |
+| Community 44 | `tests/e2e/dashboard-progress.spec.ts` |
+| Community 45 | `tests/e2e/dashboard-responsive.spec.ts` |
+| Community 46 | `tests/e2e/dashboard-screenshot.spec.ts` |
+| Community 47 | `tests/e2e/first-experience.spec.ts` |
+| Community 48 | `tests/e2e/lengua-practice-links.spec.ts` |
+| Community 49 | `tests/e2e/student-profile-and-code.spec.ts` |
 
 ## Puentes importantes del grafo
 
@@ -517,4 +514,3 @@ Despues de cambios relevantes en codigo:
   - nombres humanos,
   - archivos principales,
   - puentes importantes.
-

@@ -10,7 +10,7 @@ import {
   type MasteryNode,
   type PracticeSessionProgressInput,
   type PracticeSessionProgressResult,
-} from "../../components/practice/session_runner";
+} from "../../practice/session_runner";
 import { getSkillMetadata } from "../../skills/skill_metadata";
 import { canonicalIdToSlug, readingUnitIdToSlug } from "../../skills/skill_slugs";
 import { type ReadingUnit } from "../../types/reading_unit";

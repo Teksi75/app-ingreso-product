@@ -10,7 +10,7 @@ import {
   selectNextExerciseDetailed,
   type Exercise as SelectorExercise,
   type MasteryLevel,
-} from "../exercise_selector.ts";
+} from "../../../practice/exercise_selector.ts";
 import {
   getReadingUnitCandidates,
   loadLenguaExercises,
@@ -18,9 +18,9 @@ import {
   startPracticeSession,
   startReadingUnitSession,
   type Exercise,
-} from "../session_runner.ts";
+} from "../../../practice/session_runner.ts";
 import { extractTextPatterns } from "../../../content_analysis/text_pattern_extractor.ts";
-import { startReadingSession } from "../../../practice/reading_session_runner.ts";
+import { startReadingSession } from "../../../practice/reading_session.ts";
 
 const engineDir = resolve(process.cwd(), "docs/04_exercise_engine");
 const contentIndex = JSON.parse(
