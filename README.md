@@ -238,3 +238,7 @@ Para mantener el proyecto actualizado después de cambios en código:
 # Actualizar knowledge graph (sin costo API)
 graphify update .
 ```
+
+Para leer el grafo con nombres arquitectónicos humanos, usar:
+
+- `docs/architecture/graphify-human-index.md`
