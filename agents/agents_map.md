@@ -15,7 +15,7 @@ La reduccion elimina redundancias sin perder control: el Product Guardian opera 
 
 ## Orquestacion del sistema
 
-El flujo obligatorio entre agentes esta definido en `agents/orchestrator.md`.
+El flujo obligatorio entre agentes esta definido en `agents/orchestrator_prompt.md`.
 
 Ningun cambio puede ejecutarse fuera de ese flujo: todo input debe pasar por clasificacion, validaciones aplicables y generacion de prompt antes de producir output.
 

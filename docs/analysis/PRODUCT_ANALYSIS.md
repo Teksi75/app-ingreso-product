@@ -251,12 +251,10 @@ Las piezas conceptuales existen y están más integradas. La unificación de ski
 1. Separar claramente "UX del estudiante" vs "UX del padre"
 2. El padre NO debe intervenir en el flujo de práctica del estudiante
 3. El padre tiene su propia vista: dashboard de progreso, configuración de límites de tiempo
-4. Crear ADR-005 "Modelo de roles" que defina esta separación
+4. La separación de roles ya está resuelta: ADR-003 (autonomía del estudiante), ADR-004 (responsabilidad del padre) y ADR-006 (identidad de progreso anónima)
 
 **Acción requerida:**
-- Crear nuevo ADR-005
-- Modificar user_journey sección 8: cambiar "intervención" por "visibilidad"
-- Modificar business_rules sección "Rol del padre": separar supervisión de intervención
+- Verificar que user_journey y business_rules reflejen la separación ya definida en ADR-003/004/006
 
 ---
 
@@ -464,10 +462,9 @@ Para avanzar a implementación necesita:
 
 ### Prioridad Alta - Bloqueantes
 
-**1. Resolver contradicción autonomía vs rol del padre** ⭐ NUEVO
-- Crear ADR-005 "Modelo de roles" que separe UX estudiante vs UX padre
-- Modificar user_journey y business_rules para eliminar intervención del padre en flujo de práctica
-- Ver propuesta completa en sección 3.1.A
+**1. Resolver contradicción autonomía vs rol del padre** ⭐ RESUELTO
+- ADR-003 define autonomía del estudiante, ADR-004 define responsabilidad del padre, ADR-006 define identidad anónima
+- No requiere ADR nuevo; la concern está cubierta por estos tres ADRs conjuntamente
 
 **2. Validar skills contra el examen objetivo** ⭐
 - Mapear las 7 habilidades a las secciones del examen real
@@ -528,7 +525,7 @@ Para avanzar a implementación necesita:
 
 ### Qué falta antes de poder construir (bloqueantes) ⚠️
 
-- [ ] **Resolver contradicción autonomía vs rol del padre** (crear ADR-005)
+- [x] **Resolver contradicción autonomía vs rol del padre** (ADR-003 + ADR-004 + ADR-006)
 - [ ] **Validar skills contra examen objetivo** (matriz de trazabilidad)
 - [ ] **Definir proceso de creación de contenido** (workflow de ejercicios)
 - [ ] **Definir modelo comercial** (tiers, precios, refund)
@@ -545,7 +542,7 @@ Para avanzar a implementación necesita:
 ### Secuencia sugerida para completar
 
 ```
-1. Crear ADR-005 (modelo de roles) - resuelve contradicción
+1. ~~Crear ADR-005 (modelo de roles)~~ → RESUELTO por ADR-003 + ADR-004 + ADR-006
 2. Llenar 01_research y 02_pedagogical_model - semana 1
 3. Validar skills contra examen + crear proceso de contenido - semana 2
 4. Definir modelo comercial (tiers, precios) - semana 3
