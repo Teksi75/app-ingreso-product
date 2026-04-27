@@ -1,7 +1,7 @@
 # Graph Report - C:\Users\pablo\OneDrive\Desarrollo\app-ingreso-product  (2026-04-27)
 
 ## Corpus Check
-- 78 files · ~288,675 words
+- 78 files · ~290,126 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
