@@ -1,0 +1,1144 @@
+{
+  "communities": {
+    "0": [
+      "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_practice_session_runner_ts",
+      "lengua_integration_test_assertbiostimulusloadsasskilltraining",
+      "lengua_integration_test_assertcanonicaltextpackloads",
+      "local_progress_store_getpracticeprogresssnapshot",
+      "session_runner_buildfallbackoptions",
+      "session_runner_buildgeneratedoptions",
+      "session_runner_buildhighlightoptions",
+      "session_runner_buildmasterybyskill",
+      "session_runner_buildobjectansweroptions",
+      "session_runner_buildorderingoptions",
+      "session_runner_buildreadingblocksessionexercises",
+      "session_runner_buildreadingunitcandidates",
+      "session_runner_buildsessionskillresults",
+      "session_runner_buildskilltrainingpool",
+      "session_runner_builduserstate",
+      "session_runner_calculateupdatedmastery",
+      "session_runner_clampmasterylevel",
+      "session_runner_comparereadingunitcandidates",
+      "session_runner_computemasterylevel",
+      "session_runner_computestreak",
+      "session_runner_countreadingunitexercises",
+      "session_runner_createpracticeselection",
+      "session_runner_ensurecontentoptions",
+      "session_runner_ensureoptions",
+      "session_runner_evaluateanswer",
+      "session_runner_findexercise",
+      "session_runner_flattenpartoptions",
+      "session_runner_formatanswerarray",
+      "session_runner_formatanswerobject",
+      "session_runner_formatanswervalue",
+      "session_runner_getpracticeselectioncontext",
+      "session_runner_getreadingunitcandidates",
+      "session_runner_getreadingunitforpool",
+      "session_runner_getrelationshiprank",
+      "session_runner_getskillstate",
+      "session_runner_getstoredsessionmode",
+      "session_runner_isfsavailable",
+      "session_runner_loadcontentlenguaexercises",
+      "session_runner_loadexercises",
+      "session_runner_loadlenguaexercises",
+      "session_runner_normalizecategorization",
+      "session_runner_normalizecontentoptions",
+      "session_runner_normalizecorrectanswer",
+      "session_runner_normalizecorrectanswers",
+      "session_runner_normalizedifficulty",
+      "session_runner_normalizeexercise",
+      "session_runner_normalizeexercisefile",
+      "session_runner_normalizeexerciseparts",
+      "session_runner_normalizefeedback",
+      "session_runner_normalizeglossary",
+      "session_runner_normalizemasterylevel",
+      "session_runner_normalizeoptionalnumber",
+      "session_runner_normalizeoptions",
+      "session_runner_normalizepracticesessionfocusresults",
+      "session_runner_normalizereadingimage",
+      "session_runner_normalizereadingsource",
+      "session_runner_normalizereadingunits",
+      "session_runner_normalizerelatedskills",
+      "session_runner_normalizestringarray",
+      "session_runner_normalizetextfield",
+      "session_runner_normalizetexttype",
+      "session_runner_oppositeshortanswer",
+      "session_runner_pickreadingunitcandidate",
+      "session_runner_recommendnextpracticesubskill",
+      "session_runner_removeaccents",
+      "session_runner_resolveitemlabel",
+      "session_runner_rundeterministicsession",
+      "session_runner_runmixedsession",
+      "session_runner_runsession",
+      "session_runner_savepracticesessionprogress",
+      "session_runner_startpracticesession",
+      "session_runner_startreadingunitsession",
+      "session_runner_toselectorexercise"
+    ],
+    "1": [
+      "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_app_progress_summary_ts",
+      "exercise_selector_accuracytomastery",
+      "exercise_selector_clampdifficulty",
+      "exercise_selector_clampmastery",
+      "exercise_selector_dedupeexercises",
+      "exercise_selector_extractselectorexercises",
+      "exercise_selector_filterimmediaterepeats",
+      "exercise_selector_filterunlockedexercises",
+      "exercise_selector_findalternativesubskill",
+      "exercise_selector_findrelatedtarget",
+      "exercise_selector_getmasterygap",
+      "exercise_selector_getmasterylevel",
+      "exercise_selector_getreferencedifficulty",
+      "exercise_selector_hasrecurrenterror",
+      "exercise_selector_isatrecommendedmastery",
+      "exercise_selector_isexerciseunlocked",
+      "exercise_selector_isfsavailable",
+      "exercise_selector_listlenguaexercisefiles",
+      "exercise_selector_loadlenguaselectiongraph",
+      "exercise_selector_loadlenguaselectorexercises",
+      "exercise_selector_logselection",
+      "exercise_selector_matchesnode",
+      "exercise_selector_matchesstate",
+      "exercise_selector_normalizedifficulty",
+      "exercise_selector_normalizemasterylevel",
+      "exercise_selector_normalizeselectorexercise",
+      "exercise_selector_normalizeskillid",
+      "exercise_selector_normalizesubskillid",
+      "exercise_selector_normalizetext",
+      "exercise_selector_pickcurrentstate",
+      "exercise_selector_pickdeterministic",
+      "exercise_selector_pickfallbackcandidate",
+      "exercise_selector_picklowestmasterygap",
+      "exercise_selector_pickrelatedcandidate",
+      "exercise_selector_pickstrictcandidate",
+      "exercise_selector_pickunseenskillexercise",
+      "exercise_selector_relationweight",
+      "exercise_selector_resolveknownsubskill",
+      "exercise_selector_resolveruletarget",
+      "exercise_selector_selectnextexercise",
+      "exercise_selector_selectnextexercisedetailed",
+      "exercise_selector_testselector",
+      "lengua_integration_test_assertloadsalllenguajson",
+      "lengua_integration_test_assertnormalizedexerciseshape",
+      "progress_summary_buildprogresssummary",
+      "progress_summary_buildweeklydata",
+      "progress_summary_formatduration",
+      "progress_summary_getdaylabel",
+      "route_buildreadablereport",
+      "route_formatdatetime",
+      "route_formatstate",
+      "route_get",
+      "session_runner_buildplannedsessionexercises",
+      "session_runner_getlenguamasterymap",
+      "src_app_reporte_datos_route_ts",
+      "src_practice_exercise_selector_ts"
+    ],
+    "2": [
+      "01_adaptive_rules",
+      "01_exercise_selector",
+      "01_lengua_selection_graph",
+      "01_mastery_computation",
+      "01_practice_question",
+      "01_progress_store",
+      "01_session_runner",
+      "01_simulator_runner",
+      "01_user_skill_state",
+      "02_canonical_dashboard_skills",
+      "02_exercise_json_coupling",
+      "02_pickExercise_random",
+      "02_url_params_state",
+      "05_L10_primitive_mastery",
+      "05_L2_random_selection",
+      "05_L3_no_inter_session_memory",
+      "05_L4_no_concurrency",
+      "05_L5_dual_id_system",
+      "05_L6_rsc_coupling",
+      "05_L8_no_session_abstraction",
+      "06_session_context",
+      "06_text_group_selector",
+      "07_stage0_inconsistencies",
+      "07_stage1_adaptivity_runtime",
+      "07_stage4_persistence",
+      "07_stage5_textgroup_selector",
+      "08_pickExercise_removed",
+      "08_progress_snapshot",
+      "08_session_runner_canonical",
+      "09_reading_based_session",
+      "09_standalone_session",
+      "10_next_step_recommendation",
+      "10_recommendation_types",
+      "11_mastery_model",
+      "11_mastery_scoring",
+      "11_multi_skill_persistence",
+      "11_session_mode_weights",
+      "11_simulator_readiness",
+      "13_mastery_map",
+      "13_skill_metadata",
+      "13_skill_relationships",
+      "13_skills_system",
+      "14_skill_slugs",
+      "PA_autonomy_vs_parent",
+      "PA_business_rules",
+      "PA_content_creation_process",
+      "PA_exercise_engine",
+      "PA_skills_map",
+      "PA_user_journey"
+    ],
+    "3": [
+      "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_app_page_tsx",
+      "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_components_dashboard_skillitem_tsx",
+      "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_practice_simulator_progress_test_ts",
+      "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_recommendation_next_step_ts",
+      "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_skills_skill_slugs_ts",
+      "local_progress_store_getweakestpracticeskillid",
+      "mastery_model_buildmasterymodel",
+      "mastery_model_buildpracticeprogresssnapshot",
+      "mastery_model_buildpracticeskillstats",
+      "mastery_model_buildtrace",
+      "mastery_model_calculatemasteryscore",
+      "mastery_model_clampmasterylevel",
+      "mastery_model_clampscore",
+      "mastery_model_evaluatesimulatorreadiness",
+      "mastery_model_explainweakestskill",
+      "mastery_model_formatpercent",
+      "mastery_model_getrecencyweight",
+      "mastery_model_getstatepriority",
+      "mastery_model_getweakestskillid",
+      "mastery_model_interpretfocusentries",
+      "mastery_model_iscanonicalskillid",
+      "mastery_model_masteryleveltostate",
+      "mastery_model_scoretomasterylevel",
+      "next_step_buildpracticehref",
+      "next_step_buildreadinghref",
+      "next_step_getnextsteprecommendation",
+      "next_step_pickreadingunit",
+      "page_calculatedashboarddata",
+      "page_getrank",
+      "page_languageicon",
+      "page_mathicon",
+      "simulator_progress_test_buildsimulatorexercise",
+      "simulator_progress_test_buildsimulatorsession",
+      "skill_metadata_getskillmetadata",
+      "skill_slugs_canonicalidtoslug",
+      "skill_slugs_readingunitidtoslug",
+      "skill_slugs_slugify",
+      "skill_slugs_slugtocanonicalid",
+      "skill_slugs_slugtoreadingunitid",
+      "skillitem_skillitem",
+      "src_progress_mastery_model_ts",
+      "src_skills_skill_metadata_ts"
+    ],
+    "4": [
+      "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_practice_simulator_runner_test_ts",
+      "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_practice_simulator_runner_ts",
+      "simulator_runner_accuracytomasterylevel",
+      "simulator_runner_addfocusresult",
+      "simulator_runner_buildreadingblocks",
+      "simulator_runner_buildsimulatorskillresults",
+      "simulator_runner_calculatescorepercentage",
+      "simulator_runner_chancebydifficulty",
+      "simulator_runner_classifyskill",
+      "simulator_runner_compareexercisesforsimulator",
+      "simulator_runner_comparereadingblocks",
+      "simulator_runner_createstandaloneblock",
+      "simulator_runner_evaluatesimulatorsession",
+      "simulator_runner_groupbyreadingunit",
+      "simulator_runner_groupbyskill",
+      "simulator_runner_hasavailableexercises",
+      "simulator_runner_issimulatorcompatibleexercise",
+      "simulator_runner_issimulatorcompatiblereadingexercise",
+      "simulator_runner_normalizeanswers",
+      "simulator_runner_pickvalue",
+      "simulator_runner_randomint",
+      "simulator_runner_runsimulator",
+      "simulator_runner_savesimulatorsessionprogress",
+      "simulator_runner_savesimulatorsessionprogressasync",
+      "simulator_runner_selectsimulatorexercises",
+      "simulator_runner_selectsimulatorsession",
+      "simulator_runner_selectstandalonesimulatorexercises",
+      "simulator_runner_simulateanswer",
+      "simulator_runner_simulatetimeseconds",
+      "simulator_runner_startsimulatorsession",
+      "simulator_runner_sumdurationseconds",
+      "simulator_runner_takenextunusedexercise",
+      "simulator_runner_test_buildexercise",
+      "simulator_runner_test_buildquestionresult",
+      "simulator_runner_test_buildreadingexercise",
+      "simulator_runner_test_firstwrongoption",
+      "simulator_runner_tosimulatorexercise"
+    ],
+    "5": [
+      "access_by_time",
+      "accuracy_metric",
+      "adaptive_practice",
+      "adr_003_autonomous_learning",
+      "adr_004_parent_responsibility",
+      "adult_responsibility",
+      "autonomous_training_platform",
+      "business_rules",
+      "consistency_metric",
+      "diagnostic_initial",
+      "difficulty_1_3",
+      "exercise_engine_v1",
+      "exercise_selection_logic_v1",
+      "feedback_breve",
+      "frequent_short_sessions",
+      "legal_positioning",
+      "lengua_exercises_audit_v1",
+      "mastery_levels",
+      "no_guarantee_of_results",
+      "no_personal_data",
+      "original_content",
+      "parent_supervision",
+      "parent_visibility",
+      "plausible_distractors",
+      "practice_session_flow_v1",
+      "practice_session_loop",
+      "progress_by_skill",
+      "progress_metrics",
+      "progress_metrics_v1",
+      "rule_based_selection",
+      "simple_summary",
+      "simulator_mode",
+      "simulator_model",
+      "time_limited_simulation",
+      "training_vs_simulation",
+      "user_journey"
+    ],
+    "6": [
+      "ADR005_reading_stimuli",
+      "ADR006_progress_identity",
+      "AUDIT_REPORT_weak_skill_audit",
+      "INGENIUM_platform",
+      "action_panel_cta",
+      "audit_weak_skill_ui_test",
+      "build_mastery_model",
+      "cognitive_load_rules",
+      "cohort_licensing",
+      "continuar_pc_trabajo",
+      "e2e_weak_skill_test",
+      "empty_state_ui",
+      "exercise_types",
+      "feedback_principles",
+      "get_next_step_recommendation",
+      "human_readable_mastery_messages",
+      "improvement_panel",
+      "mastery_model_state_machine",
+      "mastery_score_formula",
+      "module_fit",
+      "pedagogical_model",
+      "product_roadmap",
+      "progress_code_identity",
+      "progress_license_separation_rationale",
+      "reading_as_stimulus_rationale",
+      "simulation_page",
+      "simulator_readiness",
+      "skill_first_model",
+      "skill_states",
+      "skills_map_lengua",
+      "text_group_stimulus",
+      "trainable_skills",
+      "weak_skill_strengthening"
+    ],
+    "7": [
+      "adr_001_product_scope",
+      "adr_002_no_official_content",
+      "agent_01_product_guardian",
+      "agent_02_scope_rules_validator",
+      "agent_03_quality_auditor",
+      "agent_04_codex_prompt_generator",
+      "agents_map",
+      "agents_md",
+      "app_ingreso_product_scope",
+      "change_type_classification",
+      "codex_prompt_generator_prompt",
+      "content_sources_lengua_readme",
+      "ejemplo_01_ajuste_menor",
+      "ejemplo_02_idea_nueva",
+      "fast_path_minor_adjustments",
+      "four_agent_system",
+      "immediate_feedback",
+      "interaction_flow",
+      "mandatory_validation_flow",
+      "no_official_content",
+      "orchestrator",
+      "orchestrator_prompt",
+      "original_content_only",
+      "product_guardian_always_first",
+      "product_guardian_prompt",
+      "quality_auditor_prompt",
+      "question_response_feedback_adjustment_next",
+      "scope_rules_validator_prompt",
+      "skill_extraction_and_difficulty_analysis",
+      "source_traceability",
+      "validation_pipeline"
+    ],
+    "8": [
+      "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_app_dashboard_page_tsx",
+      "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_practice_session_progress_test_ts",
+      "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_storage_local_progress_store_ts",
+      "local_progress_store_appendsessionresult",
+      "local_progress_store_cloneprogress",
+      "local_progress_store_createemptyprogress",
+      "local_progress_store_createsessionid",
+      "local_progress_store_getprogresspath",
+      "local_progress_store_getredisclient",
+      "local_progress_store_getredisprogresskey",
+      "local_progress_store_getseenskills",
+      "local_progress_store_getseenskillsasync",
+      "local_progress_store_loadprogress",
+      "local_progress_store_loadprogressasync",
+      "local_progress_store_markskillsseen",
+      "local_progress_store_markskillsseenasync",
+      "local_progress_store_normalizeprogress",
+      "local_progress_store_normalizeprogresscode",
+      "local_progress_store_resetprogress",
+      "local_progress_store_savesessionresult",
+      "local_progress_store_savesessionresultasync",
+      "local_progress_store_updateseenskills",
+      "local_progress_store_updateskillstats",
+      "local_progress_store_writeprogress",
+      "local_progress_store_writeprogressasync",
+      "page_resetcurrentstudentprogress",
+      "session_runner_startpracticesessionasync",
+      "session_runner_startreadingunitsessionasync"
+    ],
+    "9": [
+      "03_limitations_L1_atomic_exercise",
+      "03_limitations_L5_dual_ids",
+      "03_limitations_ordering_rationale",
+      "04_target_model_TextGroup",
+      "04_target_model_textGroupId",
+      "05_implementation_etapa_A",
+      "05_implementation_etapa_B",
+      "05_implementation_first_slice",
+      "05_implementation_reorder_rationale",
+      "07_execution_plan_step1",
+      "07_execution_plan_step2",
+      "07_execution_plan_success_criteria",
+      "canonical_text_pack_RU_bio001",
+      "canonical_text_pack_RU_cue001",
+      "canonical_text_pack_RU_enc001",
+      "canonical_text_pack_RU_ley001",
+      "canonical_text_pack_RU_not001",
+      "canonical_text_pack_v1",
+      "exercise_engine_selector",
+      "exercise_engine_system",
+      "graphify_community_0",
+      "graphify_community_1",
+      "graphify_human_index",
+      "textgroup_candidate_5_families",
+      "textgroup_candidate_content_restrictions",
+      "textgroup_candidate_search_methodology"
+    ],
+    "10": [
+      "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_components_dashboard_clientavatarbadge_tsx",
+      "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_components_ui_sidebarnav_tsx",
+      "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_hooks_useprofile_ts",
+      "clientavatarbadge_clientavatarbadge",
+      "clientavatarhero_clientavatarhero",
+      "clientstudentname_clientstudentname",
+      "sidebarnav_homeicon",
+      "sidebarnav_profileicon",
+      "sidebarnav_progressicon",
+      "sidebarnav_sidebarnav",
+      "sidebarnav_simulatoricon",
+      "sidebarnav_skillsicon",
+      "sidebarnav_useprogresscodefromlocation",
+      "src_components_dashboard_clientavatarhero_tsx",
+      "src_components_dashboard_clientstudentname_tsx",
+      "useprofile_createdefaultprofile",
+      "useprofile_islearninggoal",
+      "useprofile_isplainobject",
+      "useprofile_ispreferredsubject",
+      "useprofile_loadprofilefromstorage",
+      "useprofile_saveprofiletostorage",
+      "useprofile_useprofile"
+    ],
+    "11": [
+      "lengua_integration_test_assertpracticesessionsusechoiceexercises",
+      "lengua_integration_test_assertreadingmodedatasetrunssequentially",
+      "lengua_integration_test_assertreadingunitsessionssharebasetexts",
+      "lengua_integration_test_assertselectionrespectsprerequisitesandmastery",
+      "lengua_integration_test_assertsessionrunnerusescrossrelationships",
+      "lengua_integration_test_assertskillpracticecompletesreadingunitbeforefallback",
+      "lengua_integration_test_asserttextpatternextractordoesnotreturnsourcetext",
+      "lengua_integration_test_buildexercise",
+      "lengua_integration_test_withmutedconsole",
+      "reading_session_runreadingsession",
+      "reading_session_startreadingsession",
+      "src_components_practice_tests_lengua_integration_test_ts",
+      "src_content_analysis_text_pattern_extractor_ts",
+      "src_practice_reading_session_ts",
+      "text_pattern_extractor_analyzeplaintextshape",
+      "text_pattern_extractor_estimatepdflength",
+      "text_pattern_extractor_extracttextpatterns",
+      "text_pattern_extractor_inferstructuresfromshape",
+      "text_pattern_extractor_infertexttypesfromshape"
+    ],
+    "12": [
+      "actionpanel_actionpanel",
+      "actionpanel_withnewstudentparam",
+      "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_app_progress_code_href_ts",
+      "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_app_simulaciones_page_tsx",
+      "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_app_student_identity_ts",
+      "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_components_dashboard_actionpanel_tsx",
+      "page_buildpracticequestionkey",
+      "page_buildrestarthref",
+      "page_getoptionrank",
+      "page_getparam",
+      "page_practicepage",
+      "page_simulacionespage",
+      "progress_code_href_withprogresscode",
+      "src_app_practice_page_tsx",
+      "student_identity_normalizeprogresscode",
+      "student_identity_resolvestudentcode",
+      "student_identity_resolvestudentidentity"
+    ],
+    "13": [
+      "01_exercise_type",
+      "04_reading_plus_questions",
+      "04_text_group_concept",
+      "05_L1_atomic_exercise",
+      "05_L7_inconsistent_json",
+      "06_exercise_group_loader",
+      "06_text_group",
+      "07_stage2_textgroup_data",
+      "07_stage3_reading_ui",
+      "09_reading_unit",
+      "11_canonical_text_pack"
+    ],
+    "14": [
+      "modulo_1_biografia_hans_christian_andersen",
+      "modulo_1_clase_textual_paratexto",
+      "modulo_1_lengua_modulo_1",
+      "modulo_1_oracion_parrafo_mayusculas_coma",
+      "modulo_1_sustantivos_adjetivos",
+      "modulo_2_acentuacion_tilde_diacritica",
+      "modulo_2_biografia_hans_christian_andersen",
+      "modulo_2_cotexto_sinonimia_antonimia",
+      "modulo_2_lengua_modulo_2",
+      "modulo_2_verbo_pronombres_personales"
+    ],
+    "15": [
+      "practicequestion_handleanswerchange",
+      "practicequestion_handlecategoryanswerchange",
+      "practicequestion_handleglossarytoggle",
+      "practicequestion_handlemultipleanswerchange",
+      "practicequestion_handlenext",
+      "practicequestion_handlepartanswerchange",
+      "practicequestion_handlesubmit",
+      "practicequestion_scrolltoquestion",
+      "src_app_practice_practicequestion_tsx"
+    ],
+    "16": [
+      "bottomnav_bottomnav",
+      "bottomnav_homeicon",
+      "bottomnav_practiceicon",
+      "bottomnav_profileicon",
+      "bottomnav_progressicon",
+      "bottomnav_simulatoricon",
+      "bottomnav_skillsicon",
+      "bottomnav_useprogresscodefromlocation",
+      "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_components_ui_bottomnav_tsx"
+    ],
+    "17": [
+      "c_users_pablo_onedrive_desarrollo_app_ingreso_product_tests_e2e_pedagogical_gradual_skill_strengthening_spec_ts",
+      "pedagogical_gradual_skill_strengthening_spec_buildskillstats",
+      "pedagogical_gradual_skill_strengthening_spec_practicesession",
+      "pedagogical_gradual_skill_strengthening_spec_readingsession",
+      "pedagogical_gradual_skill_strengthening_spec_readybasesessions",
+      "pedagogical_gradual_skill_strengthening_spec_result",
+      "pedagogical_gradual_skill_strengthening_spec_stablebasesessions",
+      "pedagogical_gradual_skill_strengthening_spec_verifystage",
+      "pedagogical_gradual_skill_strengthening_spec_writeprogress"
+    ],
+    "18": [
+      "01_system_validation_adaptivity_limitation",
+      "01_system_validation_pickExercise_random",
+      "01_system_validation_runSession_cli",
+      "01_system_validation_selectNextExerciseDetailed",
+      "01_system_validation_shared_selection_fix",
+      "03_limitations_L2_random_adaptivity",
+      "05_implementation_etapa_D",
+      "07_execution_plan_step4",
+      "graphify_community_9"
+    ],
+    "19": [
+      "modulo_5_adverbios",
+      "modulo_5_articulo_enciclopedico",
+      "modulo_5_lengua_modulo_5",
+      "modulo_5_lexus_2018",
+      "modulo_5_leyenda_de_cacheuta",
+      "modulo_5_rae_dle",
+      "modulo_5_sintaxis_oracion_simple",
+      "modulo_5_tawantinsuyu",
+      "modulo_5_usos_de_c_s_z"
+    ],
+    "20": [
+      "modulo_6_acentuacion_diptongos_hiatos",
+      "modulo_6_actividades_de_integracion",
+      "modulo_6_clases_de_palabras",
+      "modulo_6_cohesion_mayusculas_coma",
+      "modulo_6_el_caso_del_laberinto_del_terror",
+      "modulo_6_ortografia_b_v_c_s_z",
+      "modulo_6_pronombres_posesivos_demostrativos",
+      "modulo_6_sinonimia_antonimia",
+      "modulo_6_sintaxis"
+    ],
+    "21": [
+      "03_agent_system",
+      "03_codex_prompt_generator",
+      "03_product_guardian",
+      "03_quality_auditor",
+      "03_scope_rules_validator",
+      "07_stage6_executable_agents",
+      "07_stage7_agent_pipeline",
+      "PA_product_vision"
+    ],
+    "22": [
+      "practice-desktop-tall_practice_page",
+      "practice-desktop2_practice_page",
+      "practice-desktop_practice_page",
+      "practice-fullpage_practice_page",
+      "practice-glossary-clicked_glossary_panel",
+      "practice-glossary-closed_glossary_panel",
+      "shared_glossary_feature",
+      "shared_responsive_layout"
+    ],
+    "23": [
+      "build_content_manifest_buildcontentindex",
+      "build_content_manifest_generate",
+      "build_content_manifest_getexercises",
+      "build_content_manifest_getskills",
+      "build_content_manifest_listjsonfiles",
+      "build_content_manifest_readjson",
+      "c_users_pablo_onedrive_desarrollo_app_ingreso_product_scripts_build_content_manifest_js"
+    ],
+    "24": [
+      "02_agent_validation_pipeline_cli",
+      "05_implementation_etapa_G",
+      "06_agent_ops_dev_first_rationale",
+      "06_agent_ops_pipeline_architecture",
+      "06_agent_ops_product_guardian",
+      "06_agent_ops_quality_auditor",
+      "06_agent_ops_scope_validator"
+    ],
+    "25": [
+      "adaptive_weak_skill_reinforcement_spec_baseconsolidatedsessions",
+      "adaptive_weak_skill_reinforcement_spec_buildskillstats",
+      "adaptive_weak_skill_reinforcement_spec_result",
+      "adaptive_weak_skill_reinforcement_spec_session",
+      "adaptive_weak_skill_reinforcement_spec_writeprogress",
+      "c_users_pablo_onedrive_desarrollo_app_ingreso_product_tests_e2e_adaptive_weak_skill_reinforcement_spec_ts"
+    ],
+    "26": [
+      "audit_weak_skill_ui_spec_baseconsolidatedsessions",
+      "audit_weak_skill_ui_spec_ensuredir",
+      "audit_weak_skill_ui_spec_result",
+      "audit_weak_skill_ui_spec_session",
+      "audit_weak_skill_ui_spec_writeprogress",
+      "c_users_pablo_onedrive_desarrollo_app_ingreso_product_tests_e2e_audit_weak_skill_ui_spec_ts"
+    ],
+    "27": [
+      "modulo_3_lengua_modulo_3",
+      "modulo_3_modo_y_tiempos_verbales",
+      "modulo_3_noticia_laguna_de_la_nina_encantada",
+      "modulo_3_texto_periodistico",
+      "modulo_3_uno_2013",
+      "modulo_3_vocales_diptongo_triptongo_hiato"
+    ],
+    "28": [
+      "practice-glossary-open_glossary_expanded_ui",
+      "practice-glossary_glossary_ui",
+      "practice-mobile-fix_mobile_fix_ui",
+      "practice-mobile_mobile_ui",
+      "practice-screenshot2_secondary_ui",
+      "practice-screenshot_main_ui"
+    ],
+    "29": [
+      "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_app_perfil_page_tsx",
+      "page_handlereset",
+      "page_handlesave",
+      "page_togglesetting",
+      "page_updateform"
+    ],
+    "30": [
+      "03_limitations_L8_no_session_abstraction",
+      "04_target_model_SessionContext",
+      "04_target_model_rationale_two_levels",
+      "04_target_model_two_level_strategy",
+      "05_implementation_etapa_F"
+    ],
+    "31": [
+      "modulo_4_cohesion_coherencia_conectores",
+      "modulo_4_lengua_modulo_4",
+      "modulo_4_leyenda_de_la_laguna_de_la_nina_encantada",
+      "modulo_4_narracion_narrador",
+      "modulo_4_posesivos_demostrativos_uso_de_b_v"
+    ],
+    "32": [
+      "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_app_simulaciones_simulatorquestion_tsx",
+      "simulatorquestion_gonext",
+      "simulatorquestion_startblockquestions",
+      "simulatorquestion_startsimulation"
+    ],
+    "33": [
+      "c_users_pablo_onedrive_desarrollo_app_ingreso_product_middleware_ts",
+      "middleware_createprogresscode",
+      "middleware_middleware",
+      "middleware_normalizeprogresscode"
+    ],
+    "34": [
+      "adult_customer",
+      "practice_based_learning",
+      "product_vision",
+      "student_user_11_12"
+    ],
+    "35": [
+      "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_content_analysis_content_quality_test_ts",
+      "content_quality_test_collectstrings",
+      "content_quality_test_listjsonfiles"
+    ],
+    "36": [
+      "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_recommendation_tests_next_step_test_ts",
+      "next_step_test_progresswithsessions",
+      "next_step_test_skillresult"
+    ],
+    "37": [
+      "exercise_engine_231_exercises",
+      "modulo3_audit_LEN_EX_049_bug",
+      "modulo3_audit_approved_set"
+    ],
+    "38": [
+      "canonical_text_pack_moduleFit_internal",
+      "canonical_text_pack_skill_first_priority",
+      "textgroup_candidate_moduleFit_not_navigation"
+    ],
+    "39": [
+      "03_limitations_L3_no_memory",
+      "graphify_community_4",
+      "upstash_redis_progress_model"
+    ],
+    "40": [
+      "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_app_layout_tsx",
+      "layout_rootlayout"
+    ],
+    "41": [
+      "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_app_habilidades_page_tsx",
+      "page_getskilldata"
+    ],
+    "42": [
+      "header_header",
+      "src_components_dashboard_header_tsx"
+    ],
+    "43": [
+      "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_components_dashboard_skilllist_tsx",
+      "skilllist_skilllist"
+    ],
+    "44": [
+      "skillstatus_skillstatus",
+      "src_components_dashboard_skillstatus_tsx"
+    ],
+    "45": [
+      "avatarhero_avatarhero",
+      "src_components_ui_avatarhero_tsx"
+    ],
+    "46": [
+      "src_components_ui_streakbadge_tsx",
+      "streakbadge_getstreakcolor"
+    ],
+    "47": [
+      "src_components_ui_xpbar_tsx",
+      "xpbar_xpbar"
+    ],
+    "48": [
+      "blocked_tutorial_modules",
+      "ejemplo_03_bloqueado_p0"
+    ],
+    "49": [
+      "upstash_redis_ownership_risk",
+      "upstash_redis_scale_decision"
+    ],
+    "50": [
+      "02_agent_validation_documentary_only",
+      "02_agent_validation_product_guardian"
+    ],
+    "51": [
+      "03_limitations_L10_primitive_mastery",
+      "05_implementation_etapa_E"
+    ],
+    "52": [
+      "graphify_regen_py"
+    ],
+    "53": [
+      "next_env_d_ts"
+    ],
+    "54": [
+      "c_users_pablo_onedrive_desarrollo_app_ingreso_product_next_config_js"
+    ],
+    "55": [
+      "playwright_config_ts"
+    ],
+    "56": [
+      "postcss_config_mjs"
+    ],
+    "57": [
+      "c_users_pablo_onedrive_desarrollo_app_ingreso_product_vitest_config_ts"
+    ],
+    "58": [
+      "graphify_ast_py"
+    ],
+    "59": [
+      "graphify_merge_semantic_py"
+    ],
+    "60": [
+      "src_app_progreso_page_tsx"
+    ],
+    "61": [
+      "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_app_reporte_page_tsx"
+    ],
+    "62": [
+      "src_components_ui_bentocard_tsx"
+    ],
+    "63": [
+      "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_components_ui_button_tsx"
+    ],
+    "64": [
+      "src_components_ui_index_ts"
+    ],
+    "65": [
+      "src_components_ui_progresscircle_tsx"
+    ],
+    "66": [
+      "src_components_ui_skillcard_tsx"
+    ],
+    "67": [
+      "src_data_static_content_ts"
+    ],
+    "68": [
+      "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_practice_exercise_selector_test_ts"
+    ],
+    "69": [
+      "c_users_pablo_onedrive_desarrollo_app_ingreso_product_src_skills_tests_skill_slugs_test_ts"
+    ],
+    "70": [
+      "src_types_reading_unit_ts"
+    ],
+    "71": [
+      "c_users_pablo_onedrive_desarrollo_app_ingreso_product_tests_e2e_all_pages_spec_ts"
+    ],
+    "72": [
+      "c_users_pablo_onedrive_desarrollo_app_ingreso_product_tests_e2e_dashboard_progress_spec_ts"
+    ],
+    "73": [
+      "tests_e2e_dashboard_responsive_spec_ts"
+    ],
+    "74": [
+      "tests_e2e_dashboard_screenshot_spec_ts"
+    ],
+    "75": [
+      "c_users_pablo_onedrive_desarrollo_app_ingreso_product_tests_e2e_first_experience_spec_ts"
+    ],
+    "76": [
+      "c_users_pablo_onedrive_desarrollo_app_ingreso_product_tests_e2e_lengua_practice_links_spec_ts"
+    ],
+    "77": [
+      "c_users_pablo_onedrive_desarrollo_app_ingreso_product_tests_e2e_student_profile_and_code_spec_ts"
+    ],
+    "78": [
+      "research_summary"
+    ],
+    "79": [
+      "upstash_redis_kv"
+    ],
+    "80": [
+      "02_architecture_analysis"
+    ],
+    "81": [
+      "05_L9_simulator_no_ui"
+    ],
+    "82": [
+      "07_evolution_plan"
+    ],
+    "83": [
+      "09_reading_session"
+    ],
+    "84": [
+      "12_content_fixes"
+    ],
+    "85": [
+      "14_skill3_simulator_coverage"
+    ],
+    "86": [
+      "PA_simulator"
+    ],
+    "87": [
+      "PA_metrics"
+    ],
+    "88": [
+      "PA_commercial_model"
+    ],
+    "89": [
+      "05_implementation_etapa_C"
+    ],
+    "90": [
+      "06_agent_ops_codex_generator"
+    ],
+    "91": [
+      "06_agent_ops_data_contracts"
+    ],
+    "92": [
+      "07_execution_plan_step3"
+    ],
+    "93": [
+      "07_execution_plan_step7"
+    ],
+    "94": [
+      "icon_app_ingreso_product"
+    ]
+  },
+  "cohesion": {
+    "0": 0.06,
+    "1": 0.07,
+    "2": 0.05,
+    "3": 0.08,
+    "4": 0.09,
+    "5": 0.08,
+    "6": 0.11,
+    "7": 0.12,
+    "8": 0.19,
+    "9": 0.08,
+    "10": 0.12,
+    "11": 0.17,
+    "12": 0.16,
+    "13": 0.2,
+    "14": 0.24,
+    "15": 0.22,
+    "16": 0.25,
+    "17": 0.42,
+    "18": 0.22,
+    "19": 0.22,
+    "20": 0.22,
+    "21": 0.25,
+    "22": 0.36,
+    "23": 0.43,
+    "24": 0.29,
+    "25": 0.53,
+    "26": 0.47,
+    "27": 0.4,
+    "28": 0.33,
+    "29": 0.4,
+    "30": 0.4,
+    "31": 0.4,
+    "32": 0.5,
+    "33": 0.83,
+    "34": 0.5,
+    "35": 0.67,
+    "36": 0.67,
+    "37": 0.67,
+    "38": 0.67,
+    "39": 0.67,
+    "40": 1.0,
+    "41": 1.0,
+    "42": 1.0,
+    "43": 1.0,
+    "44": 1.0,
+    "45": 1.0,
+    "46": 1.0,
+    "47": 1.0,
+    "48": 1.0,
+    "49": 1.0,
+    "50": 1.0,
+    "51": 1.0,
+    "52": 1.0,
+    "53": 1.0,
+    "54": 1.0,
+    "55": 1.0,
+    "56": 1.0,
+    "57": 1.0,
+    "58": 1.0,
+    "59": 1.0,
+    "60": 1.0,
+    "61": 1.0,
+    "62": 1.0,
+    "63": 1.0,
+    "64": 1.0,
+    "65": 1.0,
+    "66": 1.0,
+    "67": 1.0,
+    "68": 1.0,
+    "69": 1.0,
+    "70": 1.0,
+    "71": 1.0,
+    "72": 1.0,
+    "73": 1.0,
+    "74": 1.0,
+    "75": 1.0,
+    "76": 1.0,
+    "77": 1.0,
+    "78": 1.0,
+    "79": 1.0,
+    "80": 1.0,
+    "81": 1.0,
+    "82": 1.0,
+    "83": 1.0,
+    "84": 1.0,
+    "85": 1.0,
+    "86": 1.0,
+    "87": 1.0,
+    "88": 1.0,
+    "89": 1.0,
+    "90": 1.0,
+    "91": 1.0,
+    "92": 1.0,
+    "93": 1.0,
+    "94": 1.0
+  },
+  "gods": [
+    {
+      "id": "route_get",
+      "label": "GET()",
+      "degree": 22
+    },
+    {
+      "id": "session_runner_loadcontentlenguaexercises",
+      "label": "loadContentLenguaExercises()",
+      "degree": 22
+    },
+    {
+      "id": "exercise_selector_selectnextexercisedetailed",
+      "label": "selectNextExerciseDetailed()",
+      "degree": 16
+    },
+    {
+      "id": "session_runner_loadlenguaexercises",
+      "label": "loadLenguaExercises()",
+      "degree": 16
+    },
+    {
+      "id": "exercise_selector_loadlenguaselectiongraph",
+      "label": "loadLenguaSelectionGraph()",
+      "degree": 14
+    },
+    {
+      "id": "local_progress_store_loadprogressasync",
+      "label": "loadProgressAsync()",
+      "degree": 14
+    },
+    {
+      "id": "session_runner_normalizeexercise",
+      "label": "normalizeExercise()",
+      "degree": 12
+    },
+    {
+      "id": "mastery_model_buildmasterymodel",
+      "label": "buildMasteryModel()",
+      "degree": 12
+    },
+    {
+      "id": "session_runner_startpracticesession",
+      "label": "startPracticeSession()",
+      "degree": 11
+    },
+    {
+      "id": "local_progress_store_loadprogress",
+      "label": "loadProgress()",
+      "degree": 11
+    }
+  ],
+  "surprises": [
+    {
+      "source": "Practice Page (Desktop Layout)",
+      "target": "Practice Page (Tall Desktop Layout)",
+      "source_files": [
+        "practice-desktop.png",
+        "practice-desktop-tall.png"
+      ],
+      "confidence": "AMBIGUOUS",
+      "relation": "semantically_similar_to",
+      "why": "ambiguous connection - not explicitly stated in source; connects across different repos/directories; semantically similar concepts with no structural link; peripheral node `Practice Page (Tall Desktop Layout)` unexpectedly reaches hub `Practice Page (Desktop Layout)`"
+    },
+    {
+      "source": "Practice Page (Desktop Layout)",
+      "target": "Practice Page (Desktop Layout Variant 2)",
+      "source_files": [
+        "practice-desktop.png",
+        "practice-desktop2.png"
+      ],
+      "confidence": "AMBIGUOUS",
+      "relation": "semantically_similar_to",
+      "why": "ambiguous connection - not explicitly stated in source; connects across different repos/directories; semantically similar concepts with no structural link; peripheral node `Practice Page (Desktop Layout Variant 2)` unexpectedly reaches hub `Practice Page (Desktop Layout)`"
+    },
+    {
+      "source": "Practice Page (Full Page)",
+      "target": "Practice Page (Desktop Layout)",
+      "source_files": [
+        "practice-fullpage.png",
+        "practice-desktop.png"
+      ],
+      "confidence": "AMBIGUOUS",
+      "relation": "semantically_similar_to",
+      "why": "ambiguous connection - not explicitly stated in source; connects across different repos/directories; semantically similar concepts with no structural link; peripheral node `Practice Page (Full Page)` unexpectedly reaches hub `Practice Page (Desktop Layout)`"
+    },
+    {
+      "source": "Glossary Panel (Expanded)",
+      "target": "Glossary Panel (Collapsed)",
+      "source_files": [
+        "practice-glossary-clicked.png",
+        "practice-glossary-closed.png"
+      ],
+      "confidence": "AMBIGUOUS",
+      "relation": "semantically_similar_to",
+      "why": "ambiguous connection - not explicitly stated in source; connects across different repos/directories; semantically similar concepts with no structural link"
+    },
+    {
+      "source": "Glossary Expanded UI",
+      "target": "Glossary UI",
+      "source_files": [
+        "practice-glossary-open.png",
+        "practice-glossary.png"
+      ],
+      "confidence": "AMBIGUOUS",
+      "relation": "semantically_similar_to",
+      "why": "ambiguous connection - not explicitly stated in source; connects across different repos/directories; semantically similar concepts with no structural link"
+    }
+  ],
+  "questions": [
+    {
+      "type": "ambiguous_edge",
+      "question": "What is the exact relationship between `Canonical Text Pack V1` and `L5: Dual ID system (LEGACY_SKILL_IDS)`?",
+      "why": "Edge tagged AMBIGUOUS (relation: conceptually_related_to) - confidence is low."
+    },
+    {
+      "type": "ambiguous_edge",
+      "question": "What is the exact relationship between `Practice Page (Tall Desktop Layout)` and `Responsive Desktop Layout`?",
+      "why": "Edge tagged AMBIGUOUS (relation: implements) - confidence is low."
+    },
+    {
+      "type": "ambiguous_edge",
+      "question": "What is the exact relationship between `Practice Page (Tall Desktop Layout)` and `Practice Page (Desktop Layout)`?",
+      "why": "Edge tagged AMBIGUOUS (relation: semantically_similar_to) - confidence is low."
+    },
+    {
+      "type": "ambiguous_edge",
+      "question": "What is the exact relationship between `Practice Page (Desktop Layout)` and `Responsive Desktop Layout`?",
+      "why": "Edge tagged AMBIGUOUS (relation: implements) - confidence is low."
+    },
+    {
+      "type": "ambiguous_edge",
+      "question": "What is the exact relationship between `Practice Page (Desktop Layout)` and `Practice Page (Desktop Layout Variant 2)`?",
+      "why": "Edge tagged AMBIGUOUS (relation: semantically_similar_to) - confidence is low."
+    },
+    {
+      "type": "ambiguous_edge",
+      "question": "What is the exact relationship between `Practice Page (Desktop Layout)` and `Practice Page (Full Page)`?",
+      "why": "Edge tagged AMBIGUOUS (relation: semantically_similar_to) - confidence is low."
+    },
+    {
+      "type": "ambiguous_edge",
+      "question": "What is the exact relationship between `Practice Page (Desktop Layout)` and `Glossary Panel (Expanded)`?",
+      "why": "Edge tagged AMBIGUOUS (relation: conceptually_related_to) - confidence is low."
+    }
+  ]
+}
