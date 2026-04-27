@@ -200,6 +200,7 @@ export function PracticeQuestion({
     const recommendedHref = recommendedSubskill
       ? buildPracticeHref(recommendedSubskill.parentSkill, recommendedSubskill.id, [], { mode: "training" }, progressCode)
       : restartHref;
+    const progressHref = buildProgressHref(recommendedHref, progressCode);
     const readingUnit = session.readingUnit;
     const isReadingSession = session.sessionType === "reading-based" && Boolean(readingUnit);
     const readingExcerpt = isReadingSession && readingUnit
@@ -266,7 +267,7 @@ export function PracticeQuestion({
             >
               Ver mapa de dominio completo
             </Button>
-            <Button href={withProgressCode("/dashboard", progressCode)} variant="ghost" size="md" fullWidth>
+            <Button href={progressHref} variant="ghost" size="md" fullWidth>
               Ver avance y progreso
             </Button>
           </div>
@@ -881,6 +882,18 @@ function buildPracticeHref(
   }
 
   return withProgressCode(`/practice?${params.toString()}`, progressCode);
+}
+
+function buildProgressHref(continueHref: string, progressCode?: string): string {
+  const params = new URLSearchParams();
+
+  if (progressCode) {
+    params.set("code", progressCode);
+  }
+
+  params.set("continue", continueHref);
+
+  return `/progreso?${params.toString()}`;
 }
 
 function buildFocusResults(

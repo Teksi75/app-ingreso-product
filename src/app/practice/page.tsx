@@ -9,6 +9,7 @@ import {
   startPracticeSessionAsync,
   startReadingUnitSessionAsync,
   type PracticeMode,
+  type PracticeSelection,
   type PracticeSessionProgressInput,
   type PracticeSessionProgressResult,
 } from "../../practice/session_runner";
@@ -90,6 +91,7 @@ export default async function PracticePage({ searchParams }: PracticePageProps) 
         </header>
         <section className="mx-auto grid w-full max-w-6xl gap-5 p-4 lg:p-6">
           <PracticeQuestion
+            key={buildPracticeQuestionKey(practiceSelection)}
             session={practiceSelection}
             masteryMap={getLenguaMasteryMap()}
             progressCode={progressCode}
@@ -212,4 +214,15 @@ function buildRestartHref({
 
   const query = params.toString();
   return withProgressCode(query ? `/practice?${query}` : "/practice", progressCode);
+}
+
+function buildPracticeQuestionKey(practiceSelection: PracticeSelection): string {
+  return [
+    practiceSelection.mode,
+    practiceSelection.sessionType,
+    practiceSelection.exercise.skill_id,
+    practiceSelection.exercise.subskill,
+    practiceSelection.readingUnit?.id ?? "no-unit",
+    practiceSelection.sessionExercises.map((exercise) => exercise.id).join(","),
+  ].join("|");
 }

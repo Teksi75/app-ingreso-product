@@ -13,8 +13,8 @@
       "subskill": "reconocer tema central",
       "difficulty": 1,
       "type": "multiple_choice",
-      "text": "La municipalidad de San Rafael informo que desde el lunes se encuentran habilitadas las inscripciones para los talleres de guitarra, ceramica y teatro. Los interesados pueden anotarse de lunes a viernes de 9 a 13 en la Casa de la Cultura.",
-      "prompt": "De que trata principalmente esta noticia?",
+      "text": "La municipalidad de San Rafael informó que desde el lunes se encuentran habilitadas las inscripciones para los talleres de guitarra, cerámica y teatro. Los interesados pueden anotarse de lunes a viernes de 9 a 13 en la Casa de la Cultura.",
+      "prompt": "De qué trata principalmente esta noticia?",
       "options": [
         "La apertura de inscripciones para talleres",
         "Los horarios de la Casa de la Cultura",
@@ -31,8 +31,8 @@
       "subskill": "ubicar datos puntuales",
       "difficulty": 1,
       "type": "multiple_choice",
-      "text": "El veterinario Dr. Peralta atendio esta semana a 12 animales en la zona sur de la ciudad. La mayoria correspondio a perros con problemas de piel causados por el calor.",
-      "prompt": "Cuantos animales atendio el veterinario?",
+      "text": "El veterinario Dr. Peralta atendió esta semana a 12 animales en la zona sur de la ciudad. La mayoría correspondió a perros con problemas de piel causados por el calor.",
+      "prompt": "Cuántos animales atendió el veterinario?",
       "options": [
         "12",
         "7",
@@ -41,7 +41,7 @@
       ],
       "correct_answer": "12",
       "feedback_correct": "Correcto: el texto lo dice de forma directa.",
-      "feedback_incorrect": "Busca el numero exacto mencionado en el texto."
+      "feedback_incorrect": "Busca el número exacto mencionado en el texto."
     },
     {
       "id": "LEN-EX-039",
@@ -49,17 +49,17 @@
       "subskill": "inferir causa o consecuencia",
       "difficulty": 2,
       "type": "multiple_choice",
-      "text": "La municipalidad cerro tres calles del centro y coloco vallas amarillas. Los comerciantes cercanos comentaron que las ventas bajaron esa semana.",
-      "prompt": "Que se puede inferir?",
+      "text": "La municipalidad cerró tres calles del centro y colocó vallas amarillas. Los comerciantes cercanos comentaron que las ventas bajaron esa semana.",
+      "prompt": "Qué se puede inferir?",
       "options": [
         "Las calles se cerraron por alguna obra o emergencia",
         "Los comerciantes cerraron sus locales voluntariamente",
-        "La ciudad organizo una feria en el centro",
-        "Las vallas se colocaron despues de que subieron las ventas"
+        "La ciudad organizó una feria en el centro",
+        "Las vallas se colocaron después de que subieron las ventas"
       ],
       "correct_answer": "Las calles se cerraron por alguna obra o emergencia",
       "feedback_incorrect": "Busca la causa que explique las vallas y las calles cerradas.",
-      "feedback_correct": "Correcto: calles cerradas y vallas indican una intervention u obra."
+      "feedback_correct": "Correcto: calles cerradas y vallas indican una intervención u obra."
     },
     {
       "id": "LEN-EX-057",
@@ -67,15 +67,15 @@
       "subskill": "inferir causa o consecuencia",
       "difficulty": 1,
       "type": "multiple_choice",
-      "text": "El patio de la escuela amanecio mojado y varias mochilas tenian gotas de agua. La directora pidio que el recreo se hiciera adentro.",
-      "prompt": "Que se puede inferir?",
+      "text": "El patio de la escuela amaneció mojado y varias mochilas tenían gotas de agua. La directora pidió que el recreo se hiciera adentro.",
+      "prompt": "Qué se puede inferir?",
       "options": [
-        "Habia llovido o estaba lloviendo",
+        "Había llovido o estaba lloviendo",
         "Los estudiantes limpiaron el patio",
-        "La escuela habia cerrado por vacaciones",
+        "La escuela había cerrado por vacaciones",
         "Las mochilas estaban nuevas"
       ],
-      "correct_answer": "Habia llovido o estaba lloviendo",
+      "correct_answer": "Había llovido o estaba lloviendo",
       "feedback_correct": "Correcto: el patio mojado y las gotas permiten inferir lluvia.",
       "feedback_incorrect": "Busca una causa que explique el patio mojado y el recreo adentro."
     },
@@ -85,17 +85,17 @@
       "subskill": "inferir causa o consecuencia",
       "difficulty": 1,
       "type": "multiple_choice",
-      "text": "Tomas guardo el cuaderno en la mochila y salio rapido. Al llegar a clase, no tenia lapicera para copiar.",
-      "prompt": "Que consecuencia se puede inferir?",
+      "text": "Tomás guardó el cuaderno en la mochila y salió rápido. Al llegar a clase, no tenía lapicera para copiar.",
+      "prompt": "Qué consecuencia se puede inferir?",
       "options": [
-        "Tomas tendra que pedir una lapicera",
-        "Tomas ya termino la tarea",
-        "La clase se suspendio",
+        "Tomás tendrá que pedir una lapicera",
+        "Tomás ya terminó la tarea",
+        "La clase se suspendió",
         "El cuaderno estaba roto"
       ],
-      "correct_answer": "Tomas tendra que pedir una lapicera",
-      "feedback_correct": "Correcto: si no tiene lapicera, probablemente necesitara pedir una.",
-      "feedback_incorrect": "Piensa que necesita para copiar en clase."
+      "correct_answer": "Tomás tendrá que pedir una lapicera",
+      "feedback_correct": "Correcto: si no tiene lapicera, probablemente necesitará pedir una.",
+      "feedback_incorrect": "Piensa qué necesita para copiar en clase."
     },
     {
       "id": "LEN-EX-059",
@@ -103,17 +103,17 @@
       "subskill": "inferir causa o consecuencia",
       "difficulty": 2,
       "type": "multiple_choice",
-      "text": "La biblioteca coloco un cartel de silencio en la entrada. Varias personas estudiaban con auriculares y libros abiertos.",
-      "prompt": "Por que pusieron probablemente el cartel?",
+      "text": "La biblioteca colocó un cartel de silencio en la entrada. Varias personas estudiaban con auriculares y libros abiertos.",
+      "prompt": "Por qué pusieron probablemente el cartel?",
       "options": [
         "Para cuidar un ambiente de estudio",
         "Para anunciar una venta de libros",
         "Para indicar una salida de emergencia",
-        "Para invitar a una charla con musica"
+        "Para invitar a una charla con música"
       ],
       "correct_answer": "Para cuidar un ambiente de estudio",
       "feedback_correct": "Correcto: el contexto muestra personas estudiando y necesidad de silencio.",
-      "feedback_incorrect": "Relaciona el cartel con lo que estan haciendo las personas."
+      "feedback_incorrect": "Relaciona el cartel con lo que están haciendo las personas."
     },
     {
       "id": "LEN-EX-060",
@@ -121,17 +121,17 @@
       "subskill": "inferir causa o consecuencia",
       "difficulty": 2,
       "type": "multiple_choice",
-      "text": "El tren llego veinte minutos tarde. Algunos pasajeros miraban el reloj y apuraban el paso al bajar.",
-      "prompt": "Que se puede inferir sobre algunos pasajeros?",
+      "text": "El tren llegó veinte minutos tarde. Algunos pasajeros miraban el reloj y apuraban el paso al bajar.",
+      "prompt": "Qué se puede inferir sobre algunos pasajeros?",
       "options": [
-        "Podian llegar tarde a sus actividades",
-        "Querian pasear por la estacion",
-        "Habian olvidado comprar boletos",
-        "No sabian leer la hora"
+        "Podían llegar tarde a sus actividades",
+        "Querían pasear por la estación",
+        "Habían olvidado comprar boletos",
+        "No sabían leer la hora"
       ],
-      "correct_answer": "Podian llegar tarde a sus actividades",
+      "correct_answer": "Podían llegar tarde a sus actividades",
       "feedback_correct": "Correcto: mirar el reloj y apurarse se relaciona con llegar tarde.",
-      "feedback_incorrect": "Fijate que efecto puede tener la demora del tren."
+      "feedback_incorrect": "Fijate qué efecto puede tener la demora del tren."
     },
     {
       "id": "LEN-EX-061",
@@ -139,17 +139,17 @@
       "subskill": "inferir causa o consecuencia",
       "difficulty": 2,
       "type": "multiple_choice",
-      "text": "El club aviso que la pileta no estaria disponible durante la tarde. Minutos despues, un tecnico entro con herramientas y reviso las bombas de agua.",
-      "prompt": "Cual es la causa mas probable del cierre?",
+      "text": "El club avisó que la pileta no estaría disponible durante la tarde. Minutos después, un técnico entró con herramientas y revisó las bombas de agua.",
+      "prompt": "Cuál es la causa más probable del cierre?",
       "options": [
-        "Habia que hacer una reparacion o revision",
-        "El club organizo una competencia",
-        "Los socios pidieron mas horarios",
+        "Había que hacer una reparación o revisión",
+        "El club organizó una competencia",
+        "Los socios pidieron más horarios",
         "La pileta estaba demasiado llena de gente"
       ],
-      "correct_answer": "Habia que hacer una reparacion o revision",
-      "feedback_correct": "Correcto: el tecnico y las herramientas indican mantenimiento.",
-      "feedback_incorrect": "Usa la pista del tecnico con herramientas."
+      "correct_answer": "Había que hacer una reparación o revisión",
+      "feedback_correct": "Correcto: el técnico y las herramientas indican mantenimiento.",
+      "feedback_incorrect": "Usa la pista del técnico con herramientas."
     },
     {
       "id": "LEN-EX-062",
@@ -157,17 +157,17 @@
       "subskill": "inferir causa o consecuencia",
       "difficulty": 2,
       "type": "multiple_choice",
-      "text": "La maestra pidio guardar los mapas y repartir hojas en blanco. Luego escribio en el pizarron: Evaluacion de geografia.",
-      "prompt": "Que se puede inferir?",
+      "text": "La maestra pidió guardar los mapas y repartir hojas en blanco. Luego escribió en el pizarrón: Evaluación de geografía.",
+      "prompt": "Qué se puede inferir?",
       "options": [
         "La clase iba a tener una prueba",
         "La maestra iba a decorar el aula",
         "Los estudiantes iban a salir al patio",
-        "La materia cambiaria a matematica"
+        "La materia cambiaría a matemática"
       ],
       "correct_answer": "La clase iba a tener una prueba",
-      "feedback_correct": "Correcto: hojas en blanco y evaluacion anuncian una prueba.",
-      "feedback_incorrect": "Relaciona la palabra evaluacion con las hojas en blanco."
+      "feedback_correct": "Correcto: hojas en blanco y evaluación anuncian una prueba.",
+      "feedback_incorrect": "Relaciona la palabra evaluación con las hojas en blanco."
     },
     {
       "id": "LEN-EX-063",
@@ -175,17 +175,17 @@
       "subskill": "inferir causa o consecuencia",
       "difficulty": 3,
       "type": "multiple_choice",
-      "text": "El almacenero bajo la persiana antes del horario habitual. En la puerta dejo un papel que decia: Volvemos cuando se restablezca la luz.",
-      "prompt": "Que se puede inferir?",
+      "text": "El almacenero bajó la persiana antes del horario habitual. En la puerta dejó un papel que decía: Volvemos cuando se restablezca la luz.",
+      "prompt": "Qué se puede inferir?",
       "options": [
-        "El negocio no podia atender por un corte de electricidad",
-        "El almacenero cambio de rubro",
-        "El negocio habia vendido toda la mercaderia",
-        "La persiana estaba recien pintada"
+        "El negocio no podía atender por un corte de electricidad",
+        "El almacenero cambió de rubro",
+        "El negocio había vendido toda la mercadería",
+        "La persiana estaba recién pintada"
       ],
-      "correct_answer": "El negocio no podia atender por un corte de electricidad",
-      "feedback_correct": "Correcto: restablecer la luz indica un corte electrico.",
-      "feedback_incorrect": "Presta atencion al aviso pegado en la puerta."
+      "correct_answer": "El negocio no podía atender por un corte de electricidad",
+      "feedback_correct": "Correcto: restablecer la luz indica un corte eléctrico.",
+      "feedback_incorrect": "Presta atención al aviso pegado en la puerta."
     },
     {
       "id": "LEN-EX-064",
@@ -193,17 +193,17 @@
       "subskill": "inferir causa o consecuencia",
       "difficulty": 3,
       "type": "multiple_choice",
-      "text": "El equipo llevo botellas extra y gorras al entrenamiento. El profesor redujo la duracion de los ejercicios al aire libre.",
-      "prompt": "Cual es la inferencia mas probable?",
+      "text": "El equipo llevó botellas extra y gorras al entrenamiento. El profesor redujo la duración de los ejercicios al aire libre.",
+      "prompt": "Cuál es la inferencia más probable?",
       "options": [
-        "Hacia mucho calor durante el entrenamiento",
+        "Hacía mucho calor durante el entrenamiento",
         "El equipo entrenaba de noche",
-        "Los jugadores habian olvidado las zapatillas",
-        "El profesor queria suspender la temporada"
+        "Los jugadores habían olvidado las zapatillas",
+        "El profesor quería suspender la temporada"
       ],
-      "correct_answer": "Hacia mucho calor durante el entrenamiento",
+      "correct_answer": "Hacía mucho calor durante el entrenamiento",
       "feedback_correct": "Correcto: agua, gorras y menos actividad al aire libre apuntan al calor.",
-      "feedback_incorrect": "Busca una condicion que explique las botellas, las gorras y la reduccion."
+      "feedback_incorrect": "Busca una condición que explique las botellas, las gorras y la reducción."
     },
     {
       "id": "LEN-EX-065",
@@ -211,30 +211,30 @@
       "subskill": "inferir causa o consecuencia",
       "difficulty": 3,
       "type": "multiple_choice",
-      "text": "En la terminal anunciaron que el micro saldria por otra plataforma. Varias personas juntaron sus bolsos y caminaron hacia el sector opuesto.",
-      "prompt": "Que consecuencia produjo el anuncio?",
+      "text": "En la terminal anunciaron que el micro saldría por otra plataforma. Varias personas juntaron sus bolsos y caminaron hacia el sector opuesto.",
+      "prompt": "Qué consecuencia produjo el anuncio?",
       "options": [
         "Los pasajeros cambiaron de lugar para abordar",
         "Los pasajeros cancelaron todos los pasajes",
-        "El micro llego a destino antes de tiempo",
-        "La terminal cerro sus puertas"
+        "El micro llegó a destino antes de tiempo",
+        "La terminal cerró sus puertas"
       ],
       "correct_answer": "Los pasajeros cambiaron de lugar para abordar",
       "feedback_correct": "Correcto: el cambio de plataforma hizo que se movieran con sus bolsos.",
-      "feedback_incorrect": "Observa que hicieron las personas despues del anuncio."
+      "feedback_incorrect": "Observa qué hicieron las personas después del anuncio."
     },
     {
       "id": "LEN-EX-040",
       "skill_id": "LEN-COMP-004",
-      "subskill": "identificar intencion informativa",
+      "subskill": "identificar intención informativa",
       "difficulty": 2,
       "type": "multiple_choice",
-      "text": "Desde el area de Salud recomiendan lavarse las manos con agua y jabon antes de comer y al volver de la calle. Tambien sugieren ventilar los ambientes cerrados dos veces por dia.",
-      "prompt": "Cual es la intencion principal del texto?",
+      "text": "Desde el área de Salud recomiendan lavarse las manos con agua y jabón antes de comer y al volver de la calle. También sugieren ventilar los ambientes cerrados dos veces por día.",
+      "prompt": "Cuál es la intención principal del texto?",
       "options": [
         "Orientar acciones de cuidado",
         "Narrar una historia de salud",
-        "Convencer de comprar jabon",
+        "Convencer de comprar jabón",
         "Describir un hospital"
       ],
       "correct_answer": "Orientar acciones de cuidado",
@@ -247,17 +247,17 @@
       "subskill": "distinguir dato textual de inferencia",
       "difficulty": 3,
       "type": "multiple_choice",
-      "text": "El equipo local de remo entreno durante tres semanas en la laguna del parque. El sabado participaron en la competencia regional y ocuparon el segundo puesto en la categoria juvenil.",
-      "prompt": "Cual es un dato que aparece directamente en el texto?",
+      "text": "El equipo local de remo entrenó durante tres semanas en la laguna del parque. El sábado participaron en la competencia regional y ocuparon el segundo puesto en la categoría juvenil.",
+      "prompt": "Cuál es un dato que aparece directamente en el texto?",
       "options": [
-        "El equipo entreno tres semanas",
+        "El equipo entrenó tres semanas",
         "El equipo era el favorito para ganar",
-        "La laguna es la mas grande de la zona",
-        "Los remeros tenian experiencia previa"
+        "La laguna es la más grande de la zona",
+        "Los remeros tenían experiencia previa"
       ],
-      "correct_answer": "El equipo entreno tres semanas",
-      "feedback_correct": "Correcto: esa informacion esta escrita de forma directa.",
-      "feedback_incorrect": "Elegi solo lo que esta expresado de forma explicita, no lo que se asume."
+      "correct_answer": "El equipo entrenó tres semanas",
+      "feedback_correct": "Correcto: esa información está escrita de forma directa.",
+      "feedback_incorrect": "Elegí solo lo que está expresado de forma explícita, no lo que se asume."
     },
     {
       "id": "LEN-EX-042",
@@ -265,8 +265,8 @@
       "subskill": "inferir significado por pistas cercanas",
       "difficulty": 2,
       "type": "multiple_choice",
-      "text": "El viento azotaba los arboles y arrancaba hojas de las ramas. La gente caminaba inclinada para avanzar.",
-      "prompt": "Que significa azotaba en este contexto?",
+      "text": "El viento azotaba los árboles y arrancaba hojas de las ramas. La gente caminaba inclinada para avanzar.",
+      "prompt": "Qué significa azotaba en este contexto?",
       "options": [
         "Golpeaba con fuerza",
         "Acariciaba suavemente",
@@ -275,25 +275,25 @@
       ],
       "correct_answer": "Golpeaba con fuerza",
       "feedback_correct": "Correcto: la gente inclinada y las hojas arrancadas confirman la fuerza del viento.",
-      "feedback_incorrect": "Usa las pistas del texto: arboles golpeados, gente que no puede caminar recto."
+      "feedback_incorrect": "Usa las pistas del texto: árboles golpeados, gente que no puede caminar recto."
     },
     {
       "id": "LEN-EX-043",
       "skill_id": "LEN-VOC-001",
-      "subskill": "reconocer acepcion adecuada",
+      "subskill": "reconocer acepción adecuada",
       "difficulty": 2,
       "type": "multiple_choice",
-      "text": "La panaderia del barrio reabrio sus puertas con un cartel que decia: Todo horneado esta manana.",
-      "prompt": "Que significa horneado en esta noticia?",
+      "text": "La panadería del barrio reabrió sus puertas con un cartel que decía: Todo horneado esta mañana.",
+      "prompt": "Qué significa horneado en esta noticia?",
       "options": [
-        "Preparado en horno esa manana",
+        "Preparado en horno esa mañana",
         "Caliente por el clima",
-        "Elaborado con mucha anticontacion",
+        "Elaborado con mucha anticipación",
         "Cocido al vapor"
       ],
-      "correct_answer": "Preparado en horno esa manana",
-      "feedback_correct": "Correcto: en una panaderia, horneado se refiere a lo que sale del horno.",
-      "feedback_incorrect": "Pensa en el contexto de una panaderia para elegir la acepcion."
+      "correct_answer": "Preparado en horno esa mañana",
+      "feedback_correct": "Correcto: en una panadería, horneado se refiere a lo que sale del horno.",
+      "feedback_incorrect": "Pensá en el contexto de una panadería para elegir la acepción."
     },
     {
       "id": "LEN-EX-044",
@@ -301,35 +301,35 @@
       "subskill": "interpretar expresiones no literales",
       "difficulty": 3,
       "type": "multiple_choice",
-      "text": "ElIntendente dijo que la obra estaba en pañales y pidio paciencia a los vecinos.",
-      "prompt": "Que quiere decir que la obra esta en pañales?",
+      "text": "El intendente dijo que la obra estaba en pañales y pidió paciencia a los vecinos.",
+      "prompt": "Qué quiere decir que la obra está en pañales?",
       "options": [
-        "Esta en una etapa muy inicial",
-        "Esta terminandose",
-        "Esta dibujada en un papel",
-        "Esta envuelta en tela"
+        "Está en una etapa muy inicial",
+        "Está terminándose",
+        "Está dibujada en un papel",
+        "Está envuelta en tela"
       ],
-      "correct_answer": "Esta en una etapa muy inicial",
-      "feedback_correct": "Correcto: en pañales significa recien comenzada.",
-      "feedback_incorrect": "La expresion en pañales no se usa de forma literal."
+      "correct_answer": "Está en una etapa muy inicial",
+      "feedback_correct": "Correcto: en pañales significa recién comenzada.",
+      "feedback_incorrect": "La expresión en pañales no se usa de forma literal."
     },
     {
       "id": "LEN-EX-045",
       "skill_id": "LEN-VOC-002",
-      "subskill": "reconocer sinonimos contextuales",
+      "subskill": "reconocer sinónimos contextuales",
       "difficulty": 1,
       "type": "multiple_choice",
-      "text": "La policia local difundio un comunicado sobre el cierre de calles en la zona céntrica.",
-      "prompt": "Que palabra puede reemplazar difundio sin cambiar el sentido?",
+      "text": "La policía local difundió un comunicado sobre el cierre de calles en la zona céntrica.",
+      "prompt": "Qué palabra puede reemplazar difundió sin cambiar el sentido?",
       "options": [
-        "Publico",
+        "Publicó",
         "Oculto",
-        "Discutio",
-        "Critico"
+        "Discutió",
+        "Criticó"
       ],
-      "correct_answer": "Publico",
+      "correct_answer": "Publicó",
       "feedback_correct": "Correcto: difundir y publicar comparten la idea de dar a conocer.",
-      "feedback_incorrect": "Busca una palabra que mantenga la idea de hacer llegar informacion."
+      "feedback_incorrect": "Busca una palabra que mantenga la idea de hacer llegar información."
     },
     {
       "id": "LEN-EX-046",
@@ -337,8 +337,8 @@
       "subskill": "evitar cambios de intensidad",
       "difficulty": 3,
       "type": "multiple_choice",
-      "text": "El informe senalo que la situacion era grave y requeria atencion inmediata.",
-      "prompt": "Que opcion mantiene mejor el sentido de grave?",
+      "text": "El informe señaló que la situación era grave y requería atención inmediata.",
+      "prompt": "Qué opción mantiene mejor el sentido de grave?",
       "options": [
         "Seria",
         "Leve",
@@ -347,7 +347,7 @@
       ],
       "correct_answer": "Seria",
       "feedback_correct": "Correcto: seria mantiene la intensidad de grave.",
-      "feedback_incorrect": "La opcion debe conservar la misma fuerza e intensidad del original."
+      "feedback_incorrect": "La opción debe conservar la misma fuerza e intensidad del original."
     },
     {
       "id": "LEN-EX-047",
@@ -355,17 +355,17 @@
       "subskill": "identificar tiempo verbal",
       "difficulty": 1,
       "type": "multiple_choice",
-      "text": "La municipalidad anuncio que la feria _____ el proximo sabado en la plaza principal.",
-      "prompt": "Que forma verbal completa mejor?",
+      "text": "La municipalidad anunció que la feria _____ el próximo sábado en la plaza principal.",
+      "prompt": "Qué forma verbal completa mejor?",
       "options": [
-        "se realizara",
-        "se realizo",
+        "se realizará",
+        "se realizó",
         "se realiza",
         "se realizaba"
       ],
-      "correct_answer": "se realizara",
-      "feedback_correct": "Correcto: proximo sabado indica futuro.",
-      "feedback_incorrect": "La pista temporal indica algo que aun no ocurrio."
+      "correct_answer": "se realizará",
+      "feedback_correct": "Correcto: próximo sábado indica futuro.",
+      "feedback_incorrect": "La pista temporal indica algo que aún no ocurrió."
     },
     {
       "id": "LEN-EX-048",
@@ -373,17 +373,17 @@
       "subskill": "mantener coherencia temporal",
       "difficulty": 2,
       "type": "multiple_choice",
-      "text": "El bombero llego al lugar, _____ el fuego y despues converso con los vecinos.",
-      "prompt": "Que forma completa mejor manteniendo la coherencia?",
+      "text": "El bombero llegó al lugar, _____ el fuego y después conversó con los vecinos.",
+      "prompt": "Qué forma completa mejor manteniendo la coherencia?",
       "options": [
-        "controlo",
-        "controlaria",
+        "controló",
+        "controlaría",
         "controlara",
         "controla"
       ],
-      "correct_answer": "controlo",
-      "feedback_correct": "Correcto: llego y converso estan en pasado; controlo mantiene la secuencia.",
-      "feedback_incorrect": "La forma verbal debe coincidir con llego y converso."
+      "correct_answer": "controló",
+      "feedback_correct": "Correcto: llegó y conversó están en pasado; controló mantiene la secuencia.",
+      "feedback_incorrect": "La forma verbal debe coincidir con llegó y conversó."
     },
     {
       "id": "LEN-EX-049",
@@ -392,7 +392,7 @@
       "difficulty": 2,
       "type": "multiple_choice",
       "text": "Antes de que se inaugurara el puente, los vecinos _____ en bote.",
-      "prompt": "Que forma verbal completa mejor?",
+      "prompt": "Qué forma verbal completa mejor?",
       "options": [
         "cruzaban",
         "cruzaron",
@@ -400,8 +400,8 @@
         "cruzaran"
       ],
       "correct_answer": "cruzaban",
-      "feedback_correct": "Correcto: la accion de cruzar en bote era habitual antes del puente.",
-      "feedback_incorrect": "La forma debe indicar una accion habitual en el pasado, anterior al puente."
+      "feedback_correct": "Correcto: la acción de cruzar en bote era habitual antes del puente.",
+      "feedback_incorrect": "La forma debe indicar una acción habitual en el pasado, anterior al puente."
     },
     {
       "id": "LEN-EX-050",
@@ -409,17 +409,17 @@
       "subskill": "seleccionar forma verbal compatible",
       "difficulty": 3,
       "type": "multiple_choice",
-      "text": "Si lloviera esta noche, el partido _____ al dia siguiente.",
-      "prompt": "Que forma completa mejor la oracion?",
+      "text": "Si lloviera esta noche, el partido _____ al día siguiente.",
+      "prompt": "Qué forma completa mejor la oración?",
       "options": [
-        "se reprogramaria",
-        "se reprogramo",
+        "se reprogramaría",
+        "se reprogramó",
         "se reprograma",
-        "se habia reprogramado"
+        "se había reprogramado"
       ],
-      "correct_answer": "se reprogramaria",
-      "feedback_correct": "Correcto: condicional despues de un si con subjuntivo.",
-      "feedback_incorrect": "Despues de si + subjuntivo, se espera condicional para la consecuencia."
+      "correct_answer": "se reprogramaría",
+      "feedback_correct": "Correcto: condicional después de un si con subjuntivo.",
+      "feedback_incorrect": "Después de si + subjuntivo, se espera condicional para la consecuencia."
     },
     {
       "id": "LEN-EX-051",
@@ -427,17 +427,17 @@
       "subskill": "mantener coherencia temporal",
       "difficulty": 3,
       "type": "multiple_choice",
-      "text": "Los vecinos relataron que la tormenta _____ varios arboles en la plaza.",
-      "prompt": "Que forma verbal completa mejor?",
+      "text": "Los vecinos relataron que la tormenta _____ varios árboles en la plaza.",
+      "prompt": "Qué forma verbal completa mejor?",
       "options": [
-        "habia derribado",
+        "había derribado",
         "derriba",
         "derribara",
-        "derribaria"
+        "derribaría"
       ],
-      "correct_answer": "habia derribado",
+      "correct_answer": "había derribado",
       "feedback_correct": "Correcto: el derribo es anterior a relataron, se usa antepospretérito.",
-      "feedback_incorrect": "La accion de la tormenta ocurrio antes de que los vecinos relataran."
+      "feedback_incorrect": "La acción de la tormenta ocurrió antes de que los vecinos relataran."
     },
     {
       "id": "LEN-EX-052",
@@ -445,8 +445,8 @@
       "subskill": "reconocer diptongo",
       "difficulty": 1,
       "type": "multiple_choice",
-      "text": "La palabra ciudad tiene las vocales i y u juntas en la misma silaba.",
-      "prompt": "Que fenomeno se produce cuando dos vocales se pronuncian en una misma silaba?",
+      "text": "La palabra ciudad tiene las vocales i y u juntas en la misma sílaba.",
+      "prompt": "Qué fenómeno se produce cuando dos vocales se pronuncian en una misma sílaba?",
       "options": [
         "Diptongo",
         "Hiato",
@@ -454,8 +454,8 @@
         "Sinalefa"
       ],
       "correct_answer": "Diptongo",
-      "feedback_correct": "Correcto: dos vocales en la misma silaba forman diptongo.",
-      "feedback_incorrect": "Cuando dos vocales se unen en una silaba, es diptongo."
+      "feedback_correct": "Correcto: dos vocales en la misma sílaba forman diptongo.",
+      "feedback_incorrect": "Cuando dos vocales se unen en una sílaba, es diptongo."
     },
     {
       "id": "LEN-EX-053",
@@ -463,8 +463,8 @@
       "subskill": "reconocer hiato",
       "difficulty": 2,
       "type": "multiple_choice",
-      "text": "En la palabra leia, las vocales e y i pertenecen a silabas distintas: le-ia.",
-      "prompt": "Como se llama la separacion de dos vocales en silabas distintas?",
+      "text": "En la palabra leía, la e y la í pertenecen a sílabas distintas: le-í-a.",
+      "prompt": "Cómo se llama la separación de dos vocales en sílabas distintas?",
       "options": [
         "Hiato",
         "Diptongo",
@@ -472,17 +472,17 @@
         "Silepsis"
       ],
       "correct_answer": "Hiato",
-      "feedback_correct": "Correcto: hiato es cuando dos vocales se separan en silabas distintas.",
-      "feedback_incorrect": "Dos vocales en silabas distintas forman hiato, no diptongo."
+      "feedback_correct": "Correcto: hiato es cuando dos vocales se separan en sílabas distintas.",
+      "feedback_incorrect": "Dos vocales en sílabas distintas forman hiato, no diptongo."
     },
     {
       "id": "LEN-EX-054",
       "skill_id": "LEN-NORM-003",
-      "subskill": "separar silabas con diptongo",
+      "subskill": "separar sílabas con diptongo",
       "difficulty": 2,
       "type": "multiple_choice",
       "text": "",
-      "prompt": "Cual es la separacion silabica correcta de viejo?",
+      "prompt": "Cuál es la separación silábica correcta de viejo?",
       "options": [
         "vie-jo",
         "vi-e-jo",
@@ -490,26 +490,26 @@
         "vie-j-o"
       ],
       "correct_answer": "vie-jo",
-      "feedback_correct": "Correcto: ie es un diptongo, se mantiene en una silaba.",
+      "feedback_correct": "Correcto: ie es un diptongo, se mantiene en una sílaba.",
       "feedback_incorrect": "Cuando ie forman diptongo, no se separan."
     },
     {
       "id": "LEN-EX-055",
       "skill_id": "LEN-NORM-003",
-      "subskill": "separar silabas con hiato",
+      "subskill": "separar sílabas con hiato",
       "difficulty": 3,
       "type": "multiple_choice",
       "text": "",
-      "prompt": "Cual es la separacion silabica correcta de creia?",
+      "prompt": "Cuál es la separación silábica correcta de creía?",
       "options": [
-        "cre-i-a",
-        "cre-ia",
-        "crei-a",
+        "cre-í-a",
+        "cre-ía",
+        "creí-a",
         "c-re-i-a"
       ],
-      "correct_answer": "cre-i-a",
-      "feedback_correct": "Correcto: e y i pertenecen a silabas distintas, forman hiato.",
-      "feedback_incorrect": "En creia, las vocales e-i se separan porque forman hiato."
+      "correct_answer": "cre-í-a",
+      "feedback_correct": "Correcto: la e y la í pertenecen a sílabas distintas, forman hiato.",
+      "feedback_incorrect": "En creía, las vocales e-i se separan porque forman hiato."
     },
     {
       "id": "LEN-EX-056",
@@ -517,8 +517,8 @@
       "subskill": "reconocer triptongo",
       "difficulty": 3,
       "type": "multiple_choice",
-      "text": "La palabra miau contiene tres vocales juntas en una sola silaba.",
-      "prompt": "Como se llama la union de tres vocales en una misma silaba?",
+      "text": "La palabra miau contiene tres vocales juntas en una sola sílaba.",
+      "prompt": "Cómo se llama la unión de tres vocales en una misma sílaba?",
       "options": [
         "Triptongo",
         "Diptongo doble",
@@ -526,8 +526,8 @@
         "Sinalefa"
       ],
       "correct_answer": "Triptongo",
-      "feedback_correct": "Correcto: tres vocales en una silaba forman triptongo.",
-      "feedback_incorrect": "La union de tres vocales en una silaba es triptongo."
+      "feedback_correct": "Correcto: tres vocales en una sílaba forman triptongo.",
+      "feedback_incorrect": "La unión de tres vocales en una sílaba es triptongo."
     }
   ]
 }

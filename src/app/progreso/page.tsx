@@ -11,6 +11,7 @@ export const dynamic = "force-dynamic";
 type ProgresoPageProps = {
   searchParams: Promise<{
     code?: string | string[];
+    continue?: string | string[];
     student?: string | string[];
   }>;
 };
@@ -20,6 +21,7 @@ export default async function ProgresoPage({ searchParams }: ProgresoPageProps) 
   const studentCode = await resolveStudentCode(getParam(params.code) ?? getParam(params.student));
   const progress = await loadProgressAsync(studentCode);
   const summary = buildProgressSummary(progress);
+  const continueHref = normalizeContinueHref(getParam(params.continue));
   const reportUrl = `/reporte?code=${encodeURIComponent(studentCode)}`;
   const downloadUrl = `/reporte/datos?code=${encodeURIComponent(studentCode)}`;
   const mailtoHref = buildMailtoHref(studentCode, summary.accuracy, summary.totalAttempts, summary.activeDays);
@@ -44,6 +46,14 @@ export default async function ProgresoPage({ searchParams }: ProgresoPageProps) 
               >
                 Descargar reporte
               </a>
+              {continueHref ? (
+                <a
+                  className="inline-flex min-h-[40px] items-center justify-center rounded-lg bg-teal-700 px-4 text-sm font-bold text-white hover:bg-teal-800"
+                  href={continueHref}
+                >
+                  Continuar entrenamiento
+                </a>
+              ) : null}
             </div>
           </div>
         </header>
@@ -131,6 +141,25 @@ export default async function ProgresoPage({ searchParams }: ProgresoPageProps) 
               </div>
             </div>
           </section>
+
+          {continueHref ? (
+            <section className="rounded-lg border border-teal-100 bg-teal-50 p-5">
+              <div className="flex flex-wrap items-center justify-between gap-4">
+                <div>
+                  <h2 className="m-0 text-lg font-bold text-slate-900">Seguir sin repetir</h2>
+                  <p className="mb-0 mt-2 max-w-2xl text-sm leading-6 text-slate-600">
+                    Podés volver al siguiente foco recomendado y continuar desde lo que acabás de completar.
+                  </p>
+                </div>
+                <a
+                  className="inline-flex min-h-[42px] items-center justify-center rounded-lg bg-teal-700 px-4 text-sm font-bold text-white hover:bg-teal-800"
+                  href={continueHref}
+                >
+                  Continuar entrenamiento
+                </a>
+              </div>
+            </section>
+          ) : null}
         </div>
       </main>
 
@@ -166,4 +195,16 @@ function buildMailtoHref(studentCode: string, accuracy: number, totalAttempts: n
 
 function getParam(value: string | string[] | undefined): string | undefined {
   return Array.isArray(value) ? value[0] : value;
+}
+
+function normalizeContinueHref(value: string | undefined): string | null {
+  if (!value) {
+    return null;
+  }
+
+  if (!value.startsWith("/practice?") && value !== "/practice") {
+    return null;
+  }
+
+  return value;
 }
