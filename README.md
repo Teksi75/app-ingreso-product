@@ -46,6 +46,9 @@ INGENIUM es una plataforma de práctica intensiva que ayuda a estudiantes a mejo
 - **Estilos**: [Tailwind CSS](https://tailwindcss.com/) v4
 - **Componentes UI**: Custom components (BentoCard, ProgressCircle, etc.)
 - **Testing**: [Vitest](https://vitest.dev/) (unitario) + [Playwright](https://playwright.dev/) (E2E)
+- **Persistencia de progreso**: Upstash Redis/KV en Vercel para producción; fallback por archivos solo para desarrollo.
+
+> La arquitectura y ownership de Upstash Redis/KV están documentados en [`docs/10_infrastructure/upstash_redis.md`](docs/10_infrastructure/upstash_redis.md). Leer ese documento antes de modificar persistencia, variables de entorno o infraestructura Vercel/Upstash.
 
 ---
 
@@ -85,9 +88,10 @@ src/
 ├── progress/                     # Modelo de mastery/progreso
 ├── recommendation/               # Siguiente paso recomendado
 ├── skills/                       # Metadata y slugs públicos
-├── storage/                      # Persistencia local
+├── storage/                      # Persistencia de progreso (Redis/KV y fallback local)
 content/lengua/                  # Reading units y ejercicios canónicos
 docs/04_exercise_engine/         # Corpus histórico y manifest de contenido
+docs/10_infrastructure/          # Infraestructura de persistencia y ownership
 ```
 
 ---
