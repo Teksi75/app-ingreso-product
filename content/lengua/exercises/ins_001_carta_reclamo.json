@@ -51,7 +51,7 @@
       "question": "Por qué la profesora recomienda evitar adjetivos exagerados en el cuerpo de la carta?",
       "options": [
         "Porque una carta con tono firme pero respetuoso suele recibir mejor tratamiento",
-        "Porque los adjetivos estan prohibidos en cuálquier texto escolar",
+        "Porque los adjetivos están prohibidos en cualquier texto escolar",
         "Porque ocupan demasiado espacio en la hoja",
         "Porque el director no entiende palabras difíciles"
       ],
@@ -113,7 +113,7 @@
         "Imperativo solamente"
       ],
       "correctAnswer": "Presente",
-      "feedback_correct": "Correcto: el texto indica que el pedido y la sitúación actual se expresan en presente.",
+      "feedback_correct": "Correcto: el texto indica que el pedido y la situación actual se expresan en presente.",
       "feedback_incorrect": "Relee el párrafo donde la profesora explica la diferencia entre los tiempos verbales."
     },
     {

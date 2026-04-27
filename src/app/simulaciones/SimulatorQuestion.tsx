@@ -349,7 +349,7 @@ function QuestionPanel({
         <p className="text-xs font-bold uppercase tracking-wide text-teal-600">
           {subskillMetadata.title}
         </p>
-        <h2 className="text-xl font-bold leading-8 text-slate-800">
+        <h2 className="text-xl font-bold leading-8 text-slate-800" data-testid="simulator-question">
           {currentExercise.prompt}
         </h2>
       </div>
@@ -362,6 +362,7 @@ function QuestionPanel({
                 ? "border-teal-300 bg-teal-50 text-teal-800"
                 : "border-slate-200 text-slate-700 hover:bg-slate-50"
             }`}
+            data-testid="answer-option"
             key={option}
           >
             <input

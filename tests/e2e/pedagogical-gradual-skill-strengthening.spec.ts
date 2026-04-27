@@ -186,9 +186,10 @@ test("validates gradual pedagogical strengthening across multiple practice round
 
   await page.getByRole("link", { name: "Ir a simulaciones" }).click();
   await expect(page).toHaveURL(`/simulaciones?code=${studentCode}`);
-  await expect(page.getByText("Duración estimada")).toBeVisible();
-  await expect(page.getByText("7 habilidades")).toBeVisible();
-  await expect(page.getByRole("button", { name: "Iniciar simulación" })).toBeVisible();
+  await expect(page.getByText("Sesión completa")).toBeVisible();
+  await expect(page.getByText("preguntas", { exact: true })).toBeVisible();
+  await expect(page.getByText("minutos", { exact: true })).toBeVisible();
+  await expect(page.getByRole("button", { name: "Empezar simulación" })).toBeVisible();
 });
 
 async function verifyStage(

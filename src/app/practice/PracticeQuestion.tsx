@@ -371,6 +371,7 @@ export function PracticeQuestion({
                 size="md"
                 fullWidth
                 type="submit"
+                data-testid="submit-answer"
               >
                 Responder
               </Button>
@@ -526,6 +527,7 @@ function ExerciseAnswerFields({
                     isCorrectOption,
                     isSelected,
                   })} ${hasSubmitted ? "cursor-default" : "cursor-pointer"}`}
+                  data-testid="answer-option"
                   key={option}
                 >
                   <input
@@ -573,6 +575,7 @@ function ExerciseAnswerFields({
                       ? "border-emerald-200 bg-emerald-50 text-emerald-800"
                     : "border-slate-200 text-slate-700"
                 }`}
+                data-testid="answer-option"
                 key={item}
               >
                 <span>{item}</span>
@@ -626,6 +629,7 @@ function ExerciseAnswerFields({
                 isCorrectOption,
                 isSelected,
               })} ${hasSubmitted ? "cursor-default" : "cursor-pointer"}`}
+              data-testid="answer-option"
             >
               <input
                 checked={isSelected}
@@ -659,6 +663,7 @@ function ExerciseAnswerFields({
               isCorrectOption,
               isSelected,
             })} ${hasSubmitted ? "cursor-default" : "cursor-pointer"}`}
+            data-testid="answer-option"
           >
             <input
               checked={isSelected}

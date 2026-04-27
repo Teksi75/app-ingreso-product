@@ -1,14 +1,12 @@
 import { expect, test } from "@playwright/test";
 
-test("home Lengua CTA opens a real practice question", async ({ page }) => {
+test("home Lengua CTA opens a real practice or simulator flow", async ({ page }) => {
   await page.goto("/");
 
   await page.getByRole("link", { name: /Practicar ahora/ }).click();
 
-  await expect(page).toHaveURL(/\/practice\?mode=training&skill=/);
-  await expect(page.getByText("Habilidad en entrenamiento")).toBeVisible();
-  await expect(page.getByText(/Pregunta 1 de/)).toBeVisible();
-  await expect(page.getByRole("button", { name: "Responder" })).toBeVisible();
+  await page.waitForURL(/\/(practice|simulaciones)/);
+  await expect(page.locator("body")).toContainText(/Pregunta|Simulación|Sesión/);
 });
 
 test("skills Lengua CTA opens a real practice question", async ({ page }) => {

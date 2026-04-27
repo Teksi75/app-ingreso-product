@@ -88,14 +88,14 @@
       "type": "multiple_choice",
       "question": "Desde qué perspectiva está escrita esta noticia?",
       "options": [
-        "Desde una perspectiva objetiva en tercera persona, que informa hechos sin incluir opiniónes personales",
+        "Desde una perspectiva objetiva en tercera persona, que informa hechos sin incluir opiniones personales",
         "Desde la primera persona de uno de los participantes de la obra",
         "Desde una segunda persona que le habla directamente al lector",
         "Desde la primera persona del periodista que opina sobre el evento"
       ],
-      "correctAnswer": "Desde una perspectiva objetiva en tercera persona, que informa hechos sin incluir opiniónes personales",
+      "correctAnswer": "Desde una perspectiva objetiva en tercera persona, que informa hechos sin incluir opiniones personales",
       "feedback_correct": "Correcto: la noticia presenta hechos de manera objetiva, sin que el autor incluya su opinión.",
-      "feedback_incorrect": "Observa si el texto incluye opiniónes personales o si se limita a informar hechos comprobables."
+      "feedback_incorrect": "Observa si el texto incluye opiniones personales o si se limita a informar hechos comprobables."
     }
   ]
 }

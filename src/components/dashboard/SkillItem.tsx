@@ -20,6 +20,7 @@ export function SkillItem({ skill }: SkillItemProps) {
     <article
       aria-label={metadata.title}
       className="flex flex-wrap items-center justify-between gap-4 rounded-lg border border-[#deded8] bg-white px-4 py-3.5"
+      data-testid="skill-progress-card"
     >
       <div className="grid gap-2">
         <div className="grid gap-1">

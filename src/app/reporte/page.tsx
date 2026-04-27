@@ -40,7 +40,7 @@ export default async function ReportePage({ searchParams }: ReportePageProps) {
           <ReportStat label="Precisión" value={`${summary.accuracy}%`} />
         </section>
 
-        <section className="grid gap-4 rounded-lg border border-[#deded8] bg-white p-5">
+        <section className="grid gap-4 rounded-lg border border-[#deded8] bg-white p-5" data-testid="report-skill-coverage">
           <div className="flex flex-wrap items-center justify-between gap-3">
             <h2 className="m-0 text-xl font-bold">Lengua</h2>
             <p className="m-0 text-sm font-bold text-[#5f625b]">

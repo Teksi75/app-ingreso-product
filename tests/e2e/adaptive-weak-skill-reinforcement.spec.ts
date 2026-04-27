@@ -184,7 +184,7 @@ test("reinforces weak skills before advancing to exam readiness", async ({ page 
   await page.getByRole("link", { name: "Ir a simulaciones" }).click();
   await expect(page).toHaveURL(`/simulaciones?code=${studentCode}`);
   await expect(page.getByRole("heading", { name: "Simulación" })).toBeVisible();
-  await expect(page.getByRole("button", { name: "Iniciar simulación" })).toBeVisible();
+  await expect(page.getByRole("button", { name: "Empezar simulación" })).toBeVisible();
 });
 
 function baseConsolidatedSessions(): SessionInput[] {

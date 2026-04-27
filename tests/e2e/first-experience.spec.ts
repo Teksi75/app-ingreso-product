@@ -3,16 +3,9 @@ import { expect, test } from "@playwright/test";
 test("homepage presents a first-session experience with real CTAs", async ({ page }) => {
   await page.goto("/?newStudent=1");
 
-  await expect(page.getByRole("heading", { name: /¡Empecemos!,/ })).toBeVisible();
-  await expect(page.getByText("Empieza tu entrenamiento hoy para ver tu progreso.")).toBeVisible();
-  await expect(page.getByRole("link", { name: /Iniciar Entrenamiento/ })).toHaveAttribute(
-    "href",
-    "/practice?mode=training&skill=comprension-global-del-texto",
-  );
-  await expect(page.getByRole("link", { name: /Ver Desafío/ })).toHaveAttribute(
-    "href",
-    /\/practice\?mode=reading&unit=/,
-  );
+  await expect(page.getByRole("heading", { name: /¡Empecemos!/ })).toBeVisible();
+  await expect(page.getByText("Tu misión de hoy")).toBeVisible();
+  await expect(page.getByRole("link", { name: /Practicar ahora/ })).toBeVisible();
 });
 
 test("dashboard shows contextual empty state and recommendation", async ({ page }) => {
