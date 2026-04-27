@@ -109,7 +109,7 @@ Ultimos cambios relevantes:
 - Homepage, dashboard y simulador usan `buildMasteryModel()` y `getNextStepRecommendation()` como fuente canonica.
 - El simulador guarda progreso con `mode: "simulator"` y devuelve recomendacion posterior.
 - Las sesiones reading-based cierran con resumen de texto, comprension lectora y glosario.
-- Las URLs nuevas usan slugs publicos (`comprension-global-del-texto`, `violeta-parra-la-voz-que-pintaba-canciones`) y aceptan IDs tecnicos legacy.
+- Las URLs nuevas usan slugs publicos (`comprension-global-del-texto`, `violeta-parra`) y aceptan IDs tecnicos legacy.
 - Skill 3 sumo ejercicios `multiple_choice` compatibles con simulador.
 - Se agrego Vitest y tests unitarios para `next_step`.
 

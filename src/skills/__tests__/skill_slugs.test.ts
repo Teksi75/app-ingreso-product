@@ -107,6 +107,7 @@ describe("slugToReadingUnitId", () => {
   });
 
   it("accepts legacy reading unit slugs (backward compatibility)", () => {
+    expect(slugToReadingUnitId("violeta-parra-la-voz-que-pintaba-canciones")).toBe("RU-LEN-BIO-001");
     expect(slugToReadingUnitId("festival-robots-memoria")).toBe("RU-LEN-NOT-001");
   });
 

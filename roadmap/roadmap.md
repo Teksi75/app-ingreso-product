@@ -45,7 +45,7 @@ Objetivo: que la experiencia no exponga IDs técnicos y que las URLs sean establ
 - [x] Mantener links nuevos con slugs para skills y reading units.
 - [x] Mantener soporte legacy para `lengua.skill_*` y `RU-LEN-*`.
 - [x] Cubrir slugs con unit tests y E2E.
-- [ ] Fijar slugs de reading units manualmente (mapa `READING_UNIT_SLUGS`) en vez de derivarlos del título con `slugify()`.
+- [x] Fijar slugs de reading units manualmente (mapa `READING_UNIT_SLUGS`) en vez de derivarlos del título con `slugify()`.
 
 Resultado esperado:
 → Navegación pública clara, testeada y compatible hacia atrás.
@@ -57,9 +57,9 @@ Resultado esperado:
 Objetivo: reducir sesgos de contenido y asegurar que todas las skills canónicas entren al simulador.
 
 - [x] Verificar por test que `lengua.skill_3` puede aparecer en sesiones de simulador.
-- [ ] Ampliar reading units para cubrir mejor skill 3, skill 5 y skill 7.
-- [ ] Crear una reading unit nueva que cruce escritura clara + uso de verbos.
-- [ ] Regenerar `src/data/static_content.ts` con `npm run build` o `npm run prebuild`.
+- [x] Ampliar reading units para cubrir mejor skill 3, skill 5 y skill 7.
+- [x] Crear una reading unit nueva que cruce escritura clara + uso de verbos.
+- [x] Regenerar `src/data/static_content.ts` con `npm run build` o `npm run prebuild`.
 - [ ] Auditar dificultad, glosario y feedback de nuevos contenidos.
 
 Resultado esperado:

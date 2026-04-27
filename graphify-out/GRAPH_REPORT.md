@@ -1,11 +1,11 @@
 # Graph Report - C:\Users\pablo\OneDrive\Desarrollo\app-ingreso-product  (2026-04-26)
 
 ## Corpus Check
-- 74 files · ~254,475 words
+- 74 files · ~255,556 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 393 nodes · 696 edges · 53 communities detected
+- 397 nodes · 701 edges · 53 communities detected
 - Extraction: 84% EXTRACTED · 16% INFERRED · 0% AMBIGUOUS · INFERRED: 109 edges (avg confidence: 0.8)
 - Token cost: 0 input · 0 output
 
@@ -79,8 +79,8 @@
 ## Surprising Connections (you probably didn't know these)
 - `GET()` --calls--> `slugToReadingUnitId()`  [INFERRED]
   C:\Users\pablo\OneDrive\Desarrollo\app-ingreso-product\src\app\reporte\datos\route.ts → C:\Users\pablo\OneDrive\Desarrollo\app-ingreso-product\src\skills\skill_slugs.ts
-- `assertBioStimulusLoadsAsSkillTraining()` --calls--> `loadLenguaExercises()`  [INFERRED]
-  C:\Users\pablo\OneDrive\Desarrollo\app-ingreso-product\src\components\practice\__tests__\lengua_integration.test.ts → C:\Users\pablo\OneDrive\Desarrollo\app-ingreso-product\src\practice\session_runner.ts
+- `middleware()` --calls--> `GET()`  [INFERRED]
+  C:\Users\pablo\OneDrive\Desarrollo\app-ingreso-product\middleware.ts → C:\Users\pablo\OneDrive\Desarrollo\app-ingreso-product\src\app\reporte\datos\route.ts
 - `calculateDashboardData()` --calls--> `buildMasteryModel()`  [INFERRED]
   C:\Users\pablo\OneDrive\Desarrollo\app-ingreso-product\src\app\page.tsx → src\progress\mastery_model.ts
 - `calculateDashboardData()` --calls--> `getWeakestPracticeSkillId()`  [INFERRED]
@@ -92,75 +92,75 @@
 
 ### Community 0 - "Community 0"
 Cohesion: 0.07
-Nodes (44): buildFallbackOptions(), buildGeneratedOptions(), buildHighlightOptions(), buildObjectAnswerOptions(), buildOrderingOptions(), buildPlannedSessionExercises(), buildUserState(), ensureContentOptions() (+36 more)
+Nodes (46): getPracticeProgressSnapshot(), buildFallbackOptions(), buildGeneratedOptions(), buildHighlightOptions(), buildObjectAnswerOptions(), buildOrderingOptions(), buildSessionSkillResults(), calculateUpdatedMastery() (+38 more)
 
 ### Community 1 - "Community 1"
-Cohesion: 0.1
-Nodes (37): clampDifficulty(), clampMastery(), dedupeExercises(), extractSelectorExercises(), filterImmediateRepeats(), filterUnlockedExercises(), findAlternativeSubskill(), findRelatedTarget() (+29 more)
+Cohesion: 0.11
+Nodes (32): clampDifficulty(), clampMastery(), filterImmediateRepeats(), filterUnlockedExercises(), findAlternativeSubskill(), findRelatedTarget(), getMasteryGap(), getMasteryLevel() (+24 more)
 
 ### Community 2 - "Community 2"
-Cohesion: 0.12
-Nodes (36): appendSessionResult(), cloneProgress(), createEmptyProgress(), createSessionId(), getProgressPath(), getRedisClient(), getRedisProgressKey(), getSeenSkills() (+28 more)
+Cohesion: 0.1
+Nodes (35): dedupeExercises(), extractSelectorExercises(), isFsAvailable(), listLenguaExerciseFiles(), loadLenguaSelectionGraph(), loadLenguaSelectorExercises(), assertBioStimulusLoadsAsSkillTraining(), assertLoadsAllLenguaJson() (+27 more)
 
 ### Community 3 - "Community 3"
 Cohesion: 0.09
 Nodes (27): addFocusResult(), buildReadingBlocks(), buildSimulatorSkillResults(), calculateScorePercentage(), chanceByDifficulty(), createStandaloneBlock(), evaluateSimulatorSession(), groupByReadingUnit() (+19 more)
 
 ### Community 4 - "Community 4"
+Cohesion: 0.17
+Nodes (27): appendSessionResult(), cloneProgress(), createEmptyProgress(), createSessionId(), getProgressPath(), getRedisClient(), getRedisProgressKey(), getSeenSkillsAsync() (+19 more)
+
+### Community 5 - "Community 5"
 Cohesion: 0.11
 Nodes (18): assertCanonicalTextPackLoads(), buildPracticeHref(), buildReadingHref(), getNextStepRecommendation(), pickReadingUnit(), calculateDashboardData(), getRank(), buildReadingUnitCandidates() (+10 more)
 
-### Community 5 - "Community 5"
+### Community 6 - "Community 6"
 Cohesion: 0.14
 Nodes (18): getWeakestPracticeSkillId(), buildMasteryModel(), buildPracticeProgressSnapshot(), buildPracticeSkillStats(), buildTrace(), calculateMasteryScore(), clampMasteryLevel(), clampScore() (+10 more)
 
-### Community 6 - "Community 6"
+### Community 7 - "Community 7"
 Cohesion: 0.12
 Nodes (11): ClientAvatarBadge(), ClientAvatarHero(), ClientStudentName(), SidebarNav(), useProgressCodeFromLocation(), createDefaultProfile(), isLearningGoal(), isPlainObject() (+3 more)
 
-### Community 7 - "Community 7"
-Cohesion: 0.16
-Nodes (17): assertBioStimulusLoadsAsSkillTraining(), assertPracticeSessionsUseChoiceExercises(), assertReadingModeDatasetRunsSequentially(), assertReadingUnitSessionsShareBaseTexts(), assertSelectionRespectsPrerequisitesAndMastery(), assertSessionRunnerUsesCrossRelationships(), assertSkillPracticeCompletesReadingUnitBeforeFallback(), assertTextPatternExtractorDoesNotReturnSourceText() (+9 more)
-
 ### Community 8 - "Community 8"
-Cohesion: 0.16
-Nodes (17): getMasteryGap(), getMasteryLevel(), isAtRecommendedMastery(), getPracticeProgressSnapshot(), createProgressCode(), middleware(), normalizeProgressCode(), GET() (+9 more)
+Cohesion: 0.17
+Nodes (10): ActionPanel(), withNewStudentParam(), buildRestartHref(), getParam(), PracticePage(), SimulacionesPage(), withProgressCode(), normalizeProgressCode() (+2 more)
 
 ### Community 9 - "Community 9"
 Cohesion: 0.22
 Nodes (0): 
 
 ### Community 10 - "Community 10"
+Cohesion: 0.25
+Nodes (2): BottomNav(), useProgressCodeFromLocation()
+
+### Community 11 - "Community 11"
 Cohesion: 0.42
 Nodes (7): buildSkillStats(), practiceSession(), readingSession(), readyBaseSessions(), result(), stableBaseSessions(), writeProgress()
 
-### Community 11 - "Community 11"
-Cohesion: 0.36
-Nodes (5): getParam(), SimulacionesPage(), normalizeProgressCode(), resolveStudentCode(), resolveStudentIdentity()
-
 ### Community 12 - "Community 12"
-Cohesion: 0.29
-Nodes (2): BottomNav(), useProgressCodeFromLocation()
+Cohesion: 0.43
+Nodes (4): buildContentIndex(), generate(), listJsonFiles(), readJson()
 
 ### Community 13 - "Community 13"
+Cohesion: 0.48
+Nodes (6): assertTextPatternExtractorDoesNotReturnSourceText(), analyzePlainTextShape(), estimatePdfLength(), extractTextPatterns(), inferStructuresFromShape(), inferTextTypesFromShape()
+
+### Community 14 - "Community 14"
 Cohesion: 0.53
 Nodes (5): baseConsolidatedSessions(), buildSkillStats(), result(), session(), writeProgress()
 
-### Community 14 - "Community 14"
+### Community 15 - "Community 15"
 Cohesion: 0.47
 Nodes (3): baseConsolidatedSessions(), result(), session()
 
-### Community 15 - "Community 15"
+### Community 16 - "Community 16"
 Cohesion: 0.4
 Nodes (0): 
 
-### Community 16 - "Community 16"
-Cohesion: 0.5
-Nodes (3): ActionPanel(), withNewStudentParam(), withProgressCode()
-
 ### Community 17 - "Community 17"
 Cohesion: 0.83
-Nodes (3): generate(), listJsonFiles(), readJson()
+Nodes (3): createProgressCode(), middleware(), normalizeProgressCode()
 
 ### Community 18 - "Community 18"
 Cohesion: 0.5
@@ -371,12 +371,12 @@ Nodes (0):
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `GET()` connect `Community 8` to `Community 0`, `Community 1`, `Community 2`, `Community 3`, `Community 4`, `Community 5`, `Community 7`, `Community 11`?**
-  _High betweenness centrality (0.116) - this node is a cross-community bridge._
-- **Why does `buildMasteryModel()` connect `Community 5` to `Community 8`, `Community 4`?**
-  _High betweenness centrality (0.050) - this node is a cross-community bridge._
-- **Why does `startReadingUnitSession()` connect `Community 2` to `Community 0`, `Community 1`, `Community 4`, `Community 7`?**
-  _High betweenness centrality (0.041) - this node is a cross-community bridge._
+- **Why does `GET()` connect `Community 1` to `Community 0`, `Community 2`, `Community 3`, `Community 4`, `Community 5`, `Community 6`, `Community 8`, `Community 17`?**
+  _High betweenness centrality (0.114) - this node is a cross-community bridge._
+- **Why does `buildMasteryModel()` connect `Community 6` to `Community 1`, `Community 5`?**
+  _High betweenness centrality (0.049) - this node is a cross-community bridge._
+- **Why does `startReadingUnitSession()` connect `Community 2` to `Community 0`, `Community 1`, `Community 4`, `Community 5`, `Community 8`?**
+  _High betweenness centrality (0.040) - this node is a cross-community bridge._
 - **Are the 22 inferred relationships involving `GET()` (e.g. with `middleware()` and `resolveStudentIdentity()`) actually correct?**
   _`GET()` has 22 INFERRED edges - model-reasoned connections that need verification._
 - **Are the 3 inferred relationships involving `loadContentLenguaExercises()` (e.g. with `GET()` and `normalizeSkillId()`) actually correct?**

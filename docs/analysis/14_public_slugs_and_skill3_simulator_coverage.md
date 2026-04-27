@@ -19,7 +19,7 @@ El proyecto incorporo una capa de URLs publicas con slugs y mantuvo compatibilid
 Ejemplos:
 
 - `lengua.skill_1` -> `comprension-global-del-texto`
-- `RU-LEN-BIO-001` -> `violeta-parra-la-voz-que-pintaba-canciones`
+- `RU-LEN-BIO-001` -> `violeta-parra`
 
 ## Integracion en runtime
 
@@ -49,11 +49,11 @@ Impacto:
 - `npm run test:e2e`: cubre links de practica, dashboard, lectura y simulador.
 - E2E ya verifica que una reading unit pueda abrirse por slug.
 
-## Riesgos y pendientes
+## Estado de continuidad
 
-1. `skill_slugs.ts` todavia no tiene tests unitarios propios.
-2. Los slugs de reading units se derivan del titulo. Si el titulo cambia, cambia la URL publica.
-3. Falta una prueba explicita que confirme que `lengua.skill_3` entra efectivamente en una sesion de simulador.
+1. `skill_slugs.ts` tiene tests unitarios propios para slugs canonicos y aliases legacy.
+2. Los slugs de reading units ya son manuales; se mantiene compatibilidad con algunos slugs historicos.
+3. Existe una prueba explicita que confirma que `lengua.skill_3` entra efectivamente en una sesion de simulador.
 4. Falta decidir si los nuevos docs de continuidad deben tener un indice propio ademas del grafo de codigo.
 
 ## Proxima continuidad recomendada

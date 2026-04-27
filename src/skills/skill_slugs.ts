@@ -64,6 +64,7 @@ const READING_UNIT_SLUG_REVERSE: Record<string, string> = Object.fromEntries(
 );
 
 const READING_UNIT_SLUG_ALIASES: Record<string, string> = {
+  "violeta-parra-la-voz-que-pintaba-canciones": "RU-LEN-BIO-001",
   "festival-robots-memoria": "RU-LEN-NOT-001",
 };
 
