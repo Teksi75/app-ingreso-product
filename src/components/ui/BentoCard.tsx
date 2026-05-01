@@ -50,38 +50,38 @@ export function BentoCard({
 }: BentoCardProps) {
   // Configuración de colores de acento
   const colorConfig = {
-    teal: {
-      bg: "bg-teal-50",
+      teal: {
+      bg: "bg-teal-100",
       text: "text-teal-600",
       border: "border-teal-100",
       hover: "hover:border-teal-200",
     },
     orange: {
-      bg: "bg-orange-50",
+      bg: "bg-orange-100",
       text: "text-orange-600",
       border: "border-orange-100",
       hover: "hover:border-orange-200",
     },
     violet: {
-      bg: "bg-violet-50",
+      bg: "bg-violet-100",
       text: "text-violet-600",
       border: "border-violet-100",
       hover: "hover:border-violet-200",
     },
     emerald: {
-      bg: "bg-emerald-50",
+      bg: "bg-emerald-100",
       text: "text-emerald-600",
       border: "border-emerald-100",
       hover: "hover:border-emerald-200",
     },
     blue: {
-      bg: "bg-blue-50",
+      bg: "bg-blue-100",
       text: "text-blue-600",
       border: "border-blue-100",
       hover: "hover:border-blue-200",
     },
     rose: {
-      bg: "bg-rose-50",
+      bg: "bg-rose-100",
       text: "text-rose-600",
       border: "border-rose-100",
       hover: "hover:border-rose-200",
@@ -101,10 +101,10 @@ export function BentoCard({
     <div
       onClick={onClick}
       className={`
-        relative bg-white rounded-2xl border border-slate-100
+        relative panel-pastel
         ${sizeConfig[variant]}
         transition-all duration-300 ease-out
-        hover:shadow-lg hover:-translate-y-0.5
+        hover:shadow-soft-md hover:-translate-y-0.5
         min-w-0 overflow-hidden
         ${onClick ? "cursor-pointer" : ""}
         ${colors.hover}
@@ -117,7 +117,7 @@ export function BentoCard({
           <div className="flex items-center gap-3">
             {icon && (
               <div className={`
-                w-10 h-10 rounded-xl flex items-center justify-center
+                w-11 h-11 rounded-2xl flex items-center justify-center shadow-soft-sm ring-1 ring-white/70
                 ${colors.bg} ${colors.text}
                 transition-transform duration-300 group-hover:scale-110
               `}>

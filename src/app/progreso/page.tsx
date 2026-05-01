@@ -27,62 +27,84 @@ export default async function ProgresoPage({ searchParams }: ProgresoPageProps) 
   const mailtoHref = buildMailtoHref(studentCode, summary.accuracy, summary.totalAttempts, summary.activeDays);
 
   return (
-    <div className="flex min-h-screen bg-slate-50">
+    <div className="min-h-screen dashboard-shell flex">
       <SidebarNav />
 
       <main className="min-h-screen min-w-0 flex-1 pb-24 lg:pb-0">
-        <header className="border-b border-slate-100 bg-white">
-          <div className="px-4 py-4 lg:px-6 lg:py-5">
-            <div className="flex flex-wrap items-center justify-between gap-4">
+        {/* Header Mobile */}
+        <header className="lg:hidden glass-subtle border-b border-white/70">
+          <div className="max-w-lg mx-auto px-4 py-4">
+            <div className="flex items-center justify-between">
               <div>
-                <h1 className="m-0 text-xl font-bold text-slate-800 lg:text-2xl">Mi Progreso</h1>
-                <p className="m-0 mt-1 text-sm text-slate-500">
-                  Datos reales del entrenamiento de Lengua
-                </p>
+                <h1 className="text-lg font-bold text-slate-900">Mi Progreso</h1>
+                <p className="text-xs font-medium text-slate-500">Datos de entrenamiento de Lengua</p>
               </div>
-              <a
-                className="inline-flex min-h-[40px] items-center justify-center rounded-lg border border-slate-200 bg-white px-4 text-sm font-bold text-slate-800"
-                href={downloadUrl}
-              >
-                Descargar reporte
-              </a>
-              {continueHref ? (
-                <a
-                  className="inline-flex min-h-[40px] items-center justify-center rounded-lg bg-teal-700 px-4 text-sm font-bold text-white hover:bg-teal-800"
-                  href={continueHref}
-                >
-                  Continuar entrenamiento
-                </a>
-              ) : null}
+              <div className="w-11 h-11 rounded-2xl gradient-ingenium flex items-center justify-center text-xl shadow-soft-sm">
+                📊
+              </div>
             </div>
           </div>
         </header>
 
-        <div className="grid gap-6 p-4 lg:p-6">
-          <section className="rounded-lg border border-slate-200 bg-white p-4">
+        {/* Header Desktop */}
+        <header className="hidden lg:block glass-subtle border-b border-white/70">
+          <div className="px-6 py-5 xl:px-8">
+            <div className="flex flex-wrap items-center justify-between gap-4">
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-violet-500">Reporte INGENIUM</p>
+                <h1 className="text-2xl font-extrabold text-slate-900">Mi Progreso</h1>
+                <p className="text-slate-500">Datos reales del entrenamiento de Lengua</p>
+              </div>
+              <div className="flex flex-wrap gap-3">
+                <a
+                  className="inline-flex min-h-[40px] items-center justify-center rounded-2xl border border-violet-100 bg-white/80 px-4 text-sm font-bold text-slate-700 shadow-soft-sm hover:text-violet-700"
+                  href={downloadUrl}
+                >
+                  Descargar reporte
+                </a>
+                {continueHref ? (
+                  <a
+                    className="inline-flex min-h-[40px] items-center justify-center rounded-2xl bg-teal-600 px-4 text-sm font-bold text-white shadow-soft-sm hover:bg-teal-700"
+                    href={continueHref}
+                  >
+                    Continuar entrenamiento
+                  </a>
+                ) : null}
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <div className="mx-auto w-full max-w-7xl p-4 sm:px-6 lg:p-8">
+          {/* Código de progreso */}
+          <section className="panel-pastel p-5 mb-5">
             <p className="m-0 text-xs font-bold uppercase tracking-wide text-slate-500">Código de progreso</p>
             <p className="mt-2 mb-0 font-mono text-lg font-bold text-slate-900">{studentCode}</p>
           </section>
 
-          <section className="grid grid-cols-2 gap-4 lg:grid-cols-4">
-            <StatCard label="Ejercicios" value={summary.totalAttempts.toString()} />
-            <StatCard label="Tiempo total" value={formatDuration(summary.totalDurationSeconds)} />
-            <StatCard label="Días activos" value={summary.activeDays.toString()} />
-            <StatCard label="Precisión" value={`${summary.accuracy}%`} />
+          {/* Stats rápidas */}
+          <section className="grid grid-cols-2 gap-4 lg:grid-cols-4 mb-6">
+            <StatCard label="Ejercicios" value={summary.totalAttempts.toString()} icon="📖" />
+            <StatCard label="Tiempo total" value={formatDuration(summary.totalDurationSeconds)} icon="⏱️" />
+            <StatCard label="Días activos" value={summary.activeDays.toString()} icon="📅" />
+            <StatCard label="Precisión" value={`${summary.accuracy}%`} icon="🎯" />
           </section>
 
-          <section className="grid grid-cols-1 gap-6 lg:grid-cols-2">
-            <div className="rounded-lg border border-slate-100 bg-white p-5">
-              <h2 className="mb-4 mt-0 text-base font-bold text-slate-800">Actividad semanal</h2>
+          {/* Gráficos */}
+          <section className="grid grid-cols-1 gap-6 lg:grid-cols-2 mb-6">
+            <div className="panel-pastel p-5">
+              <h2 className="mb-4 mt-0 text-base font-bold text-slate-800 flex items-center gap-2">
+                <span>📊</span> Actividad semanal
+              </h2>
               <div className="flex h-40 items-end justify-between gap-2">
                 {summary.weeklyData.map((day) => (
                   <div className="flex flex-1 flex-col items-center" key={day.date}>
                     <div
-                      className="relative w-full overflow-hidden rounded-t-lg bg-slate-100"
+                      className="relative w-full overflow-hidden rounded-t-xl bg-slate-100"
                       style={{ height: `${Math.max(day.exercises * 8, 4)}px` }}
                     >
                       <div
-                        className="absolute bottom-0 left-0 right-0 bg-teal-500"
+                        className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-teal-500 to-teal-400"
                         style={{ height: `${day.accuracy}%` }}
                       />
                     </div>
@@ -93,18 +115,20 @@ export default async function ProgresoPage({ searchParams }: ProgresoPageProps) 
               </div>
             </div>
 
-            <div className="rounded-lg border border-slate-100 bg-white p-5">
-              <h2 className="mb-4 mt-0 text-base font-bold text-slate-800">Lengua por habilidad</h2>
-              <div className="space-y-3">
+            <div className="panel-pastel p-5">
+              <h2 className="mb-4 mt-0 text-base font-bold text-slate-800 flex items-center gap-2">
+                <span>📚</span> Lengua por habilidad
+              </h2>
+              <div className="space-y-4">
                 {summary.skills.map((skill) => (
                   <div key={skill.id}>
                     <div className="mb-1 flex justify-between gap-3">
                       <span className="truncate text-sm font-medium text-slate-700">{skill.title}</span>
                       <span className="text-sm font-bold text-slate-800">Nv. {skill.masteryLevel}</span>
                     </div>
-                    <div className="h-2 overflow-hidden rounded-full bg-slate-100">
+                    <div className="h-2.5 overflow-hidden rounded-full bg-slate-100 shadow-inner">
                       <div
-                        className="h-full rounded-full bg-violet-500"
+                        className="h-full rounded-full bg-gradient-to-r from-violet-500 to-violet-400"
                         style={{ width: `${Math.max(skill.masteryScore, skill.attempts > 0 ? 8 : 0)}%` }}
                       />
                     </div>
@@ -117,23 +141,26 @@ export default async function ProgresoPage({ searchParams }: ProgresoPageProps) 
             </div>
           </section>
 
-          <section className="rounded-lg bg-slate-900 p-5 text-white">
-            <div className="flex flex-wrap items-start justify-between gap-4">
+          {/* Reporte para la familia */}
+          <section className="gradient-mission relative overflow-hidden rounded-[2rem] p-5 text-white shadow-soft-lg sm:p-6 lg:p-8 mb-6">
+            <div className="pointer-events-none absolute -right-10 -top-12 h-40 w-40 rounded-full bg-white/15 blur-2xl" />
+            <div className="pointer-events-none absolute bottom-5 right-7 hidden text-6xl opacity-25 md:block">📋</div>
+            <div className="relative flex flex-wrap items-start justify-between gap-4">
               <div>
-                <h2 className="m-0 text-lg font-bold">Reporte para la familia</h2>
-                <p className="mb-0 mt-2 max-w-2xl text-sm leading-6 text-slate-300">
+                <h2 className="m-0 text-xl font-extrabold lg:text-2xl">Reporte para la familia</h2>
+                <p className="mb-0 mt-2 max-w-2xl text-sm leading-6 text-white/82">
                   Compartí este reporte sin exponer datos personales. El enlace muestra solo el progreso asociado al código.
                 </p>
               </div>
-              <div className="flex flex-wrap gap-3">
+              <div className="relative flex flex-wrap gap-3">
                 <a
-                  className="inline-flex min-h-[40px] items-center justify-center rounded-lg bg-white px-4 text-sm font-bold text-slate-900"
+                  className="inline-flex min-h-[40px] items-center justify-center rounded-2xl bg-white px-4 text-sm font-bold text-violet-700 shadow-soft-sm hover:bg-violet-50"
                   href={reportUrl}
                 >
                   Ver reporte online
                 </a>
                 <a
-                  className="inline-flex min-h-[40px] items-center justify-center rounded-lg bg-white/10 px-4 text-sm font-bold text-white hover:bg-white/20"
+                  className="inline-flex min-h-[40px] items-center justify-center rounded-2xl bg-white/15 px-4 text-sm font-bold text-white shadow-soft-sm hover:bg-white/25 ring-1 ring-white/20"
                   href={mailtoHref}
                 >
                   Enviar por email
@@ -143,7 +170,7 @@ export default async function ProgresoPage({ searchParams }: ProgresoPageProps) 
           </section>
 
           {continueHref ? (
-            <section className="rounded-lg border border-teal-100 bg-teal-50 p-5">
+            <section className="panel-pastel bg-[var(--bg-pastel-emerald)] p-5 mb-6 ring-1 ring-emerald-100">
               <div className="flex flex-wrap items-center justify-between gap-4">
                 <div>
                   <h2 className="m-0 text-lg font-bold text-slate-900">Seguir sin repetir</h2>
@@ -152,7 +179,7 @@ export default async function ProgresoPage({ searchParams }: ProgresoPageProps) 
                   </p>
                 </div>
                 <a
-                  className="inline-flex min-h-[42px] items-center justify-center rounded-lg bg-teal-700 px-4 text-sm font-bold text-white hover:bg-teal-800"
+                  className="inline-flex min-h-[42px] items-center justify-center rounded-2xl bg-teal-600 px-4 text-sm font-bold text-white shadow-soft-sm hover:bg-teal-700"
                   href={continueHref}
                 >
                   Continuar entrenamiento
@@ -170,11 +197,16 @@ export default async function ProgresoPage({ searchParams }: ProgresoPageProps) 
   );
 }
 
-function StatCard({ label, value }: { label: string; value: string }) {
+function StatCard({ label, value, icon }: { label: string; value: string; icon: string }) {
   return (
-    <div className="rounded-lg border border-slate-100 bg-white p-4">
-      <p className="m-0 text-sm text-slate-500">{label}</p>
-      <p className="m-0 mt-2 text-2xl font-bold text-slate-800">{value}</p>
+    <div className="panel-pastel flex items-center gap-4 p-4">
+      <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-violet-100 text-xl">
+        {icon}
+      </div>
+      <div>
+        <p className="m-0 text-xs font-medium text-slate-500">{label}</p>
+        <p className="m-0 mt-1 text-xl font-extrabold text-slate-900">{value}</p>
+      </div>
     </div>
   );
 }

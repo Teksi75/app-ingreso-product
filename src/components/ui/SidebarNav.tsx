@@ -64,16 +64,16 @@ export function SidebarNav() {
   const { profile } = useProfile();
 
   return (
-    <aside className="hidden lg:flex flex-col w-64 h-screen sticky top-0 bg-white border-r border-slate-200 z-50">
+    <aside className="hidden lg:flex flex-col w-64 h-screen sticky top-0 glass-subtle border-r border-white/70 shadow-soft-md z-50">
       {/* Logo */}
-      <div className="p-6 border-b border-slate-100">
+      <div className="p-6 border-b border-white/70">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-teal-400 to-teal-600 flex items-center justify-center text-white font-bold text-xl shadow-lg shadow-teal-200">
+          <div className="w-12 h-12 rounded-2xl gradient-ingenium flex items-center justify-center text-white font-bold text-xl shadow-soft-sm">
             I
           </div>
           <div>
-            <h1 className="font-bold text-slate-800 text-lg leading-tight">INGENIUM</h1>
-            <p className="text-xs text-slate-400">Preparación Ingreso</p>
+            <h1 className="font-extrabold tracking-wide text-slate-900 text-lg leading-tight">INGENIUM</h1>
+            <p className="text-xs font-medium text-slate-500">Preparación Ingreso</p>
           </div>
         </div>
       </div>
@@ -89,15 +89,16 @@ export function SidebarNav() {
               key={item.id}
               href={withProgressCode(item.href, progressCode)}
               className={`
-                w-full flex items-center gap-3 px-4 py-3 rounded-xl
+                w-full flex items-center gap-3 px-4 py-3 rounded-2xl
                 font-semibold text-sm transition-all duration-200
+                focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-500
                 ${isActive 
-                  ? "bg-teal-50 text-teal-600 border-l-4 border-teal-500" 
-                  : "text-slate-600 hover:bg-slate-50 hover:text-slate-800"
+                  ? "bg-gradient-to-r from-violet-50 to-teal-50 text-violet-700 shadow-soft-sm ring-1 ring-violet-100" 
+                  : "text-slate-600 hover:bg-white/80 hover:text-slate-900"
                 }
               `}
             >
-              <Icon className={`w-5 h-5 ${isActive ? "text-teal-500" : "text-slate-400"}`} />
+              <Icon className={`w-5 h-5 ${isActive ? "text-violet-600" : "text-slate-400"}`} />
               {item.label}
             </Link>
           );
@@ -105,14 +106,14 @@ export function SidebarNav() {
       </nav>
 
       {/* User mini profile */}
-      <div className="p-4 border-t border-slate-100">
-        <div className="flex items-center gap-3 p-3 bg-slate-50 rounded-xl">
-          <div className="w-10 h-10 rounded-full bg-gradient-to-br from-teal-100 to-teal-200 flex items-center justify-center text-lg">
+      <div className="p-4 border-t border-white/70">
+        <div className="flex items-center gap-3 rounded-2xl bg-gradient-to-br from-violet-50 to-teal-50 p-3 shadow-soft-sm ring-1 ring-white/80">
+          <div className="w-11 h-11 rounded-2xl bg-white flex items-center justify-center text-lg shadow-soft-sm">
             {profile.avatar || "🎓"}
           </div>
           <div className="flex-1 min-w-0">
-            <p className="font-semibold text-slate-800 text-sm truncate">{profile.name}</p>
-            <p className="text-xs text-slate-500">Nivel 7</p>
+            <p className="font-bold text-slate-900 text-sm truncate">{profile.name}</p>
+            <p className="text-xs font-medium text-violet-600">Nivel 7</p>
           </div>
         </div>
       </div>

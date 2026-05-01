@@ -11,7 +11,7 @@ import { useEffect, useMemo, useState } from "react";
 import { AvatarHero, BottomNav, Button, SidebarNav } from "@/components/ui";
 import { useProfile, type LearningGoal, type PreferredSubject } from "@/hooks/useProfile";
 
-const AVATAR_OPTIONS = ["🎓", "👩‍🎓", "👨‍🎓", "🧑‍🔬", "👩‍🔬", "⭐", "🏆", "📚", "✏️", "🚀"];
+const AVATAR_OPTIONS = ["🦊", "🐼", "🐧", "🐯", "🦉", "⭐", "🏆", "📚", "✏️", "🚀"];
 
 const LEARNING_GOALS: Array<{ id: LearningGoal; label: string; description: string }> = [
   {
@@ -56,7 +56,7 @@ export default function PerfilPage() {
   const { profile, setProfile, resetProfile, isLoaded } = useProfile();
   const [form, setForm] = useState({
     name: "",
-    avatar: "🎓",
+    avatar: "🦊",
     learningGoal: "daily_practice" as LearningGoal,
     preferredSubject: "lengua" as PreferredSubject,
   });
@@ -68,7 +68,7 @@ export default function PerfilPage() {
 
     setForm({
       name: profile.name === "Estudiante" ? "" : profile.name,
-      avatar: profile.avatar || "🎓",
+      avatar: profile.avatar || "🦊",
       learningGoal: profile.learningGoal,
       preferredSubject: profile.preferredSubject,
     });
@@ -112,11 +112,11 @@ export default function PerfilPage() {
 
   if (!isLoaded) {
     return (
-      <div className="min-h-screen bg-slate-50 flex">
+      <div className="min-h-screen dashboard-shell flex">
         <SidebarNav />
         <main className="flex-1 min-w-0 min-h-screen">
           <section className="mx-auto grid max-w-3xl gap-4 p-4 lg:p-6">
-            <div className="rounded-2xl border border-slate-100 bg-white p-6 shadow-sm">
+            <div className="panel-pastel p-6">
               <p className="m-0 text-sm font-semibold text-slate-600">Cargando perfil local...</p>
             </div>
           </section>
@@ -129,92 +129,60 @@ export default function PerfilPage() {
   }
 
   return (
-    <div className="min-h-screen bg-slate-50 flex">
+    <div className="min-h-screen dashboard-shell flex">
       <SidebarNav />
 
-      <main className="flex-1 min-w-0 min-h-screen">
-        <header className="lg:hidden bg-white border-b border-slate-100">
+      <main className="flex-1 min-w-0 min-h-screen pb-24 lg:pb-0">
+        <header className="lg:hidden glass-subtle border-b border-white/70">
           <div className="max-w-lg mx-auto px-4 py-4">
             <div className="flex items-center justify-between">
-              <h1 className="text-lg font-bold text-slate-800">Mi Perfil</h1>
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-teal-100 to-teal-200 flex items-center justify-center text-xl">
+              <h1 className="text-lg font-bold text-slate-900">Mi Perfil</h1>
+              <div className="w-11 h-11 rounded-2xl gradient-ingenium flex items-center justify-center text-xl shadow-soft-sm">
                 {form.avatar}
               </div>
             </div>
           </div>
         </header>
 
-        <header className="hidden lg:block bg-white border-b border-slate-100">
-          <div className="px-6 py-5">
+        <header className="hidden lg:block glass-subtle border-b border-white/70">
+          <div className="px-6 py-5 xl:px-8">
             <div className="flex items-center justify-between">
-              <h1 className="text-2xl font-bold text-slate-800">Mi Perfil</h1>
-              <div className="rounded-full bg-emerald-50 px-3 py-1 text-sm font-semibold text-emerald-700">
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-violet-500">Identidad INGENIUM</p>
+                <h1 className="text-2xl font-extrabold text-slate-900">Mi Perfil</h1>
+              </div>
+              <div className="rounded-full bg-emerald-50 px-3 py-1 text-sm font-semibold text-emerald-700 ring-1 ring-emerald-100">
                 Perfil local
               </div>
             </div>
           </div>
         </header>
 
-        <div className="p-4 lg:p-6">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-            <div className="space-y-6">
-              <div className="bg-white rounded-2xl p-6 border border-slate-100 text-center">
-                <AvatarHero
-                  name={displayName}
-                  level={1}
-                  rank="Entrenamiento activo"
-                  energy={85}
-                  emoji={form.avatar}
-                />
-
-                <div className="mt-6">
-                  <p className="text-sm font-medium text-slate-600 mb-3">Avatar</p>
-                  <div className="grid grid-cols-5 gap-2">
-                    {AVATAR_OPTIONS.map((avatar) => (
-                      <button
-                        key={avatar}
-                        type="button"
-                        aria-pressed={form.avatar === avatar}
-                        data-avatar={avatar}
-                        data-testid={`avatar-option-${AVATAR_OPTIONS.indexOf(avatar)}`}
-                        onClick={() => updateForm("avatar", avatar)}
-                        className={`w-10 h-10 rounded-xl text-xl flex items-center justify-center transition-all duration-200 ${
-                          form.avatar === avatar
-                            ? "bg-teal-100 ring-2 ring-teal-500"
-                            : "bg-slate-50 hover:bg-slate-100"
-                        }`}
-                        aria-label={`Elegir avatar ${avatar}`}
-                      >
-                        {avatar}
-                      </button>
-                    ))}
-                  </div>
+        <div className="mx-auto w-full max-w-7xl space-y-8 p-4 sm:px-6 lg:p-10">
+          <section className="gradient-mission relative overflow-hidden rounded-[2.25rem] p-6 text-white shadow-soft-lg sm:p-8 lg:p-10">
+            <div className="pointer-events-none absolute -right-12 -top-12 h-48 w-48 rounded-full bg-white/15 blur-2xl" />
+            <div className="relative flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+              <div className="flex items-center gap-5">
+                <div className="flex h-20 w-20 items-center justify-center rounded-[2rem] bg-white/18 text-5xl shadow-soft-sm ring-1 ring-white/25">
+                  {form.avatar}
+                </div>
+                <div>
+                  <p className="text-sm font-semibold uppercase tracking-[0.18em] text-white/72">Perfil local</p>
+                  <h2 className="text-3xl font-extrabold tracking-tight lg:text-4xl">{displayName}</h2>
+                  <p className="mt-1 text-sm text-white/82">Nivel 1 · Entrenamiento activo · Perfil privado en este dispositivo</p>
                 </div>
               </div>
-
-              <div className="bg-white rounded-2xl p-5 border border-slate-100">
-                <h3 className="font-bold text-slate-800 mb-4">Privacidad</h3>
-                <div className="space-y-3 text-sm text-slate-600">
-                  <div className="flex justify-between gap-4">
-                    <span>Datos personales</span>
-                    <span className="font-semibold text-emerald-700">No guardados</span>
-                  </div>
-                  <div className="flex justify-between gap-4">
-                    <span>Sincronizacion con INGENIUM</span>
-                    <span className="font-semibold text-emerald-700">Desactivada</span>
-                  </div>
-                  <div className="flex justify-between gap-4">
-                    <span>Perfil creado</span>
-                    <span className="font-semibold text-slate-800 capitalize">{memberSince}</span>
-                  </div>
-                </div>
-              </div>
+              <Button variant="secondary" size="lg" onClick={handleSave} className="bg-white text-violet-700 hover:bg-violet-50 font-bold shadow-soft-md">
+                Guardar perfil
+              </Button>
             </div>
+          </section>
 
-            <div className="lg:col-span-2 space-y-6">
-              <div className="bg-white rounded-2xl p-5 border border-slate-100">
-                <div className="flex items-center justify-between mb-4">
-                  <h3 className="font-bold text-slate-800">Identidad local</h3>
+          <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
+            <div className="order-1 space-y-8 lg:order-1 lg:col-span-2">
+              <div className="panel-pastel p-6 lg:p-7">
+                <div className="mb-6 flex items-center justify-between">
+                  <h3 className="text-xl font-extrabold text-slate-900">Identidad local</h3>
                   {saved && (
                     <span className="text-sm font-semibold text-teal-600 bg-teal-50 px-3 py-1 rounded-full">
                       Guardado
@@ -222,7 +190,7 @@ export default function PerfilPage() {
                   )}
                 </div>
 
-                <div className="space-y-5">
+                <div className="space-y-7">
                   <div>
                     <label className="block text-sm font-medium text-slate-600 mb-1">Alias</label>
                     <input
@@ -230,7 +198,7 @@ export default function PerfilPage() {
                       value={form.name}
                       onChange={(event) => updateForm("name", event.target.value)}
                       placeholder="Estudiante"
-                      className="w-full px-4 py-2 rounded-xl border border-slate-200 bg-white text-slate-800 focus:outline-none focus:ring-2 focus:ring-teal-500"
+                      className="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-slate-800 shadow-soft-sm focus:outline-none focus:ring-2 focus:ring-teal-500"
                     />
                     <p className="text-xs text-slate-500 mt-1">
                       Usa un apodo. No hace falta nombre real, email, edad ni escuela.
@@ -245,7 +213,7 @@ export default function PerfilPage() {
                           key={goal.id}
                           type="button"
                           onClick={() => updateForm("learningGoal", goal.id)}
-                          className={`rounded-xl border p-4 text-left transition-colors ${
+                          className={`rounded-2xl border p-5 text-left shadow-soft-sm transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-500 ${
                             form.learningGoal === goal.id
                               ? "border-teal-500 bg-teal-50"
                               : "border-slate-200 bg-white hover:bg-slate-50"
@@ -260,15 +228,15 @@ export default function PerfilPage() {
 
                   <div>
                     <p className="block text-sm font-medium text-slate-600 mb-2">Materia prioritaria</p>
-                    <div className="inline-flex rounded-xl border border-slate-200 bg-slate-50 p-1">
+                    <div className="inline-flex rounded-2xl border border-slate-200 bg-slate-50 p-1 shadow-soft-sm">
                       {SUBJECTS.map((subject) => (
                         <button
                           key={subject.id}
                           type="button"
                           onClick={() => updateForm("preferredSubject", subject.id)}
-                          className={`px-4 py-2 rounded-lg text-sm font-semibold transition-colors ${
+                            className={`px-4 py-2 rounded-lg text-sm font-semibold transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-500 ${
                             form.preferredSubject === subject.id
-                              ? "bg-white text-teal-700 shadow-sm"
+                              ? "bg-white text-teal-700 shadow-soft-sm"
                               : "text-slate-600 hover:text-slate-800"
                           }`}
                         >
@@ -279,18 +247,18 @@ export default function PerfilPage() {
                   </div>
                 </div>
 
-                <div className="mt-5 flex justify-end">
-                  <Button variant="primary" size="sm" onClick={handleSave}>
+                <div className="mt-8 flex justify-end border-t border-slate-100 pt-5">
+                  <Button variant="primary" size="md" onClick={handleSave} className="rounded-2xl shadow-soft-md">
                     Guardar perfil
                   </Button>
                 </div>
               </div>
 
-              <div className="bg-white rounded-2xl p-5 border border-slate-100">
-                <h3 className="font-bold text-slate-800 mb-4">Preferencias locales</h3>
+              <div className="panel-pastel p-6 lg:p-7">
+                <h3 className="mb-5 text-xl font-extrabold text-slate-900">Preferencias locales</h3>
                 <div className="space-y-4">
                   {Object.entries(SETTING_LABELS).map(([id, copy]) => (
-                    <div key={id} className="flex items-center justify-between gap-4">
+                    <div key={id} className="flex items-center justify-between gap-4 rounded-2xl bg-white/80 p-4 shadow-soft-sm">
                       <div>
                         <p className="font-medium text-slate-800">{copy.label}</p>
                         <p className="text-sm text-slate-500">{copy.description}</p>
@@ -315,9 +283,9 @@ export default function PerfilPage() {
                 </div>
               </div>
 
-              <div className="bg-white rounded-2xl p-5 border border-slate-100">
-                <h3 className="font-bold text-slate-800 mb-2">Gestion de datos</h3>
-                <p className="text-sm text-slate-600 mb-4">
+              <div className="panel-pastel p-6 lg:p-7">
+                <h3 className="mb-2 text-xl font-extrabold text-slate-900">Gestión de datos</h3>
+                <p className="mb-5 text-sm text-slate-600">
                   El perfil vive en este dispositivo. INGENIUM no necesita recibirlo para que la app funcione.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-3">
@@ -327,10 +295,64 @@ export default function PerfilPage() {
                   <button
                     type="button"
                     onClick={handleReset}
-                    className="px-4 py-2 bg-red-50 border border-red-100 text-red-700 rounded-lg text-sm font-semibold hover:bg-red-100 transition-colors"
+                    className="rounded-2xl border border-red-100 bg-red-50 px-4 py-2 text-sm font-semibold text-red-700 transition-colors hover:bg-red-100"
                   >
                     Restablecer perfil local
                   </button>
+                </div>
+              </div>
+            </div>
+
+            <div className="order-2 space-y-8 lg:order-2">
+              <div className="panel-pastel p-7 text-center">
+                <AvatarHero
+                  name={displayName}
+                  level={1}
+                  rank="Entrenamiento activo"
+                  energy={85}
+                  emoji={form.avatar}
+                />
+
+                <div className="mt-8 border-t border-slate-100 pt-6">
+                  <p className="mb-4 text-base font-extrabold text-slate-700">Elegí tu avatar</p>
+                  <div className="grid grid-cols-5 gap-4">
+                    {AVATAR_OPTIONS.map((avatar) => (
+                      <button
+                        key={avatar}
+                        type="button"
+                        aria-pressed={form.avatar === avatar}
+                        data-avatar={avatar}
+                        data-testid={`avatar-option-${AVATAR_OPTIONS.indexOf(avatar)}`}
+                        onClick={() => updateForm("avatar", avatar)}
+                        className={`flex h-14 w-14 items-center justify-center rounded-2xl text-2xl transition-all duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-500 ${
+                          form.avatar === avatar
+                            ? "bg-teal-100 ring-2 ring-teal-500 shadow-soft-sm"
+                            : "bg-white/80 shadow-soft-sm hover:bg-slate-50"
+                        }`}
+                        aria-label={`Elegir avatar ${avatar}`}
+                      >
+                        {avatar}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              <div className="panel-pastel p-6">
+                <h3 className="mb-5 flex items-center gap-2 text-lg font-bold text-slate-800">🔐 Privacidad</h3>
+                <div className="space-y-3 text-sm text-slate-600">
+                  <div className="flex justify-between gap-4 rounded-2xl bg-emerald-50 p-3">
+                    <span>Datos personales</span>
+                    <span className="font-semibold text-emerald-700">No guardados</span>
+                  </div>
+                  <div className="flex justify-between gap-4 rounded-2xl bg-emerald-50 p-3">
+                    <span>Sincronizacion con INGENIUM</span>
+                    <span className="font-semibold text-emerald-700">Desactivada</span>
+                  </div>
+                  <div className="flex justify-between gap-4 rounded-2xl bg-white/80 p-3 shadow-soft-sm">
+                    <span>Perfil creado</span>
+                    <span className="font-semibold text-slate-800 capitalize">{memberSince}</span>
+                  </div>
                 </div>
               </div>
             </div>

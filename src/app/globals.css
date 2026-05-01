@@ -118,8 +118,19 @@
   --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
   --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
   --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  --shadow-soft-sm: 0 8px 24px rgb(15 23 42 / 0.06);
+  --shadow-soft-md: 0 16px 40px rgb(15 23 42 / 0.08);
+  --shadow-soft-lg: 0 24px 70px rgb(30 41 59 / 0.12);
   --shadow-glow-primary: 0 0 20px rgba(20, 184, 166, 0.3);
   --shadow-glow-accent: 0 0 20px rgba(249, 115, 22, 0.3);
+
+  /* Ingenium Visual Refresh */
+  --gradient-ingenium: linear-gradient(135deg, #6366f1 0%, #7c3aed 48%, #14b8a6 100%);
+  --gradient-mission: radial-gradient(circle at 88% 12%, rgb(255 255 255 / 0.32), transparent 26%), linear-gradient(135deg, #2563eb 0%, #7c3aed 55%, #14b8a6 100%);
+  --bg-pastel-emerald: #ecfdf5;
+  --bg-pastel-amber: #fffbeb;
+  --bg-pastel-violet: #f5f3ff;
+  --bg-pastel-teal: #f0fdfa;
 
   /* Transitions */
   --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -318,20 +329,20 @@ body {
 
 @keyframes flame-flicker {
   0%, 100% {
-    transform: scale(1) rotate(-2deg);
+    transform: scale(1) rotate(-1deg);
     filter: brightness(1);
   }
   25% {
-    transform: scale(1.05) rotate(2deg);
-    filter: brightness(1.1);
+    transform: scale(1.025) rotate(1deg);
+    filter: brightness(1.06);
   }
   50% {
-    transform: scale(1) rotate(-1deg);
-    filter: brightness(0.95);
+    transform: scale(1) rotate(-0.5deg);
+    filter: brightness(0.98);
   }
   75% {
-    transform: scale(1.03) rotate(1deg);
-    filter: brightness(1.05);
+    transform: scale(1.015) rotate(0.5deg);
+    filter: brightness(1.03);
   }
 }
 
@@ -358,7 +369,7 @@ body {
 }
 
 .animate-flame {
-  animation: flame-flicker 1.5s ease-in-out infinite;
+  animation: flame-flicker 2.4s ease-in-out infinite;
 }
 
 /* ============================================
@@ -429,6 +440,40 @@ body {
   background: linear-gradient(135deg, var(--color-primary-400), var(--color-accent-violet-400), var(--color-accent-orange-400));
 }
 
+.gradient-ingenium {
+  background: var(--gradient-ingenium);
+}
+
+.gradient-mission {
+  background: var(--gradient-mission);
+}
+
+.shadow-soft-sm {
+  box-shadow: var(--shadow-soft-sm);
+}
+
+.shadow-soft-md {
+  box-shadow: var(--shadow-soft-md);
+}
+
+.shadow-soft-lg {
+  box-shadow: var(--shadow-soft-lg);
+}
+
+.panel-pastel {
+  background: linear-gradient(135deg, rgb(255 255 255 / 0.94), rgb(248 250 252 / 0.88));
+  border: 1px solid rgb(226 232 240 / 0.82);
+  border-radius: var(--radius-2xl);
+  box-shadow: var(--shadow-soft-sm);
+}
+
+.dashboard-shell {
+  background:
+    radial-gradient(circle at 18% 8%, rgb(124 58 237 / 0.08), transparent 26rem),
+    radial-gradient(circle at 86% 22%, rgb(20 184 166 / 0.10), transparent 24rem),
+    linear-gradient(180deg, #f8fafc 0%, #ffffff 46%, #f8fafc 100%);
+}
+
 /* ============================================
    GLASS MORPHISM
    ============================================ */
@@ -437,6 +482,13 @@ body {
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.glass-subtle {
+  background: rgb(255 255 255 / 0.72);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgb(255 255 255 / 0.58);
 }
 
 @media (prefers-color-scheme: dark) {

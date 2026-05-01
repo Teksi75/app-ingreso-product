@@ -1,11 +1,11 @@
-# Graph Report - C:\Users\pablo\OneDrive\Desarrollo\app-ingreso-product  (2026-04-27)
+# Graph Report - C:\Users\pablo\OneDrive\Desarrollo\app-ingreso-product  (2026-04-30)
 
 ## Corpus Check
-- 78 files · ~290,126 words
+- 78 files · ~290,895 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 718 nodes · 1049 edges · 97 communities detected
+- 719 nodes · 1050 edges · 98 communities detected
 - Extraction: 84% EXTRACTED · 14% INFERRED · 2% AMBIGUOUS · INFERRED: 151 edges (avg confidence: 0.8)
 - Token cost: 0 input · 0 output
 
@@ -107,6 +107,7 @@
 - [[_COMMUNITY_Community 94|Community 94]]
 - [[_COMMUNITY_Community 95|Community 95]]
 - [[_COMMUNITY_Community 96|Community 96]]
+- [[_COMMUNITY_Community 97|Community 97]]
 
 ## God Nodes (most connected - your core abstractions)
 1. `GET()` - 22 edges
@@ -148,64 +149,64 @@
 ## Communities
 
 ### Community 0 - "Community 0"
-Cohesion: 0.06
-Nodes (68): assertBioStimulusLoadsAsSkillTraining(), assertCanonicalTextPackLoads(), getPracticeProgressSnapshot(), getSeenSkills(), buildFallbackOptions(), buildGeneratedOptions(), buildHighlightOptions(), buildObjectAnswerOptions() (+60 more)
+Cohesion: 0.07
+Nodes (54): getPracticeProgressSnapshot(), buildFallbackOptions(), buildGeneratedOptions(), buildHighlightOptions(), buildObjectAnswerOptions(), buildOrderingOptions(), buildPlannedSessionExercises(), buildSessionSkillResults() (+46 more)
 
 ### Community 1 - "Community 1"
 Cohesion: 0.04
 Nodes (60): Adaptive Selection Rules (A-E), Exercise Selector, Exercise Type, LenguaSelectionGraph, Mastery Computation, PracticeQuestion Component, Local Progress Store, Session Runner (+52 more)
 
 ### Community 2 - "Community 2"
-Cohesion: 0.08
-Nodes (42): clampDifficulty(), clampMastery(), dedupeExercises(), extractSelectorExercises(), filterImmediateRepeats(), filterUnlockedExercises(), findAlternativeSubskill(), findRelatedTarget() (+34 more)
+Cohesion: 0.07
+Nodes (52): clampDifficulty(), clampMastery(), dedupeExercises(), extractSelectorExercises(), filterImmediateRepeats(), filterUnlockedExercises(), findAlternativeSubskill(), findRelatedTarget() (+44 more)
 
 ### Community 3 - "Community 3"
-Cohesion: 0.07
-Nodes (32): getWeakestPracticeSkillId(), buildMasteryModel(), buildPracticeProgressSnapshot(), buildPracticeSkillStats(), buildTrace(), calculateMasteryScore(), clampMasteryLevel(), clampScore() (+24 more)
+Cohesion: 0.08
+Nodes (29): getWeakestPracticeSkillId(), buildMasteryModel(), buildPracticeProgressSnapshot(), buildPracticeSkillStats(), buildTrace(), calculateMasteryScore(), clampMasteryLevel(), clampScore() (+21 more)
 
 ### Community 4 - "Community 4"
+Cohesion: 0.12
+Nodes (35): assertReadingModeDatasetRunsSequentially(), appendSessionResult(), cloneProgress(), createEmptyProgress(), createSessionId(), getProgressPath(), getRedisClient(), getRedisProgressKey() (+27 more)
+
+### Community 5 - "Community 5"
 Cohesion: 0.09
 Nodes (29): addFocusResult(), buildReadingBlocks(), buildSimulatorSkillResults(), calculateScorePercentage(), chanceByDifficulty(), createStandaloneBlock(), evaluateSimulatorSession(), groupByReadingUnit() (+21 more)
 
-### Community 5 - "Community 5"
+### Community 6 - "Community 6"
 Cohesion: 0.08
 Nodes (36): Access by Time, Accuracy Metric, Adaptive Practice, ADR-003: Autonomous Learning, ADR-004: Parent Responsibility, Adult Responsibility, Autonomous Training Platform, Business Rules (+28 more)
 
-### Community 6 - "Community 6"
+### Community 7 - "Community 7"
 Cohesion: 0.11
 Nodes (33): Readings as Skill Training Stimuli (ADR-005), Progress Identity and Cohort Licensing (ADR-006), Weak Skill Visual Audit, INGENIUM Platform, ActionPanel CTA, Audit Weak Skill UI Test, buildMasteryModel, Cognitive Load Rules (+25 more)
 
-### Community 7 - "Community 7"
+### Community 8 - "Community 8"
 Cohesion: 0.12
 Nodes (31): ADR-001 Product Scope, ADR-002: No Official Content, Product Guardian, Scope & Rules Validator, Quality Auditor, Codex Prompt Generator, Agents Map, AGENTS instructions (+23 more)
 
-### Community 8 - "Community 8"
+### Community 9 - "Community 9"
 Cohesion: 0.08
 Nodes (26): L1: Exercise has no superior entity, L5: Dual ID system (LEGACY_SKILL_IDS), Technical ordering rationale for reading+questions, TextGroup type, textGroupId on Exercise, Etapa A: TextGroup types and loader, Etapa B: UI continuity by text, First slice implementable goal (+18 more)
-
-### Community 9 - "Community 9"
-Cohesion: 0.22
-Nodes (22): appendSessionResult(), cloneProgress(), createEmptyProgress(), createSessionId(), getProgressPath(), getRedisClient(), getRedisProgressKey(), getSeenSkillsAsync() (+14 more)
 
 ### Community 10 - "Community 10"
 Cohesion: 0.12
 Nodes (11): ClientAvatarBadge(), ClientAvatarHero(), ClientStudentName(), SidebarNav(), useProgressCodeFromLocation(), createDefaultProfile(), isLearningGoal(), isPlainObject() (+3 more)
 
 ### Community 11 - "Community 11"
-Cohesion: 0.17
-Nodes (16): assertPracticeSessionsUseChoiceExercises(), assertReadingModeDatasetRunsSequentially(), assertReadingUnitSessionsShareBaseTexts(), assertSelectionRespectsPrerequisitesAndMastery(), assertSessionRunnerUsesCrossRelationships(), assertSkillPracticeCompletesReadingUnitBeforeFallback(), assertTextPatternExtractorDoesNotReturnSourceText(), buildExercise() (+8 more)
+Cohesion: 0.16
+Nodes (10): ActionPanel(), withNewStudentParam(), buildRestartHref(), getParam(), PracticePage(), SimulacionesPage(), withProgressCode(), normalizeProgressCode() (+2 more)
 
 ### Community 12 - "Community 12"
-Cohesion: 0.15
-Nodes (11): ActionPanel(), withNewStudentParam(), buildRestartHref(), getParam(), PracticePage(), SimulacionesPage(), withProgressCode(), startPracticeSessionAsync() (+3 more)
-
-### Community 13 - "Community 13"
 Cohesion: 0.2
 Nodes (0): 
 
-### Community 14 - "Community 14"
+### Community 13 - "Community 13"
 Cohesion: 0.24
 Nodes (10): Biografia de Hans Christian Andersen, Clase textual, paratexto y datos enciclopedicos, Lengua | modulo 1, Oracion, parrafo, mayusculas y coma, Sustantivos y adjetivos, Acentuacion y tilde diacritica, Biografia de Hans Christian Andersen (reutilizada), Cotexto, sinonimia y antonimia (+2 more)
+
+### Community 14 - "Community 14"
+Cohesion: 0.28
+Nodes (5): buildProgressSummary(), buildWeeklyData(), formatDuration(), buildReadableReport(), formatDateTime()
 
 ### Community 15 - "Community 15"
 Cohesion: 0.25
@@ -244,52 +245,52 @@ Cohesion: 0.29
 Nodes (0): 
 
 ### Community 24 - "Community 24"
+Cohesion: 0.48
+Nodes (6): assertTextPatternExtractorDoesNotReturnSourceText(), analyzePlainTextShape(), estimatePdfLength(), extractTextPatterns(), inferStructuresFromShape(), inferTextTypesFromShape()
+
+### Community 25 - "Community 25"
 Cohesion: 0.29
 Nodes (7): Agent pipeline as CLI tool, Etapa G: Operative agents, Rationale: agents as dev pipeline not runtime, Agent pipeline architecture, Product Guardian as first operative agent, Quality Auditor (operative), Scope & Rules Validator (operative)
 
-### Community 25 - "Community 25"
+### Community 26 - "Community 26"
 Cohesion: 0.53
 Nodes (5): baseConsolidatedSessions(), buildSkillStats(), result(), session(), writeProgress()
 
-### Community 26 - "Community 26"
+### Community 27 - "Community 27"
 Cohesion: 0.47
 Nodes (3): baseConsolidatedSessions(), result(), session()
 
-### Community 27 - "Community 27"
+### Community 28 - "Community 28"
 Cohesion: 0.4
 Nodes (6): Lengua | modulo 3, Modo verbal y tiempos verbales, Noticia 'Laguna de la nina encantada, una leyenda con lenguaje vanguardista', Texto periodistico, UNO (25 de octubre de 2013), Vocales, concurrencia de vocales, diptongo, triptongo e hiato
 
-### Community 28 - "Community 28"
+### Community 29 - "Community 29"
 Cohesion: 0.33
 Nodes (6): Glossary Expanded UI, Glossary UI, Mobile Fix UI, Mobile UI, Practice Secondary UI, Practice Main UI
 
-### Community 29 - "Community 29"
-Cohesion: 0.4
-Nodes (0): 
-
 ### Community 30 - "Community 30"
 Cohesion: 0.4
-Nodes (5): L8: No session/context abstraction, SessionContext (deferred), Rationale: TextGroup before SessionContext, Two-level implementation strategy, Etapa F: SessionContext and progress
+Nodes (0): 
 
 ### Community 31 - "Community 31"
 Cohesion: 0.4
-Nodes (5): Cohesion, coherencia y conectores, Lengua | modulo 4, La leyenda de la Laguna de la Nina Encantada, Narracion y tipos de narradores, Posesivos, demostrativos y usos de B y V
+Nodes (5): L8: No session/context abstraction, SessionContext (deferred), Rationale: TextGroup before SessionContext, Two-level implementation strategy, Etapa F: SessionContext and progress
 
 ### Community 32 - "Community 32"
+Cohesion: 0.4
+Nodes (5): Cohesion, coherencia y conectores, Lengua | modulo 4, La leyenda de la Laguna de la Nina Encantada, Narracion y tipos de narradores, Posesivos, demostrativos y usos de B y V
+
+### Community 33 - "Community 33"
 Cohesion: 0.5
 Nodes (0): 
 
-### Community 33 - "Community 33"
+### Community 34 - "Community 34"
 Cohesion: 0.83
 Nodes (3): createProgressCode(), middleware(), normalizeProgressCode()
 
-### Community 34 - "Community 34"
+### Community 35 - "Community 35"
 Cohesion: 0.5
 Nodes (4): Adult Customer, Practice-Based Learning, Product Vision, Student User 11-12
-
-### Community 35 - "Community 35"
-Cohesion: 0.67
-Nodes (0): 
 
 ### Community 36 - "Community 36"
 Cohesion: 0.67
@@ -297,23 +298,23 @@ Nodes (0):
 
 ### Community 37 - "Community 37"
 Cohesion: 0.67
-Nodes (3): 231 normalized exercises, LEN-EX-049 duplicate option bug, Modulo 3 exercise set (29 exercises, APPROVED)
+Nodes (0): 
 
 ### Community 38 - "Community 38"
 Cohesion: 0.67
-Nodes (3): moduleFit as internal coverage only, Skill-first selection priority, moduleFit must not organize student navigation
+Nodes (0): 
 
 ### Community 39 - "Community 39"
 Cohesion: 0.67
-Nodes (3): L3: No memory between sessions, Persistencia de progreso y runtime async, Progress storage model (anonymous student code)
+Nodes (3): moduleFit as internal coverage only, Skill-first selection priority, moduleFit must not organize student navigation
 
 ### Community 40 - "Community 40"
-Cohesion: 1.0
-Nodes (0): 
+Cohesion: 0.67
+Nodes (3): 231 normalized exercises, LEN-EX-049 duplicate option bug, Modulo 3 exercise set (29 exercises, APPROVED)
 
 ### Community 41 - "Community 41"
-Cohesion: 1.0
-Nodes (0): 
+Cohesion: 0.67
+Nodes (3): L3: No memory between sessions, Persistencia de progreso y runtime async, Progress storage model (anonymous student code)
 
 ### Community 42 - "Community 42"
 Cohesion: 1.0
@@ -341,23 +342,23 @@ Nodes (0):
 
 ### Community 48 - "Community 48"
 Cohesion: 1.0
-Nodes (2): Blocked tutorial modules, Blocked P0 example
+Nodes (0): 
 
 ### Community 49 - "Community 49"
 Cohesion: 1.0
-Nodes (2): Ownership risk: auto-created DB via Vercel, Scale decision: Upstash vs Redis vs PostgreSQL
+Nodes (2): Blocked tutorial modules, Blocked P0 example
 
 ### Community 50 - "Community 50"
 Cohesion: 1.0
-Nodes (2): Agents are documentary not operational, Product Guardian agent (documentary)
+Nodes (2): Ownership risk: auto-created DB via Vercel, Scale decision: Upstash vs Redis vs PostgreSQL
 
 ### Community 51 - "Community 51"
 Cohesion: 1.0
-Nodes (2): L10: Primitive/duplicated mastery computation, Etapa E: Unify mastery
+Nodes (2): Agents are documentary not operational, Product Guardian agent (documentary)
 
 ### Community 52 - "Community 52"
 Cohesion: 1.0
-Nodes (0): 
+Nodes (2): L10: Primitive/duplicated mastery computation, Etapa E: Unify mastery
 
 ### Community 53 - "Community 53"
 Cohesion: 1.0
@@ -469,69 +470,73 @@ Nodes (0):
 
 ### Community 80 - "Community 80"
 Cohesion: 1.0
-Nodes (1): Research Summary Draft
+Nodes (0): 
 
 ### Community 81 - "Community 81"
 Cohesion: 1.0
-Nodes (1): Upstash Redis KV infrastructure
+Nodes (1): Research Summary Draft
 
 ### Community 82 - "Community 82"
 Cohesion: 1.0
-Nodes (1): Architecture Analysis
+Nodes (1): Upstash Redis KV infrastructure
 
 ### Community 83 - "Community 83"
 Cohesion: 1.0
-Nodes (1): L9: Simulator Without UI
+Nodes (1): Architecture Analysis
 
 ### Community 84 - "Community 84"
 Cohesion: 1.0
-Nodes (1): Evolution Plan (Stages 0-7)
+Nodes (1): L9: Simulator Without UI
 
 ### Community 85 - "Community 85"
 Cohesion: 1.0
-Nodes (1): Reading Session Flow
+Nodes (1): Evolution Plan (Stages 0-7)
 
 ### Community 86 - "Community 86"
 Cohesion: 1.0
-Nodes (1): Content Fixes (Lengua Exercises)
+Nodes (1): Reading Session Flow
 
 ### Community 87 - "Community 87"
 Cohesion: 1.0
-Nodes (1): Skill 3 Simulator Coverage
+Nodes (1): Content Fixes (Lengua Exercises)
 
 ### Community 88 - "Community 88"
 Cohesion: 1.0
-Nodes (1): Simulator (Product)
+Nodes (1): Skill 3 Simulator Coverage
 
 ### Community 89 - "Community 89"
 Cohesion: 1.0
-Nodes (1): Metrics System
+Nodes (1): Simulator (Product)
 
 ### Community 90 - "Community 90"
 Cohesion: 1.0
-Nodes (1): Commercial Model (Missing)
+Nodes (1): Metrics System
 
 ### Community 91 - "Community 91"
 Cohesion: 1.0
-Nodes (1): Etapa C: Test first slice
+Nodes (1): Commercial Model (Missing)
 
 ### Community 92 - "Community 92"
 Cohesion: 1.0
-Nodes (1): Codex Prompt Generator (operative)
+Nodes (1): Etapa C: Test first slice
 
 ### Community 93 - "Community 93"
 Cohesion: 1.0
-Nodes (1): AgentIssue and AgentRunResult types
+Nodes (1): Codex Prompt Generator (operative)
 
 ### Community 94 - "Community 94"
 Cohesion: 1.0
-Nodes (1): Step 3: Flow validation tests
+Nodes (1): AgentIssue and AgentRunResult types
 
 ### Community 95 - "Community 95"
 Cohesion: 1.0
-Nodes (1): Step 7: Product Guardian CLI
+Nodes (1): Step 3: Flow validation tests
 
 ### Community 96 - "Community 96"
+Cohesion: 1.0
+Nodes (1): Step 7: Product Guardian CLI
+
+### Community 97 - "Community 97"
 Cohesion: 1.0
 Nodes (1): App icon with dark square and white stylized mark
 
@@ -572,119 +577,117 @@ Nodes (1): App icon with dark square and white stylized mark
 ## Knowledge Gaps
 - **138 isolated node(s):** `AGENTS instructions`, `Four-agent system`, `Product Guardian always first`, `Question-response-feedback-adjustment-next loop`, `Minor-adjustment example` (+133 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **Thin community `Community 40`** (2 nodes): `layout.tsx`, `RootLayout()`
+- **Thin community `Community 42`** (2 nodes): `layout.tsx`, `RootLayout()`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 41`** (2 nodes): `page.tsx`, `getSkillData()`
+- **Thin community `Community 43`** (2 nodes): `page.tsx`, `getSkillData()`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 42`** (2 nodes): `Header()`, `Header.tsx`
+- **Thin community `Community 44`** (2 nodes): `Header()`, `Header.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 43`** (2 nodes): `SkillList.tsx`, `SkillList()`
+- **Thin community `Community 45`** (2 nodes): `SkillList.tsx`, `SkillList()`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 44`** (2 nodes): `SkillStatus()`, `SkillStatus.tsx`
+- **Thin community `Community 46`** (2 nodes): `SkillStatus()`, `SkillStatus.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 45`** (2 nodes): `AvatarHero()`, `AvatarHero.tsx`
+- **Thin community `Community 47`** (2 nodes): `AvatarHero()`, `AvatarHero.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 46`** (2 nodes): `StreakBadge.tsx`, `getStreakColor()`
+- **Thin community `Community 48`** (2 nodes): `XpBar.tsx`, `XpBar()`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 47`** (2 nodes): `XpBar.tsx`, `XpBar()`
+- **Thin community `Community 49`** (2 nodes): `Blocked tutorial modules`, `Blocked P0 example`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 48`** (2 nodes): `Blocked tutorial modules`, `Blocked P0 example`
+- **Thin community `Community 50`** (2 nodes): `Ownership risk: auto-created DB via Vercel`, `Scale decision: Upstash vs Redis vs PostgreSQL`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 49`** (2 nodes): `Ownership risk: auto-created DB via Vercel`, `Scale decision: Upstash vs Redis vs PostgreSQL`
+- **Thin community `Community 51`** (2 nodes): `Agents are documentary not operational`, `Product Guardian agent (documentary)`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 50`** (2 nodes): `Agents are documentary not operational`, `Product Guardian agent (documentary)`
+- **Thin community `Community 52`** (2 nodes): `L10: Primitive/duplicated mastery computation`, `Etapa E: Unify mastery`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 51`** (2 nodes): `L10: Primitive/duplicated mastery computation`, `Etapa E: Unify mastery`
+- **Thin community `Community 53`** (1 nodes): `graphify_regen.py`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 52`** (1 nodes): `graphify_regen.py`
+- **Thin community `Community 54`** (1 nodes): `next-env.d.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 53`** (1 nodes): `next-env.d.ts`
+- **Thin community `Community 55`** (1 nodes): `next.config.js`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 54`** (1 nodes): `next.config.js`
+- **Thin community `Community 56`** (1 nodes): `playwright.config.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 55`** (1 nodes): `playwright.config.ts`
+- **Thin community `Community 57`** (1 nodes): `postcss.config.mjs`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 56`** (1 nodes): `postcss.config.mjs`
+- **Thin community `Community 58`** (1 nodes): `vitest.config.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 57`** (1 nodes): `vitest.config.ts`
+- **Thin community `Community 59`** (1 nodes): `_graphify_ast.py`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 58`** (1 nodes): `_graphify_ast.py`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 59`** (1 nodes): `_graphify_merge_semantic.py`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 60`** (1 nodes): `page.tsx`
+- **Thin community `Community 60`** (1 nodes): `_graphify_merge_semantic.py`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
 - **Thin community `Community 61`** (1 nodes): `page.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 62`** (1 nodes): `BentoCard.tsx`
+- **Thin community `Community 62`** (1 nodes): `page.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 63`** (1 nodes): `Button.tsx`
+- **Thin community `Community 63`** (1 nodes): `BentoCard.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 64`** (1 nodes): `index.ts`
+- **Thin community `Community 64`** (1 nodes): `Button.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 65`** (1 nodes): `ProgressCircle.tsx`
+- **Thin community `Community 65`** (1 nodes): `index.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 66`** (1 nodes): `SkillCard.tsx`
+- **Thin community `Community 66`** (1 nodes): `ProgressCircle.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 67`** (1 nodes): `project_hygiene.test.ts`
+- **Thin community `Community 67`** (1 nodes): `SkillCard.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 68`** (1 nodes): `exercise_selector.test.ts`
+- **Thin community `Community 68`** (1 nodes): `project_hygiene.test.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 69`** (1 nodes): `skill_slugs.test.ts`
+- **Thin community `Community 69`** (1 nodes): `exercise_selector.test.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 70`** (1 nodes): `reading_unit.ts`
+- **Thin community `Community 70`** (1 nodes): `skill_slugs.test.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 71`** (1 nodes): `all-pages.spec.ts`
+- **Thin community `Community 71`** (1 nodes): `reading_unit.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 72`** (1 nodes): `dashboard-progress.spec.ts`
+- **Thin community `Community 72`** (1 nodes): `all-pages.spec.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 73`** (1 nodes): `dashboard-responsive.spec.ts`
+- **Thin community `Community 73`** (1 nodes): `dashboard-progress.spec.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 74`** (1 nodes): `dashboard-screenshot.spec.ts`
+- **Thin community `Community 74`** (1 nodes): `dashboard-responsive.spec.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 75`** (1 nodes): `first-experience.spec.ts`
+- **Thin community `Community 75`** (1 nodes): `dashboard-screenshot.spec.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 76`** (1 nodes): `lengua-full-pedagogical-flow.spec.ts`
+- **Thin community `Community 76`** (1 nodes): `first-experience.spec.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 77`** (1 nodes): `lengua-practice-links.spec.ts`
+- **Thin community `Community 77`** (1 nodes): `lengua-full-pedagogical-flow.spec.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 78`** (1 nodes): `simulator-full-flow.spec.ts`
+- **Thin community `Community 78`** (1 nodes): `lengua-practice-links.spec.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 79`** (1 nodes): `student-profile-and-code.spec.ts`
+- **Thin community `Community 79`** (1 nodes): `simulator-full-flow.spec.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 80`** (1 nodes): `Research Summary Draft`
+- **Thin community `Community 80`** (1 nodes): `student-profile-and-code.spec.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 81`** (1 nodes): `Upstash Redis KV infrastructure`
+- **Thin community `Community 81`** (1 nodes): `Research Summary Draft`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 82`** (1 nodes): `Architecture Analysis`
+- **Thin community `Community 82`** (1 nodes): `Upstash Redis KV infrastructure`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 83`** (1 nodes): `L9: Simulator Without UI`
+- **Thin community `Community 83`** (1 nodes): `Architecture Analysis`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 84`** (1 nodes): `Evolution Plan (Stages 0-7)`
+- **Thin community `Community 84`** (1 nodes): `L9: Simulator Without UI`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 85`** (1 nodes): `Reading Session Flow`
+- **Thin community `Community 85`** (1 nodes): `Evolution Plan (Stages 0-7)`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 86`** (1 nodes): `Content Fixes (Lengua Exercises)`
+- **Thin community `Community 86`** (1 nodes): `Reading Session Flow`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 87`** (1 nodes): `Skill 3 Simulator Coverage`
+- **Thin community `Community 87`** (1 nodes): `Content Fixes (Lengua Exercises)`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 88`** (1 nodes): `Simulator (Product)`
+- **Thin community `Community 88`** (1 nodes): `Skill 3 Simulator Coverage`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 89`** (1 nodes): `Metrics System`
+- **Thin community `Community 89`** (1 nodes): `Simulator (Product)`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 90`** (1 nodes): `Commercial Model (Missing)`
+- **Thin community `Community 90`** (1 nodes): `Metrics System`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 91`** (1 nodes): `Etapa C: Test first slice`
+- **Thin community `Community 91`** (1 nodes): `Commercial Model (Missing)`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 92`** (1 nodes): `Codex Prompt Generator (operative)`
+- **Thin community `Community 92`** (1 nodes): `Etapa C: Test first slice`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 93`** (1 nodes): `AgentIssue and AgentRunResult types`
+- **Thin community `Community 93`** (1 nodes): `Codex Prompt Generator (operative)`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 94`** (1 nodes): `Step 3: Flow validation tests`
+- **Thin community `Community 94`** (1 nodes): `AgentIssue and AgentRunResult types`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 95`** (1 nodes): `Step 7: Product Guardian CLI`
+- **Thin community `Community 95`** (1 nodes): `Step 3: Flow validation tests`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 96`** (1 nodes): `App icon with dark square and white stylized mark`
+- **Thin community `Community 96`** (1 nodes): `Step 7: Product Guardian CLI`
+  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
+- **Thin community `Community 97`** (1 nodes): `App icon with dark square and white stylized mark`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
 
 ## Suggested Questions

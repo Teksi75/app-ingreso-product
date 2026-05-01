@@ -146,18 +146,21 @@ export default async function HabilidadesPage({ searchParams }: HabilidadesPageP
   );
 
   return (
-    <div className="min-h-screen bg-slate-50 flex">
+    <div className="min-h-screen dashboard-shell flex">
       {/* Sidebar - Desktop only */}
       <SidebarNav />
 
       {/* Main Content */}
       <main className="flex-1 min-w-0 min-h-screen pb-24 lg:pb-0">
         {/* Header Mobile */}
-        <header className="lg:hidden bg-white border-b border-slate-100">
+        <header className="lg:hidden glass-subtle border-b border-white/70">
           <div className="max-w-lg mx-auto px-4 py-4">
             <div className="flex items-center justify-between">
-              <h1 className="text-lg font-bold text-slate-800">Mis Habilidades</h1>
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-teal-100 to-teal-200 flex items-center justify-center text-xl">
+              <div>
+                <h1 className="text-lg font-bold text-slate-900">Mis Habilidades</h1>
+                <p className="text-xs font-medium text-slate-500">Tu mapa de entrenamiento</p>
+              </div>
+              <div className="w-11 h-11 rounded-2xl gradient-ingenium flex items-center justify-center text-xl shadow-soft-sm">
                 🎯
               </div>
             </div>
@@ -165,20 +168,20 @@ export default async function HabilidadesPage({ searchParams }: HabilidadesPageP
         </header>
 
         {/* Header Desktop */}
-        <header className="hidden lg:block bg-white border-b border-slate-100">
-          <div className="px-6 py-5">
+        <header className="hidden lg:block glass-subtle border-b border-white/70">
+          <div className="px-6 py-5 xl:px-8">
             <div className="flex items-center justify-between">
               <div>
-                <h1 className="text-2xl font-bold text-slate-800">Mis Habilidades</h1>
-                <p className="text-slate-500">Domina Matemática y Lengua para el ingreso</p>
+                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-violet-500">Entrenamiento INGENIUM</p>
+                <h1 className="text-2xl font-extrabold text-slate-900">Mis Habilidades</h1>
+                <p className="text-slate-500">Dominá Matemática y Lengua para el ingreso</p>
               </div>
               <div className="flex items-center gap-4">
-                <div className="text-right">
+                <div className="panel-pastel min-w-36 px-4 py-3 text-right">
                   <p className="text-sm text-slate-500">Ejercicios totales</p>
                   <p className="text-2xl font-bold text-teal-600">{totalExercises}</p>
                 </div>
-                <div className="w-px h-10 bg-slate-200" />
-                <div className="text-right">
+                <div className="panel-pastel min-w-32 px-4 py-3 text-right bg-[var(--bg-pastel-amber)]">
                   <p className="text-sm text-slate-500">Precisión</p>
                   <p className="text-2xl font-bold text-orange-600">{averageAccuracy}%</p>
                 </div>
@@ -188,32 +191,38 @@ export default async function HabilidadesPage({ searchParams }: HabilidadesPageP
         </header>
 
         {/* Content */}
-        <div className="p-4 lg:p-6">
+        <div className="mx-auto w-full max-w-7xl p-4 sm:px-6 lg:p-8">
 
           {/* Tip destacado arriba */}
-          <div className="bg-gradient-to-r from-violet-50 to-purple-50 rounded-2xl p-5 border border-violet-100 mb-6">
-            <div className="flex items-start gap-4">
-              <div className="w-12 h-12 rounded-xl bg-violet-100 flex items-center justify-center text-2xl flex-shrink-0">
+          <div className="gradient-mission relative mb-6 overflow-hidden rounded-[2rem] p-5 text-white shadow-soft-lg sm:p-6 lg:mb-8">
+            <div className="pointer-events-none absolute -right-10 -top-12 h-40 w-40 rounded-full bg-white/15 blur-2xl" />
+            <div className="pointer-events-none absolute bottom-5 right-7 hidden text-6xl opacity-25 md:block">📚</div>
+            <div className="relative flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+              <div className="flex items-start gap-4">
+                <div className="flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-2xl bg-white/18 text-2xl shadow-soft-sm ring-1 ring-white/25">
                 💡
-              </div>
-              <div className="flex-1">
-                <h3 className="font-bold text-slate-800 mb-1">Tip:</h3>
-                <p className="text-slate-600 mb-3">
-                  <span className="font-semibold text-violet-600">Lengua</span> es donde más podés mejorar ahora.
+                </div>
+                <div className="max-w-2xl">
+                  <p className="text-sm font-semibold uppercase tracking-[0.18em] text-white/72">Próxima misión recomendada</p>
+                  <h2 className="mt-1 text-2xl font-extrabold tracking-tight lg:text-3xl">Potenciá Lengua hoy</h2>
+                  <p className="mt-2 text-sm text-white/82 lg:text-base">
+                    <span className="font-bold text-white">Lengua</span> es donde más podés mejorar ahora. Arrancá con una práctica guiada y sumá progreso real.
                 </p>
-                <Button
-                  href={withProgressCode(recommendationHref, progressCode)}
-                  variant="secondary"
-                  size="sm"
-                >
-                  Practicar
-                </Button>
+                </div>
               </div>
+              <Button
+                href={withProgressCode(recommendationHref, progressCode)}
+                variant="secondary"
+                size="lg"
+                className="relative bg-white text-violet-700 hover:bg-violet-50 font-bold shadow-soft-sm"
+              >
+                Practicar ahora
+              </Button>
             </div>
           </div>
 
           {/* Habilidades tipo juego */}
-          <div className="space-y-6">
+          <div className="grid grid-cols-1 gap-5 xl:grid-cols-2">
             {HABILIDADES.map((skill) => {
               const colors = colorConfig[skill.color];
 
@@ -221,27 +230,28 @@ export default async function HabilidadesPage({ searchParams }: HabilidadesPageP
                 <div
                   key={skill.id}
                   className={`
-                    bg-white rounded-2xl p-5 border transition-all duration-300
-                    hover:shadow-lg hover:-translate-y-0.5
+                    panel-pastel group relative overflow-hidden p-5 transition-all duration-300
+                    hover:shadow-soft-md hover:-translate-y-0.5 sm:p-6
                     ${colors.border}
                   `}
                 >
+                  <div className={`pointer-events-none absolute -right-10 -top-10 h-32 w-32 rounded-full ${colors.bg} blur-2xl opacity-70`} />
                   {/* Header con nivel */}
-                  <div className="flex items-start justify-between mb-4">
+                  <div className="relative mb-5 flex items-start justify-between gap-4">
                     <div className="flex items-center gap-3">
                       <div className={`
-                        w-12 h-12 rounded-xl flex items-center justify-center text-2xl
+                        flex h-14 w-14 items-center justify-center rounded-2xl text-2xl shadow-soft-sm ring-1 ring-white/80
                         ${colors.bg}
                       `}>
                         {skill.icon}
                       </div>
                       <div>
-                        <h3 className="font-bold text-slate-800 text-lg">{skill.name}</h3>
+                        <h3 className="text-xl font-extrabold text-slate-900">{skill.name}</h3>
                         <p className="text-sm text-slate-500">{skill.description}</p>
                       </div>
                     </div>
                     <div className={`
-                      px-3 py-1 rounded-full text-sm font-bold
+                      rounded-full px-3 py-1 text-sm font-bold shadow-soft-sm
                       ${colors.bg} ${colors.text}
                     `}>
                       {skill.isAvailable ? `Nivel: ${skill.level}` : "Próximamente"}
@@ -251,31 +261,42 @@ export default async function HabilidadesPage({ searchParams }: HabilidadesPageP
                   {skill.isAvailable ? (
                     <>
                       {/* Fortalezas y debilidades */}
-                      <div className="space-y-3 mb-4">
-                        <div className="flex items-center gap-2 text-sm">
-                          <span className="text-emerald-500">🟢</span>
-                          <span className="text-slate-600 font-medium">Fuerte →</span>
-                          <span className="text-slate-700">Uso de verbos</span>
+                      <div className="relative mb-5 grid gap-3 sm:grid-cols-3">
+                        <div className="rounded-2xl bg-emerald-50 p-3 ring-1 ring-emerald-100">
+                          <span className="text-lg">🟢</span>
+                          <span className="ml-2 text-xs font-bold uppercase tracking-wide text-emerald-600">Fuerte</span>
+                          <p className="mt-1 text-sm font-medium text-slate-700">Uso de verbos</p>
                         </div>
-                        <div className="flex items-center gap-2 text-sm">
-                          <span className="text-amber-500">🟡</span>
-                          <span className="text-slate-600 font-medium">Medio →</span>
-                          <span className="text-slate-700">Comprensión</span>
+                        <div className="rounded-2xl bg-amber-50 p-3 ring-1 ring-amber-100">
+                          <span className="text-lg">🟡</span>
+                          <span className="ml-2 text-xs font-bold uppercase tracking-wide text-amber-600">Medio</span>
+                          <p className="mt-1 text-sm font-medium text-slate-700">Comprensión</p>
                         </div>
-                        <div className="flex items-center gap-2 text-sm">
-                          <span className="text-rose-500">🔴</span>
-                          <span className="text-slate-600 font-medium">Débil →</span>
-                          <span className="text-slate-700">Gramática</span>
+                        <div className="rounded-2xl bg-rose-50 p-3 ring-1 ring-rose-100">
+                          <span className="text-lg">🔴</span>
+                          <span className="ml-2 text-xs font-bold uppercase tracking-wide text-rose-600">Débil</span>
+                          <p className="mt-1 text-sm font-medium text-slate-700">Gramática</p>
+                        </div>
+                      </div>
+
+                      <div className="relative mb-5 grid grid-cols-2 gap-3">
+                        <div className="rounded-2xl bg-white/80 p-3 text-center shadow-soft-sm">
+                          <p className="text-xs font-medium text-slate-500">Ejercicios</p>
+                          <p className="text-xl font-extrabold text-slate-900">{skill.exercises}</p>
+                        </div>
+                        <div className="rounded-2xl bg-white/80 p-3 text-center shadow-soft-sm">
+                          <p className="text-xs font-medium text-slate-500">Precisión</p>
+                          <p className="text-xl font-extrabold text-slate-900">{skill.accuracy}%</p>
                         </div>
                       </div>
 
                       {/* Barra de progreso simple */}
-                      <div className="mb-4">
-                        <div className="flex justify-between items-center mb-1">
-                          <span className="text-xs font-medium text-slate-500">Progreso</span>
-                          <span className="text-xs font-bold text-slate-700">{skill.progress}%</span>
+                      <div className="relative mb-6">
+                        <div className="mb-2 flex items-center justify-between">
+                          <span className="text-xs font-semibold uppercase tracking-wide text-slate-500">Progreso</span>
+                          <span className="text-sm font-extrabold text-slate-800">{skill.progress}%</span>
                         </div>
-                        <div className="h-2 bg-slate-100 rounded-full overflow-hidden">
+                        <div className="h-3 overflow-hidden rounded-full bg-slate-100 shadow-inner">
                           <div
                             className={`h-full ${colors.progress} rounded-full transition-all duration-500`}
                             style={{ width: `${skill.progress}%` }}
@@ -283,26 +304,29 @@ export default async function HabilidadesPage({ searchParams }: HabilidadesPageP
                         </div>
                       </div>
 
-                      <Button
-                        href={withProgressCode(skill.practiceHref, progressCode)}
-                        fullWidth
-                        size="md"
-                        className={`
-                          w-full py-3 rounded-xl font-semibold text-white
-                          transition-all duration-200 active:scale-95
-                          ${colors.button}
-                        `}
-                      >
-                        <span className="flex items-center justify-center gap-2">
-                          <span>⚡</span>
-                          Practicar ahora
-                        </span>
-                      </Button>
+                      <div className="relative border-t border-slate-100 pt-5">
+                        <Button
+                          href={withProgressCode(skill.practiceHref, progressCode)}
+                          fullWidth
+                          size="md"
+                          className={`
+                            relative w-full rounded-2xl py-3 font-bold text-white shadow-soft-md
+                            transition-all duration-200 hover:-translate-y-0.5 active:scale-95
+                            ${colors.button}
+                          `}
+                        >
+                          <span className="flex items-center justify-center gap-2">
+                            <span>⚡</span>
+                            Practicar ahora
+                          </span>
+                        </Button>
+                      </div>
                     </>
                   ) : (
-                    <div className="bg-slate-50 rounded-xl p-4 text-center">
-                      <p className="text-slate-500 text-sm mb-2">🚧 Matemática</p>
-                      <p className="text-slate-400 text-xs">Disponible en breve</p>
+                    <div className="relative rounded-2xl bg-slate-50/90 p-5 text-center ring-1 ring-slate-100">
+                      <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-2xl bg-white text-2xl shadow-soft-sm">🚧</div>
+                      <p className="text-sm font-bold text-slate-700">Matemática está en preparación</p>
+                      <p className="mt-1 text-xs text-slate-500">Disponible en breve con ejercicios y simulaciones.</p>
                     </div>
                   )}
                 </div>

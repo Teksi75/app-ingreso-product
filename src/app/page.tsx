@@ -178,18 +178,18 @@ export default async function DashboardPage({ searchParams }: HomePageProps) {
   const hasPracticeHistory = stats.totalAttempts > 0;
 
   return (
-    <div className="min-h-screen bg-slate-50 flex">
+    <div className="min-h-screen dashboard-shell flex">
       {/* Sidebar - Desktop only */}
       <SidebarNav />
 
       {/* Main Content */}
       <main className="flex-1 min-w-0 min-h-screen pb-24 lg:pb-0">
         {/* Header Mobile */}
-        <header className="lg:hidden bg-white border-b border-slate-100">
+        <header className="lg:hidden glass-subtle border-b border-white/70">
           <div className="max-w-lg mx-auto px-4 py-4">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-3">
-                <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-teal-100 to-teal-200 flex items-center justify-center text-2xl">
+                <div className="w-12 h-12 rounded-2xl gradient-ingenium flex items-center justify-center text-2xl shadow-soft-sm">
                   <ClientAvatarBadge />
                 </div>
                 <div>
@@ -205,8 +205,8 @@ export default async function DashboardPage({ searchParams }: HomePageProps) {
         </header>
 
         {/* Header Desktop */}
-        <header className="hidden lg:block bg-white border-b border-slate-100">
-          <div className="px-6 py-5">
+        <header className="hidden lg:block glass-subtle border-b border-white/70">
+          <div className="px-6 py-5 xl:px-8">
             <div className="flex items-center justify-between">
               <h1 className="text-2xl font-bold text-slate-800">
                 {hasPracticeHistory ? "Bienvenido de vuelta" : "¡Empecemos!"}, <ClientStudentName fallback={student.name} />
@@ -217,39 +217,41 @@ export default async function DashboardPage({ searchParams }: HomePageProps) {
         </header>
 
         {/* Content */}
-        <div className="p-4 lg:p-6">
+        <div className="mx-auto w-full max-w-7xl space-y-10 p-4 sm:px-6 lg:space-y-12 lg:p-10 xl:py-12">
           {/* TU MISIÓN DE HOY - Bloque principal */}
-          <div className="mb-6">
-            <div className="bg-gradient-to-br from-teal-500 to-teal-600 rounded-2xl p-6 text-white shadow-lg">
-              <div className="flex items-start gap-4 mb-4">
-                <div className="text-3xl">🎯</div>
+          <section>
+            <div className="gradient-mission relative flex min-h-[280px] flex-col justify-between overflow-hidden rounded-[2.25rem] p-6 text-white shadow-soft-lg sm:p-8 lg:min-h-[320px] lg:p-10">
+              <div className="pointer-events-none absolute -right-8 -top-10 h-36 w-36 rounded-full bg-white/15 blur-2xl" />
+              <div className="pointer-events-none absolute bottom-5 right-7 hidden text-6xl opacity-25 sm:block">🏆</div>
+              <div className="relative mb-7 flex items-start gap-5">
+                <div className="flex h-16 w-16 items-center justify-center rounded-3xl bg-white/18 text-3xl shadow-soft-sm ring-1 ring-white/25">🎯</div>
                 <div className="flex-1">
-                  <h2 className="text-xl lg:text-2xl font-bold mb-2">Tu misión de hoy</h2>
-                  <p className="text-teal-100 text-sm lg:text-base">
+                  <h2 className="mb-2 text-3xl font-extrabold tracking-tight lg:text-4xl">Tu misión de hoy</h2>
+                  <p className="text-white/82 text-sm lg:text-base">
                     Tenés que mejorar en:
                   </p>
                 </div>
               </div>
-              
-              <div className="bg-white/10 rounded-xl p-4 mb-4">
-                <div className="flex items-center gap-3 mb-2">
+               
+              <div className="relative mb-7 rounded-3xl bg-white/14 p-5 ring-1 ring-white/20 sm:p-6">
+                <div className="mb-3 flex items-center gap-4">
                   <span className="text-2xl">👉</span>
                   <div>
-                    <h3 className="font-bold text-lg">{dailyChallenge.title}</h3>
-                    <p className="text-teal-100 text-sm">{dailyChallenge.description}</p>
+                    <h3 className="text-xl font-bold lg:text-2xl">{dailyChallenge.title}</h3>
+                    <p className="mt-1 text-sm text-white/84 lg:text-base">{dailyChallenge.description}</p>
                   </div>
                 </div>
-                <p className="text-teal-200 text-xs mt-2">
+                <p className="mt-3 max-w-4xl text-sm text-white/72">
                   {dailyChallenge.reason}
                 </p>
               </div>
-              
-              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+               
+              <div className="relative flex flex-col items-stretch gap-4 border-t border-white/20 pt-6 sm:flex-row sm:items-center">
                 <Button 
                   href={withProgressCode(dailyChallenge.href, progressCode)} 
                   variant="secondary" 
                   size="lg"
-                  className="flex-1 bg-white text-teal-600 hover:bg-teal-50 font-bold"
+                  className="flex-1 bg-white text-violet-700 hover:bg-violet-50 font-bold shadow-soft-sm"
                 >
                   <span className="flex items-center justify-center gap-2">
                     <span>⚡</span>
@@ -257,45 +259,57 @@ export default async function DashboardPage({ searchParams }: HomePageProps) {
                   </span>
                 </Button>
                 <div className="text-center sm:text-right">
-                  <span className="bg-white/20 px-3 py-1 rounded-full text-sm font-semibold">
+                  <span className="bg-white/18 px-3 py-1 rounded-full text-sm font-semibold ring-1 ring-white/25">
                     +{dailyChallenge.reward} XP
                   </span>
                 </div>
               </div>
             </div>
-          </div>
+          </section>
 
           {/* Resumen rápido de progreso */}
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-            <div className="bg-white rounded-xl p-4 border border-slate-100 text-center">
-              <div className="text-2xl font-bold text-teal-600">{stats.totalAttempts}</div>
-              <div className="text-xs text-slate-500">Ejercicios</div>
+          <section className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="panel-pastel flex min-h-28 items-center gap-5 p-6">
+              <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-teal-100 text-2xl">📖</div>
+              <div>
+                <div className="text-2xl font-bold text-slate-900">{stats.totalAttempts}</div>
+                <div className="text-xs font-medium text-slate-500">Ejercicios</div>
+              </div>
             </div>
-            <div className="bg-white rounded-xl p-4 border border-slate-100 text-center">
-              <div className="text-2xl font-bold text-orange-600">{stats.accuracy}%</div>
-              <div className="text-xs text-slate-500">Precisión</div>
+            <div className="panel-pastel flex min-h-28 items-center gap-5 bg-[var(--bg-pastel-amber)] p-6">
+              <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-orange-100 text-2xl">🎯</div>
+              <div>
+                <div className="text-2xl font-bold text-slate-900">{stats.accuracy}%</div>
+                <div className="text-xs font-medium text-slate-500">Precisión</div>
               {stats.accuracy < 70 && stats.totalAttempts > 0 && (
                 <div className="text-xs text-orange-500 mt-1">🔻 Te falta poco para el 70%</div>
               )}
+              </div>
             </div>
-            <div className="bg-white rounded-xl p-4 border border-slate-100 text-center">
-              <div className="text-2xl font-bold text-violet-600">{student.streak}</div>
-              <div className="text-xs text-slate-500">Días activos</div>
+            <div className="panel-pastel flex min-h-28 items-center gap-5 bg-[var(--bg-pastel-violet)] p-6">
+              <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-violet-100 text-2xl">📅</div>
+              <div>
+                <div className="text-2xl font-bold text-slate-900">{student.streak}</div>
+                <div className="text-xs font-medium text-slate-500">Días activos</div>
+              </div>
             </div>
-            <div className="bg-white rounded-xl p-4 border border-slate-100 text-center">
-              <div className="text-2xl font-bold text-emerald-600">{student.level}</div>
-              <div className="text-xs text-slate-500">Nivel</div>
+            <div className="panel-pastel flex min-h-28 items-center gap-5 bg-[var(--bg-pastel-emerald)] p-6">
+              <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-emerald-100 text-2xl">⭐</div>
+              <div>
+                <div className="text-2xl font-bold text-slate-900">{student.level}</div>
+                <div className="text-xs font-medium text-slate-500">Nivel</div>
+              </div>
             </div>
-          </div>
+          </section>
 
           {/* Habilidades - Versión simplificada */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-6">
+          <section className="grid grid-cols-1 gap-6 lg:grid-cols-2 lg:gap-8">
             {/* Fortalezas */}
-            <div className="bg-white rounded-xl p-4 border border-emerald-100">
-              <h3 className="font-bold text-slate-800 mb-3 flex items-center gap-2">
+            <div className="panel-pastel min-h-[170px] bg-[var(--bg-pastel-emerald)] p-7">
+              <h3 className="mb-4 flex items-center gap-2 text-lg font-bold text-slate-800">
                 <span className="text-emerald-500">💪</span> Vas bien:
               </h3>
-              <div className="space-y-2">
+              <div className="space-y-3">
                 {skillProgress.filter(s => s.masteryLevel >= 3).length > 0 ? (
                   skillProgress.filter(s => s.masteryLevel >= 3).slice(0, 3).map((skill) => {
                     const meta = getSkillMetadata(skill.skillId);
@@ -316,11 +330,11 @@ export default async function DashboardPage({ searchParams }: HomePageProps) {
             </div>
 
             {/* Áreas de mejora */}
-            <div className="bg-white rounded-xl p-4 border border-amber-100">
-              <h3 className="font-bold text-slate-800 mb-3 flex items-center gap-2">
+            <div className="panel-pastel min-h-[170px] bg-[var(--bg-pastel-amber)] p-7">
+              <h3 className="mb-4 flex items-center gap-2 text-lg font-bold text-slate-800">
                 <span className="text-amber-500">⚠️</span> Tenés que mejorar:
               </h3>
-              <div className="space-y-2">
+              <div className="space-y-3">
                 {skillProgress.filter(s => s.masteryLevel <= 2).length > 0 ? (
                   skillProgress.filter(s => s.masteryLevel <= 2).slice(0, 3).map((skill) => {
                     const meta = getSkillMetadata(skill.skillId);
@@ -339,12 +353,13 @@ export default async function DashboardPage({ searchParams }: HomePageProps) {
                 )}
               </div>
             </div>
-          </div>
+          </section>
 
           {/* MIDDLE GRID - Simulación + Progreso Semanal */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-6 mb-6">
+          <section className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:gap-8">
             {/* Simulación - Versión con urgencia */}
             <BentoCard
+              variant="large"
               title={simulatorReady ? "Simulación lista" : "Simulación bloqueada"}
               subtitle={simulatorReady ? "Podés empezar ahora" : "Tenés que practicar más"}
               accentColor={simulatorReady ? "emerald" : "orange"}
@@ -354,9 +369,9 @@ export default async function DashboardPage({ searchParams }: HomePageProps) {
                 </svg>
               }
             >
-              <div className="space-y-3">
+              <div className="space-y-5">
                 {simulatorReady ? (
-                  <div className="bg-emerald-50 rounded-lg p-3 border border-emerald-100">
+                  <div className="bg-emerald-50 rounded-2xl p-4 border border-emerald-100">
                     <div className="flex items-center gap-2 text-emerald-700 text-sm font-semibold">
                       <span>✅</span>
                       <span>¡Listo para simular!</span>
@@ -364,7 +379,7 @@ export default async function DashboardPage({ searchParams }: HomePageProps) {
                     <p className="text-emerald-600 text-xs mt-1">10 preguntas • 15 min</p>
                   </div>
                 ) : (
-                  <div className="bg-amber-50 rounded-lg p-3 border border-amber-100">
+                  <div className="bg-amber-50 rounded-2xl p-4 border border-amber-100">
                     <div className="flex items-center gap-2 text-amber-700 text-sm font-semibold">
                       <span>🔒</span>
                       <span>Te faltan habilidades para desbloquearla</span>
@@ -386,6 +401,7 @@ export default async function DashboardPage({ searchParams }: HomePageProps) {
 
             {/* Progreso Semanal con contexto */}
             <BentoCard
+              variant="large"
               title="Tu ritmo semanal"
               subtitle={
                 weeklyProgress.daysCompleted >= 5 
@@ -401,7 +417,7 @@ export default async function DashboardPage({ searchParams }: HomePageProps) {
                 </svg>
               }
             >
-              <div className="space-y-3">
+              <div className="space-y-5">
                 <div className="flex justify-between">
                   {["L", "M", "X", "J", "V", "S", "D"].map((day, i) => (
                     <div
@@ -419,27 +435,27 @@ export default async function DashboardPage({ searchParams }: HomePageProps) {
                   ))}
                 </div>
                 <div className="grid grid-cols-2 gap-3">
-                  <div className="bg-slate-50 rounded-lg p-2 text-center">
+                  <div className="rounded-xl bg-white/80 p-3 text-center shadow-soft-sm">
                     <div className="text-xl font-bold text-slate-800">{weeklyProgress.exercisesDone}</div>
                     <div className="text-xs text-slate-500">Ejercicios</div>
                   </div>
-                  <div className="bg-slate-50 rounded-lg p-2 text-center">
+                  <div className="rounded-xl bg-white/80 p-3 text-center shadow-soft-sm">
                     <div className="text-xl font-bold text-slate-800">{weeklyProgress.averageScore}%</div>
                     <div className="text-xs text-slate-500">Promedio</div>
                   </div>
                 </div>
               </div>
             </BentoCard>
-          </div>
+          </section>
 
           {/* Avatar compacto en esquina */}
-          <div className="flex justify-between items-start mb-6">
+          <section className="panel-pastel flex flex-col gap-6 p-6 sm:flex-row sm:items-center sm:justify-between">
             <div className="flex-1">
               <Button 
                 href={withProgressCode("/perfil", progressCode)} 
                 variant="ghost" 
                 size="sm"
-                className="text-slate-500 hover:text-teal-600"
+                className="w-full justify-start rounded-2xl border border-violet-100 bg-white/70 text-slate-600 hover:text-violet-700 sm:w-auto"
               >
                 <span className="flex items-center gap-2">
                   <span>👤</span>
@@ -448,7 +464,7 @@ export default async function DashboardPage({ searchParams }: HomePageProps) {
               </Button>
             </div>
             
-            <div className="bg-gradient-to-br from-teal-50 to-violet-50 rounded-xl p-3 border border-teal-100 flex items-center gap-3">
+            <div className="rounded-2xl bg-gradient-to-br from-violet-50 to-teal-50 p-3 border border-violet-100 flex items-center gap-3 shadow-soft-sm">
               <div className="text-2xl">
                 <ClientAvatarBadge />
               </div>
@@ -457,15 +473,15 @@ export default async function DashboardPage({ searchParams }: HomePageProps) {
                 <div className="text-xs text-slate-500">{student.rank}</div>
               </div>
             </div>
-          </div>
+          </section>
 
           {/* Enlace a reporte completo */}
-          <div className="mt-6 text-center">
+          <div className="text-center">
             <Button 
               href={withProgressCode("/progreso", progressCode)} 
               variant="ghost" 
               size="sm"
-              className="text-slate-500 hover:text-teal-600"
+              className="rounded-2xl bg-white/70 text-blue-700 hover:text-violet-700 shadow-soft-sm"
             >
               <span className="flex items-center gap-2">
                 <span>📊</span>

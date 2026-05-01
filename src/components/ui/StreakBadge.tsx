@@ -60,23 +60,25 @@ export function StreakBadge({
   
   // Determinar color según la racha
   const getStreakColor = (days: number) => {
-    if (days >= 30) return "from-red-500 to-orange-600"; // Racha épica
-    if (days >= 14) return "from-orange-500 to-amber-500"; // Racha alta
-    if (days >= 7) return "from-amber-500 to-yellow-500"; // Racha buena
-    if (days >= 3) return "from-yellow-400 to-orange-400"; // Racha iniciada
-    return "from-orange-400 to-orange-300"; // Racha temprana
+    if (days >= 30) return "from-rose-500 via-orange-500 to-amber-400"; // Racha épica
+    if (days >= 14) return "from-orange-500 via-amber-500 to-yellow-400"; // Racha alta
+    if (days >= 7) return "from-amber-500 via-orange-400 to-yellow-300"; // Racha buena
+    if (days >= 3) return "from-orange-400 via-amber-400 to-yellow-300"; // Racha iniciada
+    return "from-orange-50 to-white"; // Racha temprana
   };
+  const textColor = days >= 3 ? "text-white" : "text-orange-600";
 
   return (
     <div
       className={`
         inline-flex items-center rounded-full
         bg-gradient-to-r ${getStreakColor(days)}
-        text-white font-bold shadow-md
+        ${textColor} font-bold shadow-soft-sm ring-1 ring-orange-200/70
         transition-transform duration-200 hover:scale-105
         ${config.container}
         ${className}
       `}
+      aria-label={`Racha de ${days} ${days === 1 ? "día" : "días"}`}
     >
       {/* Icono de fuego con animación */}
       <svg

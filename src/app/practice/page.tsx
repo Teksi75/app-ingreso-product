@@ -81,12 +81,12 @@ export default async function PracticePage({ searchParams }: PracticePageProps) 
   }
 
   return (
-    <div className="min-h-screen bg-slate-50 flex">
+    <div className="min-h-screen dashboard-shell flex">
       <SidebarNav />
       <main className="flex-1 min-w-0 min-h-screen pb-36 lg:pb-0">
-        <header className="lg:hidden bg-white border-b border-slate-100">
+        <header className="lg:hidden glass-subtle border-b border-white/70">
           <div className="max-w-lg mx-auto px-4 py-4">
-            <h1 className="text-lg font-bold text-slate-800">{pageTitle}</h1>
+            <h1 className="text-lg font-bold text-slate-900">{pageTitle}</h1>
           </div>
         </header>
         <section className="mx-auto grid w-full max-w-6xl gap-5 p-4 lg:p-6">
@@ -107,11 +107,11 @@ export default async function PracticePage({ searchParams }: PracticePageProps) 
 
 function PracticeUnavailable({ progressCode }: { progressCode?: string }) {
   return (
-    <div className="min-h-screen bg-slate-50 flex">
+    <div className="min-h-screen dashboard-shell flex">
       <SidebarNav />
       <main className="flex-1 min-w-0 min-h-screen pb-36 lg:pb-0">
         <section className="mx-auto grid w-full max-w-3xl gap-5 p-4 lg:p-6">
-          <div className="rounded-2xl border border-slate-100 bg-white p-6 shadow-sm">
+          <div className="panel-pastel p-6">
             <p className="m-0 text-sm font-semibold text-teal-700">Práctica no disponible</p>
             <h1 className="mt-2 mb-3 text-2xl font-bold text-slate-800">
               No encontramos ejercicios para iniciar esta sesión

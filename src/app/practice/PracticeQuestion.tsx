@@ -79,9 +79,9 @@ export function PracticeQuestion({
     ? "Lectura y actividades"
     : "Habilidad en entrenamiento";
   const skillBanner = (
-    <aside className="rounded-2xl border border-violet-100 bg-violet-50 p-4">
+    <aside className="panel-pastel bg-[var(--bg-pastel-violet)] p-4">
       <div className="flex items-center gap-2 mb-2">
-        <div className="w-8 h-8 rounded-lg bg-violet-500 text-white flex items-center justify-center text-sm font-bold">
+        <div className="w-8 h-8 rounded-2xl gradient-ingenium text-white flex items-center justify-center text-sm font-bold shadow-soft-sm">
           📚
         </div>
         <p className="text-xs font-bold uppercase tracking-wider text-violet-700">
@@ -213,7 +213,7 @@ export function PracticeQuestion({
     return (
       <>
         {skillBanner}
-        <article className="grid gap-5 rounded-2xl border border-slate-100 bg-white p-5 lg:p-6 shadow-sm">
+        <article className="grid gap-5 panel-pastel p-5 lg:p-6">
           <div className="grid gap-2">
             <p className="text-sm font-medium text-slate-500">Sesión completada</p>
             <h1 className="text-2xl font-bold text-slate-800">
@@ -287,7 +287,7 @@ export function PracticeQuestion({
     <>
       {skillBanner}
       <div className={hasReadingStimulus ? "grid gap-5 lg:grid-cols-[minmax(0,1.15fr)_minmax(360px,0.85fr)] lg:items-start" : "grid gap-5"}>
-        <article ref={questionRef} className={`grid gap-4 rounded-2xl border border-slate-100 bg-white p-4 lg:p-5 shadow-sm mb-6 lg:mb-0 ${hasReadingStimulus ? "order-2 lg:order-2" : ""}`}>
+        <article ref={questionRef} className={`grid gap-4 panel-pastel p-4 lg:p-5 mb-6 lg:mb-0 ${hasReadingStimulus ? "order-2 lg:order-2" : ""}`}>
           <div className="flex items-center justify-between">
             <p className="text-sm font-medium text-slate-500">
               Pregunta {currentExerciseIndex + 1} de {sessionQuestionCount}
@@ -413,7 +413,7 @@ function ReadingStimulusPanel({ readingUnit, questionRef }: ReadingStimulusPanel
   }
 
   return (
-    <article className="grid gap-4 rounded-2xl border border-slate-100 bg-white p-4 lg:px-8 lg:py-6 shadow-sm lg:max-h-[calc(100vh-8rem)] lg:overflow-y-auto lg:sticky lg:top-6">
+    <article className="grid gap-4 panel-pastel p-4 lg:px-8 lg:py-6 lg:max-h-[calc(100vh-8rem)] lg:overflow-y-auto lg:sticky lg:top-6">
       <div className="grid gap-1">
         <p className="text-xs font-bold uppercase tracking-wider text-violet-600">Texto de práctica</p>
         <h2 className="text-xl lg:text-2xl font-bold leading-8 text-slate-800">{readingUnit.title}</h2>
@@ -764,7 +764,7 @@ function MasteryMapModal({ masteryMap, onClose, recommendation }: MasteryMapModa
       className="fixed inset-0 z-50 grid place-items-center bg-black/40 px-4 py-6"
       role="dialog"
     >
-      <section className="grid max-h-[85vh] w-full max-w-[560px] gap-4 overflow-hidden rounded-2xl border border-slate-100 bg-white p-5 shadow-xl">
+      <section className="grid max-h-[85vh] w-full max-w-[560px] gap-4 overflow-hidden panel-pastel p-5 shadow-soft-lg">
         <div className="flex items-start justify-between gap-3">
           <div>
             <p className="text-sm font-medium text-slate-500">Lengua</p>

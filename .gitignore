@@ -5,6 +5,7 @@ dist/
 *.tsbuildinfo
 .playwright-cli/
 .codex/
+.atl/
 .env
 .env.*
 !.env.example

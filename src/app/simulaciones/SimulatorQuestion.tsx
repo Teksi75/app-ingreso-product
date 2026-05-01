@@ -153,21 +153,21 @@ export function SimulatorQuestion({ progressCode, session, saveProgress }: Simul
   }
 
   return (
-    <div className="min-h-screen bg-slate-50 flex">
+    <div className="min-h-screen dashboard-shell flex">
       <SidebarNav />
       <main className="flex-1 min-w-0 min-h-screen pb-28 lg:pb-0">
-        <header className="bg-white border-b border-slate-100">
-          <div className="mx-auto flex w-full max-w-5xl items-center justify-between gap-4 px-4 py-4 lg:px-6 lg:py-5">
+        <header className="glass-subtle border-b border-white/70">
+          <div className="mx-auto flex w-full max-w-7xl items-center justify-between gap-4 px-4 py-4 lg:px-10 lg:py-6">
             <div>
-              <p className="text-sm font-semibold text-teal-600">Lengua</p>
-              <h1 className="text-xl font-bold text-slate-800 lg:text-2xl">Simulación</h1>
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-violet-500">Simulador INGENIUM</p>
+              <h1 className="text-xl font-bold text-slate-900 lg:text-2xl">Simulación de Lengua</h1>
             </div>
-            <div className="rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm font-semibold text-slate-600">
+            <div className="rounded-2xl border border-violet-100 bg-white/80 px-3 py-2 text-sm font-semibold text-violet-700 shadow-soft-sm">
               {totalQuestions} preguntas
             </div>
           </div>
         </header>
-        <section className="mx-auto grid w-full max-w-5xl gap-5 p-4 lg:p-6">
+        <section className="mx-auto grid w-full max-w-7xl gap-8 p-4 sm:px-6 lg:p-10">
           {stage === "start" ? (
             <StartPanel questionCount={totalQuestions} onStart={startSimulation} />
           ) : null}
@@ -212,30 +212,39 @@ function StartPanel({
   onStart: () => void;
 }) {
   return (
-    <article className="grid gap-5 rounded-2xl border border-slate-100 bg-white p-5 shadow-sm lg:p-6">
-      <div className="grid gap-2">
-        <p className="text-sm font-semibold uppercase tracking-wide text-teal-600">🧪 Simulación de Lengua</p>
-        <h2 className="text-2xl font-bold text-slate-800">Sesión completa</h2>
+    <article className="gradient-mission relative grid min-h-[360px] overflow-hidden rounded-[2.25rem] p-6 text-white shadow-soft-lg sm:p-8 lg:max-w-4xl lg:p-10">
+      <div className="pointer-events-none absolute -right-12 -top-12 h-48 w-48 rounded-full bg-white/15 blur-2xl" />
+      <div className="pointer-events-none absolute bottom-8 right-10 hidden text-7xl opacity-20 md:block">🧪</div>
+
+      <div className="relative grid gap-3">
+        <div className="flex h-16 w-16 items-center justify-center rounded-3xl bg-white/18 text-3xl shadow-soft-sm ring-1 ring-white/25">🧪</div>
+        <p className="text-sm font-semibold uppercase tracking-[0.18em] text-white/72">Simulación de Lengua</p>
+        <h2 className="text-3xl font-extrabold tracking-tight lg:text-4xl">Sesión completa</h2>
+        <p className="max-w-2xl text-sm text-white/82 lg:text-base">
+          Practicá una experiencia parecida al examen: lectura, preguntas y resultado final en una sola sesión.
+        </p>
       </div>
-      
-      <div className="flex gap-6 text-center">
-        <div className="flex-1 bg-teal-50 rounded-xl p-4">
-          <div className="text-2xl font-bold text-teal-600">{questionCount}</div>
-          <div className="text-sm text-teal-700">preguntas</div>
+       
+      <div className="relative grid grid-cols-1 gap-4 text-center sm:grid-cols-2">
+        <div className="rounded-3xl bg-white/16 p-5 ring-1 ring-white/20">
+          <div className="text-3xl font-extrabold text-white">{questionCount}</div>
+          <div className="text-sm font-medium text-white/78">preguntas</div>
         </div>
-        <div className="flex-1 bg-violet-50 rounded-xl p-4">
-          <div className="text-2xl font-bold text-violet-600">15</div>
-          <div className="text-sm text-violet-700">minutos</div>
+        <div className="rounded-3xl bg-white/16 p-5 ring-1 ring-white/20">
+          <div className="text-3xl font-extrabold text-white">15</div>
+          <div className="text-sm font-medium text-white/78">minutos</div>
         </div>
       </div>
-      
-      <p className="m-0 rounded-xl border border-amber-100 bg-amber-50 p-3 text-sm leading-6 text-slate-700">
+       
+      <p className="relative m-0 rounded-2xl bg-white/14 p-4 text-sm leading-6 text-white/84 ring-1 ring-white/20">
         💡 Consejo: hacelo cuando estés tranquilo
       </p>
-      
-      <Button onClick={onStart} size="lg" variant="primary" fullWidth>
-        Empezar simulación
-      </Button>
+       
+      <div className="relative border-t border-white/20 pt-6">
+        <Button onClick={onStart} size="lg" variant="secondary" fullWidth className="bg-white text-teal-700 hover:bg-teal-50 font-bold shadow-soft-md">
+          Empezar simulación
+        </Button>
+      </div>
     </article>
   );
 }
@@ -254,7 +263,7 @@ function ReadingBlockIntro({
   }
 
   return (
-    <article className="grid gap-5 rounded-2xl border border-slate-100 bg-white p-5 shadow-sm lg:p-6">
+    <article className="grid gap-5 panel-pastel p-5 lg:p-6">
       <div className="grid gap-2">
         <p className="text-sm font-semibold uppercase tracking-wide text-teal-600">
           Bloque de comprensión lectora
@@ -310,7 +319,7 @@ function QuestionPanel({
   const subskillMetadata = getSkillMetadata(currentExercise.subskill);
 
   return (
-    <article className="grid gap-5 rounded-2xl border border-slate-100 bg-white p-5 shadow-sm lg:p-6">
+    <article className="grid gap-5 panel-pastel p-5 lg:p-6">
       <div className="grid gap-3">
         <div className="flex flex-wrap items-center justify-between gap-3">
           <p className="text-sm font-semibold text-slate-500">
@@ -390,7 +399,7 @@ function ResultPanel({ progressCode, result }: { progressCode?: string; result: 
   const recommendation = result.recommendation;
 
   return (
-    <article className="grid gap-5 rounded-2xl border border-slate-100 bg-white p-5 shadow-sm lg:p-6">
+    <article className="grid gap-5 panel-pastel p-5 lg:p-6">
       <div className="grid gap-2">
         <h2 className="text-2xl font-bold text-slate-800">Resultado de la simulación</h2>
         <p className="text-5xl font-bold text-teal-600">{result.scorePercentage}%</p>
