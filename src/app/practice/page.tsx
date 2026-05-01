@@ -13,10 +13,12 @@ import {
   type PracticeSessionProgressInput,
   type PracticeSessionProgressResult,
 } from "../../practice/session_runner";
-import { slugToCanonicalId, slugToReadingUnitId } from "../../skills/skill_slugs";
+import { slugToReadingUnitId } from "../../skills/skill_slugs";
 import { PracticeQuestion } from "./PracticeQuestion";
 import { resolveStudentCode } from "../student_identity";
 import { withProgressCode } from "../progress_code_href";
+import { resolveSubjectId } from "@/subjects/subject_registry";
+import { resolvePracticeSkillId } from "@/practice/practice_links";
 
 type PracticePageProps = {
   searchParams: Promise<{
@@ -28,6 +30,7 @@ type PracticePageProps = {
     student?: string | string[];
     unit?: string | string[];
     used?: string | string[];
+    subject?: string | string[];
   }>;
 };
 
@@ -42,6 +45,8 @@ export default async function PracticePage({ searchParams }: PracticePageProps) 
   const skillParam = Array.isArray(params.skill) ? params.skill[0] : params.skill;
   const unitParam = Array.isArray(params.unit) ? params.unit[0] : params.unit;
   const used = Array.isArray(params.used) ? params.used[0] : params.used;
+  const subjectParam = Array.isArray(params.subject) ? params.subject[0] : params.subject;
+  const subject = resolveSubjectId(subjectParam);
   const skill = resolveSkillId(skillParam);
   const unit = resolveReadingUnitId(unitParam);
   const usedExerciseIds = parseUsedExerciseIds(used);
@@ -52,7 +57,7 @@ export default async function PracticePage({ searchParams }: PracticePageProps) 
     : await startPracticeSessionAsync(
       skill ?? null,
       usedExerciseIds,
-      { forceNewStudent, focusSubskill: focus, includeReadingUnits: false, studentCode },
+      { forceNewStudent, focusSubskill: focus, includeReadingUnits: false, studentCode, subject },
     );
   if (!practiceSelection?.exercise) {
     return <PracticeUnavailable progressCode={progressCode} />;
@@ -155,16 +160,7 @@ function getParam(value: string | string[] | undefined): string | undefined {
 }
 
 function resolveSkillId(rawSkill: string | undefined): string | null {
-  if (!rawSkill) {
-    return null;
-  }
-
-  const canonical = slugToCanonicalId(rawSkill);
-  if (canonical) {
-    return canonical;
-  }
-
-  return null;
+  return resolvePracticeSkillId(rawSkill);
 }
 
 function resolveReadingUnitId(rawUnit: string | undefined): string | null {

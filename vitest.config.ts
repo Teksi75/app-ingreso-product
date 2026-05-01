@@ -8,6 +8,8 @@ export default defineConfig({
       "src/practice/**/*.test.ts",
       "src/recommendation/**/*.test.ts",
       "src/skills/**/*.test.ts",
+      "tests/unit/**/*.test.ts",
+      "tests/integration/**/*.test.ts",
     ],
     exclude: ["tests/e2e/**"],
     fileParallelism: false,

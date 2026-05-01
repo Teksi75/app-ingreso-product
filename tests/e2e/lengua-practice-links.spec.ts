@@ -12,7 +12,9 @@ test("home Lengua CTA opens a real practice or simulator flow", async ({ page })
 test("skills Lengua CTA opens a real practice question", async ({ page }) => {
   await page.goto("/habilidades");
 
-  await page.getByRole("link", { name: /Practicar ahora/ }).click();
+  await page
+    .locator('a[href="/practice?mode=training&skill=comprension-global-del-texto"]')
+    .click();
 
   await expect(page).toHaveURL(/\/practice\?mode=training&skill=comprension-global-del-texto/);
   await expect(page.getByText("Habilidad en entrenamiento")).toBeVisible();

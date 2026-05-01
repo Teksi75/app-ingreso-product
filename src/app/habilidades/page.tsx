@@ -65,8 +65,8 @@ const HABILIDADES_BASE = [
     icon: "🧮",
     color: "teal",
     topics: ["Aritmética", "Fracciones", "Geometría", "Proporciones", "Estadística"],
-    practiceHref: "",
-    isAvailable: false,
+    practiceHref: "/practice?mode=training&subject=matematica",
+    isAvailable: true,
   },
   {
     id: "lengua",

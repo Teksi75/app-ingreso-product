@@ -20,7 +20,7 @@ export type SessionSkillResult = {
 
 export type SessionData = {
   mode: SessionMode;
-  area?: "lengua";
+  area?: "lengua" | "matematica";
   total_attempts: number;
   total_correct: number;
   total_errors: number;

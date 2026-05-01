@@ -61,6 +61,10 @@ export type MasteryModel = {
   recentSessionModes: SessionMode[];
   lastSessionMode?: SessionMode;
   simulatorReadiness: SimulatorReadiness;
+  subjects: {
+    lengua: { skills: Record<string, FocusMasterySummary>; subskills: Record<string, FocusMasterySummary> };
+    matematica: { skills: Record<string, FocusMasterySummary>; subskills: Record<string, FocusMasterySummary> };
+  };
 };
 
 const MODE_WEIGHTS: Record<SessionMode, number> = {
@@ -101,7 +105,7 @@ export function buildMasteryModel(progress: StoredProgress): MasteryModel {
     const summary = interpretFocusEntries(focusId, entries);
     masteryByFocus[focusId] = summary.masteryLevel;
 
-    if (isCanonicalSkillId(focusId)) {
+    if (isSkillFocusId(focusId)) {
       skills[focusId] = summary;
     } else {
       subskills[focusId] = summary;
@@ -118,6 +122,38 @@ export function buildMasteryModel(progress: StoredProgress): MasteryModel {
     recentSessionModes: sessions.slice(-3).map((session) => session.mode),
     lastSessionMode: sessions.at(-1)?.mode,
     simulatorReadiness,
+    subjects: buildSubjectBuckets(skills, subskills),
+  };
+}
+
+function buildSubjectBuckets(
+  skills: Record<string, FocusMasterySummary>,
+  subskills: Record<string, FocusMasterySummary>,
+): MasteryModel["subjects"] {
+  const lenguaSkills: Record<string, FocusMasterySummary> = {};
+  const lenguaSubskills: Record<string, FocusMasterySummary> = {};
+  const mathSkills: Record<string, FocusMasterySummary> = {};
+  const mathSubskills: Record<string, FocusMasterySummary> = {};
+
+  for (const [skillId, summary] of Object.entries(skills)) {
+    if (skillId.startsWith("matematica.")) {
+      mathSkills[skillId] = summary;
+    } else {
+      lenguaSkills[skillId] = summary;
+    }
+  }
+
+  for (const [subskillId, summary] of Object.entries(subskills)) {
+    if (subskillId.startsWith("matematica.")) {
+      mathSubskills[subskillId] = summary;
+    } else {
+      lenguaSubskills[subskillId] = summary;
+    }
+  }
+
+  return {
+    lengua: { skills: lenguaSkills, subskills: lenguaSubskills },
+    matematica: { skills: mathSkills, subskills: mathSubskills },
   };
 }
 
@@ -389,6 +425,14 @@ function getStatePriority(state: SkillState): number {
 
 function isCanonicalSkillId(value: string): boolean {
   return /^lengua\.skill_\d+$/.test(value);
+}
+
+function isMathSkillId(value: string): boolean {
+  return /^matematica\.A\d+$/.test(value);
+}
+
+function isSkillFocusId(value: string): boolean {
+  return isCanonicalSkillId(value) || isMathSkillId(value);
 }
 
 function clampMasteryLevel(value: number | undefined): 1 | 2 | 3 | 4 {

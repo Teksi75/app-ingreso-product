@@ -6,6 +6,7 @@ import {
   staticExerciseEngineFiles,
   staticExerciseEngineFileNames,
 } from "../data/static_content.ts";
+import { canAccessSubjectSkill, resolveSubjectId, type SubjectId } from "../subjects/subject_registry.ts";
 
 export type Result = "correct" | "incorrect";
 export type Difficulty = 1 | 2 | 3;
@@ -23,11 +24,13 @@ export type UserSkillState = {
 
 export type Exercise = {
   id: string;
+  subject?: SubjectId;
   skill: string;
   subskill: string;
   difficulty: Difficulty;
   masteryLevel?: MasteryLevel;
   sourceFile?: string;
+  prerequisite_focus_ids?: string[];
 };
 
 export type LenguaRelationship = {
@@ -66,6 +69,7 @@ type Target = {
 };
 
 export type SelectionOptions = {
+  subject?: string | null;
   seenSkills?: string[];
   hasSeenSkill?: (skillId: string) => boolean;
   lastExerciseId?: string;
@@ -474,6 +478,15 @@ function isExerciseUnlocked(
   options: SelectionOptions,
   graph: LenguaSelectionGraph,
 ): boolean {
+  const subject = resolveSubjectId(options.subject);
+  if (!canAccessSubjectSkill(subject, {
+    skillId: exercise.skill,
+    prerequisites: exercise.prerequisite_focus_ids,
+    masteryByFocus: options.masteryBySkill,
+  })) {
+    return false;
+  }
+
   const prerequisites = graph.relationships.filter((relationship) => (
     relationship.tipo === "prerequisite" &&
     matchesNode(exercise, relationship.skill_destino)

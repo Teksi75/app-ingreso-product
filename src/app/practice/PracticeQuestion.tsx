@@ -12,9 +12,11 @@ import {
   type PracticeSessionProgressResult,
 } from "../../practice/session_runner";
 import { getSkillMetadata } from "../../skills/skill_metadata";
-import { canonicalIdToSlug, readingUnitIdToSlug } from "../../skills/skill_slugs";
 import { type ReadingUnit } from "../../types/reading_unit";
 import { withProgressCode } from "../progress_code_href";
+import { renderExerciseFeedbackSteps, renderExerciseMathContent } from "@/math/practice_render";
+import { isAcceptedFreeAnswer } from "@/practice/answer_evaluation";
+import { buildPracticeHref } from "@/practice/practice_links";
 
 type PracticeQuestionProps = {
   session: PracticeSelection;
@@ -190,15 +192,14 @@ export function PracticeQuestion({
   if (sessionCompleted) {
     const masteryLevel = progressResult?.masteryLevel ?? currentExercise.mastery_level;
     const recommendedSubskill = progressResult?.recommendation ?? null;
-        const repeatHref = buildPracticeHref(
+        const repeatHref = withProgressCode(buildPracticeHref(
           currentExercise.skill_id,
           currentExercise.subskill,
           usedExercises,
           { mode: session.mode, readingUnitId: session.readingUnit?.id },
-          progressCode,
-        );
+        ), progressCode);
     const recommendedHref = recommendedSubskill
-      ? buildPracticeHref(recommendedSubskill.parentSkill, recommendedSubskill.id, [], { mode: "training" }, progressCode)
+      ? withProgressCode(buildPracticeHref(recommendedSubskill.parentSkill, recommendedSubskill.id, [], { mode: "training" }), progressCode)
       : restartHref;
     const progressHref = buildProgressHref(recommendedHref, progressCode);
     const readingUnit = session.readingUnit;
@@ -322,6 +323,11 @@ export function PracticeQuestion({
               </p>
             ) : null}
             <h1 className="text-lg lg:text-xl font-bold leading-7 text-slate-800">{currentExercise.prompt}</h1>
+            {currentExercise.content?.length ? (
+              <div className="math-content-block" data-testid="math-content">
+                {renderExerciseMathContent(currentExercise.content)}
+              </div>
+            ) : null}
           </div>
           <form className="grid gap-3" onSubmit={handleSubmit}>
             <ExerciseAnswerFields
@@ -348,6 +354,7 @@ export function PracticeQuestion({
               >
                 <p className="font-bold mb-1">{isCorrect ? "¡Correcto!" : "Incorrecto"}</p>
                 <p className="leading-5">{isCorrect ? currentExercise.feedback_correct : currentExercise.feedback_incorrect}</p>
+                {currentExercise.feedback_steps ? renderExerciseFeedbackSteps(currentExercise.feedback_steps) : null}
                 {!isCorrect ? (
                   <CorrectAnswerSummary exercise={currentExercise} />
                 ) : null}
@@ -390,6 +397,7 @@ export function PracticeQuestion({
     </>
   );
 }
+
 
 type ReadingStimulusPanelProps = {
   readingUnit: ReadingUnit;
@@ -851,7 +859,7 @@ function evaluateCurrentExercise(
     return sameStringSet(selectedAnswers, exercise.correct_answers ?? [exercise.correct_answer]);
   }
 
-  return selectedAnswer === exercise.correct_answer;
+  return isAcceptedFreeAnswer(selectedAnswer, exercise.correct_answer, exercise.accepted_answers);
 }
 
 function sameStringSet(left: string[], right: string[]): boolean {
@@ -863,30 +871,6 @@ function sameStringSet(left: string[], right: string[]): boolean {
   }
 
   return Array.from(leftSet).every((item) => rightSet.has(item));
-}
-
-function buildPracticeHref(
-  skillId: string,
-  focus: string,
-  usedExerciseIds: string[],
-  context: { mode: PracticeSelection["mode"]; readingUnitId?: string },
-  progressCode?: string,
-): string {
-  const params = new URLSearchParams({
-    skill: canonicalIdToSlug(skillId),
-    focus,
-    mode: context.mode,
-  });
-
-  if (context.mode === "reading" && context.readingUnitId) {
-    params.set("unit", readingUnitIdToSlug(context.readingUnitId));
-  }
-
-  if (usedExerciseIds.length > 0) {
-    params.set("used", Array.from(new Set(usedExerciseIds)).join(","));
-  }
-
-  return withProgressCode(`/practice?${params.toString()}`, progressCode);
 }
 
 function buildProgressHref(continueHref: string, progressCode?: string): string {

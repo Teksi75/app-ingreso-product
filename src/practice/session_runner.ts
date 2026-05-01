@@ -26,6 +26,8 @@ import {
   type Result,
   type UserSkillState,
 } from "./exercise_selector.ts";
+import { resolveSubjectId, type SubjectId } from "../subjects/subject_registry.ts";
+import { normalizeAcceptedAnswers, normalizeMathContent, type MathNode } from "../math/math_content.ts";
 
 export type { MasteryNode } from "./exercise_selector.ts";
 import {
@@ -39,6 +41,7 @@ import {
 
 export type Exercise = {
   id: string;
+  subject?: SubjectId;
   skill_id: string;
   subskill: string;
   difficulty: Difficulty;
@@ -59,6 +62,10 @@ export type Exercise = {
   feedback_incorrect: string;
   source_file?: string;
   related_skills: string[];
+  prerequisite_focus_ids?: string[];
+  content?: MathNode[];
+  accepted_answers?: string[];
+  feedback_steps?: MathNode[];
 };
 
 export type ExercisePart = {
@@ -170,6 +177,7 @@ export type ReadingUnitSelection = PracticeSelection & {
 };
 
 type PracticeSessionOptions = {
+  subject?: string | null;
   forceNewStudent?: boolean;
   focusSubskill?: string;
   includeReadingUnits?: boolean;
@@ -230,15 +238,18 @@ const DEFAULT_PRACTICE_SESSION_SIZE = 10;
 const EXERCISE_ENGINE_DIR = resolve(process.cwd(), "docs/04_exercise_engine");
 const CONTENT_LENGUA_UNITS_DIR = resolve(process.cwd(), "content/lengua/reading_units");
 const CONTENT_LENGUA_EXERCISES_DIR = resolve(process.cwd(), "content/lengua/exercises");
+const CONTENT_MATEMATICA_DIR = resolve(process.cwd(), "content/matematica");
 
 function toSelectorExercise(exercise: Exercise): SelectorExercise {
   return {
     id: exercise.id,
+    subject: exercise.subject,
     skill: exercise.skill_id,
     subskill: exercise.subskill,
     difficulty: exercise.difficulty,
     masteryLevel: exercise.mastery_level,
     sourceFile: exercise.source_file,
+    prerequisite_focus_ids: exercise.prerequisite_focus_ids,
   };
 }
 
@@ -1100,7 +1111,12 @@ export function startPracticeSession(
   usedExerciseIds: string[] = [],
   options: PracticeSessionOptions = {},
 ): PracticeSelection {
-  const exercises = loadLenguaExercises();
+  const activeSubject = resolveSubjectId(options.subject);
+  const allExercises = activeSubject === "matematica" ? loadMatematicaExercises() : loadLenguaExercises();
+  const exercises = allExercises
+    .map((exercise) => ({ ...exercise, subject: exercise.subject ?? resolveSubjectId(exercise.skill_id.split(".")[0]) }))
+    .filter((exercise) => exercise.subject === activeSubject);
+  const sourceExercises = exercises.length > 0 ? exercises : allExercises;
   const graph = loadLenguaSelectionGraph();
   const canonicalSkillId = skillId ? normalizeSkillId(skillId, graph) : null;
 
@@ -1108,8 +1124,8 @@ export function startPracticeSession(
     ? (e: Exercise) => e.skill_id === canonicalSkillId
     : () => true;
 
-  const filtered = exercises.filter(skillFilter);
-  const basePool = filtered.length > 0 ? filtered : exercises;
+  const filtered = sourceExercises.filter(skillFilter);
+  const basePool = filtered.length > 0 ? filtered : sourceExercises;
   const includeReadingUnits = options.includeReadingUnits ?? true;
   const standalonePool = basePool.filter((exercise) => !exercise.readingUnitId);
   const trainingSourcePool = includeReadingUnits || standalonePool.length === 0 ? exercises : standalonePool;
@@ -1143,6 +1159,74 @@ export function startPracticeSession(
   }
 
   return session;
+}
+
+type MatematicaManifest = {
+  skills_order?: string[];
+  files?: Array<{ file: string; skill: string; batch?: string }>;
+};
+
+type MatematicaExerciseFile = {
+  skill: string;
+  batch?: string;
+  exercises: Array<Record<string, unknown>>;
+};
+
+export function getMatematicaManifestSkills(): string[] {
+  const manifestPath = join(CONTENT_MATEMATICA_DIR, "manifest.json");
+  if (!existsSync(manifestPath)) return [];
+  const parsed = JSON.parse(readFileSync(manifestPath, "utf8")) as MatematicaManifest;
+  return Array.isArray(parsed.skills_order) ? parsed.skills_order : [];
+}
+
+export function loadMatematicaExercises(): Exercise[] {
+  const manifestPath = join(CONTENT_MATEMATICA_DIR, "manifest.json");
+  if (!existsSync(manifestPath)) {
+    return [];
+  }
+
+  const manifest = JSON.parse(readFileSync(manifestPath, "utf8")) as MatematicaManifest;
+  const files = (manifest.files ?? []).map((entry) => entry.file).filter(Boolean);
+  const all: Exercise[] = [];
+
+  for (const file of files) {
+    const fullPath = join(CONTENT_MATEMATICA_DIR, file);
+    if (!existsSync(fullPath)) continue;
+
+    const parsed = JSON.parse(readFileSync(fullPath, "utf8")) as MatematicaExerciseFile;
+    for (const raw of parsed.exercises ?? []) {
+      const id = String(raw.id ?? "");
+      if (!id) continue;
+      const skillId = String(raw.skill ?? parsed.skill ?? "");
+      const subskill = String(raw.subskill ?? skillId);
+      const accepted = normalizeAcceptedAnswers(normalizeStringArray(raw.accepted_answers));
+      const correct = String(raw.correct_answer ?? accepted[0] ?? "");
+
+      all.push({
+        id,
+        subject: "matematica",
+        skill_id: skillId,
+        subskill,
+        difficulty: normalizeDifficulty(raw.difficulty),
+        mastery_level: normalizeMasteryLevel(raw.mastery_level),
+        type: String(raw.type ?? "completion"),
+        prompt: String(raw.prompt ?? ""),
+        options: ensureOptions(normalizeStringArray(raw.options), correct, raw),
+        correct_answer: correct,
+        correct_answers: accepted.length > 0 ? accepted : [correct],
+        accepted_answers: accepted,
+        feedback_correct: String(raw.feedback_correct ?? "Correcto."),
+        feedback_incorrect: String(raw.feedback_incorrect ?? "Incorrecto."),
+        feedback_steps: Array.isArray(raw.feedback_steps) ? normalizeMathContent(raw.feedback_steps) : undefined,
+        prerequisite_focus_ids: normalizeStringArray(raw.prerequisite_focus_ids),
+        content: Array.isArray(raw.content) ? normalizeMathContent(raw.content) : undefined,
+        related_skills: normalizeRelatedSkills(raw.related_skills),
+        source_file: file,
+      });
+    }
+  }
+
+  return all;
 }
 
 export async function startPracticeSessionAsync(

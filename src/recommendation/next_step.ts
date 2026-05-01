@@ -11,6 +11,7 @@ import {
   pickReadingUnitCandidate,
   type ReadingUnitCandidate,
 } from "../practice/session_runner.ts";
+import { resolveSubjectId } from "../subjects/subject_registry.ts";
 
 export type NextStepRecommendationKind =
   | "continue-reading-unit"
@@ -37,7 +38,23 @@ export type NextStepRecommendation = {
 
 export function getNextStepRecommendation(
   progress: StoredProgress = loadProgress(),
+  options: { subject?: string | null } = {},
 ): NextStepRecommendation {
+  const subject = resolveSubjectId(options.subject);
+  if (subject !== "lengua") {
+    return {
+      kind: "targeted-practice",
+      title: "Practica focalizada: Matemática",
+      description: "Seguí con práctica guiada de Matemática según tus resultados recientes.",
+      ctaLabel: "Entrenar Matemática",
+      href: "/practice?mode=training&subject=matematica",
+      reason: "Fallback seguro multi-subject: cuando no hay motor dedicado de recomendación por materia, se deriva a práctica de la materia activa.",
+      basedOn: {
+        recentSessionModes: [],
+      },
+    };
+  }
+
   const model = buildMasteryModel(progress);
   const sessions = [...(progress.sessions ?? [])].sort((left, right) => (
     left.created_at.localeCompare(right.created_at)
