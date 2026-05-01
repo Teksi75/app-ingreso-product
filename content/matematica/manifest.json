@@ -1,0 +1,26 @@
+{
+  "subject": "matematica",
+  "version": "2025.1",
+  "skills_order": [
+    "matematica.A1",
+    "matematica.A2",
+    "matematica.A3",
+    "matematica.A4",
+    "matematica.A5",
+    "matematica.A6",
+    "matematica.A7",
+    "matematica.A8",
+    "matematica.A9"
+  ],
+  "files": [
+    { "file": "a1_operaciones.json", "skill": "matematica.A1", "batch": "A1-A4" },
+    { "file": "a2_potencias_raices.json", "skill": "matematica.A2", "batch": "A1-A4" },
+    { "file": "a3_fracciones_decimales.json", "skill": "matematica.A3", "batch": "A1-A4" },
+    { "file": "a4_mcm_mcd.json", "skill": "matematica.A4", "batch": "A1-A4" },
+    { "file": "a5_porcentajes.json", "skill": "matematica.A5", "batch": "A5-A7" },
+    { "file": "a6_ecuaciones.json", "skill": "matematica.A6", "batch": "A5-A7" },
+    { "file": "a7_simela.json", "skill": "matematica.A7", "batch": "A5-A7" },
+    { "file": "a8_perimetros_areas.json", "skill": "matematica.A8", "batch": "A8-A9" },
+    { "file": "a9_procedimiento.json", "skill": "matematica.A9", "batch": "A8-A9" }
+  ]
+}
