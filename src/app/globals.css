@@ -497,3 +497,43 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.1);
   }
 }
+
+/* ============================================
+   MATH RENDERING
+   ============================================ */
+.math-inline math,
+.math-block math {
+  font-family: 'Cambria Math', 'Times New Roman', serif;
+}
+
+.math-inline {
+  display: inline-flex;
+  align-items: baseline;
+}
+
+.math-block {
+  display: flex;
+  justify-content: center;
+  margin: var(--space-3) 0;
+  line-height: 1.4;
+}
+
+.math-figure {
+  display: grid;
+  gap: var(--space-2);
+  margin: var(--space-4) 0;
+}
+
+.math-figure-svg svg {
+  width: 100%;
+  max-width: 16rem;
+  height: auto;
+  margin: 0 auto;
+  display: block;
+}
+
+.math-figure-caption {
+  text-align: center;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary-light);
+}
